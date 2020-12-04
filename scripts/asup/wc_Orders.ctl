@@ -21,44 +21,9 @@ public void normalizeQueryData(dyn_dyn_anytype &data){
   data.removeAt(0);
 }
 
-int deviceToPost(int device){
-  int post = -1;
-  if(device>0){
-    dyn_int num_mes, num_line, num_post;
-    dpGet("MES_HELPER.ASN_HELPER.num_mes"  , num_mes,
-          "MES_HELPER.ASN_HELPER.num_line" , num_line,
-          "MES_HELPER.ASN_HELPER.num_post" , num_post);
-    for(int i=1; i<=num_mes.count(); i++){
-      DebugFTN("lg_info", "WC_ORDERS | device to post", num_mes[i], device, num_post[i]);
-      if(num_mes[i] == device){
-        post = num_post[i];
-        break;
-      }
-    }
-  }
-  return post;
-}
-
-int deviceToLine(int device){
-  int line = -1;
-  if(device>0){
-    dyn_int num_mes, num_line, num_post;
-    dpGet("MES_HELPER.ASN_HELPER.num_mes"  , num_mes,
-          "MES_HELPER.ASN_HELPER.num_line" , num_line,
-          "MES_HELPER.ASN_HELPER.num_post" , num_post);
-    for(int i=1; i<=num_mes.count(); i++){
-      DebugFTN("lg_info", "WC_ORDERS | device to line", num_mes[i], device, num_line[i]);
-      if(num_mes[i] == device){
-        line = num_line[i];
-        break;
-      }
-    }
-  }
-  return line;
-}
-
-int getDozer(int line, int post){
-  int dozer = -1;
+int getDozer(int device){
+  int dozer = 0;
+  /*
   dyn_string ds_dp;
   dyn_int di_conf;
   for(int i=1; i<=12; i++){
@@ -71,29 +36,27 @@ int getDozer(int line, int post){
       break;
     }
   }
+  */
+
+  dpGet("POST_" + device + ".local.HelperDozer", dozer);
   return dozer;
 }
-void postAsnStart(int line, int post, int section){
+
+void postAsnStart(int line, int section, int device){
   time rDtStart = getCurrentTime();
   anytype rSumVolumeStart,rSumWeightStart;
-  dpGet("ASN_"+line+".Post"+post+".xTotalMass", rSumWeightStart,
-        "ASN_"+line+".Post"+post+".xTotalValue", rSumVolumeStart);
-  dpSetWait("ORDER_LINE"+line+".items."+section+".result.SumVolumeStart", rSumVolumeStart,
-            "ORDER_LINE"+line+".items."+section+".result.SumWeightStart", rSumWeightStart,
-            "ORDER_LINE"+line+".items."+section+".result.DtStart", rDtStart);
+  dpGet("POST_" + device + ".xTotalMass"  , rSumWeightStart,
+        "POST_" + device + ".xTotalValue" , rSumVolumeStart);
 
+  dpSetWait("ORDER_LINE"+line+".items."+section+".result.SumVolumeStart" , rSumVolumeStart,
+            "ORDER_LINE"+line+".items."+section+".result.SumWeightStart" , rSumWeightStart,
+            "ORDER_LINE"+line+".items."+section+".result.DtStart"        , rDtStart);
 }
 
-void postAsnStop(int line, int post, int section, int dozer){
-  int doz_pst = 1; // = dozer+6;
-  anytype rDispatchOrder, rReceipId, rPostNumber, rRegistrationNumber, rSectionNumber, rOrderedVolume, rDispatchOrder, rOrderedWeight,
-          rLoadedWeight, rLoadedVolume, rLoadedTemperature, rLoadedDensity,
-          rLoadedBaseWeight, rLoadedBaseVolume, rLoadedBaseTemperature, rLoadedBaseDensity,
-          rLoadedMixed1Weight, rLoadedMixed1Volume, rLoadedMixed1Temperature, rLoadedMixed1Density,
-          rErrorCode, rResultCode ,rDtEnd, rSumVolumeEnd, rSumWeightEnd, rModeCtrl, rsHash;
+int getPostRvs(int device){
+  int tank = -1;
   dyn_int list_rvs;
-  int rTankCode = -1;
-  dpGet("ASN_"+line+".Post"+post+".HelperRvs", list_rvs);
+  dpGet("POST_" + device + ".local.HelperRvs", list_rvs);
   for(int i=1; i<=list_rvs.count(); i++){
     int temp_sts;
     if(dpExists("LogicRVS_"+list_rvs[i] + ".STS.ststus_mes")){
@@ -104,31 +67,54 @@ void postAsnStop(int line, int post, int section, int dozer){
       }
     }
   }
+  return tank;
+}
+
+void postAsnStop(int line, int section, int device){
+  anytype rDispatchOrder, rReceipId, rPostNumber, rRegistrationNumber, rSectionNumber, rOrderedVolume, rDispatchOrder, rOrderedWeight,
+          rLoadedWeight, rLoadedVolume, rLoadedTemperature, rLoadedDensity,
+          rLoadedBaseWeight, rLoadedBaseVolume, rLoadedBaseTemperature, rLoadedBaseDensity,
+          rLoadedMixed1Weight, rLoadedMixed1Volume, rLoadedMixed1Temperature, rLoadedMixed1Density,
+          rErrorCode, rResultCode ,rDtEnd, rSumVolumeEnd, rSumWeightEnd, rModeCtrl, rsHash;
+
+  int dozer = getDozer(device);
+  int rTankCode = getPostRvs(device);
   rDtEnd = getCurrentTime();
   rOrderedWeight = 0.0;
+
   dpGet("ORDER_LINE"+line+".items."+section+".init.sProductCode", rReceipId,
         "ORDER_LINE"+line+".items."+section+".init.sOrderNr"    , rDispatchOrder,
         "ORDER_LINE"+line+".items."+section+".init.Device"      , rPostNumber,
         "ORDER_LINE"+line+".items."+section+".init.sRegNr"      , rRegistrationNumber,
         "ORDER_LINE"+line+".items."+section+".init.iCompNr"     , rSectionNumber,
         "ORDER_LINE"+line+".items."+section+".init.iQuantity"   , rOrderedVolume,
-        "ASN_"+line+".Post"+post+".xAverageTemperature"         , rLoadedTemperature,
-        "ASN_"+line+".Post"+post+".xAverageDensity"             , rLoadedDensity,
-        "ASN_"+line+".Post"+post+".xMassFact"                   , rLoadedBaseWeight,
-        "ASN_"+line+".Post"+post+".xVolumeFact"                 , rLoadedBaseVolume,
-        "ASN_"+line+".Post"+post+".xAverageTemperature"         , rLoadedBaseTemperature,
-        "ASN_"+line+".Post"+post+".xAverageDensity"             , rLoadedBaseDensity,
-        "ASN_"+line+".Post"+doz_pst+".xMassFact"                , rLoadedMixed1Weight,
-        "ASN_"+line+".Post"+doz_pst+".xVolumeFact"              , rLoadedMixed1Volume,
-        "ASN_"+line+".Post"+doz_pst+".xAverageTemperature"      , rLoadedMixed1Temperature,
-        "ASN_"+line+".Post"+doz_pst+".xAverageDensity"          , rLoadedMixed1Density,
-        "ASN_"+line+".Post"+post+".sErrorNaliv"                 , rErrorCode,
-        "ASN_"+line+".Post"+post+".sStatusStop"                 , rResultCode,
-        "ASN_"+line+".Post"+post+".xTotalValue"                 , rSumVolumeEnd,
-        "ASN_"+line+".Post"+post+".xTotalMass"                  , rSumWeightEnd,
+        "POST_" + device + ".xAverageTemperature"               , rLoadedTemperature,
+        "POST_" + device + ".xAverageDensity"                   , rLoadedDensity,
+        "POST_" + device + ".xMassFact"                         , rLoadedBaseWeight,
+        "POST_" + device + ".xVolumeFact"                       , rLoadedBaseVolume,
+        "POST_" + device + ".xAverageTemperature"               , rLoadedBaseTemperature,
+        "POST_" + device + ".xAverageDensity"                   , rLoadedBaseDensity,
+        "POST_" + device + ".sErrorNaliv"                       , rErrorCode,
+        "POST_" + device + ".sStatusStop"                       , rResultCode,
+        "POST_" + device + ".xTotalValue"                       , rSumVolumeEnd,
+        "POST_" + device + ".xTotalMass"                        , rSumWeightEnd,
         "ORDER_LINE"+line+".control"                            , rModeCtrl);
+
+  if(dozer >0){
+    dpGet("POST_" + dozer + ".xMassFact"                , rLoadedMixed1Weight,
+          "POST_" + dozer + ".xVolumeFact"              , rLoadedMixed1Volume,
+          "POST_" + dozer + ".xAverageTemperature"      , rLoadedMixed1Temperature,
+          "POST_" + dozer + ".xAverageDensity"          , rLoadedMixed1Density);
+  }else{
+    rLoadedMixed1Weight       = 0;
+    rLoadedMixed1Volume       = 0;
+    rLoadedMixed1Temperature  = 0;
+    rLoadedMixed1Density      = 0;
+  }
+
   rLoadedVolume = rLoadedBaseVolume + rLoadedMixed1Volume;  // Проверить правильность
   rLoadedWeight = rLoadedBaseWeight + rLoadedMixed1Weight;  // Проверить правильность
+
   dpSetWait("ORDER_LINE"+line+".items."+section+".result.ReceipId"                , rReceipId,
             "ORDER_LINE"+line+".items."+section+".result.PostNumber"              , rPostNumber,
             "ORDER_LINE"+line+".items."+section+".result.TankCode"                , rTankCode,
@@ -156,66 +142,64 @@ void postAsnStop(int line, int post, int section, int dozer){
             "ORDER_LINE"+line+".items."+section+".result.OrderedWeight"           , rOrderedWeight);
 }
 
-void worker(int line, string dp, int card05){
+void worker(int line, string dp, int card){
   int order_sts;
-  string driver_card;
-  dyn_dyn_anytype items;
-  string query = "SELECT '_original.._value' "+
-                 "FROM '{ORDER_LINE"+line+".items.?.init.Device,"+
-                        "ORDER_LINE"+line+".items.?.init.iCompNr,"+
-                        "ORDER_LINE"+line+".items.?.init.iProcessed,"+
-                        "ORDER_LINE"+line+".items.?.init.iQuantity,"+
-                        "ORDER_LINE"+line+".items.?.init.iPercent}'";
-
+  string order_card;
+  dyn_dyn_anytype items;   // 0 - iCompNr | 1 - iQuantity | 2 - iProcessed | 3 - Device | 4 - iPercent
   dyn_int prev_post_sts = makeDynInt(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
-  while(order_sts < 2){
-    dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,
-          "ORDER_LINE" + line + ".sIdCard", driver_card);
+  string query = "SELECT '_original.._value' "+
+                 "FROM '{ORDER_LINE"+line+".items.?.init.Device,"+        // 3 - Пост
+                        "ORDER_LINE"+line+".items.?.init.iCompNr,"+       // 0 - Секция
+                        "ORDER_LINE"+line+".items.?.init.iProcessed,"+    // 2 - Состояние (0 - новое, 1 - налив, 2 - завершено)
+                        "ORDER_LINE"+line+".items.?.init.iQuantity,"+     // 1 - Объем (л) в задании
+                        "ORDER_LINE"+line+".items.?.init.iPercent}'";     // 4 - Процент присадки (если используется)
+
+  dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
+        "ORDER_LINE" + line + ".sIdCard", order_card);   // Номер карты водителя из задания
+  if(card == order_card)
+    DebugFTN("lg_info", "WC_ORDERS | Order and driver cards is equals");
+  else
+    DebugTN("WC_ORDERS | Order and driver cards NOT equals", order_card, card);
+
+// Цикл налива задания
+  while(order_sts < 2 & order_card == card){   // Пока налив задание не налито
+    dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
+          "ORDER_LINE" + line + ".sIdCard", order_card);   // Номер карты водителя из задания
     dpQuery(query, items);
     normalizeQueryData(items);
-
-
-    /*
-      0 - iCompNr
-      1 - iQuantity
-      2 - iProcessed
-      3 - Device
-      4 - iPercent
-    */
+// Перебор секций в задании
     for(int i=1; i<=items.count(); i+=5){
-      int loc_post = deviceToPost(items[i+3][2]);
-      int loc_line = deviceToLine(items[i+3][2]);
+      int device = items[i+3][2];
       int post_sts;
+      // Если секция была в задании
       if(items[i+2][2] != 99){
-        dpGet("ASN_"+loc_line+".Post"+loc_post+".sStatusPosta", post_sts);
-        DebugFTN("lg_info", "WC_ORDERS | ln/pst/itm/pr/cr",loc_line, loc_post, items[i+0][2], prev_post_sts[items[i+0][2]], post_sts);
+        dpGet("POST_" + device + ".sStatusPosta", post_sts);
+        // Налив по секции завершен
         if(prev_post_sts[items[i+0][2]] == 0x20 & post_sts == 0x00 & items[i+2][2] == 1 ){
-          int dozer = getDozer(loc_line, loc_post);
-          postAsnStop(loc_line, loc_post, items[i+0][2], dozer);
+          postAsnStop(line, items[i+0][2], device);
           dpSetWait(items[i+2][1], 2);
         }
+        // Запись предыдущего состояние поста
         if(items[i+2][2] > 0){
           prev_post_sts[items[i+0][2]] = post_sts;
         }
-      }else{
+      }else{ // (items[i+2][2] != 99)
+        // Секции небыло в задании
         continue;
       }
+      // Секция была в задании и пост свободен
       if(items[i+2][2] == 0 & post_sts == 0x00){
-        if(loc_line == line){
-          bool prisadka = (items[i+4][2] > 0);
-          int dozer = getDozer(loc_line, loc_post);
-          dpSetWait("ASN_" + line + ".Post" + loc_post + ".cVolumeDose", items[i+1][2],
-                    "ASN_" + line + ".Post" + loc_post + ".сPrisadka", prisadka,
-                    "ASN_" + line + ".Post" + loc_post + ".sStatusPosta", 0x10,
-                    items[i+2][1], 1);
-          if(dozer >0){
-            dpSetWait("ASN_" + line + ".Global_Variable.bui_PercentPrisadki_" + dozer + "Post", items[i+4][2]);
-          }
-          postAsnStart(loc_line, loc_post, items[i+0][2]);
-        }
+        bool prisadka = (items[i+4][2] > 0);
+        dpSetWait("POST_" + device + ".cVolumeDose"       , items[i+1][2],
+                  "POST_" + device + ".сPrisadka"         , prisadka,
+                  "POST_" + device + ".cPercentPrisadki"  , items[i+4][2],
+                  "POST_" + device + ".sStatusPosta"      , 0x10,
+                  items[i+2][1], 1);
+        postAsnStart(line, items[i+0][2], device);
       }
 //       delay(5); // Для опроса АСН по modbus
     }
+    // Проверка завершения налива задания
     int sts_itm1, sts_itm2, sts_itm3, sts_itm4, sts_itm5,
         sts_itm6, sts_itm7, sts_itm8, sts_itm9, sts_itm0;
     dpGet("ORDER_LINE1.items.1.init.iProcessed" , sts_itm1,
@@ -240,10 +224,10 @@ void worker(int line, string dp, int card05){
 
 main()
 {
-  dpConnectUserData("worker", 1, false, "ASN_1.Global_Variable.bui_IDCard.bui_IDCard_05");
-  dpConnectUserData("worker", 2, false, "ASN_2.Global_Variable.bui_IDCard.bui_IDCard_05");
-  dpConnectUserData("worker", 3, false, "ASN_3.Global_Variable.bui_IDCard.bui_IDCard_05");
-//   dpConnectUserData("worker", 4, false, "ASN_3.Global_Variable.bui_IDCard.bui_IDCard_05");
-//   dpConnectUserData("worker", 5, false, "ASN_3.Global_Variable.bui_IDCard.bui_IDCard_05");
-//   dpConnectUserData("worker", 6, false, "ASN_3.Global_Variable.bui_IDCard.bui_IDCard_05");
+  dpConnectUserData("worker", 1, false, "ORDER_LINE1.current_card");
+  dpConnectUserData("worker", 2, false, "ORDER_LINE2.current_card");
+  dpConnectUserData("worker", 3, false, "ORDER_LINE3.current_card");
+//   dpConnectUserData("worker", 4, false, "ORDER_LINE4.current_card");
+//   dpConnectUserData("worker", 5, false, "ORDER_LINE5.current_card");
+//   dpConnectUserData("worker", 6, false, "ORDER_LINE6.current_card");
 }

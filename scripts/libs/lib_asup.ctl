@@ -18,15 +18,15 @@ changelog:
 //--------------------------------------------------------------------------------
 // used libraries (#uses)
 #uses "CtrlADO"
-//#uses "classes/ASN"
+#uses "classes/ASN"
 //--------------------------------------------------------------------------------
 // variables and constants
 
- enum Fuels{
-   UNDEF,
-   DT = 0, DT_OPTI = 1,
-   AI_92 = 2, AI_95 = 3
- };
+enum Fuels{
+  UNDEF,
+  DT = 0, DT_OPTI = 1,
+  AI_92 = 2, AI_95 = 3
+};
 
 const string STATE_DP;
 
