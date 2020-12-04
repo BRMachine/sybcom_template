@@ -10,7 +10,7 @@
   <prop name="InitAndTermRef">True</prop>
   <prop name="SendClick">False</prop>
   <prop name="RefFileName"></prop>
-  <prop name="DPI">120</prop>
+  <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
  <events>
@@ -105,7 +105,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="opening" shapeType="POLYGON">
+  <shape Name="opening" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">15</prop>
     <prop name="Type"></prop>
@@ -134,7 +134,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     </prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="closing" shapeType="POLYGON">
+  <shape Name="closing" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">16</prop>
     <prop name="Type"></prop>
@@ -163,7 +163,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     </prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="lbl_imit" shapeType="PRIMITIVE_TEXT">
+  <shape Name="lbl_imit" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">14</prop>
     <prop name="Type"></prop>
@@ -199,7 +199,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="rec_alarm" shapeType="RECTANGLE">
+  <shape Name="rec_alarm" shapeType="RECTANGLE" layerId="1">
    <properties>
     <prop name="serialId">2</prop>
     <prop name="Type"></prop>
@@ -227,7 +227,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="r_state" shapeType="POLYGON">
+  <shape Name="r_state" shapeType="POLYGON" layerId="1">
    <properties>
     <prop name="serialId">4</prop>
     <prop name="Type"></prop>
@@ -256,7 +256,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     </prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="LINE1" shapeType="LINE">
+  <shape Name="LINE1" shapeType="LINE" layerId="1">
    <properties>
     <prop name="serialId">5</prop>
     <prop name="Type"></prop>
@@ -279,7 +279,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="End">56.0061729999999 8.285714285714368</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="l_state" shapeType="POLYGON">
+  <shape Name="l_state" shapeType="POLYGON" layerId="1">
    <properties>
     <prop name="serialId">6</prop>
     <prop name="Type"></prop>
@@ -308,7 +308,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     </prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="LINE2" shapeType="LINE">
+  <shape Name="LINE2" shapeType="LINE" layerId="1">
    <properties>
     <prop name="serialId">7</prop>
     <prop name="Type"></prop>
@@ -331,7 +331,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="End">56.0061729999999 48.28571428571433</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="RECTANGLE3" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE3" shapeType="RECTANGLE" layerId="1">
    <properties>
     <prop name="serialId">8</prop>
     <prop name="Type"></prop>
@@ -359,7 +359,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="RECTANGLE4" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE4" shapeType="RECTANGLE" layerId="1">
    <properties>
     <prop name="serialId">9</prop>
     <prop name="Type"></prop>
@@ -387,7 +387,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="circ_mode" shapeType="ELLIPSE">
+  <shape Name="circ_mode" shapeType="ELLIPSE" layerId="1">
    <properties>
     <prop name="serialId">10</prop>
     <prop name="Type"></prop>
@@ -413,7 +413,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="Y-Radius">11</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="txt_mode" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_mode" shapeType="PRIMITIVE_TEXT" layerId="1">
    <properties>
     <prop name="serialId">11</prop>
     <prop name="Type"></prop>
@@ -448,7 +448,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="txt_alias" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_alias" shapeType="PRIMITIVE_TEXT" layerId="1">
    <properties>
     <prop name="serialId">12</prop>
     <prop name="Type"></prop>
@@ -483,7 +483,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="txt_maint" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_maint" shapeType="PRIMITIVE_TEXT" layerId="1">
    <properties>
     <prop name="serialId">17</prop>
     <prop name="Type"></prop>
@@ -519,7 +519,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="1" Name="btn_fp" shapeType="PUSH_BUTTON">
+  <shape Name="btn_fp" shapeType="PUSH_BUTTON" layerId="1">
    <properties>
     <prop name="serialId">13</prop>
     <prop name="Type"></prop>
@@ -549,7 +549,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   string desc = &quot;Задвижка: &quot; + dpGetAlias(DP + &quot;.&quot;);
   bool paz = self.getPaz();
-  ChildPanelOnCentral(&quot;faceplates\\NB\\valve.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$paz:&quot;+paz));
+  ChildPanelOnCentral(&quot;faceplates\\VALVE\\valve.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$paz:&quot;+paz));
 }
 ]]></script>
    </events>

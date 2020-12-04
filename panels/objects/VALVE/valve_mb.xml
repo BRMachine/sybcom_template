@@ -644,7 +644,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   string desc = &quot;Задвижка: &quot; + dpGetAlias(DP + &quot;.&quot;);
   bool paz = self.getPaz();
-  ChildPanelOnCentral(&quot;faceplates\\NB\\valve_mb.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$paz:&quot;+paz));
+  ChildPanelOnCentral(&quot;faceplates\\VALVE\\valve_mb.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$paz:&quot;+paz));
 }
 ]]></script>
    </events>
