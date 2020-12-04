@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">356 497</prop>
+  <prop name="Size">356 590</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">20 20</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -16,7 +16,7 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics.ctl&quot;
 const string DP = $dp;
-const string NumberPost = $NumberPost;
+// const string NumberPost = $NumberPost;
 
 
 /*--dyn_dyn_anytype sortData(dyn_anytype vals){
@@ -316,12 +316,12 @@ string stpToText(int stp){
   PANEL_REF25.visible(false);
   PANEL_REF31.visible(false);
   PANEL_REF30.visible(false);*/
-const string DP = $dp;
-const string NumberPost = $NumberPost;
-  string PST = NumberPost;
+// const string DP = $dp;
+// const string NumberPost = $NumberPost;
+//   string PST = NumberPost;
   string type;
   int type_int;
-  dpGet(DP + &quot;.Post&quot; + NumberPost + &quot;.Type_NP&quot;,type_int);
+  dpGet(DP + &quot;.Type_NP&quot;,type_int);
   switch(type_int){
     case 0:
       type = &quot;АИ-92&quot;;
@@ -341,31 +341,31 @@ const string NumberPost = $NumberPost;
     default:
       type = &quot;---&quot;;
   }
-  Label17.text=dpGetDescription(DP + &quot;.Post&quot; + PST)+&quot;, &quot;+type;
+  Label17.text=dpGetDescription(DP+&quot;.&quot;)+&quot;, &quot;+type;
 
 
  // dpConnect(&quot;cbAll&quot;, DP + &quot;.Global_Variable.bui_Temp&quot;,
                      //DP + &quot;.MBNoLink&quot;,                                                         //+
                     // DP + &quot;.Post&quot; + PST + &quot;.Sensor_Control.sSensorAlarmStop&quot;);                                //состояние кнопки стоп
 
-  dpConnect(&quot;cbWorker&quot;, DP + &quot;.Post&quot; + NumberPost + &quot;.xAverageTemperature&quot;,                           //1-  средняя температура+
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xAverageDensity&quot;,                               //2-  средняя плотность+
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.sStatusPosta&quot;,                                  //3-  статус поста
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.cVolumeDose&quot;,                                   //4-  объем дозы
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xVolumeFlow&quot;,                                   //5-  Объемный расход
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xMassDose&quot;,                                     //6-  Массовая доза
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //7-  Датчик трапа
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorGround&quot;,                  //8-  Датчик заземления
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sGaragePosition&quot;,                //9-  Датчик гаражного положения
-                  			DP + &quot;.Post&quot; + NumberPost + &quot;.сPrisadka&quot;,                                     //10- налив с присадкой
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorOverflow&quot;,                //11- Датчик перелива
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xVolumeFact&quot;,                                   //12- Фактический объем
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xMassFact&quot;,                                      //13- Фактическая масса
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.cVolumeDose_oper&quot;,                              //14- объем дозы от оператора
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.cMassDose_oper&quot;,                                //15- Массовая доза от оператора
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.license_plate&quot;,                                  //16- гос.номер
-                        DP + &quot;.Global_Variable.bui_PercentPrisadki_&quot; + NumberPost + &quot;Post&quot;            //17 - процент присадки
-						            );
+  dpConnect(&quot;cbWorker&quot;, DP + &quot;.xAverageTemperature&quot;,                           //1-  средняя температура+
+                        DP + &quot;.xAverageDensity&quot;,                               //2-  средняя плотность+
+                        DP + &quot;.sStatusPosta&quot;,                                  //3-  статус поста
+                        DP + &quot;.cVolumeDose&quot;,                                   //4-  объем дозы
+                        DP + &quot;.xVolumeFlow&quot;,                                   //5-  Объемный расход
+                        DP + &quot;.xMassDose&quot;,                                     //6-  Массовая доза
+                        DP + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //7-  Датчик трапа
+                        DP + &quot;.Sensor_Control.sSensorGround&quot;,                  //8-  Датчик заземления
+                        DP + &quot;.Sensor_Control.sGaragePosition&quot;,                //9-  Датчик гаражного положения
+                        DP + &quot;.сPrisadka&quot;,                                     //10- налив с присадкой
+                        DP + &quot;.Sensor_Control.sSensorOverflow&quot;,                //11- Датчик перелива
+                        DP + &quot;.xVolumeFact&quot;,                                   //12- Фактический объем
+                        DP + &quot;.xMassFact&quot;,                                     //13- Фактическая масса
+                        DP + &quot;.cVolumeDose_oper&quot;,                              //14- объем дозы от оператора
+                        DP + &quot;.cMassDose_oper&quot;,                                //15- Массовая доза от оператора
+                        DP + &quot;.license_plate&quot;,                                 //16- гос.номер
+                        DP + &quot;.cPercentPrisadki&quot;                               //17- процент присадки
+                        );
 
 }
 
@@ -514,7 +514,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">6.899999999999997 0 0 9.720000000000002 -2403.099999999999 -772.6000000000004</prop>
+    <prop name="Geometry">6.899999999999997 0 0 11.6 -2403.099999999999 -923.0000000000001</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">349 80</prop>
     <prop name="Size">51 51</prop>
@@ -699,7 +699,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">492</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">15 446</prop>
+    <prop name="RefPoint">15 535</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -713,7 +713,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">15 445.9999999999998</prop>
+    <prop name="Location">15 534.9999999999999</prop>
     <prop name="Size">331 41</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
@@ -740,7 +740,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.04387364041765 0 0 1 -5.878244961350902 303.9251038073006</prop>
+    <prop name="Geometry">1.04387364041765 0 0 1 -5.878244961350902 392.9251038073006</prop>
     <prop name="Location">21.99999999999818 128.6141819069853</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -848,7 +848,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.45977679918218 0 0 1.057174559912518 -510.8163524264452 -31.16528151269388</prop>
+    <prop name="Geometry">1.440569209719256 0 0 1.057174559912518 -501.0161372629393 -32.02242436983674</prop>
     <prop name="Location">511.5151308953635 134.0262019247117</prop>
     <prop name="Size">50 12</prop>
     <prop name="Font">
@@ -886,7 +886,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.43478909346459 0 0 1 -244.7727782253953 -71.71428571428572</prop>
+    <prop name="Geometry">1.43478909346459 0 0 1 -245.0240736472526 -70</prop>
     <prop name="Location">335 200</prop>
     <prop name="Size">51 13</prop>
     <prop name="Font">
@@ -924,7 +924,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.000351000351001 0 0 1.066666666666667 -20.20828800461296 -155.9000000000001</prop>
+    <prop name="Geometry">1 0 0 1.066666666666667 -20.49999999999977 -155.9000000000001</prop>
     <prop name="Location">255.9999999999991 218</prop>
     <prop name="Size">73 12</prop>
     <prop name="Font">
@@ -945,7 +945,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">510</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">235.8815680852424 94.00525105018157</prop>
+    <prop name="RefPoint">235.6405937443165 94.86239390732445</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -962,8 +962,8 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Location">235.8815680852424 94.00525105018157</prop>
-    <prop name="Size">73 12</prop>
+    <prop name="Location">235.6405937443165 94.86239390732445</prop>
+    <prop name="Size">72 12</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -999,7 +999,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3843282337685404 0 0 0.9050058460355295 274.1462393558107 71.04570923947159</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 1.0256732921736 274.3918150933883 64.15140500102963</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1037,7 +1037,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3808911945060918 0 0 0.9867641455466143 274.4859598104281 84.91652166081811</prop>
+    <prop name="Geometry">0.3570353978010277 0 0 0.9867641455466143 274.8264982427593 86.63080737510383</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1075,7 +1075,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3843282337685404 0 0 0.9762382195539127 274.1462393558107 33.65743419898504</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9762382195539127 274.3918150933882 33.65743419898506</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1113,7 +1113,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3843282337685404 0 0 0.9223950611354861 274.1462393558107 53.36194016797496</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9223950611354861 274.3918150933882 54.35390837219389</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1148,7 +1148,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Regular</prop>
     </prop>
-    <prop name="Location">64.9999999999998 5</prop>
+    <prop name="Location">64.99999999999979 4.999999999999999</prop>
     <prop name="Size">231 25</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Такой-то налив № - 100АИ</prop>
@@ -1345,7 +1345,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">535</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">235.8815680852424 145.8571428571429</prop>
+    <prop name="RefPoint">235.4999999999998 145.8571428571429</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1362,7 +1362,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Location">235.8815680852424 145.8571428571429</prop>
+    <prop name="Location">235.4999999999998 145.8571428571429</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1399,7 +1399,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3843282337685404 0 0 0.9838880652111851 274.1462393558107 102.6318445607195</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9838880652111851 274.3918150933882 102.6318445607195</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1490,7 +1490,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">568</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">20 376</prop>
+    <prop name="RefPoint">20 465</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -1504,7 +1504,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">20 366.5291479820626</prop>
+    <prop name="Location">20 455.5291479820626</prop>
     <prop name="Size">133 45</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1515,10 +1515,8 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
 
-const string DP = $dp;
-const string NumberPost = $NumberPost;
 string Adr;
-Adr = DP + &quot;.Post&quot; + NumberPost + &quot;.сPrisadka&quot;;	   //Налив с присадкой
+Adr = DP + &quot;.сPrisadka&quot;;	   //Налив с присадкой
 dpSetWait(Adr, 1);
 
 }
@@ -1547,7 +1545,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.9016393442622951 0 0 0.2930402930402931 -284.344262295082 281.2380952380952</prop>
+    <prop name="Geometry">0.9016393442622951 0 0 0.2930402930402931 -284.344262295082 370.2380952380952</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Топливо с присадкой</prop>
@@ -1642,7 +1640,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 -52.85451733205206</prop>
+    <prop name="Geometry">1 0 0 1 -100 -51.9973744749092</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -1670,7 +1668,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 0.969088123997879 0.25 1.722990183993934</prop>
+    <prop name="Geometry">1 0 0 0.969088123997879 0.25 2.580133041136795</prop>
     <prop name="Location">216.5 94.09202870010263</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
@@ -1706,7 +1704,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 -36.17558040078464</prop>
+    <prop name="Geometry">1 0 0 1 -100 -37.03272325792744</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -1769,7 +1767,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 -18.21428571428572</prop>
+    <prop name="Geometry">1 0 0 1 -100 -16.5</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -1781,7 +1779,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">615</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">218.25 127.1011897059548</prop>
+    <prop name="RefPoint">218.25 128.8154754202405</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1797,7 +1795,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">218.25 127.1011897059548</prop>
+    <prop name="Location">218.25 128.8154754202405</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -1879,7 +1877,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">618</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">210 325</prop>
+    <prop name="RefPoint">230 325</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Red</prop>
@@ -1893,7 +1891,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">209.9999999999994 318.1428571428571</prop>
+    <prop name="Location">229.9999999999994 318.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1903,10 +1901,8 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  const string DP = $dp;
-  const string NumberPost = $NumberPost;
   string Adr;
-  Adr = DP + &quot;.Post&quot; + NumberPost + &quot;.sStatusPosta&quot;;
+  Adr = DP + &quot;.sStatusPosta&quot;;
   dpSetWait(Adr, 0);
 }
 
@@ -1918,7 +1914,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">619</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">44 250</prop>
+    <prop name="RefPoint">60 250</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Blue</prop>
@@ -1932,7 +1928,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">43.99999999999943 243.1428571428571</prop>
+    <prop name="Location">59.99999999999942 243.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1942,10 +1938,8 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  const string DP = $dp;
-  const string NumberPost = $NumberPost;
   string Adr;
-  Adr = DP + &quot;.Post&quot; + NumberPost + &quot;.sStatusPosta&quot;;
+  Adr = DP + &quot;.cCommand&quot;;
   dpSetWait(Adr, 0x10);
 }
 
@@ -1981,13 +1975,9 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-
-  const string DP = $dp;
-  const string NumberPost = $NumberPost;
   string Adr;
-  Adr = DP + &quot;.Post&quot; + NumberPost + &quot;.sStatusPosta&quot;;
+  Adr = DP + &quot;.cCommand&quot;;
   dpSetWait(Adr, 0x00);
-
 }
 
 
@@ -1998,7 +1988,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">621</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">44 285</prop>
+    <prop name="RefPoint">60 285</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Blue</prop>
@@ -2012,7 +2002,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">43.99999999999943 278.1428571428571</prop>
+    <prop name="Location">59.99999999999942 278.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -2022,14 +2012,9 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-
-  const string DP = $dp;
-  const string NumberPost = $NumberPost;
   string Adr;
-  Adr = DP + &quot;.Post&quot; + NumberPost + &quot;.sStatusPosta&quot;;
+  Adr = DP + &quot;.cCommand&quot;;
   dpSetWait(Adr, 0x30);
-
-
 }
 
 
@@ -2064,15 +2049,150 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-
-  const string DP = $dp;
-  const string NumberPost = $NumberPost;
   string Adr;
-  Adr = DP + &quot;.Post&quot; + NumberPost + &quot;.sStatusPosta&quot;;
+  Adr = DP + &quot;.cCommand&quot;;
   dpSetWait(Adr, 0x40);
 }
 
 
+]]></script>
+   </events>
+  </shape>
+  <shape Name="RECTANGLE11" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">623</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">330 145</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">440</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 -295 196.4864864864865</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">330 145</prop>
+    <prop name="Size">-16 16</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT257" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">624</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">38 445.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">441</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 -15 -152.1621621621622</prop>
+    <prop name="Location">38 445.5</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">V</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="VolumeDose_oper_eu" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">626</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">98.84101654846344 44.06280193236713</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="HoverForeCol">black</prop>
+    <prop name="TabOrder">443</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 1.267685312544913 80.03532807351127 311.1692973388783</prop>
+    <prop name="Location">98.84101654846344 44.06280193236713</prop>
+    <prop name="Size">73 13</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">EUEU</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="VolumeDose_oper" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">627</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">40 369.7168269769937</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">444</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
+    </prop>
+    <prop name="Location">39.99999999999999 364.7567567567567</prop>
+    <prop name="Size">73 20</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0d,False,False,AlignHCenter,False]</prop>
+   </properties>
+   <events>
+    <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
+{
+  string Adr;
+  int VolumeDose_op;
+  Adr = DP + &quot;.cVolumeDose_oper&quot;;
+  VolumeDose_op = VolumeDose_oper.text;
+  dpSetWait(Adr, VolumeDose_op);
+}
 ]]></script>
    </events>
   </shape>
@@ -2306,7 +2426,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">635</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">205 376</prop>
+    <prop name="RefPoint">205 465</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -2320,7 +2440,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">205 367.1336072905281</prop>
+    <prop name="Location">205 456.1336072905281</prop>
     <prop name="Size">133 45</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -2330,14 +2450,9 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-
-const string DP = $dp;
-const string NumberPost = $NumberPost;
-string Adr;
-Adr = DP + &quot;.Post&quot; + NumberPost + &quot;.сPrisadka&quot;;	   //Налив с присадкой
-dpSetWait(Adr, 0);
-
-
+  string Adr;
+  Adr = DP + &quot;.сPrisadka&quot;;	   //Налив с присадкой
+  dpSetWait(Adr, 0);
 }
 
 
@@ -2376,11 +2491,262 @@ dpSetWait(Adr, 0);
     <prop name="Size">102 60</prop>
    </properties>
   </shape>
+  <shape Name="FRAME5" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">639</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">65 489</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">455</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">3.267326732673267 0 0 1.525423728813559 -197.3762376237623 -400.9322033898304</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Ручное задание</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">65 489</prop>
+    <prop name="Size">102 60</prop>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON10" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">640</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">225 365</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">Blue</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">456</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
+    </prop>
+    <prop name="Location">224.9999999999994 358.1428571428571</prop>
+    <prop name="Size">111 33</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Установить</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string Adr;
+  int x;
+  Adr = DP + &quot;.cVolumeDose_oper&quot;;
+  dpGet(Adr,x);
+  Adr = DP + &quot;.cVolumeDose&quot;;
+  dpSetWait(Adr, x);
+}
+
+
+]]></script>
+   </events>
+  </shape>
+  <shape Name="RECTANGLE14" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">641</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">330 145</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">457</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 -295 231.4864864864865</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">330 145</prop>
+    <prop name="Size">-16 16</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT262" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">642</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">38 445.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">458</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 -15 -117.1621621621622</prop>
+    <prop name="Location">38 445.5</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">V</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT263" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">643</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">98.84101654846344 44.06280193236713</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="HoverForeCol">black</prop>
+    <prop name="TabOrder">459</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 1.267685312544913 80.03532807351127 346.1692973388783</prop>
+    <prop name="Location">98.84101654846344 44.06280193236713</prop>
+    <prop name="Size">73 13</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">EUEU</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="TEXT_FIELD1" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">644</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">40 404.7168269769937</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">460</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
+    </prop>
+    <prop name="Location">39.99999999999999 399.7567567567567</prop>
+    <prop name="Size">73 20</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0d,False,False,AlignHCenter,False]</prop>
+   </properties>
+   <events>
+    <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
+{
+//   string Adr;
+//   int VolumeDose_op;
+//   Adr = DP + &quot;.cVolumeDose_oper&quot;;
+//   VolumeDose_op = VolumeDose_oper.text;
+//   dpSetWait(Adr, VolumeDose_op);
+
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="PUSH_BUTTON11" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">645</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">225 400</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">Blue</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">461</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
+    </prop>
+    <prop name="Location">224.9999999999994 393.1428571428571</prop>
+    <prop name="Size">111 33</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Установить</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+//   string Adr;
+//   int x;
+//   Adr = DP + &quot;.cVolumeDose_oper&quot;;
+//   dpGet(x,Adr);
+//   Adr = DP + &quot;.cVolumeDose&quot;;
+//   dpSetWait(Adr, x);
+}
+
+
+]]></script>
+   </events>
+  </shape>
   <shape Name="PercentPrisadki" shapeType="TEXT_FIELD" layerId="0">
    <properties>
     <prop name="serialId">647</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">155 386</prop>
+    <prop name="RefPoint">155 475</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2394,159 +2760,50 @@ dpSetWait(Adr, 0);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">155 381.0399297797629</prop>
+    <prop name="Location">155 470.0399297797628</prop>
     <prop name="Size">46 20</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Editable">True</prop>
-    <prop name="TextFormat">[0d,False,False,AlignHCenter,False]</prop>
+    <prop name="TextFormat">[1.5f,False,False,AlignHCenter|AlignVCenter,False]</prop>
    </properties>
    <events>
     <script name="Command" isEscaped="1"><![CDATA[main()
 {
-
-  const string DP = $dp;
-  const string NumberPost = $NumberPost;
   string Adr;
-  int VolumeDose_op;
-  Adr = DP + &quot;.Global_Variable.bui_PercentPrisadki_&quot; + NumberPost + &quot;Post:_original.._value&quot;;
+  float VolumeDose_op;
+  Adr = DP + &quot;.cPercentPrisadki&quot;;
   VolumeDose_op = PercentPrisadki.text;
-  if((VolumeDose_op&gt;0)&amp;(VolumeDose_op&lt;100))
-  {
+  if((VolumeDose_op&gt;0) &amp; (VolumeDose_op&lt;100)){
     dpSetWait(Adr, VolumeDose_op);
+  }else{
+    dpGet(Adr, VolumeDose_op);
+    PercentPrisadki.text(0.0);
   }
-  else
-  {
-  dpGetWait(Adr, VolumeDose_op);
-  PercentPrisadki.text(VolumeDose_op);
 }
-
-}]]></script>
+]]></script>
    </events>
   </shape>
-  <shape Name="RECTANGLE15" shapeType="RECTANGLE" layerId="0">
+  <shape Name="BackgroundCover_ewo1" shapeType="GENERIC" layerId="0">
    <properties>
     <prop name="serialId">649</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">17 108</prop>
+    <prop name="RefPoint">17 393</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
     <prop name="TabOrder">463</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.6275862068965518 0 0 1 74.33103448275862 92</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">17 108</prop>
-    <prop name="Size">146 21</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="PRIMITIVE_TEXT264" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">650</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">99 203</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">464</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Location">99 203</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Р135АР102</prop>
-    </prop>
-    <prop name="Distance">2</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">True</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE16" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">651</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">17 108</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">465</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.6275862068965518 0 0 1 74.33103448275862 69</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">17 108</prop>
-    <prop name="Size">146 21</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="PRIMITIVE_TEXT265" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">652</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">98 180</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">466</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Location">98 180</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">АИ-92</prop>
-    </prop>
-    <prop name="Distance">2</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">True</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+    <prop name="Location">17 392.9999999999999</prop>
+    <prop name="Size">321 34</prop>
+    <prop name="ObjectType">BackgroundCover.ewo</prop>
    </properties>
   </shape>
  </shapes>
