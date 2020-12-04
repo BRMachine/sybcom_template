@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">521 337</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">39.65652173913048 123.5695718670619</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string dp = $dp;]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  main_module.ModuleName(dp + &quot;_main&quot;);
+  RootPanelOnModule(&quot;faceplates\\DI\\parts\\standart.xml&quot;,&quot;&quot;, dp + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+dp));
+  setPanelSize(myModuleName(), &quot;&quot;, false, 220, 340);
+//   PANEL_REF2.position(86,-18);
+  txt_alias.text(dpGetDescription(dp + &quot;.&quot;));
+  txt_alias.size(143, 39);
+  txt_alias.position(162,-56);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="main_module" shapeType="EMBEDDED_MODULE" layerId="0">
+   <properties>
+    <prop name="serialId">6</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">-78.82315103402976 76.31578947368425</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">5</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">0 71.99999999999999</prop>
+    <prop name="Size">520 215</prop>
+    <extended>
+     <prop type="INT" name="newPanelAnimDuration">0</prop>
+     <prop type="INT" name="oldPanelAnimDuration">0</prop>
+     <prop type="BOOL" name="newPanelAnimateOpacity">True</prop>
+     <prop type="BOOL" name="oldPanelAnimateOpacity">True</prop>
+     <prop type="BOOL" name="newPanelAnimateSize">True</prop>
+     <prop type="BOOL" name="oldPanelAnimateSize">True</prop>
+     <prop type="CHAR_STRING" name="newPanelAnimType">None</prop>
+     <prop type="CHAR_STRING" name="oldPanelAnimType">None</prop>
+    </extended>
+   </properties>
+  </shape>
+  <shape Name="btn_main" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">7</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">14.14528305363426 284.1578947368421</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">6</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">3.145283053634258 291.157894736842</prop>
+    <prop name="Size">40 40</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Image" SharedPixmap="1">
+     <prop name="BackgroundPixmap">examples/maps/home.svg</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  RootPanelOnModule(&quot;faceplates\\DI\\parts\\standart.xml&quot;,&quot;&quot;, dp + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+dp));
+  setPanelSize(myModuleName(), &quot;&quot;, false, 220, 340);
+  txt_alias.size(143, 39);
+  txt_alias.position(162,-56);
+//   PANEL_REF2.position(86,-18);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="btn_alrm" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">14</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">55.11813025549137 284.1578947368421</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">8</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">44.11813025549137 291.157894736842</prop>
+    <prop name="Size">40 40</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Image" SharedPixmap="1">
+     <prop name="BackgroundPixmap">StandardIcons/Attention_32.png</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  RootPanelOnModule(&quot;faceplates\\DI\\parts\\alerts.xml&quot;,&quot;&quot;, dp + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+dp, &quot;$_ALERTROW:FALSE&quot;));//, &quot;$DP:&quot; + dp));
+  setPanelSize(myModuleName(), &quot;&quot;, false, 520, 340);
+  txt_alias.size(438, 39);
+  txt_alias.position(348,-56);
+//   PANEL_REF2.position(236,-18);
+}
+]]></script>
+   </events>
+  </shape>
+  <reference parentSerial="-1" Name="PANEL_REF2" referenceId="0">
+   <properties>
+    <prop name="FileName">objects/DI/DI.xml</prop>
+    <prop name="Location">217.6452830536341 153</prop>
+    <prop name="Geometry">1.001104613385316 0 0 0.9999999999999998 -247.8856969465461 -167</prop>
+    <prop name="TabOrder">10</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="BOOL" name="txtRightVis">False</prop>
+     <prop type="BOOL" name="txtUpVis">False</prop>
+    </extended>
+   </properties>
+  </reference>
+  <shape Name="txt_alias" shapeType="Label" layerId="0">
+   <properties>
+    <prop name="serialId">24</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">348.3979677149654 -55.9375</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">11</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">72.99999999999996 12</prop>
+    <prop name="Size">438 39</prop>
+    <extended>
+     <prop type="CHAR_STRING" name="text">comment discrete signal</prop>
+     <prop type="BOOL" name="wordWrap">True</prop>
+     <prop type="ENUM" name="textFormat">2</prop>
+     <prop type="ENUM" name="alignment">132</prop>
+    </extended>
+   </properties>
+  </shape>
+ </shapes>
+</panel>

@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">702 247</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">155 33</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[string CURRENT_GROUP, profile;
+int NUMBER;
+
+dyn_string Init(string DP=CURRENT_GROUP, bool ADD_AREA=FALSE)
+{
+  dyn_string AREA_DPE;
+
+  AREA_DPE[1] = DP + &quot;.AREA_DEFINITION.CURVE&quot;;
+  AREA_DPE[2] = DP + &quot;.AREA_DEFINITION.ENABLE&quot;;
+  AREA_DPE[3] = DP + &quot;.AREA_DEFINITION.COLOR&quot;;
+  AREA_DPE[4] = DP + &quot;.AREA_DEFINITION.TYPE&quot;;
+  AREA_DPE[5] = DP + &quot;.AREA_DEFINITION.LINE_TYPE&quot;;
+  AREA_DPE[6] = DP + &quot;.AREA_DEFINITION.AREA&quot;;
+  AREA_DPE[7] = DP + &quot;.AREA_DEFINITION.AUTO_SCALE&quot;;
+  AREA_DPE[8] = DP + &quot;.AREA_DEFINITION.MINIMUM&quot;;
+  AREA_DPE[9] = DP + &quot;.AREA_DEFINITION.MAXIMUM&quot;;
+  AREA_DPE[10]= DP + &quot;.AREA_DEFINITION.TIME_START&quot;;
+  AREA_DPE[11]= DP + &quot;.AREA_DEFINITION.TIME_END&quot;;
+  if(ADD_AREA){
+    AREA_DPE[12] = DP + &quot;.MAXIMUM_AREAS&quot;;
+  }
+
+  return AREA_DPE;
+}
+
+void SetStartUpValue()
+{
+  NUMBER           = $NUMBER;
+  bool ENABLE      = $ENABLE;
+  int TYPE         = $TYPE;
+  string COLOR     = $COLOR;
+  string LINE_TYPE = $LINE_TYPE;
+  int MAXIMUM_AREAS= $MAXIMUM_AREAS;
+  int AREA         = $AREA;
+  float MINIMUM    = $MINIMUM;
+  float MAXIMUM    = $MAXIMUM;
+  bool AUTO_SCALE  = $AUTO_SCALE;
+
+  sNUMBER.text        = NUMBER;
+  sMINIMUM.text       = MINIMUM;
+  sMAXIMUM.text       = MAXIMUM;
+  sAREA.text          = AREA;
+  sAREA.sbMaximum     = MAXIMUM_AREAS;
+  sMAXIMUM_AREAS.text = MAXIMUM_AREAS;
+  sCURVE.foreCol      = COLOR;
+  sCURVE.border       = LINE_TYPE;
+  sAUTO_SCALE.state(0, AUTO_SCALE);
+  sENABLE.state(0, ENABLE);
+  sTYPE.selectedPos(TYPE+1);
+  // sMINIMUM.enabled = !AUTO_SCALE;
+  // sMAXIMUM.enabled = !AUTO_SCALE;
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+
+ // Получаем активный профиль
+ dpGet(&quot;SYBCOM_TREND_START_UP.DEFAULT&quot;, CURRENT_GROUP);
+
+ // Инициализация
+ SetStartUpValue();
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape layerId="0" Name="PUSH_BUTTON2" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">40</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">590 210</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">38</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">590 206</prop>
+    <prop name="Size">99 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Закрыть</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main()
+{
+  // Закрыть панель
+  PanelOff();
+}
+
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="Color" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">41</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">150.3333333333334 79.46153846153845</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">39</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">150.3333333333334 74.46153846153845</prop>
+    <prop name="Size">93 25</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Цвет линии</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string bordercolor;
+  colorEditor(bordercolor);
+  sCURVE.foreCol = bordercolor;
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="Type_line" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">42</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">258.3333333333334 79.12820512820514</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">40</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">258.3333333333334 74.12820512820514</prop>
+    <prop name="Size">93 25</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Тип линии</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string Type_line;
+  lineSelector(Type_line);
+  sCURVE.border = Type_line;
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="sTYPE" shapeType="COMBO_BOX">
+   <properties>
+    <prop name="serialId">43</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">26.33333333333332 80.46153846153845</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">41</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">26.33333333333332 74.46153846153845</prop>
+    <prop name="Size">96 27</prop>
+    <prop name="Listitems">
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Точки</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Ступени</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Линейный</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+    </prop>
+    <prop name="Editable">True</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="sENABLE" shapeType="CHECK_BOX">
+   <properties>
+    <prop name="serialId">45</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">154 26</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">43</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">154 26</prop>
+    <prop name="Size">81 22</prop>
+    <prop name="Listitems">
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Активно</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="sAREA" shapeType="SPIN_BUTTON">
+   <properties>
+    <prop name="serialId">46</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">557.3333333333333 82.46153846153845</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">44</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">557.3333333333334 76.46153846153847</prop>
+    <prop name="Size">78 27</prop>
+    <prop name="MinimumID">0</prop>
+    <prop name="MaximumID">4</prop>
+    <prop name="IncrAccelerator">1</prop>
+    <prop name="Position">0</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME2" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">48</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">8 246</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">46</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.059829059829059 0 0 0.8360655737704923 5.854700854700866 -147.2105926860027</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Тип кривой</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">8 246</prop>
+    <prop name="Size">118 62</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME3" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">49</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">8 246</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">47</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">3.051282051282052 0 0 0.8360655737704923 118.9230769230769 -147.2105926860027</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Тип линии</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">8 246</prop>
+    <prop name="Size">118 62</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME4" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">50</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">8 246</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">48</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.478632478632487 0 0 0.8360655737704923 493.5042735042734 -147.2105926860027</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Область отображения</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">8 246</prop>
+    <prop name="Size">118 62</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="PUSH_BUTTON5" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">51</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">464 210</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">49</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">463.9999999999999 205</prop>
+    <prop name="Size">93 25</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Применить</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  dyn_anytype DPD_T;
+  dyn_string DPE_T = Init(CURRENT_GROUP, FALSE);
+
+  dpGet(DPE_T, DPD_T);
+  string   txt = &quot;Минимум шкалы должен быть меньше максимума&quot;;
+
+  DPD_T[2][NUMBER] = sENABLE.state(0);     // ENABLE
+  DPD_T[3][NUMBER] = sCURVE.foreCol;       // COLOR
+  DPD_T[4][NUMBER] = sTYPE.selectedPos-1;  // TYPE
+  DPD_T[5][NUMBER] = sCURVE.border;        // LINE_TYPE
+  DPD_T[6][NUMBER] = sAREA.text;           // AREA
+  DPD_T[7][NUMBER] = sAUTO_SCALE.state(0); // AUTO_SCALE
+  DPD_T[8][NUMBER] = sMINIMUM.text;        // MINIMUM
+  DPD_T[9][NUMBER] = sMAXIMUM.text;        // MAXIMUM
+
+  if (DPD_T[8][NUMBER] &gt; DPD_T[9][NUMBER])
+  {
+    ChildPanelOnCentral(&quot;vision/MessageInfo1&quot;,&quot;&quot;, makeDynString(&quot;$1:&quot; + txt));
+  }
+  else
+  {
+    dpSet(DPE_T, DPD_T);
+   }
+
+ PanelOff();
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="RECTANGLE2" shapeType="RECTANGLE">
+   <properties>
+    <prop name="serialId">52</prop>
+    <prop name="Type">WF_BottomBar</prop>
+    <prop name="RefPoint">0 350</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonBarBackground</prop>
+    <prop name="BackColor">WF_Head</prop>
+    <prop name="TabOrder">50</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+    </prop>
+    <prop name="minimumSize">-1 55</prop>
+    <prop name="maximumSize">-1 55</prop>
+    <prop name="sizePolicy">
+     <sizePolicy vertical="Preferred" horizontal="Preferred"/>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapButt,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.400801603206413 0 0 1.24331550802139 -1 188.8395721925135</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">0 0</prop>
+    <prop name="Size">500 45</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME5" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">53</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">15 234</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">51</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.8961892247043364 0 0 1.914979757085021 -5.44283837056508 -447.028340080972</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Настройки пера/линии</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">15 234</prop>
+    <prop name="Size">762 96</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT">
+   <properties>
+    <prop name="serialId">55</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">53.00000000000001 28</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">53</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">53.00000000000001 28</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Перо №</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_CENTER]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME6" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">57</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">8 246</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">55</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.478632478632478 0 0 0.8360655737704923 493.5042735042745 -198.6721311475411</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Кол-во разреш. областей</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">8 246</prop>
+    <prop name="Size">118 62</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="sNUMBER" shapeType="PRIMITIVE_TEXT">
+   <properties>
+    <prop name="serialId">60</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">95 28</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">58</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">95 28</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">##</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_CENTER]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="AutoScale_Check" shapeType="CHECK_BOX">
+   <properties>
+    <prop name="serialId">61</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">19 141</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">59</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">При автомасшабировании пределы не работают</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">19.00000000000001 141</prop>
+    <prop name="Size">182 22</prop>
+    <prop name="Listitems">
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Автомасштабирование</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(int button, int state)
+{
+ /* if (button == 0)
+  {
+    if (state == TRUE)
+    {*/
+//     sMINIMUM.enabled = !state;
+//     sMAXIMUM.enabled = !state ;
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="FRAME8" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">62</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">8 246</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">60</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">5.717948717948719 0 0 0.9672131147540983 -32.74358974358972 -119.9344262295082</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Масштаб</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">8 246</prop>
+    <prop name="Size">118 62</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="sMINIMUM" shapeType="TEXT_FIELD">
+   <properties>
+    <prop name="serialId">63</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">244 144</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">61</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">244 138</prop>
+    <prop name="Size">120 28</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_BEGINNING]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="sMAXIMUM" shapeType="TEXT_FIELD">
+   <properties>
+    <prop name="serialId">64</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">413 144</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">62</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">412.9999999999999 138</prop>
+    <prop name="Size">120 28</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_BEGINNING]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="PRIMITIVE_TEXT3" shapeType="PRIMITIVE_TEXT">
+   <properties>
+    <prop name="serialId">65</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">223 144</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">63</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">223 144</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Мин.</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_CENTER]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="PRIMITIVE_TEXT4" shapeType="PRIMITIVE_TEXT">
+   <properties>
+    <prop name="serialId">66</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">393 144</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">64</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">393 144</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Макс.</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_CENTER]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME9" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">67</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">553 129</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">65</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.062499999999999 0 0 1.228571428571428 -41.56249999999952 -32.48571428571421</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Правило</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">553 129</prop>
+    <prop name="Size">113 36</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="PRIMITIVE_TEXT5" shapeType="PRIMITIVE_TEXT">
+   <properties>
+    <prop name="serialId">68</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">604 144</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">66</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">604 144</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Мин. &lt; Макс.</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_CENTER]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="sMAXIMUM_AREAS" shapeType="PRIMITIVE_TEXT">
+   <properties>
+    <prop name="serialId">69</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">581 32</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">67</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">2.090909090909092 0 0 1.31578947368421 -634.8181818181824 -11.24812030075186</prop>
+    <prop name="Location">581 32</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,75,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">##</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_CENTER]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="sCURVE" shapeType="LINE">
+   <properties>
+    <prop name="serialId">44</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">364.3333333333333 85.99999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">42</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">364.3333333333333 86</prop>
+    <prop name="End">472.3333333333333 86</prop>
+   </properties>
+  </shape>
+ </shapes>
+</panel>

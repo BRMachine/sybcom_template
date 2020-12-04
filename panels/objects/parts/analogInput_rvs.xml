@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">94 78</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">3 2.313844086021565</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string LogicRVS = $dpLogicRVS;
+const string ANALOG = $ANALOG;
+
+int sb;
+#event userCommand(string datapoint)
+#property bool enabled
+public bool getEnabled(){ return TEXT_FIELD2.enabled; }
+public void setEnabled(bool b){ TEXT_FIELD2.enabled(b); }
+
+#property int secureBit
+public int getSecureBit(){ return sb; }
+public int setSecureBit(int i){ sb = i; }
+string el;
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  if(isDollarDefined(&quot;$_el&quot;))
+    el = $_el;
+  dpConnect(&quot;cbValue&quot;, LogicRVS + &quot;.&quot; + ANALOG + el);
+}
+
+void cbValue(string dpe, anytype value){
+  sdShowValue(&quot;TEXT_FIELD2&quot;, dpe, value, 1, &quot;1.23&quot;, 0, &quot;&quot;);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="TEXT_FIELD2" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">1</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">3 6.999999999999993</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">0</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">3 2.313844086021565</prop>
+    <prop name="Size">62 24</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter]</prop>
+   </properties>
+   <events>
+    <script name="Command" isEscaped="1"><![CDATA[main(){
+  bool sec = getUserPermission(sb);
+  if(sec){
+    dpSetWait(LogicRVS + &quot;.&quot; + ANALOG + el, this.text);
+    triggerEvent(&quot;userCommand&quot;, LogicRVS + &quot;.&quot; + ANALOG);
+  }else{
+    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+  }
+}
+]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

@@ -1,0 +1,1196 @@
+V 14
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+PANEL,-1 -1 563 197 N "_3DFace" 0
+"main() 
+{ 
+/*  dpConnect(\"cbo_init\",\"System_SybcomDP.Alarm_filtr_event\"); 
+} 
+  
+void cbo_init(string dp, bool value)
+{*/
+  cbo_update();
+  selectionDescription();
+}
+
+
+/*
+main() 
+{ 
+  // endlessloop
+  string dpe;
+  string olddpe;
+
+  //counter 
+  int i, j; 
+
+  //arguments of \"getDollarParams\"                          
+  string  refName, valueDisplay, dpType;
+  dyn_string DPTs, ds, dps;  
+  bool bMPExists;
+  dyn_string dollars, values, dollarsShow, valuesShow;        
+  dyn_string pattern = makeDynString(\"$dpe\", \"$dpa\", \"$dpt\", 
+                                     \"$dp\",  \"$tp\",  \"$td\", \"$tt\", \"$ti\",
+                                     \"$i\",   \"$f\",   \"$s\",  \"$u\",  \"$c\",  \"$b\");
+ 
+  //gets the values of the reference
+  getDollarParams(refName,dollars,values);
+
+  //shows the name of the refrence
+  
+  setValue(\"refNameBox\",\"text\",refName); 
+ 
+  //shows the $-parameters and the corresponding values
+///***************!!!!!!!!
+  //dpType = $DPTs;
+  dpType = \"FILTR_ALARMS\";
+  ///***************!!!!!!!!
+  strreplace(dpType,\"DPT_\",\"\");
+  strreplace(dpType,\" \",\"\");  
+  DPTs = strsplit(dpType, \",\");
+  
+ // DebugN(DPTs);
+
+  for (i= 1; i<= dynlen(DPTs);i++)
+ 	{ 
+ 		ds = dpNames(\"*\",DPTs[i]);
+		dynAppend(dps,ds);    
+		acGetReferences(DPTs[i], dps);
+		if (!bMPExists)
+			bMPExists=dpExists(\"_mp_\"+DPTs[i]);
+	}
+
+  for (i=dynlen(dps); i>=1 ;i--)
+ 	{ 
+		strreplace (dps[i], getSystemName(), \"\");
+		if (strpos(dps[i],\"_mp_\")==0 || strpos(dps[i],\":_mp_\")>0)
+		{
+		  dynRemove(dps,i);
+		}
+	}
+  
+  // IM 85671 -->
+  // Check if a DP is given as $dp and if so if this DP is included in $DPT.
+  // If that's not the case add $dp (if it exists) to the combobox of dps and 
+  // select it.
+  string selDp = dpSubStr($dp, DPSUB_DP);
+  if (strpos(selDp, \".\") == strlen(selDp) - 1) selDp = substr(selDp, 0, strlen(selDp) - 1);
+  int selPos = dynContains(dps, selDp);
+  if (selPos < 1) selPos = -1;  // (selPos == -1) == no selection in combobox
+  if (selPos == -1 && dpExists($dp))
+  {
+    dynAppend(dps, dpSubStr($dp, DPSUB_DP));
+    selPos = dynlen(dps);
+  }
+  cboSelect.items = dps;
+  if (selPos != -1) setValue(\"cboSelect\", \"selectedPos\", selPos);
+  // --> IM 85671
+ 
+  tf_dpt.text = DPTs;
+	
+  for (i = 1; i <= dynlen(dollars); i++) 
+  { 
+    //checking for certain namepatterns
+    for (j = 1; j <= dynlen(pattern) && (strpos(strtolower(dollars[i]), strtolower(pattern[j])) != 0); j++) 
+      ;
+    
+    dpType = ( j > dynlen(pattern) ) ? getCatStr(\"gedi\", \"unknown\") : getCatStr(\"gedi\", pattern[j]);
+
+    
+    //setting up the value-column
+	  valueDisplay = makeDynString(values[i]);
+	
+	
+    if (strtolower(valueDisplay) != \"$dpe\" && strtolower(valueDisplay) != \"$dp\")
+    {
+      bool bDpExists = dpExists(valueDisplay);
+      if (bDpExists)
+      {
+        cboSelect.text = valueDisplay;
+      
+        cboSelect.enabled	= TRUE;
+        cmdCancel.enabled	= TRUE;
+        cmdOK.enabled	= TRUE;
+        cmdPara.enabled	= TRUE;
+      }
+    }
+    else
+    {
+      cboSelect.enabled	= TRUE;
+      cmdCancel.enabled	= TRUE;
+      cmdOK.enabled	= TRUE;
+      cmdPara.enabled	= FALSE;
+    }
+    
+    if (dynContains(pattern, strtolower(dollars[i]))>0 ) //remember if the $DP or $DPE defines the DP
+      strDollarDpName = dollars[i];
+    
+    //building up tabel
+ 
+    setValue(\"tab\",\"appendLine\",  \"dollarParams\",    dollars[i],  
+                                  \"dpTyps\",          dpType, 
+                                  \"dpSelector\",      \" ...\", // dpSel    ? \" ...\" : \"  x\", // disabled off!!
+                                  \"panelSelector\",   \" ...\", // panelSel ? \" ...\" : \"  x\", // disabled off!! 
+                                  \"colorSelector\",   \" ...\", // colSel   ? \" ...\" : \"  x\", // disabled off!! 
+                                  \"value\",           valueDisplay  ); 
+  } 
+  if (tab.lineCount()>0) //for init, if by default a dp is selected on first opening, on OK the panel saves the settings
+    selectionChanged();
+} 
+  
+*/
+" 0
+ E E E E 1 -1 -1 0  58 20
+""0  1
+E "string strDollarDpName;
+
+selectionChanged()
+{
+  string dpe;
+  dyn_string ds;
+  
+  dpe = cboSelect.text;
+  
+  if (strDollarDpName==\"\")
+  {
+    strDollarDpName = \"$dpe\";
+  }
+	
+  if (dpe == \"\")
+    dpe = strDollarDpName;
+  
+  setValue(\"tab\",\"updateLine\", 1, \"dollarParams\", strDollarDpName,  
+                                  \"value\",        dpe  ); 
+  ds = strsplit(dpe, \".\");
+  dpe = ds[1];
+
+  cboSelect.enabled	= TRUE;
+  cmdCancel.enabled	= TRUE;
+  cmdOK.enabled	= TRUE;
+  cmdPara.enabled	= dpExists(dpe);
+}
+cbo_update()
+{
+       
+  int i;                   
+  string    dpType;
+  dyn_string DPTs, ds, dps;  
+  bool bMPExists;
+   dpType = \"FILTR_ALARMS\";
+ 
+  DPTs = strsplit(dpType, \",\");
+  
+ // DebugN(DPTs);
+
+  for (i= 1; i<= dynlen(DPTs);i++)
+ 	{ 
+ 		ds = dpNames(\"*\",DPTs[i]);
+		dynAppend(dps,ds);    
+		acGetReferences(DPTs[i], dps);
+		if (!bMPExists)
+			bMPExists=dpExists(\"_mp_\"+DPTs[i]);
+	}
+
+  for (i=dynlen(dps); i>=1 ;i--)
+ 	{ 
+		strreplace (dps[i], getSystemName(), \"\");
+		if (strpos(dps[i],\"_mp_\")==0 || strpos(dps[i],\":_mp_\")>0)
+		{
+		  dynRemove(dps,i);
+		}
+	}
+  
+
+  cboSelect.items = dps; 
+}
+selectionDescription()
+{
+  string textdp;
+  textdp = cboSelect.text;
+  refNameBox.text =dpGetDescription(textdp + \".\");
+}" 0
+ 3
+"CBRef" "0"
+"EClose" E
+"dpi" "120"
+0 0 0
+""
+1
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 6 Layer1
+2 6
+"Text2"
+""
+1 21 50 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+1 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 23 52 350 67
+0 2 0 "0s" 0 0 0 192 0 0  23 52 1
+3
+LANG:10027 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,40,0,0,0,0,0
+0 3
+LANG:10027 89 Выберите существующий фильтр или создайте новый
+LANG:10000 24 Auswahl des Datenpunktes
+LANG:10001 47 Please select a datapoint or generate a new one
+2 12
+"Text1"
+""
+1 57 54 E E E 1 E 1 E N "_3DText" E N "_3DFace" E E
+ E E
+8 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  1 E 20 26 81 41
+0 2 2 "0s" 0 0 0 192 0 0  20 26 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 16 Описание
+LANG:10000 4 Name
+LANG:10001 4 Name
+2 28
+"Text7"
+""
+1 777.0000000000001 69 E E E 1 E 0 E N "_3DText" E N "_3DFace" E E
+ E E
+13 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E 0.7781569965870311 0 1 151.0750853242319 0 1 E 390.0000000000001 21 417.0000000000001 36
+0 2 2 "0s" 0 0 0 192 0 0  390.0000000000001 21 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 3 DPT
+LANG:10000 3 DPT
+LANG:10001 3 DPT
+6 41
+"fraLight1"
+""
+1 35 23 E E E 1 E 1 E N "STD_frame_light" E N "_Transparent" E E
+ E E
+15 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E 0.8014705882352942 0 0.7777777777777778 2.183823529411765 1.77777777777778 0 E 11 11 691 191
+6 42
+"fraDark1"
+""
+1 27 14 E E E 1 E 1 E N "STD_frame_dark" E N "_Transparent" E E
+ E E
+16 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E 0.8073529411764706 0 0.7777777777777778 1.926470588235294 2.222222222222222 0 E 10 10 690 190
+2 47
+"txtFrame1"
+""
+1 210 532 E E E 1 E 1 E N "STD_frame_text" E N "_3DFace" E E
+ E E
+17 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  1 E 21 1 189 16
+0 1 2 "0s" 0 0 0 192 0 0  21 1 1
+3
+LANG:10027 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,40,0,0,0,0,0
+0 3
+LANG:10027 47 Параметрирование фильтра
+LANG:10000 27  Reference parametrization 
+LANG:10001 27  Reference parametrization 
+10 48
+"Polyline1"
+""
+1 166 200 E E E 1 E 0 E N "_Window" E N "_Transparent" E E
+ E E
+18 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 2 1 0 1 E 1 0 1 0 -44.66666666666666 0 E 3 166 200
+166 229
+13 229
+ 0
+10 49
+"Polyline2"
+""
+1 14 228 E E E 1 E 0 E N "_ButtonShadow" E N "_Transparent" E E
+ E E
+19 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 2 1 0 1 E 1 0 1 0 -44.66666666666666 0 E 3 14 228
+14 201
+164 201
+ 0
+6 50
+"busySize"
+""
+1 18 204 E E E 1 E 0 E N "_3DFace" E N "_Transparent" E E
+ E E
+20 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E 1 0 1 0 -44.66666666666666 0 E 18 204 160 221
+6 51
+"busyFlag"
+""
+1 18 205 E E E 1 E 0 E N {0,0,153} E N {0,0,153} E E
+ E E
+21 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E 1 0 1 0 -44.66666666666666 1 E 18 205 54 224
+2 52
+"txtInfo"
+""
+1 177 159 E E E 1 E 0 E N "STD_button_text" E N "_Transparent" E E
+ E E
+22 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 179 161 347 176
+0 2 0 "0s" 0 0 0 192 0 0  179 161 1
+3
+LANG:10027 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,40,0,0,0,0,0
+0 3
+LANG:10027 47 Создание нового фильтра...
+LANG:10000 29 Generiere neuen Datenpunkt...
+LANG:10001 27 Generating new datapoint...
+13 53
+"cmdNew"
+""
+1 20 110.2608695652174 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,40,0,0,0,0,0
+0  18 108.2608695652174 142 138.2608695652174
+
+T 
+3
+LANG:10027 27 Создать фильтр
+LANG:10000 13 Erzeuge DP...
+LANG:10001 14 Generate DP...
+"int g_busyThread;    // id of thread, which shows busyness
+
+main()
+{
+  string dpe;
+  int iReturn;
+  dyn_string ds, dsItems = cboSelect.items;
+  dyn_float df=makeDynInt(1);
+  string dpt;
+  //string PANEL = \"objects_parampanels/STD_OBJECTS/COMMON_param_child.pnl\";
+  string PANEL = \"Alarm_Panels_Struct/STD_OBJECTS/Dp_Filtr_create.pnl\";
+  //\"panels/Alarm_Panels_Struct/STD_OBJECTS/COMMON_param_child.pnl\"
+  g_busyThread = -1;
+  
+  delay(0,1);
+  //\"FILTR_ALARMS\"
+ //dpt = tf_dpt.text  ;
+  dpt = \"FILTR_ALARMS\"  ;
+  dpe = cboSelect.text;
+ 
+ /* 
+  if (dpe != \"\" && dpExists(dpe))
+  {
+    ChildPanelOnCentralModalReturn(\"vision/MessageWarning\", getCatStr(\"va\",\"cancel\"),
+         makeDynString(getCatStr(\"ac\",\"dpexists\"), getCatStr(\"va\",\"cancel\")),df, ds);
+  
+  	return;
+  }
+  */
+  
+  if (dpt!=\"WH_SC1\") // (strpos(dpt, \"|\")>0)
+  {
+    ChildPanelOnCentralModalReturn(PANEL,
+         \"Создание фильтра\",
+         makeDynString(\"$dpe:\"+dpe, \"$dpt:\"+dpt),
+         df, ds);
+    if (dynlen(ds) == 2)
+    {
+      dpt = ds[1];
+      dpe = ds[2];    
+    }   
+  }
+  
+  
+  if (df[1] > 0)
+  {
+    if ((dpt == \"WH_SC1\" || dpe != \"\") && (dpt == \"WH_SC1\" || !dpExists(dpe)))
+    {  
+    
+      Polyline1.visible  = TRUE;
+      Polyline2.visible  = TRUE;
+      busyFlag.visible  = TRUE;
+      
+      std_startBusy();
+      
+      cmdOK.enabled  = FALSE;
+      cmdCancel.enabled  = FALSE;
+      txtInfo.visible  = TRUE;
+
+      strreplace (dpe, getSystemName(), \"\");
+      ds = strsplit(dpe, \".\");
+      if (dynlen(ds)>0 && strpos(ds[1],getCatStr(\"para\",\"dpcreateerror\"))<0)
+        dpe = ds[1];
+      else
+        dpe = \"\";
+    
+      if (1)        // allways
+      {
+        string sObjectPath = \"objects_parts/STD_OBJECTS/\";
+        string PANEL = sObjectPath+dpt+\"_create.pnl\";
+        string path;
+        path =  getPath(PANELS_REL_PATH, PANEL);
+        if (path != \"\")                                                   // found -> use it
+        {
+          ChildPanelOnCentralModalReturn(PANEL,
+          \"Создание фильтра\",
+          makeDynString(\"$dpe:\"+dpe, \"$dpt:\"+dpt),df, ds);
+          DebugN(df,ds);
+
+          if (dynlen(df) > 0)
+          {
+            if (df[1] > 0)
+            {
+              dpe = ds[1];                    // set returnname
+              iReturn = 1;
+            }
+//             else
+//               iReturn = -1;                    // escape
+          }   
+        }
+        else        
+				{
+          dpCopy(\"_mp_\"+dpt,dpe,iReturn);                // regular copy
+          if (iReturn <0)
+          {
+          	if (dpExists(dpe)) dpDelete(dpe);
+          }
+      	}
+      }
+
+      if (iReturn>=0)        // dpe OK -> set it
+        setValue(\"tab\",\"updateLine\", 1, \"dollarParams\", \"$dpe\",  \"value\",  dpe  ); 
+    
+      
+
+      Polyline1.visible  = FALSE;
+      Polyline2.visible  = FALSE;
+      busyFlag.visible  = FALSE;
+  
+      std_stopBusy();
+      cboSelect.text  = dpe;
+      if (!dynContains(dsItems, dpe)) dynAppend(dsItems, dpe);
+      cboSelect.items = dsItems;
+      cmdCancel.enabled  = TRUE;
+      cmdOK.enabled  = TRUE;
+      txtInfo.visible  = FALSE;
+
+      if (iReturn<0)
+      {  
+        ChildPanelOnCentralModal(\"vision/MessageWarning\", getCatStr(\"STD_Symbols\",\"createNewDp\"),  makeDynString(getCatStr(\"para\",\"dpcreateerror\")));
+
+        cboSelect.text  = getCatStr(\"para\",\"dpcreateerror\")+ \"  \"+ dpe;
+        cboSelect.enabled  = TRUE;
+        cmdCancel.enabled  = TRUE;
+        cmdOK.enabled  = TRUE;
+        txtInfo.visible  = FALSE;
+      }
+    }
+    else
+    {
+      cboSelect.text  = dpe;
+      cmdCancel.enabled  = TRUE;
+      cmdOK.enabled  = TRUE;
+      txtInfo.visible  = FALSE;
+    }
+  }
+
+  cmdPara.enabled  = dpExists(dpe);
+  	
+  cmdCancel.enabled  = TRUE;
+}
+" 0
+ E E E
+13 26
+"cmdOK"
+""
+1 848.9999999999999 408.9999999999999 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+6 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+0  346.9999999999999 150.9999999999998 450.9999999999999 180.9999999999998
+
+T 
+3
+LANG:10027 2 OK
+LANG:10000 2 OK
+LANG:10001 2 OK
+"main()
+{
+  //counter
+  int lines, n;
+
+  //arguments for \"setDollarParams\"
+  string  refName; 
+  dyn_string dollars; 
+  dyn_string values;
+
+
+  //gets the assigned name for the reference
+  getValue(\"refNameBox\", \"text\", refName);
+
+  //gets the assigned values for the reference
+  getValue(\"tab\", \"lineCount\", lines);
+  for ( n=1; n<=lines; n++ )
+  {
+    getValue(\"tab\", \"cellValueRC\", n-1, \"dollarParams\", dollars[n]);
+    getValue(\"tab\", \"cellValueRC\", n-1, \"value\", values[n]);
+  }
+
+  setDollarParams(refName, dollars, values);
+
+  closeDialog();
+}
+
+" 0
+ E E E
+13 27
+"cmdCancel"
+""
+1 1060.636363636364 410.9999999999999 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+7 0 0 0 27 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+0  450.636363636364 150.9999999999998 554.636363636364 180.9999999999998
+
+T 
+3
+LANG:10027 16 Отменить
+LANG:10000 9 Abbrechen
+LANG:10001 6 Cancel
+"main()
+{
+  closeDialog();
+}" 0
+ E E E
+22 7
+"cboSelect"
+""
+1 21 68 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+2 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,40,0,0,0,0,0
+0  19 65.99999999999997 539 93
+0
+
+E
+"main()
+{
+  selectionChanged();
+}
+
+
+" 0
+
+E
+ 0 0
+14 15
+"refNameBox"
+""
+1 519 47 E E E 1 E 1 E N "_WindowText" E N "_3DFace" E E
+ E E
+11 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+0  83 19 377.9999999999998 45.99999999999999
+2 "0s" 0 0 0 0 0 -1  E E E
+14 29
+"tf_dpt"
+""
+1 1059.962457337884 63 E E E 1 E 0 E N "_WindowText" E N "_3DFace" E E
+ E E
+14 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+0  476.6791808873721 15 683.0000000000002 42
+3 "0s" 0 0 0 0 0 -1  E E E
+13 54
+"PUSH_BUTTON1"
+""
+1 143 110.2608695652174 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+23 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,40,0,0,0,0,0
+0  141 108.2608695652174 289 138.2608695652174
+
+T 
+3
+LANG:10027 37 Переменовать фильтр
+LANG:10000 13 Erzeuge DP...
+LANG:10001 14 Generate DP...
+"
+main()
+{
+  EP_childPanelOn();
+}
+
+void EP_childPanelOn()
+{
+ string dp_name= cboSelect.text;
+ //\"panels/Alarm_Panels_Struct/STD_OBJECTS/dpRename.pnl\"
+ /* ChildPanelOnRelativ(\"Alarm_Panels_Struct/STD_OBJECTS/dpRename.pnl\",
+      \"\",
+      makeDynString(\"$dpName:\" + dp_name),
+      50, 50);
+  */
+  dyn_string ds;
+  dyn_float df=makeDynInt(1);
+  
+  string PANEL = \"Alarm_Panels_Struct/STD_OBJECTS/dpRename.pnl\";
+
+    ChildPanelOnCentralModalReturn(PANEL,
+         \"Переименование фильтра\",
+         makeDynString(\"$dpName:\" + dp_name),
+         df, ds);
+    if (dynlen(df) > 0)
+          {
+            if (df[1] > 0)
+            {
+        cbo_update();
+       dyn_string dsItems = cboSelect.items;
+         for (int i = 1; i <= dynlen(dsItems); i++)
+    {
+        if (ds[1] == dsItems[i])
+         {
+           cboSelect.selectedPos(i);
+           
+            }
+
+          }   
+}
+    }
+  }
+" 0
+ E E E
+13 55
+"PUSH_BUTTON2"
+""
+1 289.3913043478261 110.2608695652174 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+24 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,40,0,0,0,0,0
+0  287.391304347826 108.2608695652174 435.3913043478261 138.2608695652174
+
+T 
+3
+LANG:10027 27 Удалить фильтр
+LANG:10000 13 Erzeuge DP...
+LANG:10001 14 Generate DP...
+"
+main()
+{
+  EP_childPanelOn();
+}
+
+void EP_childPanelOn()
+{
+ string dp_name= cboSelect.text;
+ 
+ dpDelete(dp_name);
+   cbo_update();
+  }
+" 0
+ E E E
+13 57
+"langtexteditor1"
+""
+1 407 12 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+26 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10001 0 
+LANG:10000 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+0  376.9999999999999 16 413.9999999999999 48.99999999999999
+
+P 
+4294967295
+"pictures/StandardIcons/switch_de_en_20.png"
+3
+LANG:10027 0 
+LANG:10001 0 
+LANG:10000 0 
+"main()
+{
+ if(getUserPermission(2)) // проверяем уровень доступа пользователя
+  EP_childPanelOn();
+}
+void EP_childPanelOn()
+{
+
+  langString ls;
+  dyn_string ds;
+  string s, dpname;
+ 
+
+  getValue(\"refNameBox\",\"text\",s);
+  ds[getActiveLang()+1]=s;
+   ls=ds;
+  langEditor(ls);
+  ds=ls;
+setValue(\"refNameBox\",\"text\",ds[getActiveLang()+1]);
+   dpname =  cboSelect.text;
+   dpSetDescription(dpname + \".\",ds[getActiveLang()+1]); 
+ 
+   /* getValue(\"langtextliste\",\"items\",ds);
+
+  ds[getActiveLang()+1]=s;
+
+  ls=ds;
+  langEditor(ls);
+  ds=ls;
+  setValue(\"langtextliste\",\"items\",ds);
+
+  setValue(\"Full_Name\",\"text\",ds[getActiveLang()+1]);
+
+  */
+  
+  
+  
+  /*
+  dyn_string ds;
+  dyn_float df=makeDynInt(1);
+  
+  string PANEL = \"Alarm_Panels_Struct/STD_OBJECTS/dpRename.pnl\";
+
+    ChildPanelOnCentralModalReturn(PANEL,
+         \"Переименование фильтра\",
+         makeDynString(\"$dpName:\" + dp_name),
+         df, ds);
+         */
+}
+" 0
+ E E E
+0
+LAYER, 1 
+1
+LANG:10027 6 Layer2
+25 23
+"tab"
+""
+1 174 104 E E E 0 E 0 E N "_3DText" E N "_3DFace" E E
+ E E
+12 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,11,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,11,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,11,5,40,0,0,0,0,0
+0  171.9999999999999 174 215.9999999999999 198
+EE 0 0 1 6 6 "dollarParams" 11 1 0 "s" 3
+LANG:10027 18 $-параметр
+LANG:10000 10 $Parameter
+LANG:10001 10 $Parameter
+E
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+100 "dpTyps" 16 1 0 "s" 3
+LANG:10027 6 Тип
+LANG:10000 3 Typ
+LANG:10001 4 Type
+E
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+141 "dpSelector" 2 1 0 "s" 3
+LANG:10027 3 DPE
+LANG:10000 3 Dpe
+LANG:10001 3 Dpe
+"main()
+{
+  string cellString, dpSel;
+  int row, collum;
+
+  getValue(\"\",\"currentCell\",row,collum,
+              \"cellValue\",cellString );
+
+  if (cellString == \" ...\")
+  {
+    dpSelector(dpSel,true);
+
+    if(dpSel!=\"\")
+    {
+      dpSel = dpSubStr( dpSel, DPSUB_SYS_DP_EL );
+      if (strpos(dpSel,\".\")<1) dpSel+=\".\";
+      setValue(\"\",\"cellValueRC\",row,\"value\",dpSel);
+    }
+  }
+}
+" 0
+
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+29 "panelSelector" 2 1 0 "s" 3
+LANG:10027 8 Файл
+LANG:10000 5 Datei
+LANG:10001 4 File
+"main()
+{
+  string cellString, panelSel;
+  int row, collum;
+
+    getValue(\"\",\"currentCell\",row,collum,
+                \"cellValue\",cellString);
+
+  if(cellString == \" ...\")
+  {
+    panelSelector(panelSel);
+
+    if(panelSel!=\"\")
+      setValue(\"\",\"cellValueRC\",row,\"value\",panelSel);
+  }
+}
+" 0
+
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+29 "colorSelector" 2 1 0 "s" 3
+LANG:10027 8 Цвет
+LANG:10000 5 Farbe
+LANG:10001 5 Color
+"main()
+{
+  string cellString, colSel;
+  int row, collum;
+
+  getValue(\"\",\"currentCell\",row,collum,
+              \"cellValue\",cellString);
+
+  if(cellString == \" ...\")
+  {
+    colorEditor(colSel);
+
+    if(colSel!=\"\")  
+      setValue(\"\",\"cellValueRC\",row,\"value\",colSel);
+  }
+}
+
+" 0
+
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+29 "value" 28 1 1 "s" 3
+LANG:10027 16 Значение
+LANG:10000 4 Wert
+LANG:10001 5 Value
+E
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+232 
+24 24 "" 1 3
+LANG:10027 2 #1
+LANG:10000 2 #1
+LANG:10001 2 #1
+"" 1 3
+LANG:10027 2 #2
+LANG:10000 2 #2
+LANG:10001 2 #2
+"" 1 3
+LANG:10027 2 #3
+LANG:10000 2 #3
+LANG:10001 2 #3
+"" 1 3
+LANG:10027 2 #4
+LANG:10000 2 #4
+LANG:10001 2 #4
+"" 1 3
+LANG:10027 2 #5
+LANG:10000 2 #5
+LANG:10001 2 #5
+"" 1 3
+LANG:10027 2 #6
+LANG:10000 2 #6
+LANG:10001 2 #6
+8 78
+3
+LANG:10027 26 Arial,-1,21,5,40,0,0,0,0,0
+LANG:10000 26 Arial,-1,11,5,40,0,0,0,0,0
+LANG:10001 26 Arial,-1,11,5,40,0,0,0,0,0
+0 0 2 0 1 7
+1 0
+0
+LAYER, 2 
+1
+LANG:10027 6 Layer3
+0
+LAYER, 3 
+1
+LANG:10027 6 Layer4
+0
+LAYER, 4 
+1
+LANG:10027 6 Layer5
+0
+LAYER, 5 
+1
+LANG:10027 6 Layer6
+0
+LAYER, 6 
+1
+LANG:10027 6 Layer7
+0
+LAYER, 7 
+1
+LANG:10027 6 Layer8
+0
+0

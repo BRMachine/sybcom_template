@@ -1,0 +1,197 @@
+V 14
+1
+LANG:10027 0 
+PANEL,-1 -1 448 107 N "_3DFace" 1
+"$dpLogicRVS"
+"main(){
+
+  dpConnect(\"worker_val\", LDP + \".OTSTOY.cTime\",         // 1 - Изменение конфигурации
+                          LDP + \".OTSTOY.sTime\");        // 2 - Текущий остаток
+}
+" 0
+ E E E E 1 -1 -1 0  9.000000000000002 11.74362498643612
+""0  1
+E "// const string DP = $dp;
+const string LDP = $dpLogicRVS;
+
+void worker_val(dyn_string dp, dyn_anytype val){
+   cTime.text(val[1]);
+   if(val[2] == 0 | val[2] == val[1]){
+     sTime.text = 0;
+   }else{
+     sTime.text((int)val[2] + 1);
+   }
+}
+" 0
+ 3
+"CBRef" "1"
+"EClose" E
+"dpi" "96"
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 0 
+14 1
+"sTime"
+""
+1 9.088406087184921 48.18078854914319 E E E 0 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+0 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  7.088406087184923 38.90806127641589 80.08840608718492 66.18078854914319
+3 "5.0f" 6 0 0 0 0 -1  E E E
+14 2
+"cTime"
+""
+1 9.088406087184921 76.52710889546348 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+1 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  7.088406087184923 67.2543816227362 80.08840608718492 94.52710889546348
+3 "5.0f" 6 0 0 0 0 -1  E E "main(){
+  dpSetWait(LDP + \".OTSTOY.cTime\", this.text);
+}
+" 0
+
+2 3
+"PRIMITIVE_TEXT2"
+""
+1 242 44 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+2 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 3.629411402331577 0 0.8732807407483312 -875.9592671409548 -31.65175121093348 0 E 242 44 362 74
+0 2 2 "0s" 0 0 0 73 0 0  242 44 1
+1
+LANG:10027 35 Noto Sans,-1,15,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 89 Изменение и мониторинг времени отстоя резервура
+2 4
+"PRIMITIVE_TEXT1"
+""
+1 242 44 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+3 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1.805025708271211 0 0.7352941176470589 -344.0293578107207 36.11534418958114 0 E 242 44 362 74
+0 2 2 "0s" 0 0 0 64 0 0  242 44 1
+1
+LANG:10027 38 Noto Sans,-1,16,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 36 Задать время отстоя
+2 5
+"PRIMITIVE_TEXT3"
+""
+1 242 44 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1.820643900528412 0 0.7352941176470589 -347.8089603369634 10.5551200999453 0 E 242 44 362 74
+0 2 2 "0s" 0 0 0 64 0 0  242 44 1
+1
+LANG:10027 38 Noto Sans,-1,16,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 39 Время до конца отстоя
+13 6
+"clear"
+""
+1 313 60.69403316130587 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+5 0 0 0 0 0
+E E E
+8
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 32 Arial,-1,13,5,87,0,0,0,0,0,Black
+0  311 38.90806127641589 429 94.5271088954635
+
+T 
+1
+LANG:10027 23 Сброс
+отстоя
+"main(mapping event)
+{
+  dpSetWait(LDP + \".CMD.command\", 16384);
+}
+
+" 0
+ E E E
+0
+LAYER, 1 
+1
+LANG:10027 0 
+0
+LAYER, 2 
+1
+LANG:10027 0 
+0
+LAYER, 3 
+1
+LANG:10027 0 
+0
+LAYER, 4 
+1
+LANG:10027 0 
+0
+LAYER, 5 
+1
+LANG:10027 0 
+0
+LAYER, 6 
+1
+LANG:10027 0 
+0
+LAYER, 7 
+1
+LANG:10027 0 
+0
+0

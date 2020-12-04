@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">94 28</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">0 0</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[int g_bit, g_cmdBit;
+/*
+#property int stsBit
+public void setStsBit(int b){
+  g_bit = b;
+}
+public int getStsBit(){
+  return g_bit;
+}
+
+#property int cmdBit
+public void setCmdBit(int b){
+  g_cmdBit = b;
+}
+public int getCmdBit(){
+  return g_cmdBit;
+}
+*/
+#property color backgroundColor
+public void setBackgroundColor(string c){
+  rec_bg.backCol(c);
+}
+public string getBackgroundColor(){
+  return rec_bg.backCol;
+}
+const string dp = $dp;
+//string el = &quot;.status.sts_bit&quot;;
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  dpConnect(&quot;cbSts&quot;, dp);
+}
+
+void cbSts(string dpe, bool val){
+  rec_btn_on.visible(val);
+  rec_btn_off.visible(!val);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape layerId="0" Name="rec_bg" shapeType="RECTANGLE">
+   <properties>
+    <prop name="serialId">3</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">11.64285714285714 45.53571428571433</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 -11.64285714285714 -45.53571428571433</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">11.64285714285714 45.53571428571433</prop>
+    <prop name="Size">25 25.0244565217391</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="rec_btn_on" shapeType="RECTANGLE">
+   <properties>
+    <prop name="serialId">2</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60.8780487804878 125.4711098398169</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">1</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop SharedPixmap="1" name="FillType">[pattern,[fit,any,pictures/apply_22.png]]</prop>
+    <prop name="Geometry">1 0 0 1 -60.87804878048786 -125.4711098398169</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">60.8780487804878 125.4711098398169</prop>
+    <prop name="Size">25 25.0244565217391</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  bit32 mBit;
+  dpSetWait(dp, 0);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="rec_btn_off" shapeType="RECTANGLE">
+   <properties>
+    <prop name="serialId">4</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60.8780487804878 125.4711098398169</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop SharedPixmap="1" name="FillType">[pattern,[fit,any,pictures/delete_24.png]]</prop>
+    <prop name="Geometry">1 0 0 1 -60.87804878048789 -125.4711098398168</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">60.8780487804878 125.4711098398169</prop>
+    <prop name="Size">25 25.0244565217391</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  bit32 mBit;
+  dpSetWait(dp, 1);
+}
+]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">520 161</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">0 0</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <shapes>
+  <reference parentSerial="-1" Name="PANEL_REF2" referenceId="0">
+   <properties>
+    <prop name="FileName">objects/parts/AlertRow.xml</prop>
+    <prop name="Location">43 43</prop>
+    <prop name="Geometry">0.7934782608695653 0 0 7.714285714285714 -34.1195652173913 -331.7142857142857</prop>
+    <prop name="TabOrder">1</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$DP</prop>
+      <prop name="Value">$DP</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$_ALERTROW</prop>
+      <prop name="Value">$_ALERTROW</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="PANEL_REF3" referenceId="1">
+   <properties>
+    <prop name="FileName">objects/parts/AlertRow.xml</prop>
+    <prop name="Location">28 28</prop>
+    <prop name="Geometry">1.021996525234904 0 0 7.714285714285698 -28.61590270657729 -215.9999999999992</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$DP</prop>
+      <prop name="Value">$dp</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$_ALERTROW</prop>
+      <prop name="Value">FALSE</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+ </shapes>
+</panel>

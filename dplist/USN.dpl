@@ -1,0 +1,637 @@
+# ascii dump of database
+
+# DpType
+TypeName
+USN.USN	1#1
+	PST_1	1#2
+		STS	24#10
+		MCT	21#11
+		STP_STS	21#12
+		GRD	21#13
+		OVR_STS	21#14
+		WRK_POS	21#15
+		GRG_POS	21#16
+		STP_ALR	21#17
+		PRD_STS	21#18
+		FIL_STS	21#19
+		BTN_STS	21#74
+		BZA_STS	21#21
+		MBS_LNK	23#22
+		FUL_TYPE	21#23
+		CMD	24#24
+		PRS	22#70
+		VLV	21#75
+		sts	1#82
+			start	23#86
+			stop	23#88
+	PST_2	1#4
+		STS	24#25
+		MCT	21#26
+		STP_STS	21#27
+		GRD	21#28
+		OVR_STS	21#29
+		WRK_POS	21#30
+		GRG_POS	21#31
+		STP_ALR	21#32
+		PRD_STS	21#33
+		FIL_STS	21#34
+		BTN_STS	54#35
+		BZA_STS	21#36
+		MBS_LNK	23#37
+		FUL_TYPE	21#38
+		CMD	24#39
+		PRS	22#71
+		VLV	21#76
+		sts	1#83
+			start	23#89
+			stop	23#91
+	PST_3	1#6
+		STS	24#40
+		MCT	21#41
+		STP_STS	21#42
+		GRD	21#43
+		OVR_STS	21#44
+		WRK_POS	21#45
+		GRG_POS	21#46
+		STP_ALR	21#47
+		PRD_STS	21#48
+		FIL_STS	21#49
+		BTN_STS	54#50
+		BZA_STS	21#51
+		MBS_LNK	23#52
+		FUL_TYPE	21#53
+		CMD	24#54
+		PRS	22#72
+		VLV	21#77
+		sts	1#84
+			start	23#92
+			stop	23#94
+	PST_4	1#8
+		STS	24#55
+		MCT	21#56
+		STP_STS	21#57
+		GRD	21#58
+		OVR_STS	21#59
+		WRK_POS	21#60
+		GRG_POS	21#61
+		STP_ALR	21#62
+		PRD_STS	21#63
+		FIL_STS	21#64
+		BTN_STS	54#65
+		BZA_STS	21#66
+		MBS_LNK	23#67
+		FUL_TYPE	21#68
+		CMD	24#69
+		PRS	22#73
+		VLV	21#78
+		sts	1#85
+			start	23#95
+			stop	23#97
+	ALL	1#79
+		CAR_NUM	21#80
+		FIL_TYP	21#81
+		MES	23#99
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_USN	USN	4599
+
+# Aliases/Comments
+AliasId	AliasName	CommentName
+_mp_USN.PST_1.PRS	""	lt:1 LANG:10027 "@%15.2f@кг/см²"
+_mp_USN.PST_2.PRS	""	lt:1 LANG:10027 "@%15.2f@кг/см²"
+_mp_USN.PST_3.PRS	""	lt:1 LANG:10027 "@%3.2f@кг/см²"
+_mp_USN.PST_4.PRS	""	lt:1 LANG:10027 "@%15.2f@кг/см²"
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+ASC (1)/0	_mp_USN.PST_1.STS	USN	0x0	0x8300000000000101	24.11.2020 07:04:39.512
+ASC (1)/0	_mp_USN.PST_1.MCT	USN	0	0x8300000000000101	24.11.2020 07:04:39.513
+ASC (1)/0	_mp_USN.PST_1.STP_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.523
+ASC (1)/0	_mp_USN.PST_1.GRD	USN	0	0x8300000000000101	24.11.2020 07:04:39.524
+ASC (1)/0	_mp_USN.PST_1.OVR_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.525
+ASC (1)/0	_mp_USN.PST_1.WRK_POS	USN	0	0x8300000000000101	24.11.2020 07:04:39.526
+ASC (1)/0	_mp_USN.PST_1.GRG_POS	USN	0	0x8300000000000101	24.11.2020 07:04:39.527
+ASC (1)/0	_mp_USN.PST_1.STP_ALR	USN	0	0x8300000000000101	24.11.2020 07:04:39.538
+ASC (1)/0	_mp_USN.PST_1.PRD_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.539
+ASC (1)/0	_mp_USN.PST_1.FIL_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.540
+ASC (1)/0	_mp_USN.PST_1.BZA_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.541
+ASC (1)/0	_mp_USN.PST_1.MBS_LNK	USN	0	0x8300000000000101	24.11.2020 07:04:39.542
+ASC (1)/0	_mp_USN.PST_1.FUL_TYPE	USN	0	0x8300000000000101	24.11.2020 07:04:39.554
+ASC (1)/0	_mp_USN.PST_1.CMD	USN	0x0	0x8300000000000101	24.11.2020 07:04:39.555
+ASC (1)/0	_mp_USN.PST_2.STS	USN	0x0	0x8300000000000101	24.11.2020 07:04:39.557
+ASC (1)/0	_mp_USN.PST_2.MCT	USN	0	0x8300000000000101	24.11.2020 07:04:39.558
+ASC (1)/0	_mp_USN.PST_2.STP_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.559
+ASC (1)/0	_mp_USN.PST_2.GRD	USN	0	0x8300000000000101	24.11.2020 07:04:39.569
+ASC (1)/0	_mp_USN.PST_2.OVR_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.570
+ASC (1)/0	_mp_USN.PST_2.WRK_POS	USN	0	0x8300000000000101	24.11.2020 07:04:39.571
+ASC (1)/0	_mp_USN.PST_2.GRG_POS	USN	0	0x8300000000000101	24.11.2020 07:04:39.572
+ASC (1)/0	_mp_USN.PST_2.STP_ALR	USN	0	0x8300000000000101	24.11.2020 07:04:39.573
+ASC (1)/0	_mp_USN.PST_2.PRD_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.585
+ASC (1)/0	_mp_USN.PST_2.FIL_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.586
+ASC (1)/0	_mp_USN.PST_2.BTN_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.587
+ASC (1)/0	_mp_USN.PST_2.BZA_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.587
+ASC (1)/0	_mp_USN.PST_2.MBS_LNK	USN	0	0x8300000000000101	24.11.2020 07:04:39.588
+ASC (1)/0	_mp_USN.PST_2.FUL_TYPE	USN	0	0x8300000000000101	24.11.2020 07:04:39.600
+ASC (1)/0	_mp_USN.PST_2.CMD	USN	0x0	0x8300000000000101	24.11.2020 07:04:39.601
+ASC (1)/0	_mp_USN.PST_3.STS	USN	0x0	0x8300000000000101	24.11.2020 07:04:39.601
+ASC (1)/0	_mp_USN.PST_3.MCT	USN	0	0x8300000000000101	24.11.2020 07:04:39.602
+ASC (1)/0	_mp_USN.PST_3.STP_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.602
+ASC (1)/0	_mp_USN.PST_3.GRD	USN	0	0x8300000000000101	24.11.2020 07:04:39.616
+ASC (1)/0	_mp_USN.PST_3.OVR_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.617
+ASC (1)/0	_mp_USN.PST_3.WRK_POS	USN	0	0x8300000000000101	24.11.2020 07:04:39.618
+ASC (1)/0	_mp_USN.PST_3.GRG_POS	USN	0	0x8300000000000101	24.11.2020 07:04:39.618
+ASC (1)/0	_mp_USN.PST_3.STP_ALR	USN	0	0x8300000000000101	24.11.2020 07:04:39.619
+ASC (1)/0	_mp_USN.PST_3.PRD_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.631
+ASC (1)/0	_mp_USN.PST_3.FIL_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.632
+ASC (1)/0	_mp_USN.PST_3.BTN_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.632
+ASC (1)/0	_mp_USN.PST_3.BZA_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.633
+ASC (1)/0	_mp_USN.PST_3.MBS_LNK	USN	0	0x8300000000000101	24.11.2020 07:04:39.634
+ASC (1)/0	_mp_USN.PST_3.FUL_TYPE	USN	0	0x8300000000000101	24.11.2020 07:04:39.648
+ASC (1)/0	_mp_USN.PST_3.CMD	USN	0x0	0x8300000000000101	24.11.2020 07:04:39.649
+ASC (1)/0	_mp_USN.PST_4.STS	USN	0x0	0x8300000000000101	24.11.2020 07:04:39.649
+ASC (1)/0	_mp_USN.PST_4.MCT	USN	0	0x8300000000000101	24.11.2020 07:04:39.649
+ASC (1)/0	_mp_USN.PST_4.STP_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.650
+ASC (1)/0	_mp_USN.PST_4.GRD	USN	0	0x8300000000000101	24.11.2020 07:04:39.663
+ASC (1)/0	_mp_USN.PST_4.OVR_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.665
+ASC (1)/0	_mp_USN.PST_4.WRK_POS	USN	0	0x8300000000000101	24.11.2020 07:04:39.666
+ASC (1)/0	_mp_USN.PST_4.GRG_POS	USN	0	0x8300000000000101	24.11.2020 07:04:39.667
+ASC (1)/0	_mp_USN.PST_4.STP_ALR	USN	0	0x8300000000000101	24.11.2020 07:04:39.668
+ASC (1)/0	_mp_USN.PST_4.PRD_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.679
+ASC (1)/0	_mp_USN.PST_4.FIL_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.680
+ASC (1)/0	_mp_USN.PST_4.BTN_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.681
+ASC (1)/0	_mp_USN.PST_4.BZA_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.683
+ASC (1)/0	_mp_USN.PST_4.MBS_LNK	USN	0	0x8300000000000101	24.11.2020 07:04:39.684
+ASC (1)/0	_mp_USN.PST_4.FUL_TYPE	USN	0	0x8300000000000101	24.11.2020 07:04:39.695
+ASC (1)/0	_mp_USN.PST_4.CMD	USN	0x0	0x8300000000000101	24.11.2020 07:04:39.696
+ASC (1)/0	_mp_USN.PST_1.PRS	USN	0	0x8300000000020001	24.11.2020 07:04:39.699
+ASC (1)/0	_mp_USN.PST_2.PRS	USN	0	0x8300000000020001	24.11.2020 07:04:39.700
+ASC (1)/0	_mp_USN.PST_3.PRS	USN	0	0x8300000000020001	24.11.2020 07:04:39.702
+ASC (1)/0	_mp_USN.PST_4.PRS	USN	0	0x8300000000020001	24.11.2020 07:04:39.711
+ASC (1)/0	_mp_USN.PST_1.BTN_STS	USN	0	0x8300000000000101	24.11.2020 07:04:39.710
+ASC (1)/0	_mp_USN.PST_1.VLV	USN	0	0x8300000000000101	24.11.2020 07:04:39.711
+ASC (1)/0	_mp_USN.PST_2.VLV	USN	0	0x8300000000000101	24.11.2020 07:04:39.712
+ASC (1)/0	_mp_USN.PST_3.VLV	USN	0	0x8300000000000101	24.11.2020 07:04:39.713
+ASC (1)/0	_mp_USN.PST_4.VLV	USN	0	0x8300000000000101	24.11.2020 07:04:39.724
+ASC (1)/0	_mp_USN.ALL.FIL_TYP	USN	0	0x8300000000000101	24.11.2020 07:04:39.725
+ASC (1)/0	_mp_USN.PST_1.sts.start	USN	0	0x8300000000000101	24.11.2020 07:04:39.725
+ASC (1)/0	_mp_USN.PST_1.sts.stop	USN	0	0x8300000000000101	24.11.2020 07:04:39.725
+ASC (1)/0	_mp_USN.PST_2.sts.start	USN	0	0x8300000000000101	24.11.2020 07:04:39.726
+ASC (1)/0	_mp_USN.PST_2.sts.stop	USN	0	0x8300000000000101	24.11.2020 07:04:39.739
+ASC (1)/0	_mp_USN.PST_3.sts.start	USN	0	0x8300000000000101	24.11.2020 07:04:39.740
+ASC (1)/0	_mp_USN.PST_3.sts.stop	USN	0	0x8300000000000101	24.11.2020 07:04:39.740
+ASC (1)/0	_mp_USN.PST_4.sts.start	USN	0	0x8300000000000101	24.11.2020 07:04:39.741
+ASC (1)/0	_mp_USN.PST_4.sts.stop	USN	0	0x8300000000000101	24.11.2020 07:04:39.741
+
+# DpDefaultValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_default.._type	_default.._value	_default.._set_ibit	_default.._set_pvrange
+ASC (1)/0	1590127325	3	_mp_USN.PST_1.PRS	USN	3	0	0	1
+ASC (1)/0	1590127413	945	_mp_USN.PST_2.PRS	USN	3	0	0	1
+ASC (1)/0	1590127499	610	_mp_USN.PST_3.PRS	USN	3	0	0	1
+ASC (1)/0	1590127542	351	_mp_USN.PST_4.PRS	USN	3	0	0	1
+
+# PvssRangeCheck
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_pv_range.._type	_pv_range.._ignor_inv	_pv_range.._neg	_pv_range.._min	_pv_range.._max	_pv_range.._incl_min	_pv_range.._incl_max	_pv_range.._set	_pv_range.._match
+UI (7)/0	1599220426	553	_mp_USN.PST_1.PRS	USN	7	0	0	0	500	1	1		
+UI (7)/0	1599220443	117	_mp_USN.PST_2.PRS	USN	7	0	0	0	500	1	1		
+UI (7)/0	1599220463	582	_mp_USN.PST_3.PRS	USN	7	0	0	0	500	1	1		
+UI (7)/0	1599220481	334	_mp_USN.PST_4.PRS	USN	7	0	0	0	500	1	1		
+
+# AlertValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+ASC (1)/0	1598507751	192	_mp_USN.PST_1.STS	USN		13					""		lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1598507751	192	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507751	192	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507751	192	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1598507751	192	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1598507751	192	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1598508085	756	_mp_USN.PST_1.STS	USN		13					""		lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1598508085	756	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598508085	756	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598508085	756	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1598508085	756	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1598508085	756	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+UI (8)/0	1598960526	843	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+UI (8)/0	1598960526	843	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960526	843	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+UI (8)/0	1598960526	843	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+UI (8)/0	1598960526	843	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+UI (8)/0	1598960526	843	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+UI (8)/0	1598960533	881	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	0				0																0								
+UI (8)/0	1598960533	881	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960533	881	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+UI (8)/0	1598960533	881	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+UI (8)/0	1598960533	881	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+UI (8)/0	1598960533	881	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+UI (8)/0	1598960548	600	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+UI (8)/0	1598960548	600	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960548	600	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+UI (8)/0	1598960548	600	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+UI (8)/0	1598960548	600	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+UI (8)/0	1598960548	600	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+UI (8)/0	1598960572	939	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+UI (8)/0	1598960572	939	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960572	939	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598960572	939	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+UI (8)/0	1598960572	939	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+UI (8)/0	1598960572	939	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+UI (8)/0	1598960574	6	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	0				0																0								
+UI (8)/0	1598960574	6	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960574	6	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598960574	6	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+UI (8)/0	1598960574	6	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+UI (8)/0	1598960574	6	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+UI (8)/0	1598960644	17	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+UI (8)/0	1598960644	17	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960644	17	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598960644	17	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+UI (8)/0	1598960644	17	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+UI (8)/0	1598960644	17	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+UI (8)/0	1598960666	747	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	0				0																0								
+UI (8)/0	1598960666	747	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960666	747	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598960666	747	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+UI (8)/0	1598960666	747	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+UI (8)/0	1598960666	747	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+UI (7)/0	1599455883	158	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+UI (7)/0	1599455883	158	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599455883	158	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (7)/0	1599455883	158	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+UI (7)/0	1599455883	158	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+UI (7)/0	1599455883	158	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	15	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	15	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	15	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	15	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	15	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	15	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	30	_mp_USN.PST_1.STS	USN		13					""		lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	30	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	30	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	30	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	30	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	30	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	33	_mp_USN.PST_1.STS	USN		13					""		lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	33	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	33	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	33	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	33	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	33	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	46	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	46	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	46	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	46	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	46	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	46	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	63	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	63	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	63	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	63	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	63	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	63	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	67	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	67	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	67	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	67	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	67	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	67	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	77	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	77	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	77	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	77	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	77	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	77	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	93	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	93	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	93	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	93	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	93	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	93	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	106	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	106	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	106	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	106	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	106	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	106	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	111	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	111	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	111	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	111	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	111	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	111	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	124	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	124	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	124	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	124	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	124	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	124	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	136	_mp_USN.PST_1.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	136	_mp_USN.PST_1.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	136	_mp_USN.PST_1.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	136	_mp_USN.PST_1.STS	USN	3	5									information.	lt:1 LANG:10027 "Разрешение налива"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"16"	
+ASC (1)/0	1606201534	136	_mp_USN.PST_1.STS	USN	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	136	_mp_USN.PST_1.STS	USN	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN	2	5									information.	lt:1 LANG:10027 "Гаражное положение"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN	3	5									information.	lt:1 LANG:10027 "Подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN	4	5									information.	lt:1 LANG:10027 "Тест геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN	5	5									information.	lt:1 LANG:10027 "Замыкание геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN	6	5									information.	lt:1 LANG:10027 "Обрыв геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN	7	5									information.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201534	138	_mp_USN.PST_1.BZA_STS	USN	8	5									information.	lt:1 LANG:10027 "Не подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	0				0																0								
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN	2	5									information.	lt:1 LANG:10027 "Гаражное положение"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN	3	5									information.	lt:1 LANG:10027 "Подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN	4	5									information.	lt:1 LANG:10027 "Тест геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN	5	5									information.	lt:1 LANG:10027 "Замыкание геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN	6	5									information.	lt:1 LANG:10027 "Обрыв геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN	7	5									information.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201534	155	_mp_USN.PST_1.BZA_STS	USN	8	5									information.	lt:1 LANG:10027 "Не подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN	2	5									information.	lt:1 LANG:10027 "не подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN	3	5									information.	lt:1 LANG:10027 "в гаражном положении"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN	4	5									information.	lt:1 LANG:10027 "подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN	5	5									information.	lt:1 LANG:10027 "Тест геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN	6	5									information.	lt:1 LANG:10027 "Замыкание геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN	7	5									information.	lt:1 LANG:10027 "Обрыв геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+ASC (1)/0	1606201534	156	_mp_USN.PST_2.BZA_STS	USN	8	5									information.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	0				0																0								
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN	2	5									information.	lt:1 LANG:10027 "не подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN	3	5									information.	lt:1 LANG:10027 "в гаражном положении"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN	4	5									information.	lt:1 LANG:10027 "подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN	5	5									information.	lt:1 LANG:10027 "Тест геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN	6	5									information.	lt:1 LANG:10027 "Замыкание геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN	7	5									information.	lt:1 LANG:10027 "Обрыв геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+ASC (1)/0	1606201534	170	_mp_USN.PST_2.BZA_STS	USN	8	5									information.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+UI (8)/0	1598960764	856	_mp_USN.PST_3.STS	USN		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	1598960792	653	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	1598960792	653	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960792	653	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598960792	653	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+UI (8)/0	1598960795	986	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1598960795	986	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960795	986	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598960795	986	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+UI (8)/0	1598960862	622	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	1598960862	622	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960862	622	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598960862	622	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+UI (8)/0	1598960882	562	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1598960882	562	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598960882	562	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598960882	562	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+UI (8)/0	1598961212	687	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	1598961212	687	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (8)/0	1598961212	687	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (8)/0	1598961212	687	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+ASC (1)/0	1606201534	172	_mp_USN.PST_3.STS	USN		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201534	175	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201534	175	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	175	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	175	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+ASC (1)/0	1606201534	185	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201534	185	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	185	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	185	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+ASC (1)/0	1606201534	188	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201534	188	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	188	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	188	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+ASC (1)/0	1606201534	200	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201534	200	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	200	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	200	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+ASC (1)/0	1606201534	202	_mp_USN.PST_3.STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201534	202	_mp_USN.PST_3.STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	202	_mp_USN.PST_3.STS	USN	2	5									information.	lt:1 LANG:10027 "Ожидание"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	202	_mp_USN.PST_3.STS	USN	3	5									information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"48"	
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN	2	5									information.	lt:1 LANG:10027 "не подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN	3	5									information.	lt:1 LANG:10027 "в гаражном положении"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN	4	5									information.	lt:1 LANG:10027 "подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN	5	5									information.	lt:1 LANG:10027 "Тест геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN	6	5									information.	lt:1 LANG:10027 "Замыкание геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN	7	5									information.	lt:1 LANG:10027 "Обрыв геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+ASC (1)/0	1606201534	204	_mp_USN.PST_3.BZA_STS	USN	8	5									information.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	0				0																0								
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN	2	5									information.	lt:1 LANG:10027 "не подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN	3	5									information.	lt:1 LANG:10027 "в гаражном положении"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN	4	5									information.	lt:1 LANG:10027 "подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN	5	5									information.	lt:1 LANG:10027 "Тест геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN	6	5									information.	lt:1 LANG:10027 "Замыкание геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN	7	5									information.	lt:1 LANG:10027 "Обрыв геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+ASC (1)/0	1606201534	216	_mp_USN.PST_3.BZA_STS	USN	8	5									information.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN	2	5									information.	lt:1 LANG:10027 "не подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN	3	5									information.	lt:1 LANG:10027 "в гаражном положении"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN	4	5									information.	lt:1 LANG:10027 "подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN	5	5									information.	lt:1 LANG:10027 "Тест геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN	6	5									information.	lt:1 LANG:10027 "Замыкание геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN	7	5									information.	lt:1 LANG:10027 "Обрыв геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+ASC (1)/0	1606201534	217	_mp_USN.PST_4.BZA_STS	USN	8	5									information.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN		13					""	""	lt:1 LANG:10027 ""	\0			1	0				0																0								
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN	2	5									information.	lt:1 LANG:10027 "не подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN	3	5									information.	lt:1 LANG:10027 "в гаражном положении"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN	4	5									information.	lt:1 LANG:10027 "подключено"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN	5	5									information.	lt:1 LANG:10027 "Тест геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN	6	5									information.	lt:1 LANG:10027 "Замыкание геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN	7	5									information.	lt:1 LANG:10027 "Обрыв геркона"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+ASC (1)/0	1606201534	232	_mp_USN.PST_4.BZA_STS	USN	8	5									information.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+UI (7)/0	1599458465	256	_mp_USN.PST_1.sts.start	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599458483	816	_mp_USN.PST_1.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	233	_mp_USN.PST_1.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	244	_mp_USN.PST_1.sts.start	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	246	_mp_USN.PST_1.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	248	_mp_USN.PST_1.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599458910	695	_mp_USN.PST_1.sts.stop	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599458917	767	_mp_USN.PST_1.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	249	_mp_USN.PST_1.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	251	_mp_USN.PST_1.sts.stop	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	253	_mp_USN.PST_1.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	255	_mp_USN.PST_1.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599457514	226	_mp_USN.PST_2.sts.start	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599457537	327	_mp_USN.PST_2.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	259	_mp_USN.PST_2.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	263	_mp_USN.PST_2.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	265	_mp_USN.PST_2.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599458939	497	_mp_USN.PST_2.sts.stop	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599458947	945	_mp_USN.PST_2.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	265	_mp_USN.PST_2.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	274	_mp_USN.PST_2.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	275	_mp_USN.PST_2.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599458972	88	_mp_USN.PST_3.sts.start	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599458978	63	_mp_USN.PST_3.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	278	_mp_USN.PST_3.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599458996	94	_mp_USN.PST_3.sts.stop	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599459002	910	_mp_USN.PST_3.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	291	_mp_USN.PST_3.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599459019	544	_mp_USN.PST_4.sts.start	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599459026	74	_mp_USN.PST_4.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	292	_mp_USN.PST_4.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	293	_mp_USN.PST_4.sts.start	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599459040	699	_mp_USN.PST_4.sts.stop	USN		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599459047	359	_mp_USN.PST_4.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201534	308	_mp_USN.PST_4.sts.stop	USN		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+
+# DistributionInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+ASC (1)/0	1598507760	825	_mp_USN.PST_1.STS	USN	56	\10
+ASC (1)/0	1598507760	826	_mp_USN.PST_1.MCT	USN	56	\10
+ASC (1)/0	1598507760	826	_mp_USN.PST_1.STP_STS	USN	56	\10
+ASC (1)/0	1598507760	826	_mp_USN.PST_1.GRD	USN	56	\10
+ASC (1)/0	1598507760	826	_mp_USN.PST_1.OVR_STS	USN	56	\10
+ASC (1)/0	1598507760	827	_mp_USN.PST_1.WRK_POS	USN	56	\10
+ASC (1)/0	1598507760	828	_mp_USN.PST_1.GRG_POS	USN	56	\10
+ASC (1)/0	1598507760	828	_mp_USN.PST_1.STP_ALR	USN	56	\10
+ASC (1)/0	1598507760	828	_mp_USN.PST_1.PRD_STS	USN	56	\10
+ASC (1)/0	1598507760	828	_mp_USN.PST_1.FIL_STS	USN	56	\10
+ASC (1)/0	1598507760	829	_mp_USN.PST_1.BZA_STS	USN	56	\10
+ASC (1)/0	1598507760	830	_mp_USN.PST_1.MBS_LNK	USN	56	\10
+ASC (1)/0	1598507760	830	_mp_USN.PST_1.FUL_TYPE	USN	56	\10
+ASC (1)/0	1598507760	830	_mp_USN.PST_1.CMD	USN	56	\10
+ASC (1)/0	1598507760	830	_mp_USN.PST_2.STS	USN	56	\10
+ASC (1)/0	1598507760	831	_mp_USN.PST_2.MCT	USN	56	\10
+ASC (1)/0	1598507760	832	_mp_USN.PST_2.STP_STS	USN	56	\10
+ASC (1)/0	1598507760	832	_mp_USN.PST_2.GRD	USN	56	\10
+ASC (1)/0	1598507760	832	_mp_USN.PST_2.OVR_STS	USN	56	\10
+ASC (1)/0	1598507760	832	_mp_USN.PST_2.WRK_POS	USN	56	\10
+ASC (1)/0	1598507760	833	_mp_USN.PST_2.GRG_POS	USN	56	\10
+ASC (1)/0	1598507760	834	_mp_USN.PST_2.STP_ALR	USN	56	\10
+ASC (1)/0	1598507760	834	_mp_USN.PST_2.PRD_STS	USN	56	\10
+ASC (1)/0	1598507760	834	_mp_USN.PST_2.FIL_STS	USN	56	\10
+ASC (1)/0	1598507760	834	_mp_USN.PST_2.BTN_STS	USN	56	\10
+ASC (1)/0	1598507760	835	_mp_USN.PST_2.BZA_STS	USN	56	\10
+ASC (1)/0	1598507760	836	_mp_USN.PST_2.MBS_LNK	USN	56	\10
+ASC (1)/0	1598507760	836	_mp_USN.PST_2.FUL_TYPE	USN	56	\10
+ASC (1)/0	1598507760	836	_mp_USN.PST_2.CMD	USN	56	\10
+ASC (1)/0	1598507760	836	_mp_USN.PST_3.STS	USN	56	\10
+ASC (1)/0	1598507760	837	_mp_USN.PST_3.MCT	USN	56	\10
+ASC (1)/0	1598507760	838	_mp_USN.PST_3.STP_STS	USN	56	\10
+ASC (1)/0	1598507760	838	_mp_USN.PST_3.GRD	USN	56	\10
+ASC (1)/0	1598507760	838	_mp_USN.PST_3.OVR_STS	USN	56	\10
+ASC (1)/0	1598507760	838	_mp_USN.PST_3.WRK_POS	USN	56	\10
+ASC (1)/0	1598507760	839	_mp_USN.PST_3.GRG_POS	USN	56	\10
+ASC (1)/0	1598507760	840	_mp_USN.PST_3.STP_ALR	USN	56	\10
+ASC (1)/0	1598507760	840	_mp_USN.PST_3.PRD_STS	USN	56	\10
+ASC (1)/0	1598507760	840	_mp_USN.PST_3.FIL_STS	USN	56	\10
+ASC (1)/0	1598507760	840	_mp_USN.PST_3.BTN_STS	USN	56	\10
+ASC (1)/0	1598507760	841	_mp_USN.PST_3.BZA_STS	USN	56	\10
+ASC (1)/0	1598507760	842	_mp_USN.PST_3.MBS_LNK	USN	56	\10
+ASC (1)/0	1598507760	842	_mp_USN.PST_3.FUL_TYPE	USN	56	\10
+ASC (1)/0	1598507760	842	_mp_USN.PST_3.CMD	USN	56	\10
+ASC (1)/0	1598507760	842	_mp_USN.PST_4.STS	USN	56	\10
+ASC (1)/0	1598507760	843	_mp_USN.PST_4.MCT	USN	56	\10
+ASC (1)/0	1598507760	844	_mp_USN.PST_4.STP_STS	USN	56	\10
+ASC (1)/0	1598507760	844	_mp_USN.PST_4.GRD	USN	56	\10
+ASC (1)/0	1598507760	844	_mp_USN.PST_4.OVR_STS	USN	56	\10
+ASC (1)/0	1598507760	844	_mp_USN.PST_4.WRK_POS	USN	56	\10
+ASC (1)/0	1598507760	845	_mp_USN.PST_4.GRG_POS	USN	56	\10
+ASC (1)/0	1598507760	846	_mp_USN.PST_4.STP_ALR	USN	56	\10
+ASC (1)/0	1598507760	846	_mp_USN.PST_4.PRD_STS	USN	56	\10
+ASC (1)/0	1598507760	846	_mp_USN.PST_4.FIL_STS	USN	56	\10
+ASC (1)/0	1598507760	846	_mp_USN.PST_4.BTN_STS	USN	56	\10
+ASC (1)/0	1598507760	847	_mp_USN.PST_4.BZA_STS	USN	56	\10
+ASC (1)/0	1598507760	848	_mp_USN.PST_4.MBS_LNK	USN	56	\10
+ASC (1)/0	1598507760	848	_mp_USN.PST_4.FUL_TYPE	USN	56	\10
+ASC (1)/0	1598507760	848	_mp_USN.PST_4.CMD	USN	56	\10
+ASC (1)/0	1598507760	848	_mp_USN.PST_1.PRS	USN	56	\10
+ASC (1)/0	1598507760	849	_mp_USN.PST_2.PRS	USN	56	\10
+ASC (1)/0	1598507760	850	_mp_USN.PST_3.PRS	USN	56	\10
+ASC (1)/0	1598507760	850	_mp_USN.PST_4.PRS	USN	56	\10
+ASC (1)/0	1598507760	850	_mp_USN.PST_1.BTN_STS	USN	56	\10
+ASC (1)/0	1598507760	850	_mp_USN.PST_1.VLV	USN	56	\10
+ASC (1)/0	1598507760	851	_mp_USN.PST_2.VLV	USN	56	\10
+ASC (1)/0	1598507760	852	_mp_USN.PST_3.VLV	USN	56	\10
+ASC (1)/0	1598507760	852	_mp_USN.PST_4.VLV	USN	56	\10
+UI (7)/0	1599798588	861	_mp_USN.ALL.FIL_TYP	USN	56	\10
+
+# DpFunction
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
+ASC (1)/0	1606201625	925	_mp_USN.PST_1.sts.start	USN	60	_mp_USN.PST_1.STS:_original.._value	"p1 & 0x20"		1
+ASC (1)/0	1606201625	926	_mp_USN.PST_1.sts.stop	USN	60	_mp_USN.PST_1.STS:_original.._value	"p1 & 0x00"		1
+ASC (1)/0	1606201625	938	_mp_USN.PST_2.sts.start	USN	60	_mp_USN.PST_2.STS:_original.._value	"p1 & 0x20"		1
+ASC (1)/0	1606201625	939	_mp_USN.PST_2.sts.stop	USN	60	_mp_USN.PST_2.STS:_original.._value	"p1 & 0x00"		1
+ASC (1)/0	1606201625	940	_mp_USN.PST_3.sts.start	USN	60	_mp_USN.PST_3.STS:_original.._value	"p1 & 0x20"		1
+ASC (1)/0	1606201625	941	_mp_USN.PST_3.sts.stop	USN	60	_mp_USN.PST_3.STS:_original.._value	"p1 & 0x00"		1
+ASC (1)/0	1606201625	942	_mp_USN.PST_4.sts.start	USN	60	_mp_USN.PST_4.STS:_original.._value	"p1 & 0x20"		1
+ASC (1)/0	1606201625	954	_mp_USN.PST_4.sts.stop	USN	60	_mp_USN.PST_4.STS:_original.._value	"p1 & 0x00"		1
+
+# PeriphAddrMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+ASC (1)/0	1598525718	651	_mp_USN.PST_1.STS	USN	16	"_mp_USN.Data.Data[1].sStatusPosta"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	651	_mp_USN.PST_1.MCT	USN	16	"_mp_USN.Data.Data[1].sCountInspector"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	652	_mp_USN.PST_1.STP_STS	USN	16	"_mp_USN.Data.Data[1].sStatusStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	652	_mp_USN.PST_1.GRD	USN	16	"_mp_USN.Data.Data[1].sSensorGround"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	654	_mp_USN.PST_1.OVR_STS	USN	16	"_mp_USN.Data.Data[1].sSensorOverflow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	654	_mp_USN.PST_1.WRK_POS	USN	16	"_mp_USN.Data.Data[1].sSensorWorkPosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	654	_mp_USN.PST_1.GRG_POS	USN	16	"_mp_USN.Data.Data[1].sGaragePosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	655	_mp_USN.PST_1.STP_ALR	USN	16	"_mp_USN.Data.Data[1].sSensorAlarmStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	655	_mp_USN.PST_1.PRD_STS	USN	16	"_mp_USN.Data.Data[1].sSensorProduct"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	657	_mp_USN.PST_1.FIL_STS	USN	16	"_mp_USN.Data.Data[1].sSensorFilter"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	657	_mp_USN.PST_1.BZA_STS	USN	16	"_mp_USN.Data.Data[1].sStatusGroundBZA"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	657	_mp_USN.PST_1.MBS_LNK	USN	16	"_mp_USN.Data.Data[1].MBNoLink"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525718	658	_mp_USN.PST_1.FUL_TYPE	USN	16	"_mp_USN.Data.Data[1].OilType"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (7)/0	1598593456	359	_mp_USN.PST_1.CMD	USN	16	"_mp_USN.Data.Data[1].cCommand"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	660	_mp_USN.PST_2.STS	USN	16	"_mp_USN.Data.Data[2].sStatusPosta"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	660	_mp_USN.PST_2.MCT	USN	16	"_mp_USN.Data.Data[2].sCountInspector"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	660	_mp_USN.PST_2.STP_STS	USN	16	"_mp_USN.Data.Data[2].sStatusStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	661	_mp_USN.PST_2.GRD	USN	16	"_mp_USN.Data.Data[2].sSensorGround"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	661	_mp_USN.PST_2.OVR_STS	USN	16	"_mp_USN.Data.Data[2].sSensorOverflow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	663	_mp_USN.PST_2.WRK_POS	USN	16	"_mp_USN.Data.Data[2].sSensorWorkPosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	663	_mp_USN.PST_2.GRG_POS	USN	16	"_mp_USN.Data.Data[2].sGaragePosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	664	_mp_USN.PST_2.STP_ALR	USN	16	"_mp_USN.Data.Data[2].sSensorAlarmStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	664	_mp_USN.PST_2.PRD_STS	USN	16	"_mp_USN.Data.Data[2].sSensorProduct"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	665	_mp_USN.PST_2.FIL_STS	USN	16	"_mp_USN.Data.Data[2].sSensorFilter"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	666	_mp_USN.PST_2.BTN_STS	USN	16	"_mp_USN.Data.Data[2].sButtonStartStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	666	_mp_USN.PST_2.BZA_STS	USN	16	"_mp_USN.Data.Data[2].sStatusGroundBZA"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	666	_mp_USN.PST_2.MBS_LNK	USN	16	"_mp_USN.Data.Data[2].MBNoLink"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525718	667	_mp_USN.PST_2.FUL_TYPE	USN	16	"_mp_USN.Data.Data[2].OilType"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (7)/0	1598593667	907	_mp_USN.PST_2.CMD	USN	16	"_mp_USN.Data.Data[2].cCommand"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	669	_mp_USN.PST_3.STS	USN	16	"_mp_USN.Data.Data[3].sStatusPosta"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	669	_mp_USN.PST_3.MCT	USN	16	"_mp_USN.Data.Data[3].sCountInspector"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	669	_mp_USN.PST_3.STP_STS	USN	16	"_mp_USN.Data.Data[3].sStatusStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	670	_mp_USN.PST_3.GRD	USN	16	"_mp_USN.Data.Data[3].sSensorGround"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	670	_mp_USN.PST_3.OVR_STS	USN	16	"_mp_USN.Data.Data[3].sSensorOverflow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	672	_mp_USN.PST_3.WRK_POS	USN	16	"_mp_USN.Data.Data[3].sSensorWorkPosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	672	_mp_USN.PST_3.GRG_POS	USN	16	"_mp_USN.Data.Data[3].sGaragePosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	672	_mp_USN.PST_3.STP_ALR	USN	16	"_mp_USN.Data.Data[3].sSensorAlarmStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	673	_mp_USN.PST_3.PRD_STS	USN	16	"_mp_USN.Data.Data[3].sSensorProduct"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	673	_mp_USN.PST_3.FIL_STS	USN	16	"_mp_USN.Data.Data[3].sSensorFilter"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	674	_mp_USN.PST_3.BTN_STS	USN	16	"_mp_USN.Data.Data[3].sButtonStartStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	674	_mp_USN.PST_3.BZA_STS	USN	16	"_mp_USN.Data.Data[3].sStatusGroundBZA"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	674	_mp_USN.PST_3.MBS_LNK	USN	16	"_mp_USN.Data.Data[3].MBNoLink"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525718	675	_mp_USN.PST_3.FUL_TYPE	USN	16	"_mp_USN.Data.Data[3].OilType"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (7)/0	1598593706	849	_mp_USN.PST_3.CMD	USN	16	"_mp_USN.Data.Data[3].cCommand"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	677	_mp_USN.PST_4.STS	USN	16	"_mp_USN.Data.Data[4].sStatusPosta"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	677	_mp_USN.PST_4.MCT	USN	16	"_mp_USN.Data.Data[4].sCountInspector"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	677	_mp_USN.PST_4.STP_STS	USN	16	"_mp_USN.Data.Data[4].sStatusStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	678	_mp_USN.PST_4.GRD	USN	16	"_mp_USN.Data.Data[4].sSensorGround"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	678	_mp_USN.PST_4.OVR_STS	USN	16	"_mp_USN.Data.Data[4].sSensorOverflow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	680	_mp_USN.PST_4.WRK_POS	USN	16	"_mp_USN.Data.Data[4].sSensorWorkPosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	680	_mp_USN.PST_4.GRG_POS	USN	16	"_mp_USN.Data.Data[4].sGaragePosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	680	_mp_USN.PST_4.STP_ALR	USN	16	"_mp_USN.Data.Data[4].sSensorAlarmStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	681	_mp_USN.PST_4.PRD_STS	USN	16	"_mp_USN.Data.Data[4].sSensorProduct"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	681	_mp_USN.PST_4.FIL_STS	USN	16	"_mp_USN.Data.Data[4].sSensorFilter"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	683	_mp_USN.PST_4.BTN_STS	USN	16	"_mp_USN.Data.Data[4].sButtonStartStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	683	_mp_USN.PST_4.BZA_STS	USN	16	"_mp_USN.Data.Data[4].sStatusGroundBZA"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	683	_mp_USN.PST_4.MBS_LNK	USN	16	"_mp_USN.Data.Data[4].MBNoLink"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525718	684	_mp_USN.PST_4.FUL_TYPE	USN	16	"_mp_USN.Data.Data[4].OilType"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (7)/0	1598593715	807	_mp_USN.PST_4.CMD	USN	16	"_mp_USN.Data.Data[4].cCommand"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+UI (7)/0	1599214647	552	_mp_USN.PST_1.PRS	USN	16	"_mp_USN.Data.Data[1].xPress"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214659	521	_mp_USN.PST_2.PRS	USN	16	"_mp_USN.Data.Data[2].xPress"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214671	105	_mp_USN.PST_3.PRS	USN	16	"_mp_USN.Data.Data[3].xPress"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214682	493	_mp_USN.PST_4.PRS	USN	16	"_mp_USN.Data.Data[4].xPress"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598525718	686	_mp_USN.PST_1.BTN_STS	USN	16	"_mp_USN.Data.Data[1].sButtonStartStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525718	688	_mp_USN.PST_1.VLV	USN	16	"_mp_USN.Data.Data[1].sVlv"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	688	_mp_USN.PST_2.VLV	USN	16	"_mp_USN.Data.Data[2].sVlv"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	688	_mp_USN.PST_3.VLV	USN	16	"_mp_USN.Data.Data[3].sVlv"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598525718	689	_mp_USN.PST_4.VLV	USN	16	"_mp_USN.Data.Data[4].sVlv"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+UI (7)/0	1599798639	729	_mp_USN.ALL.FIL_TYP	USN	16	"_mp_USN.OilType"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"

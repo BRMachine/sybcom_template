@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">323 555</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">0 0</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[dyn_string RESULT_QUERY_DPS;
+dyn_string Init(string DP)
+{
+  dyn_string QUERY_DPE;
+
+  QUERY_DPE[1] = DP + &quot;.ENABLE&quot;;
+  QUERY_DPE[2] = DP + &quot;.NAME&quot;;
+  QUERY_DPE[3] = DP + &quot;.DPT&quot;;
+  QUERY_DPE[4] = DP + &quot;.DPE&quot;;
+
+  return QUERY_DPE;
+}
+
+void TREND_QUERY(string sSystemName, string DPT, string ELs, string filter)
+{
+  dyn_dyn_anytype RESULT;
+  string QUERY_STR;
+  if (sSystemName==&quot;&quot;)
+    QUERY_STR=&quot;SELECT '_original.._value' FROM '*.**' WHERE _DPT IN (&quot;+DPT+&quot;) AND _EL IN (&quot;+ELs+&quot;)&quot;;
+  else
+    QUERY_STR=&quot;SELECT '_original.._value' FROM '*.**' REMOTE '&quot; + sSystemName + &quot;' WHERE _DPT IN (&quot;+DPT+&quot;) AND _EL IN (&quot;+ELs+&quot;)&quot;;
+
+  dpQuery(QUERY_STR, RESULT);
+  dynRemove(RESULT, 1);
+  for (int i=1;i&lt;=dynlen(RESULT);i++){
+    if(strpos((string)RESULT[i][1], &quot;_mp_&quot;, 0)==-1){
+      dynAppend(RESULT_QUERY_DPS, RESULT[i][1]);
+    }
+  }
+}
+
+string dynStringToFormatString(dyn_string ELs)
+{
+  string result;
+
+  for(int i=1; i&lt;=dynlen(ELs);i++)
+  {
+    ELs[i]='&quot;'+ELs[i]+'&quot;';
+  }
+  if(dynlen(ELs)&gt;0){
+    result=ELs[1];
+      for(int i=2; i&lt;=dynlen(ELs);i++)
+      {
+        result+=&quot;, &quot;+ELs[i];
+      }
+  }
+  return result;
+}
+
+void TAG_Find()
+{
+}
+
+void ShowData(string sSystemName, dyn_anytype TYPES, dyn_anytype ELEMENTS)
+{
+  DebugN(&quot;getThreadId=&quot;,getThreadId());
+  //DebugN(TYPES, ELEMENTS);
+  //string TYPE            = dynStringToFormatString(TYPES);
+  //string ELEMENT         = dynStringToFormatString(ELEMENTS);
+
+  TREND_QUERY(sSystemName, dynStringToFormatString(TYPES), dynStringToFormatString(ELEMENTS), &quot;&quot;);
+
+  string Name, ID, Description ;
+  //DebugN(TYPE, ELEMENT);
+  DebugN(sSystemName, RESULT_QUERY_DPS);
+  /*
+  dpTREE.clear();
+  dpTREE.addColumn(&quot;TAG&quot;);
+  dpTREE.addColumn(&quot;DESC&quot;);
+  dpTREE.addColumn(&quot;ALIAS&quot;);
+  dpTREE.headerHidden = TRUE;
+  dpTREE.appendItem(&quot;&quot;,&quot;WHOLE_NAME&quot;,&quot;Сигналы&quot;);
+  dpTREE.setDragEnabled(&quot;WHOLE_NAME&quot;,0);
+  dpTREE.setSelectedItem(&quot;WHOLE_NAME&quot;,0);
+  dpTREE.expandAll();
+
+
+  for (int i=2;i&lt;=dynlen(result);i++)
+  {
+
+    ID=result[i][1];
+    Name=dpSubStr(result[i][1],DPSUB_DP);
+    if(substr(Name, 0, 4)!=&quot;_mp_&quot;){
+
+      Description=dpGetDescription(ID);
+
+      dpTREE.appendItem(&quot;WHOLE_NAME&quot;,ID,Name);
+      dpTREE.setText(ID, 1, Description);
+      dpTREE.setDragEnabled(ID,1);
+    }
+  }
+  */
+}
+
+void ShowData(string sSystemName, dyn_anytype TYPES, dyn_anytype ELEMENTS)
+{
+  DebugN(&quot;getThreadId=&quot;,getThreadId());
+  //DebugN(TYPES, ELEMENTS);
+  //string TYPE            = dynStringToFormatString(TYPES);
+  //string ELEMENT         = dynStringToFormatString(ELEMENTS);
+
+  TREND_QUERY(sSystemName, dynStringToFormatString(TYPES), dynStringToFormatString(ELEMENTS), &quot;&quot;);
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+
+  dyn_string TREND_QUERY_DPs =Init(&quot;SYBCOM_TREND_QUERY_NUM_00001&quot;);//   Init($TREND_QUERY_DP);
+
+  dynAppend(TREND_QUERY_DPs, &quot;_DistManager.State.SystemNums&quot;);
+  dynAppend(TREND_QUERY_DPs, &quot;_DistManager_2.State.SystemNums&quot;);
+  dynAppend(TREND_QUERY_DPs, &quot;_Connections.Dist.ManNums&quot;);
+  dynAppend(TREND_QUERY_DPs, &quot;_Connections_2.Dist.ManNums&quot;);
+
+  dpConnect(&quot;work&quot;, TREND_QUERY_DPs);
+}
+void work(dyn_string T_DPE, dyn_anytype T_DPD)
+{
+  dyn_int diConnectedSysNums;
+  dyn_string dsConnectedSystems;
+
+  int iActiveHost;
+  reduActive(iActiveHost);
+
+  if ( iActiveHost == 2  )// Активна 2я ситема
+  {
+    if ( dynContains(T_DPD[8], getSystemId()) )
+      diConnectedSysNums = T_DPD[6];
+    else
+      diConnectedSysNums = makeDynInt(getSystemId());
+  }
+  else // Активна 1я ситема или не резервируется
+  {
+    if ( dynContains(T_DPD[7], getSystemId()) )
+      diConnectedSysNums = T_DPD[5];
+    else
+      diConnectedSysNums = makeDynInt(getSystemId());
+  }
+
+  dynAppend(diConnectedSysNums, getSystemId());
+
+  for(int i=1;i&lt;=dynlen(diConnectedSysNums);i++)
+  {
+    string sSystemName = getSystemName(diConnectedSysNums[i]);
+
+    if ( sSystemName == &quot;&quot; ) // Неопознанная система
+      continue;
+
+    if (sSystemName == getSystemName())
+      startThread(&quot;ShowData&quot;, &quot;&quot;, T_DPD[3], T_DPD[4]);
+    else
+      startThread(&quot;ShowData&quot;, sSystemName, T_DPD[3], T_DPD[4]);
+  }
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape layerId="0" Name="dpTREE" shapeType="TREE">
+   <properties>
+    <prop name="serialId">1</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 0</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">0</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="AcceptDrops">True</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">0 0</prop>
+    <prop name="Size">316 511</prop>
+    <extended>
+     <prop name="selectionMode" type="ENUM">2</prop>
+     <prop name="frameShadow" type="ENUM">16</prop>
+    </extended>
+   </properties>
+   <events>
+    <script name="DragStart" isEscaped="1"><![CDATA[main(int keys, string id)
+{
+  //string selectedItems;
+  dyn_string tmp=this.selectedItems();
+  dyn_string rez;
+  int count=dynlen(tmp);
+  int k=1;
+  for(int i=1;i&lt;count;i=i+this.columns)
+  {
+    rez[k]=tmp[i];
+    k++;
+  }
+
+  dragStart(dynStringToString(rez),&quot;detail_32.png&quot;,DRAG_COPY);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="TEXT_FIELD1" shapeType="TEXT_FIELD">
+   <properties>
+    <prop name="serialId">3</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 519</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">1</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">0 510.0000000000001</prop>
+    <prop name="Size">316 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_BEGINNING]</prop>
+   </properties>
+   <events>
+    <script name="Command" isEscaped="1"><![CDATA[main()
+{
+  TAG_Find();
+}]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

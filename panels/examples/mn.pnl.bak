@@ -1,0 +1,90 @@
+V 14
+1
+LANG:10027 0 
+PANEL,-1 -1 400 290 N "_3DFace" 0
+E E E E E 1 -1 -1 0  20 34
+""0  1
+E E 3
+"CBRef" "1"
+"EClose" E
+"dpi" "96"
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 0 
+1 1 0 "" 4
+0
+1 13 1 "" 1
+0
+1 19 2 "" 2
+0
+1 34 3 "" 10
+0
+1 53 4 "" 15
+0
+0
+LAYER, 1 
+1
+LANG:10027 0 
+1 33 2 "" 19
+0
+0
+LAYER, 2 
+1
+LANG:10027 0 
+0
+LAYER, 3 
+1
+LANG:10027 0 
+0
+LAYER, 4 
+1
+LANG:10027 0 
+0
+LAYER, 5 
+1
+LANG:10027 0 
+0
+LAYER, 6 
+1
+LANG:10027 0 
+0
+LAYER, 7 
+1
+LANG:10027 0 
+0
+3 0 "PANEL_REF1" -1
+"layoutAlignment" "AlignNone"
+"" ""
+"objects/PAZ_GAS.pnl" 20 30 T 1 U 
+1
+"$dp""PAZ_GAS"
+3 1 "PANEL_REF3" -1
+"layoutAlignment" "AlignNone"
+"" ""
+"objects/RSU_DI.pnl" 194.101074387764 253.836004784689 T 2 1 0 1 -159.6077922077921 -180.686004784689
+1
+"$dp""RSU_DI"
+3 2 "PANEL_REF4" -1
+"layoutAlignment" "AlignNone"
+"" ""
+"objects/RSU_NA.pnl" 184 14.90470494417869 T 2 U 
+2
+"$_pDp"""
+"$dp""RSU_NA"
+3 3 "PANEL_REF5" -1
+"layoutAlignment" "AlignNone"
+"" ""
+"objects/RSU_REG.pnl" 55.79220779220783 207 T 3 1 0 1 2.963199421254529 -0.25
+2
+"$_sComment"""
+"$dp""RSU_REG"
+3 4 "PANEL_REF6" -1
+"layoutAlignment" "AlignNone"
+"" ""
+"objects/RSU_VLV.pnl" 199.375 178.8984375 T 4 U 
+1
+"$dp""RSU_VLV"
+0

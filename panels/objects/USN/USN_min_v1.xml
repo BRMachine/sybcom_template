@@ -1,0 +1,1952 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">751 138</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">7.500000000000227 9</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string DP = $dp;
+
+#property string carName
+public void   setCarName(string s){ txt_name.text = s; }
+public string getCarName()        { return txt_name.text; }
+
+
+
+public void setFuel(int fuel){
+  switch (fuel){
+    case 1:
+      txt_type.text(&quot;ДТ&quot;);
+      txt_type.backCol(&quot;DT&quot;);
+      break;
+    case 2:
+      txt_type.text(&quot;ДТ&quot;);
+      txt_type.backCol(&quot;DT&quot;);
+      break;
+    case 3:
+      txt_type.text(&quot;92&quot;);
+      txt_type.backCol(&quot;AI92&quot;);
+      break;
+    case 4:
+      txt_type.text(&quot;95&quot;);
+      txt_type.backCol(&quot;AI95&quot;);
+      break;
+    default:
+      txt_type.text(&quot;неизв&quot;);
+      txt_type.backCol(&quot;red&quot;);
+      break;
+  }
+}
+
+dyn_dyn_anytype sortData(dyn_anytype vals){
+  dyn_dyn_anytype result;
+  for(int i=0; i&lt;4; i++){
+    dyn_anytype t_post;
+    for(int j=1; j&lt;=7; j++){
+      dynAppend(t_post, vals[i*7+j]);
+    }
+    dynAppend(result, t_post);
+  }
+  return result;
+}
+
+string stsToText(int sts){
+  string res;
+  switch(sts){
+    case 0x00:
+      res = &quot;Ожидание&quot;;
+      break;
+    case 0x10:
+      res = &quot;Разрешение&quot;;
+      break;
+    case 0x20:
+      res = &quot;Налив&quot;;
+      break;
+    case 0x30:
+      res = &quot;Пауза&quot;;
+      break;
+    case 0x40:
+      res = &quot;Продолжение&quot;;
+      break;
+    case 0x60:
+      res = &quot;Ошибка&quot;;
+      break;
+    case 0x80:
+      res = &quot;Не активный&quot;;
+      break;
+    default:
+      res = &quot;Неизвестно&quot;;
+  }
+  return res;
+}
+
+string stsToColor(int sts){
+  string res;
+  switch(sts){
+    case 0x00:
+      res = &quot;Yellow&quot;;
+      break;
+    case 0x10:
+      res = &quot;Yellow&quot;;
+      break;
+    case 0x20:
+      res = &quot;Green&quot;;
+      break;
+    case 0x30:
+      res = &quot;Yellow&quot;;
+      break;
+    case 0x40:
+      res = &quot;Green&quot;;
+      break;
+    case 0x60:
+      res = &quot;Red&quot;;
+      break;
+    case 0x80:
+      res = &quot;Red&quot;;
+      break;
+    default:
+      res = &quot;Red&quot;;
+  }
+  return res;
+}
+
+void cbWorker(dyn_string dps, dyn_anytype vals){
+  dyn_dyn_anytype dd_vals = sortData(vals);
+  dyn_dyn_anytype dd_dps = sortData(dps);
+
+  int dt_work = dd_vals[1][4] + dd_vals[2][4];
+  int dt_grg  = dd_vals[1][5] + dd_vals[2][5];
+  int ai_work = dd_vals[3][4] + dd_vals[4][4];
+  int ai_grg  = dd_vals[3][5] + dd_vals[4][5];
+
+  if(dt_work&gt;0){
+    dt_end.backCol(&quot;Green&quot;);
+    dt_end.text(&quot;ДТ Подключ.&quot;);
+    dt_arm.visible(true);
+  }else{
+    dt_end.backCol(&quot;Red&quot;);
+    dt_end.text(&quot;ДТ Отключ.&quot;);
+    dt_arm.visible(false);
+  }
+
+  if(ai_work&gt;0){
+    ai_end.backCol(&quot;Green&quot;);
+    ai_end.text(&quot;АИ Подключ.&quot;);
+    ai_arm.visible(true);
+  }else{
+    ai_end.backCol(&quot;Red&quot;);
+    ai_end.text(&quot;АИ Отключ.&quot;);
+    ai_arm.visible(false);
+  }
+  bool vis_pst_sts_00 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x00))|((vals[29]==2)&amp;(dd_vals[2][6]==0x00))|((vals[29]==3)&amp;(dd_vals[3][6]==0x00))|((vals[29]==4)&amp;(dd_vals[4][6]==0x00));
+  pst_sts_00.visible = vis_pst_sts_00;
+  bool vis_pst_sts_10 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x10))|((vals[29]==2)&amp;(dd_vals[2][6]==0x10))|((vals[29]==3)&amp;(dd_vals[3][6]==0x10))|((vals[29]==4)&amp;(dd_vals[4][6]==0x10));
+  pst_sts_10.visible= vis_pst_sts_10;
+  bool vis_pst_sts_20 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x20))|((vals[29]==2)&amp;(dd_vals[2][6]==0x20))|((vals[29]==3)&amp;(dd_vals[3][6]==0x20))|((vals[29]==4)&amp;(dd_vals[4][6]==0x20));
+  pst_sts_20.visible= vis_pst_sts_20;
+  bool vis_pst_sts_30 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x30))|((vals[29]==2)&amp;(dd_vals[2][6]==0x30))|((vals[29]==3)&amp;(dd_vals[3][6]==0x30))|((vals[29]==4)&amp;(dd_vals[4][6]==0x30));
+  pst_sts_30.visible= vis_pst_sts_30;
+  bool vis_pst_sts_40 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x40))|((vals[29]==2)&amp;(dd_vals[2][6]==0x40))|((vals[29]==3)&amp;(dd_vals[3][6]==0x40))|((vals[29]==4)&amp;(dd_vals[4][6]==0x40));
+  pst_sts_40.visible= vis_pst_sts_40;
+  bool vis_pst_sts_60 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x60))|((vals[29]==2)&amp;(dd_vals[2][6]==0x60))|((vals[29]==3)&amp;(dd_vals[3][6]==0x60))|((vals[29]==4)&amp;(dd_vals[4][6]==0x60));
+  pst_sts_60.visible= vis_pst_sts_60;
+  bool vis_pst_sts_80 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x80))|((vals[29]==2)&amp;(dd_vals[2][6]==0x80))|((vals[29]==3)&amp;(dd_vals[3][6]==0x80))|((vals[29]==4)&amp;(dd_vals[4][6]==0x80));
+  pst_sts_80.visible= vis_pst_sts_80;
+
+  for(int i=1; i&lt;=dynlen(dd_vals); i++){
+    if(dd_vals[i][1] == 1)
+      setValue(&quot;pst&quot;+i+&quot;_ovr&quot;, &quot;backCol&quot;, &quot;Green&quot;);
+    else
+      setValue(&quot;pst&quot;+i+&quot;_ovr&quot;, &quot;backCol&quot;, &quot;Red&quot;);
+
+    if(dd_vals[i][2] == 1)
+      setMultiValue(&quot;pst&quot;+i+&quot;_vlv1&quot;, &quot;backCol&quot;, &quot;Green&quot;,
+                    &quot;pst&quot;+i+&quot;_vlv2&quot;, &quot;backCol&quot;, &quot;Green&quot;);
+    else
+      setMultiValue(&quot;pst&quot;+i+&quot;_vlv1&quot;, &quot;backCol&quot;, &quot;Yellow&quot;,
+                    &quot;pst&quot;+i+&quot;_vlv2&quot;, &quot;backCol&quot;, &quot;Yellow&quot;);
+
+
+//     setValue(&quot;pst&quot;+i+&quot;_state&quot;, &quot;text&quot;, stsToText(dd_vals[i][6]));
+//     sdShowValue(&quot;pst&quot;+i+&quot;_press&quot;, dd_dps[i][7], dd_vals[i][7], 1, &quot;1.234&quot;, 1, &quot;кг/см2&quot;);
+  }
+
+  if(dd_vals[1][3] == 2 || dd_vals[2][3] == 2 || dd_vals[3][3] == 2 || dd_vals[4][3] == 2){
+    gnd_ok.visible(true);
+    gnd_gr.visible(false);
+    gnd_no.visible(false);
+  }else if(dd_vals[1][3] == 1 || dd_vals[2][3] == 1 || dd_vals[3][3] == 1 || dd_vals[4][3] == 1){
+    gnd_ok.visible(false);
+    gnd_gr.visible(true);
+    gnd_no.visible(false);
+  }else{
+    gnd_ok.visible(false);
+    gnd_gr.visible(false);
+    gnd_no.visible(true);
+  }
+}
+void fil_type(dyn_string dpe, dyn_int val) {
+  txt_name.text(val[2]);
+  setFuel(val[1]);
+
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  pst3_ovr.visible(false);
+  pst2_ovr.visible(false);
+  dpConnect(&quot;cbWorker&quot;, DP + &quot;.PST_1.OVR_STS&quot;,
+                        DP + &quot;.PST_1.VLV&quot;,
+                        DP + &quot;.PST_1.BZA_STS&quot;,
+                        DP + &quot;.PST_1.WRK_POS&quot;,
+                        DP + &quot;.PST_1.GRG_POS&quot;,
+                         DP + &quot;.PST_1.STS&quot;,
+                         DP + &quot;.PST_1.PRS&quot;,
+
+                        DP + &quot;.PST_2.OVR_STS&quot;,
+                        DP + &quot;.PST_2.VLV&quot;,
+                        DP + &quot;.PST_2.BZA_STS&quot;,
+                        DP + &quot;.PST_2.WRK_POS&quot;,
+                        DP + &quot;.PST_2.GRG_POS&quot;,
+                        DP + &quot;.PST_2.STS&quot;,
+                         DP + &quot;.PST_2.PRS&quot;,
+
+                        DP + &quot;.PST_3.OVR_STS&quot;,
+                        DP + &quot;.PST_3.VLV&quot;,
+                        DP + &quot;.PST_3.BZA_STS&quot;,
+                        DP + &quot;.PST_3.WRK_POS&quot;,
+                        DP + &quot;.PST_3.GRG_POS&quot;,
+                        DP + &quot;.PST_3.STS&quot;,
+                        DP + &quot;.PST_3.PRS&quot;,
+
+                        DP + &quot;.PST_4.OVR_STS&quot;,
+                        DP + &quot;.PST_4.VLV&quot;,
+                        DP + &quot;.PST_4.BZA_STS&quot;,
+                        DP + &quot;.PST_4.WRK_POS&quot;,
+                        DP + &quot;.PST_4.GRG_POS&quot;,
+                         DP + &quot;.PST_4.STS&quot;,
+                         DP + &quot;.PST_4.PRS&quot;,
+                         DP + &quot;.ALL.FIL_TYP&quot;);
+    dpConnect(&quot;fil_type&quot;, DP + &quot;.ALL.FIL_TYP&quot;,
+                        DP + &quot;.ALL.CAR_NUM&quot;);
+}
+
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="pst_sts_def" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">218</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">131.5 78.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">190</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_07.png]]</prop>
+    <prop name="Geometry">1 0 0 1 0 0.5</prop>
+    <prop name="Center">131.5 78.5</prop>
+    <prop name="X-Radius">17.5</prop>
+    <prop name="Y-Radius">17.5</prop>
+   </properties>
+  </shape>
+  <shape Name="PIPE17" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">196</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">200 27</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">DT</prop>
+    <prop name="BackColor">DT_pipe</prop>
+    <prop name="TabOrder">171</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">200 27</prop>
+     <prop name="Location">211 27</prop>
+     <prop name="Location">210 27</prop>
+    </prop>
+    <prop name="Geometry">1.272727272727273 0 0 1 -38.54545454545454 1</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="ai_arm3" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">206</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">211 46</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">179</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">211 46</prop>
+     <prop name="Location">167 46</prop>
+     <prop name="Location">167 39</prop>
+    </prop>
+    <prop name="Geometry">0.1363636363636358 0 0 1.214285714285681 160.5453673582681 29.89901269568993</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="ai_arm2" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">207</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">163.8948444288923 37.50000000000023</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">180</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">163.8948444288923 37.50000000000023</prop>
+     <prop name="Location">169 37.50000000000023</prop>
+     <prop name="Location">169 27</prop>
+     <prop name="Location">174 27</prop>
+    </prop>
+    <prop name="Geometry">1.286472029898194 0 0 0.9469387755101877 -33.52803857129044 41.74595147119922</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="dt_arm2" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">192</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">211 46</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">167</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">211 46</prop>
+     <prop name="Location">167 46</prop>
+     <prop name="Location">167 39</prop>
+    </prop>
+    <prop name="Geometry">0.1363636363636358 0 0 1.214285714285681 161.2272727272728 -9.85714285714133</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="dt_arm3" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">205</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">163.8948444288923 37.50000000000023</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">178</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">163.8948444288923 37.50000000000023</prop>
+     <prop name="Location">169 37.50000000000023</prop>
+     <prop name="Location">169 27</prop>
+     <prop name="Location">174 27</prop>
+    </prop>
+    <prop name="Geometry">1.286472029898194 0 0 0.9469387755101877 -32.84613320228567 1.989795918367974</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="pst1_vlv1" shapeType="POLYGON" layerId="0">
+   <properties>
+    <prop name="serialId">105</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">140 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">yellow</prop>
+    <prop name="TabOrder">82</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-6.392542898327108e-17 0.3278571428571439 -0.6729497354497452 -1.167132136973119e-16 216.3961671802151 -18.3428571428571</prop>
+    <prop name="Closed">False</prop>
+    <prop name="Points">
+     <prop name="Location">140 20</prop>
+     <prop name="Location">120 40</prop>
+     <prop name="Location">160 40</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="gnd_ok" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">138</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">30 40</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">115</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[none,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ground/grnd_ok.png]]</prop>
+    <prop name="Geometry">0.95 0 0 0.95 -20.5 -27</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">30 40</prop>
+    <prop name="Size">21 21</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="gnd_no" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">139</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">30 40</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">116</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[none,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ground/grnd_no.png]]</prop>
+    <prop name="Geometry">0.95 0 0 0.95 -20.5 -26.99999999999998</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">30 40</prop>
+    <prop name="Size">21 21</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="gnd_gr" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">140</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">30 40</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">117</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[none,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ground/grnd_gr.png]]</prop>
+    <prop name="Geometry">0.95 0 0 0.95 -20.5 -26.99999999999999</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">30 40</prop>
+    <prop name="Size">21 21</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="dt_end" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">162</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">30 150</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">Red</prop>
+    <prop name="TabOrder">139</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.8431014383317269 0 0 1.214285714285714 -11.46848799258422 -119.7142857142855</prop>
+    <prop name="Location">30 150</prop>
+    <prop name="Size">81 11</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">ДТ Отключ.</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="ai_end" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">163</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">30 150</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">Green</prop>
+    <prop name="TabOrder">140</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.8431014383317269 0 0 1.214285714285714 -11.46848799258421 -100.8887797054303</prop>
+    <prop name="Location">30 150</prop>
+    <prop name="Size">81 11</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">АИ Подключ.</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="rail_main" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">1</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">776 488</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">0</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[none,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/usn/RailroadTankerCar.svg]]</prop>
+    <prop name="Geometry">1.183316647783313 0 0 0.6363636363636364 -905.9849830049816 -294.7513368983955</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">776 488</prop>
+    <prop name="Size">125 67</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_name" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">5</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">125.9943196197324 24.66877892522854</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">4</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">125.9943196197324 24.66877892522854</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">№1/3</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignRight]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_type" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">24</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">53.00000000000006 33.99999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{207,207,12}</prop>
+    <prop name="TabOrder">13</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinRound,CapRound,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.9045894773579968 0 0 0.7120393848652489 -14.74694700084139 2.094345835659797</prop>
+    <prop name="Location">53.00000000000006 33.99999999999999</prop>
+    <prop name="Size">49 17</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">ДТ</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="pst4_ovr" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">153</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">25 205</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">130</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 -20.10515557110767 -336.3226732628528</prop>
+    <prop name="Center">192.4999999999999 413.3666666666662</prop>
+    <prop name="X-Radius">7.5</prop>
+    <prop name="Y-Radius">7.5</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE537" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">177</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60 22</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">DT</prop>
+    <prop name="TabOrder">153</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.126969528056485 0 0 1.069767441860465 158.5590537991922 14.97674418604674</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">60 22</prop>
+    <prop name="Size">27 15</prop>
+    <prop name="CornerRadius">2</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT309" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">178</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">14 36</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">154</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.9919396815676673 0 0 1.315126050420168 213.053518263421 -7.920168067226655</prop>
+    <prop name="Location">14 36</prop>
+    <prop name="Size">29 11</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">ДТз</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="LINE34" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">103</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.9371724712203 27.55714285714305</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">80</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.9371724712203 27.55714285714307</prop>
+    <prop name="End">189.4781777622254 34.11428571428593</prop>
+   </properties>
+  </shape>
+  <shape Name="pst1_vlv2" shapeType="POLYGON" layerId="0">
+   <properties>
+    <prop name="serialId">104</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">140 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">yellow</prop>
+    <prop name="TabOrder">81</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-2.271914200799164e-17 0.3278571428571439 0.6729497354497452 3.641137358179238e-17 189.4781777622254 -18.3428571428571</prop>
+    <prop name="Closed">False</prop>
+    <prop name="Points">
+     <prop name="Location">140 20</prop>
+     <prop name="Location">120 40</prop>
+     <prop name="Location">160 40</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="LINE35" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">106</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.9371724712202 27.55714285714305</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">83</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.9371724712202 27.55714285714307</prop>
+    <prop name="End">216.3961671802151 34.11428571428593</prop>
+   </properties>
+  </shape>
+  <shape Name="LINE36" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">107</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.9371724712203 27.55714285714305</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">84</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.9371724712203 27.55714285714307</prop>
+    <prop name="End">189.4781777622254 34.11428571428593</prop>
+   </properties>
+  </shape>
+  <shape Name="LINE37" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">118</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.9215110955589 45.87319554508474</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">95</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.9215110955589 45.87319554508471</prop>
+    <prop name="End">189.4781777622254 52.41067680445504</prop>
+   </properties>
+  </shape>
+  <shape Name="pst2_vlv2" shapeType="POLYGON" layerId="0">
+   <properties>
+    <prop name="serialId">119</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">140 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">96</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-2.269270518820053e-17 0.3268740629685167 0.6721666666666765 3.630219405081249e-17 189.4781777622254 0.1108267294923735</prop>
+    <prop name="Closed">False</prop>
+    <prop name="Points">
+     <prop name="Location">140 20</prop>
+     <prop name="Location">120 40</prop>
+     <prop name="Location">160 40</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="pst2_vlv1" shapeType="POLYGON" layerId="0">
+   <properties>
+    <prop name="serialId">120</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">140 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">97</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-6.385104302954511e-17 0.3268740629685167 -0.6721666666666765 -1.163632490385493e-16 216.3648444288924 0.1108267294923735</prop>
+    <prop name="Closed">False</prop>
+    <prop name="Points">
+     <prop name="Location">140 20</prop>
+     <prop name="Location">120 40</prop>
+     <prop name="Location">160 40</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="LINE38" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">121</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.9215110955589 45.87319554508474</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">98</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.9215110955589 45.87319554508471</prop>
+    <prop name="End">216.3648444288924 52.41067680445505</prop>
+   </properties>
+  </shape>
+  <shape Name="LINE39" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">122</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.9215110955589 45.87319554508474</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">99</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.9215110955589 45.87319554508471</prop>
+    <prop name="End">189.4781777622254 52.41067680445504</prop>
+   </properties>
+  </shape>
+  <shape Name="LINE40" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">123</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.5746447361118 66.70512820512818</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">100</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.5746447361118 66.7051282051282</prop>
+    <prop name="End">189.1472253812729 73.24358974358981</prop>
+   </properties>
+  </shape>
+  <shape Name="pst3_vlv2" shapeType="POLYGON" layerId="0">
+   <properties>
+    <prop name="serialId">124</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">140 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">101</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-2.26658419680902e-17 0.3269230769230779 0.6713709677419454 3.630763747472175e-17 189.1472253812729 20.9358974358974</prop>
+    <prop name="Closed">False</prop>
+    <prop name="Points">
+     <prop name="Location">140 20</prop>
+     <prop name="Location">120 40</prop>
+     <prop name="Location">160 40</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="pst3_vlv1" shapeType="POLYGON" layerId="0">
+   <properties>
+    <prop name="serialId">125</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">140 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">102</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-6.377545730237194e-17 0.3269230769230779 -0.6713709677419454 -1.16380697418972e-16 216.0020640909507 20.9358974358974</prop>
+    <prop name="Closed">False</prop>
+    <prop name="Points">
+     <prop name="Location">140 20</prop>
+     <prop name="Location">120 40</prop>
+     <prop name="Location">160 40</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="LINE41" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">126</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.5746447361118 66.70512820512818</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">103</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.5746447361118 66.7051282051282</prop>
+    <prop name="End">216.0020640909507 73.24358974358981</prop>
+   </properties>
+  </shape>
+  <shape Name="LINE42" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">127</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.5746447361118 66.70512820512818</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">104</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.5746447361118 66.7051282051282</prop>
+    <prop name="End">189.1472253812729 73.24358974358981</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE117" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">166</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60 22</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">AI92</prop>
+    <prop name="TabOrder">143</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.126969528056485 0 0 1.069767441860465 158.5429331623275 34.02073758985989</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">60 22</prop>
+    <prop name="Size">27 15</prop>
+    <prop name="CornerRadius">2</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT274" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">167</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">14 36</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">144</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.9919396815676673 0 0 1.315126050420168 213.0373976265563 11.12382533658649</prop>
+    <prop name="Location">14 36</prop>
+    <prop name="Size">29 11</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">92</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="LINE43" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">128</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.7455139858341 85.75615555283099</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">105</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.7455139858341 85.75615555283106</prop>
+    <prop name="End">189.3180946309952 92.28514106007745</prop>
+   </properties>
+  </shape>
+  <shape Name="pst4_vlv2" shapeType="POLYGON" layerId="0">
+   <properties>
+    <prop name="serialId">129</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">140 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">106</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-2.26658419680902e-17 0.3264492753623199 0.6713709677419452 3.625501771026566e-17 189.3180946309951 40.05325700210648</prop>
+    <prop name="Closed">False</prop>
+    <prop name="Points">
+     <prop name="Location">140 20</prop>
+     <prop name="Location">120 40</prop>
+     <prop name="Location">160 40</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="pst4_vlv1" shapeType="POLYGON" layerId="0">
+   <properties>
+    <prop name="serialId">130</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">140 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">107</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-6.377545730237194e-17 0.3264492753623199 -0.6713709677419452 -1.162120297415532e-16 216.172933340673 40.05325700210648</prop>
+    <prop name="Closed">False</prop>
+    <prop name="Points">
+     <prop name="Location">140 20</prop>
+     <prop name="Location">120 40</prop>
+     <prop name="Location">160 40</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="LINE44" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">131</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.7455139858341 85.75615555283099</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">108</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.7455139858341 85.75615555283106</prop>
+    <prop name="End">216.172933340673 92.28514106007745</prop>
+   </properties>
+  </shape>
+  <shape Name="LINE45" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">132</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">202.7455139858341 85.75615555283099</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">109</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">202.7455139858341 85.75615555283106</prop>
+    <prop name="End">189.3180946309952 92.28514106007745</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE126" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">164</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60 22</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">AI95_pipe</prop>
+    <prop name="TabOrder">141</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.126969528056485 0 0 1.069767441860465 158.5429331623276 53.59636784196073</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">60 22</prop>
+    <prop name="Size">27 15</prop>
+    <prop name="CornerRadius">2</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT283" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">165</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">14 36</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">142</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.9919396815676673 0 0 1.315126050420168 213.0373976265563 30.69945558868733</prop>
+    <prop name="Location">14 36</prop>
+    <prop name="Size">29 11</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">95</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">172</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">9.000000000000025 50.25833333333331</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Transparent</prop>
+    <prop name="TabOrder">149</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="TransparentForMouseInGedi">True</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">9.000000000000025 4.749999999999973</prop>
+    <prop name="Size">236 96</prop>
+    <prop name="BorderStyle">None</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  ChildPanelOnCentral(&quot;faceplates/USN/usn.xml&quot;, dpGetDescription(DP + &quot;.&quot;), makeDynString(&quot;$dp:&quot; + DP));
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="PIPE18" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">197</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">200 27</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">DT_pipe</prop>
+    <prop name="BackColor">DT</prop>
+    <prop name="TabOrder">172</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">200 27</prop>
+     <prop name="Location">211 27</prop>
+     <prop name="Location">210 27</prop>
+    </prop>
+    <prop name="Geometry">1 0 0 1 16 19</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="PIPE19" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">198</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">200 27</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">AI92_pipe</prop>
+    <prop name="BackColor">AI92</prop>
+    <prop name="TabOrder">173</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">200 27</prop>
+     <prop name="Location">211 27</prop>
+     <prop name="Location">210 27</prop>
+    </prop>
+    <prop name="Geometry">1 0 0 1 16 40</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="PIPE20" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">199</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">200 27</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">AI95_pipe</prop>
+    <prop name="BackColor">AI95</prop>
+    <prop name="TabOrder">174</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">200 27</prop>
+     <prop name="Location">211 27</prop>
+     <prop name="Location">210 27</prop>
+    </prop>
+    <prop name="Geometry">1 0 0 1 16 59</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="pst2_ovr" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">201</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">25 205</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">175</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 69 -137</prop>
+    <prop name="Center">25 205</prop>
+    <prop name="X-Radius">10</prop>
+    <prop name="Y-Radius">10</prop>
+   </properties>
+  </shape>
+  <shape Name="pst3_ovr" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">202</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">25 205</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">176</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 69 -117</prop>
+    <prop name="Center">25 205</prop>
+    <prop name="X-Radius">10</prop>
+    <prop name="Y-Radius">10</prop>
+   </properties>
+  </shape>
+  <shape Name="pst1_ovr" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">150</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">25 205</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Yellow</prop>
+    <prop name="TabOrder">127</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 -16.10515557110773 -269.4999999999998</prop>
+    <prop name="Center">188.5 307</prop>
+    <prop name="X-Radius">7.5</prop>
+    <prop name="Y-Radius">7.5</prop>
+   </properties>
+  </shape>
+  <shape Name="dt_arm" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">209</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">163.8948444288923 37.50000000000023</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">181</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">163.8948444288923 37.50000000000023</prop>
+     <prop name="Location">169 37.50000000000023</prop>
+     <prop name="Location">169 27</prop>
+     <prop name="Location">174 27</prop>
+    </prop>
+    <prop name="Geometry">1.286472029898194 0 0 0.9469387755101877 -58.84613320228578 12.48979591836775</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="ai_arm" shapeType="PIPE" layerId="0">
+   <properties>
+    <prop name="serialId">210</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">165 77</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">182</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Points">
+     <prop name="Location">165 77</prop>
+     <prop name="Location">159 77</prop>
+     <prop name="Location">159 46</prop>
+     <prop name="Location">152 46</prop>
+     <prop name="Location">153 46</prop>
+    </prop>
+    <prop name="Geometry">1 0 0 0.9354838709677419 0 4.967741935483875</prop>
+    <prop name="BeginStyle">0</prop>
+    <prop name="EndStyle">0</prop>
+    <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="pst_sts_00" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">211</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">131.5 78.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">183</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_00.png]]</prop>
+    <prop name="Geometry">1 0 0 1 0 0.5</prop>
+    <prop name="Center">131.5 78.5</prop>
+    <prop name="X-Radius">17.5</prop>
+    <prop name="Y-Radius">17.5</prop>
+   </properties>
+  </shape>
+  <shape Name="pst_sts_10" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">212</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">131.5 78.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">184</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_01.png]]</prop>
+    <prop name="Geometry">1 0 0 1 0 0.5</prop>
+    <prop name="Center">131.5 78.5</prop>
+    <prop name="X-Radius">17.5</prop>
+    <prop name="Y-Radius">17.5</prop>
+   </properties>
+  </shape>
+  <shape Name="pst_sts_20" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">213</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">131.5 78.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">185</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_02.png]]</prop>
+    <prop name="Geometry">1 0 0 1 0 0.5</prop>
+    <prop name="Center">131.5 78.5</prop>
+    <prop name="X-Radius">17.5</prop>
+    <prop name="Y-Radius">17.5</prop>
+   </properties>
+  </shape>
+  <shape Name="pst_sts_30" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">214</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">131.5 78.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">186</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_03.png]]</prop>
+    <prop name="Geometry">1 0 0 1 0 0.5</prop>
+    <prop name="Center">131.5 78.5</prop>
+    <prop name="X-Radius">17.5</prop>
+    <prop name="Y-Radius">17.5</prop>
+   </properties>
+  </shape>
+  <shape Name="pst_sts_40" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">215</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">131.5 78.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">187</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_04.png]]</prop>
+    <prop name="Geometry">1 0 0 1 0 0.5</prop>
+    <prop name="Center">131.5 78.5</prop>
+    <prop name="X-Radius">17.5</prop>
+    <prop name="Y-Radius">17.5</prop>
+   </properties>
+  </shape>
+  <shape Name="pst_sts_60" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">216</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">131.5 78.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">188</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_05.png]]</prop>
+    <prop name="Geometry">1 0 0 1 0 0.5</prop>
+    <prop name="Center">131.5 78.5</prop>
+    <prop name="X-Radius">17.5</prop>
+    <prop name="Y-Radius">17.5</prop>
+   </properties>
+  </shape>
+  <shape Name="pst_sts_80" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">217</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">131.5 78.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">189</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_06.png]]</prop>
+    <prop name="Geometry">1 0 0 1 0 0.5</prop>
+    <prop name="Center">131.5 78.5</prop>
+    <prop name="X-Radius">17.5</prop>
+    <prop name="Y-Radius">17.5</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE376" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">170</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60 22</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">DT</prop>
+    <prop name="TabOrder">147</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.126969528056485 0 0 1.069767441860465 158.5590537991923 -3.523255813953256</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">60 22</prop>
+    <prop name="Size">27 15</prop>
+    <prop name="CornerRadius">2</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT231" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">171</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">14 36</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">148</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.9919396815676673 0 0 1.315126050420168 213.053518263421 -26.42016806722666</prop>
+    <prop name="Location">14 36</prop>
+    <prop name="Size">29 11</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">ДТл</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+ </shapes>
+ <groups>
+  <group parentSerial="-1" Name="SHAPE_GROUP18" serial="0">
+   <properties>
+    <prop name="shapeSerial">164</prop>
+    <prop name="shapeSerial">165</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="SHAPE_GROUP19" serial="1">
+   <properties>
+    <prop name="shapeSerial">166</prop>
+    <prop name="shapeSerial">167</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="SHAPE_GROUP24" serial="6">
+   <properties>
+    <prop name="shapeSerial">177</prop>
+    <prop name="shapeSerial">178</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="SHAPE_GROUP26" serial="7">
+   <properties>
+    <prop name="shapeSerial">170</prop>
+    <prop name="shapeSerial">171</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+ </groups>
+</panel>

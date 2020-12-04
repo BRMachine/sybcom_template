@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">314 75</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">20 21</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[public void setUsn(int num){ usn.text(num); }
+public int getUsn()        { return usn.text(); }
+
+public void setFuel(string in){ fuel.text(in); }
+public string getFuel()       { return fuel.text(); }
+
+public void setRvs(int in){ rvs.text(in); }
+public int getRvs()       { return rvs.text(); }
+
+public void  setWeight(float in){ weight.text(in); }
+public float getWeight()        { return weight.text(); }
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="fuel" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">2</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">77.20833333333333 25.25</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">1</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">68.20833333333331 23.25</prop>
+    <prop name="Size">50 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="rvs" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">3</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">-72.63020833333337 43.42708333333334</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">117.3697916666666 23.42708333333333</prop>
+    <prop name="Size">50 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0d,True,False,AlignHCenter|AlignVCenter,False]</prop>
+   </properties>
+  </shape>
+  <shape Name="weight" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">4</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">-113.53125 25.47916666666667</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">166.46875 23.47916666666666</prop>
+    <prop name="Size">112 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0.2f,True,False,AlignHCenter|AlignVCenter,False]</prop>
+   </properties>
+  </shape>
+  <shape Name="usn" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">5</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">-130 30</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">4</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">19.00000000000002 23</prop>
+    <prop name="Size">50 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0d,True,False,AlignHCenter|AlignVCenter,False]</prop>
+   </properties>
+  </shape>
+ </shapes>
+</panel>

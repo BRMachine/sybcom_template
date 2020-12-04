@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">199 110</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">0 -4</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[// const string DP = $dp;
+string prevColor = &quot;_Button&quot;;
+enum TypeBtn{ bits  = 1,// Слово команд/состояний
+              bools = 2 // Bool
+            };
+
+TypeBtn type;
+int secure, stsBit, cmdBit;
+
+// #property TypeBtn cmdType
+// public void setCmdType(TypeBtn t){ type = t;}
+// public TypeBtn getCmdType(){ return type; }
+
+#property int secureBit
+public void setSecureBit(int t){ secure = t; }
+public int getSecureBit(){ return secure; }
+
+// #property int stsBit
+// public void setStsBit(int t){ stsBit = t; }
+// public int getStsBit(){ return stsBit; }
+//
+// #property int cmdBit
+// public void setCmdBit(int t){ cmdBit = t; }
+// public int getCmdBit(){ return cmdBit; }
+
+#property string text
+public void setText(string t){ btn_text.text = t; }
+public string getText(){ return btn_text.text; }
+
+#property bool enable
+public void setEnable(bool t){ btn_opn.enabled = t; btn_text.color = (t) ? &quot;black&quot; : &quot;{185,185,185}&quot;; }
+public string getEnable(){ return btn_opn.enabled; }
+
+#property bool act
+public bool getAct(){
+  return tmp = (btn_opn.backCol != &quot;STDLIB_Green&quot;);
+}
+public void setAct(bool a){
+  a ? btn_opn.backCol(&quot;STDLIB_Green&quot;) : btn_opn.backCol(&quot;_Button&quot;);
+  prevColor = btn_opn.backCol();
+}
+// #property int border
+// public int getBorder(){
+//   return btn_opn.borderStyle();
+// }
+// public void setBorder(int i){
+//   btn_opn.borderStyle(i);
+//   RECTANGLE1.visible(i&gt;0);
+//
+// }
+
+#event clickedBtn()
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="btn_opn" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">5</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 10</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.9124783362218369 0 0 0.7329411764705882 0 -7.329411764705881</prop>
+    <prop name="BorderStyle">Raised</prop>
+    <prop name="Location">0 10</prop>
+    <prop name="Size">161 31</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+   <events>
+    <script name="MouseReleased" isEscaped="1"><![CDATA[main(mapping event)
+{
+  btn_opn.borderStyle(4);
+}
+]]></script>
+    <script name="MousePressed" isEscaped="1"><![CDATA[main(mapping event)
+{
+  btn_opn.borderStyle(2);
+}
+]]></script>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  bool sec = getUserPermission(secure);
+  if(sec){
+    triggerEvent(&quot;clickedBtn&quot;);
+  }else{
+    ChildPanelOnCentralModal(&quot;vision/WarningSplash.xml&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+  }
+}
+]]></script>
+    <script name="MouseOver" isEscaped="1"><![CDATA[main(bool enter)
+{
+  if(enter)
+    this.backCol(&quot;{184,184,184}&quot;);
+  else
+    this.backCol(prevColor);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="btn_text" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">6</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 0</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="TransparentForMouse">True</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">0 0</prop>
+    <prop name="Size">147 23</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">test_text</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+ </shapes>
+</panel>

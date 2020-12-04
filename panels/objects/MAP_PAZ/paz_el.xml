@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">94 54</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">61.99999999999994 82.59928183229829</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string lock     = $lock;
+const string lock_num = $lock_num;
+
+#property bool activePaz
+public void setActivePaz(bool active){
+  enabled.visible(active);
+  disabled.visible(active);
+}
+public bool getActivePaz() {
+  return enabled.visible();
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  bool active = enabled.visible();
+  if(!active)
+    shp_state.backCol(&quot;White&quot;);
+  else
+    shp_state.backCol(&quot;Grey&quot;);
+
+  if(lock != &quot;&quot;){
+    dpConnect(&quot;cbLock&quot;, lock + &quot;.status.out&quot; + lock_num,    //Состояние
+                        lock + &quot;.config.enable&quot; + lock_num);//Активация блокировки
+  }
+}
+
+void cbLock(dyn_string dpe, dyn_bool val) {
+  enabled.visible(val[2]);
+  disabled.visible(!val[2]);
+
+  if(val[1])
+    shp_state.backCol(&quot;Red&quot;);
+  else
+    shp_state.backCol(&quot;Grey&quot;);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="shp_state" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">104</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">70 30</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{145,145,145}</prop>
+    <prop name="TabOrder">28</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.233333333333333 0 0 1.233333333333334 -81.33333333333331 -29.00000000000001</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">70 30</prop>
+    <prop name="Size">31 31</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="enabled" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">109</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">70 30</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">33</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,0]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/крест.svg]]</prop>
+    <prop name="Geometry">1.233333333333333 0 0 1.233333333333334 -81.33333333333327 -29.00000000000001</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">70 30</prop>
+    <prop name="Size">31 31</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  if(lock != &quot;&quot;)
+    dpSet(lock + &quot;.config.enable&quot; + lock_num, false);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="disabled" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">110</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">115.6666666666666 30</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">_Transparent</prop>
+    <prop name="TabOrder">34</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.233333333333333 0 0 1.233333333333334 -137.6555555555554 -29.00000000000001</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">115.6666666666666 30</prop>
+    <prop name="Size">31 31</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+
+  if(lock != &quot;&quot;)
+    dpSet(lock + &quot;.config.enable&quot; + lock_num, true);
+}
+]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

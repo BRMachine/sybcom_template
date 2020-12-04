@@ -1,0 +1,636 @@
+# ascii dump of database
+
+# DpType
+TypeName
+IS_UU.IS_UU	1#1
+	PST_1	1#117
+		status	21#118
+		counter_inspector	21#119
+		vol_dose	21#120
+		vol_fact	21#121
+		vol_total	54#122
+		vol_flow	21#123
+		vol_cutter	21#124
+		vol_diff	21#125
+		temperature	22#126
+		density	22#127
+		pressure	22#128
+		level	21#129
+		avg_temperature	22#130
+		avg_density	22#131
+		htr_temperature	22#132
+		vol_15	22#133
+		dens_15	22#134
+		mass_dose	21#135
+		mass_fact	21#136
+		mass_total	54#137
+		mass_flow	21#138
+		mass_cutter	21#139
+		mass_diff	21#140
+		sts_stop	21#141
+		ground	21#142
+		overflow	21#143
+		work_pos	21#144
+		garage_pos	21#145
+		trap	21#146
+		sts_alrm_stop	21#147
+		sts_product	21#148
+		sts_filter	21#149
+		sts_start_stop	21#150
+		sts_bza	21#151
+		sts_vlv	21#152
+		mbs_nolink	21#153
+		cmd	24#230
+		status_bool	1#233
+			permis	23#234
+			start	23#235
+			stop	23#236
+	PST_2	1#154
+		status	21#155
+		counter_inspector	21#156
+		vol_dose	21#157
+		vol_fact	21#158
+		vol_total	54#159
+		vol_flow	21#160
+		vol_cutter	21#161
+		vol_diff	21#162
+		temperature	22#163
+		density	22#164
+		pressure	22#165
+		level	21#166
+		avg_temperature	22#167
+		avg_density	22#168
+		htr_temperature	22#169
+		vol_15	22#170
+		dens_15	22#171
+		mass_dose	21#172
+		mass_fact	21#173
+		mass_total	54#174
+		mass_flow	21#175
+		mass_cutter	21#176
+		mass_diff	21#177
+		sts_stop	21#178
+		ground	21#179
+		overflow	21#180
+		work_pos	21#181
+		garage_pos	21#182
+		trap	21#183
+		sts_alrm_stop	21#184
+		sts_product	21#185
+		sts_filter	21#186
+		sts_start_stop	21#187
+		sts_bza	21#188
+		sts_vlv	21#189
+		mbs_nolink	21#190
+		cmd	24#231
+		status_bool	1#237
+			permis	23#238
+			start	23#239
+			stop	23#240
+	PST_3	1#191
+		status	21#192
+		counter_inspector	21#193
+		vol_dose	21#194
+		vol_fact	21#195
+		vol_total	54#196
+		vol_flow	21#197
+		vol_cutter	21#198
+		vol_diff	21#199
+		temperature	22#200
+		density	22#201
+		pressure	22#202
+		level	21#203
+		avg_temperature	22#204
+		avg_density	22#205
+		htr_temperature	22#206
+		vol_15	22#207
+		dens_15	22#208
+		mass_dose	21#209
+		mass_fact	21#210
+		mass_total	54#211
+		mass_flow	21#212
+		mass_cutter	21#213
+		mass_diff	21#214
+		sts_stop	21#215
+		ground	21#216
+		overflow	21#217
+		work_pos	21#218
+		garage_pos	21#219
+		trap	21#220
+		sts_alrm_stop	21#221
+		sts_product	21#222
+		sts_filter	21#223
+		sts_start_stop	21#224
+		sts_bza	21#225
+		sts_vlv	21#226
+		mbs_nolink	21#227
+		cmd	24#232
+		status_bool	1#241
+			permis	23#242
+			start	23#243
+			stop	23#244
+	ALL	1#228
+		cur_post	21#229
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_IS_UU	IS_UU	4613
+
+# Aliases/Comments
+AliasId	AliasName	CommentName
+_mp_IS_UU.PST_1.vol_dose	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_1.vol_fact	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_1.vol_total	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_1.vol_flow	""	lt:1 LANG:10027 "@@л/с"
+_mp_IS_UU.PST_1.temperature	""	lt:1 LANG:10027 "@@°C"
+_mp_IS_UU.PST_1.density	""	lt:1 LANG:10027 "@%15.3f@кг/л"
+_mp_IS_UU.PST_1.avg_temperature	""	lt:1 LANG:10027 "@@°C"
+_mp_IS_UU.PST_1.avg_density	""	lt:1 LANG:10027 "@%15.3f@кг/л"
+_mp_IS_UU.PST_1.vol_15	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_1.dens_15	""	lt:1 LANG:10027 "@%15.3f@кг/л"
+_mp_IS_UU.PST_1.mass_dose	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_1.mass_fact	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_1.mass_total	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_1.mass_flow	""	lt:1 LANG:10027 "@@кг/с"
+_mp_IS_UU.PST_2.vol_dose	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_2.vol_fact	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_2.vol_total	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_2.vol_flow	""	lt:1 LANG:10027 "@@л/с"
+_mp_IS_UU.PST_2.temperature	""	lt:1 LANG:10027 "@@°C"
+_mp_IS_UU.PST_2.avg_temperature	""	lt:1 LANG:10027 "@@°C"
+_mp_IS_UU.PST_2.vol_15	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_2.mass_dose	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_2.mass_fact	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_2.mass_total	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_2.mass_flow	""	lt:1 LANG:10027 "@@кг/с"
+_mp_IS_UU.PST_3.vol_dose	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_3.vol_fact	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_3.vol_total	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_3.vol_flow	""	lt:1 LANG:10027 "@@л/с"
+_mp_IS_UU.PST_3.temperature	""	lt:1 LANG:10027 "@@°C"
+_mp_IS_UU.PST_3.avg_temperature	""	lt:1 LANG:10027 "@@°C"
+_mp_IS_UU.PST_3.vol_15	""	lt:1 LANG:10027 "@@л"
+_mp_IS_UU.PST_3.mass_dose	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_3.mass_fact	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_3.mass_total	""	lt:1 LANG:10027 "@@кг"
+_mp_IS_UU.PST_3.mass_flow	""	lt:1 LANG:10027 "@@кг/с"
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+ASC (1)/0	_mp_IS_UU.PST_1.status	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.819
+ASC (1)/0	_mp_IS_UU.PST_1.counter_inspector	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.832
+ASC (1)/0	_mp_IS_UU.PST_1.vol_dose	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.833
+ASC (1)/0	_mp_IS_UU.PST_1.vol_fact	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.833
+ASC (1)/0	_mp_IS_UU.PST_1.vol_total	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.834
+ASC (1)/0	_mp_IS_UU.PST_1.vol_flow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.834
+ASC (1)/0	_mp_IS_UU.PST_1.vol_cutter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.848
+ASC (1)/0	_mp_IS_UU.PST_1.vol_diff	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.849
+ASC (1)/0	_mp_IS_UU.PST_1.temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.849
+ASC (1)/0	_mp_IS_UU.PST_1.density	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.850
+ASC (1)/0	_mp_IS_UU.PST_1.pressure	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.850
+ASC (1)/0	_mp_IS_UU.PST_1.level	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.863
+ASC (1)/0	_mp_IS_UU.PST_1.avg_temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.864
+ASC (1)/0	_mp_IS_UU.PST_1.avg_density	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.864
+ASC (1)/0	_mp_IS_UU.PST_1.htr_temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.865
+ASC (1)/0	_mp_IS_UU.PST_1.vol_15	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.865
+ASC (1)/0	_mp_IS_UU.PST_1.dens_15	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.878
+ASC (1)/0	_mp_IS_UU.PST_1.mass_dose	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.879
+ASC (1)/0	_mp_IS_UU.PST_1.mass_fact	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.879
+ASC (1)/0	_mp_IS_UU.PST_1.mass_total	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.880
+ASC (1)/0	_mp_IS_UU.PST_1.mass_flow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.880
+ASC (1)/0	_mp_IS_UU.PST_1.mass_cutter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.894
+ASC (1)/0	_mp_IS_UU.PST_1.mass_diff	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.895
+ASC (1)/0	_mp_IS_UU.PST_1.sts_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.895
+ASC (1)/0	_mp_IS_UU.PST_1.ground	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.896
+ASC (1)/0	_mp_IS_UU.PST_1.overflow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.896
+ASC (1)/0	_mp_IS_UU.PST_1.work_pos	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.910
+ASC (1)/0	_mp_IS_UU.PST_1.garage_pos	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.910
+ASC (1)/0	_mp_IS_UU.PST_1.trap	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.911
+ASC (1)/0	_mp_IS_UU.PST_1.sts_alrm_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.911
+ASC (1)/0	_mp_IS_UU.PST_1.sts_product	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.912
+ASC (1)/0	_mp_IS_UU.PST_1.sts_filter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.925
+ASC (1)/0	_mp_IS_UU.PST_1.sts_start_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.926
+ASC (1)/0	_mp_IS_UU.PST_1.sts_bza	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.926
+ASC (1)/0	_mp_IS_UU.PST_1.sts_vlv	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.927
+ASC (1)/0	_mp_IS_UU.PST_1.mbs_nolink	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.927
+ASC (1)/0	_mp_IS_UU.PST_2.status	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.940
+ASC (1)/0	_mp_IS_UU.PST_2.counter_inspector	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.941
+ASC (1)/0	_mp_IS_UU.PST_2.vol_dose	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.942
+ASC (1)/0	_mp_IS_UU.PST_2.vol_fact	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.943
+ASC (1)/0	_mp_IS_UU.PST_2.vol_total	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.944
+ASC (1)/0	_mp_IS_UU.PST_2.vol_flow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.957
+ASC (1)/0	_mp_IS_UU.PST_2.vol_cutter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.958
+ASC (1)/0	_mp_IS_UU.PST_2.vol_diff	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.959
+ASC (1)/0	_mp_IS_UU.PST_2.temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.960
+ASC (1)/0	_mp_IS_UU.PST_2.density	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.961
+ASC (1)/0	_mp_IS_UU.PST_2.pressure	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.972
+ASC (1)/0	_mp_IS_UU.PST_2.level	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.973
+ASC (1)/0	_mp_IS_UU.PST_2.avg_temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.974
+ASC (1)/0	_mp_IS_UU.PST_2.avg_density	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.975
+ASC (1)/0	_mp_IS_UU.PST_2.htr_temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.977
+ASC (1)/0	_mp_IS_UU.PST_2.vol_15	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.988
+ASC (1)/0	_mp_IS_UU.PST_2.dens_15	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.989
+ASC (1)/0	_mp_IS_UU.PST_2.mass_dose	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.990
+ASC (1)/0	_mp_IS_UU.PST_2.mass_fact	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.991
+ASC (1)/0	_mp_IS_UU.PST_2.mass_total	IS_UU	0	0x8300000000000101	24.11.2020 07:04:42.993
+ASC (1)/0	_mp_IS_UU.PST_2.mass_flow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.003
+ASC (1)/0	_mp_IS_UU.PST_2.mass_cutter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.004
+ASC (1)/0	_mp_IS_UU.PST_2.mass_diff	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.005
+ASC (1)/0	_mp_IS_UU.PST_2.sts_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.007
+ASC (1)/0	_mp_IS_UU.PST_2.ground	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.008
+ASC (1)/0	_mp_IS_UU.PST_2.overflow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.019
+ASC (1)/0	_mp_IS_UU.PST_2.work_pos	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.020
+ASC (1)/0	_mp_IS_UU.PST_2.garage_pos	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.021
+ASC (1)/0	_mp_IS_UU.PST_2.trap	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.022
+ASC (1)/0	_mp_IS_UU.PST_2.sts_alrm_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.024
+ASC (1)/0	_mp_IS_UU.PST_2.sts_product	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.034
+ASC (1)/0	_mp_IS_UU.PST_2.sts_filter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.035
+ASC (1)/0	_mp_IS_UU.PST_2.sts_start_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.037
+ASC (1)/0	_mp_IS_UU.PST_2.sts_bza	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.038
+ASC (1)/0	_mp_IS_UU.PST_2.sts_vlv	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.039
+ASC (1)/0	_mp_IS_UU.PST_2.mbs_nolink	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.050
+ASC (1)/0	_mp_IS_UU.PST_3.status	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.051
+ASC (1)/0	_mp_IS_UU.PST_3.counter_inspector	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.052
+ASC (1)/0	_mp_IS_UU.PST_3.vol_dose	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.054
+ASC (1)/0	_mp_IS_UU.PST_3.vol_fact	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.054
+ASC (1)/0	_mp_IS_UU.PST_3.vol_total	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.066
+ASC (1)/0	_mp_IS_UU.PST_3.vol_flow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.067
+ASC (1)/0	_mp_IS_UU.PST_3.vol_cutter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.068
+ASC (1)/0	_mp_IS_UU.PST_3.vol_diff	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.069
+ASC (1)/0	_mp_IS_UU.PST_3.temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.071
+ASC (1)/0	_mp_IS_UU.PST_3.density	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.082
+ASC (1)/0	_mp_IS_UU.PST_3.pressure	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.083
+ASC (1)/0	_mp_IS_UU.PST_3.level	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.084
+ASC (1)/0	_mp_IS_UU.PST_3.avg_temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.086
+ASC (1)/0	_mp_IS_UU.PST_3.avg_density	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.087
+ASC (1)/0	_mp_IS_UU.PST_3.htr_temperature	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.097
+ASC (1)/0	_mp_IS_UU.PST_3.vol_15	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.098
+ASC (1)/0	_mp_IS_UU.PST_3.dens_15	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.099
+ASC (1)/0	_mp_IS_UU.PST_3.mass_dose	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.101
+ASC (1)/0	_mp_IS_UU.PST_3.mass_fact	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.102
+ASC (1)/0	_mp_IS_UU.PST_3.mass_total	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.112
+ASC (1)/0	_mp_IS_UU.PST_3.mass_flow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.113
+ASC (1)/0	_mp_IS_UU.PST_3.mass_cutter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.115
+ASC (1)/0	_mp_IS_UU.PST_3.mass_diff	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.116
+ASC (1)/0	_mp_IS_UU.PST_3.sts_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.117
+ASC (1)/0	_mp_IS_UU.PST_3.ground	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.128
+ASC (1)/0	_mp_IS_UU.PST_3.overflow	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.129
+ASC (1)/0	_mp_IS_UU.PST_3.work_pos	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.130
+ASC (1)/0	_mp_IS_UU.PST_3.garage_pos	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.132
+ASC (1)/0	_mp_IS_UU.PST_3.trap	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.133
+ASC (1)/0	_mp_IS_UU.PST_3.sts_alrm_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.144
+ASC (1)/0	_mp_IS_UU.PST_3.sts_product	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.144
+ASC (1)/0	_mp_IS_UU.PST_3.sts_filter	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.145
+ASC (1)/0	_mp_IS_UU.PST_3.sts_start_stop	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.146
+ASC (1)/0	_mp_IS_UU.PST_3.sts_bza	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.148
+ASC (1)/0	_mp_IS_UU.PST_3.sts_vlv	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.159
+ASC (1)/0	_mp_IS_UU.PST_3.mbs_nolink	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.160
+ASC (1)/0	_mp_IS_UU.PST_1.cmd	IS_UU	0x0	0x8300000000000101	24.11.2020 07:04:43.161
+ASC (1)/0	_mp_IS_UU.PST_1.status_bool.permis	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.162
+ASC (1)/0	_mp_IS_UU.PST_1.status_bool.start	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.164
+ASC (1)/0	_mp_IS_UU.PST_1.status_bool.stop	IS_UU	1	0x8300000000000101	24.11.2020 07:04:43.174
+ASC (1)/0	_mp_IS_UU.PST_2.status_bool.permis	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.175
+ASC (1)/0	_mp_IS_UU.PST_2.status_bool.start	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.177
+ASC (1)/0	_mp_IS_UU.PST_2.status_bool.stop	IS_UU	1	0x8300000000000101	24.11.2020 07:04:43.178
+ASC (1)/0	_mp_IS_UU.PST_3.status_bool.permis	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.179
+ASC (1)/0	_mp_IS_UU.PST_3.status_bool.start	IS_UU	0	0x8300000000000101	24.11.2020 07:04:43.189
+ASC (1)/0	_mp_IS_UU.PST_3.status_bool.stop	IS_UU	1	0x8300000000000101	24.11.2020 07:04:43.190
+
+# AlertValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+UI (7)/0	1599552844	416	_mp_IS_UU.PST_1.status	IS_UU		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Стоп"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU	2	4	0	16	0	1					information.	lt:1 LANG:10027 "Разрешение приема"				0	01.01.1970 00:00:00.000		0	16																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU	3	4	16	32	0	1					information.	lt:1 LANG:10027 "Пуск"				0	01.01.1970 00:00:00.000		16	32																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU	4	4	32	48	0	1					information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000		32	48																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU	5	4	48	64	0	1					information.	lt:1 LANG:10027 "Продолжение"				0	01.01.1970 00:00:00.000		48	64																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU	6	4	64	96	0	1					alert.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000		64	96																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU	7	4	96	128	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		96	128																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552975	94	_mp_IS_UU.PST_1.status	IS_UU	8	4	128	2147483647	0	1					information.	lt:1 LANG:10027 "Не активный"				0	01.01.1970 00:00:00.000		128	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Стоп"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU	2	4	0	16	0	1					information.	lt:1 LANG:10027 "Разрешение приема"				0	01.01.1970 00:00:00.000		0	16																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU	3	4	16	32	0	1					information.	lt:1 LANG:10027 "Пуск"				0	01.01.1970 00:00:00.000		16	32																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU	4	4	32	48	0	1					information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000		32	48																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU	5	4	48	64	0	1					information.	lt:1 LANG:10027 "Продолжение"				0	01.01.1970 00:00:00.000		48	64																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU	6	4	64	96	0	1					alert.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000		64	96																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU	7	4	96	128	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		96	128																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552977	401	_mp_IS_UU.PST_1.status	IS_UU	8	4	128	2147483647	0	1					information.	lt:1 LANG:10027 "Не активный"				0	01.01.1970 00:00:00.000		128	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Стоп"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU	2	4	0	16	0	1					information.	lt:1 LANG:10027 "Разрешение приема"				0	01.01.1970 00:00:00.000		0	16																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU	3	4	16	32	0	1					information.	lt:1 LANG:10027 "Пуск"				0	01.01.1970 00:00:00.000		16	32																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU	4	4	32	48	0	1					information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000		32	48																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU	5	4	48	64	0	1					information.	lt:1 LANG:10027 "Продолжение"				0	01.01.1970 00:00:00.000		48	64																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU	6	4	64	96	0	1					alert.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000		64	96																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU	7	4	96	128	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		96	128																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553067	263	_mp_IS_UU.PST_1.status	IS_UU	8	4	128	2147483647	0	1					information.	lt:1 LANG:10027 "Не активный"				0	01.01.1970 00:00:00.000		128	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	516	_mp_IS_UU.PST_1.status	IS_UU		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Стоп"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU	2	4	0	16	0	1					information.	lt:1 LANG:10027 "Разрешение приема"				0	01.01.1970 00:00:00.000		0	16																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU	3	4	16	32	0	1					information.	lt:1 LANG:10027 "Пуск"				0	01.01.1970 00:00:00.000		16	32																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU	4	4	32	48	0	1					information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000		32	48																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU	5	4	48	64	0	1					information.	lt:1 LANG:10027 "Продолжение"				0	01.01.1970 00:00:00.000		48	64																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU	6	4	64	96	0	1					alert.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000		64	96																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU	7	4	96	128	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		96	128																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	530	_mp_IS_UU.PST_1.status	IS_UU	8	4	128	2147483647	0	1					information.	lt:1 LANG:10027 "Не активный"				0	01.01.1970 00:00:00.000		128	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Стоп"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU	2	4	0	16	0	1					information.	lt:1 LANG:10027 "Разрешение приема"				0	01.01.1970 00:00:00.000		0	16																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU	3	4	16	32	0	1					information.	lt:1 LANG:10027 "Пуск"				0	01.01.1970 00:00:00.000		16	32																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU	4	4	32	48	0	1					information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000		32	48																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU	5	4	48	64	0	1					information.	lt:1 LANG:10027 "Продолжение"				0	01.01.1970 00:00:00.000		48	64																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU	6	4	64	96	0	1					alert.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000		64	96																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU	7	4	96	128	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		96	128																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	545	_mp_IS_UU.PST_1.status	IS_UU	8	4	128	2147483647	0	1					information.	lt:1 LANG:10027 "Не активный"				0	01.01.1970 00:00:00.000		128	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Стоп"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU	2	4	0	16	0	1					information.	lt:1 LANG:10027 "Разрешение приема"				0	01.01.1970 00:00:00.000		0	16																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU	3	4	16	32	0	1					information.	lt:1 LANG:10027 "Пуск"				0	01.01.1970 00:00:00.000		16	32																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU	4	4	32	48	0	1					information.	lt:1 LANG:10027 "Пауза"				0	01.01.1970 00:00:00.000		32	48																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU	5	4	48	64	0	1					information.	lt:1 LANG:10027 "Продолжение"				0	01.01.1970 00:00:00.000		48	64																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU	6	4	64	96	0	1					alert.	lt:1 LANG:10027 "Ошибка"				0	01.01.1970 00:00:00.000		64	96																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU	7	4	96	128	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		96	128																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	559	_mp_IS_UU.PST_1.status	IS_UU	8	4	128	2147483647	0	1					information.	lt:1 LANG:10027 "Не активный"				0	01.01.1970 00:00:00.000		128	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599555574	38	_mp_IS_UU.PST_1.status_bool.permis	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555596	606	_mp_IS_UU.PST_1.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение приема"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555598	585	_mp_IS_UU.PST_1.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение приема"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555707	163	_mp_IS_UU.PST_1.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение приема"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555712	121	_mp_IS_UU.PST_1.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение пуска"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	560	_mp_IS_UU.PST_1.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение пуска"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	580	_mp_IS_UU.PST_1.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение пуска"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555614	290	_mp_IS_UU.PST_1.status_bool.start	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555624	539	_mp_IS_UU.PST_1.status_bool.start	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	592	_mp_IS_UU.PST_1.status_bool.start	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	593	_mp_IS_UU.PST_1.status_bool.start	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555640	512	_mp_IS_UU.PST_1.status_bool.stop	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555651	927	_mp_IS_UU.PST_1.status_bool.stop	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	608	_mp_IS_UU.PST_1.status_bool.stop	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555668	565	_mp_IS_UU.PST_2.status_bool.permis	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555678	402	_mp_IS_UU.PST_2.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение приема"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555680	155	_mp_IS_UU.PST_2.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение приема"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555719	616	_mp_IS_UU.PST_2.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение приема"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555723	627	_mp_IS_UU.PST_2.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение пуска"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	624	_mp_IS_UU.PST_2.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение пуска"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555729	672	_mp_IS_UU.PST_2.status_bool.start	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555736	663	_mp_IS_UU.PST_2.status_bool.start	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	626	_mp_IS_UU.PST_2.status_bool.start	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	627	_mp_IS_UU.PST_2.status_bool.start	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555764	479	_mp_IS_UU.PST_2.status_bool.stop	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555772	629	_mp_IS_UU.PST_2.status_bool.stop	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	642	_mp_IS_UU.PST_2.status_bool.stop	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555792	246	_mp_IS_UU.PST_3.status_bool.permis	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555802	577	_mp_IS_UU.PST_3.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение пуска"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	656	_mp_IS_UU.PST_3.status_bool.permis	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Разрешение пуска"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555817	226	_mp_IS_UU.PST_3.status_bool.start	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555823	673	_mp_IS_UU.PST_3.status_bool.start	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	658	_mp_IS_UU.PST_3.status_bool.start	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Пуск"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555839	32	_mp_IS_UU.PST_3.status_bool.stop	IS_UU		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599555846	246	_mp_IS_UU.PST_3.status_bool.stop	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	673	_mp_IS_UU.PST_3.status_bool.stop	IS_UU		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Стоп"	lt:1 LANG:10027 ""												0								
+
+# DistributionInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+ASC (1)/0	1598507761	223	_mp_IS_UU.PST_1.status	IS_UU	56	\10
+ASC (1)/0	1598507761	223	_mp_IS_UU.PST_1.counter_inspector	IS_UU	56	\10
+ASC (1)/0	1598507761	224	_mp_IS_UU.PST_1.vol_dose	IS_UU	56	\10
+ASC (1)/0	1598507761	225	_mp_IS_UU.PST_1.vol_fact	IS_UU	56	\10
+ASC (1)/0	1598507761	225	_mp_IS_UU.PST_1.vol_total	IS_UU	56	\10
+ASC (1)/0	1598507761	226	_mp_IS_UU.PST_1.vol_flow	IS_UU	56	\10
+ASC (1)/0	1598507761	226	_mp_IS_UU.PST_1.vol_cutter	IS_UU	56	\10
+ASC (1)/0	1598507761	227	_mp_IS_UU.PST_1.vol_diff	IS_UU	56	\10
+ASC (1)/0	1598507761	228	_mp_IS_UU.PST_1.temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	228	_mp_IS_UU.PST_1.density	IS_UU	56	\10
+ASC (1)/0	1598507761	229	_mp_IS_UU.PST_1.pressure	IS_UU	56	\10
+ASC (1)/0	1598507761	229	_mp_IS_UU.PST_1.level	IS_UU	56	\10
+ASC (1)/0	1598507761	230	_mp_IS_UU.PST_1.avg_temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	231	_mp_IS_UU.PST_1.avg_density	IS_UU	56	\10
+ASC (1)/0	1598507761	231	_mp_IS_UU.PST_1.htr_temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	231	_mp_IS_UU.PST_1.vol_15	IS_UU	56	\10
+ASC (1)/0	1598507761	232	_mp_IS_UU.PST_1.dens_15	IS_UU	56	\10
+ASC (1)/0	1598507761	232	_mp_IS_UU.PST_1.mass_dose	IS_UU	56	\10
+ASC (1)/0	1598507761	233	_mp_IS_UU.PST_1.mass_fact	IS_UU	56	\10
+ASC (1)/0	1598507761	233	_mp_IS_UU.PST_1.mass_total	IS_UU	56	\10
+ASC (1)/0	1598507761	233	_mp_IS_UU.PST_1.mass_flow	IS_UU	56	\10
+ASC (1)/0	1598507761	233	_mp_IS_UU.PST_1.mass_cutter	IS_UU	56	\10
+ASC (1)/0	1598507761	234	_mp_IS_UU.PST_1.mass_diff	IS_UU	56	\10
+ASC (1)/0	1598507761	235	_mp_IS_UU.PST_1.sts_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	235	_mp_IS_UU.PST_1.ground	IS_UU	56	\10
+ASC (1)/0	1598507761	235	_mp_IS_UU.PST_1.overflow	IS_UU	56	\10
+ASC (1)/0	1598507761	235	_mp_IS_UU.PST_1.work_pos	IS_UU	56	\10
+ASC (1)/0	1598507761	236	_mp_IS_UU.PST_1.garage_pos	IS_UU	56	\10
+ASC (1)/0	1598507761	237	_mp_IS_UU.PST_1.trap	IS_UU	56	\10
+ASC (1)/0	1598507761	237	_mp_IS_UU.PST_1.sts_alrm_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	237	_mp_IS_UU.PST_1.sts_product	IS_UU	56	\10
+ASC (1)/0	1598507761	237	_mp_IS_UU.PST_1.sts_filter	IS_UU	56	\10
+ASC (1)/0	1598507761	238	_mp_IS_UU.PST_1.sts_start_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	239	_mp_IS_UU.PST_1.sts_bza	IS_UU	56	\10
+ASC (1)/0	1598507761	239	_mp_IS_UU.PST_1.sts_vlv	IS_UU	56	\10
+ASC (1)/0	1598507761	239	_mp_IS_UU.PST_1.mbs_nolink	IS_UU	56	\10
+ASC (1)/0	1598507761	239	_mp_IS_UU.PST_2.status	IS_UU	56	\10
+ASC (1)/0	1598507761	240	_mp_IS_UU.PST_2.counter_inspector	IS_UU	56	\10
+ASC (1)/0	1598507761	241	_mp_IS_UU.PST_2.vol_dose	IS_UU	56	\10
+ASC (1)/0	1598507761	241	_mp_IS_UU.PST_2.vol_fact	IS_UU	56	\10
+ASC (1)/0	1598507761	241	_mp_IS_UU.PST_2.vol_total	IS_UU	56	\10
+ASC (1)/0	1598507761	241	_mp_IS_UU.PST_2.vol_flow	IS_UU	56	\10
+ASC (1)/0	1598507761	242	_mp_IS_UU.PST_2.vol_cutter	IS_UU	56	\10
+ASC (1)/0	1598507761	243	_mp_IS_UU.PST_2.vol_diff	IS_UU	56	\10
+ASC (1)/0	1598507761	243	_mp_IS_UU.PST_2.temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	243	_mp_IS_UU.PST_2.density	IS_UU	56	\10
+ASC (1)/0	1598507761	243	_mp_IS_UU.PST_2.pressure	IS_UU	56	\10
+ASC (1)/0	1598507761	244	_mp_IS_UU.PST_2.level	IS_UU	56	\10
+ASC (1)/0	1598507761	245	_mp_IS_UU.PST_2.avg_temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	245	_mp_IS_UU.PST_2.avg_density	IS_UU	56	\10
+ASC (1)/0	1598507761	245	_mp_IS_UU.PST_2.htr_temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	245	_mp_IS_UU.PST_2.vol_15	IS_UU	56	\10
+ASC (1)/0	1598507761	246	_mp_IS_UU.PST_2.dens_15	IS_UU	56	\10
+ASC (1)/0	1598507761	247	_mp_IS_UU.PST_2.mass_dose	IS_UU	56	\10
+ASC (1)/0	1598507761	247	_mp_IS_UU.PST_2.mass_fact	IS_UU	56	\10
+ASC (1)/0	1598507761	247	_mp_IS_UU.PST_2.mass_total	IS_UU	56	\10
+ASC (1)/0	1598507761	247	_mp_IS_UU.PST_2.mass_flow	IS_UU	56	\10
+ASC (1)/0	1598507761	248	_mp_IS_UU.PST_2.mass_cutter	IS_UU	56	\10
+ASC (1)/0	1598507761	249	_mp_IS_UU.PST_2.mass_diff	IS_UU	56	\10
+ASC (1)/0	1598507761	249	_mp_IS_UU.PST_2.sts_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	249	_mp_IS_UU.PST_2.ground	IS_UU	56	\10
+ASC (1)/0	1598507761	249	_mp_IS_UU.PST_2.overflow	IS_UU	56	\10
+ASC (1)/0	1598507761	250	_mp_IS_UU.PST_2.work_pos	IS_UU	56	\10
+ASC (1)/0	1598507761	251	_mp_IS_UU.PST_2.garage_pos	IS_UU	56	\10
+ASC (1)/0	1598507761	251	_mp_IS_UU.PST_2.trap	IS_UU	56	\10
+ASC (1)/0	1598507761	251	_mp_IS_UU.PST_2.sts_alrm_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	251	_mp_IS_UU.PST_2.sts_product	IS_UU	56	\10
+ASC (1)/0	1598507761	252	_mp_IS_UU.PST_2.sts_filter	IS_UU	56	\10
+ASC (1)/0	1598507761	254	_mp_IS_UU.PST_2.sts_start_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	254	_mp_IS_UU.PST_2.sts_bza	IS_UU	56	\10
+ASC (1)/0	1598507761	254	_mp_IS_UU.PST_2.sts_vlv	IS_UU	56	\10
+ASC (1)/0	1598507761	255	_mp_IS_UU.PST_2.mbs_nolink	IS_UU	56	\10
+ASC (1)/0	1598507761	255	_mp_IS_UU.PST_3.status	IS_UU	56	\10
+ASC (1)/0	1598507761	256	_mp_IS_UU.PST_3.counter_inspector	IS_UU	56	\10
+ASC (1)/0	1598507761	256	_mp_IS_UU.PST_3.vol_dose	IS_UU	56	\10
+ASC (1)/0	1598507761	256	_mp_IS_UU.PST_3.vol_fact	IS_UU	56	\10
+ASC (1)/0	1598507761	256	_mp_IS_UU.PST_3.vol_total	IS_UU	56	\10
+ASC (1)/0	1598507761	257	_mp_IS_UU.PST_3.vol_flow	IS_UU	56	\10
+ASC (1)/0	1598507761	258	_mp_IS_UU.PST_3.vol_cutter	IS_UU	56	\10
+ASC (1)/0	1598507761	258	_mp_IS_UU.PST_3.vol_diff	IS_UU	56	\10
+ASC (1)/0	1598507761	258	_mp_IS_UU.PST_3.temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	258	_mp_IS_UU.PST_3.density	IS_UU	56	\10
+ASC (1)/0	1598507761	259	_mp_IS_UU.PST_3.pressure	IS_UU	56	\10
+ASC (1)/0	1598507761	260	_mp_IS_UU.PST_3.level	IS_UU	56	\10
+ASC (1)/0	1598507761	260	_mp_IS_UU.PST_3.avg_temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	260	_mp_IS_UU.PST_3.avg_density	IS_UU	56	\10
+ASC (1)/0	1598507761	260	_mp_IS_UU.PST_3.htr_temperature	IS_UU	56	\10
+ASC (1)/0	1598507761	261	_mp_IS_UU.PST_3.vol_15	IS_UU	56	\10
+ASC (1)/0	1598507761	262	_mp_IS_UU.PST_3.dens_15	IS_UU	56	\10
+ASC (1)/0	1598507761	262	_mp_IS_UU.PST_3.mass_dose	IS_UU	56	\10
+ASC (1)/0	1598507761	262	_mp_IS_UU.PST_3.mass_fact	IS_UU	56	\10
+ASC (1)/0	1598507761	263	_mp_IS_UU.PST_3.mass_total	IS_UU	56	\10
+ASC (1)/0	1598507761	263	_mp_IS_UU.PST_3.mass_flow	IS_UU	56	\10
+ASC (1)/0	1598507761	264	_mp_IS_UU.PST_3.mass_cutter	IS_UU	56	\10
+ASC (1)/0	1598507761	264	_mp_IS_UU.PST_3.mass_diff	IS_UU	56	\10
+ASC (1)/0	1598507761	264	_mp_IS_UU.PST_3.sts_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	265	_mp_IS_UU.PST_3.ground	IS_UU	56	\10
+ASC (1)/0	1598507761	265	_mp_IS_UU.PST_3.overflow	IS_UU	56	\10
+ASC (1)/0	1598507761	266	_mp_IS_UU.PST_3.work_pos	IS_UU	56	\10
+ASC (1)/0	1598507761	266	_mp_IS_UU.PST_3.garage_pos	IS_UU	56	\10
+ASC (1)/0	1598507761	266	_mp_IS_UU.PST_3.trap	IS_UU	56	\10
+ASC (1)/0	1598507761	267	_mp_IS_UU.PST_3.sts_alrm_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	267	_mp_IS_UU.PST_3.sts_product	IS_UU	56	\10
+ASC (1)/0	1598507761	268	_mp_IS_UU.PST_3.sts_filter	IS_UU	56	\10
+ASC (1)/0	1598507761	268	_mp_IS_UU.PST_3.sts_start_stop	IS_UU	56	\10
+ASC (1)/0	1598507761	268	_mp_IS_UU.PST_3.sts_bza	IS_UU	56	\10
+ASC (1)/0	1598507761	269	_mp_IS_UU.PST_3.sts_vlv	IS_UU	56	\10
+ASC (1)/0	1598507761	269	_mp_IS_UU.PST_3.mbs_nolink	IS_UU	56	\10
+ASC (1)/0	1598507761	270	_mp_IS_UU.PST_1.cmd	IS_UU	56	\10
+ASC (1)/0	1598507761	270	_mp_IS_UU.PST_2.cmd	IS_UU	56	\10
+ASC (1)/0	1598507761	270	_mp_IS_UU.PST_3.cmd	IS_UU	56	\10
+
+# DpFunction
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
+ASC (1)/0	1606201626	237	_mp_IS_UU.PST_1.status_bool.permis	IS_UU	60	_mp_IS_UU.PST_1.status:_original.._value	"p1 == 16"		1
+ASC (1)/0	1606201626	237	_mp_IS_UU.PST_1.status_bool.start	IS_UU	60	_mp_IS_UU.PST_1.status:_original.._value	"p1 == 32"		1
+ASC (1)/0	1606201626	249	_mp_IS_UU.PST_1.status_bool.stop	IS_UU	60	_mp_IS_UU.PST_1.status:_original.._value	"p1 == 0"		1
+ASC (1)/0	1606201626	250	_mp_IS_UU.PST_2.status_bool.permis	IS_UU	60	_mp_IS_UU.PST_2.status:_original.._value	"p1 == 16"		1
+ASC (1)/0	1606201626	251	_mp_IS_UU.PST_2.status_bool.start	IS_UU	60	_mp_IS_UU.PST_2.status:_original.._value	"p1 == 32"		1
+ASC (1)/0	1606201626	252	_mp_IS_UU.PST_2.status_bool.stop	IS_UU	60	_mp_IS_UU.PST_2.status:_original.._value	"p1 == 0"		1
+ASC (1)/0	1606201626	253	_mp_IS_UU.PST_3.status_bool.permis	IS_UU	60	_mp_IS_UU.PST_3.status:_original.._value	"p1 == 16"		1
+ASC (1)/0	1606201626	265	_mp_IS_UU.PST_3.status_bool.start	IS_UU	60	_mp_IS_UU.PST_3.status:_original.._value	"p1 == 32"		1
+ASC (1)/0	1606201626	266	_mp_IS_UU.PST_3.status_bool.stop	IS_UU	60	_mp_IS_UU.PST_3.status:_original.._value	"p1 == 0"		1
+
+# DpConvRawToIngMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_msg_conv.._type	_msg_conv.._poly_grade	_msg_conv.._poly_a	_msg_conv.._poly_b	_msg_conv.._poly_c	_msg_conv.._poly_d	_msg_conv.._poly_e	_msg_conv.._linint_num	_msg_conv.._linint1_x	_msg_conv.._linint1_y	_msg_conv.._linint2_x	_msg_conv.._linint2_y	_msg_conv.._linint3_x	_msg_conv.._linint3_y	_msg_conv.._linint4_x	_msg_conv.._linint4_y	_msg_conv.._linint5_x	_msg_conv.._linint5_y	_msg_conv.._null_from	_msg_conv.._null_to	_msg_conv.._null_res	_msg_conv.._log_base	_msg_conv.._round_val	_msg_conv.._round_inv	_msg_conv.._trig_lim	_msg_conv.._trig_up	_msg_conv.._imp_edge	_msg_conv.._imp_rstval
+UI (7)/0	1602069651	951	_mp_IS_UU.PST_1.density	IS_UU		33																											
+
+# PeriphAddrMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+ASC (1)/0	1598520895	596	_mp_IS_UU.PST_1.status	IS_UU	16	"_mp_IS_UU.Data.Data[1].sStatusPosta"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520895	597	_mp_IS_UU.PST_1.counter_inspector	IS_UU	16	"_mp_IS_UU.Data.Data[1].sCountInspector"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	598	_mp_IS_UU.PST_1.vol_dose	IS_UU	16	"_mp_IS_UU.Data.Data[1].xVolumeDose"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	599	_mp_IS_UU.PST_1.vol_fact	IS_UU	16	"_mp_IS_UU.Data.Data[1].xVolumeFact"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	599	_mp_IS_UU.PST_1.vol_total	IS_UU	16	"_mp_IS_UU.Data.Data[1].xTotalValue"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1014	"S7PLUS"
+ASC (1)/0	1598520895	600	_mp_IS_UU.PST_1.vol_flow	IS_UU	16	"_mp_IS_UU.Data.Data[1].xVolumeFlow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	600	_mp_IS_UU.PST_1.vol_cutter	IS_UU	16	"_mp_IS_UU.Data.Data[1].xVolumeCutoff"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+ASC (1)/0	1598520895	600	_mp_IS_UU.PST_1.vol_diff	IS_UU	16	"_mp_IS_UU.Data.Data[1].xTotalVolumeDifference"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+UI (7)/0	1599214257	127	_mp_IS_UU.PST_1.temperature	IS_UU	16	"_mp_IS_UU.Data.Data[1].xTemperature"	_SubRSU	_RSU	0	0	\4	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214338	734	_mp_IS_UU.PST_1.density	IS_UU	16	"_mp_IS_UU.Data.Data[1].xDensity"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214345	464	_mp_IS_UU.PST_1.pressure	IS_UU	16	"_mp_IS_UU.Data.Data[1].xPressure"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520895	603	_mp_IS_UU.PST_1.level	IS_UU	16	"_mp_IS_UU.Data.Data[1].xSensorLevelUZ"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (7)/0	1599214359	850	_mp_IS_UU.PST_1.avg_temperature	IS_UU	16	"_mp_IS_UU.Data.Data[1].xAverageTemperature"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214366	493	_mp_IS_UU.PST_1.avg_density	IS_UU	16	"_mp_IS_UU.Data.Data[1].xAverageDensity"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214372	688	_mp_IS_UU.PST_1.htr_temperature	IS_UU	16	"_mp_IS_UU.Data.Data[1].xHeaterTemperature"	_PollPaz	_RSU	0	0	\4	0	1	0	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599290018	696	_mp_IS_UU.PST_1.vol_15	IS_UU	16	"_mp_IS_UU.Data.Data[1].xVolume15"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599290027	492	_mp_IS_UU.PST_1.dens_15	IS_UU	16	"_mp_IS_UU.Data.Data[1].xDensity15"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520895	606	_mp_IS_UU.PST_1.mass_dose	IS_UU	16	"_mp_IS_UU.Data.Data[1].xMassDose"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	608	_mp_IS_UU.PST_1.mass_fact	IS_UU	16	"_mp_IS_UU.Data.Data[1].xMassFact"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	608	_mp_IS_UU.PST_1.mass_total	IS_UU	16	"_mp_IS_UU.Data.Data[1].xTotalMass"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1014	"S7PLUS"
+ASC (1)/0	1598520895	609	_mp_IS_UU.PST_1.mass_flow	IS_UU	16	"_mp_IS_UU.Data.Data[1].xMassFlow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	609	_mp_IS_UU.PST_1.mass_cutter	IS_UU	16	"_mp_IS_UU.Data.Data[1].xMassCutoff"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+ASC (1)/0	1598520895	609	_mp_IS_UU.PST_1.mass_diff	IS_UU	16	"_mp_IS_UU.Data.Data[1].xTotalMassDifference"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	611	_mp_IS_UU.PST_1.sts_stop	IS_UU	16	"_mp_IS_UU.Data.Data[1].sStatusStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	611	_mp_IS_UU.PST_1.ground	IS_UU	16	"_mp_IS_UU.Data.Data[1].sSensorGround"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	612	_mp_IS_UU.PST_1.overflow	IS_UU	16	"_mp_IS_UU.Data.Data[1].sSensorOverflow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	613	_mp_IS_UU.PST_1.work_pos	IS_UU	16	"_mp_IS_UU.Data.Data[1].sSensorWorkPosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	613	_mp_IS_UU.PST_1.garage_pos	IS_UU	16	"_mp_IS_UU.Data.Data[1].sGaragePosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	615	_mp_IS_UU.PST_1.trap	IS_UU	16	"_mp_IS_UU.Data.Data[1].sSensorTrapa"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	615	_mp_IS_UU.PST_1.sts_alrm_stop	IS_UU	16	"_mp_IS_UU.Data.Data[1].sSensorAlarmStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	616	_mp_IS_UU.PST_1.sts_product	IS_UU	16	"_mp_IS_UU.Data.Data[1].sSensorProduct"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	616	_mp_IS_UU.PST_1.sts_filter	IS_UU	16	"_mp_IS_UU.Data.Data[1].sSensorFilter"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	616	_mp_IS_UU.PST_1.sts_start_stop	IS_UU	16	"_mp_IS_UU.Data.Data[1].sButtonStartStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	618	_mp_IS_UU.PST_1.sts_bza	IS_UU	16	"_mp_IS_UU.Data.Data[1].sStatusGroundBZA"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	618	_mp_IS_UU.PST_1.sts_vlv	IS_UU	16	"_mp_IS_UU.Data.Data[1].sVlv"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520895	618	_mp_IS_UU.PST_1.mbs_nolink	IS_UU	16	"_mp_IS_UU.Data.Data[1].MBNoLink"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598520895	619	_mp_IS_UU.PST_2.status	IS_UU	16	"_mp_IS_UU.Data.Data[2].sStatusPosta"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520895	619	_mp_IS_UU.PST_2.counter_inspector	IS_UU	16	"_mp_IS_UU.Data.Data[2].sCountInspector"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	621	_mp_IS_UU.PST_2.vol_dose	IS_UU	16	"_mp_IS_UU.Data.Data[2].xVolumeDose"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	621	_mp_IS_UU.PST_2.vol_fact	IS_UU	16	"_mp_IS_UU.Data.Data[2].xVolumeFact"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	621	_mp_IS_UU.PST_2.vol_total	IS_UU	16	"_mp_IS_UU.Data.Data[2].xTotalValue"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1014	"S7PLUS"
+ASC (1)/0	1598520895	622	_mp_IS_UU.PST_2.vol_flow	IS_UU	16	"_mp_IS_UU.Data.Data[2].xVolumeFlow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	622	_mp_IS_UU.PST_2.vol_cutter	IS_UU	16	"_mp_IS_UU.Data.Data[2].xVolumeCutoff"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+ASC (1)/0	1598520895	624	_mp_IS_UU.PST_2.vol_diff	IS_UU	16	"_mp_IS_UU.Data.Data[2].xTotalVolumeDifference"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+UI (7)/0	1599214410	533	_mp_IS_UU.PST_2.temperature	IS_UU	16	"_mp_IS_UU.Data.Data[2].xTemperature"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214416	966	_mp_IS_UU.PST_2.density	IS_UU	16	"_mp_IS_UU.Data.Data[2].xDensity"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214424	797	_mp_IS_UU.PST_2.pressure	IS_UU	16	"_mp_IS_UU.Data.Data[2].xPressure"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520895	625	_mp_IS_UU.PST_2.level	IS_UU	16	"_mp_IS_UU.Data.Data[2].xSensorLevelUZ"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (7)/0	1599214430	678	_mp_IS_UU.PST_2.avg_temperature	IS_UU	16	"_mp_IS_UU.Data.Data[2].xAverageTemperature"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214436	815	_mp_IS_UU.PST_2.avg_density	IS_UU	16	"_mp_IS_UU.Data.Data[2].xAverageDensity"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214442	607	_mp_IS_UU.PST_2.htr_temperature	IS_UU	16	"_mp_IS_UU.Data.Data[2].xHeaterTemperature"	_PollPaz	_RSU	0	0	\4	0	1	0	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214448	725	_mp_IS_UU.PST_2.vol_15	IS_UU	16	"_mp_IS_UU.Data.Data[2].xVolume15"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214455	734	_mp_IS_UU.PST_2.dens_15	IS_UU	16	"_mp_IS_UU.Data.Data[2].xDensity15"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520895	630	_mp_IS_UU.PST_2.mass_dose	IS_UU	16	"_mp_IS_UU.Data.Data[2].xMassDose"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	630	_mp_IS_UU.PST_2.mass_fact	IS_UU	16	"_mp_IS_UU.Data.Data[2].xMassFact"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	630	_mp_IS_UU.PST_2.mass_total	IS_UU	16	"_mp_IS_UU.Data.Data[2].xTotalMass"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1014	"S7PLUS"
+ASC (1)/0	1598520895	631	_mp_IS_UU.PST_2.mass_flow	IS_UU	16	"_mp_IS_UU.Data.Data[2].xMassFlow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	632	_mp_IS_UU.PST_2.mass_cutter	IS_UU	16	"_mp_IS_UU.Data.Data[2].xMassCutoff"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+ASC (1)/0	1598520895	633	_mp_IS_UU.PST_2.mass_diff	IS_UU	16	"_mp_IS_UU.Data.Data[2].xTotalMassDifference"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	633	_mp_IS_UU.PST_2.sts_stop	IS_UU	16	"_mp_IS_UU.Data.Data[2].sStatusStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	634	_mp_IS_UU.PST_2.ground	IS_UU	16	"_mp_IS_UU.Data.Data[2].sSensorGround"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	634	_mp_IS_UU.PST_2.overflow	IS_UU	16	"_mp_IS_UU.Data.Data[2].sSensorOverflow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	634	_mp_IS_UU.PST_2.work_pos	IS_UU	16	"_mp_IS_UU.Data.Data[2].sSensorWorkPosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	636	_mp_IS_UU.PST_2.garage_pos	IS_UU	16	"_mp_IS_UU.Data.Data[2].sGaragePosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	636	_mp_IS_UU.PST_2.trap	IS_UU	16	"_mp_IS_UU.Data.Data[2].sSensorTrapa"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	636	_mp_IS_UU.PST_2.sts_alrm_stop	IS_UU	16	"_mp_IS_UU.Data.Data[2].sSensorAlarmStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	637	_mp_IS_UU.PST_2.sts_product	IS_UU	16	"_mp_IS_UU.Data.Data[2].sSensorProduct"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	637	_mp_IS_UU.PST_2.sts_filter	IS_UU	16	"_mp_IS_UU.Data.Data[2].sSensorFilter"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	639	_mp_IS_UU.PST_2.sts_start_stop	IS_UU	16	"_mp_IS_UU.Data.Data[2].sButtonStartStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	639	_mp_IS_UU.PST_2.sts_bza	IS_UU	16	"_mp_IS_UU.Data.Data[2].sStatusGroundBZA"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	639	_mp_IS_UU.PST_2.sts_vlv	IS_UU	16	"_mp_IS_UU.Data.Data[2].sVlv"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520895	640	_mp_IS_UU.PST_2.mbs_nolink	IS_UU	16	"_mp_IS_UU.Data.Data[2].MBNoLink"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598520895	640	_mp_IS_UU.PST_3.status	IS_UU	16	"_mp_IS_UU.Data.Data[3].sStatusPosta"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520895	642	_mp_IS_UU.PST_3.counter_inspector	IS_UU	16	"_mp_IS_UU.Data.Data[3].sCountInspector"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	642	_mp_IS_UU.PST_3.vol_dose	IS_UU	16	"_mp_IS_UU.Data.Data[3].xVolumeDose"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	643	_mp_IS_UU.PST_3.vol_fact	IS_UU	16	"_mp_IS_UU.Data.Data[3].xVolumeFact"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	643	_mp_IS_UU.PST_3.vol_total	IS_UU	16	"_mp_IS_UU.Data.Data[3].xTotalValue"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1014	"S7PLUS"
+ASC (1)/0	1598520895	643	_mp_IS_UU.PST_3.vol_flow	IS_UU	16	"_mp_IS_UU.Data.Data[3].xVolumeFlow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	645	_mp_IS_UU.PST_3.vol_cutter	IS_UU	16	"_mp_IS_UU.Data.Data[3].xVolumeCutoff"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+ASC (1)/0	1598520895	645	_mp_IS_UU.PST_3.vol_diff	IS_UU	16	"_mp_IS_UU.Data.Data[3].xTotalVolumeDifference"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+UI (7)/0	1599214469	693	_mp_IS_UU.PST_3.temperature	IS_UU	16	"_mp_IS_UU.Data.Data[3].xTemperature"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214476	587	_mp_IS_UU.PST_3.density	IS_UU	16	"_mp_IS_UU.Data.Data[3].xDensity"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214483	509	_mp_IS_UU.PST_3.pressure	IS_UU	16	"_mp_IS_UU.Data.Data[3].xPressure"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520895	648	_mp_IS_UU.PST_3.level	IS_UU	16	"_mp_IS_UU.Data.Data[3].xSensorLevelUZ"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (7)/0	1599214490	605	_mp_IS_UU.PST_3.avg_temperature	IS_UU	16	"_mp_IS_UU.Data.Data[3].xAverageTemperature"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214497	118	_mp_IS_UU.PST_3.avg_density	IS_UU	16	"_mp_IS_UU.Data.Data[3].xAverageDensity"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214502	581	_mp_IS_UU.PST_3.htr_temperature	IS_UU	16	"_mp_IS_UU.Data.Data[3].xHeaterTemperature"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214508	364	_mp_IS_UU.PST_3.vol_15	IS_UU	16	"_mp_IS_UU.Data.Data[3].xVolume15"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599214514	458	_mp_IS_UU.PST_3.dens_15	IS_UU	16	"_mp_IS_UU.Data.Data[3].xDensity15"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520895	651	_mp_IS_UU.PST_3.mass_dose	IS_UU	16	"_mp_IS_UU.Data.Data[3].xMassDose"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	651	_mp_IS_UU.PST_3.mass_fact	IS_UU	16	"_mp_IS_UU.Data.Data[3].xMassFact"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	652	_mp_IS_UU.PST_3.mass_total	IS_UU	16	"_mp_IS_UU.Data.Data[3].xTotalMass"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1014	"S7PLUS"
+ASC (1)/0	1598520895	652	_mp_IS_UU.PST_3.mass_flow	IS_UU	16	"_mp_IS_UU.Data.Data[3].xMassFlow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	654	_mp_IS_UU.PST_3.mass_cutter	IS_UU	16	"_mp_IS_UU.Data.Data[3].xMassCutoff"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+ASC (1)/0	1598520895	654	_mp_IS_UU.PST_3.mass_diff	IS_UU	16	"_mp_IS_UU.Data.Data[3].xTotalMassDifference"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1013	"S7PLUS"
+ASC (1)/0	1598520895	655	_mp_IS_UU.PST_3.sts_stop	IS_UU	16	"_mp_IS_UU.Data.Data[3].sStatusStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	655	_mp_IS_UU.PST_3.ground	IS_UU	16	"_mp_IS_UU.Data.Data[3].sSensorGround"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	655	_mp_IS_UU.PST_3.overflow	IS_UU	16	"_mp_IS_UU.Data.Data[3].sSensorOverflow"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	657	_mp_IS_UU.PST_3.work_pos	IS_UU	16	"_mp_IS_UU.Data.Data[3].sSensorWorkPosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	657	_mp_IS_UU.PST_3.garage_pos	IS_UU	16	"_mp_IS_UU.Data.Data[3].sGaragePosition"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	658	_mp_IS_UU.PST_3.trap	IS_UU	16	"_mp_IS_UU.Data.Data[3].sSensorTrapa"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	658	_mp_IS_UU.PST_3.sts_alrm_stop	IS_UU	16	"_mp_IS_UU.Data.Data[3].sSensorAlarmStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	658	_mp_IS_UU.PST_3.sts_product	IS_UU	16	"_mp_IS_UU.Data.Data[3].sSensorProduct"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	660	_mp_IS_UU.PST_3.sts_filter	IS_UU	16	"_mp_IS_UU.Data.Data[3].sSensorFilter"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	660	_mp_IS_UU.PST_3.sts_start_stop	IS_UU	16	"_mp_IS_UU.Data.Data[3].sButtonStartStop"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	660	_mp_IS_UU.PST_3.sts_bza	IS_UU	16	"_mp_IS_UU.Data.Data[3].sStatusGroundBZA"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520895	661	_mp_IS_UU.PST_3.sts_vlv	IS_UU	16	"_mp_IS_UU.Data.Data[3].sVlv"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520895	661	_mp_IS_UU.PST_3.mbs_nolink	IS_UU	16	"_mp_IS_UU.Data.Data[3].MBNoLink"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (7)/0	1598593286	576	_mp_IS_UU.PST_1.cmd	IS_UU	16	"_mp_IS_UU.Data.Data[1].cCommand"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520895	664	_mp_IS_UU.PST_2.cmd	IS_UU	16	"_mp_IS_UU.Data.Data[2].cCommand"	 	_RSU	0	0	\1	0	0	0	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520895	664	_mp_IS_UU.PST_3.cmd	IS_UU	16	"_mp_IS_UU.Data.Data[3].cCommand"	 	_RSU	0	0	\1	0	0	0	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"

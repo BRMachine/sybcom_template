@@ -1,0 +1,209 @@
+V 14
+1
+LANG:10027 0 
+PANEL,-1 -1 448 150 N "_3DFace" 1
+"$dp"
+"main(){
+
+  dpConnect(\"worker_val\", \"Logic\" + DP + \".PV_Hist\",         //1 - гистерезис
+                          \"Logic\" + DP + \".Time_DelayHist\"   //2 - время наблюдения
+                          );
+}" 0
+ E E E E 1 -1 -1 0  9.000000000000002 11.74362498643612
+""0  1
+E "const string DP = $dp;
+
+void worker_val(dyn_string dp, dyn_anytype val){
+
+   timer.text=val[2];
+   hist.text=val[1];
+
+
+}" 0
+ 3
+"CBRef" "1"
+"EClose" E
+"dpi" "96"
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 0 
+14 1
+"timer"
+""
+1 9 118 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+0 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  7.000000000000002 108.7272727272727 80 136
+3 "0s" 0 0 0 0 0 -1  E E E
+14 2
+"hist"
+""
+1 9 87 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+1 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  7.000000000000002 77.72727272727272 80 105
+3 "0s" 0 0 0 0 0 -1  E E E
+2 3
+"PRIMITIVE_TEXT2"
+""
+1 242 44 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+2 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 3.06007351561076 0 1.697377596841052 -692.8878798829644 -60.94098927457017 0 E 242 44 362 74
+0 2 2 "0s" 0 0 0 73 0 0  242 44 2
+1
+LANG:10027 35 Noto Sans,-1,15,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 56 Изменение параметров сработки
+1
+LANG:10027 35 Noto Sans,-1,15,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 75  "Несанкционированного изменения уровня"
+2 4
+"PRIMITIVE_TEXT1"
+""
+1 242 44 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+3 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.9760964977708103 0 0.7352941176470589 -145.2153524605361 46.64705882352941 0 E 242 44 362 74
+0 2 2 "0s" 0 0 0 64 0 0  242 44 1
+1
+LANG:10027 38 Noto Sans,-1,16,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 20 Гистерезис
+2 5
+"PRIMITIVE_TEXT3"
+""
+1 242 44 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1.318654550995555 0 0.7352941176470589 -228.1144013409243 78.64705882352942 0 E 242 44 362 74
+0 2 2 "0s" 0 0 0 64 0 0  242 44 1
+1
+LANG:10027 38 Noto Sans,-1,16,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 31 Время наблюдения
+13 6
+"PUSH_BUTTON1"
+""
+1 313 103 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+5 0 0 0 0 0
+E E E
+8
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 32 Arial,-1,13,5,87,0,0,0,0,0,Black
+0  311 83.51387355560462 429 133.1329211746522
+
+T 
+1
+LANG:10027 35 Записать
+изменения
+"main(mapping event)
+{
+
+const string DP = $dp;
+dyn_string Adr;
+dyn_int new_okr;
+
+  Adr[1] = \"Logic\" + DP + \".Time_DelayHist:_original.._value\";
+  Adr[2] = \"Logic\" + DP + \".PV_Hist:_original.._value\";
+
+getValue(\"timer\" , \"text\", new_okr[1]);
+getValue(\"hist\" , \"text\", new_okr[2]);
+
+// запись в пару
+  for(int i=1; i<=2; i++){
+    dpSetWait(Adr[i], new_okr[i]);
+
+  }
+}
+
+" 0
+ E E E
+0
+LAYER, 1 
+1
+LANG:10027 0 
+0
+LAYER, 2 
+1
+LANG:10027 0 
+0
+LAYER, 3 
+1
+LANG:10027 0 
+0
+LAYER, 4 
+1
+LANG:10027 0 
+0
+LAYER, 5 
+1
+LANG:10027 0 
+0
+LAYER, 6 
+1
+LANG:10027 0 
+0
+LAYER, 7 
+1
+LANG:10027 0 
+0
+0

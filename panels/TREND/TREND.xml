@@ -1,0 +1,2032 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">1893 945</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">0 0</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[//
+const string DEFAULT_GROUP = &quot;SYBCOM_TREND_DEFAULT&quot;;
+const string CCURRENT_GROUP = &quot;SYBCOM_TREND_CURRENT&quot;;
+
+string CURRENT_GROUP;
+float kofZaderjka = 2.6;
+
+dyn_string Init(string DP=CURRENT_GROUP, bool ADD_AREA=FALSE)
+{
+  dyn_string AREA_DPE;
+
+  AREA_DPE[1] = DP + &quot;.AREA_DEFINITION.CURVE&quot;;
+  AREA_DPE[2] = DP + &quot;.AREA_DEFINITION.ENABLE&quot;;
+  AREA_DPE[3] = DP + &quot;.AREA_DEFINITION.COLOR&quot;;
+  AREA_DPE[4] = DP + &quot;.AREA_DEFINITION.TYPE&quot;;
+  AREA_DPE[5] = DP + &quot;.AREA_DEFINITION.LINE_TYPE&quot;;
+  AREA_DPE[6] = DP + &quot;.AREA_DEFINITION.AREA&quot;;
+  AREA_DPE[7] = DP + &quot;.AREA_DEFINITION.AUTO_SCALE&quot;;
+  AREA_DPE[8] = DP + &quot;.AREA_DEFINITION.MINIMUM&quot;;
+  AREA_DPE[9] = DP + &quot;.AREA_DEFINITION.MAXIMUM&quot;;
+  AREA_DPE[10]= DP + &quot;.AREA_DEFINITION.TIME_START&quot;;
+  AREA_DPE[11]= DP + &quot;.AREA_DEFINITION.TIME_END&quot;;
+  if(ADD_AREA){
+  AREA_DPE[12] = DP + &quot;.MAXIMUM_AREAS&quot;;
+  }
+
+  return AREA_DPE;
+}
+
+// Открыть группу
+void OpenTrendGroup(string dp)
+{
+  string tmp=dpSubStr(dp,DPSUB_DP);
+  int ierr, i;
+  string desc,
+         dp1 = &quot;SYBCOM_TREND_CURRENT.&quot;,
+         dp2 = tmp;
+  dyn_string allC;
+  dyn_anytype para;
+  allC = dpNames(dp+&quot;.**:_original.._value&quot;, &quot;_SYBCOM_TREND&quot;);
+  dpGet(allC, para);
+  for (i=1; i&lt;=dynlen(allC); i++)
+  {
+  strreplace(allC[i], dp, &quot;SYBCOM_TREND_CURRENT&quot;);
+  }
+  dpSet(allC, para);
+  desc = dpGetDescription(dp+&quot;.&quot;);
+  DebugN(&quot;DESC&quot;,desc);
+  dpSetDescription(dp1, desc);
+
+
+}
+
+// Сохранить группу
+void SaveTrendGroup(string dp)
+{
+
+  dyn_string ds;
+  dyn_int    df;
+  langString desc=dpGetDescription(dp + &quot;.&quot;);
+  ChildPanelOnCentralModalReturn(&quot;vision/MessageInput&quot;,&quot;Введите имя группы&quot;,
+    makeDynString(&quot;$1:Введите имя группы&quot;,&quot;$2:&quot;+0, &quot;$3:&quot;+desc),df, ds);
+  if(ds[1]!=0 &amp;&amp; ds[1] != &quot;CANCEL&quot;)
+  {
+    SaveNewGroup(dp, ds[1],1);
+  }
+  SetChange();
+}
+void SaveTrendCurrentGroup(string dp)
+{
+   int err;
+   dpCopyOriginal(CCURRENT_GROUP, dp, err);
+
+  SetChange();
+}
+
+// Переименовать группу
+void ReNameTrendGroup(string dp)
+{
+  dyn_string ds;
+  dyn_int    df;
+  langString desc=dpGetDescription(dp + &quot;.&quot;);
+  ChildPanelOnCentralModalReturn(&quot;vision/MessageInput&quot;,&quot;Введите имя группы&quot;,
+    makeDynString(&quot;$1:Введите имя группы&quot;,&quot;$2:&quot;+0, &quot;$3:&quot;+desc),df, ds);
+   if(ds[1]!=0)
+   {
+     dpSetDescription(dp + &quot;.&quot;,ds[1]);
+   }
+  SetChange();
+}
+
+// Удалить группу
+void DeleteTrendGroup(string dp)
+{
+  if(dpSubStr(dp,DPSUB_DP)!=DEFAULT_GROUP)
+  {
+    dpDelete(dp);
+    dpSet(&quot;SYBCOM_TREND_START_UP.DEFAULT&quot;, DEFAULT_GROUP);
+  }
+  else
+  {
+    ClearGroup(DEFAULT_GROUP);
+  }
+  SetChange();
+}
+
+
+// Копировать
+void CopyAsTrendGroup(string dp)
+{
+  dyn_string ds;
+  dyn_int    df;
+  langString desc=dpGetDescription(dp + &quot;.&quot;);
+  ChildPanelOnCentralModalReturn(&quot;vision/MessageInput&quot;,&quot;Введите имя группы&quot;,
+    makeDynString(&quot;$1:Введите имя группы&quot;,&quot;$2:&quot;+0, &quot;$3:&quot;+desc),df, ds);
+  if(ds[1]!=0)
+  {
+    SaveNewGroup(dp, ds[1],0);
+  }
+  SetChange();
+}
+
+// Создаем новую группу
+void CreateNewGroup(string dp=DEFAULT_GROUP)
+{
+  dyn_string ds;
+  dyn_int    df;
+  langString desc=dpGetDescription(dp + &quot;.&quot;);
+  ChildPanelOnCentralModalReturn(&quot;vision/MessageInput&quot;,&quot;Введите имя группы&quot;,
+    makeDynString(&quot;$1:Введите имя группы&quot;,&quot;$2:&quot;+0, &quot;$3:&quot;+desc),df, ds);
+  if(ds[1]!=0 &amp;&amp; ds[1]!=&quot;CANCEL&quot;)
+  {
+    SaveNewGroup(dp, ds[1],0);
+  }
+  SetChange();
+}
+
+// Сохранить группу
+void SaveNewGroup(string dp, string desc, bool Copy=1)
+{
+ int ierr,num;
+ string lastName,Name;
+ dyn_string tmp;
+ dyn_string groups=dpNames(&quot;SYBCOM_TREND_*&quot;,&quot;_SYBCOM_TREND&quot;);
+
+ lastName=groups[dynlen(groups)];
+
+ tmp=strsplit(lastName,&quot;_&quot;);
+ num=(int)tmp[dynlen(tmp)];
+ sprintf(Name,&quot;%5d&quot;,num+1);
+ strreplace(Name,&quot; &quot;,&quot;0&quot;);
+ dpCopy(dp, &quot;SYBCOM_TREND_NUM_&quot; + Name, ierr);
+ if(Copy){ dpCopyOriginal(dp, &quot;SYBCOM_TREND_NUM_&quot; + Name, ierr);}
+ dpSetDescription(&quot;SYBCOM_TREND_NUM_&quot; + Name + &quot;.&quot;,desc);
+}
+
+// Очистить группу
+void ClearGroup(string dp)
+{
+  dyn_bool ENABLE,AUTO_SCALE;
+  dyn_int TYPE,LINE_TYPE,AREA;
+  dyn_string CURVE,COLOR;
+  dyn_float MINIMUM,MAXIMUM;
+  time TIME_START,TIME_END;
+
+  dyn_string DPE_T = Init(dp, FALSE);
+
+  dpSet(DPE_T[1],CURVE,
+        DPE_T[2],ENABLE,
+        DPE_T[3],COLOR,
+        DPE_T[4],TYPE,
+        DPE_T[5],LINE_TYPE,
+        DPE_T[6],AREA,
+        DPE_T[7],AUTO_SCALE,
+        DPE_T[8],MINIMUM,
+        DPE_T[9],MAXIMUM,
+        DPE_T[10],TIME_START,
+        DPE_T[11],TIME_END);
+}
+
+void DeleteItemFromGroup(int id)
+{
+  dyn_anytype DPD_T;
+  dyn_string DPE_T = Init(CURRENT_GROUP, FALSE);
+
+  dpGet(DPE_T, DPD_T);
+
+  dynRemove(DPD_T[1],id);
+  dynRemove(DPD_T[2],id);
+  dynRemove(DPD_T[3],id);
+  dynRemove(DPD_T[4],id);
+  dynRemove(DPD_T[5],id);
+  dynRemove(DPD_T[6],id);
+  dynRemove(DPD_T[7],id);
+  dynRemove(DPD_T[8],id);
+  dynRemove(DPD_T[9],id);
+
+  dpSet(DPE_T, DPD_T);
+}
+void SetChange()
+{
+  bool bit;
+  dpGet(&quot;SYBCOM_TREND_START_UP.DEFAULT:_original.._userbit1&quot;,  bit);
+  dpSet(&quot;SYBCOM_TREND_START_UP.DEFAULT:_original.._userbit1&quot;, !bit);
+}
+
+
+// Функция добавляет точку данных в выбранный профиль
+void AddCurvesToProfile(dyn_string dps, int area=0)
+{
+DebugN(dps, &quot;dp+++++++++&quot;);
+  dyn_anytype PV_range, DPD_T;
+  dyn_string DPE_T = Init(CURRENT_GROUP, FALSE);
+
+  dpGet(DPE_T, DPD_T);
+
+  for (int i=1;i&lt;=dynlen(dps); i++)
+  {
+    if (dps[i]!=&quot;&quot;)
+    {
+      string nDpName=NormalizeDPName(dps[i]); // Нормализует имя точки данных
+      if (dynContains(DPD_T[1], nDpName)!=0) {break;}
+      // CURVE
+      dynAppend(DPD_T[1],nDpName);
+      // ENABLE
+      dynAppend(DPD_T[2],1);
+      // COLOR
+      dynAppend(DPD_T[3],&quot;[&quot; +(rand()%100)+ &quot;,&quot; +(rand()%100)+ &quot;,&quot; +(rand()%100)+ &quot;]&quot;);
+      // TYPE
+      dynAppend(DPD_T[4],2);
+      // LINE_TYPE
+      dynAppend(DPD_T[5],&quot;[solid,oneColor,JoinMiter,CapButt,0]&quot;);
+      // AREA
+      dynAppend(DPD_T[6],area);
+      // AUTO_SCALE
+      dynAppend(DPD_T[7],1);
+
+      PV_range=GetMinMaxRange(nDpName);
+      // MINIMUM
+      dynAppend(DPD_T[8],PV_range[1]);
+      // MAXIMUM
+      dynAppend(DPD_T[9],PV_range[2]);
+      // TIME_START
+      DPD_T[10] = getCurrentTime();
+      // TIME_END
+      DPD_T[11] = getCurrentTime();
+    }
+  }
+  dpSet(DPE_T, DPD_T);
+  SetChange();
+}
+
+// Нормализует имя точки данных //(добавляет по умолчанию _online.._value)
+// Удаляет, если тип данных не поддерживается
+string NormalizeDPName(string dp)
+{
+  string normDP=&quot;&quot;;
+  string DpName;
+  if(dpExists(dp))
+  {
+    DpName=dpSubStr(dp,DPSUB_SYS_DP_EL); // убираем лишнее
+
+    switch(dpElementType(DpName))
+    {
+      case DPEL_BOOL:  normDP=DpName + &quot;:_online.._value&quot;; break;
+      case DPEL_INT:   normDP=DpName + &quot;:_online.._value&quot;; break;
+      case DPEL_FLOAT: normDP=DpName + &quot;:_online.._value&quot;; break;
+      case DPEL_UINT:  normDP=DpName + &quot;:_online.._value&quot;; break;
+      default: DebugN(&quot;Тип данных не поддерживается трендом&quot;);
+    }
+  }
+  return normDP;
+}
+
+dyn_anytype GetMinMaxRange(string dp)
+{
+  dyn_anytype result; result[1]=0; result[2]=0;
+  int type, el_type;
+  anytype _min, _max;
+  bool _neg;
+  dyn_string conf;
+
+    string DpName = dpSubStr(dp, DPSUB_SYS_DP_EL);
+    conf[1]=DpName + &quot;:_pv_range.._type&quot;;
+    conf[2]=DpName + &quot;:_pv_range.._min&quot;;
+    conf[3]=DpName + &quot;:_pv_range.._max&quot;;
+    conf[4]=DpName + &quot;:_pv_range.._neg&quot;;
+
+    if (dpExists(DpName))
+    {
+      el_type=dpElementType(DpName);
+      if (el_type==DPEL_INT || el_type==DPEL_UINT || el_type==DPEL_FLOAT)
+      {
+        dpGet(conf[1] , type);
+        if (type&gt;0)
+        {
+          dpGet(conf[4], _neg,
+                conf[2], _min,
+                conf[3], _max);
+
+          if(!_neg) { result[1]=_min; result[2]=_max;}
+          else      { result[1]=_max; result[2]=_min;}
+        }
+      }
+      if (el_type==DPEL_BOOL)
+      {
+        result[1]=-1; result[2]=2;
+      }
+    }
+    else
+    {
+      result[1]=0; result[2]=100;
+    }
+
+  return result;
+}
+
+
+// Добавляет данные в облать отображения
+void TREND_PrintData(string profile, dyn_string dps, dyn_anytype dpdata)
+{
+  TREND_connect = TRUE;
+
+  int i, Range;
+  time end, start;
+
+  while(TREND_MY.numTrendAreas&gt;0) //dpdata[12]+1
+  {
+      TREND_MY.removeTrendArea(TREND_MY.numTrendAreas-1); // удаляем область
+  }
+
+
+    for(i=TREND_MY.numTrendAreas;i&lt;=dpdata[12];i++)
+    {
+      TREND_MY.addTrendArea();                              // добавляем область
+    }
+
+    for(i=0;i&lt;=TREND_MY.numTrendAreas-1;i++)
+    {
+      TREND_MY.areaLabel(i, &quot;Область &quot;+ (i));               // добавляем описание области
+      TREND_MY.timeScaleVisibility(i,TRUE,0);               // отображаем временную шкалу
+      TREND_MY.timeFormat(i, FALSE, &quot;%H:%M:%S&quot;, &quot;%d.%m.%y&quot;);// настраиваем формат даты времени
+    }
+
+  string     line=&quot;&quot;; // Линия
+  string     unit=&quot;&quot;;
+  langString desc=&quot;&quot;; // Описание
+  string backColor = &quot;{181,181,181}&quot;;
+
+  for(i=1;i&lt;=dynlen(dpdata[1]);i++)
+  {
+    line = &quot;Линия_&quot;+i;
+    unit=dpGetUnit(dpdata[1][i]);
+    desc=dpGetDescription(dpdata[1][i],3);
+    //TREND_MY.removeCurve(line);
+
+    if(dpdata[6][i]&gt;TREND_MY.numTrendAreas-1)
+      {TREND_MY.addCurve(0,line);}
+    else
+      {TREND_MY.addCurve(dpdata[6][i],line);}//добавляем линию
+
+    TREND_MY.curveColor(line, dpdata[3][i]);//задаем цвет
+    TREND_MY.curveType(line, dpdata[4][i]);// задаем тип кривой (0- точки, 1- ступени, 2- линия), предпочтительно 1-линия
+    TREND_MY.curveScaleVisibility(line)=TRUE; // покажем шкалу
+    TREND_MY.disconnectDirectly(line);// Отключаем точку данных от графика, надо делать обязательно перед тем как подключить
+    TREND_MY.curveRemoveData(line, getCurrentTime());//удаляем данные графика, надо делать обязательно перед подключением
+    TREND_MY.connectDirectly(line, dpdata[1][i]);// подключаем тренд
+    TREND_MY.curveLegendName(line, desc);// добавляем описание
+    TREND_MY.curveLegendUnit(line, unit);//доавляем единицу измерения
+    TREND_MY.curveScaleBackCol (line, backColor);// заменяем цвет поля Y ибо не видно не хрена при вырви глаз цветах тренда
+    TREND_MY.curveAutoscale(line, dpdata[7][i]);// автомасштабирование
+    TREND_MY.curveLineType(line, dpdata[5][i]);// тип линии
+    TREND_MY.curveVisible(line,dpdata[2][i]);
+    if (!dpdata[7][i]){TREND_MY.curveMinMax(line, dpdata[8][i], dpdata[9][i]);} // задаем масштаб
+  }
+    // уберем возможноть брать время из точки данных, что бы исключить возможность
+   // при старте сразу загрузги например двух месяцев. Ограничем одним днем от времени now
+   //     dpGet(profile + &quot;.TIME_START&quot;,timeStart,
+   //          profile + &quot;.TIME_END&quot;,timeStop,
+   //          profile + &quot;.TIME_SELECTOR&quot;,Range
+   //        );
+  //Установим базовую позицию
+  int tmp=(int)getCurrentTime();
+  start = (time)(tmp-24*60*60);
+  end = tmp;
+  Range = 9;
+  TIME_START.text = start;
+  TIME_END.text = end;
+
+   // Задать интервал
+   TREND_MY.timeInterval(end-start);
+   TREND_MY.timeBegin(start);
+   TIME_RANGE_SELECTOR.selectedPos(Range);
+
+//    DebugN(&quot;Time raznica: &quot; + timeRangeFloat(timeStart,timeStop) + &quot;koefZaderjki: &quot; + kofZaderjka + &quot;Общее время: &quot; + kofZaderjka*timeRangeFloat(timeStart,timeStop));
+   //startThread(&quot;PauseEnableTrend(timeRangeFloat(timeStart,timeStop))&quot;);
+}
+void PauseEnableTrend(float number) {
+  time a;
+  a = getCurrentTime();
+
+  DebugN(&quot;Delay_start1: &quot;);
+  DebugN(&quot;Delay_start: &quot; + a);
+
+  TREND_MY.enabled=false;
+  delay(number*kofZaderjka);
+  TREND_MY.enabled=true;
+  a = getCurrentTime();
+  DebugN(&quot;Delay_stop1: &quot;);
+  DebugN(&quot;Delay_stop: &quot; + a);
+}
+float timeRangeFloat(time timeStart, time timeStop) {
+  time timeO;
+  float numbersYh,
+      numbersMh,
+      numbersDh,
+      numbersHh;
+  float  sum;
+
+  timeO = timeStop - timeStart;
+  numbersYh = (float)formatTime(&quot;%Y&quot;, timeO)-1970; //год
+  numbersMh = (float)formatTime(&quot;%m&quot;, timeO)-1;    //месяц
+  numbersDh = (float)formatTime(&quot;%d&quot;, timeO)-1;    //день
+  numbersHh = (float)formatTime(&quot;%H&quot;, timeO);     //час
+//   DebugN(&quot;numbersYh: &quot; + numbersYh);
+//   DebugN(&quot;numbersMh: &quot; + numbersMh);
+//   DebugN(&quot;numbersDh: &quot; + numbersDh);
+//   DebugN(&quot;numbersHh: &quot; + numbersHh);
+
+  sum = numbersYh*365+numbersMh*30+numbersDh+numbersHh/24;
+  return sum;
+}
+void SetDisableInputTime()
+{
+  TIME_START.enabled=TRUE;
+  TIME_END.enabled=TRUE;
+  if(TIME_RANGE_SELECTOR.selectedPos!=9)
+  {
+    TIME_START.enabled=FALSE;
+    TIME_END.enabled=FALSE;
+  }
+}
+void SelectTimeRange(int range)
+{
+  time start,end,_now = getCurrentTime();
+
+  int tmp=(int)_now;
+  switch(range)
+  {
+    case 1: // 5 - минут
+      start=(time)(_now-5*60);
+      end =_now;
+      break;
+    case 2: // 10 - минут
+      start=(time)(_now-10*60);
+      end =_now;
+      break;
+    case 3: // 30 - минут
+      start=(time)(_now-30*60);
+      end =_now;
+      break;
+    case 4: // 1 -час
+      start=(time)(_now-1*60*60);
+      end =_now;
+      break;
+    case 5: // 2 -час
+      start=(time)(_now-2*60*60);
+      end =_now;
+      break;
+    case 6: // 5 -час
+      start=(time)(_now-5*60*60);
+      end =_now;
+      break;
+    case 7: // 12 -часов
+      start=(time)(_now-12*60*60);
+      end =_now;
+      break;
+    case 8: // 1 -сутки
+      start=(time)(_now-24*60*60);
+      end =_now;
+      break;
+    case 9: // свободный выбор
+     // if (TIME_START.text==&quot;&quot;) {
+       // start=(time)(tmp-24*60*60);
+      //} else {
+        start =(time)(TIME_START.text);
+        end = (time)(TIME_END.text);
+     //}
+      DebugN(&quot;Time start: &quot; + start);
+      break;
+//     case 9: // свободный выбор
+//       start=(time)TIME_START.text;
+//       break;
+    //default:
+  }
+     TIME_START.text=start;
+     TIME_END.text=_now;
+  // Задать интервал
+//   TREND_MY.timeInterval(_now-start);
+//   TREND_MY.timeBegin(start);
+//   dpSet(CURRENT_GROUP + &quot;.TIME_START&quot;,start,
+//         CURRENT_GROUP + &quot;.TIME_END&quot;,_now,
+//         CURRENT_GROUP + &quot;.TIME_SELECTOR&quot;,9);
+
+  //TIME_END.text = end;
+
+  //if (TIME_END.text==&quot;&quot;) {
+  //  TIME_END.text=_now;
+  //} else {
+   // _now = TIME_END.text;
+ // }
+  // Задать интервал
+  TREND_MY.timeInterval(end-start);
+  TREND_MY.timeBegin(start);
+  dpSet(CURRENT_GROUP + &quot;.TIME_START&quot;,start,
+        CURRENT_GROUP + &quot;.TIME_END&quot;,end,
+        CURRENT_GROUP + &quot;.TIME_SELECTOR&quot;,9);
+  DebugN(&quot;SelectTimeRange_TIME_START: &quot; + start);
+  DebugN(&quot;SelectTimeRange_TIME_END: &quot; + end);
+  DebugN(&quot;SelectTimeRange_Interval: &quot; + (end-start));
+  PauseEnableTrend(timeRangeFloat(start,end));
+}
+void SetDPParam(int id, string param, anytype value)
+{
+  dyn_anytype tmp;
+  dpGet( CURRENT_GROUP + &quot;.AREA_DEFINITION.&quot; + param, tmp);
+  tmp[id]=value;
+  dpSet( CURRENT_GROUP + &quot;.AREA_DEFINITION.&quot; + param, tmp);
+}
+]]></script>
+  <script name="Terminate" isEscaped="1"><![CDATA[main()
+{
+    // Очищаем все
+  ClearGroup(DEFAULT_GROUP);
+  dpSet(&quot;SYBCOM_TREND_START_UP.DEFAULT&quot;, CCURRENT_GROUP);
+
+	//	dpSetWait(myUiDpName() + &quot;.SYBCOM_LP.Panel&quot;, &quot;TREND/TREND_MY.XML&quot;,
+				        //myUiDpName() + &quot;.SYBCOM_LP.Params&quot;, &quot;$KUST:&quot; + $KUST  );
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[bool TREND_connect;
+
+main()
+{
+  dpConnect(&quot;work&quot;, &quot;SYBCOM_TREND_START_UP.DEFAULT&quot;);
+  dpConnect(&quot;dbClick&quot;,false, &quot;System1:SYBCOM_TREND_START_UP.doubleClick&quot;);
+}
+
+void work(string dp, string value)
+{
+  bool OPEN;
+  dyn_string OPEN_GROUP_DPS;
+  dyn_string DPE_T, _NEW_DPS;
+
+  CURRENT_GROUP = value;
+
+  DPE_T = Init(CURRENT_GROUP, TRUE);
+
+  // Удаляем подключние, если оно есть
+  if (TREND_connect) {dpDisconnect(&quot;TREND_PrintData&quot;); TREND_connect=FALSE;}
+
+
+  dpGet(&quot;SYBCOM_TREND_START_UP.OPEN_GROUP.DPS&quot;, OPEN_GROUP_DPS,
+        &quot;SYBCOM_TREND_START_UP.OPEN_GROUP.OPEN&quot;,OPEN);
+
+  if((dynlen(OPEN_GROUP_DPS)&gt;0)&amp;&amp; OPEN)
+  {
+    AddCurvesToProfile(OPEN_GROUP_DPS, 0);
+    dpSet(&quot;SYBCOM_TREND_START_UP.OPEN_GROUP.DPS&quot;,_NEW_DPS,
+          &quot;SYBCOM_TREND_START_UP.OPEN_GROUP.OPEN&quot;,0);
+  }
+
+
+  dpConnectUserData(&quot;TREND_PrintData&quot;,CURRENT_GROUP,TRUE, DPE_T);
+}
+void dbClick(string value)
+{
+
+  string val,dp;
+  dpGet(value,val);
+  DebugN(&quot;++++++++++++++++++++++ dbClick +++++++++++++++++++++++++&quot;);
+  DebugN(val);
+
+  dyn_string str_array;
+
+  if(cns_isNode(val)){
+     cnsGetId(val, dp);
+    str_array=stringToDynString(dp);
+    if(dp!=&quot;&quot;)
+      DebugN(str_array);
+     {
+        AddCurvesToProfile(str_array, 0);
+     }
+  }
+  SetChange();
+
+
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="TREND_MY" shapeType="TREND" layerId="0">
+   <properties>
+    <prop name="serialId">34</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">387.0000000000005 54.53847468734233</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="AcceptDrops">True</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">387.0000000000007 54.53847468734232</prop>
+    <prop name="Size">1502 721</prop>
+    <prop name="TimeTrend">True</prop>
+    <prop name="Logarithmic">False</prop>
+    <prop name="ShowToolBox">False</prop>
+    <prop name="ShowLegend">True</prop>
+    <prop name="Vertical">False</prop>
+    <prop name="ShowGrid">True</prop>
+    <prop name="ShowBackgroundGrid">True</prop>
+    <prop name="TimeRange">7200</prop>
+    <prop name="ScrollPercent">1</prop>
+    <prop name="LegendFont">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="ScaleFont">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="DefaultFont">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="TrendArea">
+     <prop name="PixmapFile"></prop>
+     <prop type="ValueOverTime" name="TrendCurve">
+      <prop name="Name">#1_1</prop>
+      <prop name="DataSource"></prop>
+      <prop name="PointType">0</prop>
+      <prop name="Type">2</prop>
+      <prop name="Filled">0</prop>
+      <prop name="RefValue">0</prop>
+      <prop name="LegendFormat"></prop>
+      <prop name="LegendShowDate">False</prop>
+      <prop name="LegendShowMilli">False</prop>
+      <prop name="LegendName">
+       <prop name="ru_RU.utf8">#1_1</prop>
+      </prop>
+      <prop name="LegendUnit">
+       <prop name="ru_RU.utf8"></prop>
+      </prop>
+      <prop name="VisibleInLegend">True</prop>
+      <prop name="AutoScale">True</prop>
+      <prop name="ValueShape"></prop>
+      <prop name="TimeShape"></prop>
+      <prop name="Min">0.0566330408496043</prop>
+      <prop name="Max">99.9433669591504</prop>
+      <prop name="LineType">[solid,oneColor,JoinMiter,CapButt,0]</prop>
+      <prop name="Color">Red</prop>
+      <prop name="GridVisible">False</prop>
+      <prop name="GridAboveCount">0</prop>
+      <prop name="GridBelowCount">0</prop>
+      <prop name="GridAboveDistance">0</prop>
+      <prop name="GridBelowDistance">0</prop>
+      <prop name="GridRefValue">0</prop>
+      <CurveScale>
+       <prop name="Format1">%g</prop>
+       <prop name="Format2">%x</prop>
+       <prop name="AutoFormat">True</prop>
+       <prop name="Visible">True</prop>
+       <prop name="Position">Left</prop>
+      </CurveScale>
+     </prop>
+     <prop name="TimeScaleOneLine">True</prop>
+     <prop name="TimeScale">
+      <prop name="Format1">%H:%M:%S</prop>
+      <prop name="Format2">%x</prop>
+      <prop name="AutoFormat">True</prop>
+      <prop name="Visible">True</prop>
+      <prop name="Position">Bottom</prop>
+     </prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="CurvesScaled" isEscaped="1"><![CDATA[main(dyn_string curves)
+{
+  DebugN(&quot;CurvesScaled=&quot;,curves);
+}]]></script>
+    <script name="TimeScroll" isEscaped="1"><![CDATA[main(time start, time span, int area)
+{
+  dpSet(CURRENT_GROUP + &quot;.TIME_START&quot;,start,
+        CURRENT_GROUP + &quot;.TIME_END&quot;, start + span);
+}]]></script>
+    <script name="CurveLegendClicked" isEscaped="1"><![CDATA[main(string curve)
+{
+  dyn_string NUMBER_T = strsplit(curve, &quot;_&quot;);
+  dyn_bool ENABLE;
+
+  dpGet(CURRENT_GROUP + &quot;.AREA_DEFINITION.ENABLE&quot;,ENABLE);
+  SetDPParam((int)NUMBER_T[2], &quot;ENABLE&quot;, !ENABLE[(int)NUMBER_T[2]]);
+}]]></script>
+    <script name="DragDrop" isEscaped="1"><![CDATA[main(string information, int dragType, int area)
+{
+  dyn_string str_array=stringToDynString(information);
+
+  if (dynlen(str_array)&gt;0){
+    AddCurvesToProfile(str_array, area);
+  }
+  SetChange();
+}
+]]></script>
+    <script name="DragEnter" isEscaped="1"><![CDATA[main(string information, int dragType, int area)
+{
+   dropAccept(1);
+}]]></script>
+   </events>
+  </shape>
+  <shape Name="GROUP_TREE" shapeType="TREE" layerId="0">
+   <properties>
+    <prop name="serialId">51</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 0.5688170758173643</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">4</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">0 0.5688170758173645</prop>
+    <prop name="Size">379 269</prop>
+    <extended>
+     <script name="clicked" isEscaped="1"><![CDATA[clicked(string id, int column)
+{
+  if((column==0) &amp;&amp; (id!=&quot;&quot;) &amp;&amp; (id!=&quot;GROUP_NAME&quot;))
+  {
+    OpenTrendGroup(id);
+  }
+}
+]]></script>
+     <script name="rightClicked" isEscaped="1"><![CDATA[rightClicked(string id, int column)
+{
+  DebugN(&quot;----------id----------&quot;, id );
+  int answer;
+  string add,add_copy,adds;
+  dyn_string txt;
+
+  
+  string desc1, desc2;
+  desc1 = dpGetDescription(id+&quot;.&quot;);
+  desc2 = dpGetDescription(&quot;SYBCOM_TREND_CURRENT.&quot; );
+  
+  if((column==0) &amp;&amp; (id!=&quot;&quot;))
+  {
+    switch(id)
+    {
+      case &quot;GROUP_NAME&quot;:
+        txt=makeDynString(&quot;PUSH_BUTTON, Новая группа, 6, 1&quot;);
+        break;
+      default:
+        if(dpSubStr(id,DPSUB_DP)==DEFAULT_GROUP)
+          {add=&quot;PUSH_BUTTON, Сохранить, 2, 1&quot;;}
+        else
+          {
+            add=&quot;PUSH_BUTTON, Переименовать, 3, 1&quot;;
+            add_copy=&quot;PUSH_BUTTON, Копировать группу, 5, 1&quot;;
+          }
+        if(desc1==desc2)
+          {adds=&quot;PUSH_BUTTON, Сохранить, 7, 1&quot;;
+        }else{
+          adds=&quot;PUSH_BUTTON, Открыть, 1, 1&quot;;
+        }
+        txt=makeDynString(adds,
+                          &quot;SEPARATOR&quot;, // Разделительная линия
+                          add ,
+                          &quot;SEPARATOR&quot;, // Разделительная линия
+                          add_copy,
+                          &quot;SEPARATOR&quot;, // Разделительная линия
+                          
+                          &quot;PUSH_BUTTON, Удалить, 4, 1&quot;);
+      }
+
+      popupMenu(txt, answer);
+
+      switch(answer)
+      {
+      case 1: OpenTrendGroup(id);     break; // Открыть
+      case 2: SaveTrendGroup(id);     break; // Сохранить
+      case 3: ReNameTrendGroup(id);   break; // Переименовать
+      case 4: DeleteTrendGroup(id);   break; // Удалить
+      case 5: CopyAsTrendGroup(id);   break; // Копировать
+      case 6: CreateNewGroup();       break; // Новая группа
+      case 7: SaveTrendCurrentGroup(id);break; // Сохранить Current  
+        
+      }
+    }
+}
+]]></script>
+    </extended>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[// Назначение: Формирование дерева сохраненных групп
+// Автор: Ермаков В.М.
+main()
+{
+  // Перестраиваем дерево если что-то изменилось
+  dpConnect(&quot;work&quot;, &quot;SYBCOM_TREND_START_UP.DEFAULT:_original.._userbit1&quot;);
+}
+
+void work(string dpe, bool value)
+{
+  string Name;
+  string Description;
+  dyn_string tmp;
+
+  // Формируем список доступных групп
+  dyn_string groups=dpNames(&quot;*&quot;,&quot;_SYBCOM_TREND&quot;);
+
+  GROUP_TREE.addColumn(&quot;TAG&quot;);
+  GROUP_TREE.headerHidden = TRUE;
+  GROUP_TREE.clear();
+  GROUP_TREE.appendItem(&quot;&quot;,&quot;GROUP_NAME&quot;,&quot;Группы&quot;);
+  GROUP_TREE.expandAll();
+  for (int i=1;i&lt;=dynlen(groups);i++)
+  {
+      // Название точки данных
+      Name=dpSubStr(groups[i],DPSUB_DP);
+
+      // Описание группы
+      Description=dpGetDescription(groups[i]+&quot;.&quot;);
+
+      // Исключаем мастер точку, если она присутствует
+      if (uniStrPos(groups[i], &quot;_mp_&quot;)==-1 &amp;&amp; Name!=&quot;SYBCOM_TREND_CURRENT&quot;)
+      {
+        // Новая группа отображается, если только в ней есть данные
+        if (Name==&quot;SYBCOM_TREND_DEFAULT&quot;)
+        {
+          dpGet(&quot;SYBCOM_TREND_DEFAULT.AREA_DEFINITION.CURVE&quot;, tmp);
+          if (dynlen(tmp)&lt;1){continue;}
+        }
+         // Добавлние группы в дерево
+         DebugN(groups[i]);
+         GROUP_TREE.appendItem(&quot;GROUP_NAME&quot;, groups[i], Description);
+         GROUP_TREE.setIcon(groups[i],&quot;GROUP_NAME&quot;,&quot;folder.png&quot;);
+
+      }
+    }
+  GROUP_TREE.ensureItemVisible(&quot;&quot;);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="MAIN_TABLE" shapeType="TABLE" layerId="0">
+   <properties>
+    <prop name="serialId">70</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">410 690</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">7</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="AcceptDrops">True</prop>
+    <prop name="sizePolicy">
+     <sizePolicy vertical="Expanding" horizontal="Fixed"/>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">387.7006698210404 780.0271547073922</prop>
+    <prop name="Size">1506 158</prop>
+    <prop name="ShowColumnHeader">True</prop>
+    <prop name="ShowRowHeader">False</prop>
+    <prop name="SortOnClick">True</prop>
+    <prop name="RowHeight">20</prop>
+    <prop name="RowHeaderWidth">0</prop>
+    <prop name="GridType">Cross</prop>
+    <prop name="VScrollBarMode">Auto</prop>
+    <prop name="HScrollBarMode">Auto</prop>
+    <prop name="Column">
+     <prop name="Name">NUMBER</prop>
+     <prop name="Width">30</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">№</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">TYPE</prop>
+     <prop name="Width">0</prop>
+     <prop name="Visible">False</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">TYPE</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LINE_TYPE</prop>
+     <prop name="Width">0</prop>
+     <prop name="Visible">False</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">LINE_TYPE</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">ENABLE</prop>
+     <prop name="Width">35</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">True</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Исп.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">DESCRIPTION</prop>
+     <prop name="Width">200</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Описание</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">UNIT</prop>
+     <prop name="Width">60</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Ед.изм.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">COLOR</prop>
+     <prop name="Width">45</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Цвет</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">AREA</prop>
+     <prop name="Width">56</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">True</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Область</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">DP_NAME</prop>
+     <prop name="Width">150</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Тэг</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">AUTO_SCALE</prop>
+     <prop name="Width">90</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">True</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Автомасштаб</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">MINIMUM</prop>
+     <prop name="Width">60</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">True</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Минимум</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.0f,False,False,AlignHCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">MAXIMUM</prop>
+     <prop name="Width">65</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">True</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Максимум</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.0f,False,False,AlignHCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SYSTEM</prop>
+     <prop name="Width">70</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">True</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">СИСТЕМА</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">DELETE</prop>
+     <prop name="Width">60</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">True</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Удалить</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SETTING</prop>
+     <prop name="Width">70</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">True</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Настройки</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">ID</prop>
+     <prop name="Width">10</prop>
+     <prop name="Visible">False</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">ID</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(int row, string column, string value)
+{
+  int id=MAIN_TABLE.cellValueRC(row,&quot;NUMBER&quot;);
+  anytype CellValue;
+  dyn_string ds;
+  dyn_float df;
+  int areaCount;
+  switch(column)
+  {
+    case &quot;NUMBER&quot;: break;
+    case &quot;ENABLE&quot;:
+      SetDPParam(id, &quot;ENABLE&quot;,value);
+      break;
+    case &quot;DESCRIPTION&quot;: break;
+    case &quot;UNIT&quot;: break;
+    case &quot;COLOR&quot;:
+      CellValue=MAIN_TABLE.cellBackColRC(row,&quot;COLOR&quot;);
+      colorEditor(CellValue);
+      MAIN_TABLE.cellBackColRC(row, &quot;COLOR&quot;, CellValue);
+      SetDPParam(id, &quot;COLOR&quot;,CellValue);
+      break;
+    case &quot;AREA&quot;:
+      SetDPParam(id, &quot;AREA&quot;,value);
+      break;
+    case &quot;DP_NAME&quot;: break;
+    case &quot;AUTO_SCALE&quot;:
+      SetDPParam(id, &quot;AUTO_SCALE&quot;,value);
+      break;
+    case &quot;MINIMUM&quot;:
+      SetDPParam(id, &quot;MINIMUM&quot;,value);
+      break;
+    case &quot;MAXIMUM&quot;:
+      SetDPParam(id, &quot;MAXIMUM&quot;,value);
+      break;
+    case &quot;SYSTEM&quot;:break;
+    case &quot;DELETE&quot;:
+       df=makeDynInt(1);
+       ChildPanelOnCentralModalReturn(&quot;vision/MessageWarning2&quot;,&quot;Предупреждение&quot;,
+        makeDynString(&quot;$1:Удалить данную линию из тренда?&quot;, &quot;$2:Да&quot;, &quot;$3:Нет&quot;),df, ds);
+        if(dynlen(df) &gt; 0){if(df[1]&gt;0){DeleteItemFromGroup(id); }}
+      break;
+    case &quot;SETTING&quot;:
+       dpGet(CURRENT_GROUP + &quot;.MAXIMUM_AREAS&quot;,areaCount);
+
+       ChildPanelOnCentralModal(&quot;TREND/SETTINGS/CURVE_SETTING.xml&quot;,
+       &quot;Настройки линии&quot;,
+       makeDynString(&quot;$MAXIMUM_AREAS:&quot;  + areaCount,
+                     &quot;$AREA:&quot;      + MAIN_TABLE.cellValueRC(row,&quot;AREA&quot;),
+                     &quot;$AUTO_SCALE:&quot;+ MAIN_TABLE.cellValueRC(row,&quot;AUTO_SCALE&quot;),
+                     &quot;$COLOR:&quot;     + MAIN_TABLE.cellBackColRC(row,&quot;COLOR&quot;),
+                     &quot;$ENABLE:&quot;    + MAIN_TABLE.cellValueRC(row,&quot;ENABLE&quot;),
+                     &quot;$LINE_TYPE:&quot; + MAIN_TABLE.cellValueRC(row,&quot;LINE_TYPE&quot;),
+                     &quot;$MAXIMUM:&quot;   + MAIN_TABLE.cellValueRC(row,&quot;MAXIMUM&quot;),
+                     &quot;$MINIMUM:&quot;   + MAIN_TABLE.cellValueRC(row,&quot;MINIMUM&quot;),
+                     &quot;$NUMBER:&quot;    + MAIN_TABLE.cellValueRC(row,&quot;NUMBER&quot;),
+                     &quot;$TYPE:&quot;      + MAIN_TABLE.cellValueRC(row,&quot;TYPE&quot;)));
+      break;
+  }
+
+
+}]]></script>
+    <script name="Initialize" isEscaped="1"><![CDATA[bool connect;
+main()
+{
+  dpConnect(&quot;work&quot;, &quot;SYBCOM_TREND_START_UP.DEFAULT&quot;);
+}
+
+void work(string dpe, string value)
+{
+
+  dyn_string DPE_T = Init(value, TRUE);
+
+  if (connect) {dpDisconnect(&quot;ShowCurves&quot;);}
+
+  dpConnect(&quot;ShowCurves&quot;, DPE_T);
+}
+
+
+void ShowCurves( dyn_string dpe, dyn_anytype DPD_T)
+{
+
+  dyn_string AreaSets;
+
+  for(int i=0;i&lt;=DPD_T[12];i++)
+  {
+    AreaSets[i+2]=i;
+  }
+  MAIN_TABLE.deleteAllLines();
+
+  for (int i=1;i&lt;=dynlen(DPD_T[1]); i++)
+  {
+    setValue(&quot;MAIN_TABLE&quot;, &quot;appendLine&quot;, &quot;NUMBER&quot;,      i,
+                                         &quot;ENABLE&quot;,      DPD_T[2][i],
+                                         &quot;DESCRIPTION&quot;, dpGetDescription(DPD_T[1][i]),
+                                         &quot;UNIT&quot;,        dpGetUnit(DPD_T[1][i]),
+                                         &quot;AREA&quot;,        DPD_T[6][i],
+                                         &quot;DP_NAME&quot;,     dpSubStr(DPD_T[1][i], DPSUB_DP_EL),
+                                         &quot;AUTO_SCALE&quot;,  DPD_T[7][i],
+                                         &quot;MINIMUM&quot;,     DPD_T[8][i],
+                                         &quot;MAXIMUM&quot;,     DPD_T[9][i],
+                                         &quot;TYPE&quot;,        DPD_T[4][i],
+                                         &quot;LINE_TYPE&quot;,   DPD_T[5][i],
+                                         &quot;SYSTEM&quot;,      dpSubStr(DPD_T[1][i], DPSUB_SYS));
+      MAIN_TABLE.cellWidgetRC(i-1, &quot;DELETE&quot;, &quot;PushButton&quot;, &quot;Удалить&quot;);
+      MAIN_TABLE.cellWidgetRC(i-1, &quot;SETTING&quot;, &quot;PushButton&quot;, &quot;Настройки&quot;);
+      MAIN_TABLE.cellBackColRC(i-1,&quot;COLOR&quot;, DPD_T[3][i]);
+      MAIN_TABLE.cellWidgetRC(i-1, &quot;AREA&quot;, &quot;ComboBox&quot;, AreaSets);
+  }
+
+}
+
+]]></script>
+    <script name="DragDrop" isEscaped="1"><![CDATA[main(string information, int dragType, int row, string column)
+{
+        dyn_string str_array=stringToDynString(information);
+
+  if (dynlen(str_array)&gt;0){
+    AddCurvesToProfile(str_array, 0);
+  }
+  SetChange();
+}]]></script>
+   </events>
+  </shape>
+  <shape Name="TIME_RANGE_SELECTOR" shapeType="COMBO_BOX" layerId="0">
+   <properties>
+    <prop name="serialId">87</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">751.7311320754717 26.32977966990645</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">8</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">751.7311320754714 20.23797808083861</prop>
+    <prop name="Size">223 22</prop>
+    <prop name="Listitems">
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">5 минут</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">10 минут</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">30 минут</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">1 час</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">2 часа</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">5 часов</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">12 часов</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">cутки</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">свободный выбор</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+    </prop>
+    <prop name="Editable">False</prop>
+   </properties>
+   <events>
+    <script name="Changed" isEscaped="1"><![CDATA[main()
+{
+  SelectTimeRange(this.selectedPos);
+  SetDisableInputTime();
+
+}]]></script>
+   </events>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">88</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">373.6415094339621 -9.202582528836976</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">9</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">440.3632075471696 19.37949234812833</prop>
+    <prop name="Size">34 21</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Image" SharedPixmap="1">
+     <prop name="BackgroundPixmap">stop_en.gif</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  TREND_MY.trendStop();
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="PUSH_BUTTON2" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">89</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">373.6415094339621 -10.56363371345437</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">10</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">401.4422169811318 19.37949234812833</prop>
+    <prop name="Size">34 21</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Image" SharedPixmap="1">
+     <prop name="BackgroundPixmap">start_en.gif</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+    TREND_MY.trendRun();
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="TIME_START" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">91</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">557.1037248276489 25.57529897044245</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">12</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">557.1037248276488 20.27564231655643</prop>
+    <prop name="Size">181 22</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[#uses &quot;sched.ctl&quot;
+main(mapping event)
+{
+  string dtp=this.text;
+  time _time;
+  dateTimePicker(this.text,_time);
+  this.text=_time;
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="TIME_END" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">92</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1026.528295083455 25.38386216007254</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">13</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">1026.528295083454 19.88100474627168</prop>
+    <prop name="Size">181 22</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[#uses &quot;sched.ctl&quot;
+main(mapping event)
+{
+  string dtp=this.text;
+  time _time;
+  dateTimePicker(this.text,_time);
+  this.text=_time;
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT2" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">93</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">460.8461538461536 28.21817003395618</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">14</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.112028301886792 0 0 0.8883090549685856 0 -0.3194919791511204</prop>
+    <prop name="Location">460.8461538461536 28.21817003395618</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Начало</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT3" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">94</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">888.036538461538 28.64996841136016</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">15</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.112028301886792 0 0 0.8883090549685856 0 -0.3194919791511204</prop>
+    <prop name="Location">888.036538461538 28.64996841136016</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Конец</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="FRAME6" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">95</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">440 4</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">16</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.737430749422411 0 0 0.5072684668261057 -267.9061226341046 -2.029073867304321</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Время выборки</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">440 4</prop>
+    <prop name="Size">491 107</prop>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON5" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">96</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1216.685134706095 25.85996015796624</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">17</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">1216.685134706096 20.19583329989911</prop>
+    <prop name="Size">116 22</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Сформировать</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+ /* time start,end;
+  dyn_float dreturnf;   // Переменные для возвращаемых значений
+  dyn_string dreturns;
+  string strvar = &quot;example&quot;;
+  int x, y;
+  float timeFora;
+
+  start=TIME_START.text;
+  end=TIME_END.text;
+
+  DebugN(&quot;CLICK_PUSH_BUTTON_5_TIME_START: &quot; + start);
+  DebugN(&quot;CLICK_PUSH_BUTTON_5_TIME_END: &quot; + end);
+  DebugN(&quot;CLICK_PUSH_BUTTON_5_Interval: &quot; + (end-start));
+  //PauseEnableTrend(timeRangeFloat(start,_now));
+  DebugN(&quot;Количество секунд: &quot; + timeRangeFloat(start,end));
+  DebugN(uniStrFormat(&quot;\\left{%3.1 Kilograms}&quot;, 19, timeRangeFloat(start,end)));
+
+  timeFora = (floor(timeRangeFloat(start,end)*10*kofZaderjka))/10;
+  ChildPanelOnReturn(&quot;vision/MessageInfo1&quot;,&quot;Предупреждение&quot;, makeDynString(&quot;$1:&quot; + &quot;Формирование тренда&quot;,&quot;$2:&quot; + &quot;Загрузка тренда займет: &quot; + timeFora + &quot; секунды !&quot;),x,y,dreturnf, dreturns);
+
+  //Обязательно делать проверку на dynlen(dreturnf)&gt;0
+  //ведь при закрытии окна &quot;крестиком&quot; в dreturnf ничего не запишется
+  // и выскочит ошибка
+ if (dynlen(dreturnf)&gt;0){
+     if (dreturnf[1]) {
+      SelectTimeRange(TIME_RANGE_SELECTOR.selectedPos);
+    }
+ }*/
+  SelectTimeRange(TIME_RANGE_SELECTOR.selectedPos);
+  SetDisableInputTime();
+  }
+]]></script>
+   </events>
+  </shape>
+  <shape Name="FRAME7" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">97</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">330 4</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">18</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.667012796995106 0 0 0.4958933191247508 -162.2789078878396 -1.843985493635946</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Управление</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">330 4</prop>
+    <prop name="Size">61 107</prop>
+   </properties>
+  </shape>
+  <shape Name="cmd_print" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">98</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1585.752358490566 68.96827073287257</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">19</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,50,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,50,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">1545.110144323835 20.19617687542507</prop>
+    <prop name="Size">108 22</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Печать экрана</prop>
+     <prop name="de_AT.utf8">Drucken</prop>
+     <prop name="en_US.utf8">Print</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main()
+{
+  printRootPanel(myModuleName(), &quot;&quot;, PPO_ALL_DIALOGS);
+}]]></script>
+   </events>
+  </shape>
+  <shape Name="cmd_image" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">99</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1510.134433962264 38.808214946853</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">20</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">1658.5566655072 19.26541573754416</prop>
+    <prop name="Size">222 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Сохранить изображение тренда</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  time time_now = getCurrentTime();
+
+  string name_image = &quot;Тренд_&quot; + day(time_now)+&quot;_&quot;+ month(time_now)+&quot;_&quot;+ year(time_now) + &quot;_&quot; + hour(time_now) + &quot;_&quot; + minute(time_now) + &quot;_&quot; + second(time_now);
+  string text_message= &quot;Изображение сохранено в папке проекта: &quot; + name_image +&quot;.png&quot;;
+
+  string imageFile = &quot;C:\\Users\\Administrator\\Desktop\\AMMA_PRJ_SYBCOM\\Trends\\&quot; + name_image;
+  if(!TREND_MY.manageLegend){
+    TREND_MY.manageLegend(true);
+    TREND_MY.imageToFile(imageFile);
+    TREND_MY.manageLegend(false);
+  }else{
+    TREND_MY.imageToFile(imageFile);
+  }
+
+  ChildPanelOnCentralModal(&quot;vision/MessageInfo1&quot;,&quot;Тренд сохранен&quot;, makeDynString(&quot;$1:&quot; + text_message));
+
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT4" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">100</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1226 30</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">21</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.112028301886792 0 0 0.8883090549685856 0 -0.3194919791511204</prop>
+    <prop name="Location">1226 30</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Отобразить легенду</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="Legend_visible" shapeType="GENERIC" layerId="0">
+   <properties>
+    <prop name="serialId">101</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1493.628060872238 25.31796238029698</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">22</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">1493.628060872238 25.31796238029698</prop>
+    <prop name="Size">34 14</prop>
+    <prop name="ObjectType">ToggleSwitch.ewo</prop>
+    <extended>
+     <prop type="ENUM" name="inputMethodHints">0</prop>
+     <prop type="ENUM" name="skin">2</prop>
+     <script name="toggled" isEscaped="1"><![CDATA[toggled(bool on)
+{
+  TREND_MY.manageLegend(on);
+}
+]]></script>
+    </extended>
+   </properties>
+  </shape>
+  <shape Name="FRAME9" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">102</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">440 4</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">23</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.7076097420100101 0 0 0.5145139121447379 1229.922939930691 -2.058055648578851</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Время выборки</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">440 4</prop>
+    <prop name="Size">491 107</prop>
+   </properties>
+  </shape>
+  <shape Name="FRAME10" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">103</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">440 4</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">24</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.388902586196271 0 0 0.5028164462086334 1178.942900463577 -2.011265784834432</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Параметры отображения</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">440 4</prop>
+    <prop name="Size">491 107</prop>
+   </properties>
+  </shape>
+  <shape Name="TAB1" shapeType="TAB" layerId="0">
+   <properties>
+    <prop name="serialId">120</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">-0.04117121986365647 268.9595379190825</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">25</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">-0.04117121986365647 268.9595379190825</prop>
+    <prop name="Size">377 666</prop>
+    <prop name="TabBarAutoHide">False</prop>
+    <prop name="Page">
+     <prop name="Name">CNS</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">CNS</prop>
+     </prop>
+     <prop name="Panel">TREND/CNS/CNS.xml</prop>
+    </prop>
+    <prop name="Page">
+     <prop name="Name">DPTREE</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Все точки</prop>
+     </prop>
+     <prop name="Panel">TREND/DP_TREE/DP_TREE.xml</prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON6" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">122</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1445.63679245283 26.32977966990645</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">26</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">Добавить поле для вывода тренда</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">1758.11674528302 64.52706903355563</prop>
+    <prop name="Size">33 26</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">+</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  int cNum;
+  dpGet(&quot;SYBCOM_TREND_CURRENT.MAXIMUM_AREAS&quot;, cNum);
+  if(cNum&lt;10)
+    dpSetWait(&quot;SYBCOM_TREND_CURRENT.MAXIMUM_AREAS&quot;, cNum+1);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="PUSH_BUTTON7" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">123</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1535.205617495711 26.32977966990645</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">27</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">Удалить поле для вывода тренда</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">1847.6855703259 64.52706903355563</prop>
+    <prop name="Size">32 26</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">-</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(){
+  int cNum;
+  dpGet(&quot;SYBCOM_TREND_CURRENT.MAXIMUM_AREAS&quot;, cNum);
+  if(cNum&gt;0)
+    dpSetWait(&quot;SYBCOM_TREND_CURRENT.MAXIMUM_AREAS&quot;, cNum-1);
+}
+]]></script>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  dpConnect(&quot;cbAreas&quot;, &quot;SYBCOM_TREND_CURRENT.MAXIMUM_AREAS&quot;);
+}
+
+void cbAreas(string dp, int area){
+    this.enabled((area&gt;0));  
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="TEXT_FIELD1" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">124</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1790.668846483701 71.21444895677524</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">28</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">Количество полей для вывода тренда</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">1790.668846483702 65.45575577284097</prop>
+    <prop name="Size">57 25</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[2s,,,AlignHCenter]</prop>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  dpConnect(&quot;cbAreas&quot;,&quot;System1:SYBCOM_TREND_CURRENT.MAXIMUM_AREAS&quot;);
+}
+
+void cbAreas(string dp, int areas){
+  this.text(areas+1);
+}
+]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

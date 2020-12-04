@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">400 290</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">20 34</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <shapes>
+  <reference referenceId="0" Name="PANEL_REF1" parentSerial="-1">
+   <properties>
+    <prop name="FileName">objects/PAZ_GAS.xml</prop>
+    <prop name="Location">20 30</prop>
+    <prop name="TabOrder">1</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">PAZ_GAS</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference referenceId="1" Name="PANEL_REF3" parentSerial="-1">
+   <properties>
+    <prop name="FileName">objects/RSU_DI.xml</prop>
+    <prop name="Location">194.101074387764 253.836004784689</prop>
+    <prop name="Geometry">1 0 0 1 -159.6077922077921 -180.686004784689</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">RSU_DI</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference referenceId="2" Name="PANEL_REF4" parentSerial="-1">
+   <properties>
+    <prop name="FileName">objects/RSU_NA.xml</prop>
+    <prop name="Location">184 14.90470494417869</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$_lDP</prop>
+      <prop name="Value">$_lDP</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$_pDp</prop>
+      <prop name="Value"></prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">RSU_NA</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference referenceId="3" Name="PANEL_REF5" parentSerial="-1">
+   <properties>
+    <prop name="FileName">objects/RSU_REG.xml</prop>
+    <prop name="Location">55.79220779220783 207</prop>
+    <prop name="Geometry">1 0 0 1 2.963199421254529 -0.25</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$_sComment</prop>
+      <prop name="Value"></prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">RSU_REG</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference referenceId="4" Name="PANEL_REF6" parentSerial="-1">
+   <properties>
+    <prop name="FileName">objects/RSU_VLV.xml</prop>
+    <prop name="Location">199.375 178.8984375</prop>
+    <prop name="TabOrder">4</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">RSU_VLV</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+ </shapes>
+</panel>

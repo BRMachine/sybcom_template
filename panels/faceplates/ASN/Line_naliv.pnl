@@ -1,0 +1,1652 @@
+V 14
+1
+LANG:10027 0 
+PANEL,-1 -1 696 598 N "_3DFace" 2
+"$dp"
+"$line"
+"main()
+{
+  Name_line.text = \"Линия налива №\" + line;
+}" 0
+ E E E E 1 -1 -1 0  709 127
+""0  1
+E "const string dp = $dp;
+const string line = $line;" 0
+ 3
+"CBRef" "1"
+"EClose" E
+"dpi" "96"
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 0 
+29 5
+"Label10"
+""
+1 4 55 E E E 1 E 1 E N "_3DText" E N "_3DFace" E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+2
+"text" "string Задание на налив"
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,16,5,75,0,0,0,0,0,Bold
+0  4 55 688.9999999999999 79
+5 Label
+0
+E6 9
+"RECTANGLE2"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "WF_TableAlternatingRowColor_2" E E
+ E E
+8 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 11.81034482758621 0 2.833333333333333 -303.0689655172413 -968 1 E 26 342 84 360
+2 10
+"PRIMITIVE_TEXT29"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+9 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 2.01834493024328 0 1.067352633459397 -72.09862101037378 -32.80027903951044 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 65 0 0  138 38 1
+1
+LANG:10027 35 Noto Sans,-1,16,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 39 Налив нефтепродуктов
+2 11
+"Name_line"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+10 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1.160544501442481 0 0.773690331885404 91.8448588009376 1.599767388354646 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 65 0 0  138 38 1
+1
+LANG:10027 38 Noto Sans,-1,12,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 16 Линия № 5
+25 13
+"TABLE2"
+""
+1 34 135 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+12 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,19,5,75,0,0,0,0,0,Bold
+0  114 121 687 325
+EE 0 0 1 8 10 "#1" 3 1 0 "s" 1
+LANG:10027 2 #1
+E
+1
+LANG:10027 0 
+
+70 "#2" 3 1 0 "s" 1
+LANG:10027 2 #2
+E
+1
+LANG:10027 0 
+
+70 "#3" 3 1 0 "s" 1
+LANG:10027 2 #3
+E
+1
+LANG:10027 0 
+
+70 "#4" 3 1 0 "s" 1
+LANG:10027 2 #4
+E
+1
+LANG:10027 0 
+
+70 "#5" 3 1 0 "s" 1
+LANG:10027 2 #5
+E
+1
+LANG:10027 0 
+
+70 "#6" 3 1 0 "s" 1
+LANG:10027 2 #6
+E
+1
+LANG:10027 0 
+
+70 "#7" 3 1 0 "s" 1
+LANG:10027 2 #7
+E
+1
+LANG:10027 0 
+
+70 "#8" 3 1 0 "s" 1
+LANG:10027 2 #8
+E
+1
+LANG:10027 0 
+
+70 
+20 20 "" 1 1
+LANG:10027 2 #1
+"" 1 1
+LANG:10027 2 #2
+"" 1 1
+LANG:10027 2 #3
+"" 1 1
+LANG:10027 2 #4
+"" 1 1
+LANG:10027 2 #5
+"" 1 1
+LANG:10027 2 #6
+"" 1 1
+LANG:10027 2 #7
+"" 1 1
+LANG:10027 2 #8
+"" 1 1
+LANG:10027 2 #9
+"" 1 1
+LANG:10027 3 #10
+10 0
+1
+LANG:10027 35 Noto Sans,-1,19,5,75,0,0,0,0,0,Bold
+0 0 1 1 1 7
+1 0
+6 3
+"RECTANGLE3"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+2 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.155172413793103 0 1.111111111111111 155.9655172413793 -39 1 E 26 342 84 360
+25 14
+"TABLE3"
+""
+1 34 135 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+13 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,19,5,75,0,0,0,0,0,Bold
+0  3 121 58 325
+EE 0 0 1 1 10 "#8" 2 1 0 "[0s,,,AlignLeft]" 1
+LANG:10027 2 #8
+E
+1
+LANG:10027 0 
+
+50 
+20 20 "" 1 1
+LANG:10027 2 #1
+"" 1 1
+LANG:10027 2 #2
+"" 1 1
+LANG:10027 2 #3
+"" 1 1
+LANG:10027 2 #4
+"" 1 1
+LANG:10027 2 #5
+"" 1 1
+LANG:10027 2 #6
+"" 1 1
+LANG:10027 2 #7
+"" 1 1
+LANG:10027 2 #8
+"" 1 1
+LANG:10027 2 #9
+"" 1 1
+LANG:10027 3 #10
+10 0
+1
+LANG:10027 35 Noto Sans,-1,19,5,75,0,0,0,0,0,Bold
+0 0 1 1 1 7
+1 0
+22 15
+"COMBO_BOX1"
+""
+1 214 469 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+14 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54 121 118 146
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 16
+"COMBO_BOX2"
+""
+1 214 469 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+15 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54 141 118 166
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 17
+"COMBO_BOX3"
+""
+1 214 469 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+16 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54 161 118 186
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 18
+"COMBO_BOX4"
+""
+1 214 469 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+17 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54.00000000000001 181 118 206
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 19
+"COMBO_BOX5"
+""
+1 214 469 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+18 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54 201 118 226
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 20
+"COMBO_BOX6"
+""
+1 214 469 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+19 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54.00000000000001 221 118 246
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 21
+"COMBO_BOX7"
+""
+1 214 469 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+20 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54.00000000000001 241 118 266
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 22
+"COMBO_BOX8"
+""
+1 214 468.3333333333335 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+21 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54 261.3333333333335 118 286.3333333333335
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 23
+"COMBO_BOX9"
+""
+1 214 469 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+22 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54 281 118 306
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+22 24
+"COMBO_BOX10"
+""
+1 214 469.6666666666667 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+23 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  54 300.6666666666667 118 324.6666666666667
+7
+1
+LANG:10027 3 ???
+
+0
+1
+LANG:10027 2 95
+
+0
+1
+LANG:10027 2 92
+
+0
+1
+LANG:10027 2 98
+
+0
+1
+LANG:10027 4 ДТ
+
+0
+1
+LANG:10027 8 ДТ(О)
+
+0
+1
+LANG:10027 7 ДТ(G)
+
+0
+
+E
+E
+E
+ 1 0
+2 31
+"PRIMITIVE_TEXT31"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+30 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1.365810875847273 0 0.773690331885404 -172.6621751694547 313.5997673883546 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 64 0 0  138 38 1
+1
+LANG:10027 38 Noto Sans,-1,12,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 47 Рег. номер транс. средства
+2 32
+"PRIMITIVE_TEXT32"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+31 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.4175573797058915 0 0.6646945219782235 135.377081600587 318.429968423067 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 73 0 0  138 38 1
+1
+LANG:10027 38 Noto Sans,-1,12,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 9 В549СТ
+29 33
+"Label11"
+""
+1 310.9999999999999 338 E E E 1 E 1 E N "_3DText" E N "_3DFace" E E
+ E E
+32 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+2
+"text" "string Источик данных"
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,16,5,75,0,0,0,0,0,Bold
+0  310.9999999999999 338 688.9999999999999 362
+5 Label
+0
+E13 34
+"PUSH_BUTTON1"
+""
+1 441 373 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+33 0 0 0 0 0
+E E E
+8
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,16,5,75,0,0,0,0,0,Bold
+0  439 371 558 399
+
+T 
+1
+LANG:10027 12 Запуск
+E E E E
+13 35
+"PUSH_BUTTON2"
+""
+1 564 373 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+34 0 0 0 0 0
+E E E
+8
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,16,5,75,0,0,0,0,0,Bold
+0  562 371 681 399
+
+T 
+1
+LANG:10027 18 Завершить
+E E E E
+19 36
+"RADIO_BOX2"
+""
+1 315 368 E E E 1 E 1 E N "_3DText" E N "_3DFace" E E
+ E E
+35 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
+0  313 366 420 401.9999999999998
+2
+T 
+1
+LANG:10027 16 Оператор
+
+1 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+T 
+1
+LANG:10027 3 MES
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+1
+E E
+29 37
+"Label12"
+""
+1 4.000000000000005 408 E E E 1 E 1 E N "_3DText" E N "_3DFace" E E
+ E E
+36 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+2
+"text" "string Причины остановок и аварий"
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,16,5,75,0,0,0,0,0,Bold
+0  4.000000000000005 408 688.9999999999999 432
+5 Label
+0
+E25 38
+"TABLE4"
+""
+1 49 442 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+37 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 35 Noto Sans,-1,16,5,75,0,0,0,0,0,Bold
+0  1 468 686 594
+EE 0 0 1 3 0 "#1" 3 1 0 "s" 1
+LANG:10027 2 #1
+E
+1
+LANG:10027 0 
+
+60 "Причины остановки" 20 1 0 "s" 1
+LANG:10027 33 Причины остановки
+E
+1
+LANG:10027 0 
+
+310 "Авария" 20 1 0 "s" 1
+LANG:10027 12 Авария
+E
+1
+LANG:10027 0 
+
+310 
+20 20 10 0
+1
+LANG:10027 35 Noto Sans,-1,16,5,75,0,0,0,0,0,Bold
+0 0 1 1 1 7
+1 0
+6 43
+"RECTANGLE3"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+42 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.03448275862069 0 1.111111111111111 -23.89655172413793 67 1 E 26 342 84 360
+2 44
+"PRIMITIVE_TEXT33"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+43 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.4175573797058915 0 0.6646945219782235 -50.5114759411783 424.4299684230671 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 73 0 0  138 38 1
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 8 Пост
+6 45
+"RECTANGLE4"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+44 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 5.344827586206896 0 1.111111111111111 -75.9655172413793 67 1 E 26 342 84 360
+2 46
+"PRIMITIVE_TEXT34"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+45 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1.250191629783195 0 0.6646945219782235 -32.03832595663906 424.4299684230671 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 73 0 0  138 38 1
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 33 Причины остановки
+6 47
+"RECTANGLE5"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+46 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 5.362068965517242 0 1.111111111111111 233.5862068965517 67 1 E 26 342 84 360
+2 48
+"PRIMITIVE_TEXT35"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+47 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1.250191629783196 0 0.6646945219782235 278.9616740433609 424.4299684230671 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 73 0 0  138 38 1
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 12 Аварии
+6 49
+"RECTANGLE6"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+48 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.8620689655172413 0 1.944444444444445 -16.41379310344827 -578.0000000000001 1 E 26 342 84 360
+2 50
+"PRIMITIVE_TEXT36"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+49 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.4175573797058915 0 0.6646945219782235 -52.5114759411783 71.92996842306707 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 73 0 0  138 38 1
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 12 Секция
+6 51
+"RECTANGLE7"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+50 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.03448275862069 0 1.944444444444445 29.10344827586206 -578.0000000000001 1 E 26 342 84 360
+2 52
+"PRIMITIVE_TEXT37"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+51 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.4175573797058915 0 0.6646945219782235 2.488524058821696 71.92996842306707 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 73 0 0  138 38 1
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 14 Топливо
+6 53
+"RECTANGLE8"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+52 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.206896551724138 0 1.944444444444445 154.6206896551724 -578.0000000000001 1 E 26 342 84 360
+2 54
+"PRIMITIVE_TEXT38"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+53 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.5308947489747999 0 1.391972148626621 114.82105020504 36.2933647172955 0 E 138 38 262 60
+0 2 0 "0s" 0 0 0 73 0 0  138 38 2
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 14 Объем, л
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 16 баз.топл.
+6 55
+"RECTANGLE9"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+54 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.206896551724138 0 1.944444444444445 84.62068965517238 -578.0000000000001 1 E 26 342 84 360
+2 56
+"PRIMITIVE_TEXT39"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+55 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.5308947489747999 0 1.391972148626621 44.82105020504002 36.2933647172955 0 E 138 38 262 60
+0 2 0 "0s" 0 0 0 73 0 0  138 38 2
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 14 Объем, л
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 14 задание
+6 59
+"RECTANGLE11"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+58 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.206896551724138 0 1.944444444444445 224.6206896551724 -578.0000000000001 1 E 26 342 84 360
+2 60
+"PRIMITIVE_TEXT41"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+59 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.5308947489747999 0 1.391972148626621 184.82105020504 36.2933647172955 0 E 138 38 262 60
+0 2 0 "0s" 0 0 0 73 0 0  138 38 2
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 14 Объем, л
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 16 присадки
+6 61
+"RECTANGLE12"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+60 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.206896551724138 0 1.944444444444445 294.6206896551724 -578.0000000000001 1 E 26 342 84 360
+2 62
+"PRIMITIVE_TEXT42"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+61 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.5308947489747999 0 1.391972148626621 254.82105020504 36.2933647172955 0 E 138 38 262 60
+0 2 0 "0s" 0 0 0 73 0 0  138 38 2
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 10 Масса
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 4 кг
+6 63
+"RECTANGLE13"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+62 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.206896551724138 0 1.944444444444445 364.6206896551724 -578.0000000000001 1 E 26 342 84 360
+2 64
+"PRIMITIVE_TEXT43"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+63 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.5308947489747999 0 1.391972148626621 324.82105020504 36.2933647172955 0 E 138 38 262 60
+0 2 0 "0s" 0 0 0 73 0 0  138 38 2
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 15 Темпера-
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 12 тура, С
+6 65
+"RECTANGLE14"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+64 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.206896551724138 0 1.944444444444445 434.6206896551724 -578.0000000000001 1 E 26 342 84 360
+2 66
+"PRIMITIVE_TEXT44"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+65 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.5308947489747999 0 1.391972148626621 394.82105020504 36.2933647172955 0 E 138 38 262 60
+0 2 0 "0s" 0 0 0 73 0 0  138 38 2
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 18 Плотность
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 8 кг/м3
+6 67
+"RECTANGLE15"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+66 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.206896551724138 0 1.944444444444445 504.6206896551724 -578.0000000000001 1 E 26 342 84 360
+2 68
+"PRIMITIVE_TEXT45"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+67 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.5308947489747999 0 1.391972148626621 464.82105020504 36.2933647172955 0 E 138 38 262 60
+0 2 0 "0s" 0 0 0 73 0 0  138 38 2
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 10 Номер
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 10 поста
+6 69
+"RECTANGLE16"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+68 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.206896551724138 0 1.944444444444445 575.6206896551724 -578.0000000000001 1 E 26 342 84 360
+2 70
+"PRIMITIVE_TEXT46"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+69 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.5308947489747999 0 1.391972148626621 535.82105020504 36.2933647172955 0 E 138 38 262 60
+0 2 0 "0s" 0 0 0 73 0 0  138 38 2
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 10 Номер
+1
+LANG:10027 35 Noto Sans,-1,12,5,75,0,0,0,0,0,Bold
+0 1
+LANG:10027 17 рез-вуара
+6 71
+"RECTANGLE17"
+""
+1 26 342 E E E 1 E 1 E N {0,0,0} E N "White" E E
+ E E
+70 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 2.210004729353982 0 1.111111111111111 67.5398770367965 -9 1 E 26 342 84 360
+2 72
+"PRIMITIVE_TEXT47"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+71 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1.365810875847273 0 0.773690331885404 -172.4819008669236 343.5997673883546 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 64 0 0  138 38 1
+1
+LANG:10027 38 Noto Sans,-1,12,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 13 ID карты
+2 73
+"PRIMITIVE_TEXT48"
+""
+1 138 38 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+72 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 0.7988450666827951 0 0.6646945219782235 28.15134975475524 348.429968423067 0 E 138 38 262 60
+0 2 2 "0s" 0 0 0 73 0 0  138 38 1
+1
+LANG:10027 38 Noto Sans,-1,12,5,50,0,0,0,0,0,Regular
+0 1
+LANG:10027 13 5524524521652
+0
+LAYER, 1 
+1
+LANG:10027 0 
+0
+LAYER, 2 
+1
+LANG:10027 0 
+0
+LAYER, 3 
+1
+LANG:10027 0 
+0
+LAYER, 4 
+1
+LANG:10027 0 
+0
+LAYER, 5 
+1
+LANG:10027 0 
+0
+LAYER, 6 
+1
+LANG:10027 0 
+0
+LAYER, 7 
+1
+LANG:10027 0 
+0
+1 1 "SHAPE_GROUP4" -1
+2 0 
+3 32 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 2 "SHAPE_GROUP6" -1
+2 0 
+43 44 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 3 "SHAPE_GROUP7" -1
+2 0 
+45 46 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 4 "SHAPE_GROUP15" -1
+2 0 
+49 50 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 5 "SHAPE_GROUP16" -1
+2 0 
+51 52 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 7 "SHAPE_GROUP18" -1
+2 0 
+55 56 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 8 "SHAPE_GROUP20" -1
+2 0 
+53 54 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 9 "SHAPE_GROUP21" -1
+2 0 
+59 60 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 10 "SHAPE_GROUP22" -1
+2 0 
+61 62 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 11 "SHAPE_GROUP23" -1
+2 0 
+63 64 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 12 "SHAPE_GROUP24" -1
+2 0 
+65 66 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 13 "SHAPE_GROUP25" -1
+2 0 
+67 68 
+
+"layoutAlignment" "AlignNone"
+"" ""
+1 14 "SHAPE_GROUP26" -1
+2 0 
+69 70 
+
+"layoutAlignment" "AlignNone"
+"" ""
+0

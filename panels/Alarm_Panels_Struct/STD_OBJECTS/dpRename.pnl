@@ -1,0 +1,1122 @@
+V 14
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+PANEL,-1 -1 504 287 N "_3DFace" 1
+"$dpName"
+"main()
+{
+    
+  addGlobal(\"g_NameOk\", BOOL_VAR);
+  addGlobal(\"g_dpOk\", BOOL_VAR);
+  addGlobal(\"g_dptName\", STRING_VAR);
+  
+  g_NameOk = 0;
+  g_dpOk = 0;
+  
+  bool bMultiUserMode = true, bMultiUserMode2 = true;
+
+  dyn_string ds_Host = eventHost();
+  string s_host = getHostname();
+  
+  // just check on Windows
+  if(_WIN32)
+  {
+    dpGet(\"_DataManager.MultiUserMode\",bMultiUserMode,
+          \"_DataManager_2.MultiUserMode\",bMultiUserMode2);
+  }
+  
+  // If I'm running on the server and DB is running in MultiUser Mode on my host
+  if((ds_Host[1] == s_host && bMultiUserMode) || (ds_Host[2] == s_host && bMultiUserMode2))
+  {
+    AsciiCheckBox.enabled(TRUE);
+  }
+
+// Konfigurieren der Notification Bar Animationen
+//--------------------------------------------------------------------------------------------------------
+  
+  setValue(\"notification\", \"position\",-1,-36);
+  setValue(\"notification_background\",\"visible\",true);
+
+  dyn_int di_position;
+  
+  getValue(\"notification\",\"positionAsDyn\", di_position);
+  
+  if ( !i_animation2 ) // Erstellen der Animationen wenn diese noch nicht vorhanden sind
+  {
+    i_animation2 = createAnimation(\"sequential\");
+    
+    animate(i_animation2, \"notification\", \"positionAsDyn\", di_position, shift_pos(di_position,0,35));
+    createAnimation(i_animation2,\"pause\",makeMapping(\"duration\", 3000)); //Anzeigedauer der Notification
+    animate(i_animation2, \"notification\", \"positionAsDyn\", shift_pos(di_position,0,35), di_position);
+    
+  } 
+//--------------------------------------------------------------------------------------------------------  
+   
+  
+  //$dpName dient für die Übergabe des Datenpunktnamen aus dem Kontektmenü
+  if( (isDollarDefined(\"$dpName\")) )
+  {  
+    string s_dpname = $dpName;
+    if (strpos(s_dpname, getSystemName(), 0) >= 0)
+    {
+      strreplace(s_dpname, getSystemName(), \"\");
+    }   
+    OriginalName.text = s_dpname;
+  }
+  
+  if (g_NameOk == 1 && g_dpOk == 1)    
+    Rename.enabled(true);
+  else
+    Rename.enabled(false);
+}
+
+
+
+
+
+" 0
+ E E E E 1 -1 -1 0  20 14
+""0  1
+E "bool b_forward = true;
+int giNewNameTextChanged = 0; //Thread for textchange of new DP
+int giOldNameTextChanged = 0; //Thread for textchange of new DP
+
+
+bool gbForceNew = false; //Command or Keyboard Focus out
+bool gbForceOld = false; //Command or Keyboard Focus out
+
+
+int i_animation1;
+int i_animation2;
+int i_x = 0, i_y = 0;
+
+// Funktion um die Postion der positionAsDyn Variablen in x oder y verschieben zu können
+dyn_int shift_pos(dyn_int di_pos, int shift_x ,int shift_y)
+{
+  di_pos[1] = di_pos[1] + shift_x;
+  di_pos[2] = di_pos[2] + shift_y;
+  return di_pos;  
+}
+
+//Funktion um eine Nachricht über die NotificationBar auszugeben
+notificationBar_Msg(string s_catalogue, string s_msgKey, string s_prio)
+{
+  if ( strlen(s_catalogue) <= 0 || strlen(s_msgKey) <= 0 || strlen(s_prio) <= 0)
+  {  
+    //Fehlermeldung fehlt
+    return;
+  }  
+  
+  notification_background.color(s_prio); // Setzten der Farbe
+  startAnimation(i_animation2, \"keep\", makeMapping(\"direction\", \"Forward\")); // starten der Animation
+  message_text.text(getCatStr(s_catalogue, s_msgKey)); // Text auf die gewünschte Nachricht ändern
+}
+
+//Thread for renaming after Text change
+newNameTextChangedThread(string newText, int idelay = 700)
+{
+  g_NameOk = 0;
+
+  delay(0,idelay); // Wait 700ms for new Text change;
+
+  
+  if(gbForceNew) // Text was changed by command in the meantime...
+    gbForceNew = false;
+  else           // ....do not start textchanged event again
+    newNameTextChanged(newText);
+  
+  giNewNameTextChanged = 0; // Reset Thread ID
+  
+}
+
+//Function for checking the new DP name Name
+newNameTextChanged(string newText)
+{
+  
+  string s_text = newText;
+  
+  if (strltrim(this.text) == \"\")  // Check if empty string is given
+  {   
+    g_NameOk = 0; 
+    Rename.enabled(false);    
+    NAMEOK.fill(\"[outline,[tile]]\"); 
+    return; 
+  }
+   
+  if (nameCheck(s_text) == 0) // Namencheck für den neuen Datenpunktnamen
+  {
+
+    if ( !(dpExists(s_text)) )// Prüfen ob der Name bereits exisitiert
+    {
+      if ( strpos(s_text,\"_mp_\") == 0 ) // Überprüfung ob der Datenpunktname mit \"_mp\" beginnt 
+      {
+        notificationBar_Msg(\"da\", \"wrongname_mpdp\", \"NOTIFICATION_BAR_COLOR_PRIO_WARNING\");
+        NAMEOK.fill(\"[pattern,[tile,any,delete_24.png]]\");
+        g_NameOk = 0;
+        Rename.enabled(false);
+        return;
+      }
+      else // new Name == OK
+      {
+        g_NameOk = 1;
+        NAMEOK.fill(\"[pattern,[tile,any,ok.png]]\");
+      }
+    }
+    else
+    {
+      NAMEOK.fill(\"[pattern,[tile,any,delete_24.png]]\");
+      g_NameOk = 0;
+      notificationBar_Msg(\"da\", \"newdpexists\", \"NOTIFICATION_BAR_COLOR_PRIO_WARNING\");
+    }
+  } 
+  else // Dp  Name enthält nicht erlaubte Zeichen
+  {
+    NAMEOK.fill(\"[pattern,[tile,any,delete_24.png]]\");
+    g_NameOk = 0;
+    notificationBar_Msg(\"STD_Symbols\", \"invaliddpname\", \"NOTIFICATION_BAR_COLOR_PRIO_ERROR\");
+  }
+ 
+  if (g_NameOk == 1 && g_dpOk == 1)  //if old name and new name are OK -> Allow renaming   
+    Rename.enabled(true);
+  else
+    Rename.enabled(false);
+  
+}
+
+// Thread for text change in old DP name
+oldNameTextChangedThread(string newText, int idelay = 700)
+{
+  g_dpOk = 0;
+  
+  delay(0,idelay); // wait for 700ms if new text change happens
+  
+  if(gbForceOld) // Textchange by command...
+    gbForceOld = false;
+  else   // do not check again
+    oldNameTextChanged(newText);
+  
+  giOldNameTextChanged = 0; // reset Thread ID
+  
+}
+
+oldNameTextChanged(string newText)
+{
+
+  string s_text = newText;
+     
+  // check if empty string is given  
+  if (strltrim(this.text) == \"\") 
+  {   
+    g_dpOk = 0; 
+    DPOK.fill(\"[outline,[tile]]\"); 
+    Rename.enabled(false);
+    return; 
+  }
+    
+  if( dpExists(s_text) ) // Überprüfen ob der Datenpunkt existiert
+  {
+    DPOK.fill(\"[pattern,[tile,any,ok.png]]\");
+    g_dptName = dpTypeName(s_text);
+    g_dpOk = 1;
+  }
+  else // Der Datenpunkt existiert nicht
+  {
+    DPOK.fill(\"[pattern,[tile,any,delete_24.png]]\");
+    g_dpOk = 0;
+    notificationBar_Msg(\"dpRename\", \"dpDoesNotExist\", \"NOTIFICATION_BAR_COLOR_PRIO_ERROR\");
+  }
+  
+  if ( strpos(s_text,\"_mp_\") == 0 ) // Überprüfung ob der Datenpunktname mit \"_mp\" beginnt 
+  {
+    notificationBar_Msg(\"da\", \"wrongname_mpdp\", \"NOTIFICATION_BAR_COLOR_PRIO_WARNING\");
+    DPOK.fill(\"[pattern,[tile,any,delete_24.png]]\");
+    g_dpOk = 0;
+    Rename.enabled(false);
+    return;
+  }
+  
+  // Überprüfen ob dies ein interner Datenpunkt oder Datenpunkttyp ist
+  if (dpExists(s_text) && substr(dpTypeName(s_text), 0, 1) == \"_\")
+  {
+    notificationBar_Msg(\"dpRename\", \"IDPNotAllowed\", \"NOTIFICATION_BAR_COLOR_PRIO_WARNING\");
+    DPOK.fill(\"[pattern,[tile,any,delete_24.png]]\");
+    g_dpOk = 0;
+  }
+
+  
+  if (g_NameOk == 1 && g_dpOk == 1)     // Wenn alter und neuer name OK -> umbenennen erlauben
+    Rename.enabled(true);
+  else
+    Rename.enabled(false);
+  
+  if(shapeExists(\"Xref.pattern\"))
+    setValue(\"Xref.pattern\",\"text\",s_text);
+
+}
+
+
+
+
+
+
+
+
+" 0
+ 3
+"CBRef" "1"
+"EClose" E
+"dpi" "120"
+0 1 8 9 9 9 1 -1
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 0 
+6 1
+"RECTANGLE1"
+""
+1 2 613 E E E 1 E 1 E N "_ButtonBarBackground" E N "_ButtonBarBackground" E E
+ E E
+1 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 0 1 1 1 E 0.4932692307692307 0 0.7358803773584907 -1.486538461538462 -203.5955013207548 1 E 2 613 1042 666
+13 4
+"Exit"
+"WF"
+1 245.6132 -623.4991700000001 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 72 Закрыть панель без выполнения операции
+LANG:10000 46 Panel schliessen, ohne eine Aktion auszulösen
+LANG:10001 26 Close panel without action
+
+2
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,12,5,50,0,0,0,0,0
+0  412 252.9999999999999 499.9999999999999 281
+
+T 
+3
+LANG:10027 14 Закрыть
+LANG:10000 10 Schließen
+LANG:10001 6 Cancel
+"main()
+{
+  PanelOffReturn(makeDynFloat(1),makeDynString(OriginalName.text));
+}" 0
+ E E E
+30 6
+"FRAME2"
+""
+1 320 169 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+ E E
+6 0 0 0 0 0
+E E E
+1
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 4.801980198019805 0 2.038353846540627 -1526.633663366338 -328.744677011263 0 E 320 169 422 229
+3
+LANG:10027 26 Arial,-1,13,5,75,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,75,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,75,0,0,0,0,0
+0 3
+LANG:10027 43 Переименование фильтра
+LANG:10000 21 Datenpunkt umbenennen
+LANG:10001 17 Renamed datapoint
+14 7
+"OriginalName"
+"WF"
+1 4 40 E E E 1 E 1 E N "_WindowText" E N "_3DFace" E E
+ E E
+7 0 0 0 0 0
+E "main()
+{
+  
+  //nur wenn gerade Thread läuft, erzwinge umbenennen
+//   if(giOldNameTextChanged != 0)
+//     gbForceOld = true;
+// 
+//   oldNameTextChanged(this.text);
+
+}
+
+
+" 0
+ E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+5
+"acceptDrops" ""
+"DragDrop" "main(string information, int dragType)
+{
+  this.text(dpSubStr(information, DPSUB_DP)); 
+}
+
+"
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+"textChangedCB" "main(string newText)
+{  
+  
+  string s_text = newText;
+  
+  if(giOldNameTextChanged != 0) // Thread is running -> Stop it
+  {
+    stopThread(giOldNameTextChanged);
+    giOldNameTextChanged = 0;
+  }
+  
+  int idelay = 700;
+  
+  // Start Thread after TextChange
+  giOldNameTextChanged = startThread(\"oldNameTextChangedThread\",newText,idelay);
+ 
+}
+  
+
+"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  219.9999999999999 40.99999999999999 481.9999999999999 66.99999999999999
+2 "0s" 0 0 0 0 0 -1  E E "main()
+{
+  //nur wenn gerade Thread läuft, erzwinge umbenennen
+//   if(giOldNameTextChanged != 0)
+//     gbForceOld = true;
+
+  oldNameTextChanged(this.text);
+
+}
+" 0
+
+14 8
+"NewName"
+"WF"
+1 23.03585657370519 94.50082999999999 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+8 0 0 0 0 0
+E "main()
+{
+
+}
+
+
+
+" 0
+ E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+5
+"acceptDrops" ""
+"DragDrop" "main(string information, int dragType)
+{
+  //System und DP Namen entfernen
+    
+  information = dpSubStr(information, DPSUB_DP);
+  if(this.text != information && information != \"\")
+    this.text(information);
+   
+}
+
+
+"
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+"textChangedCB" "main(string newText)
+{
+
+  string s_text = newText;
+  
+  if(giNewNameTextChanged != 0)
+  {
+    stopThread(giNewNameTextChanged);
+    giNewNameTextChanged = 0;
+  }
+  
+  int idelay = 700;
+  
+  
+  giNewNameTextChanged = startThread(\"newNameTextChangedThread\",newText,idelay);
+
+}
+
+
+"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  220 71 458.9999999999999 96.99999999999999
+3 "0s" 0 0 0 0 0 -1  E E "main()
+{
+
+//   if(giNewNameTextChanged != 0)
+//     gbForceNew = true;
+  
+  newNameTextChanged(this.text);
+
+}
+
+
+" 0
+
+2 9
+"PRIMITIVE_TEXT1"
+""
+1 19.96414342629484 45.50004000000001 E E E 1 E 1 E N "_ButtonText" E N "_Window" E E
+ E E
+9 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 1 1 E U  0 E 19.96414342629484 45.50004000000001 157 61
+0 2 2 "0s" 0 0 0 192 0 0  19.96414342629484 45.50004000000001 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 37 Текущее имя фильтра:
+LANG:10000 25 Aktueller Datenpunktname:
+LANG:10001 23 Current datapoint name:
+2 10
+"PRIMITIVE_TEXT2"
+""
+1 19.71805842629485 75.50004000000001 E E E 1 E 1 E N "_ButtonText" E N "_Window" E E
+ E E
+10 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Maximum"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 1 1 E U  0 E 19.71805842629485 75.50004000000001 141 91
+0 2 2 "0s" 0 0 0 192 0 0  19.71805842629485 75.50004000000001 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 33 Новое имя фильтра:
+LANG:10000 21 Neuer Datenpunktname:
+LANG:10001 19 New datapoint name:
+13 14
+"Clear"
+"WF"
+1 616.5029999999999 94.12080040000001 E E E 1 E 1 E N "WF_Text" E N "_Button" E E
+ E E
+14 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 35 MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0
+LANG:10000 35 MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0
+LANG:10001 35 MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0
+0  454.9999999999999 71 482.9999999999999 96.99999999999999
+
+P 
+4294967295
+"pictures/wf/status/delete_20.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  NewName.text(\"\");
+  NAMEOK.fill(\"[outline,[tile]]\");
+}" 0
+ E E E
+20 15
+"AsciiCheckBox"
+"WT"
+1 220.6078218390805 101.000435 E E E 0 E 1 E N "_ButtonText" E N "_3DFace" E E
+ E E
+15 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  220 96.99999999999999 447.9999999999999 126
+1
+T 
+3
+LANG:10027 46 Экспорт ASCII для рез.копир.
+LANG:10000 32 ASCII Export Sicherung erstellen
+LANG:10001 23 ASCII export for backup
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+0
+EE30 19
+"FRAME5"
+""
+1 10 299 E E E 1 E 1 E N "_WindowText" E N {0,0,0} E E
+ E E
+19 0 0 0 0 0
+E E E
+1
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 1 0 2.083333333333334 0 -468.9166666666667 0 E 10 299 496 336
+3
+LANG:10027 26 Arial,-1,13,5,75,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,75,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,75,0,0,0,0,0
+0 3
+LANG:10027 81 Поиск перекрестных ссылок в текущем проекте
+LANG:10000 40 Crossreferenz Suche im aktuellen Projekt
+LANG:10001 45 Cross-reference search in the current project
+13 20
+"Rename"
+"WF"
+1 899 953 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+20 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 47 Выполнить переименование
+LANG:10000 26 Namesänderung übernehmen
+LANG:10001 18 Accept name change
+
+2
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,12,5,50,0,0,0,0,0
+0  321.9999999999999 252.9999999999999 409.9999999999999 281
+
+T 
+3
+LANG:10027 17 Переимен.
+LANG:10000 10 Umbenennen
+LANG:10001 6 Rename
+"main()
+{
+  unsigned u_DPID;
+bool value;
+dpGet(\"System_SybcomDP.Alarm_filtr_event\", value);
+dpSetWait(\"System_SybcomDP.Alarm_filtr_event\", !value);
+  int i_ELID, i_copyError;
+  dyn_errClass err;
+  
+  Rename.enabled(false);
+      
+  string sDPName = NewName.text();
+  string dOldName = OriginalName.text();
+  
+  //Prüfen ob ein DP und ein neuer Name gesetzt wurden  
+  if(g_NameOk == 1 && g_dpOk == 1)
+  {
+    dyn_string ds;
+    dyn_float df;
+    
+    //Abfrage für umbenennen
+    ChildPanelOnCentralModalReturn(\"vision/MessageWarning2\", getCatStr(\"dp\",\"warning\"),
+                                    makeDynString(getCatStr(\"dpRename\",\"AskBeforeRenaming\"),
+                                    getCatStr(\"dpRename\",\"start\"),getCatStr(\"dpRename\",\"cancel\")),
+                                   df,ds);
+  
+    if (ds[1] != \"true\")
+    { 
+      Rename.enabled(true);
+      return;   
+    }
+    
+    //ASCII Export auf Server wenn DB im MultiUserMode läuft
+    if(AsciiCheckBox.state(0))
+    {  
+      
+      string s_filterDP = OriginalName.text();
+      string s_dplist = s_filterDP;
+      string s_Time = formatTime(\"%Y%m%d_%H%M%S\", getCurrentTime());
+      s_dplist = s_dplist + \"_\" + s_Time + \".dpl\";
+      
+      
+      string s_note1; //Variabledefinitionen für die makeError-Funktion 
+      int i_prio, i_typ, i_co, i_dpG1;
+      
+      i_prio = PRIO_INFO; 
+      i_typ = ERR_PARAM; 
+      i_co = 0; 
+      s_note1= getCatStr(\"dpRename\", \"ASCIISaveAs\") + \" \" + s_dplist;
+      
+            
+      string s_fileName = PROJ_PATH + \"dplist/\" + s_dplist;
+      dyn_errClass err;
+      string s_dptFilter;
+      string s_asciiTool = getComponentName(ASCII_COMPONENT);
+
+      string optascii = PVSS_PATH+\"bin/\"+s_asciiTool;
+           
+      strreplace(optascii, \"/\", \"\\\\\");
+      if (_UNIX)
+      {
+        strreplace(optascii, \"\\\\\", \"/\");
+      }
+      else
+        optascii+=\".exe\";
+  
+      s_dptFilter = dpTypeName(s_filterDP);
+      
+      string s_Cmd = \"\";
+       
+      if (_UNIX)
+        s_Cmd = optascii + \" -out \" + s_fileName + \" -filter DAOPH -filterDpType \" + 
+                s_dptFilter + \" -filterDp \"+s_filterDP +\".** -outputVersion 1 -log +stderr\";
+      else
+        s_Cmd = \"cmd /c \"+ optascii + \" -out \" + s_fileName + \" -filter DAOPH -filterDpType \" + 
+                    s_dptFilter + \" -filterDp \"+s_filterDP +\".** -outputVersion 1 -log +stderr\";
+        
+                    
+      system(s_Cmd);
+      err = getLastError(); // Testen ob ohne Fehler 
+      
+      if(dynlen(err) > 0) 
+      { 
+        notificationBar_Msg(\"dpRename\", \"ASCIINotOK\", \"NOTIFICATION_BAR_COLOR_PRIO_ERROR\");
+        throwError(err);
+        Rename.enabled(true);
+        return;
+      }
+      else
+      {
+        /* Zusätzliche  
+        //Information die angezeigt wird. Ist ein optionaler Parameter */ 
+        errClass retError; /* errClass-Variable für die makeError-Funktion */ 
+        retError = makeError(\"\", i_prio, i_typ, i_co, s_note1);
+        throwError(retError); /* Gibt den Fehler(Informationsnachricht) aus */
+      } 
+    }
+
+    int iErr = 0;
+    
+
+    if( dpExists(\"_2x2Redu\")  && isFunctionDefined(\"HOOK_disRecSystem_syncDpRenameToSSS\") )
+    {
+        
+      iErr = HOOK_disRecSystem_syncDpRenameToSSS(  dOldName, sDPName , iErr );
+      err = getLastError(); // Testen ob ohne Fehler 
+      
+      //Abbruch durch User
+      if((iErr <= -100))
+      {
+        Rename.enabled(true);
+        return;
+      }
+      
+      if(iErr < 0 || dynlen(err) > 0) 
+      { 
+        notificationBar_Msg(\"dpRename\", \"renameNotOK\", \"NOTIFICATION_BAR_COLOR_PRIO_ERROR\"); 
+        throwError(err);
+        dynClear(err);
+        return;
+      } 
+    }
+    else
+    {
+
+      iErr = dpRename( dOldName, sDPName );
+      err = getLastError(); // Testen ob ohne Fehler 
+      if(iErr < 0 || dynlen(err) > 0) 
+      { 
+        notificationBar_Msg(\"dpRename\", \"renameNotOK\", \"NOTIFICATION_BAR_COLOR_PRIO_ERROR\"); 
+        throwError(err);
+        dynClear(err);
+        return;
+      } 
+    }
+      
+    //     Alle Globalen Variablen und Icons zurücksetzen
+    DPOK.fill(\"[pattern,[tile,any,delete_24.png]]\");
+    NAMEOK.fill(\"[pattern,[tile,any,delete_24.png]]\");
+    g_NameOk = 0;
+    g_dpOk = 0;
+
+    notificationBar_Msg(\"dpRename\", \"RenameOK\", \"NOTIFICATION_BAR_COLOR_PRIO_INFO\");
+    OriginalName.text(sDPName);
+    NewName.text(\"\");
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" 0
+ E E E
+13 21
+"show"
+"WF"
+1 -465.6442124266026 193.32 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+21 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+2
+"sizePolicy" "Minimum Fixed"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  454.9999999999999 184 482.9999999999999 210
+
+P 
+4294967295
+"pictures/cns/down_arrow.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  int i_offset = 350;      //Gibt an um wieviel px das Panel in vertikaler Richtung verlängert werden soll
+  int i_duration = 200;    //Gibt die dauer der Animationen an
+  dyn_int diPanelSize;
+  
+  
+  
+  if(i_x == 0 || i_y == 0) // Ermitterln der Panelgröße
+    panelSize (myPanelName(), i_x, i_y, false);  
+  
+  if ( !i_animation1 ) // Erstellen der Animationen wenn diese noch nicht vorhanden sind
+  {
+    i_animation1 = createAnimation();
+  
+    animate(i_animation1,\"Help\", \"positionAsDyn\", Help.positionAsDyn, shift_pos(Help.positionAsDyn,0,i_offset),makeMapping(\"duration\", i_duration));
+    animate(i_animation1,\"RECTANGLE1\", \"positionAsDyn\", RECTANGLE1.positionAsDyn, shift_pos(RECTANGLE1.positionAsDyn,0,i_offset),makeMapping(\"duration\", i_duration) );
+    animate(i_animation1,\"Exit\", \"positionAsDyn\", Exit.positionAsDyn, shift_pos(Exit.positionAsDyn,0,i_offset),makeMapping(\"duration\", i_duration));
+    animate(i_animation1,\"FRAME5\",\"sizeAsDyn\",FRAME5.sizeAsDyn, shift_pos(FRAME5.sizeAsDyn,0,i_offset),makeMapping(\"duration\", i_duration));
+    animate(i_animation1,\"Rename\", \"positionAsDyn\", Rename.positionAsDyn, shift_pos(Rename.positionAsDyn,0,i_offset),makeMapping(\"duration\", i_duration));
+    
+  }
+  
+  
+  
+  if ( b_forward ) //Je nach Fall wird die Animation forwärts oder rückwärts abgespielt 
+  {
+    setPanelSize(myModuleName(), myPanelName(), false, i_x, i_y + i_offset);
+    startAnimation(i_animation1, \"keep\", makeMapping(\"direction\", \"Forward\"));
+    delay(0,i_duration + 10);
+    addSymbol(myModuleName(), myPanelName(), \"para/dpRename_Xref\", \"Xref\", \"\", 22, 234, 0, 1, 1);
+    show.fill(\"[pattern,[fit,any,cns/up_arrow.png]]\");
+    PRIMITIVE_TEXT3.text(getCatStr(\"dpRename\",\"hideCrossRef\"));
+  }
+  
+  else
+  {
+    removeSymbol(myModuleName(), myPanelName(), \"Xref\");
+    startAnimation(i_animation1, \"keep\", makeMapping(\"direction\", \"Backward\"));
+    delay(0,i_duration + 10);
+    setPanelSize(myModuleName(), myPanelName(), false, i_x, i_y);
+    show.fill(\"[pattern,[fit,any,cns/down_arrow.png]]\");
+    PRIMITIVE_TEXT3.text(getCatStr(\"dpRename\",\"showCrossRef\"));
+  }
+  
+  b_forward = !b_forward;
+  
+}
+
+
+
+" 0
+ E E E
+2 22
+"PRIMITIVE_TEXT3"
+""
+1 20 189 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+22 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"main()
+{
+  PRIMITIVE_TEXT3.text(getCatStr(\"dpRename\",\"showCrossRef\"));
+}" 0
+ E 0 1 1 2 1 E U  0 E 20 189 262 204
+0 2 2 "0s" 0 0 0 192 0 0  20 189 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 69 Отобразить поиск перекрестных ссылок
+LANG:10000 30 Crossreferenz Suche einblenden
+LANG:10001 27 show Cross-reference search
+6 24
+"DPOK"
+""
+1 859 156 E E E 1 E 1 E N "_Transparent" E N "_Transparent" E E
+ E E
+24 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 1 1 E 0.88 0 0.88 -558.9200000000001 -94.72 1 E 859 156 884 181
+6 25
+"NAMEOK"
+""
+1 859 156 E E E 1 E 1 E N "_Transparent" E N "_Transparent" E E
+ E E
+25 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 1 1 E 0.9166696000000001 0 0.881413076923077 -590.4192568000001 -64.07739692307693 1 E 859 156 883 180
+2 26
+"PRIMITIVE_TEXT4"
+""
+1 20 210 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+26 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.9995533346361072 0 1 0.008039976550070271 -20 0 E 20 210 480 260
+0 2 2 "0s" 0 0 0 64 0 0  20 210 1
+3
+LANG:10027 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+LANG:10000 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+LANG:10001 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+0 3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+6 29
+"notification_background"
+""
+1 9.999999999999773 9.737123054102995 E E E 1 E 1 E N {0,0,0} E N {255,134,125,220} E E
+ E E
+29 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1.047916666666666 0 0.5574783208049431 -10.47916666666642 -5.428235009672436 1 E 9.999999999999773 9.737123054102995 490 70
+2 5
+"message_text"
+""
+1 22.03585657370516 212.00083 E E E 1 E 1 E N "_ButtonText" E N "_Window" E E
+ E E
+5 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+"main()
+{
+  this.text(\"\");
+}
+" 0
+ E 0 1 1 1 1 E 0.9843500806798216 0 1.000002075090423 229.8442982250439 -202.7032467598722 0 E -26 212.00083 70 227
+0 2 2 "0s" 0 0 0 193 0 0  22.03585657370516 212.00083 1
+3
+LANG:10027 26 Arial,-1,13,5,75,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,75,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,75,0,0,0,0,0
+0 3
+LANG:10027 25 Пример текста
+LANG:10000 11 Sample Text
+LANG:10001 11 Sample Text
+0
+LAYER, 1 
+1
+LANG:10027 0 
+0
+LAYER, 2 
+1
+LANG:10027 0 
+0
+LAYER, 3 
+1
+LANG:10027 0 
+0
+LAYER, 4 
+1
+LANG:10027 0 
+0
+LAYER, 5 
+1
+LANG:10027 0 
+0
+LAYER, 6 
+1
+LANG:10027 0 
+0
+LAYER, 7 
+1
+LANG:10027 0 
+0
+1 0 "notification" -1
+2 0 
+29 5 
+
+"layoutAlignment" "AlignCenter"
+"" ""
+0

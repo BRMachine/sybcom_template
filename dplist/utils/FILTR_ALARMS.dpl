@@ -1,0 +1,22 @@
+# ascii dump of database
+
+# DpType
+TypeName
+FILTR_ALARMS.FILTR_ALARMS	1#1
+	Filtr_list	9#3
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_FILTR_ALARMS	FILTR_ALARMS	899
+# ascii dump of database
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_ds_FILTR_ALARMS	_DynamicDptSettings	895
+_dt_FILTR_ALARMS	_DynamicDatapoints	900
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+ASC (1)/0	_ds_FILTR_ALARMS.symbols	_DynamicDptSettings		0x8300000000000101	07.11.2017 06:12:45.850
+ASC (1)/0	_ds_FILTR_ALARMS.symboldefault	_DynamicDptSettings	""	0x8300000000000101	07.11.2017 06:12:45.851
+ASC (1)/0	_ds_FILTR_ALARMS.trendElements	_DynamicDptSettings		0x8300000000000101	07.11.2017 06:12:45.851

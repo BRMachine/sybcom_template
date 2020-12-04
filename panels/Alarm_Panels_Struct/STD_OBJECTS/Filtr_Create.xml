@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">541 481</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">17 8.000000000000021</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[string DP_ELEMENT_FILTR;
+
+cbo_update()
+{
+       
+  int i;                   
+  string    dpType;
+  dyn_string DPTs, ds, dps; 
+ dyn_string value; 
+  bool bMPExists;
+  string dpNameFirst;
+   dpType = &quot;FILTR_ALARMS&quot;;
+ 
+  DPTs = strsplit(dpType, &quot;,&quot;);
+  
+ // DebugN(DPTs);
+
+  for (i= 1; i&lt;= dynlen(DPTs);i++)
+ { 
+ ds = dpNames(&quot;*&quot;,DPTs[i]);
+dynAppend(dps,ds);    
+acGetReferences(DPTs[i], dps);
+if (!bMPExists)
+bMPExists=dpExists(&quot;_mp_&quot;+DPTs[i]);
+}
+  for (i=dynlen(dps); i&gt;=1 ;i--)
+ { 
+strreplace (dps[i], getSystemName(), &quot;&quot;);
+if (strpos(dps[i],&quot;_mp_&quot;)==0 || strpos(dps[i],&quot;:_mp_&quot;)&gt;0)
+{
+  dynRemove(dps,i);
+}
+}
+
+  cboSelect.items = dps; 
+
+ if (dpExists($CBO_Selected))
+  {
+   // DebugN(&quot;прошел =&quot; + dynlen(dps));
+         for (int i = 1; i &lt;= dynlen(dps); i++)
+    {
+        if (dps[i] == $CBO_Selected)
+         { 
+        //DebugN(&quot;есть результат =&quot; + dps[1]);
+           cboSelect.selectedPos(i);
+           dpNameFirst = $CBO_Selected +&quot;.Filtr_list&quot;; 
+           dpGet(dpNameFirst, value);
+  Filtr_list.deleteAllItems ();
+  Filtr_list.items = value;
+            }
+
+          }  
+  
+  }
+  else
+  {
+    DebugN(&quot; не прошел&quot;);
+  }
+}
+
+Init_filtr_list()
+{
+      string dp_name;
+  DP_ELEMENT_FILTR = this.text;
+  dp_name = this.text;
+ // TEXT_FIELD1.text =dp_name + &quot;.Filtr_list&quot; ;
+  DP_ELEMENT_FILTR = dp_name + &quot;.Filtr_list&quot; ;
+ // selectionChanged();
+  dyn_string value;
+  dpGet(DP_ELEMENT_FILTR, value);
+  Filtr_list.deleteAllItems ();
+  for (int i = 1; i &lt;= dynlen(value); i++)
+    {
+     string val = value[i];
+     Filtr_list.appendItem(value[i]);
+}
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+
+        /*             
+  Filtr_list.deleteAllItems ();
+  for (int i = 1; i &lt;= dynlen(value); i++)
+    {
+     string val = value[i];
+     Filtr_list.appendItem(value[i]);*/
+}]]></script>
+ </events>
+ <shapes>
+  <shape layerId="0" Name="Filtr_list" shapeType="SELECTION_LIST">
+   <properties>
+    <prop name="serialId">4</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">238 93</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+    </prop>
+    <prop name="AcceptDrops">True</prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">239.1463599214068 93.00000000000001</prop>
+    <prop name="Size">236 237</prop>
+    <prop name="Listitems"/>
+    <prop name="SelectionMode">SingleSelection</prop>
+    <prop name="alternatingRowColors">False</prop>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  Init_filtr_list();
+  /*dpConnect(&quot;Init&quot;,DP_ELEMENT_FILTR);
+
+  
+}
+void Init( string dpname, dyn_string value)
+{*/
+ // DebugN(dynlen(value));
+  
+  /*
+this.deleteAllItems ();
+  for (int i = 1; i &lt;= dynlen(value); i++)
+    {
+     string val = value[i];
+     this.appendItem(value[i]);
+   // setValue(&quot;&quot;, &quot;appendItem&quot;,i, value[i]);
+}
+*/
+}]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="buDelete" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">6</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">484 297</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">5</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">Удалить выбранную запись</prop>
+     <prop name="de_AT.utf8">Ausgewählten Eintrag löschen</prop>
+     <prop name="en_US.utf8">Delete selected entry</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">485.9999999999999 298.0000000000001</prop>
+    <prop name="Size">25 25</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop SharedPixmap="1" name="Image">
+     <prop name="BackgroundPixmap">StandardIcons\delete_20.png</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main()
+{
+
+  // delete item - for dpe and group
+
+  dyn_string items;
+  string text, dpname;
+  int pos;
+  dpname = cboSelect.text + &quot;.Filtr_list&quot;;
+  getValue(&quot;Filtr_list&quot;, &quot;selectedPos&quot;, pos,
+           &quot;items&quot;, items );
+  
+  if ( pos &gt;= 0 )
+  {
+    dynRemove( items, pos );
+    Filtr_list.items=items;
+dpSetWait(dpname, items);
+  }
+
+}]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="buDeleteAll" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">7</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">864 570</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">6</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">Удалить все строки</prop>
+     <prop name="de_AT.utf8">Alle Einträge löschen</prop>
+     <prop name="en_US.utf8">Delete all entries</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">485.9999999999999 263.0000000000001</prop>
+    <prop name="Size">25 25</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop SharedPixmap="1" name="Image">
+     <prop name="BackgroundPixmap">StandardIcons\delete_all_20.png</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main()
+{
+  dyn_string dsEmpty;
+  string dpname;
+  dpname = cboSelect.text + &quot;.Filtr_list&quot;;
+  setMultiValue(                
+                &quot;fi_dpName&quot;,&quot;text&quot;,&quot;&quot;,
+                &quot;fi_groups&quot;,&quot;text&quot;,&quot;&quot; );
+
+
+
+  Filtr_list.items=dsEmpty;
+  dpSetWait(dpname, dsEmpty);
+/*
+  if ( dpe_group.number == 1 )  // groups
+  {
+    groupList.items=dsEmpty;
+  }
+  else
+  {
+    dpeList.items=dsEmpty;
+  }*/
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="txtDDpe" shapeType="TEXT_FIELD">
+   <properties>
+    <prop name="serialId">18</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">240 353</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">16</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+    </prop>
+    <prop name="sizePolicy">
+     <sizePolicy vertical="Preferred" horizontal="Preferred"/>
+    </prop>
+    <prop name="layoutAlignment">AlignVCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">244.6854133333333 347.787878787879</prop>
+    <prop name="Size">235 29</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_BEGINNING]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="lstSelectionDpe" shapeType="DP_TREE">
+   <properties>
+    <prop name="serialId">19</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">3 8.000000000000002</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">17</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+    </prop>
+    <prop name="sizePolicy">
+     <sizePolicy vertical="MinimumExpanding" horizontal="Preferred"/>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,50,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,50,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">2.999999999999997 8.000000000000004</prop>
+    <prop name="Size">230 375</prop>
+    <extended>
+     <prop name="alternatingRowColors" type="BOOL">True</prop>
+     <script name="OnSelChanged" isEscaped="1"><![CDATA[OnSelChanged(string dpstr, long isType)
+{
+  string name1, name2;
+
+  if ( dpstr ==  &quot;&quot; )
+    return;
+
+   txtDDpe.text = dpSubStr(dpstr,DPSUB_DP_EL);
+   name1 = dpGetDescription(dpSubStr(dpstr,DPSUB_DP) + &quot;.&quot;, 0 );
+   txtDPEdesc.text = dpGetDescription(dpSubStr(dpstr,DPSUB_DP) + &quot;.&quot;, 0 ) + &quot;.&quot;+ dpGetDescription(dpSubStr(dpstr,DPSUB_DP_EL), -2);
+
+}
+]]></script>
+    </extended>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  //this.dpTypeFilter(&quot;*NP*&quot;);
+  //this.dpElementTypeFilter(22); //фильтруем по типу float
+
+  }]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="txtDPEdesc" shapeType="TEXT_FIELD">
+   <properties>
+    <prop name="serialId">21</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">240 401</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">19</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+    </prop>
+    <prop name="sizePolicy">
+     <sizePolicy vertical="Preferred" horizontal="Preferred"/>
+    </prop>
+    <prop name="layoutAlignment">AlignVCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">244.6854133333333 395.787878787879</prop>
+    <prop name="Size">235 29</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_BEGINNING]</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="cmdAppend" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">23</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">862.9999999999998 654.3333333333333</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">21</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">Добавить элемент в список фильтрации</prop>
+     <prop name="de_AT.utf8">Gruppe anfügen</prop>
+     <prop name="en_US.utf8">Append group</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">484.9999999999998 347.3333333333333</prop>
+    <prop name="Size">25 25</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop SharedPixmap="1" name="Image">
+     <prop name="BackgroundPixmap">StandardIcons\Insert_end_20.png</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main()
+{
+
+
+  dyn_string items;
+  string groupName, dpTxt, dpName;
+
+  if ( txtDDpe.text == &quot;&quot; ) return; // пустая строка, отключаем обработку
+
+  items = Filtr_list.items; //считываем данные списка
+  dpTxt = txtDDpe.text;  //считываем данные вводимого поля
+dpName = cboSelect.text + &quot;.Filtr_list&quot;;
+//&quot;System1:поз1.Filtr_list&quot;
+    dynAppend(items, dpTxt );
+
+  Filtr_list.items = items;
+
+dpSetWait(dpName, items);
+
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="cboSelect" shapeType="COMBO_BOX">
+   <properties>
+    <prop name="serialId">88</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">242.9999999999997 29.33333333333333</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">28</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">242.9999999999995 29.33333333333333</prop>
+    <prop name="Size">234 24</prop>
+    <prop name="Listitems"/>
+    <prop name="Editable">False</prop>
+   </properties>
+   <events>
+    <script name="Changed" isEscaped="1"><![CDATA[main()
+{ 
+Init_filtr_list();
+
+}
+
+]]></script>
+    <script name="Initialize" isEscaped="1"><![CDATA[main() 
+{ 
+  
+cbo_update();
+} 
+ /* 
+void cbo_init(string dp, bool value)
+{
+       
+  int i;                   
+  string    dpType;
+  dyn_string DPTs, ds, dps;  
+  bool bMPExists;
+   dpType = &quot;FILTR_ALARMS&quot;;
+ 
+  DPTs = strsplit(dpType, &quot;,&quot;);
+  
+ // DebugN(DPTs);
+
+  for (i= 1; i&lt;= dynlen(DPTs);i++)
+{ 
+ ds = dpNames(&quot;*&quot;,DPTs[i]);
+dynAppend(dps,ds);    
+acGetReferences(DPTs[i], dps);
+if (!bMPExists)
+bMPExists=dpExists(&quot;_mp_&quot;+DPTs[i]);
+}
+  for (i=dynlen(dps); i&gt;=1 ;i--) 
+  { 
+strreplace (dps[i], getSystemName(), &quot;&quot;);
+if (strpos(dps[i],&quot;_mp_&quot;)==0 || strpos(dps[i],&quot;:_mp_&quot;)&gt;0)
+{
+  dynRemove(dps,i);
+}
+}
+  cboSelect.items = dps; 
+      string dp_name;
+    dp_name = dps[1] + &quot;.Filtr_list&quot;;
+  dyn_string value;
+  dpGet(dp_name, value);
+  Filtr_list.items = value;
+}
+*/]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="buProperties" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">92</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">485.9999999999997 29.33333333333333</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">31</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">Свойства</prop>
+     <prop name="de_AT.utf8">Eigenschaften</prop>
+     <prop name="en_US.utf8">Properties</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">485.9999999999998 29.33333333333333</prop>
+    <prop name="Size">25 25</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop SharedPixmap="1" name="Image">
+     <prop name="BackgroundPixmap">StandardIcons\Config_params_20.png</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main()
+{
+  EP_childPanelOn();
+}
+
+void EP_childPanelOn()
+{
+
+  dyn_string ds, val;
+  dyn_float df=makeDynInt(1);
+    string dpname = cboSelect.text;
+  string PANEL = &quot;Alarm_Panels_Struct/STD_OBJECTS/Dp_Filtr_setting.pnl&quot;;
+
+   // ChildPanelOnCentralModalReturn(PANEL,
+  ChildPanelOnCentralModalReturn(PANEL,
+         &quot;Настройки Текущего фильтра&quot;,
+         makeDynString(&quot;$DpFiltr:&quot; + dpname),
+         df, ds);
+  DebugN(&quot;прошло&quot;);
+    if (dynlen(df) &gt; 0)
+          {
+            if (df[1] &gt; 0)
+            {
+        cbo_update();
+       dyn_string dsItems = cboSelect.items;
+         for (int i = 1; i &lt;= dynlen(dsItems); i++)
+    {
+        if (ds[1] == dsItems[i])
+         {
+           cboSelect.selectedPos(i);
+           
+            }
+
+          }   
+}
+    }
+    
+
+  dyn_string value;
+  string DP_ELEMENT_FILTR = ds[1] +&quot;.Filtr_list&quot;;
+  dpGet(DP_ELEMENT_FILTR, value);
+  Filtr_list.deleteAllItems ();
+  Filtr_list.items = value;
+  /*
+  for (int i = 1; i &lt;= dynlen(value); i++)
+    {
+     string val = value[i];
+     Filtr_list.appendItem(value[i]);   
+ */
+ 
+  }
+
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="FRAME1" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">94</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">234 1</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">32</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 1 1.666666666666629 2</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Наименование фильтра</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">234 1</prop>
+    <prop name="Size">292 63</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME2" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">95</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">234 1</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">33</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 5.870967741935484 2.000000000000028 63.12903225806451</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Список элементов фильтра</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">234 1</prop>
+    <prop name="Size">292 63</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME3" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">96</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">544 307</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">34</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 0.9310344827586208 -304 43.17241379310343</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Тег</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">544 307</prop>
+    <prop name="Size">275 59</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="FRAME4" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">97</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">544 307</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">35</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 0.8620689655172412 -303.9999999999999 114.3448275862069</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Описание тега</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">544 307</prop>
+    <prop name="Size">275 59</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="RECTANGLE1" shapeType="RECTANGLE">
+   <properties>
+    <prop name="serialId">98</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">478 94</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">_Transparent</prop>
+    <prop name="TabOrder">36</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.7467532467532481 0 0 1.019908466819222 125.1948051948045 -2.871395881006862</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Location">478 94</prop>
+    <prop name="Size">45 231</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="RECTANGLE3" shapeType="RECTANGLE">
+   <properties>
+    <prop name="serialId">102</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">2 613</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonBarBackground</prop>
+    <prop name="BackColor">_ButtonBarBackground</prop>
+    <prop name="TabOrder">39</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinRound,CapButt,0]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.5057692307692309 0 0 0.7358803773584907 -1.011538461538461 -12.0946713207548</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Location">2 613</prop>
+    <prop name="Size">1041 54</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="Exit" shapeType="PUSH_BUTTON">
+   <properties>
+    <prop name="serialId">103</prop>
+    <prop name="Type">WF</prop>
+    <prop name="RefPoint">261.8378188780953 -487.9365795546276</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">40</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">Закрыть панель без выполнения операции</prop>
+     <prop name="de_AT.utf8">Panel schliessen, ohne eine Aktion auszulösen</prop>
+     <prop name="en_US.utf8">Close panel without action</prop>
+    </prop>
+    <prop name="sizePolicy">
+     <sizePolicy vertical="Preferred" horizontal="Preferred"/>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">arial,-1,13,5,50,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,50,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,12,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">430.9999999999999 445.49917</prop>
+    <prop name="Size">85 27</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Закрыть</prop>
+     <prop name="de_AT.utf8">Schließen</prop>
+     <prop name="en_US.utf8">Cancel</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main()
+{
+  PanelOffReturn(makeDynFloat(1),makeDynString(cboSelect.text));
+}]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="TEXT_FIELD1" shapeType="TEXT_FIELD">
+   <properties>
+    <prop name="serialId">105</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">-1.526692908310878 404.6666666666666</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">41</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+    </prop>
+    <prop name="sizePolicy">
+     <sizePolicy vertical="Preferred" horizontal="Preferred"/>
+    </prop>
+    <prop name="layoutAlignment">AlignVCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,13,5,40,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">3.018746666666567 399.4545454545456</prop>
+    <prop name="Size">228 30</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_BEGINNING]</prop>
+   </properties>
+   <events>
+    <script name="Command" isEscaped="1"><![CDATA[main()
+{
+  
+   lstSelectionDpe.dpTypeFilter(this.text);
+}]]></script>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  this.text = &quot;*NP*&quot;;
+}]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="FRAME5" shapeType="FRAME">
+   <properties>
+    <prop name="serialId">106</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">544 307</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">42</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.8467153284671532 0 0 0.8620689655172412 -460.6131386861314 117.344827586207</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Фильтр</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">544 307</prop>
+    <prop name="Size">275 59</prop>
+   </properties>
+  </shape>
+ </shapes>
+</panel>

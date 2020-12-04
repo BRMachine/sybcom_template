@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">1537 933</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">1 2</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <shapes>
+  <shape layerId="0" Name="EMBEDDED_MODULE1" shapeType="EMBEDDED_MODULE">
+   <properties>
+    <prop name="serialId">1</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 31.46279748887473</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">0</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">-0.9587242026266417 29.00000000000002</prop>
+    <prop name="Size">1534 904</prop>
+    <extended>
+     <prop name="newPanelAnimDuration" type="INT">0</prop>
+     <prop name="oldPanelAnimDuration" type="INT">0</prop>
+     <prop name="newPanelAnimateOpacity" type="BOOL">True</prop>
+     <prop name="oldPanelAnimateOpacity" type="BOOL">True</prop>
+     <prop name="newPanelAnimateSize" type="BOOL">True</prop>
+     <prop name="oldPanelAnimateSize" type="BOOL">True</prop>
+     <prop name="newPanelAnimType" type="CHAR_STRING">TopLeft</prop>
+     <prop name="oldPanelAnimType" type="CHAR_STRING">BottomRight</prop>
+    </extended>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  this.ModuleName(&quot;settings_ecn&quot;+myUiDpName());
+  
+  if($type == 1)
+    RootPanelOnModule(&quot;Settings/Tech_1.xml&quot;,&quot;&quot;, &quot;settings_ecn&quot;+myUiDpName(), makeDynString(&quot;$KUST:&quot; + $KUST));
+  else
+    RootPanelOnModule(&quot;Settings/Tech_2.xml&quot;,&quot;&quot;, &quot;settings_ecn&quot;+myUiDpName(), makeDynString(&quot;$KUST:&quot; + $KUST));
+}
+]]></script>
+   </events>
+  </shape>
+  <shape layerId="0" Name="BodyName" shapeType="RECTANGLE">
+   <properties>
+    <prop name="serialId">2</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">530 110</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">{0,153,255,150}</prop>
+    <prop name="TabOrder">1</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">12.775 0 0 0.7249999999999996 -6769.749999999999 -79.74999999999994</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">530 110</prop>
+    <prop name="Size">121 41</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape layerId="0" Name="PanelName" shapeType="PRIMITIVE_TEXT">
+   <properties>
+    <prop name="serialId">3</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">540 120</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">STD_text</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.013134949051814 0 0 1 220.40712751202 -116</prop>
+    <prop name="Location">540 120</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,18,5,75,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">MS Shell Dlg 2,-1,18,5,75,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Управление распределенными системами</prop>
+     <prop name="en_US.utf8">Куст №164</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,ALIGNMENT_CENTER]</prop>
+   </properties>
+  </shape>
+ </shapes>
+</panel>

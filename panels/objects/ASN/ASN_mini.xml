@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">500 400</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">40 23</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics&quot;
+
+const string ASN = $ASN;
+const string POST = $POST;
+
+/*#property bool fp_win
+public bool getFp_win(){ return btn_fp.visible; }
+public void setFp_win(bool a){
+  if(a){
+    poll = a;
+  }
+    btn_fp.visible(a);
+  }
+*/
+void cbWorker(dyn_string dp, dyn_int val){
+ASN_00.visible(val[1]==0);
+ASN_01.visible(val[1]==1);
+ASN_02.visible(val[1]==2);
+ASN_03.visible(val[1]==4);
+ASN_04.visible(val[1]==8);
+ASN_05.visible(val[1]==16);
+if (val[1]==16) {
+  RECTANGLE1.backCol(&quot;Red&quot;);
+    }
+else
+{
+  RECTANGLE1.backCol(&quot;WF_PanelBackground&quot;);
+}
+ASN_06.visible(val[1]==32);
+ASN_07.visible(val[1]==64);
+
+}
+
+
+/*void cbAlarm(dyn_string dp, dyn_string color){
+    bool alarm = false;
+    //DebugTN(dp,color);
+    for(int i=1; i&lt;=dynlen(color); i++){
+      if(color[i]!= &quot;&quot;){
+        rec_backgr.backCol(color[i]);
+        alarm = true;
+      }
+    }
+    if(!alarm)
+    rec_backgr.backCol(&quot;white&quot;);
+}
+
+void cbAlarmState(dyn_string dpe, dyn_bool val) {
+  bool no_link   = val[1],
+       disabled  = val[2],
+       not_ready = val[3];
+
+  img_no_link.visible(no_link);
+  img_disabled.visible(disabled);
+  img_not_ready.visible(not_ready);
+}
+*/
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  string type;
+  int type_int;
+  dpGet(ASN + &quot;.Post&quot; + POST + &quot;.Type_NP&quot;,type_int);
+  switch(type_int){
+    case 0:
+      type = &quot;АИ-92&quot;;
+      break;
+    case 1:
+      type = &quot;АИ-95&quot;;
+      break;
+    case 2:
+      type = &quot;АИ-98&quot;;
+      break;
+    case 3:
+      type = &quot;АИ-100&quot;;
+      break;
+    case 4:
+      type = &quot;ДТ&quot;;
+      break;
+    default:
+      type = &quot;---&quot;;
+  }
+  type_np.text(type);
+  dpConnect(&quot;cbWorker&quot;, ASN + &quot;.Post&quot; +POST + &quot;.sStatusPosta&quot;,
+            ASN + &quot;.Post&quot; +POST + &quot;.cVolumeDose&quot;,
+            ASN + &quot;.Post&quot; +POST + &quot;.сPrisadka&quot;);
+
+
+/*
+  dpConnect(&quot;cbAlarm&quot;, LogicRVS + &quot;.&quot; + ANALOG + &quot;._sAH_Level:_alert_hdl.._act_state_color&quot;,
+                       LogicRVS + &quot;.&quot; + ANALOG + &quot;._sWH_Level:_alert_hdl.._act_state_color&quot;,
+                       LogicRVS + &quot;.&quot; + ANALOG + &quot;._sWL_Level:_alert_hdl.._act_state_color&quot;,
+                       LogicRVS + &quot;.&quot; + ANALOG + &quot;._sAL_Level:_alert_hdl.._act_state_color&quot;);
+
+
+  dpConnect(&quot;cbAlarmState&quot;, DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.no_link&quot;,
+                            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.disabled&quot;,
+                            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.not_ready&quot;);*/
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="RECTANGLE1" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">1</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">40 23</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">WF_PanelBackground</prop>
+    <prop name="TabOrder">0</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.602272727272727 0 0 0.6363636363636365 -4.090909090909038 -4.636363636363638</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">40 23</prop>
+    <prop name="Size">89 89</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+   <events>
+    <script name="MousePressed" isEscaped="1"><![CDATA[main(mapping event)
+{
+  SELECTION_LIST1.visible(0);
+}]]></script>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+
+}
+]]></script>
+    <script name="RightMousePressed" isEscaped="1"><![CDATA[main(mapping event)
+{
+  SELECTION_LIST1.visible(1);
+}]]></script>
+   </events>
+  </shape>
+  <shape Name="type_np" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">3</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">20.80000000000003 9.999999999999996</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">STD_windows_available</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">20.80000000000003 9.999999999999996</prop>
+    <prop name="Size">51 21</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">АИ-95</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter]</prop>
+   </properties>
+   <events>
+    <script name="MousePressed" isEscaped="1"><![CDATA[main(mapping event)
+{
+  SELECTION_LIST1.visible(0);
+}]]></script>
+    <script name="RightMousePressed" isEscaped="1"><![CDATA[main(mapping event)
+{
+  SELECTION_LIST1.visible(1);
+}]]></script>
+   </events>
+  </shape>
+  <shape Name="ASN_00" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">7</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 70</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">6</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_00.png]]</prop>
+    <prop name="Geometry">0.75 0 0 0.75 7.5 -7.5</prop>
+    <prop name="Center">50 70</prop>
+    <prop name="X-Radius">20</prop>
+    <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="ASN_01" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">9</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 70</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">7</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_01.png]]</prop>
+    <prop name="Geometry">0.75 0 0 0.75 7.5 -7.5</prop>
+    <prop name="Center">50 70</prop>
+    <prop name="X-Radius">20</prop>
+    <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="ASN_02" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">10</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 70</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">8</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_02.png]]</prop>
+    <prop name="Geometry">0.75 0 0 0.75 7.5 -7.5</prop>
+    <prop name="Center">50 70</prop>
+    <prop name="X-Radius">20</prop>
+    <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="ASN_03" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">11</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 70</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">9</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_03.png]]</prop>
+    <prop name="Geometry">0.75 0 0 0.75 7.5 -7.5</prop>
+    <prop name="Center">50 70</prop>
+    <prop name="X-Radius">20</prop>
+    <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="ASN_04" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">12</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 70</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">10</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_04.png]]</prop>
+    <prop name="Geometry">0.75 0 0 0.75 7.5 -7.5</prop>
+    <prop name="Center">50 70</prop>
+    <prop name="X-Radius">20</prop>
+    <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="ASN_05" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">13</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 70</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">11</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_05.png]]</prop>
+    <prop name="Geometry">0.75 0 0 0.75 7.5 -7.5</prop>
+    <prop name="Center">50 70</prop>
+    <prop name="X-Radius">20</prop>
+    <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="ASN_06" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">14</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 70</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">12</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_06.png]]</prop>
+    <prop name="Geometry">0.75 0 0 0.75 7.5 -7.5</prop>
+    <prop name="Center">50 70</prop>
+    <prop name="X-Radius">20</prop>
+    <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="ASN_07" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">16</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 70</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">13</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN_07.png]]</prop>
+    <prop name="Geometry">0.75 0 0 0.75 7.5 -7.5</prop>
+    <prop name="Center">50 70</prop>
+    <prop name="X-Radius">20</prop>
+    <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="SELECTION_LIST1" shapeType="SELECTION_LIST" layerId="0">
+   <properties>
+    <prop name="serialId">18</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">59.89999999999999 38.1</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">False</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">14</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,9,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">59.90000000000001 38.1</prop>
+    <prop name="Size">126 96</prop>
+    <prop name="Listitems">
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Окно управления</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Просмотр сообщений</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Окно параметров поста</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Окно состояния датчиков</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Окно состояния выходов</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Окно ошибок</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Окно настройки</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+    </prop>
+    <prop name="SelectionMode">SingleSelection</prop>
+    <prop name="alternatingRowColors">False</prop>
+   </properties>
+   <events>
+    <script name="Changed" isEscaped="1"><![CDATA[main()
+{
+  dyn_string val = SELECTION_LIST1.selectedItems;
+
+
+  //DebugN(val);
+  if (val[1] == &quot;Окно управления&quot;) {
+    string title = &quot;АСН &quot; + ASN + &quot;: Окно управления поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_management.xml&quot;, title, makeDynString(&quot;$dp:&quot; + ASN,
+                                                                               &quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+
+  if (val[1] == &quot;Окно параметров поста&quot;) {
+    string title = &quot;АСН &quot; + ASN + &quot;: Окно параметров поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_params.pnl&quot;, title, makeDynString(&quot;$dp:&quot; + ASN,
+                                                                               &quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+
+  if (val[1] == &quot;Окно состояния датчиков&quot;) {
+    string title = &quot;АСН &quot; + ASN + &quot;: Окно состояния датчиков поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_sensors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + ASN,
+                                                                               &quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+  if (val[1] == &quot;Окно состояния выходов&quot;) {
+    string title = &quot;АСН &quot; + ASN + &quot;: Окно состояния выходов поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_outs.xml&quot;, title, makeDynString(&quot;$dp:&quot; + ASN,
+                                                                               &quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+  if (val[1] == &quot;Окно ошибок&quot;) {
+    string title = &quot;АСН &quot; + ASN + &quot;: Окно ошибок поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_errors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + ASN,
+                                                                               &quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+  if (val[1] == &quot;Окно настроек&quot;) {
+    string title = &quot;АСН &quot; + ASN + &quot;: Окно настроек поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_config.xml&quot;, title, makeDynString(&quot;$dp:&quot; + ASN,
+                                                                               &quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+  if (val[1] == &quot;Просмотр сообщений&quot;) {
+    string title = &quot;АСН &quot; + ASN + &quot;: Окно просмотра сообщений поста &quot; + POST;
+    string adr = ASN + &quot;.Post&quot;+POST;
+    //string adr1;
+    //int x;
+    //dpGet(&quot;System1:ASN_1.Post1.sStatusPosta:_address.._reference&quot;,adr1);
+    //DebugN(adr1);
+    //adr1 = &quot;System1:ASN_1.Post1.sStatusPosta:_address.._active&quot;;
+    //dpSet(adr1,0);
+    //adr1 = &quot;ASN_1.Data.Data[1].sStatusPosta&quot;;
+
+    //dpSetWait(&quot;System1:ASN_1.Post1.sStatusPosta:_address.._reference&quot;,adr1);
+    //adr1 = &quot;System1:ASN_1.Post1.sStatusPosta:_address.._active&quot;;
+    //dpSetWait(adr1,1);
+    //dpGet(&quot;System1:ASN_1.Post1.sStatusPosta:_address.._reference&quot;,adr1);
+    //DebugN(adr1);
+    //adr1 = &quot;System1:ASN_1.Post1.sStatusPosta:_original.._bad&quot;;
+    //dpGet(adr1,x);
+    //x = 0;
+    //dpSet(adr1,x);
+    //DebugN(&quot;fff=&quot;,x);
+    ChildPanelOnCentral(&quot;faceplates\\NB\\ai_parts\\alrm.xml&quot;, title, makeDynString(&quot;$dp:&quot; + adr));
+  SELECTION_LIST1.visible(0);
+  }
+}
+]]></script>
+    <script name="KeyboardFocusOut" isEscaped="1"><![CDATA[main()
+{
+  SELECTION_LIST1.visible(0);
+}]]></script>
+    <script name="DoubleClicked" isEscaped="1"><![CDATA[main()
+{
+  string title1;
+  dyn_string val1 = SELECTION_LIST1.selectedItems;
+  if (val1[1] == &quot;Окно управления&quot;) {
+    title1 = &quot;АСН &quot; + ASN + &quot;: Окно управления поста &quot; + POST;
+    ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_management.xml&quot;, title1, makeDynString(&quot;$dp:&quot; + ASN, &quot;$NumberPost:&quot; + POST));
+    SELECTION_LIST1.visible(0);
+  }
+
+  if (val1[1] == &quot;Окно параметров поста&quot;) {
+    title1 = &quot;АСН &quot; + ASN + &quot;: Окно параметров поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_params.pnl&quot;, title1, makeDynString(&quot;$dp:&quot; + ASN,&quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+
+  if (val1[1] == &quot;Окно состояния датчиков&quot;) {
+    title1 = &quot;АСН &quot; + ASN + &quot;: Окно состояния датчиков поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_sensors.xml&quot;, title1, makeDynString(&quot;$dp:&quot; + ASN,&quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+  if (val1[1] == &quot;Окно состояния выходов&quot;) {
+    title1 = &quot;АСН &quot; + ASN + &quot;: Окно состояния выходов поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_outs.xml&quot;, title1, makeDynString(&quot;$dp:&quot; + ASN,&quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+  if (val1[1] == &quot;Окно ошибок&quot;) {
+    title1 = &quot;АСН &quot; + ASN + &quot;: Окно ошибок поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_errors.xml&quot;, title1, makeDynString(&quot;$dp:&quot; + ASN,&quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+  if (val1[1] == &quot;Окно настройки&quot;) {
+    title1 = &quot;АСН &quot; + ASN + &quot;: Окно настроек поста &quot; + POST;
+  ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_config.xml&quot;, title1, makeDynString(&quot;$dp:&quot; + ASN,&quot;$NumberPost:&quot; + POST));
+  SELECTION_LIST1.visible(0);
+  }
+  if (val1[1] == &quot;Просмотр сообщений&quot;) {
+    title1 = &quot;АСН &quot; + ASN + &quot;: Окно просмотра сообщений поста &quot; + POST;
+    string adr = ASN + &quot;.Post&quot;+POST;
+    ChildPanelOnCentral(&quot;faceplates\\NB\\ai_parts\\alrm.xml&quot;, title1, makeDynString(&quot;$dp:&quot; + adr));
+  SELECTION_LIST1.visible(0);
+}
+}
+]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

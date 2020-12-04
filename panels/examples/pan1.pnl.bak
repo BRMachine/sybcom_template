@@ -1,0 +1,117 @@
+V 14
+1
+LANG:10027 0 
+PANEL,-1 -1 955 418 N "_3DFace" 0
+"main(){
+  dbConnection con;
+  int resOp = dbOpenConnection(\"DSN=\"+DSN+\";UID=sa;PWD=Asup123;\", con);
+
+  dbRecordset rs;
+  DebugTN(\"start query\");
+  int resRS = dbOpenRecordset(con, \"SELECT * FROM mescommand\", rs, 3);
+  if(!resRS){
+    while(!dbEOF(rs)){
+      string res;
+      for(int i = 0; i<10; i++){
+        anytype fld;
+        dbGetField(rs, i, fld);
+        res += (string)fld + \" | \";
+      }
+      dbMoveNext(rs);
+      DebugTN(res);
+    }
+  DebugTN(\"end query\");
+    dbCloseRecordset(rs);
+  }else{
+    DebugTN(\"Error DB connection\");
+  }
+
+  int resCl = dbCloseConnection(con);
+}
+" 0
+ E E E E 1 -1 -1 0  220 276
+""0  1
+E "const string DSN = \"ASUP_NB\";
+
+
+dyn_dyn_anytype queryASUP(string query){
+  return \"\";
+}
+" 0
+ 3
+"CBRef" "1"
+"EClose" E
+"dpi" "96"
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 0 
+1 1 0 "" 0
+0
+25 27
+"response_db"
+""
+1 35.9990234375 148 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+3 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+1
+"layoutAlignment" "AlignNone"
+1
+LANG:10027 37 MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0
+0  33.9990234375 146 697.9990234375 360
+EE 1 0 1 1 0 "#1" 6 1 0 "s" 1
+LANG:10027 2 #1
+E
+1
+LANG:10027 0 
+
+60 
+13 13 10 0
+1
+LANG:10027 37 MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0
+0 0 1 1 1 7
+1 0
+0
+LAYER, 1 
+1
+LANG:10027 0 
+0
+LAYER, 2 
+1
+LANG:10027 0 
+0
+LAYER, 3 
+1
+LANG:10027 0 
+0
+LAYER, 4 
+1
+LANG:10027 0 
+0
+LAYER, 5 
+1
+LANG:10027 0 
+0
+LAYER, 6 
+1
+LANG:10027 0 
+0
+LAYER, 7 
+1
+LANG:10027 0 
+0
+3 0 "PANEL_REF1" -1
+"layoutAlignment" "AlignNone"
+"" ""
+"objects/STD_SIMULATORS/RandSim.pnl" 15.9990234375 11 T 1 U 
+2
+"$b_PvRange""TRUE"
+"$dpe_float_Value""System1:PT201.value.scaled"
+0

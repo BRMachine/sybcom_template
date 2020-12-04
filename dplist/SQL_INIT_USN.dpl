@@ -1,0 +1,24 @@
+# ascii dump of database
+
+# DpType
+TypeName
+SQL_INIT_USN.SQL_INIT_USN	1#1
+	id	20#2
+	task	25#3
+	doc	25#4
+	usn	20#5
+	rail	25#6
+	tank	20#7
+	fuel	25#8
+	weight	22#9
+	uu	20#10
+	state	20#11
+	datetime	26#12
+	init	20#13
+	type	20#14
+	need_update	23#15
+
+# Datapoint/DpId
+DpName	TypeName	ID
+sql_init_usn	SQL_INIT_USN	5186
+# ascii dump of database

@@ -1,0 +1,637 @@
+# ascii dump of database
+
+# DpType
+TypeName
+IS_RVS.IS_RVS	1#1
+	LVL	1#2
+		val	22#3
+		sts	24#4
+		sts_bool	1#130
+			no_link	23#131
+			disabled	23#132
+			not_ready	23#133
+			overpass	23#162
+	MAS	1#5
+		val	22#6
+		sts	24#7
+		sts_bool	1#134
+			no_link	23#135
+			disabled	23#136
+			not_ready	23#137
+			overpass	23#163
+	VOL	1#8
+		val	22#9
+		sts	24#10
+		sts_bool	1#138
+			no_link	23#139
+			disabled	23#140
+			not_ready	23#141
+			overpass	23#164
+	DNS	1#11
+		val	22#12
+		sts	24#13
+		sts_bool	1#142
+			no_link	23#143
+			disabled	23#144
+			not_ready	23#145
+			overpass	23#165
+	TMP	1#14
+		val	22#15
+		sts	24#16
+		sts_bool	1#146
+			no_link	23#147
+			disabled	23#148
+			not_ready	23#149
+			overpass	23#166
+	WTR	1#17
+		val	22#18
+		sts	24#19
+		sts_bool	1#150
+			no_link	23#151
+			disabled	23#152
+			not_ready	23#153
+			overpass	23#167
+	SRF	1#20
+		DNS	1#21
+			val	22#22
+			sts	24#23
+		TMP	1#24
+			val	22#25
+			sts	24#26
+	VPR	1#27
+		DNS	1#28
+			val	22#29
+			sts	24#30
+		TMP	1#31
+			val	22#32
+			sts	24#33
+		PRS	1#34
+			val	22#35
+			sts	24#36
+	MVOL	1#37
+		val	22#38
+		sts	24#39
+	DT	1#40
+		1	1#41
+			val	22#42
+			sts	24#43
+		2	1#44
+			val	22#76
+			sts	24#77
+		3	1#45
+			val	22#78
+			sts	24#79
+		4	1#46
+			val	22#80
+			sts	24#81
+		5	1#47
+			val	22#82
+			sts	24#83
+		6	1#48
+			val	22#84
+			sts	24#85
+		7	1#49
+			val	22#86
+			sts	24#87
+		8	1#50
+			val	22#88
+			sts	24#89
+		9	1#51
+			val	22#90
+			sts	24#91
+		10	1#52
+			val	22#92
+			sts	24#93
+		11	1#53
+			val	22#94
+			sts	24#95
+		12	1#54
+			val	22#96
+			sts	24#97
+		13	1#55
+			val	22#98
+			sts	24#99
+		14	1#56
+			val	22#100
+			sts	24#101
+		15	1#57
+			val	22#102
+			sts	24#103
+		16	1#58
+			val	22#104
+			sts	24#105
+		17	1#59
+			val	22#106
+			sts	24#107
+		18	1#60
+			val	22#108
+			sts	24#109
+		19	1#61
+			val	22#110
+			sts	24#111
+		20	1#62
+			val	22#112
+			sts	24#113
+		21	1#63
+			val	22#114
+			sts	24#115
+	DP	1#64
+		1	1#65
+			val	22#116
+			sts	24#117
+		2	1#66
+			val	22#118
+			sts	24#119
+		3	1#67
+			val	22#120
+			sts	24#121
+		4	1#68
+			val	22#122
+			sts	24#123
+		5	1#69
+			val	22#124
+			sts	24#125
+	STS	1#70
+		val	21#71
+		cmd	21#72
+		MBS_ERR	21#161
+	SCL	1#73
+		LSH	22#74
+		LSL	22#75
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_IS_RVS	IS_RVS	4558
+
+# Aliases/Comments
+AliasId	AliasName	CommentName
+_mp_IS_RVS.LVL.val	""	lt:1 LANG:10027 "@%15.0f@мм"
+_mp_IS_RVS.MAS.val	""	lt:1 LANG:10027 "@%15.0f@кг"
+_mp_IS_RVS.VOL.val	""	lt:1 LANG:10027 "@%15.0f@м3"
+_mp_IS_RVS.DNS.val	""	lt:1 LANG:10027 "@%15.1f@кг/м³"
+_mp_IS_RVS.TMP.val	""	lt:1 LANG:10027 "@@°С"
+_mp_IS_RVS.WTR.val	""	lt:1 LANG:10027 "@%15.2f@ мм"
+_mp_IS_RVS.VPR.PRS.val	""	lt:1 LANG:10027 "@%15.2f@кПа"
+_mp_IS_RVS.WTR.sts_bool.overpass	""	lt:1 LANG:10027 "Уровень воды@@"
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+ASC (1)/0	_mp_IS_RVS.LVL.val	IS_RVS	0	0x8300000000020001	24.11.2020 07:04:33.450
+ASC (1)/0	_mp_IS_RVS.LVL.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.450
+ASC (1)/0	_mp_IS_RVS.MAS.val	IS_RVS	0	0x8300000000020005	24.11.2020 07:04:33.452
+ASC (1)/0	_mp_IS_RVS.MAS.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.453
+ASC (1)/0	_mp_IS_RVS.VOL.val	IS_RVS	0	0x8300000000020001	24.11.2020 07:04:33.455
+ASC (1)/0	_mp_IS_RVS.VOL.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.465
+ASC (1)/0	_mp_IS_RVS.DNS.val	IS_RVS	0	0x8300000000020001	24.11.2020 07:04:33.467
+ASC (1)/0	_mp_IS_RVS.DNS.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.468
+ASC (1)/0	_mp_IS_RVS.TMP.val	IS_RVS	0	0x8300000000020001	24.11.2020 07:04:33.470
+ASC (1)/0	_mp_IS_RVS.TMP.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.470
+ASC (1)/0	_mp_IS_RVS.WTR.val	IS_RVS	0	0x8300000000020005	24.11.2020 07:04:33.481
+ASC (1)/0	_mp_IS_RVS.WTR.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.481
+ASC (1)/0	_mp_IS_RVS.SRF.DNS.val	IS_RVS	0	0x8300000000020005	24.11.2020 07:04:33.483
+ASC (1)/0	_mp_IS_RVS.SRF.DNS.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.483
+ASC (1)/0	_mp_IS_RVS.SRF.TMP.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.485
+ASC (1)/0	_mp_IS_RVS.SRF.TMP.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.495
+ASC (1)/0	_mp_IS_RVS.VPR.DNS.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.496
+ASC (1)/0	_mp_IS_RVS.VPR.DNS.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.497
+ASC (1)/0	_mp_IS_RVS.VPR.TMP.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.499
+ASC (1)/0	_mp_IS_RVS.VPR.TMP.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.500
+ASC (1)/0	_mp_IS_RVS.VPR.PRS.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.511
+ASC (1)/0	_mp_IS_RVS.VPR.PRS.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.512
+ASC (1)/0	_mp_IS_RVS.MVOL.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.514
+ASC (1)/0	_mp_IS_RVS.MVOL.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.515
+ASC (1)/0	_mp_IS_RVS.DT.1.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.516
+ASC (1)/0	_mp_IS_RVS.DT.1.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.526
+ASC (1)/0	_mp_IS_RVS.STS.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.527
+ASC (1)/0	_mp_IS_RVS.DT.2.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.529
+ASC (1)/0	_mp_IS_RVS.DT.2.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.530
+ASC (1)/0	_mp_IS_RVS.DT.3.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.531
+ASC (1)/0	_mp_IS_RVS.DT.3.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.542
+ASC (1)/0	_mp_IS_RVS.DT.4.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.543
+ASC (1)/0	_mp_IS_RVS.DT.4.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.545
+ASC (1)/0	_mp_IS_RVS.DT.5.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.546
+ASC (1)/0	_mp_IS_RVS.DT.5.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.547
+ASC (1)/0	_mp_IS_RVS.DT.6.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.558
+ASC (1)/0	_mp_IS_RVS.DT.6.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.559
+ASC (1)/0	_mp_IS_RVS.DT.7.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.560
+ASC (1)/0	_mp_IS_RVS.DT.7.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.561
+ASC (1)/0	_mp_IS_RVS.DT.8.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.563
+ASC (1)/0	_mp_IS_RVS.DT.8.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.572
+ASC (1)/0	_mp_IS_RVS.DT.9.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.573
+ASC (1)/0	_mp_IS_RVS.DT.9.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.575
+ASC (1)/0	_mp_IS_RVS.DT.10.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.576
+ASC (1)/0	_mp_IS_RVS.DT.10.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.577
+ASC (1)/0	_mp_IS_RVS.DT.11.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.589
+ASC (1)/0	_mp_IS_RVS.DT.11.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.590
+ASC (1)/0	_mp_IS_RVS.DT.12.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.591
+ASC (1)/0	_mp_IS_RVS.DT.12.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.592
+ASC (1)/0	_mp_IS_RVS.DT.13.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.593
+ASC (1)/0	_mp_IS_RVS.DT.13.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.603
+ASC (1)/0	_mp_IS_RVS.DT.14.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.604
+ASC (1)/0	_mp_IS_RVS.DT.14.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.606
+ASC (1)/0	_mp_IS_RVS.DT.15.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.607
+ASC (1)/0	_mp_IS_RVS.DT.15.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.608
+ASC (1)/0	_mp_IS_RVS.DT.16.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.620
+ASC (1)/0	_mp_IS_RVS.DT.16.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.621
+ASC (1)/0	_mp_IS_RVS.DT.17.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.623
+ASC (1)/0	_mp_IS_RVS.DT.17.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.624
+ASC (1)/0	_mp_IS_RVS.DT.18.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.625
+ASC (1)/0	_mp_IS_RVS.DT.18.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.635
+ASC (1)/0	_mp_IS_RVS.DT.19.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.637
+ASC (1)/0	_mp_IS_RVS.DT.19.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.638
+ASC (1)/0	_mp_IS_RVS.DT.20.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.639
+ASC (1)/0	_mp_IS_RVS.DT.20.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.640
+ASC (1)/0	_mp_IS_RVS.DT.21.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.650
+ASC (1)/0	_mp_IS_RVS.DT.21.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.652
+ASC (1)/0	_mp_IS_RVS.DP.1.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.653
+ASC (1)/0	_mp_IS_RVS.DP.1.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.654
+ASC (1)/0	_mp_IS_RVS.DP.2.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.655
+ASC (1)/0	_mp_IS_RVS.DP.2.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.666
+ASC (1)/0	_mp_IS_RVS.DP.3.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.667
+ASC (1)/0	_mp_IS_RVS.DP.3.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.668
+ASC (1)/0	_mp_IS_RVS.DP.4.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.670
+ASC (1)/0	_mp_IS_RVS.DP.4.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.671
+ASC (1)/0	_mp_IS_RVS.DP.5.val	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.681
+ASC (1)/0	_mp_IS_RVS.DP.5.sts	IS_RVS	0x0	0x8300000000000101	24.11.2020 07:04:33.682
+ASC (1)/0	_mp_IS_RVS.LVL.sts_bool.no_link	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.684
+ASC (1)/0	_mp_IS_RVS.LVL.sts_bool.disabled	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.685
+ASC (1)/0	_mp_IS_RVS.LVL.sts_bool.not_ready	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.686
+ASC (1)/0	_mp_IS_RVS.MAS.sts_bool.no_link	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.696
+ASC (1)/0	_mp_IS_RVS.MAS.sts_bool.disabled	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.697
+ASC (1)/0	_mp_IS_RVS.MAS.sts_bool.not_ready	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.699
+ASC (1)/0	_mp_IS_RVS.VOL.sts_bool.no_link	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.700
+ASC (1)/0	_mp_IS_RVS.VOL.sts_bool.disabled	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.701
+ASC (1)/0	_mp_IS_RVS.VOL.sts_bool.not_ready	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.711
+ASC (1)/0	_mp_IS_RVS.DNS.sts_bool.no_link	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.712
+ASC (1)/0	_mp_IS_RVS.DNS.sts_bool.disabled	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.714
+ASC (1)/0	_mp_IS_RVS.DNS.sts_bool.not_ready	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.715
+ASC (1)/0	_mp_IS_RVS.TMP.sts_bool.no_link	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.716
+ASC (1)/0	_mp_IS_RVS.TMP.sts_bool.disabled	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.726
+ASC (1)/0	_mp_IS_RVS.TMP.sts_bool.not_ready	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.727
+ASC (1)/0	_mp_IS_RVS.WTR.sts_bool.no_link	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.729
+ASC (1)/0	_mp_IS_RVS.WTR.sts_bool.disabled	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.730
+ASC (1)/0	_mp_IS_RVS.WTR.sts_bool.not_ready	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.731
+ASC (1)/0	_mp_IS_RVS.STS.MBS_ERR	IS_RVS	0	0x8300000000020001	24.11.2020 07:04:33.744
+ASC (1)/0	_mp_IS_RVS.WTR.sts_bool.overpass	IS_RVS	0	0x8300000000000101	24.11.2020 07:04:33.742
+
+# DpDefaultValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_default.._type	_default.._value	_default.._set_ibit	_default.._set_pvrange
+ASC (1)/0	1605259772	808	_mp_IS_RVS.LVL.val	IS_RVS	3	0	0	0
+ASC (1)/0	1605259969	683	_mp_IS_RVS.MAS.val	IS_RVS	3	0	1	0
+ASC (1)/0	1605259790	452	_mp_IS_RVS.VOL.val	IS_RVS	3	0	0	0
+ASC (1)/0	1605259799	654	_mp_IS_RVS.DNS.val	IS_RVS	3	0	0	0
+ASC (1)/0	1605259809	352	_mp_IS_RVS.TMP.val	IS_RVS	3	0	0	0
+ASC (1)/0	1605259110	55	_mp_IS_RVS.WTR.val	IS_RVS	3	0	1	0
+ASC (1)/0	1605259121	449	_mp_IS_RVS.SRF.DNS.val	IS_RVS	3	0	1	0
+ASC (1)/0	1605250458	718	_mp_IS_RVS.STS.MBS_ERR	IS_RVS	3	1	0	0
+
+# AlertValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+ASC (1)/0	1606201487	986	_mp_IS_RVS.	IS_RVS		59					""		lt:1 LANG:10027 ""		 		0								lt:1 LANG:10027 ""	lt:1 LANG:10027 ""	1	0	""		""	""	1	1	1	1	1		0							
+UI (7)/0	1599975117	577	_mp_IS_RVS.LVL.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975130	484	_mp_IS_RVS.LVL.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	22	_mp_IS_RVS.LVL.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	32	_mp_IS_RVS.LVL.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975150	516	_mp_IS_RVS.LVL.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975162	574	_mp_IS_RVS.LVL.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	33	_mp_IS_RVS.LVL.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	34	_mp_IS_RVS.LVL.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975180	641	_mp_IS_RVS.LVL.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975188	116	_mp_IS_RVS.LVL.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	34	_mp_IS_RVS.LVL.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	35	_mp_IS_RVS.LVL.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	47	_mp_IS_RVS.LVL.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	48	_mp_IS_RVS.LVL.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975207	389	_mp_IS_RVS.MAS.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975215	755	_mp_IS_RVS.MAS.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	49	_mp_IS_RVS.MAS.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	51	_mp_IS_RVS.MAS.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975229	104	_mp_IS_RVS.MAS.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975236	258	_mp_IS_RVS.MAS.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	51	_mp_IS_RVS.MAS.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	63	_mp_IS_RVS.MAS.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	64	_mp_IS_RVS.MAS.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	65	_mp_IS_RVS.MAS.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975249	938	_mp_IS_RVS.MAS.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975257	418	_mp_IS_RVS.MAS.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	65	_mp_IS_RVS.MAS.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	66	_mp_IS_RVS.MAS.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	68	_mp_IS_RVS.MAS.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	78	_mp_IS_RVS.MAS.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975272	460	_mp_IS_RVS.VOL.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975279	606	_mp_IS_RVS.VOL.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	79	_mp_IS_RVS.VOL.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	81	_mp_IS_RVS.VOL.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975293	995	_mp_IS_RVS.VOL.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975300	945	_mp_IS_RVS.VOL.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	82	_mp_IS_RVS.VOL.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	94	_mp_IS_RVS.VOL.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	95	_mp_IS_RVS.VOL.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975319	709	_mp_IS_RVS.VOL.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975432	592	_mp_IS_RVS.VOL.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	95	_mp_IS_RVS.VOL.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	97	_mp_IS_RVS.VOL.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет готов"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975450	729	_mp_IS_RVS.DNS.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975458	407	_mp_IS_RVS.DNS.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	98	_mp_IS_RVS.DNS.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	109	_mp_IS_RVS.DNS.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	110	_mp_IS_RVS.DNS.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	111	_mp_IS_RVS.DNS.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975480	67	_mp_IS_RVS.DNS.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975488	445	_mp_IS_RVS.DNS.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	113	_mp_IS_RVS.DNS.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	126	_mp_IS_RVS.DNS.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975502	648	_mp_IS_RVS.DNS.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975510	986	_mp_IS_RVS.DNS.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	127	_mp_IS_RVS.DNS.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	128	_mp_IS_RVS.DNS.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975525	29	_mp_IS_RVS.TMP.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975533	201	_mp_IS_RVS.TMP.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	128	_mp_IS_RVS.TMP.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	129	_mp_IS_RVS.TMP.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	141	_mp_IS_RVS.TMP.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975552	29	_mp_IS_RVS.TMP.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975558	831	_mp_IS_RVS.TMP.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	142	_mp_IS_RVS.TMP.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	144	_mp_IS_RVS.TMP.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975572	327	_mp_IS_RVS.TMP.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599975579	743	_mp_IS_RVS.TMP.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	144	_mp_IS_RVS.TMP.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	157	_mp_IS_RVS.TMP.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600072783	97	_mp_IS_RVS.WTR.sts_bool.no_link	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600072793	812	_mp_IS_RVS.WTR.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	157	_mp_IS_RVS.WTR.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	159	_mp_IS_RVS.WTR.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	171	_mp_IS_RVS.WTR.sts_bool.no_link	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600072808	653	_mp_IS_RVS.WTR.sts_bool.disabled	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600072817	746	_mp_IS_RVS.WTR.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	172	_mp_IS_RVS.WTR.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	173	_mp_IS_RVS.WTR.sts_bool.disabled	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Выключен"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600072832	284	_mp_IS_RVS.WTR.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600072840	960	_mp_IS_RVS.WTR.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	174	_mp_IS_RVS.WTR.sts_bool.not_ready	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	187	_mp_IS_RVS.WTR.sts_bool.not_ready	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Не готов"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	188	_mp_IS_RVS.WTR.sts_bool.overpass	IS_RVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201488	190	_mp_IS_RVS.WTR.sts_bool.overpass	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Вне диапазона."	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1606201488	203	_mp_IS_RVS.WTR.sts_bool.overpass	IS_RVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Вне диапазона."	lt:1 LANG:10027 "Норма"												0								
+
+# DistributionInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+ASC (1)/0	1598507760	75	_mp_IS_RVS.LVL.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	75	_mp_IS_RVS.LVL.sts	IS_RVS	56	\10
+UI (7)/0	1601903091	192	_mp_IS_RVS.MAS.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	75	_mp_IS_RVS.MAS.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	76	_mp_IS_RVS.VOL.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	77	_mp_IS_RVS.VOL.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	77	_mp_IS_RVS.DNS.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	77	_mp_IS_RVS.DNS.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	77	_mp_IS_RVS.TMP.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	78	_mp_IS_RVS.TMP.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	79	_mp_IS_RVS.WTR.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	79	_mp_IS_RVS.WTR.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	79	_mp_IS_RVS.SRF.DNS.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	79	_mp_IS_RVS.SRF.DNS.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	80	_mp_IS_RVS.SRF.TMP.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	81	_mp_IS_RVS.SRF.TMP.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	81	_mp_IS_RVS.VPR.DNS.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	81	_mp_IS_RVS.VPR.DNS.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	81	_mp_IS_RVS.VPR.TMP.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	82	_mp_IS_RVS.VPR.TMP.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	83	_mp_IS_RVS.VPR.PRS.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	83	_mp_IS_RVS.VPR.PRS.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	83	_mp_IS_RVS.MVOL.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	83	_mp_IS_RVS.MVOL.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	84	_mp_IS_RVS.DT.1.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	85	_mp_IS_RVS.DT.1.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	85	_mp_IS_RVS.STS.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	85	_mp_IS_RVS.DT.2.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	85	_mp_IS_RVS.DT.2.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	86	_mp_IS_RVS.DT.3.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	87	_mp_IS_RVS.DT.3.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	87	_mp_IS_RVS.DT.4.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	87	_mp_IS_RVS.DT.4.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	87	_mp_IS_RVS.DT.5.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	88	_mp_IS_RVS.DT.5.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	89	_mp_IS_RVS.DT.6.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	89	_mp_IS_RVS.DT.6.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	89	_mp_IS_RVS.DT.7.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	89	_mp_IS_RVS.DT.7.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	90	_mp_IS_RVS.DT.8.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	91	_mp_IS_RVS.DT.8.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	91	_mp_IS_RVS.DT.9.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	91	_mp_IS_RVS.DT.9.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	91	_mp_IS_RVS.DT.10.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	92	_mp_IS_RVS.DT.10.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	93	_mp_IS_RVS.DT.11.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	93	_mp_IS_RVS.DT.11.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	93	_mp_IS_RVS.DT.12.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	93	_mp_IS_RVS.DT.12.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	94	_mp_IS_RVS.DT.13.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	95	_mp_IS_RVS.DT.13.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	95	_mp_IS_RVS.DT.14.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	95	_mp_IS_RVS.DT.14.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	95	_mp_IS_RVS.DT.15.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	96	_mp_IS_RVS.DT.15.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	97	_mp_IS_RVS.DT.16.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	97	_mp_IS_RVS.DT.16.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	97	_mp_IS_RVS.DT.17.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	97	_mp_IS_RVS.DT.17.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	98	_mp_IS_RVS.DT.18.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	99	_mp_IS_RVS.DT.18.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	99	_mp_IS_RVS.DT.19.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	99	_mp_IS_RVS.DT.19.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	99	_mp_IS_RVS.DT.20.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	100	_mp_IS_RVS.DT.20.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	101	_mp_IS_RVS.DT.21.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	101	_mp_IS_RVS.DT.21.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	101	_mp_IS_RVS.DP.1.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	101	_mp_IS_RVS.DP.1.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	102	_mp_IS_RVS.DP.2.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	103	_mp_IS_RVS.DP.2.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	103	_mp_IS_RVS.DP.3.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	103	_mp_IS_RVS.DP.3.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	103	_mp_IS_RVS.DP.4.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	104	_mp_IS_RVS.DP.4.sts	IS_RVS	56	\10
+ASC (1)/0	1598507760	105	_mp_IS_RVS.DP.5.val	IS_RVS	56	\10
+ASC (1)/0	1598507760	105	_mp_IS_RVS.DP.5.sts	IS_RVS	56	\10
+UI (1)/0	1606197991	417	_mp_IS_RVS.STS.MBS_ERR	IS_RVS	56	\10
+
+# DpFunction
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
+ASC (1)/0	1606201624	543	_mp_IS_RVS.LVL.sts_bool.no_link	IS_RVS	60	_mp_IS_RVS.LVL.sts:_original.._value	"p1 & 0x2"		1
+ASC (1)/0	1606201624	545	_mp_IS_RVS.LVL.sts_bool.disabled	IS_RVS	60	_mp_IS_RVS.LVL.sts:_original.._value	"p1 & 0x40"		1
+ASC (1)/0	1606201624	556	_mp_IS_RVS.LVL.sts_bool.not_ready	IS_RVS	60	_mp_IS_RVS.LVL.sts:_original.._value	"p1 & 0x80"		1
+ASC (1)/0	1606201624	559	_mp_IS_RVS.MAS.sts_bool.no_link	IS_RVS	60	_mp_IS_RVS.MAS.sts:_original.._value	"p1 & 0x2"		1
+ASC (1)/0	1606201624	561	_mp_IS_RVS.MAS.sts_bool.disabled	IS_RVS	60	_mp_IS_RVS.MAS.sts:_original.._value	"p1 & 0x40"		1
+ASC (1)/0	1606201624	564	_mp_IS_RVS.MAS.sts_bool.not_ready	IS_RVS	60	_mp_IS_RVS.MAS.sts:_original.._value	"p1 & 0x80"		1
+ASC (1)/0	1606201624	566	_mp_IS_RVS.VOL.sts_bool.no_link	IS_RVS	60	_mp_IS_RVS.VOL.sts:_original.._value	"p1 & 0x2"		1
+ASC (1)/0	1606201624	571	_mp_IS_RVS.VOL.sts_bool.disabled	IS_RVS	60	_mp_IS_RVS.VOL.sts:_original.._value	"p1 & 0x40"		1
+ASC (1)/0	1606201624	573	_mp_IS_RVS.VOL.sts_bool.not_ready	IS_RVS	60	_mp_IS_RVS.VOL.sts:_original.._value	"p1 & 0x80"		1
+ASC (1)/0	1606201624	575	_mp_IS_RVS.DNS.sts_bool.no_link	IS_RVS	60	_mp_IS_RVS.DNS.sts:_original.._value	"p1 & 0x2"		1
+ASC (1)/0	1606201624	576	_mp_IS_RVS.DNS.sts_bool.disabled	IS_RVS	60	_mp_IS_RVS.DNS.sts:_original.._value	"p1 & 0x40"		1
+ASC (1)/0	1606201624	577	_mp_IS_RVS.DNS.sts_bool.not_ready	IS_RVS	60	_mp_IS_RVS.DNS.sts:_original.._value	"p1 & 0x80"		1
+ASC (1)/0	1606201624	586	_mp_IS_RVS.TMP.sts_bool.no_link	IS_RVS	60	_mp_IS_RVS.TMP.sts:_original.._value	"p1 & 0x02"		1
+ASC (1)/0	1606201624	587	_mp_IS_RVS.TMP.sts_bool.disabled	IS_RVS	60	_mp_IS_RVS.TMP.sts:_original.._value	"p1 & 0x40"		1
+ASC (1)/0	1606201624	588	_mp_IS_RVS.TMP.sts_bool.not_ready	IS_RVS	60	_mp_IS_RVS.TMP.sts:_original.._value	"p1 & 0x80"		1
+ASC (1)/0	1606201624	590	_mp_IS_RVS.WTR.sts_bool.no_link	IS_RVS	60	_mp_IS_RVS.WTR.sts:_original.._value	"p1 & 0x02"		1
+ASC (1)/0	1606201624	591	_mp_IS_RVS.WTR.sts_bool.disabled	IS_RVS	60	_mp_IS_RVS.WTR.sts:_original.._value	"p1 & 0x40"		1
+ASC (1)/0	1606201624	602	_mp_IS_RVS.WTR.sts_bool.not_ready	IS_RVS	60	_mp_IS_RVS.WTR.sts:_original.._value	"p1 & 0x80"		1
+ASC (1)/0	1606201624	603	_mp_IS_RVS.WTR.sts_bool.overpass	IS_RVS	60	_mp_IS_RVS.WTR.sts:_original.._value	"p1 & 0x01"		1
+
+# DpConvRawToIngMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_msg_conv.._type	_msg_conv.._poly_grade	_msg_conv.._poly_a	_msg_conv.._poly_b	_msg_conv.._poly_c	_msg_conv.._poly_d	_msg_conv.._poly_e	_msg_conv.._linint_num	_msg_conv.._linint1_x	_msg_conv.._linint1_y	_msg_conv.._linint2_x	_msg_conv.._linint2_y	_msg_conv.._linint3_x	_msg_conv.._linint3_y	_msg_conv.._linint4_x	_msg_conv.._linint4_y	_msg_conv.._linint5_x	_msg_conv.._linint5_y	_msg_conv.._null_from	_msg_conv.._null_to	_msg_conv.._null_res	_msg_conv.._log_base	_msg_conv.._round_val	_msg_conv.._round_inv	_msg_conv.._trig_lim	_msg_conv.._trig_up	_msg_conv.._imp_edge	_msg_conv.._imp_rstval
+ASC (1)/0	1598508097	664	_mp_IS_RVS.DNS.val	IS_RVS		33																											
+ASC (1)/0	1598508097	664	_mp_IS_RVS.DNS.val	IS_RVS	1	3							2	0	0	1	1	0	0	0	0	0	0										
+
+# DpConvIngToRawMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_cmd_conv.._type	_cmd_conv.._poly_grade	_cmd_conv.._poly_a	_cmd_conv.._poly_b	_cmd_conv.._poly_c	_cmd_conv.._poly_d	_cmd_conv.._poly_e	_cmd_conv.._linint_num	_cmd_conv.._linint1_x	_cmd_conv.._linint1_y	_cmd_conv.._linint2_x	_cmd_conv.._linint2_y	_cmd_conv.._linint3_x	_cmd_conv.._linint3_y	_cmd_conv.._linint4_x	_cmd_conv.._linint4_y	_cmd_conv.._linint5_x	_cmd_conv.._linint5_y	_cmd_conv.._null_from	_cmd_conv.._null_to	_cmd_conv.._null_res	_cmd_conv.._log_base	_cmd_conv.._round_val	_cmd_conv.._round_inv	_cmd_conv.._trig_lim	_cmd_conv.._trig_up	_cmd_conv.._imp_edge	_cmd_conv.._imp_rstval
+ASC (1)/0	1598508097	682	_mp_IS_RVS.TMP.val	IS_RVS		36																											
+ASC (1)/0	1598508097	682	_mp_IS_RVS.TMP.val	IS_RVS	1	3							2	0	0	1000000	1000000	0	0	0	0	0	0										
+
+# PeriphAddrMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+UI (7)/0	1601709240	648	_mp_IS_RVS.LVL.val	IS_RVS	16	"_mp_IS_RVS.Data.ProductLvl"	_SubRSU2	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	557	_mp_IS_RVS.LVL.sts	IS_RVS	16	"_mp_IS_RVS.Data.ProductLvl_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+UI (7)/0	1601903586	919	_mp_IS_RVS.MAS.val	IS_RVS	16	"_mp_IS_RVS.Data.ProductMass"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	559	_mp_IS_RVS.MAS.sts	IS_RVS	16	"_mp_IS_RVS.Data.ProductMass_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	560	_mp_IS_RVS.VOL.val	IS_RVS	16	"_mp_IS_RVS.Data.ProductVol"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	560	_mp_IS_RVS.VOL.sts	IS_RVS	16	"_mp_IS_RVS.Data.ProductVol_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	560	_mp_IS_RVS.DNS.val	IS_RVS	16	"_mp_IS_RVS.Data.AvgPrdctDens"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	562	_mp_IS_RVS.DNS.sts	IS_RVS	16	"_mp_IS_RVS.Data.AvgPrdctDens_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	562	_mp_IS_RVS.TMP.val	IS_RVS	16	"_mp_IS_RVS.Data.AvgPrdctTemp"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	562	_mp_IS_RVS.TMP.sts	IS_RVS	16	"_mp_IS_RVS.Data.AvgPrdctTemp_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	563	_mp_IS_RVS.WTR.val	IS_RVS	16	"_mp_IS_RVS.Data.WaterLvl"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	563	_mp_IS_RVS.WTR.sts	IS_RVS	16	"_mp_IS_RVS.Data.WaterLvl_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	565	_mp_IS_RVS.SRF.DNS.val	IS_RVS	16	"_mp_IS_RVS.Data.PrdctSurfaceDens"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	565	_mp_IS_RVS.SRF.DNS.sts	IS_RVS	16	"_mp_IS_RVS.Data.PrdctSurfaceDens_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	565	_mp_IS_RVS.SRF.TMP.val	IS_RVS	16	"_mp_IS_RVS.Data.PrdctSurfaceTemp"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	566	_mp_IS_RVS.SRF.TMP.sts	IS_RVS	16	"_mp_IS_RVS.Data.PrdctSurfaceTemp_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	566	_mp_IS_RVS.VPR.DNS.val	IS_RVS	16	"_mp_IS_RVS.Data.PrdctVaporPhaseDens"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	568	_mp_IS_RVS.VPR.DNS.sts	IS_RVS	16	"_mp_IS_RVS.Data.PrdctVaporPhaseDens_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	568	_mp_IS_RVS.VPR.TMP.val	IS_RVS	16	"_mp_IS_RVS.Data.PrdctVaporPhaseTemp"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	568	_mp_IS_RVS.VPR.TMP.sts	IS_RVS	16	"_mp_IS_RVS.Data.PrdctVaporPhaseTemp_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	569	_mp_IS_RVS.VPR.PRS.val	IS_RVS	16	"_mp_IS_RVS.Data.PrdctVaporPhasePress"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	569	_mp_IS_RVS.VPR.PRS.sts	IS_RVS	16	"_mp_IS_RVS.Data.PrdctVaporPhasePress_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	571	_mp_IS_RVS.MVOL.val	IS_RVS	16	"_mp_IS_RVS.Data.PrdctMaxVol"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	571	_mp_IS_RVS.MVOL.sts	IS_RVS	16	"_mp_IS_RVS.Data.PrdctMaxVol_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	571	_mp_IS_RVS.DT.1.val	IS_RVS	16	"_mp_IS_RVS.Data.DT1"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	572	_mp_IS_RVS.DT.1.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT1_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+UI (7)/0	1600407738	962	_mp_IS_RVS.STS.val	IS_RVS	16	"_mp_IS_RVS.Data.CurrMode"	_SubRSU	_RSU	0	0	\4	0	0	0	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598520610	574	_mp_IS_RVS.DT.2.val	IS_RVS	16	"_mp_IS_RVS.Data.DT2"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	574	_mp_IS_RVS.DT.2.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT2_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	574	_mp_IS_RVS.DT.3.val	IS_RVS	16	"_mp_IS_RVS.Data.DT3"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	575	_mp_IS_RVS.DT.3.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT3_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	575	_mp_IS_RVS.DT.4.val	IS_RVS	16	"_mp_IS_RVS.Data.DT4"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	577	_mp_IS_RVS.DT.4.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT4_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	577	_mp_IS_RVS.DT.5.val	IS_RVS	16	"_mp_IS_RVS.Data.DT5"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	577	_mp_IS_RVS.DT.5.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT5_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	578	_mp_IS_RVS.DT.6.val	IS_RVS	16	"_mp_IS_RVS.Data.DT6"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	578	_mp_IS_RVS.DT.6.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT6_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	580	_mp_IS_RVS.DT.7.val	IS_RVS	16	"_mp_IS_RVS.Data.DT7"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	580	_mp_IS_RVS.DT.7.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT7_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	580	_mp_IS_RVS.DT.8.val	IS_RVS	16	"_mp_IS_RVS.Data.DT8"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	581	_mp_IS_RVS.DT.8.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT8_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	581	_mp_IS_RVS.DT.9.val	IS_RVS	16	"_mp_IS_RVS.Data.DT9"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	583	_mp_IS_RVS.DT.9.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT9_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	583	_mp_IS_RVS.DT.10.val	IS_RVS	16	"_mp_IS_RVS.Data.DT10"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	583	_mp_IS_RVS.DT.10.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT10_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	584	_mp_IS_RVS.DT.11.val	IS_RVS	16	"_mp_IS_RVS.Data.DT11"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	585	_mp_IS_RVS.DT.11.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT11_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	586	_mp_IS_RVS.DT.12.val	IS_RVS	16	"_mp_IS_RVS.Data.DT12"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	586	_mp_IS_RVS.DT.12.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT12_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	586	_mp_IS_RVS.DT.13.val	IS_RVS	16	"_mp_IS_RVS.Data.DT13"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	587	_mp_IS_RVS.DT.13.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT13_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	587	_mp_IS_RVS.DT.14.val	IS_RVS	16	"_mp_IS_RVS.Data.DT14"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	589	_mp_IS_RVS.DT.14.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT14_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	589	_mp_IS_RVS.DT.15.val	IS_RVS	16	"_mp_IS_RVS.Data.DT15"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	590	_mp_IS_RVS.DT.15.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT15_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	590	_mp_IS_RVS.DT.16.val	IS_RVS	16	"_mp_IS_RVS.Data.DT16"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	591	_mp_IS_RVS.DT.16.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT16_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	592	_mp_IS_RVS.DT.17.val	IS_RVS	16	"_mp_IS_RVS.Data.DT17"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	592	_mp_IS_RVS.DT.17.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT17_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	592	_mp_IS_RVS.DT.18.val	IS_RVS	16	"_mp_IS_RVS.Data.DT18"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	593	_mp_IS_RVS.DT.18.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT18_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	593	_mp_IS_RVS.DT.19.val	IS_RVS	16	"_mp_IS_RVS.Data.DT19"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	595	_mp_IS_RVS.DT.19.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT19_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	595	_mp_IS_RVS.DT.20.val	IS_RVS	16	"_mp_IS_RVS.Data.DT20"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	595	_mp_IS_RVS.DT.20.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT20_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	596	_mp_IS_RVS.DT.21.val	IS_RVS	16	"_mp_IS_RVS.Data.DT21"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	596	_mp_IS_RVS.DT.21.sts	IS_RVS	16	"_mp_IS_RVS.Data.DT21_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	598	_mp_IS_RVS.DP.1.val	IS_RVS	16	"_mp_IS_RVS.Data.DP1"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	598	_mp_IS_RVS.DP.1.sts	IS_RVS	16	"_mp_IS_RVS.Data.DP1_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	599	_mp_IS_RVS.DP.2.val	IS_RVS	16	"_mp_IS_RVS.Data.DP2"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	599	_mp_IS_RVS.DP.2.sts	IS_RVS	16	"_mp_IS_RVS.Data.DP2_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	600	_mp_IS_RVS.DP.3.val	IS_RVS	16	"_mp_IS_RVS.Data.DP3"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	601	_mp_IS_RVS.DP.3.sts	IS_RVS	16	"_mp_IS_RVS.Data.DP3_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	601	_mp_IS_RVS.DP.4.val	IS_RVS	16	"_mp_IS_RVS.Data.DP4"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	601	_mp_IS_RVS.DP.4.sts	IS_RVS	16	"_mp_IS_RVS.Data.DP4_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+ASC (1)/0	1598520610	602	_mp_IS_RVS.DP.5.val	IS_RVS	16	"_mp_IS_RVS.Data.DP5"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+ASC (1)/0	1598520610	602	_mp_IS_RVS.DP.5.sts	IS_RVS	16	"_mp_IS_RVS.Data.DP5_ST"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1004	"S7PLUS"
+UI (1)/0	1606197991	430	_mp_IS_RVS.STS.MBS_ERR	IS_RVS	16	"_mp_IS_RVS.Data.ModbusState"	_SubRSU2	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+
+# DbArchiveInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_archive.._type	_archive.._archive	_archive.._class	_archive.._interv	_archive.._interv_type	_archive.._std_type	_archive.._std_tol	_archive.._std_time	_archive.._round_val	_archive.._round_inv
+ASC (1)/0	1606201637	145	_mp_IS_RVS.LVL.val	IS_RVS		45	1
+ASC (1)/0	1606201637	145	_mp_IS_RVS.LVL.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	146	_mp_IS_RVS.MAS.val	IS_RVS		45	1
+ASC (1)/0	1606201637	146	_mp_IS_RVS.MAS.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	147	_mp_IS_RVS.VOL.val	IS_RVS		45	1
+ASC (1)/0	1606201637	147	_mp_IS_RVS.VOL.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	159	_mp_IS_RVS.DNS.val	IS_RVS		45	1
+ASC (1)/0	1606201637	159	_mp_IS_RVS.DNS.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	160	_mp_IS_RVS.TMP.val	IS_RVS		45	1
+ASC (1)/0	1606201637	160	_mp_IS_RVS.TMP.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	160	_mp_IS_RVS.WTR.val	IS_RVS		45	1
+ASC (1)/0	1606201637	160	_mp_IS_RVS.WTR.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	174	_mp_IS_RVS.SRF.DNS.val	IS_RVS		45	1
+ASC (1)/0	1606201637	174	_mp_IS_RVS.SRF.DNS.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	175	_mp_IS_RVS.SRF.TMP.val	IS_RVS		45	1
+ASC (1)/0	1606201637	175	_mp_IS_RVS.SRF.TMP.val	IS_RVS	1	3		_NGA_G_EVENT	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	175	_mp_IS_RVS.VPR.DNS.val	IS_RVS		45	1
+ASC (1)/0	1606201637	175	_mp_IS_RVS.VPR.DNS.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	190	_mp_IS_RVS.VPR.TMP.val	IS_RVS		45	1
+ASC (1)/0	1606201637	190	_mp_IS_RVS.VPR.TMP.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	191	_mp_IS_RVS.VPR.PRS.val	IS_RVS		45	1
+ASC (1)/0	1606201637	191	_mp_IS_RVS.VPR.PRS.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	191	_mp_IS_RVS.MVOL.val	IS_RVS		45	1
+ASC (1)/0	1606201637	191	_mp_IS_RVS.MVOL.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	192	_mp_IS_RVS.DT.1.val	IS_RVS		45	1
+ASC (1)/0	1606201637	192	_mp_IS_RVS.DT.1.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	205	_mp_IS_RVS.DT.2.val	IS_RVS		45	1
+ASC (1)/0	1606201637	205	_mp_IS_RVS.DT.2.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	205	_mp_IS_RVS.DT.3.val	IS_RVS		45	1
+ASC (1)/0	1606201637	205	_mp_IS_RVS.DT.3.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	206	_mp_IS_RVS.DT.4.val	IS_RVS		45	1
+ASC (1)/0	1606201637	206	_mp_IS_RVS.DT.4.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	221	_mp_IS_RVS.DT.5.val	IS_RVS		45	1
+ASC (1)/0	1606201637	221	_mp_IS_RVS.DT.5.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	221	_mp_IS_RVS.DT.6.val	IS_RVS		45	1
+ASC (1)/0	1606201637	221	_mp_IS_RVS.DT.6.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	221	_mp_IS_RVS.DT.7.val	IS_RVS		45	1
+ASC (1)/0	1606201637	221	_mp_IS_RVS.DT.7.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	236	_mp_IS_RVS.DT.8.val	IS_RVS		45	1
+ASC (1)/0	1606201637	236	_mp_IS_RVS.DT.8.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	237	_mp_IS_RVS.DT.9.val	IS_RVS		45	1
+ASC (1)/0	1606201637	237	_mp_IS_RVS.DT.9.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	237	_mp_IS_RVS.DT.10.val	IS_RVS		45	1
+ASC (1)/0	1606201637	237	_mp_IS_RVS.DT.10.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	238	_mp_IS_RVS.DT.11.val	IS_RVS		45	1
+ASC (1)/0	1606201637	238	_mp_IS_RVS.DT.11.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	251	_mp_IS_RVS.DT.12.val	IS_RVS		45	1
+ASC (1)/0	1606201637	251	_mp_IS_RVS.DT.12.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	252	_mp_IS_RVS.DT.13.val	IS_RVS		45	1
+ASC (1)/0	1606201637	252	_mp_IS_RVS.DT.13.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	253	_mp_IS_RVS.DT.14.val	IS_RVS		45	1
+ASC (1)/0	1606201637	253	_mp_IS_RVS.DT.14.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	267	_mp_IS_RVS.DT.15.val	IS_RVS		45	1
+ASC (1)/0	1606201637	267	_mp_IS_RVS.DT.15.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	269	_mp_IS_RVS.DP.1.val	IS_RVS		45	1
+ASC (1)/0	1606201637	269	_mp_IS_RVS.DP.1.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	271	_mp_IS_RVS.DP.2.val	IS_RVS		45	1
+ASC (1)/0	1606201637	271	_mp_IS_RVS.DP.2.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	282	_mp_IS_RVS.DP.3.val	IS_RVS		45	1
+ASC (1)/0	1606201637	282	_mp_IS_RVS.DP.3.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	284	_mp_IS_RVS.DP.4.val	IS_RVS		45	1
+ASC (1)/0	1606201637	284	_mp_IS_RVS.DP.4.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1606201637	285	_mp_IS_RVS.DP.5.val	IS_RVS		45	1
+ASC (1)/0	1606201637	285	_mp_IS_RVS.DP.5.val	IS_RVS	1	3		_NGA_G_RP_VALUES	0	0	4	0	01.01.1970 00:00:00.000	0	0

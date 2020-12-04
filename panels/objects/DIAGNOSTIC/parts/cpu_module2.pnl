@@ -1,0 +1,1608 @@
+V 14
+1
+LANG:10027 0 
+PANEL,-1 -1 116 178 N "_3DFace" 0
+E E E E E 1 -1 -1 0  9.15141467727673 9.999999999999972
+""0  1
+E E 3
+"CBRef" "1"
+"EClose" E
+"dpi" "96"
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 0 
+6 1
+"RECTANGLE5"
+""
+1 120 210 E E E 1 E 1 E N {0,0,0} E N "WF_CardActive" E E
+ E E
+0 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E "main(mapping event)
+{
+}" 0
+ 0 1 3 2 1 E 1.2908145803029 0 0.7090349904643329 -144.897749636348 -138.8973479975099 1 E 120 210 182 420
+6 2
+"sts_1"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+1 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.BUSF1:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.BUSF1:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"stoerKamQuit\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"stoerKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"stoerKamUnq\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {System1:1.BUSF1}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {stoerKamQuit}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {stoerKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {stoerKamUnq}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -157.8539455156752 1 E 129 430 148 449
+6 3
+"RECTANGLE6"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+2 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.EXTF:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.EXTF:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"stoerKamQuit\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"stoerKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"stoerKamUnq\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {System1:1.EXTF}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {stoerKamQuit}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {stoerKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {stoerKamUnq}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -167.1822678518138 1 E 129 430 148 449
+6 4
+"RECTANGLE7"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+3 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.IFM1F:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.IFM1F:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"stoerKamQuit\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"stoerKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"stoerKamUnq\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {System1:1_1.IFM1F}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {stoerKamQuit}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {stoerKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {stoerKamUnq}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -176.5105901879524 1 E 129 430 148 449
+6 5
+"RECTANGLE8"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -148.5256231795366 1 E 129 430 148 449
+6 6
+"RECTANGLE9"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+5 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.IFM1F:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.IFM1F:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"stoerKamQuit\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"stoerKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"stoerKamUnq\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {System1:1.IFM1F}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {stoerKamQuit}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {stoerKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {stoerKamUnq}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -139.1973008433981 1 E 129 430 148 449
+6 7
+"RECTANGLE10"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+6 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.IFM2F:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.IFM2F:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"STDLIB_Red\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"stoerKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"stoerKamUnq\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {:1.IFM2F}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {STDLIB_Red}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {stoerKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {stoerKamUnq}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -129.8689785072595 1 E 129 430 148 449
+6 8
+"RECTANGLE11"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+7 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.IFM2F:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.IFM2F:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"Yellow\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"warnKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"warningCamUna\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {:1.IFM2F}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {Yellow}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {warnKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {warningCamUna}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -120.5406561711209 1 E 129 430 148 449
+6 9
+"RECTANGLE12"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+8 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -111.2123338349823 1 E 129 430 148 449
+6 10
+"RECTANGLE13"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+9 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -101.8840114988437 1 E 129 430 148 449
+6 11
+"RECTANGLE14"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+10 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.RUN:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.RUN:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"STD_value_ok\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"S7_stateWentUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"S7_stateCameUnq\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {:1.RUN}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {STD_value_ok}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {S7_stateWentUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {S7_stateCameUnq}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -92.55568916270515 1 E 129 430 148 449
+6 12
+"RECTANGLE15"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+11 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.STOP:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.STOP:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"Yellow\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"warnKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"warningCamUna\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {:1.STOP}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {Yellow}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {warnKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {warningCamUna}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 -32.49343112244896 -83.22736682656658 1 E 129 430 148 449
+6 13
+"RECTANGLE17"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+12 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.STOP:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.STOP:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"STDLIB_Red\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"stoerKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"stoerKamUnq\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {:1.STOP}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {STDLIB_Red}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {stoerKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {stoerKamUnq}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -157.4654912131996 1 E 129 430 148 449
+6 14
+"RECTANGLE18"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+13 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -166.7938135493382 1 E 129 430 148 449
+6 15
+"RECTANGLE19"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+14 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.REDF:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.REDF:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"Yellow\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"warnKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"warnKamUnq\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {:1.REDF}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {Yellow}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {warnKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {warnKamUnq}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -176.1221358854768 1 E 129 430 148 449
+6 16
+"RECTANGLE20"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+15 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -148.137168877061 1 E 129 430 148 449
+6 17
+"RECTANGLE21"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+16 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -138.8088465409224 1 E 129 430 148 449
+6 18
+"RECTANGLE22"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+17 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803169 -129.4805242047838 1 E 129 430 148 449
+6 19
+"RECTANGLE23"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+18 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -120.1522018686453 1 E 129 430 148 449
+6 20
+"RECTANGLE24"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+19 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -110.8238795325067 1 E 129 430 148 449
+6 21
+"RECTANGLE25"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+20 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.RACK0:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.RACK0:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"Yellow\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"warnKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"warningCamUna\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {:1.RACK0}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {Yellow}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {warnKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {warningCamUna}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -101.4955571963681 1 E 129 430 148 449
+6 22
+"RECTANGLE26"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+21 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"// SimpleCtrlScriptStart {invalid}
+main()
+{
+  EP_setBackColor();
+}
+
+void EP_setBackColor()
+{
+  dyn_errClass err;
+
+  if( !dpExists( \"System1:1_1.RACK1:_online.._value\"))
+  {
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+    return;
+  }
+
+  dpConnect(\"EP_setBackColorCB\",
+            \"System1:1_1.RACK1:_online.._value\");
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\", \"color\", \"_dpdoesnotexist\");
+
+}
+
+
+void EP_setBackColorCB(string dpSource, int iNewValue)
+{
+  if (iNewValue == 1)
+    setValue(\"\", \"backCol\", \"Yellow\");
+  else if (iNewValue == 3)
+    setValue(\"\", \"backCol\", \"warnKamGingUnq\");
+  else if (iNewValue == 5)
+    setValue(\"\", \"backCol\", \"warningCamUna\");
+  else
+    setValue(\"\", \"backCol\", \"AESbgAcknowledged\");
+}
+
+// SimpleCtrlScript {EP_setBackColor}
+// DP {:1.RACK1}
+// DPConfig {:_online.._value}
+// DPType {int}
+// AlertHdl {FALSE}
+// DPEInvalid {}
+// DPEConfigInvalid {}
+// Operator1 {equal}
+// Operant1 {1}
+// Color1 {Yellow}
+// Operator2 {equal}
+// Operant2 {3}
+// Color2 {warnKamGingUnq}
+// Operator3 {equal}
+// Operant3 {5}
+// Color3 {warningCamUna}
+// Operator4 {else}
+// Operant4 {}
+// Color4 {AESbgAcknowledged}
+// SimpleCtrlScriptEnd {EP_setBackColor}
+" 0
+ E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -92.16723486022953 1 E 129 430 148 449
+6 23
+"RECTANGLE27"
+""
+1 129 430 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+22 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4689413265306121 0 0.4909643334809774 1.930017006803176 -82.83891252409096 1 E 129 430 148 449
+2 24
+"PRIMITIVE_TEXT4"
+""
+1 25.42857142857143 149.8020218880004 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+23 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.355330901333283 -12.57142857142855 -73.79190392511536 0 E 25.42857142857143 149.8020218880004 38 155
+0 2 2 "0s" 0 0 0 192 0 0  25.42857142857143 149.8020218880004 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 4 Stop
+2 25
+"PRIMITIVE_TEXT5"
+""
+1 25.42857142857143 149.8020218880004 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+24 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.355330901333283 -12.57142857142853 -83.12022626125396 0 E 25.42857142857143 149.8020218880004 36 155
+0 2 2 "0s" 0 0 0 192 0 0  25.42857142857143 149.8020218880004 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 3 Run
+2 26
+"PRIMITIVE_TEXT6"
+""
+1 25.42857142857143 149.8020218880004 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+25 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.355330901333283 -12.28571428571425 -110.9271768305911 0 E 25.42857142857143 149.8020218880004 39 155
+0 2 2 "0s" 0 0 0 192 0 0  25.42857142857143 149.8020218880004 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 4 FRCE
+2 27
+"PRIMITIVE_TEXT7"
+""
+1 25.42857142857143 149.8020218880004 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+26 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.355330901333283 -12.57142857142853 -120.4335156058083 0 E 25.42857142857143 149.8020218880004 42 155
+0 2 2 "0s" 0 0 0 192 0 0  25.42857142857143 149.8020218880004 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 5 IFM2F
+2 28
+"PRIMITIVE_TEXT8"
+""
+1 25.42857142857143 149.8020218880004 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+27 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.355330901333283 -13.00000000000001 -128.3382775105705 0 E 25.42857142857143 149.8020218880004 42 155
+0 2 2 "0s" 0 0 0 192 0 0  25.42857142857143 149.8020218880004 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 5 IFM1F
+2 29
+"PRIMITIVE_TEXT9"
+""
+1 25.42857142857143 149.8020218880004 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+28 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.355330901333283 -12.99999999999997 -147.6528184575208 0 E 25.42857142857143 149.8020218880004 42 155
+0 2 2 "0s" 0 0 0 192 0 0  25.42857142857143 149.8020218880004 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 5 BUS1F
+2 30
+"PRIMITIVE_TEXT10"
+""
+1 25.42857142857143 149.8020218880004 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+29 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.355330901333283 -12.57142857142854 -157.4084606198344 0 E 25.42857142857143 149.8020218880004 39 155
+0 2 2 "0s" 0 0 0 192 0 0  25.42857142857143 149.8020218880004 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 4 EXTF
+2 31
+"PRIMITIVE_TEXT13"
+""
+1 13.01702806122461 36.23842055774512 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+30 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E U  0 E 13.01702806122461 36.23842055774512 26 41
+0 2 2 "0s" 0 0 0 192 0 0  13.01702806122461 36.23842055774512 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 4 INTF
+2 32
+"PRIMITIVE_TEXT14"
+""
+1 73.18704195537627 56.99747992713345 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+31 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.749271355884369 0.333333333333762 -62.96835576104827 0 E 73.18704195537627 56.99747992713345 87 62
+0 2 2 "0s" 0 0 0 192 0 0  73.18704195537627 56.99747992713345 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 4 REDF
+2 33
+"PRIMITIVE_TEXT15"
+""
+1 73.47275624109056 75.51995553268831 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+32 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.564960011553959 0.333333333333762 -63.15786867137228 0 E 73.47275624109056 75.51995553268831 90 81
+0 2 2 "0s" 0 0 0 192 0 0  73.47275624109056 75.51995553268831 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 5 BUS2F
+2 34
+"PRIMITIVE_TEXT16"
+""
+1 73.41826872327218 101.655340186889 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+33 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E U  0 E 73.41826872327218 101.655340186889 88 107
+0 2 2 "0s" 0 0 0 192 0 0  73.41826872327218 101.655340186889 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 4 MSTR
+2 35
+"PRIMITIVE_TEXT17"
+""
+1 73.42857142857184 110.7806734138334 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+34 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E U  0 E 73.42857142857184 110.7806734138334 90 116
+0 2 2 "0s" 0 0 0 192 0 0  73.42857142857184 110.7806734138334 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 5 RACK0
+2 36
+"PRIMITIVE_TEXT18"
+""
+1 80.42857142857187 140.4046734486712 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+35 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.349026878977182 -7 -67.70287800077786 0 E 80.42857142857187 140.4046734486712 97 145
+0 2 2 "0s" 0 0 0 192 0 0  80.42857142857187 140.4046734486712 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 5 RACK1
+6 37
+"RECTANGLE30"
+""
+1 120 50 E E E 1 E 1 E N {0,0,0} E N "WF_RefDiffLineDark" E E
+ E E
+36 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.5 0 0.8625 -17.34858532272327 -6.886579442254883 1 E 120 50 130 130
+6 38
+"RECTANGLE28"
+""
+1 120 60 E E E 1 E 1 E N "STDLIB_valueBack" E N "WF_RefDiffLineDark" E E
+ E E
+37 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 1 0 1 -79.84858532272327 -19.26157944225488 1 E 120 60 130 120
+6 39
+"RECTANGLE31"
+""
+1 52.15141467727673 60.13434734887723 E E E 1 E 1 E N "WF_RefDiffLineDark" E N "WF_RefDiffLineDark" E E
+ E E
+38 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.1 0 0.4 37.43627320954906 16.68468161819422 1 E 52.15141467727673 60.13434734887723 102.1514146772767 110.1343473488772
+6 40
+"RECTANGLE33"
+""
+1 52.15141467727673 60.13434734887723 E E E 1 E 1 E N "WF_RefDiffLineDark" E N "WF_RefDiffLineDark" E E
+ E E
+39 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.1 0 0.4 37.43627320954906 56.68468161819422 1 E 52.15141467727673 60.13434734887723 102.1514146772767 110.1343473488772
+2 41
+"PRIMITIVE_TEXT19"
+""
+1 73.47275624109056 75.51995553268831 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+40 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E 1 0 1.564960011553959 0.333333333333762 -52.82954633523365 0 E 73.47275624109056 75.51995553268831 90 81
+0 2 2 "0s" 0 0 0 192 0 0  73.47275624109056 75.51995553268831 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 5 BUS5F
+6 42
+"RECTANGLE34"
+""
+1 20 160 E E E 1 E 1 E N {0,0,0} E N "WF_Text" E E
+ E E
+41 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.4 0 1 9.517028061224607 -16.64592679113211 1 E 20 160 25 170
+2 44
+"PRIMITIVE_TEXT21"
+""
+1 35.20494260204083 143.3540732088679 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+43 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E U  0 E 35.20494260204083 143.3540732088679 43 146
+0 2 2 "0s" 0 0 0 192 0 0  35.20494260204083 143.3540732088679 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,3,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 3 RUN
+2 45
+"PRIMITIVE_TEXT22"
+""
+1 35.25 147.3540732088679 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+44 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E U  0 E 35.25 147.3540732088679 45 150
+0 2 2 "0s" 0 0 0 192 0 0  35.25 147.3540732088679 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,3,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 4 STOP
+2 46
+"PRIMITIVE_TEXT23"
+""
+1 35.5 151.4790732088679 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+45 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+4
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"transformable" "0"
+E E 0 1 3 2 1 E U  0 E 35.5 151.4790732088679 45 154
+0 2 2 "0s" 0 0 0 192 0 0  35.5 151.4790732088679 1
+1
+LANG:10027 49 MS Shell Dlg 2,-1,3,5,50,0,0,0,0,0,Обычный
+0 1
+LANG:10027 4 MRES
+6 47
+"RECTANGLE35"
+""
+1 30 160 E E E 1 E 1 E N "STDLIB_valueBack" E N "STD_border_med" E E
+ E E
+46 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.6517028061224619 0 1 3.448915816326142 -16.64592679113211 1 E 30 160 40 170
+6 48
+"RECTANGLE36"
+""
+1 20 160 E E E 1 E 1 E N {0,0,0} E N "STDLIB_valueBack" E E
+ E E
+47 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.8 0 0.4 8.258514030612311 82.35407320886789 1 E 20 160 25 170
+4 49
+"LINE3"
+""
+1 10.00000000000003 22.41956671433788 E E E 1 E 1 E N {0,0,0} E N {255,255,255} E E
+ E E
+48 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 3 2 1 E  10.00000000000003 22.41956671433788 90 22.41956671433788
+0
+LAYER, 1 
+1
+LANG:10027 0 
+0
+LAYER, 2 
+1
+LANG:10027 0 
+0
+LAYER, 3 
+1
+LANG:10027 0 
+0
+LAYER, 4 
+1
+LANG:10027 0 
+0
+LAYER, 5 
+1
+LANG:10027 0 
+0
+LAYER, 6 
+1
+LANG:10027 0 
+0
+LAYER, 7 
+1
+LANG:10027 0 
+0
+0

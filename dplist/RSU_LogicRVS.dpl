@@ -1,0 +1,467 @@
+# ascii dump of database
+
+# DpType
+TypeName
+RSU_LogicRVS.RSU_LogicRVS	1#1
+	STS	1#2
+		status_all	24#3
+		status_rvs	21#4
+		sts_bool	1#9
+			storage	23#10
+			taking	23#11
+			release	23#12
+			maint	23#13
+			unknown	23#14
+		status_mes	21#64
+		sAlarm	24#72
+	CMD	1#7
+		command	21#8
+	LVL	1#18
+		_sAH_Level	23#19
+		_sWH_Level	23#20
+		_sWL_Level	23#21
+		_sAL_Level	23#22
+		lim	1#23
+			PV_AH_Level	22#24
+			PV_WH_Level	22#25
+			PV_WL_Level	22#26
+			PV_AL_Level	22#27
+	MAS	1#28
+		_sAH_Level	23#29
+		_sWH_Level	23#30
+		_sWL_Level	23#41
+		_sAL_Level	23#42
+	VOL	1#43
+		_sAH_Level	23#44
+		_sWH_Level	23#45
+		_sWL_Level	23#46
+		_sAL_Level	23#47
+	DNS	1#48
+		_sAH_Level	23#49
+		_sWH_Level	23#50
+		_sWL_Level	23#51
+		_sAL_Level	23#52
+	TMP	1#53
+		_sAH_Level	23#54
+		_sWH_Level	23#55
+		_sWL_Level	23#56
+		_sAL_Level	23#57
+	WTR	1#58
+		_sAH_Level	23#59
+		_sWH_Level	23#60
+		_sWL_Level	23#61
+		_sAL_Level	23#62
+	UnsanctionedChangeLevel	23#65
+	PV_Hist	21#66
+	Time_DelayHist	22#67
+	sTimeOtstoy	20#68
+	OTSTOY	1#69
+		cTime	20#70
+		sTime	22#71
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_RSU_LogicRVS	RSU_LogicRVS	4844
+
+# Aliases/Comments
+AliasId	AliasName	CommentName
+_mp_RSU_LogicRVS.LVL	""	lt:1 LANG:10027 "Уровень@%s@"
+_mp_RSU_LogicRVS.MAS._sAH_Level	""	lt:1 LANG:10027 "ВАУ@@"
+_mp_RSU_LogicRVS.UnsanctionedChangeLevel	""	lt:1 LANG:10027 "Несанкционированное изменение уровня@@"
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+ASC (1)/0	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	0	0x8300000000020005	24.11.2020 07:04:43.193
+ASC (1)/0	_mp_RSU_LogicRVS.CMD.command	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.193
+ASC (1)/0	_mp_RSU_LogicRVS.STS.sts_bool.storage	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.194
+ASC (1)/0	_mp_RSU_LogicRVS.STS.sts_bool.taking	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.205
+ASC (1)/0	_mp_RSU_LogicRVS.STS.sts_bool.release	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.205
+ASC (1)/0	_mp_RSU_LogicRVS.STS.sts_bool.maint	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.206
+ASC (1)/0	_mp_RSU_LogicRVS.STS.sts_bool.unknown	RSU_LogicRVS	1	0x8300000000200101	24.11.2020 07:04:43.207
+ASC (1)/0	_mp_RSU_LogicRVS.LVL._sAH_Level	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.208
+ASC (1)/0	_mp_RSU_LogicRVS.LVL._sWH_Level	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.220
+ASC (1)/0	_mp_RSU_LogicRVS.LVL._sWL_Level	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.220
+ASC (1)/0	_mp_RSU_LogicRVS.LVL._sAL_Level	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.221
+ASC (1)/0	_mp_RSU_LogicRVS.LVL.lim.PV_AH_Level	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.222
+ASC (1)/0	_mp_RSU_LogicRVS.LVL.lim.PV_WH_Level	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.223
+ASC (1)/0	_mp_RSU_LogicRVS.LVL.lim.PV_WL_Level	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.236
+ASC (1)/0	_mp_RSU_LogicRVS.LVL.lim.PV_AL_Level	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.236
+ASC (1)/0	_mp_RSU_LogicRVS.STS.status_mes	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.251
+ASC (1)/0	_mp_RSU_LogicRVS.UnsanctionedChangeLevel	RSU_LogicRVS	0	0x8300000000000101	24.11.2020 07:04:43.237
+ASC (1)/0	_mp_RSU_LogicRVS.OTSTOY.cTime	RSU_LogicRVS	120	0x8300000000020001	24.11.2020 07:04:43.239
+ASC (1)/0	_mp_RSU_LogicRVS.OTSTOY.sTime	RSU_LogicRVS	120	0x8300000000020001	24.11.2020 07:04:43.240
+ASC (1)/0	_mp_RSU_LogicRVS.STS.sAlarm	RSU_LogicRVS	0x0	0x8300000000000101	24.11.2020 07:04:43.252
+
+# DpDefaultValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_default.._type	_default.._value	_default.._set_ibit	_default.._set_pvrange
+UI (7)/0	1602131051	25	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	0	1	1
+ASC (1)/0	1605262864	982	_mp_RSU_LogicRVS.OTSTOY.cTime	RSU_LogicRVS	3	0	0	0
+ASC (1)/0	1605260120	30	_mp_RSU_LogicRVS.OTSTOY.sTime	RSU_LogicRVS	3	0	0	0
+
+# AlertValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+UI (7)/0	1599552213	302	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599552382	538	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599552382	538	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552382	538	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552382	538	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552382	538	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552382	538	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552382	538	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552385	201	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599552385	201	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552385	201	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552385	201	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552385	201	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552385	201	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552385	201	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552505	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599552505	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552505	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552505	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552505	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552505	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552505	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552533	543	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599552533	543	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552533	543	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552533	543	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552533	543	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552533	543	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552533	543	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552535	884	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599552535	884	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552535	884	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552535	884	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552535	884	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552535	884	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552535	884	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552577	993	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599552577	993	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552577	993	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552577	993	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552577	993	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552577	993	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552577	993	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552582	432	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599552582	432	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552582	432	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552582	432	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552582	432	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552582	432	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	5	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	5																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552582	432	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	5	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		5	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552584	232	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599552584	232	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552584	232	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552584	232	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552584	232	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552584	232	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	5	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	5																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599552584	232	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	5	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		5	2147483647																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553163	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599553163	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553163	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553163	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553163	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553163	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	5	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	5																lt:1 LANG:10027 ""	 	0x0				
+UI (7)/0	1599553163	392	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	5	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		5	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	674	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	688	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	688	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	688	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	688	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	688	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	688	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	688	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	719	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	719	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	719	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	719	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	719	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	719	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	719	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	721	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	721	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	721	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	721	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	721	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	721	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	721	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	737	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	737	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	737	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	737	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	737	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	737	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	737	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	752	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	752	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	752	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	752	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	752	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	752	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	6	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	6																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	752	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	6	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		6	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	782	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	782	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	4	-2147483648	0	1	1					information.	lt:1 LANG:10027 "Неизвестно"				0	01.01.1970 00:00:00.000		-2147483648	0																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	782	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	4	0	1	0	1					information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000		0	1																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	782	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	4	1	2	0	1					information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000		1	2																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	782	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	4	2	3	0	1					information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000		2	3																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	782	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	4	3	5	0	1					 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000		3	5																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	782	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	4	5	2147483647	0	1					information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000		5	2147483647																lt:1 LANG:10027 ""	 	0x0				
+ASC (1)/0	1606201546	798	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1606201546	800	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""		lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201546	800	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201546	800	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201546	800	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201546	800	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201546	800	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	5									information.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"4"	
+ASC (1)/0	1606201546	815	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201546	815	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201546	815	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	5									alert.	lt:1 LANG:10027 "Неизвестное"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201546	815	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	5									information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201546	815	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	5									information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201546	815	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	5									information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201546	815	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	5									information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201546	815	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	7	5									information.	lt:1 LANG:10027 "Смена состояния"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"99"	
+ASC (1)/0	1606201546	831	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201546	831	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201546	831	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	5									alert.	lt:1 LANG:10027 "Неизвестное"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201546	831	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	5									information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201546	831	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	5									information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201546	831	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	5									information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201546	831	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	5									information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201546	831	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	7	5									information.	lt:1 LANG:10027 "Смена состояния"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"99"	
+ASC (1)/0	1606201546	846	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201546	846	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201546	846	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	5									alert.	lt:1 LANG:10027 "Неизвестное состояние"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201546	846	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	5									information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201546	846	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	5									information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201546	846	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	5									information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201546	846	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	5									information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201546	846	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	7	5									information.	lt:1 LANG:10027 "Смена состояния"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"99"	
+ASC (1)/0	1606201546	861	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			0	0				0																0								
+ASC (1)/0	1606201546	861	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201546	861	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	5									alert.	lt:1 LANG:10027 "Неизвестное состояние"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201546	861	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	5									information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201546	861	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	5									information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201546	861	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	5									information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201546	861	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	5									information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201546	861	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	7	5									information.	lt:1 LANG:10027 "Смена состояния"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"99"	
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS		13					""	""	lt:1 LANG:10027 ""	\0			1	0				0																0								
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	2	5									alert.	lt:1 LANG:10027 "Неизвестное состояние"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	3	5									information.	lt:1 LANG:10027 "Хранение"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	4	5									information.	lt:1 LANG:10027 "Прием"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"2"	
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	5	5									information.	lt:1 LANG:10027 "Отпуск"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"3"	
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	6	5									information.	lt:1 LANG:10027 "Ремонт"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"6"	
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	7	5									information.	lt:1 LANG:10027 "Смена состояния"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"99"	
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	8	5									information.	lt:1 LANG:10027 "Отстой"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"5"	
+UI (7)/0	1599553593	78	_mp_RSU_LogicRVS.STS.sts_bool.storage	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553610	42	_mp_RSU_LogicRVS.STS.sts_bool.storage	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Хранение"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	876	_mp_RSU_LogicRVS.STS.sts_bool.storage	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Хранение"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	879	_mp_RSU_LogicRVS.STS.sts_bool.storage	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Хранение"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	891	_mp_RSU_LogicRVS.STS.sts_bool.storage	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Хранение"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553632	788	_mp_RSU_LogicRVS.STS.sts_bool.taking	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553644	622	_mp_RSU_LogicRVS.STS.sts_bool.taking	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Прием"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	893	_mp_RSU_LogicRVS.STS.sts_bool.taking	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Прием"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	894	_mp_RSU_LogicRVS.STS.sts_bool.taking	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Прием"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	895	_mp_RSU_LogicRVS.STS.sts_bool.taking	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Прием"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553659	295	_mp_RSU_LogicRVS.STS.sts_bool.release	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553674	390	_mp_RSU_LogicRVS.STS.sts_bool.release	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Отпуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	895	_mp_RSU_LogicRVS.STS.sts_bool.release	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Отпуск"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	906	_mp_RSU_LogicRVS.STS.sts_bool.release	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	909	_mp_RSU_LogicRVS.STS.sts_bool.release	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Отпуск"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553692	269	_mp_RSU_LogicRVS.STS.sts_bool.maint	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553702	353	_mp_RSU_LogicRVS.STS.sts_bool.maint	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ремонт"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	909	_mp_RSU_LogicRVS.STS.sts_bool.maint	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ремонт"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	910	_mp_RSU_LogicRVS.STS.sts_bool.maint	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	922	_mp_RSU_LogicRVS.STS.sts_bool.maint	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ремонт"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	924	_mp_RSU_LogicRVS.STS.sts_bool.maint	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ремонт"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553719	275	_mp_RSU_LogicRVS.STS.sts_bool.unknown	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599553730	846	_mp_RSU_LogicRVS.STS.sts_bool.unknown	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Неизвестно"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	925	_mp_RSU_LogicRVS.STS.sts_bool.unknown	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	926	_mp_RSU_LogicRVS.STS.sts_bool.unknown	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Неизвестно"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	939	_mp_RSU_LogicRVS.STS.sts_bool.unknown	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Неизвестно"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	940	_mp_RSU_LogicRVS.STS.sts_bool.unknown	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Неизвестно"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599884286	462	_mp_RSU_LogicRVS.LVL._sAH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599884302	569	_mp_RSU_LogicRVS.LVL._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	943	_mp_RSU_LogicRVS.LVL._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599884321	166	_mp_RSU_LogicRVS.LVL._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599884328	638	_mp_RSU_LogicRVS.LVL._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	943	_mp_RSU_LogicRVS.LVL._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	954	_mp_RSU_LogicRVS.LVL._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	956	_mp_RSU_LogicRVS.LVL._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599884341	420	_mp_RSU_LogicRVS.LVL._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599884352	796	_mp_RSU_LogicRVS.LVL._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	958	_mp_RSU_LogicRVS.LVL._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	970	_mp_RSU_LogicRVS.LVL._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599884365	697	_mp_RSU_LogicRVS.LVL._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599884373	606	_mp_RSU_LogicRVS.LVL._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	972	_mp_RSU_LogicRVS.LVL._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	973	_mp_RSU_LogicRVS.LVL._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147125	277	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147136	186	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147511	756	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147512	794	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147519	313	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	973	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	974	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	986	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	987	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	990	_mp_RSU_LogicRVS.MAS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147142	615	_mp_RSU_LogicRVS.MAS._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147147	738	_mp_RSU_LogicRVS.MAS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147504	906	_mp_RSU_LogicRVS.MAS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201546	990	_mp_RSU_LogicRVS.MAS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	2	_mp_RSU_LogicRVS.MAS._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	3	_mp_RSU_LogicRVS.MAS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	4	_mp_RSU_LogicRVS.MAS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	5	_mp_RSU_LogicRVS.MAS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147153	756	_mp_RSU_LogicRVS.MAS._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147160	315	_mp_RSU_LogicRVS.MAS._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147535	303	_mp_RSU_LogicRVS.MAS._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	6	_mp_RSU_LogicRVS.MAS._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	17	_mp_RSU_LogicRVS.MAS._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	19	_mp_RSU_LogicRVS.MAS._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147172	583	_mp_RSU_LogicRVS.MAS._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147177	676	_mp_RSU_LogicRVS.MAS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147548	839	_mp_RSU_LogicRVS.MAS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	21	_mp_RSU_LogicRVS.MAS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	33	_mp_RSU_LogicRVS.MAS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	34	_mp_RSU_LogicRVS.MAS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147185	6	_mp_RSU_LogicRVS.VOL._sAH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147189	433	_mp_RSU_LogicRVS.VOL._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155213	167	_mp_RSU_LogicRVS.VOL._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	37	_mp_RSU_LogicRVS.VOL._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	48	_mp_RSU_LogicRVS.VOL._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147194	397	_mp_RSU_LogicRVS.VOL._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147201	13	_mp_RSU_LogicRVS.VOL._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155221	231	_mp_RSU_LogicRVS.VOL._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	49	_mp_RSU_LogicRVS.VOL._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	51	_mp_RSU_LogicRVS.VOL._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147205	621	_mp_RSU_LogicRVS.VOL._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147213	970	_mp_RSU_LogicRVS.VOL._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155228	589	_mp_RSU_LogicRVS.VOL._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	52	_mp_RSU_LogicRVS.VOL._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	63	_mp_RSU_LogicRVS.VOL._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	64	_mp_RSU_LogicRVS.VOL._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	66	_mp_RSU_LogicRVS.VOL._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147218	576	_mp_RSU_LogicRVS.VOL._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147222	792	_mp_RSU_LogicRVS.VOL._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155234	413	_mp_RSU_LogicRVS.VOL._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	67	_mp_RSU_LogicRVS.VOL._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	78	_mp_RSU_LogicRVS.VOL._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	80	_mp_RSU_LogicRVS.VOL._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147231	100	_mp_RSU_LogicRVS.DNS._sAH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147235	385	_mp_RSU_LogicRVS.DNS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155243	297	_mp_RSU_LogicRVS.DNS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	82	_mp_RSU_LogicRVS.DNS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	95	_mp_RSU_LogicRVS.DNS._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147240	132	_mp_RSU_LogicRVS.DNS._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147246	174	_mp_RSU_LogicRVS.DNS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155251	282	_mp_RSU_LogicRVS.DNS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	98	_mp_RSU_LogicRVS.DNS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	109	_mp_RSU_LogicRVS.DNS._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147251	120	_mp_RSU_LogicRVS.DNS._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147255	790	_mp_RSU_LogicRVS.DNS._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155257	254	_mp_RSU_LogicRVS.DNS._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	110	_mp_RSU_LogicRVS.DNS._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	111	_mp_RSU_LogicRVS.DNS._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	113	_mp_RSU_LogicRVS.DNS._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147260	626	_mp_RSU_LogicRVS.DNS._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147266	317	_mp_RSU_LogicRVS.DNS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155263	528	_mp_RSU_LogicRVS.DNS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	113	_mp_RSU_LogicRVS.DNS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	126	_mp_RSU_LogicRVS.DNS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	127	_mp_RSU_LogicRVS.DNS._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147273	948	_mp_RSU_LogicRVS.TMP._sAH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147278	874	_mp_RSU_LogicRVS.TMP._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155272	227	_mp_RSU_LogicRVS.TMP._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	127	_mp_RSU_LogicRVS.TMP._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	128	_mp_RSU_LogicRVS.TMP._sAH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	143	_mp_RSU_LogicRVS.TMP._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147284	56	_mp_RSU_LogicRVS.TMP._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147288	148	_mp_RSU_LogicRVS.TMP._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155280	885	_mp_RSU_LogicRVS.TMP._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	144	_mp_RSU_LogicRVS.TMP._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	156	_mp_RSU_LogicRVS.TMP._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147292	700	_mp_RSU_LogicRVS.TMP._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147296	817	_mp_RSU_LogicRVS.TMP._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155287	416	_mp_RSU_LogicRVS.TMP._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	157	_mp_RSU_LogicRVS.TMP._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	158	_mp_RSU_LogicRVS.TMP._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	159	_mp_RSU_LogicRVS.TMP._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	172	_mp_RSU_LogicRVS.TMP._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147301	967	_mp_RSU_LogicRVS.TMP._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147307	247	_mp_RSU_LogicRVS.TMP._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155294	254	_mp_RSU_LogicRVS.TMP._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	173	_mp_RSU_LogicRVS.TMP._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	175	_mp_RSU_LogicRVS.TMP._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	176	_mp_RSU_LogicRVS.TMP._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147314	233	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147319	49	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147465	83	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147466	90	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155303	470	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	176	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	189	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	190	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	202	_mp_RSU_LogicRVS.WTR._sAH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВАУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147323	997	_mp_RSU_LogicRVS.WTR._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147328	546	_mp_RSU_LogicRVS.WTR._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155310	950	_mp_RSU_LogicRVS.WTR._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	203	_mp_RSU_LogicRVS.WTR._sWH_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	205	_mp_RSU_LogicRVS.WTR._sWH_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ВПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147334	65	_mp_RSU_LogicRVS.WTR._sWL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147338	128	_mp_RSU_LogicRVS.WTR._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155316	574	_mp_RSU_LogicRVS.WTR._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	206	_mp_RSU_LogicRVS.WTR._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	218	_mp_RSU_LogicRVS.WTR._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	220	_mp_RSU_LogicRVS.WTR._sWL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НПУ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147343	680	_mp_RSU_LogicRVS.WTR._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600147349	717	_mp_RSU_LogicRVS.WTR._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1600155322	317	_mp_RSU_LogicRVS.WTR._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	221	_mp_RSU_LogicRVS.WTR._sAL_Level	RSU_LogicRVS		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	232	_mp_RSU_LogicRVS.WTR._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	234	_mp_RSU_LogicRVS.WTR._sAL_Level	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "НАУ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	235	_mp_RSU_LogicRVS.UnsanctionedChangeLevel	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1606201547	250	_mp_RSU_LogicRVS.UnsanctionedChangeLevel	RSU_LogicRVS		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 ""												0								
+
+# DistributionInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+UI (7)/0	1599545212	283	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	56	\10
+UI (7)/0	1599545247	393	_mp_RSU_LogicRVS.CMD.command	RSU_LogicRVS	56	\10
+UI (7)/0	1599824768	34	_mp_RSU_LogicRVS.LVL._sAH_Level	RSU_LogicRVS	56	\10
+UI (7)/0	1599824807	931	_mp_RSU_LogicRVS.LVL._sWH_Level	RSU_LogicRVS	56	\10
+UI (7)/0	1599824880	298	_mp_RSU_LogicRVS.LVL._sWL_Level	RSU_LogicRVS	56	\10
+UI (7)/0	1599824916	887	_mp_RSU_LogicRVS.LVL._sAL_Level	RSU_LogicRVS	56	\10
+UI (7)/0	1599827873	36	_mp_RSU_LogicRVS.LVL.lim.PV_AH_Level	RSU_LogicRVS	56	\10
+UI (7)/0	1599827908	872	_mp_RSU_LogicRVS.LVL.lim.PV_WH_Level	RSU_LogicRVS	56	\10
+UI (7)/0	1599828122	591	_mp_RSU_LogicRVS.LVL.lim.PV_WL_Level	RSU_LogicRVS	56	\10
+UI (7)/0	1599828176	972	_mp_RSU_LogicRVS.LVL.lim.PV_AL_Level	RSU_LogicRVS	56	\10
+UI (1)/0	1606199983	808	_mp_RSU_LogicRVS.STS.status_mes	RSU_LogicRVS	56	\10
+ASC (1)/0	1606201623	405	_mp_RSU_LogicRVS.OTSTOY.cTime	RSU_LogicRVS	56	\10
+ASC (1)/0	1606201623	420	_mp_RSU_LogicRVS.OTSTOY.sTime	RSU_LogicRVS	56	\10
+ASC (1)/0	1606201623	430	_mp_RSU_LogicRVS.STS.sAlarm	RSU_LogicRVS	56	\10
+
+# DpFunction
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
+ASC (1)/0	1606201626	267	_mp_RSU_LogicRVS.STS.sts_bool.storage	RSU_LogicRVS	60	_mp_RSU_LogicRVS.STS.status_rvs:_original.._value	"p1 == 1"		1
+ASC (1)/0	1606201626	268	_mp_RSU_LogicRVS.STS.sts_bool.taking	RSU_LogicRVS	60	_mp_RSU_LogicRVS.STS.status_rvs:_original.._value	"p1 == 2"		1
+ASC (1)/0	1606201626	269	_mp_RSU_LogicRVS.STS.sts_bool.release	RSU_LogicRVS	60	_mp_RSU_LogicRVS.STS.status_rvs:_original.._value	"p1 == 3"		1
+ASC (1)/0	1606201626	280	_mp_RSU_LogicRVS.STS.sts_bool.maint	RSU_LogicRVS	60	_mp_RSU_LogicRVS.STS.status_rvs:_original.._value	"p1 == 6"		1
+ASC (1)/0	1606201626	281	_mp_RSU_LogicRVS.STS.sts_bool.unknown	RSU_LogicRVS	60	_mp_RSU_LogicRVS.STS.status_rvs:_original.._value	"p1 == 0"		1
+ASC (1)/0	1606201626	282	_mp_RSU_LogicRVS.UnsanctionedChangeLevel	RSU_LogicRVS	60	_mp_RSU_LogicRVS.STS.sAlarm:_original.._value	"p1 & 0x02"		1
+
+# PeriphAddrMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+UI (7)/0	1599545212	287	_mp_RSU_LogicRVS.STS.status_rvs	RSU_LogicRVS	16	"_mp_RSU_LogicRVS.sModeRVS_HMI"	_SubRSU	_RSU	0	0	\4	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (7)/0	1599545247	396	_mp_RSU_LogicRVS.CMD.command	RSU_LogicRVS	16	"_mp_RSU_LogicRVS.cHMI"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (7)/0	1599824768	38	_mp_RSU_LogicRVS.LVL._sAH_Level	RSU_LogicRVS	16	"_mp_RSU_LogicRVS._sAH_Level"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (7)/0	1599824807	935	_mp_RSU_LogicRVS.LVL._sWH_Level	RSU_LogicRVS	16	"_mp_RSU_LogicRVS._sWH_Level"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (7)/0	1599824880	303	_mp_RSU_LogicRVS.LVL._sWL_Level	RSU_LogicRVS	16	"_mp_RSU_LogicRVS._sWL_Level"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (7)/0	1599824916	890	_mp_RSU_LogicRVS.LVL._sAL_Level	RSU_LogicRVS	16	"_mp_RSU_LogicRVS._sAL_Level"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (7)/0	1599827985	760	_mp_RSU_LogicRVS.LVL.lim.PV_AH_Level	RSU_LogicRVS	16	"_mp_RSU_LogicRVS.PV_AH_Level"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599827908	875	_mp_RSU_LogicRVS.LVL.lim.PV_WH_Level	RSU_LogicRVS	16	"_mp_RSU_LogicRVS.PV_WH_Level"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599828152	417	_mp_RSU_LogicRVS.LVL.lim.PV_WL_Level	RSU_LogicRVS	16	"_mp_RSU_LogicRVS.PV_WL_Level"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (7)/0	1599828176	978	_mp_RSU_LogicRVS.LVL.lim.PV_AL_Level	RSU_LogicRVS	16	"_mp_RSU_LogicRVS.PV_AL_Level"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1016	"S7PLUS"
+UI (1)/0	1606199983	821	_mp_RSU_LogicRVS.STS.status_mes	RSU_LogicRVS	16	"_mp_RSU_LogicRVS.sModeRVS_MES"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"

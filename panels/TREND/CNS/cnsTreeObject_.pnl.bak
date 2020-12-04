@@ -1,0 +1,582 @@
+V 14
+3
+LANG:10027 0 
+LANG:10001 0 
+LANG:10000 0 
+PANEL,-1 -1 409 654 N "WF_PanelBackground" 1
+"$CNS_TREE_KEY"
+"
+main()
+{
+  cnsTree_regTreeObject($CNS_TREE_KEY, cnsTreeObject.namePath);
+  
+  shape sTree = cnsTree_getTreeShape($CNS_TREE_KEY);
+  
+  cnsTree_initTree(sTree);  
+    cnsTree_addSelectionChangedCB($CNS_TREE_KEY , \"cnsEditor_treeSelectionChangedCB\");
+  cnsTree_addRightClickedCB($CNS_TREE_KEY , \"cnsEditor_treeRightClickedCB\");
+  cnsTree_addDragDropCB($CNS_TREE_KEY , \"cnsEditor_dragDropCB\");
+  
+  txtPathFilter.text=\"\";
+  cbNodeType.selectedPos = 3;   //  selectedText(\"Точка данных\"); //= ;
+ 
+  //setFilter2();
+  
+  cnsTreeObject.collapseAll();
+  //cnsTreeObject.ensureItemVisible(0);
+
+}" 0
+ "main()
+{
+  cnsTree_unRegTreeObject($CNS_TREE_KEY);
+}" 0
+ E E E 1 -1 -1 0  0 0
+""0  1
+E "#uses \"cnsTree.ctl\"
+#uses \"cnsEditor.ctl\"
+
+
+void setFilter()
+{
+  int iCount;
+  string query;
+    if(txtDispFilter.text == \"\")
+    query = \"*\";
+    else
+    query = \"*\" + txtDispFilter.text + \"*\";
+  
+  if ( !frSearch.visible )//only display filter
+//     iCount = cnsTree_setFilter(cnsTree_getTreeShape($CNS_TREE_KEY), \"\", txtDispFilter.text);
+  iCount = cnsTree_setFilter(cnsTree_getTreeShape($CNS_TREE_KEY), \"\", query);
+  else//all filters enabled
+  {
+//     iCount = cnsTree_setFilter(cnsTree_getTreeShape($CNS_TREE_KEY), txtPathFilter.text, txtDispFilter.text, cbNodeType.userData(cbNodeType.selectedPos));
+     iCount = cnsTree_setFilter(cnsTree_getTreeShape($CNS_TREE_KEY), txtPathFilter.text, query, cbNodeType.userData(cbNodeType.selectedPos));
+  }
+  
+  if ( iCount == 0 )
+     notificationBar_newMsg(\"cnsEditor\", \"cnsEditor_filterError\", NOTIFICATION_BAR_PRIO_ERROR, \"\",
+                            makeDynAnytype(), false, notificationBar_getUserDpName(), true);
+  else
+     notificationBar_newMsg(\"cnsEditor\", \"cnsEditor_filterResult\", NOTIFICATION_BAR_PRIO_INFO, \"\",
+                            makeDynAnytype(iCount), false, notificationBar_getUserDpName(), true);
+  
+  btnDelFilter.visible = true;
+}
+void setFilter2()
+{
+  int iCount;
+
+  iCount = cnsTree_setFilter(cnsTree_getTreeShape($CNS_TREE_KEY), txtPathFilter.text, \"*\", cbNodeType.userData(cbNodeType.selectedPos));
+
+  
+  if ( iCount == 0 )
+     notificationBar_newMsg(\"cnsEditor\", \"cnsEditor_filterError\", NOTIFICATION_BAR_PRIO_ERROR, \"\",
+                            makeDynAnytype(), false, notificationBar_getUserDpName(), true);
+  else
+     notificationBar_newMsg(\"cnsEditor\", \"cnsEditor_filterResult\", NOTIFICATION_BAR_PRIO_INFO, \"\",
+                            makeDynAnytype(iCount), false, notificationBar_getUserDpName(), true);
+  
+//   btnDelFilter.visible = true;
+}
+
+" 0
+ 3
+"CBRef" "1"
+"EClose" "main()
+{
+  cnsTree_unRegTreeObject($CNS_TREE_KEY);
+}" 0
+
+"dpi" "120"
+1 1 0 0 0 0 1 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 0 
+22 11
+"cbNodeType"
+"WF"
+1 99.21164901331095 77.25 E E E 1 E 1 E N "WF_Text" E N "_Window" E E
+ E E
+11 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+2
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,12,5,50,0,0,0,0,0
+0  97.52409827539242 71.25 314.3689991661783 100.25
+0
+
+"main()
+{
+  this.appendItem( getCatStr(\"cnsEditor\", \"cnsEditor_allNodeTypes\") );
+  this.userData(1, CNS_SEARCH_ALL_TYPES);
+  
+  dpConnect(\"nodetypesChanges\", true, \"_CNS_General.NodeTypes.TypeName\",
+                                      \"_CNS_General.NodeTypes.TypeValue\");
+}
+
+void nodetypesChanges(string sdp1, dyn_langString dsTypeName,
+                      string sdp2, dyn_int diTypeValue)
+{
+  if ( isAnswer() )// init
+  {
+    for ( int i = 1; i <= dynlen(dsTypeName); i++ )
+    {
+      this.appendItem(dsTypeName[i]);
+      this.userData(i+1, diTypeValue[i]);
+    }
+  }
+  else//new or deleted node type
+  {
+    this.deleteAllItems();
+    this.appendItem( getCatStr(\"cnsEditor\", \"cnsEditor_allNodeTypes\") );
+    this.userData(1, CNS_SEARCH_ALL_TYPES);
+    
+    for ( int i = 1; i <= dynlen(dsTypeName); i++ )
+    {
+      this.appendItem(dsTypeName[i]);
+      this.userData(i+1, diTypeValue[i]);
+    }
+  }
+}" 0
+
+"main()
+{
+ DebugN(this.selectedText());
+}" 0
+
+E
+ 0 0
+14 12
+"txtPathFilter"
+"WF"
+1 170.8731290125618 36 E E E 1 E 1 E N "WF_Text" E N "_Window" E E
+ E E
+12 0 0 0 0 0
+E "main()
+{
+  //
+}" 0
+ E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"acceptDrops" ""
+"sizePolicy" "Expanding Fixed"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,12,5,50,0,0,0,0,0
+0  97.52409827539242 41 314.3689991661783 70
+3 "0s" 0 0 0 0 0 -1  E "main()
+{
+  this.text(\"\");
+}
+" 0
+ "main()
+{
+  setFilter();
+}
+" 0
+
+14 1
+"txtDispFilter"
+"WF"
+1 104.306132665887 -6 E E E 1 E 1 E N "WF_Text" E N "_Window" E E
+ E E
+2 0 0 0 0 0
+E "main()
+{
+   //if(this.text() != \"\")
+   //  setFilter();
+}" 0
+ E
+1
+3
+LANG:10027 36 Фильтр имени экрана
+LANG:10000 18 Displaynamenfilter
+LANG:10001 19 Display name filter
+
+3
+"acceptDrops" ""
+"sizePolicy" "Expanding Fixed"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,12,5,50,0,0,0,0,0
+0  -1.5 -1 351.2886057573805 28
+3 "0s" 0 0 0 0 0 -1  E E "main()
+{
+  
+    string textfiltr = txtDispFilter.text;
+ 
+    if (substr(textfiltr,0,1)!=\"\"){
+    btnDelFilter.visible = true;
+    }
+    
+    //первый символ не *
+//     if (substr(textfiltr,0,1)!=\"*\"){
+//     textfiltr= \"*\"+textfiltr;
+//     }
+    //последний символ не *
+//     if (substr(textfiltr,strlen(textfiltr)-1,1)!=\"*\"){
+//     textfiltr= textfiltr+\"*\";
+//     }
+//     
+//     
+// 
+// 
+//     txtDispFilter.text=textfiltr;
+  setFilter();
+}
+" 0
+
+13 2
+"btnSearch"
+"WF"
+1 15.58795168786996 499 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+3 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 23 Начать поиск
+LANG:10000 13 Suche starten
+LANG:10001 12 Start search
+
+2
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+LANG:10000 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+LANG:10001 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+0  347.0829033509731 -1 379.5381040048214 28
+
+P 
+4294967295
+"pictures/cns/search_20.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+    string textfiltr = txtDispFilter.text;
+    
+    if (substr(textfiltr,0,1)!=\"\"){
+    btnDelFilter.visible = true;
+    }
+    
+//     if (substr(textfiltr,0,1)!=\"*\"){
+//     textfiltr= \"*\"+textfiltr;
+//     }
+//     if (substr(textfiltr,strlen(textfiltr)-1,1)!=\"*\"){
+//     textfiltr= textfiltr+\"*\";
+//     }
+// 
+//     txtDispFilter.text=textfiltr;
+  setFilter();
+}" 0
+ E E E
+13 3
+"btnFilter"
+"WF"
+1 -19.68980178157181 499 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+2
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+LANG:10000 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+LANG:10001 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+0  375.5447993461518 -1 407.9999999999999 28
+
+P 
+4294967295
+"pictures/cns/down_arrow.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  shape sTree = cnsTree_getTreeShape($CNS_TREE_KEY);
+  
+  bool bOpen = frSearch.visible;
+  
+  int iWidthTree,iHeightTree;
+  int iWidthSearch,iHeightSearch;
+  
+  int iX, iY;
+  
+  getValue(\"frSearch\", \"size\", iWidthSearch, iHeightSearch);
+  getValue(sTree, \"size\", iWidthTree, iHeightTree);
+  getValue(sTree, \"position\", iX, iY);
+  
+  if ( !bOpen )
+  {
+    setValue(sTree, \"size\", iWidthTree, iHeightTree - iHeightSearch + 3);
+    setValue(sTree, \"position\", iX, iY + iHeightSearch -3);
+    frSearch.visible = true;
+    this.fill(\"[pattern,[tile,any,cns/up_arrow.png]]\");
+  }
+  else
+  {
+    setValue(sTree, \"size\", iWidthTree, iHeightTree + iHeightSearch - 3);
+    setValue(sTree, \"position\", iX, iY - iHeightSearch +3);
+    frSearch.visible = false;
+    this.fill(\"[pattern,[tile,any,cns/down_arrow.png]]\");
+  }
+}" 0
+ E E E
+29 9
+"cnsTreeObject"
+"WF"
+1 0.5414534735436488 26.23394364781559 E E E 1 E 1 E N "WF_Text" E N "_Window" E E
+ E E
+9 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10001 0 
+LANG:10000 0 
+
+7
+"treeStepSize" "int 15"
+"midLineWidth" "int 1"
+"acceptDrops" ""
+"DragStart" "
+main(int keys, string id)
+{
+
+  dragStart(cns_GetDps(id),\"detail_32.png\",DRAG_COPY,\"text/plain\");
+}
+// Возвращает все точки по выбранному пути
+string cns_GetDps(string path)
+{
+  string dp;
+  dyn_string dps, res,childPath;
+  // Если элемент - узел
+  if(cns_isNode(path)){
+    cnsGetId(path, dp);
+    if(dp!=\"\")
+    {
+      dynAppend(res,dp);
+    }
+  }
+  // Если узел \"View\"
+  if(cns_isView(path)){
+    cnsGetNodesByName(\"*\", path,
+                    CNS_SEARCH_ALL_NAMES,
+                    CNS_SEARCH_ALL_LANGUAGES,
+                    CNS_DATATYPE_EMPTY, dps);
+  }
+  // Если узел \"дерево\"
+  if(cns_isTree(path)){
+    cnsGetChildren(path, childPath);
+    for(int i=1;i<=dynlen(childPath);i++)
+    {
+      cnsGetId(childPath[i], dp);
+      if(dp!=\"\"){
+        dynAppend(res,dp);
+      }
+    }
+  }
+  return dynStringToString(res); 
+  dragStart(id);
+}
+"
+"DragDrop" "main(string information, int dragType, string id, int column)
+{
+  cnsTree_DragDropEvent($CNS_TREE_KEY, id, information, DRAG_ENTER);
+}"
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignNone"
+3
+LANG:10027 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,12,5,50,0,0,0,0,0
+0  0.5414534735436488 26.23394364781559 377.7317722973803 650.2339436478155
+10 TreeWidget
+4
+0 "selectionChanged" "(string id)"
+"  cnsTree_selectionChangedEvent($CNS_TREE_KEY, id);"
+0 "expanded" "(string id)"
+"  this.updatesEnabled = false;
+  cnsTree_expandedEvent($CNS_TREE_KEY, id);
+  this.updatesEnabled = true;"
+0 "rightClicked" "(string id, int column)"
+"  //cnsTree_rightClickedEvent($CNS_TREE_KEY, id, column);"
+0 "doubleClicked" "(string id, int column)"
+"  dpSet(\"System1:SYBCOM_TREND_START_UP.doubleClick\",id);"
+E13 4
+"btnDelFilter"
+"WF"
+1 -12.73370081837189 499 E E E 1 E 0 E N "_ButtonText" E N "_Button" E E
+ E E
+5 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 27 Удалить фильтр
+LANG:10000 15 Filter löschen
+LANG:10001 13 Delete filter
+
+2
+"sizePolicy" "Preferred Preferred"
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+LANG:10000 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+LANG:10001 35 MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0
+0  318.7612508447313 -1 351.2164514985798 28
+
+P 
+4294967295
+"pictures/cns/delete_20.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  txtDispFilter.text = \"\";
+  txtPathFilter.text = \"\";
+  cnsTree_deleteFilter(cnsTree_getTreeShape($CNS_TREE_KEY));
+  
+  btnDelFilter.visible = false;
+}" 0
+ E E E
+6 13
+"frSearch"
+""
+1 5 65 E E E 1 E 0 E N "WF_RefDiffLineDark" E N "WF_Frame" E E
+ E E
+13 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 1.372106732191601 0 0.8888072902707052 -6.360533660957975 -31.77247386759583 1 E 5 65 280 165
+2 14
+"pr"
+"WF"
+1 15.50000000000003 48.5 E E E 1 E 1 E N "WF_Text" E N "WF_PanelBackground" E E
+ E E
+14 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E 1.138208026153936 0 1 -0.06910401307696777 0 0 E 15.50000000000003 48.5 72 63
+0 2 2 "0s" 0 0 0 192 0 0  15.50000000000003 48.5 1
+3
+LANG:10027 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,12,5,50,0,0,0,0,0
+0 3
+LANG:10027 16 ИД (путь):
+LANG:10000 8 ID Pfad:
+LANG:10001 8 ID path:
+2 15
+"PRIMITIVE_TEXT1"
+"WT"
+1 15.50000000000003 78.5 E E E 1 E 1 E N "WF_Text" E N "WF_PanelBackground" E E
+ E E
+15 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E 1.138208026153936 0 1 -0.06910401307696777 0 0 E 15.50000000000003 78.5 68 93
+0 2 2 "0s" 0 0 0 192 0 0  15.50000000000003 78.5 1
+3
+LANG:10027 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,12,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,12,5,50,0,0,0,0,0
+0 3
+LANG:10027 16 Тип узла:
+LANG:10000 9 Nodetype:
+LANG:10001 10 Node type:
+0
+LAYER, 1 
+1
+LANG:10027 0 
+0
+LAYER, 2 
+1
+LANG:10027 0 
+0
+LAYER, 3 
+1
+LANG:10027 0 
+0
+LAYER, 4 
+1
+LANG:10027 0 
+0
+LAYER, 5 
+1
+LANG:10027 0 
+0
+LAYER, 6 
+1
+LANG:10027 0 
+0
+LAYER, 7 
+1
+LANG:10027 0 
+0
+0

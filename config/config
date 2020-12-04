@@ -1,0 +1,14 @@
+[general]
+pvss_path = "C:/Siemens/Automation/WinCC_OA/3.17"
+proj_path = "C:/Siemens/Automation/WinCC_OA/3.17/Stdlib_3.17"
+proj_path = "C:/WinCC_OA_Proj/sybcom_template"
+proj_version = "3.17"
+langs = "ru_RU.utf8"
+
+#[s7]
+#useStringLengthInfo="Y"
+#plcCodePage="UTF-8"
+
+[ui]
+defaultPanelFormat = "XML"
+numPanelBakFiles = 0

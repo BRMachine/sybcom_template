@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">405 656</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">0 0</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">120</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="Initialize" isEscaped="1"><![CDATA[//main()
+//{
+  //  DebugN(&quot;Z NEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;);
+  //DebugN(sNode, lsNodeDisplay);
+  //cnsEditor_nodeDisplaynameChanged(sNode, lsNodeDisplay);
+
+  //&quot;Server_OPI.Kust_1:ECN.ECN1&quot;
+ // int Number_Geolog;
+// for(int i=1;i&lt;=2;i++)
+ //{
+ //  cnsEditor_nodeDisplaynameChanged(sNode, lsNodeDisplay);
+ //  dpGet(&quot;1=SUECN_&quot;+i+&quot;.Settings.Number_Geolog&quot;, Number_Geolog);
+  //  if (Number_Geolog==0) {
+  //    cns_changeViewName(&quot;System1.test:dp2020&quot; + i, &quot;Скважина отсутствует&quot; );
+ //   }
+  //  else {
+  //  cns_changeViewName(&quot;System1.test:dp2020&quot; + i, &quot;Скважина &quot; + Number_Geolog);
+  //  }
+//}
+//}
+]]></script>
+ </events>
+ <shapes>
+  <reference referenceId="0" Name="PANEL_REF1" parentSerial="-1">
+   <properties>
+    <prop name="FileName">TREND/CNS/cnsTreeObject_.pnl</prop>
+    <prop name="Location">0 0</prop>
+    <prop name="Geometry">0.98673273657289 0 0 0.9969442808340204 5.413043478260875 0.9953846153846371</prop>
+    <prop name="TabOrder">0</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$CNS_TREE_KEY</prop>
+      <prop name="Value">_DP_SELECTOR</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+ </shapes>
+</panel>

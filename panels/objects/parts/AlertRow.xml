@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+   <prop name="de_AT.utf8"></prop>
+   <prop name="en_US.utf8"></prop>
+  </prop>
+  <prop name="Size">530 130</prop>
+  <prop name="BackColor">STDLIB_panelBackground</prop>
+  <prop name="RefPoint">0 0</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;CtrlPv2Admin&quot;
+#uses &quot;asModifyDisplay.ctl&quot;
+//panel global variables for $params and/or config settings
+int  iShowPrio;
+int  iIndependentAcknowledge;
+bool bIsAlertRow;
+string sDP;
+const int UDA_abbrColumn  = -1;//no column exists
+const int UDA_ackColumn   = 5;//column index of alert row/screen
+const int UDA_prioColumn  = 8;
+const int UDA_classColumn = 14;
+dpConnectToAlerts(string sObject)
+{
+  alertTab.alternatingRowColors(makeDynString(&quot;_AlternatingRowColorLight&quot;, &quot;_AlternatingRowColorDark&quot;));
+  string sIdent = getIdentOfObject(sObject);
+  string sSystemName = dpSubStr(sIdent, DPSUB_SYS);
+  sIdent = stdlib_removeTrailingDot(sIdent);
+
+  // IM 114629 - variable sSumAlert is never used
+  //string sSumAlert = hook_getAlertElement(sIdent);
+  string sAttributes = &quot;'_alert_hdl.._prior', '_alert_hdl.._text', '_alert_hdl.._direction', '_alert_hdl.._ackable','_alert_hdl.._ack', &quot;+
+                       &quot;'_alert_hdl.._ack_state', '_alert_hdl.._alert_color','_alert_hdl.._oldest_ack', '_alert_hdl.._obsolete', '_alert_hdl.._value', &quot;+
+                       &quot;'_alert_hdl.._alert_fore_color', '_alert_hdl.._visible', '_alert_hdl.._class'&quot;;
+  string sFrom = sIdent+&quot;.**&quot;;
+  string sQuery = &quot;SELECT ALERT &quot;+sAttributes+&quot; FROM '&quot;+sFrom+&quot;' &quot;;//WHERE  ('_alert_hdl.._sum' == 0)&quot;;
+  sQuery += (sSystemName==getSystemName())?&quot;&quot;:&quot; REMOTE '&quot;+sSystemName+&quot;' &quot;;
+
+  //new feature 'userdepending alarm display' IM #117931
+  if(isFunctionDefined(&quot;aes_editAlertsBeforeDisplay&quot;))
+  {
+    int iAbbrColumn = UDA_abbrColumn;
+    int iPrioColumn = UDA_prioColumn;
+    int iAckColumn  = UDA_ackColumn;
+    int iClassColumn= UDA_classColumn;
+    aes_interfaceSetupSettingsNoMatrix(iAbbrColumn, iPrioColumn, iAckColumn, iClassColumn);//do setup configuration
+  }
+  dpQueryConnectSingle(&quot;alertCB&quot;,TRUE,sIdent,sQuery);
+}
+alertCB(string sIdent, dyn_dyn_anytype dda)
+{
+  dyn_dyn_anytype ddaUpdate, ddaDelete;
+  for(int i = 2; i &lt;= dynlen(dda); i++)
+  {
+    if((bool)dda[i][6])//ackable
+      alertCBUpdate(dda[i],ddaUpdate,TRUE,ddaDelete);
+    else if((bool)dda[i][5]==FALSE)//direction == went
+      alertCBDelete(dda[i],ddaDelete);
+    else if((bool)dda[i][11]==FALSE)//obsolete
+      alertCBUpdate(dda[i],ddaUpdate,FALSE,ddaDelete);
+    else if((bool)dda[i][14]==FALSE)//remove invisible alarms
+      alertCBDelete(dda[i],ddaDelete);
+  }
+//  DebugN(&quot;To update&quot;,ddaUpdate);
+//  DebugN(&quot;To delete&quot;,ddaDelete);
+
+  if(dynlen(ddaUpdate)&gt;0)
+  {
+    //new feature 'userdepending alarm display' IM #117931
+    if(isFunctionDefined(&quot;aes_editAlertsBeforeDisplay&quot;))
+    {
+      dyn_dyn_anytype ddaConfigMatrix;//we have no config matrix at this point
+
+      aes_editAlertsBeforeDisplay(ddaConfigMatrix, ddaUpdate);
+    }
+    ////
+    setValue (&quot;alertTab&quot;, &quot;updateLines&quot;, 3, &quot;dpekey&quot;, ddaUpdate[1] , &quot;time&quot;, ddaUpdate[2], &quot;count&quot;,ddaUpdate[11],
+              &quot;dpe&quot;,ddaUpdate[3], &quot;alertText&quot;, ddaUpdate[4], &quot;ack&quot;, ddaUpdate[5], &quot;detail&quot;,ddaUpdate[7], &quot;prio&quot;, ddaUpdate[8],
+              &quot;quitt&quot;, ddaUpdate[9],&quot;value&quot;,ddaUpdate[10],&quot;direction&quot;,ddaUpdate[12],&quot;ackable&quot;,ddaUpdate[13]);
+  }
+  if(dynlen(ddaDelete)&gt;0)
+  {
+    setValue (&quot;alertTab&quot;, &quot;deleteLines&quot;, 3, &quot;dpekey&quot;, ddaDelete[1] , &quot;time&quot;, ddaDelete[2], &quot;count&quot;, ddaDelete[3]);
+  }
+
+  if(iShowPrio)
+  {
+     //setValue(&quot;alertTab&quot;, &quot;sort&quot;, makeDynBool(FALSE,FALSE,FALSE), &quot;quitt&quot;, &quot;prio&quot; , &quot;time&quot;);//first alert is : ackable, highest prio, youngest
+     setValue(&quot;alertTab&quot;, &quot;sort&quot;, makeDynBool(FALSE,FALSE,FALSE), &quot;time&quot;, &quot;quitt&quot;, &quot;prio&quot;);//first alert is : youngest, ackable, highest prio
+  }
+  else
+  {
+     //setValue(&quot;alertTab&quot;, &quot;sort&quot;, makeDynBool(FALSE,FALSE), &quot;quitt&quot;, &quot;time&quot;);//first alert is : ackable, youngest
+     setValue(&quot;alertTab&quot;, &quot;sort&quot;, makeDynBool(FALSE,FALSE), &quot;time&quot;, &quot;quitt&quot;);//first alert is : youngest, ackable
+  }
+  if(bIsAlertRow)
+  {
+    int iMaxLines = alertTab.lineCount()-1;
+    setValue(&quot;alertTab&quot;, &quot;deleteLinesN&quot;, 1, iMaxLines);//delete all Lines except first
+  }
+}
+alertCBUpdate(dyn_anytype da, dyn_dyn_anytype &amp;dda, bool bIsAckable, dyn_dyn_anytype &amp;ddaToDelete)
+{
+  if(da[9] == &quot;&quot;)//no alert color
+  {
+    alertCBDelete(da,ddaToDelete);
+    return;
+  }
+
+  bool bOldestAck;
+
+  if(iIndependentAcknowledge) //IM 100452
+    bOldestAck = TRUE;
+  else
+    bOldestAck = (bool)da[10];
+
+  int i = dynContains(getDynString(dda,1),dpSubStr(da[1],DPSUB_SYS_DP_EL));
+
+  if(i &lt; 1) i =dynlen(dda)?(dynlen(dda[1])+1):1;//DP not found in update-array
+
+  dda[1][i] = getAIdentifier(da[2]);//alert identifier
+
+  dda[2][i] = (time)da[2];//alert time
+
+  string sDesc = dpGetDescription(dpSubStr(da[1],DPSUB_SYS_DP_EL));
+
+  dda[3][i] = (sDesc != &quot;&quot;)?sDesc:dpSubStr(da[1],DPSUB_DP_EL);//DPE without System name
+
+  dda[4][i] = makeDynString(da[4],da[9],da[13]);//alert text + alert color + alert forecolor
+
+  if(bIsAckable)
+  {
+    dda[5][i] = makeDynString(&quot;!!!&quot;,(bOldestAck?&quot;weiss&quot;:&quot;STDLIB_panelBackground&quot;),&quot;rot&quot;);
+    dda[9][i] = bOldestAck?&quot;B&quot;:&quot;A&quot;;//flag for table sort
+  }
+  else
+  {
+    dda[5][i] = makeDynString((da[7]==DPATTR_ACKTYPE_MULTIPLE)?&quot;xxx&quot;:&quot;x&quot;,&quot;STDLIB_panelBackground&quot;,&quot;black&quot;);//single or multiple acknowledged
+    dda[9][i] = &quot;A&quot;;//flag for table sort
+  }
+  dda[13][i] = bIsAckable;
+
+  dda[6][i] = (bool)da[5] ? getCatStr(&quot;sc&quot;,&quot;entered&quot;):getCatStr(&quot;sc&quot;,&quot;left&quot;);//direction
+
+  dda[7][i] = &quot;...&quot;;
+  dda[8][i] = makeDynString((int)da[3],da[9],da[13]);//prio + alert color + alert forecolor
+  dda[10][i] = (string)da[12];//value
+  dda[11][i] = (string)getACount(da[2]);//alert count
+  dda[12][i] = getCatStr(&quot;sc&quot;,((bool)da[5]?&quot;entered&quot;:&quot;left&quot;));//direction
+  dda[14][i] = da[15];
+}
+alertCBDelete(dyn_anytype da, dyn_dyn_anytype &amp;dda)
+{
+  int i = dynContains(getDynString(dda,1),dpSubStr(da[1],DPSUB_SYS_DP_EL));
+
+  if(i &lt; 1) i = dynlen(dda)?(dynlen(dda[1])+1):1;//DP not found in update-array
+
+  dda[1][i] = getAIdentifier(da[2]);//alert identifier
+  dda[2][i] = (time)da[2];//alert time
+  dda[3][i] = getACount(da[2]);
+}
+string getIdentOfObject(string sObject)
+{
+  string s = dpSubStr(sObject,DPSUB_SYS_DP_EL);
+  if(s != &quot;&quot;) return s;
+  return sObject;
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  //global dollar params
+  sDP = $DP;
+  //optional dollar params
+  if($_ALERTROW != &quot;&quot;) bIsAlertRow = $_ALERTROW; else bIsAlertRow = TRUE;
+  //config settings
+  iShowPrio = paCfgReadValueDflt(getPath (CONFIG_REL_PATH, &quot;config&quot;), &quot;ui&quot;, &quot;showHighestPriorAlertInFaceplateRow&quot;, 0 );
+  iIndependentAcknowledge = paCfgReadValueDflt(PROJ_PATH+CONFIG_REL_PATH+&quot;config&quot;, &quot;general&quot;, &quot;independentAlertAck&quot;, 0);
+}]]></script>
+ </events>
+ <shapes>
+  <shape layerId="0" Name="alertTab" shapeType="TABLE">
+   <properties>
+    <prop name="serialId">0</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 0</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">STDLIB_tableFore</prop>
+    <prop name="BackColor">STDLIB_tableBack</prop>
+    <prop name="TabOrder">0</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+     <prop name="de_AT.utf8"></prop>
+     <prop name="en_US.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Arial,-1,11,5,50,0,0,0,0,0</prop>
+     <prop name="de_AT.utf8">Arial,-1,11,5,50,0,0,0,0,0</prop>
+     <prop name="en_US.utf8">Arial,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">0 0</prop>
+    <prop name="Size">509 22</prop>
+    <prop name="ShowColumnHeader">True</prop>
+    <prop name="ShowRowHeader">False</prop>
+    <prop name="SortOnClick">True</prop>
+    <prop name="RowHeight">20</prop>
+    <prop name="RowHeaderWidth">10</prop>
+    <prop name="GridType">Cross</prop>
+    <prop name="VScrollBarMode">Auto</prop>
+    <prop name="HScrollBarMode">Auto</prop>
+    <prop name="Column">
+     <prop name="Name">quitt</prop>
+     <prop name="Width">0</prop>
+     <prop name="Visible">False</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Acknowledge</prop>
+      <prop name="de_AT.utf8">Quittieren</prop>
+      <prop name="en_US.utf8">Acknowledge</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">ackable</prop>
+     <prop name="Width">0</prop>
+     <prop name="Visible">False</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Ackable</prop>
+      <prop name="de_AT.utf8">Quittierbar</prop>
+      <prop name="en_US.utf8">Ackable</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">prio</prop>
+     <prop name="Width">24</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Пр</prop>
+      <prop name="de_AT.utf8">Priorität</prop>
+      <prop name="en_US.utf8">Priority</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">dpekey</prop>
+     <prop name="Width">0</prop>
+     <prop name="Visible">False</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Комментарий</prop>
+      <prop name="de_AT.utf8">DPE/Beschreibung</prop>
+      <prop name="en_US.utf8">DPE/Description</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">time</prop>
+     <prop name="Width">130</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Время</prop>
+      <prop name="de_AT.utf8">Alarmzeit</prop>
+      <prop name="en_US.utf8">Alarm time</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">dpe</prop>
+     <prop name="Width">116</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Комментарий</prop>
+      <prop name="de_AT.utf8">DPE/Beschreibung</prop>
+      <prop name="en_US.utf8">DPE/Description</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">alertText</prop>
+     <prop name="Width">120</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Текст аварии</prop>
+      <prop name="de_AT.utf8">Alarm Text</prop>
+      <prop name="en_US.utf8">Alarm text</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">value</prop>
+     <prop name="Width">45</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Значение</prop>
+      <prop name="de_AT.utf8">Wert</prop>
+      <prop name="en_US.utf8">Value</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">direction</prop>
+     <prop name="Width">40</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Direction</prop>
+      <prop name="de_AT.utf8">Richtung</prop>
+      <prop name="en_US.utf8">Direction</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">ack</prop>
+     <prop name="Width">20</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Acknowledge</prop>
+      <prop name="de_AT.utf8">Quittierung</prop>
+      <prop name="en_US.utf8">Acknowledge</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">detail</prop>
+     <prop name="Width">20</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">...</prop>
+      <prop name="de_AT.utf8">...</prop>
+      <prop name="en_US.utf8">...</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">count</prop>
+     <prop name="Width">0</prop>
+     <prop name="Visible">False</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Count</prop>
+      <prop name="de_AT.utf8">Count</prop>
+      <prop name="en_US.utf8">Count</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+      <prop name="de_AT.utf8"></prop>
+      <prop name="en_US.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Row">
+     <prop name="Name"></prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">#1</prop>
+      <prop name="de_AT.utf8">#1</prop>
+      <prop name="en_US.utf8">#1</prop>
+     </prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(int row, string column, string value)
+{
+  if(column == &quot;ack&quot;)
+  {
+    //new feature 'userdepending alarm display' IM #117931
+    if(value == &quot;&lt; &gt;&quot;)//acknowledge denied by userdepending alert class mapping
+      return;
+    ep_acknowledgeTableFunction(&quot;alertTab&quot;, &quot;1&quot;, &quot;dpekey&quot;, &quot;time&quot;, &quot;count&quot;, &quot;ackable&quot;, row, row);
+   
+  }
+  else if(column == &quot;detail&quot;)
+  {
+    string sDPE,sTime,sCount;
+    int iType;
+    getValue(&quot;&quot;,&quot;cellValueRC&quot;,row,&quot;dpekey&quot;,sDPE,
+                &quot;cellValueRC&quot;,row,&quot;time&quot;,sTime,
+                &quot;cellValueRC&quot;,row,&quot;count&quot;,sCount);
+    dpGet(dpSubStr(sDPE, DPSUB_SYS_DP_EL)+&quot;:_alert_hdl.._type&quot;,iType);
+  
+    if (DPCONFIG_SUM_ALERT != iType) //if not a sumAlert
+    {
+      ChildPanelOnCentralModal(&quot;vision/aes/AS_detail.xml&quot;, &quot;&quot;,makeDynString(&quot;$dpid:&quot; + sDPE,
+                                    &quot;$time:&quot; + sTime,
+                                    &quot;$count:&quot; + sCount,
+                                    &quot;$closedMode:TRUE&quot;));
+    }
+    else
+    {
+      ChildPanelOnCentralModal(&quot;vision/aes/AESSumAlertDetails.xml&quot;, &quot;yyy&quot; + sDPE,
+                               makeDynString(&quot;$dpid:&quot; + sDPE));  
+    }
+    
+  }
+}
+bool hasAcknowledgePermission(string sAckDp)
+{
+  int iPermission;
+  string sAlerClass;
+  dpGet(sAckDp+&quot;._class&quot;, sAlerClass); // read alert Class
+  dpGet(sAlerClass+&quot;:_alert_class.._perm&quot;, iPermission);  //read Permission of alert class
+   
+  if ( !getUserPermission(iPermission))                 // not allowed  -&gt; display errorbox and exit
+  {
+    ChildPanelOnCentralModal(&quot;vision/MessageWarning&quot;,getCatStr(&quot;sc&quot;,&quot;attention&quot;),makeDynString(&quot;$1:&quot;+getCatStr(&quot;sc&quot;,&quot;no_ack_perm_1&quot;)
+                             +getUserName()+getCatStr(&quot;sc&quot;,&quot;no_ack_perm_2&quot;)+&quot;\n&quot;+getCatStr(&quot;sc&quot;,&quot;no_ack_perm_3&quot;)));
+    return false;
+  }
+  return true;
+}
+]]></script>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  dpConnectToAlerts(sDP);
+}
+]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[main()
+{
+  int iTop, iBot;
+  getValue(&quot;alertTab&quot;,&quot;lineRangeVisible&quot;, iTop, iBot);
+  ep_acknowledgeTableFunction(&quot;alertTab&quot;, &quot;1&quot;, &quot;dpekey&quot;, &quot;time&quot;, &quot;count&quot;, &quot;ackable&quot;, iTop, iBot);
+}]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">520 329</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">0 0</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string DP = $dp;
+dyn_dyn_int zpts = line_zero.points;
+dyn_dyn_int pts = PUSH_BUTTON1.points;
+string alias;
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  alias = &quot;Пост: &quot; + dpGetAlias(DP + &quot;.&quot;);
+  Label8.size(285, 33);
+  Label8.text(dpGetDescription(DP + &quot;.&quot;));
+  PUSH_BUTTON1.position(207, 282);
+  setPanelSize(myModuleName(), alias, false, 300, 329);
+  main_module.ModuleName(DP + &quot;_main&quot;);
+  RootPanelOnModule(&quot;faceplates\\GAS_POST\\parts\\standart.xml&quot;,&quot;&quot;, DP + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+DP));
+  main_module.positionAsDyn(zpts[1]);
+  PUSH_BUTTON1.positionAsDyn(pts[1]);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="main_module" shapeType="EMBEDDED_MODULE" layerId="0">
+   <properties>
+    <prop name="serialId">2</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 41</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">1</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">0 41</prop>
+    <prop name="Size">520 240</prop>
+    <extended>
+     <prop type="INT" name="newPanelAnimDuration">1</prop>
+     <prop type="INT" name="oldPanelAnimDuration">1</prop>
+     <prop type="BOOL" name="newPanelAnimateOpacity">True</prop>
+     <prop type="BOOL" name="oldPanelAnimateOpacity">True</prop>
+     <prop type="BOOL" name="newPanelAnimateSize">True</prop>
+     <prop type="BOOL" name="oldPanelAnimateSize">True</prop>
+     <prop type="CHAR_STRING" name="newPanelAnimType">None</prop>
+     <prop type="CHAR_STRING" name="oldPanelAnimType">None</prop>
+    </extended>
+   </properties>
+  </shape>
+  <shape Name="btn_main" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">3</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">16.16666666666661 276</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">5.166666666666615 282.9999999999999</prop>
+    <prop name="Size">40 40</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Image" SharedPixmap="1">
+     <prop name="BackgroundPixmap">examples/maps/home.svg</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  Label8.size(285, 33);
+  RootPanelOnModule(&quot;faceplates\\GAS_POST\\parts\\standart.xml&quot;,&quot;&quot;, DP + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+DP));
+  setPanelSize(myModuleName(), alias, false, 300, 329);
+  PUSH_BUTTON1.position(207, 282);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="btn_alrm" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">4</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">57.83333333333329 276</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">46.83333333333329 282.9999999999999</prop>
+    <prop name="Size">40 40</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Image" SharedPixmap="1">
+     <prop name="BackgroundPixmap">StandardIcons/Attention_32.png</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  Label8.size(505, 33);
+  setPanelSize(myModuleName(), alias, false, 520, 329);
+  RootPanelOnModule(&quot;faceplates\\GAS_POST\\parts\\alerts.xml&quot;,&quot;&quot;, DP + &quot;_main&quot; , makeDynString(&quot;$DP:&quot;+DP,&quot;$dp:&quot;+DP, &quot;$_ALERTROW:TRUE&quot;));
+  PUSH_BUTTON1.position(429, 282);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="btn_limits" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">5</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">99.49999999999989 276</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">4</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">88.49999999999984 282.9999999999999</prop>
+    <prop name="Size">40 40</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Image" SharedPixmap="1">
+     <prop name="BackgroundPixmap">gedi/doxyGen/showConfig.png</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+//   PUSH_BUTTON1.position(423, 285);
+//   setPanelSize(myModuleName(), &quot;AI&quot;+dp, FALSE, 518, 317);
+
+  Label8.size(285, 33);
+  RootPanelOnModule(&quot;faceplates\\GAS_POST\\parts\\limits.xml&quot;,&quot;&quot;, DP + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+DP));
+  setPanelSize(myModuleName(), alias, false, 300, 329);
+  PUSH_BUTTON1.position(207, 282);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="line_zero" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">7</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 41</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">6</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,6]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">0 41</prop>
+    <prop name="End">0 41</prop>
+   </properties>
+  </shape>
+  <shape Name="Label8" shapeType="Label" layerId="0">
+   <properties>
+    <prop name="serialId">9</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">5.000000000000005 5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">7</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">5.000000000000005 4.999999999999999</prop>
+    <prop name="Size">504 33</prop>
+    <extended>
+     <prop type="CHAR_STRING" name="text">comment pump signal</prop>
+     <prop type="BOOL" name="wordWrap">True</prop>
+     <prop type="ENUM" name="textFormat">2</prop>
+     <prop type="ENUM" name="alignment">132</prop>
+    </extended>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">12</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">207 282</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">8</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">206.8673469387755 282.4999999999999</prop>
+    <prop name="Size">90 41</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Квитировать</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+
+  bool sec = getUserPermission(25);
+  if(sec){
+    bit32 stsBit;
+    setBit(stsBit, 0, 1);
+    dpSetWait(DP + &quot;.cmd.cmd_bit&quot;, stsBit);
+  }else{
+    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+  }
+}]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

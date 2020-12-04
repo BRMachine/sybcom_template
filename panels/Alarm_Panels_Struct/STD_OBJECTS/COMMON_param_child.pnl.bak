@@ -1,0 +1,280 @@
+V 14
+3
+LANG:10027 20 Информация
+LANG:10000 11 Information
+LANG:10001 11 Information
+PANEL,-1 -1 370 136 N "_3DFace" 1
+"$dpt"
+"main()
+{
+string dpt;
+dyn_string ds, dpts;
+//\"FILTR_ALARMS\"
+dpt=$dpt;
+//dpt=\"FILTR_ALARMS\";
+strreplace(dpt, \" \", \"\");
+dpts= strsplit(dpt, \"|\");
+
+cobDPT.items = dpts;
+cobDPT.text	= dpts[1];
+cobDPT.enabled	= (dynlen(dpts)>1);		// more than one element
+
+}
+" 0
+ E E E E 1 -1 -1 0  251 55
+""0  1
+E E 3
+"CBRef" "1"
+"EClose" E
+"dpi" "120"
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 6 Layer1
+2 12
+"txtDPTComment"
+""
+1 10 20 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+5 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 12 22 61 37
+0 2 0 "0s" 0 0 0 192 0 0  12 22 1
+3
+LANG:10027 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 10 Тип DP:
+LANG:10000 14 Datenpunkttyp:
+LANG:10001 15 Datapoint type:
+2 14
+"Text2"
+""
+1 7.000000000000001 50 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+6 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 9 52 103 83
+0 2 0 "0s" 0 0 0 192 0 0  9 52 2
+3
+LANG:10027 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 25 Наименование 
+LANG:10000 11 Datenpunkt:
+LANG:10001 10 Datapoint:
+3
+LANG:10027 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 1
+LANG:10027 15 фильтра:
+14 13
+"txtDP"
+""
+1 110 60 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+1 0 0 0 0 0
+E "main()
+{
+string s;
+
+delay(0,1);
+
+s= this.text;
+
+dpNameCheck(s);
+
+this.text = s;
+
+}
+" 0
+ E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  108 58 362 85
+3 "0s" 0 0 0 0 0 -1  E E E
+13 0
+"ok"
+""
+1 158 99 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+2 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+0  158 98 262 128
+
+T 
+3
+LANG:10027 2 OK
+LANG:10000 2 OK
+LANG:10001 2 OK
+"main()
+{
+
+  string dpe ;
+  string sErrorText =  getCatStr(\"para\",\"dpcreateerror\");
+  string sErrorText2 = getCatStr(\"ac\",\"dpexists\");
+  string sErrorTextWithoutSpace = sErrorText;
+  string sErrorTextWithoutSpace2 = sErrorText2;
+  
+  dpNameCheck(sErrorTextWithoutSpace);
+  dpNameCheck(sErrorTextWithoutSpace2);
+
+
+ 
+  delay(0,1);	// finnish other thread
+  dpe = txtDP.text;
+ 
+  dpNameCheck(dpe);
+
+ 
+  
+  if (dpe != \"\" &&  dpe != sErrorText && dpe != sErrorTextWithoutSpace && dpe != sErrorTextWithoutSpace2 && !dpExists(dpe) )
+    PanelOffReturn(makeDynFloat(1),makeDynString(cobDPT.text, txtDP.text));
+  else
+  {
+   if (dpe == sErrorTextWithoutSpace2 || dpExists(dpe))
+   		txtDP.text	=sErrorText2;
+   else
+  		txtDP.text	=sErrorText;
+   }
+}
+
+//Function ok_EventClick()" 0
+ E E E
+13 8
+"nok"
+""
+1 269 98 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+3 0 0 0 27 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 arial,-1,13,5,50,0,0,0,0,0
+0  268 98 362 128
+
+T 
+3
+LANG:10027 16 Отменить
+LANG:10000 9 Abbrechen
+LANG:10001 6 Cancel
+"main()
+{
+  PanelOffReturn(makeDynFloat(0),makeDynString(\"false\"));
+}
+" 0
+ E E E
+22 11
+"cobDPT"
+""
+1 110 20 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  108 18 362 45
+0
+
+E
+E
+E
+ 0 0
+0
+LAYER, 1 
+1
+LANG:10027 6 Layer2
+0
+LAYER, 2 
+1
+LANG:10027 6 Layer3
+0
+LAYER, 3 
+1
+LANG:10027 6 Layer4
+0
+LAYER, 4 
+1
+LANG:10027 6 Layer5
+0
+LAYER, 5 
+1
+LANG:10027 6 Layer6
+0
+LAYER, 6 
+1
+LANG:10027 6 Layer7
+0
+LAYER, 7 
+1
+LANG:10027 6 Layer8
+0
+0

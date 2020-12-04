@@ -1,0 +1,58 @@
+# ascii dump of database
+
+# DpType
+TypeName
+_Sybcom_Triggers._Sybcom_Triggers	1#1
+	Triggers	1#2
+		1s_Trigger	23#3
+		5s_Trigger	23#4
+		10s_Trigger	23#5
+		30s_Trigger	23#6
+		1min_Trigger	23#7
+		5min_Trigger	23#8
+		10min_Trigger	23#9
+		30min_Trigger	23#10
+		1h_Trigger	23#11
+		2h_Trigger	23#12
+		12h_Trigger	23#13
+		24h_Trigger	23#14
+		Shift	23#22
+		Two_Shifts	23#24
+	Values	1#15
+		Second	21#16
+		Minute	21#17
+		Hour	21#18
+		Day	21#19
+		Month	21#20
+		Year	21#21
+		StartShift	21#29
+		EndShift	21#30
+
+# Datapoint/DpId
+DpName	TypeName	ID
+Sybcom	_Sybcom_Triggers	1909
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+CTL (6)/0	Sybcom.Triggers.1s_Trigger	_Sybcom_Triggers	0	0x8300000000100101	22.01.2020 04:56:35.620
+CTL (6)/0	Sybcom.Triggers.5s_Trigger	_Sybcom_Triggers	0	0x8300000000100101	22.01.2020 04:56:35.622
+CTL (6)/0	Sybcom.Triggers.10s_Trigger	_Sybcom_Triggers	0	0x8300000000100101	22.01.2020 04:56:30.602
+CTL (6)/0	Sybcom.Triggers.30s_Trigger	_Sybcom_Triggers	0	0x8300000000100101	22.01.2020 04:56:30.603
+CTL (6)/0	Sybcom.Triggers.1min_Trigger	_Sybcom_Triggers	0	0x8300000000100101	22.01.2020 04:56:00.460
+CTL (6)/0	Sybcom.Triggers.5min_Trigger	_Sybcom_Triggers	1	0x8300000000300101	22.01.2020 04:55:00.846
+CTL (1)/0	Sybcom.Triggers.10min_Trigger	_Sybcom_Triggers	0	0x8300000000100101	22.01.2020 04:50:00.859
+CTL (1)/0	Sybcom.Triggers.30min_Trigger	_Sybcom_Triggers	0	0x8300000000100101	22.01.2020 04:30:00.148
+CTL (1)/0	Sybcom.Triggers.1h_Trigger	_Sybcom_Triggers	1	0x8300000000300101	22.01.2020 04:00:00.558
+CTL (1)/0	Sybcom.Triggers.2h_Trigger	_Sybcom_Triggers	1	0x8300000000300101	22.01.2020 03:00:00.273
+CTL (1)/0	Sybcom.Triggers.12h_Trigger	_Sybcom_Triggers	1	0x8300000000300101	21.01.2020 19:00:00.618
+CTL (1)/0	Sybcom.Triggers.24h_Trigger	_Sybcom_Triggers	1	0x8300000000300101	21.01.2020 19:00:00.631
+CTL (6)/0	Sybcom.Values.Second	_Sybcom_Triggers	35	0x8300000000300101	22.01.2020 04:56:35.618
+CTL (6)/0	Sybcom.Values.Minute	_Sybcom_Triggers	56	0x8300000000200101	22.01.2020 04:56:35.618
+CTL (6)/0	Sybcom.Values.Hour	_Sybcom_Triggers	9	0x8300000000200101	22.01.2020 04:56:35.618
+CTL (6)/0	Sybcom.Values.Day	_Sybcom_Triggers	22	0x8300000000200101	22.01.2020 04:56:35.618
+CTL (6)/0	Sybcom.Values.Month	_Sybcom_Triggers	1	0x8300000000000101	22.01.2020 04:56:35.618
+CTL (6)/0	Sybcom.Values.Year	_Sybcom_Triggers	2020	0x8300000000200101	22.01.2020 04:56:35.618
+CTL (1)/0	Sybcom.Triggers.Shift	_Sybcom_Triggers	1	0x8300000000300101	21.01.2020 19:00:00.654
+CTL (1)/0	Sybcom.Triggers.Two_Shifts	_Sybcom_Triggers	1	0x8300000000300101	21.01.2020 19:00:00.673
+ASC (1)/0	Sybcom.Values.StartShift	_Sybcom_Triggers	0	0x8300000000000101	23.01.2018 07:26:47.918
+ASC (1)/0	Sybcom.Values.EndShift	_Sybcom_Triggers	12	0x8300000000000101	23.01.2018 07:26:47.918
