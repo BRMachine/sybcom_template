@@ -14,9 +14,7 @@
   <prop name="layoutType">None</prop>
  </properties>
  <events>
-  <script name="ScopeLib" isEscaped="1"><![CDATA[
-const string DP = $dp;
-const string NumberPost = $NumberPost;
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string DP = $dp;
 
 
 
@@ -26,12 +24,9 @@ const string NumberPost = $NumberPost;
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
-  const string DP = $dp;
-const string NumberPost = $NumberPost;
-  string PST = NumberPost;
   string type;
   int type_int;
-  dpGet(DP + &quot;.Post&quot; + NumberPost + &quot;.Type_NP&quot;,type_int);
+  dpGet(DP + &quot;.Type_NP&quot;,type_int);
   switch(type_int){
     case 0:
       type = &quot;АИ-92&quot;;
@@ -58,24 +53,42 @@ const string NumberPost = $NumberPost;
                      //DP + &quot;.MBNoLink&quot;,                                                         //+
                     // DP + &quot;.Post&quot; + PST + &quot;.Sensor_Control.sSensorAlarmStop&quot;);                                //состояние кнопки стоп
 
-  dpConnect(&quot;cbWorker&quot;, DP + &quot;.Post&quot; + NumberPost + &quot;.xAverageTemperature&quot;,                           //1-  средняя температура+
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xAverageDensity&quot;,                               //2-  средняя плотность+
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.sStatusPosta&quot;,                                  //3-  статус поста
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.cVolumeDose&quot;,                                   //4-  объем дозы
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xVolumeFlow&quot;,                                   //5-  Объемный расход
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xMassDose&quot;,                                     //6-  Массовая доза
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //7-  Датчик трапа
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorGround&quot;,                  //8-  Датчик заземления
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sGaragePosition&quot;,                //9-  Датчик гаражного положения
-                  			DP + &quot;.Post&quot; + NumberPost + &quot;.сPrisadka&quot;,                                     //10- налив с присадкой
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorOverflow&quot;,                //11- Датчик перелива
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xVolumeFact&quot;,                                   //12- Фактический объем
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xMassFact&quot;,                                      //13- Фактическая масса
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.cVolumeDose_oper&quot;,                              //14- объем дозы от оператора
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.cMassDose_oper&quot;,                                //15- Массовая доза от оператора
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.license_plate&quot;,                                  //16- гос.номер
-                        DP + &quot;.Global_Variable.bui_PercentPrisadki_&quot; + NumberPost + &quot;Post&quot;            //17 - процент присадки
+  dpConnect(&quot;cbWorker&quot;, DP + &quot;.xAverageTemperature&quot;,                           //1-  средняя температура+
+                        DP + &quot;.xAverageDensity&quot;,                               //2-  средняя плотность+
+                        DP + &quot;.sStatusPosta&quot;,                                  //3-  статус поста
+                        DP + &quot;.cVolumeDose&quot;,                                   //4-  объем дозы
+                        DP + &quot;.xVolumeFlow&quot;,                                   //5-  Объемный расход
+                        DP + &quot;.xMassDose&quot;,                                     //6-  Массовая доза
+                        DP + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //7-  Датчик трапа
+                        DP + &quot;.Sensor_Control.sSensorGround&quot;,                  //8-  Датчик заземления
+                        DP + &quot;.Sensor_Control.sGaragePosition&quot;,                //9-  Датчик гаражного положения
+                  			DP + &quot;.сPrisadka&quot;,                                     //10- налив с присадкой
+                        DP + &quot;.Sensor_Control.sSensorOverflow&quot;,                //11- Датчик перелива
+                        DP + &quot;.xVolumeFact&quot;,                                   //12- Фактический объем
+                        DP + &quot;.xMassFact&quot;,                                     //13- Фактическая масса
+                        DP + &quot;.cVolumeDose_oper&quot;,                              //14- объем дозы от оператора
+                        DP + &quot;.cMassDose_oper&quot;,                                //15- Массовая доза от оператора
+                        DP + &quot;.license_plate&quot;,                                 //16- гос.номер
+                        DP + &quot;.cPercentPrisadki&quot;                               //17 - процент присадки
 						            );
+//   dpConnect(&quot;cbWorker&quot;, DP + &quot;.Post&quot; + NumberPost + &quot;.xAverageTemperature&quot;,                           //1-  средняя температура+
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.xAverageDensity&quot;,                               //2-  средняя плотность+
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.sStatusPosta&quot;,                                  //3-  статус поста
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.cVolumeDose&quot;,                                   //4-  объем дозы
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.xVolumeFlow&quot;,                                   //5-  Объемный расход
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.xMassDose&quot;,                                     //6-  Массовая доза
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //7-  Датчик трапа
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorGround&quot;,                  //8-  Датчик заземления
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sGaragePosition&quot;,                //9-  Датчик гаражного положения
+//                   			DP + &quot;.Post&quot; + NumberPost + &quot;.сPrisadka&quot;,                                     //10- налив с присадкой
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorOverflow&quot;,                //11- Датчик перелива
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.xVolumeFact&quot;,                                   //12- Фактический объем
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.xMassFact&quot;,                                      //13- Фактическая масса
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.cVolumeDose_oper&quot;,                              //14- объем дозы от оператора
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.cMassDose_oper&quot;,                                //15- Массовая доза от оператора
+//                         DP + &quot;.Post&quot; + NumberPost + &quot;.license_plate&quot;,                                  //16- гос.номер
+//                         DP + &quot;.Global_Variable.bui_PercentPrisadki_&quot; + NumberPost + &quot;Post&quot;            //17 - процент присадки
+// 						            );
 
 }
 
@@ -202,7 +215,8 @@ void cbWorker(dyn_string dp, dyn_anytype val){
 
 
 
-}]]></script>
+}
+]]></script>
  </events>
  <shapes>
   <shape Name="RECTANGLE1" shapeType="RECTANGLE" layerId="0">
