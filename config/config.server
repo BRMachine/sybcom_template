@@ -1,0 +1,25 @@
+[general]
+pvss_path = "C:/Siemens/Automation/WinCC_OA/3.17"
+proj_path = "C:/WinCC_OA_Proj/sybcom_template"
+proj_path = "C:/Siemens/Automation/WinCC_OA/3.17/Stdlib_3.17"
+proj_path = "C:/WinCC_OA_Proj/TOBOLSK"
+proj_version = "3.17"
+langs = "ru_RU.utf8"
+useNGA = 1
+#data = "TR-TMN12-WNS01$tr-tmn12-wns02"
+#event = "TR-TMN12-WNS01$tr-tmn12-wns02"
+#mxProxy = "none"
+
+#[proxy]
+#proxyPort = 49200
+
+[ui]
+defaultPanelFormat = "XML"
+numPanelBakFiles = 0
+#visionScreenMode = "noTitleBar"
+
+#Пример для Тобольской нефтебазы.
+#Конфиг файл серверного проекта.
+#При полной настроки связи через VLAN'ы
+#необходимо все раскомметировать.
+#visionScreenMode - используется для того, чтобы убрать верхний бар, где кнопки свернуть, развернуть и закрыть.

@@ -4,13 +4,13 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">684 409</prop>
+  <prop name="Size">684 393</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">60 20</prop>
   <prop name="InitAndTermRef">True</prop>
   <prop name="SendClick">False</prop>
   <prop name="RefFileName"></prop>
-  <prop name="DPI">120</prop>
+  <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
  <events>
@@ -110,7 +110,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="back1" shapeType="RECTANGLE">
+  <shape Name="back1" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">12</prop>
     <prop name="Type"></prop>
@@ -138,7 +138,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line1_1" shapeType="LINE">
+  <shape Name="line1_1" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">13</prop>
     <prop name="Type"></prop>
@@ -161,7 +161,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">41.00000000000002 82.00000000000004</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line1_2" shapeType="LINE">
+  <shape Name="line1_2" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">14</prop>
     <prop name="Type"></prop>
@@ -184,7 +184,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">82 82.00000000000004</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line1_3" shapeType="LINE">
+  <shape Name="line1_3" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">15</prop>
     <prop name="Type"></prop>
@@ -207,7 +207,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">491 82</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line1_4" shapeType="LINE">
+  <shape Name="line1_4" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">16</prop>
     <prop name="Type"></prop>
@@ -230,7 +230,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">531 82</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line1_5" shapeType="LINE">
+  <shape Name="line1_5" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">17</prop>
     <prop name="Type"></prop>
@@ -253,7 +253,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">571.0000000000003 82</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line1_6" shapeType="LINE">
+  <shape Name="line1_6" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">18</prop>
     <prop name="Type"></prop>
@@ -276,7 +276,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">637.9999999999999 82</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">19</prop>
     <prop name="Type"></prop>
@@ -311,35 +311,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="in1_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">20</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">22</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 0.3448275862069394 16.89655172413792</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <reference referenceId="3" Name="del1" parentSerial="-1">
+  <reference parentSerial="-1" Name="del1" referenceId="3">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">597.5 18.53124999999998</prop>
@@ -357,41 +329,13 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
-   <shape layerId="0" RefShapeSerial="1" shapeType="RefShape" GroupPath="">
+   <shape GroupPath="" RefShapeSerial="1" shapeType="RefShape" layerId="0">
     <properties>
-     <prop name="transform" type="TRANSFORM">0.9999999999999997 0 0 1 0 0</prop>
+     <prop type="TRANSFORM" name="transform">0.9999999999999997 0 0 1 0 0</prop>
     </properties>
    </shape>
   </reference>
-  <shape layerId="0" Name="out1_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">29</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">24</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 597.8448275862071 16.36530172413789</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape layerId="0" Name="back2" shapeType="RECTANGLE">
+  <shape Name="back2" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">30</prop>
     <prop name="Type"></prop>
@@ -419,7 +363,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line2_1" shapeType="LINE">
+  <shape Name="line2_1" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">31</prop>
     <prop name="Type"></prop>
@@ -442,7 +386,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">41.00000000000001 122</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line2_2" shapeType="LINE">
+  <shape Name="line2_2" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">32</prop>
     <prop name="Type"></prop>
@@ -465,7 +409,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">82.00000000000001 122</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line2_3" shapeType="LINE">
+  <shape Name="line2_3" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">33</prop>
     <prop name="Type"></prop>
@@ -488,7 +432,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">491 122</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line2_4" shapeType="LINE">
+  <shape Name="line2_4" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">34</prop>
     <prop name="Type"></prop>
@@ -511,7 +455,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">531 122</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line2_5" shapeType="LINE">
+  <shape Name="line2_5" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">35</prop>
     <prop name="Type"></prop>
@@ -534,7 +478,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">571.0000000000003 122</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line2_6" shapeType="LINE">
+  <shape Name="line2_6" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">36</prop>
     <prop name="Type"></prop>
@@ -557,7 +501,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">637.9999999999999 122</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT2" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT2" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">37</prop>
     <prop name="Type"></prop>
@@ -592,35 +536,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="in2_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">38</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">36</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 0.3448275862069288 56.89655172413789</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <reference referenceId="7" Name="del2" parentSerial="-1">
+  <reference parentSerial="-1" Name="del2" referenceId="7">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">597.5 18.53124999999998</prop>
@@ -639,35 +555,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <shape layerId="0" Name="out2_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">47</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">38</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 597.8448275862071 56.36530172413786</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape layerId="0" Name="back3" shapeType="RECTANGLE">
+  <shape Name="back3" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">48</prop>
     <prop name="Type"></prop>
@@ -695,7 +583,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line3_1" shapeType="LINE">
+  <shape Name="line3_1" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">49</prop>
     <prop name="Type"></prop>
@@ -718,7 +606,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">41 161</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line3_2" shapeType="LINE">
+  <shape Name="line3_2" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">50</prop>
     <prop name="Type"></prop>
@@ -741,7 +629,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">81.99999999999997 161</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line3_3" shapeType="LINE">
+  <shape Name="line3_3" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">51</prop>
     <prop name="Type"></prop>
@@ -764,7 +652,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">491 160.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line3_4" shapeType="LINE">
+  <shape Name="line3_4" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">52</prop>
     <prop name="Type"></prop>
@@ -787,7 +675,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">531.0000000000001 160.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line3_5" shapeType="LINE">
+  <shape Name="line3_5" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">53</prop>
     <prop name="Type"></prop>
@@ -810,7 +698,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">571.0000000000005 160.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line3_6" shapeType="LINE">
+  <shape Name="line3_6" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">54</prop>
     <prop name="Type"></prop>
@@ -833,7 +721,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">638.0000000000002 160.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT4" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT4" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">55</prop>
     <prop name="Type"></prop>
@@ -868,35 +756,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="in3_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">56</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">50</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 0.3448275862069181 95.89655172413789</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <reference referenceId="11" Name="del3" parentSerial="-1">
+  <reference parentSerial="-1" Name="del3" referenceId="11">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">597.5 18.53124999999998</prop>
@@ -915,35 +775,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <shape layerId="0" Name="out3_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">65</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">52</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 597.8448275862072 95.36530172413779</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape layerId="0" Name="back4" shapeType="RECTANGLE">
+  <shape Name="back4" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">66</prop>
     <prop name="Type"></prop>
@@ -971,7 +803,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line4_1" shapeType="LINE">
+  <shape Name="line4_1" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">67</prop>
     <prop name="Type"></prop>
@@ -994,7 +826,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">41 202</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line4_2" shapeType="LINE">
+  <shape Name="line4_2" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">68</prop>
     <prop name="Type"></prop>
@@ -1017,7 +849,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">81.99999999999997 202</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line4_3" shapeType="LINE">
+  <shape Name="line4_3" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">69</prop>
     <prop name="Type"></prop>
@@ -1040,7 +872,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">491 201.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line4_4" shapeType="LINE">
+  <shape Name="line4_4" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">70</prop>
     <prop name="Type"></prop>
@@ -1063,7 +895,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">531 201.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line4_5" shapeType="LINE">
+  <shape Name="line4_5" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">71</prop>
     <prop name="Type"></prop>
@@ -1086,7 +918,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">571.0000000000003 201.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line4_6" shapeType="LINE">
+  <shape Name="line4_6" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">72</prop>
     <prop name="Type"></prop>
@@ -1109,7 +941,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">637.9999999999999 201.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT6" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT6" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">73</prop>
     <prop name="Type"></prop>
@@ -1144,35 +976,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="in4_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">74</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">64</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 0.3448275862069181 136.8965517241378</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <reference referenceId="15" Name="del4" parentSerial="-1">
+  <reference parentSerial="-1" Name="del4" referenceId="15">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">597.5 18.53124999999998</prop>
@@ -1191,35 +995,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <shape layerId="0" Name="out4_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">83</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">66</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 597.8448275862071 136.3653017241378</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape layerId="0" Name="RECTANGLE13" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE13" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">84</prop>
     <prop name="Type"></prop>
@@ -1247,7 +1023,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line0_1" shapeType="LINE">
+  <shape Name="line0_1" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">85</prop>
     <prop name="Type"></prop>
@@ -1270,7 +1046,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">41 42.00000000000007</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line0_2" shapeType="LINE">
+  <shape Name="line0_2" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">86</prop>
     <prop name="Type"></prop>
@@ -1293,7 +1069,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">82.00000000000006 42.00000000000007</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line0_3" shapeType="LINE">
+  <shape Name="line0_3" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">87</prop>
     <prop name="Type"></prop>
@@ -1316,7 +1092,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">490.9999999999998 42.00000000000002</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line0_4" shapeType="LINE">
+  <shape Name="line0_4" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">88</prop>
     <prop name="Type"></prop>
@@ -1339,7 +1115,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">530.9999999999997 42.00000000000002</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line0_5" shapeType="LINE">
+  <shape Name="line0_5" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">89</prop>
     <prop name="Type"></prop>
@@ -1362,7 +1138,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">570.9999999999998 42.00000000000002</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="line0_6" shapeType="LINE">
+  <shape Name="line0_6" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">90</prop>
     <prop name="Type"></prop>
@@ -1385,7 +1161,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">637.9999999999999 42.00000000000002</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT8" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT8" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">91</prop>
     <prop name="Type"></prop>
@@ -1420,7 +1196,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT9" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT9" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">93</prop>
     <prop name="Type"></prop>
@@ -1455,7 +1231,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT10" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT10" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">102</prop>
     <prop name="Type"></prop>
@@ -1490,7 +1266,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT11" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT11" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">103</prop>
     <prop name="Type"></prop>
@@ -1525,7 +1301,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT12" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT12" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">104</prop>
     <prop name="Type"></prop>
@@ -1561,7 +1337,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT13" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT13" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">105</prop>
     <prop name="Type"></prop>
@@ -1596,7 +1372,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT14" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT14" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">106</prop>
     <prop name="Type"></prop>
@@ -1631,7 +1407,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="comment1" shapeType="TEXT_EDIT">
+  <shape Name="comment1" shapeType="TEXT_EDIT" layerId="0">
    <properties>
     <prop name="serialId">136</prop>
     <prop name="Type"></prop>
@@ -1652,10 +1428,10 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Location">82.00000000000006 42.00000000000006</prop>
     <prop name="Size">410 40</prop>
     <extended>
-     <prop name="text" type="CHAR_STRING">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
-     <prop name="wordWrap" type="ENUM">1</prop>
-     <prop name="wrapColumnOrWidth" type="INT">0</prop>
-     <prop name="wrapPolicy" type="ENUM">1</prop>
+     <prop type="CHAR_STRING" name="text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
+     <prop type="ENUM" name="wordWrap">1</prop>
+     <prop type="INT" name="wrapColumnOrWidth">0</prop>
+     <prop type="ENUM" name="wrapPolicy">1</prop>
     </extended>
    </properties>
    <events>
@@ -1665,7 +1441,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 }]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="comment2" shapeType="TEXT_EDIT">
+  <shape Name="comment2" shapeType="TEXT_EDIT" layerId="0">
    <properties>
     <prop name="serialId">137</prop>
     <prop name="Type"></prop>
@@ -1686,10 +1462,10 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Location">82 81.99999999999997</prop>
     <prop name="Size">410 40</prop>
     <extended>
-     <prop name="text" type="CHAR_STRING">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
-     <prop name="wordWrap" type="ENUM">1</prop>
-     <prop name="wrapColumnOrWidth" type="INT">0</prop>
-     <prop name="wrapPolicy" type="ENUM">1</prop>
+     <prop type="CHAR_STRING" name="text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
+     <prop type="ENUM" name="wordWrap">1</prop>
+     <prop type="INT" name="wrapColumnOrWidth">0</prop>
+     <prop type="ENUM" name="wrapPolicy">1</prop>
     </extended>
    </properties>
    <events>
@@ -1699,7 +1475,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 }]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="comment3" shapeType="TEXT_EDIT">
+  <shape Name="comment3" shapeType="TEXT_EDIT" layerId="0">
    <properties>
     <prop name="serialId">138</prop>
     <prop name="Type"></prop>
@@ -1720,10 +1496,10 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Location">82 121.9999999999999</prop>
     <prop name="Size">410 40</prop>
     <extended>
-     <prop name="text" type="CHAR_STRING">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
-     <prop name="wordWrap" type="ENUM">1</prop>
-     <prop name="wrapColumnOrWidth" type="INT">0</prop>
-     <prop name="wrapPolicy" type="ENUM">1</prop>
+     <prop type="CHAR_STRING" name="text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
+     <prop type="ENUM" name="wordWrap">1</prop>
+     <prop type="INT" name="wrapColumnOrWidth">0</prop>
+     <prop type="ENUM" name="wrapPolicy">1</prop>
     </extended>
    </properties>
    <events>
@@ -1733,7 +1509,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 }]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="comment4" shapeType="TEXT_EDIT">
+  <shape Name="comment4" shapeType="TEXT_EDIT" layerId="0">
    <properties>
     <prop name="serialId">139</prop>
     <prop name="Type"></prop>
@@ -1754,10 +1530,10 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Location">82 161.9687499999999</prop>
     <prop name="Size">410 40</prop>
     <extended>
-     <prop name="text" type="CHAR_STRING">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
-     <prop name="wordWrap" type="ENUM">1</prop>
-     <prop name="wrapColumnOrWidth" type="INT">0</prop>
-     <prop name="wrapPolicy" type="ENUM">1</prop>
+     <prop type="CHAR_STRING" name="text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
+     <prop type="ENUM" name="wordWrap">1</prop>
+     <prop type="INT" name="wrapColumnOrWidth">0</prop>
+     <prop type="ENUM" name="wrapPolicy">1</prop>
     </extended>
    </properties>
    <events>
@@ -1767,11 +1543,11 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 }]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="btn_rst" shapeType="PUSH_BUTTON">
+  <shape Name="btn_rst" shapeType="PUSH_BUTTON" layerId="0">
    <properties>
     <prop name="serialId">168</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">550 380</prop>
+    <prop name="RefPoint">550 372</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -1785,7 +1561,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">550 374.9999999999999</prop>
+    <prop name="Location">550 366.9999999999999</prop>
     <prop name="Size">121 23</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1799,7 +1575,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 ]]></script>
    </events>
   </shape>
-  <reference referenceId="16" Name="PANEL_REF2" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF2" referenceId="16">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -1814,7 +1590,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="17" Name="PANEL_REF3" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF3" referenceId="17">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -1829,7 +1605,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="18" Name="PANEL_REF4" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF4" referenceId="18">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -1844,7 +1620,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="19" Name="PANEL_REF5" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF5" referenceId="19">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -1859,7 +1635,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="23" Name="PANEL_REF9" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF9" referenceId="23">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -1874,7 +1650,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="22" Name="PANEL_REF8" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF8" referenceId="22">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -1889,7 +1665,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="20" Name="PANEL_REF6" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF6" referenceId="20">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -1904,7 +1680,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="21" Name="PANEL_REF7" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF7" referenceId="21">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -1919,7 +1695,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <shape layerId="0" Name="RECTANGLE14" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE14" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">198</prop>
     <prop name="Type"></prop>
@@ -1947,7 +1723,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE1" shapeType="LINE">
+  <shape Name="LINE1" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">199</prop>
     <prop name="Type"></prop>
@@ -1970,7 +1746,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">41.00000000000001 241.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE2" shapeType="LINE">
+  <shape Name="LINE2" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">200</prop>
     <prop name="Type"></prop>
@@ -1993,7 +1769,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">81.99999999999999 241.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE3" shapeType="LINE">
+  <shape Name="LINE3" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">201</prop>
     <prop name="Type"></prop>
@@ -2016,7 +1792,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">491 241.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE4" shapeType="LINE">
+  <shape Name="LINE4" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">202</prop>
     <prop name="Type"></prop>
@@ -2039,7 +1815,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">531 241.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE5" shapeType="LINE">
+  <shape Name="LINE5" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">203</prop>
     <prop name="Type"></prop>
@@ -2062,7 +1838,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">571.0000000000003 241.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE6" shapeType="LINE">
+  <shape Name="LINE6" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">204</prop>
     <prop name="Type"></prop>
@@ -2085,7 +1861,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">637.9999999999999 241.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT15" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT15" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">205</prop>
     <prop name="Type"></prop>
@@ -2120,35 +1896,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="in5_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">206</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">121</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 0.3448275862068613 176.8965517241378</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <reference referenceId="24" Name="PANEL_REF10" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF10" referenceId="24">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">597.5 18.53124999999998</prop>
@@ -2166,41 +1914,13 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
-   <shape layerId="0" RefShapeSerial="1" shapeType="RefShape" GroupPath="">
+   <shape GroupPath="" RefShapeSerial="1" shapeType="RefShape" layerId="0">
     <properties>
-     <prop name="transform" type="TRANSFORM">0.9999999999999997 0 0 1 -5.684341886080801e-14 -1.554312234475219e-15</prop>
+     <prop type="TRANSFORM" name="transform">0.9999999999999997 0 0 1 -5.684341886080801e-14 -1.554312234475219e-15</prop>
     </properties>
    </shape>
   </reference>
-  <shape layerId="0" Name="out5_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">208</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">122</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 597.8448275862071 176.3653017241378</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape layerId="0" Name="RECTANGLE17" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE17" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">209</prop>
     <prop name="Type"></prop>
@@ -2228,7 +1948,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE7" shapeType="LINE">
+  <shape Name="LINE7" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">210</prop>
     <prop name="Type"></prop>
@@ -2251,7 +1971,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">41 281.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE8" shapeType="LINE">
+  <shape Name="LINE8" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">211</prop>
     <prop name="Type"></prop>
@@ -2274,7 +1994,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">82 281.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE9" shapeType="LINE">
+  <shape Name="LINE9" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">212</prop>
     <prop name="Type"></prop>
@@ -2297,7 +2017,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">491 281.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE10" shapeType="LINE">
+  <shape Name="LINE10" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">213</prop>
     <prop name="Type"></prop>
@@ -2320,7 +2040,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">531 281.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE11" shapeType="LINE">
+  <shape Name="LINE11" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">214</prop>
     <prop name="Type"></prop>
@@ -2343,7 +2063,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">571.0000000000003 281.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE12" shapeType="LINE">
+  <shape Name="LINE12" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">215</prop>
     <prop name="Type"></prop>
@@ -2366,7 +2086,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">637.9999999999999 281.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT16" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT16" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">216</prop>
     <prop name="Type"></prop>
@@ -2401,35 +2121,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="in6_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">217</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">131</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 0.3448275862068613 216.8965517241378</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <reference referenceId="25" Name="PANEL_REF11" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF11" referenceId="25">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">597.5 18.53124999999998</prop>
@@ -2448,35 +2140,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <shape layerId="0" Name="out6_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">219</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">132</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 597.8448275862071 216.3653017241377</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape layerId="0" Name="RECTANGLE20" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE20" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">220</prop>
     <prop name="Type"></prop>
@@ -2504,7 +2168,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE13" shapeType="LINE">
+  <shape Name="LINE13" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">221</prop>
     <prop name="Type"></prop>
@@ -2527,7 +2191,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">40.99999999999999 320.9999999999998</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE14" shapeType="LINE">
+  <shape Name="LINE14" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">222</prop>
     <prop name="Type"></prop>
@@ -2550,7 +2214,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">81.99999999999997 320.9999999999998</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE15" shapeType="LINE">
+  <shape Name="LINE15" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">223</prop>
     <prop name="Type"></prop>
@@ -2573,7 +2237,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">491 320.9999999999998</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE16" shapeType="LINE">
+  <shape Name="LINE16" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">224</prop>
     <prop name="Type"></prop>
@@ -2596,7 +2260,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">531.0000000000001 320.9999999999998</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE17" shapeType="LINE">
+  <shape Name="LINE17" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">225</prop>
     <prop name="Type"></prop>
@@ -2619,7 +2283,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">571.0000000000005 320.9999999999998</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE18" shapeType="LINE">
+  <shape Name="LINE18" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">226</prop>
     <prop name="Type"></prop>
@@ -2642,7 +2306,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">638.0000000000002 320.9999999999998</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT17" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT17" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">227</prop>
     <prop name="Type"></prop>
@@ -2677,35 +2341,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="in7_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">228</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">141</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 0.3448275862068613 255.8965517241378</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <reference referenceId="26" Name="PANEL_REF12" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF12" referenceId="26">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">597.5 18.53124999999998</prop>
@@ -2724,35 +2360,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <shape layerId="0" Name="out7_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">230</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">142</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 597.8448275862072 255.3653017241377</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape layerId="0" Name="RECTANGLE23" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE23" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">231</prop>
     <prop name="Type"></prop>
@@ -2780,7 +2388,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE19" shapeType="LINE">
+  <shape Name="LINE19" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">232</prop>
     <prop name="Type"></prop>
@@ -2803,7 +2411,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">40.99999999999999 361.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE20" shapeType="LINE">
+  <shape Name="LINE20" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">233</prop>
     <prop name="Type"></prop>
@@ -2826,7 +2434,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">81.99999999999997 361.9999999999999</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE21" shapeType="LINE">
+  <shape Name="LINE21" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">234</prop>
     <prop name="Type"></prop>
@@ -2849,7 +2457,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">491 361.9999999999997</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE22" shapeType="LINE">
+  <shape Name="LINE22" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">235</prop>
     <prop name="Type"></prop>
@@ -2872,7 +2480,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">531 361.9999999999997</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE23" shapeType="LINE">
+  <shape Name="LINE23" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">236</prop>
     <prop name="Type"></prop>
@@ -2895,7 +2503,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">571.0000000000003 361.9999999999997</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE24" shapeType="LINE">
+  <shape Name="LINE24" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">237</prop>
     <prop name="Type"></prop>
@@ -2918,7 +2526,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="End">637.9999999999999 361.9999999999997</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT18" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT18" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">238</prop>
     <prop name="Type"></prop>
@@ -2953,35 +2561,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="in8_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">239</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">151</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 0.3448275862068613 296.8965517241377</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <reference referenceId="27" Name="PANEL_REF13" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF13" referenceId="27">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">597.5 18.53124999999998</prop>
@@ -3000,35 +2580,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <shape layerId="0" Name="out8_di" shapeType="RECTANGLE">
-   <properties>
-    <prop name="serialId">241</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">60 40</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">152</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8275862068965517 0 0 0.8275862068965517 597.8448275862071 296.3653017241377</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">60 40</prop>
-    <prop name="Size">30 30</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape layerId="0" Name="comment5" shapeType="TEXT_EDIT">
+  <shape Name="comment5" shapeType="TEXT_EDIT" layerId="0">
    <properties>
     <prop name="serialId">242</prop>
     <prop name="Type"></prop>
@@ -3049,10 +2601,10 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Location">82.00000000000004 201.9999999999999</prop>
     <prop name="Size">410 40</prop>
     <extended>
-     <prop name="text" type="CHAR_STRING">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
-     <prop name="wordWrap" type="ENUM">1</prop>
-     <prop name="wrapColumnOrWidth" type="INT">0</prop>
-     <prop name="wrapPolicy" type="ENUM">1</prop>
+     <prop type="CHAR_STRING" name="text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
+     <prop type="ENUM" name="wordWrap">1</prop>
+     <prop type="INT" name="wrapColumnOrWidth">0</prop>
+     <prop type="ENUM" name="wrapPolicy">1</prop>
     </extended>
    </properties>
    <events>
@@ -3062,7 +2614,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 }]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="comment6" shapeType="TEXT_EDIT">
+  <shape Name="comment6" shapeType="TEXT_EDIT" layerId="0">
    <properties>
     <prop name="serialId">243</prop>
     <prop name="Type"></prop>
@@ -3083,10 +2635,10 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Location">81.99999999999999 241.9999999999999</prop>
     <prop name="Size">410 40</prop>
     <extended>
-     <prop name="text" type="CHAR_STRING">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
-     <prop name="wordWrap" type="ENUM">1</prop>
-     <prop name="wrapColumnOrWidth" type="INT">0</prop>
-     <prop name="wrapPolicy" type="ENUM">1</prop>
+     <prop type="CHAR_STRING" name="text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
+     <prop type="ENUM" name="wordWrap">1</prop>
+     <prop type="INT" name="wrapColumnOrWidth">0</prop>
+     <prop type="ENUM" name="wrapPolicy">1</prop>
     </extended>
    </properties>
    <events>
@@ -3096,7 +2648,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 }]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="comment7" shapeType="TEXT_EDIT">
+  <shape Name="comment7" shapeType="TEXT_EDIT" layerId="0">
    <properties>
     <prop name="serialId">244</prop>
     <prop name="Type"></prop>
@@ -3117,10 +2669,10 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Location">81.99999999999999 281.9999999999998</prop>
     <prop name="Size">410 40</prop>
     <extended>
-     <prop name="text" type="CHAR_STRING">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
-     <prop name="wordWrap" type="ENUM">1</prop>
-     <prop name="wrapColumnOrWidth" type="INT">0</prop>
-     <prop name="wrapPolicy" type="ENUM">1</prop>
+     <prop type="CHAR_STRING" name="text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
+     <prop type="ENUM" name="wordWrap">1</prop>
+     <prop type="INT" name="wrapColumnOrWidth">0</prop>
+     <prop type="ENUM" name="wrapPolicy">1</prop>
     </extended>
    </properties>
    <events>
@@ -3130,7 +2682,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 }]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="comment8" shapeType="TEXT_EDIT">
+  <shape Name="comment8" shapeType="TEXT_EDIT" layerId="0">
    <properties>
     <prop name="serialId">245</prop>
     <prop name="Type"></prop>
@@ -3151,10 +2703,10 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="Location">81.99999999999999 321.9687499999997</prop>
     <prop name="Size">410 40</prop>
     <extended>
-     <prop name="text" type="CHAR_STRING">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
-     <prop name="wordWrap" type="ENUM">1</prop>
-     <prop name="wrapColumnOrWidth" type="INT">0</prop>
-     <prop name="wrapPolicy" type="ENUM">1</prop>
+     <prop type="CHAR_STRING" name="text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</prop>
+     <prop type="ENUM" name="wordWrap">1</prop>
+     <prop type="INT" name="wrapColumnOrWidth">0</prop>
+     <prop type="ENUM" name="wrapPolicy">1</prop>
     </extended>
    </properties>
    <events>
@@ -3164,7 +2716,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
 }]]></script>
    </events>
   </shape>
-  <reference referenceId="28" Name="PANEL_REF14" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF14" referenceId="28">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -3179,7 +2731,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="29" Name="PANEL_REF15" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF15" referenceId="29">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -3194,7 +2746,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="30" Name="PANEL_REF16" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF16" referenceId="30">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -3209,7 +2761,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="31" Name="PANEL_REF17" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF17" referenceId="31">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -3224,7 +2776,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="32" Name="PANEL_REF18" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF18" referenceId="32">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -3239,7 +2791,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="33" Name="PANEL_REF19" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF19" referenceId="33">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -3254,7 +2806,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="34" Name="PANEL_REF20" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF20" referenceId="34">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -3269,7 +2821,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference referenceId="35" Name="PANEL_REF21" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF21" referenceId="35">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
     <prop name="Location">507.0000000000001 49.98777173913035</prop>
@@ -3284,5 +2836,421 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
+  <shape Name="in1_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">303</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">157</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 5.000000000000234 -399.0683876811596</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="in2_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">304</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">158</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 5.000000000000234 -359.5683876811594</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="in3_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">305</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">159</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 5.000000000000234 -319.5683876811596</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="in4_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">306</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">160</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 5.000000000000234 -279.655441252588</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="in5_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">307</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">161</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 5.000000000000234 -239.0683876811596</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="in6_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">308</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">162</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 5.000000000000234 -199.5683876811595</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="in7_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">309</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">163</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 5.000000000000234 -160.5996376811597</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="in8_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">310</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">164</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 5.000000000000234 -119.6554412525883</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="out1_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">311</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">165</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 604.0000000000001 -399.5683876811595</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="out2_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">312</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">166</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 604.0000000000001 -360.0683876811592</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="out3_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">313</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">167</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 604.0000000000001 -320.0683876811595</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="out4_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">314</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">168</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 604.0000000000001 -280.1554412525881</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="out5_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">315</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">169</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 604.0000000000001 -239.5683876811595</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="out6_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">316</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">170</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 604.0000000000001 -200.0683876811594</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="out7_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">317</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">171</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 604.0000000000001 -161.0996376811596</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
+  <shape Name="out8_di" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">318</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.0000000000002 691.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">172</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6666666666666624 0 0 0.6670063405797102 604.0000000000001 -120.1554412525882</prop>
+    <prop name="Center">84.0000000000002 691.9999999999999</prop>
+    <prop name="X-Radius">18.00000000000011</prop>
+    <prop name="Y-Radius">18.00000000000011</prop>
+   </properties>
+  </shape>
  </shapes>
 </panel>
