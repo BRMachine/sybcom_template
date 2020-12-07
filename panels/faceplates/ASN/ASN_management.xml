@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">356 590</prop>
+  <prop name="Size">355 629</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">20 20</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -20,291 +20,15 @@ const string DP = $dp;
 
 
 /*--dyn_dyn_anytype sortData(dyn_anytype vals){
-  dyn_dyn_anytype result;
-  for(int i=0; i&lt;3; i++){
-    dyn_anytype t_post;
-    for(int j=1; j&lt;=22; j++){
-      dynAppend(t_post, vals[i*22+j]);
-    }
-    dynAppend(result, t_post);
-  }
-  return result;
 }*/
 
 string stsToText(int sts){
-  string res;
-  switch(sts){
-    case 0x00:
-      res = &quot;Ожидание&quot;;
-      break;
-    case 0x10:
-      res = &quot;Разрешение налива&quot;;
-      break;
-    case 0x20:
-      res = &quot;Налив&quot;;
-      break;
-    case 0x30:
-      res = &quot;Пауза&quot;;
-      break;
-    case 0x40:
-      res = &quot;Продолжение&quot;;
-      break;
-    case 0x60:
-      res = &quot;Ошибка&quot;;
-      break;
-    case 0x80:
-      res = &quot;Не активный&quot;;
-      break;
-    default:
-      res = &quot;Неизвестно&quot;;
-  }
-  return res;
 }
 
 string stsToColor(int sts){
-  string res;
-  switch(sts){
-    case 0x00:
-      res = &quot;Yellow&quot;;
-      break;
-    case 0x10:
-      res = &quot;Yellow&quot;;
-      break;
-    case 0x20:
-      res = &quot;Green&quot;;
-      break;
-    case 0x30:
-      res = &quot;Yellow&quot;;
-      break;
-    case 0x40:
-      res = &quot;Green&quot;;
-      break;
-    case 0x60:
-      res = &quot;Red&quot;;
-      break;
-    case 0x80:
-      res = &quot;Red&quot;;
-      break;
-    default:
-      res = &quot;Red&quot;;
-  }
-  return res;
 }
 
 string stpToText(int stp){
-  string res = &quot;UNKNOW&quot;;
-  switch(stp){
-  	case 0:
-  		res = &quot;Останова нет&quot;;
-  		break;
-  	case 1:
-  		res = &quot;Сработал датчик перелива&quot;;
-  		break;
-  	case 2:
-  		res = &quot;Сработал датчик перелива 2&quot;;
-  		break;
-  	case 3:
-  		res = &quot;Отключилось заземление&quot;;
-  		break;
-  	case 4:
-  		res = &quot;Наконечник не в рабочем положении&quot;;
-  		break;
-  	case 5:
-  		res = &quot;Стояк в гаражном положении&quot;;
-  		break;
-  	case 6:
-  		res = &quot;Трап в гаражном положении&quot;;
-  		break;
-  	case 7:
-  		res = &quot;Сработал датчик загрязненности фильтра&quot;;
-  		break;
-  	case 8:
-  		res = &quot;Останов по кнопке пуск/стоп&quot;;
-  		break;
-  	case 9:
-  		res = &quot;Сработал датчик загазованности&quot;;
-  		break;
-  	case 10:
-  		res = &quot;Отсутствие потока жидкости&quot;;
-  		break;
-  	case 11:
-  		res = &quot;Переход в паузу по завершению дозы по объему&quot;;
-  		break;
-  	case 12:
-  		res = &quot;Переход в паузу по завершению дозы по массе&quot;;
-  		break;
-  	case 13:
-  		res = &quot;Нерабочее положение уклона стояка&quot;;
-  		break;
-  	case 14:
-  		res = &quot;Сработал внешний датчик запрета налива&quot;;
-  		break;
-  	case 15:
-  		res = &quot;Закрыта задвижка&quot;;
-  		break;
-  	case 16:
-  		res = &quot;Возникновение ошибки в посте&quot;;
-  		break;
-  	case 17:
-  		res = &quot;Останов по команде с компьютера&quot;;
-  		break;
-  	case 18:
-  		res = &quot;Переход в паузу по завершению времени налива&quot;;
-  		break;
-  	case 19:
-  		res = &quot;Переход в паузу по датчику угла&quot;;
-  		break;
-    case 20:
-    res = &quot;Коррекция нуля в массомере&quot;;
-    break;
-  	case 31:
-  		res = &quot;Неизвестная причина останова&quot;;
-  		break;
-  	case 50:
-  		res = &quot;Переход в паузу по завершению дозы по стоимости&quot;;
-  		break;
-  	case 51:
-  		res = &quot;Отключилось заземление&quot;;
-  		break;
-  	case 52:
-  		res = &quot;Останов по кнопке Аварийный стоп&quot;;
-  		break;
-  	case 53:
-  		res = &quot;Аварийный стоп по датчикам КУНА&quot;;
-  		break;
-  	case 54:
-  		res = &quot;Аварийный стоп по МН-2&quot;;
-  		break;
-  	case 55:
-  		res = &quot;Ожидание сброса объема в расходомере&quot;;
-  		break;
-  	case 56:
-  		res = &quot;Ожидание сброса массы в расходомере&quot;;
-  		break;
-  	case 57:
-  		res = &quot;Доза объема меньше упреждения отсечки клапана&quot;;
-  		break;
-  	case 58:
-  		res = &quot;Доза массы меньше упреждения отсечки клапана&quot;;
-  		break;
-  	case 72:
-  		res = &quot;Не задана ни одна из доз&quot;;
-  		break;
-  	case 88:
-  		res = &quot;Ожидание записи переменных&quot;;
-  		break;
-  	case 59:
-  		res = &quot;Останов по УЗ датчику уровня&quot;;
-  		break;
-  	case 60:
-  		res = &quot;Низкий уровень в емкости присадки&quot;;
-  		break;
-  	case 61:
-  		res = &quot;Ошибка состояния внешнего устройства&quot;;
-  		break;
-  	case 62:
-  		res = &quot;Аварийный стоп по МН-1&quot;;
-  		break;
-  	case 63:
-  		res = &quot;Выход за диапазон значений Модуля ввода&quot;;
-  		break;
-  	case 64:
-  		res = &quot;Выход за диапазон датчиков МН-2&quot;;
-  		break;
-  	case 65:
-  		res = &quot;Ошибка управления выходами блока силового&quot;;
-  		break;
-  	case 66:
-  		res = &quot;Ошибка управления выходами КУЗ&quot;;
-  		break;
-  	case 67:
-  		res = &quot;Запрет налива по состоянию обоих мониторов (логика ИЛИ)&quot;;
-  		break;
-  	case 68:
-  		res = &quot;Останов по состоянию ДИО-5&quot;;
-  		break;
-  	case 69:
-  		res = &quot;Ошибка управления выходами КУН3&quot;;
-  		break;
-  	case 70:
-  		res = &quot;Останов по входу безопасности&quot;;
-  		break;
-  	case 71:
-  		res = &quot;Ошибка управления выходами КУД&quot;;
-  		break;
-  	case 73:
-  		res = &quot;Ошибка состояния ПЛОТ-3М&quot;;
-  		break;
-  	case 74:
-  		res = &quot;Ошибка данных ПЛОТ-3М&quot;;
-  		break;
-  	case 75:
-  		res = &quot;Аварийный стоп по МН-2 верхний налив&quot;;
-  		break;
-  	case 76:
-  		res = &quot;Аварийный стоп по МН-2 нижний налив&quot;;
-  		break;
-  	case 77:
-  		res = &quot;Ошибка управления выходами БУК&quot;;
-  		break;
-  	case 78:
-  		res = &quot;Авария КУНА(по датчикам насоса)&quot;;
-  		break;
-  	case 79:
-  		res = &quot;Выход за диапазон значений датчика безопасности&quot;;
-  		break;
-  	case 80:
-  		res = &quot;Выход за диапазон значений датчика загазованности&quot;;
-  		break;
-  	case 81:
-  		res = &quot;Выход за диапазон значений датчика заземления&quot;;
-  		break;
-  	case 82:
-  		res = &quot;Выход за диапазон значений датчика перелива&quot;;
-  		break;
-  	case 83:
-  		res = &quot;Выход за диапазон значений датчика рабочего положения&quot;;
-  		break;
-  	case 84:
-  		res = &quot;Выход за диапазон значений датчика гаражного&quot;;
-  		break;
-  	case 85:
-  		res = &quot;Выход за диапазон значений датчика гаражного&quot;;
-  		break;
-  	case 86:
-  		res = &quot;Выход за диапазон значений датчика аварийного стопа&quot;;
-  		break;
-  	case 87:
-  		res = &quot;Выход за диапазон значений датчика наклона стояка&quot;;
-  		break;
-  	case 89:
-  		res = &quot;Завершение слива&quot;;
-  		break;
-  	case 90:
-  		res = &quot;Выход за диапазон значений датчика уровня дренажного бачка верхнего уровня&quot;;
-  		break;
-  	case 91:
-  		res = &quot;Выход за диапазон значений датчика уровня дренажного бачка нижнего уровня&quot;;
-  		break;
-  	case 92:
-  		res = &quot;Превышен уровень охл. жидкости&quot;;
-  		break;
-  	case 93:
-  		res = &quot;Недостаточен уровень охл. жидкости&quot;;
-  		break;
-  	case 94:
-  		res = &quot;Выход за диапазон датчика микро расхода&quot;;
-  		break;
-  	case 95:
-  		res = &quot;Выход за диапазон датчика окончания налива&quot;;
-  		break;
-  	case 96:
-  		res = &quot;Останов по датчику окончания налива&quot;;
-  		break;
-  	default:
-  		res = &quot;НЕИЗВЕСТНАЯ ПРИЧИНА&quot;;
-  }
-  return res;
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
@@ -364,8 +88,10 @@ string stpToText(int stp){
                         DP + &quot;.cVolumeDose_oper&quot;,                              //14- объем дозы от оператора
                         DP + &quot;.cMassDose_oper&quot;,                                //15- Массовая доза от оператора
                         DP + &quot;.license_plate&quot;,                                 //16- гос.номер
-                        DP + &quot;.cPercentPrisadki&quot;                               //17- процент присадки
-                        );
+                        DP + &quot;.cPercentPrisadki&quot;,                              //17- процент присадки
+                        DP + &quot;.sStatusStop&quot;,                                   //18- причина останова
+                        DP + &quot;.xTotalMass&quot;,                                    //19- массовый сумматор
+                        DP + &quot;.xTotalValue&quot;);                                  //19- объемный сумматор
 
 }
 
@@ -479,6 +205,12 @@ void cbWorker(dyn_string dp, dyn_anytype val){
       // Mass Fact
       sdShowValue(&quot;txt1_mass&quot;, dp[13], val[13], 1, &quot;1&quot;, 0, &quot;&quot;);
       setValue(&quot;eu1_mass&quot;, &quot;text&quot;, dpGetUnit(dp[13]));
+      // Mass Summ
+      sdShowValue(&quot;sum_mass_txt&quot;, dp[19], val[19], 1, &quot;1&quot;, 0, &quot;&quot;);
+      setValue(&quot;sum_mass_eu&quot;, &quot;text&quot;, dpGetUnit(dp[19]));
+      // Vol Summ
+      sdShowValue(&quot;sum_vol_txt&quot;, dp[19], val[20], 1, &quot;1&quot;, 0, &quot;&quot;);
+      setValue(&quot;sum_vol_eu&quot;, &quot;text&quot;, dpGetUnit(dp[20]));
 
       sdShowValue(&quot;VolumeDose_oper&quot;, dp[14], val[14], 1, &quot;1&quot;, 0, &quot;&quot;);
       setValue(&quot;VolumeDose_oper_eu&quot;, &quot;text&quot;, dpGetUnit(dp[14]));
@@ -486,6 +218,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
       license_plate.text = &quot;Гос. номер: &quot; + val[16];
       sdShowValue(&quot;PercentPrisadki&quot;, dp[17], val[17], 1, &quot;1&quot;, 0, &quot;&quot;);
 
+      pst1_stp.text = stpToText(val[18]);
 
 
 }
@@ -514,7 +247,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">6.899999999999997 0 0 11.6 -2403.099999999999 -923.0000000000001</prop>
+    <prop name="Geometry">6.899999999999997 0 0 12.38 -2403.099999999999 -985.4000000000003</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">349 80</prop>
     <prop name="Size">51 51</prop>
@@ -542,7 +275,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 -70</prop>
+    <prop name="Geometry">1 0 0 1 -100 -7</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -570,7 +303,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.310344827586207 0 0 1 -2.275862068965516 32</prop>
+    <prop name="Geometry">1.310344827586207 0 0 1 -2.275862068965516 95</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">17 108</prop>
     <prop name="Size">146 21</prop>
@@ -598,7 +331,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.310344827586207 0 0 1 -2.275862068965516 12</prop>
+    <prop name="Geometry">1.310344827586207 0 0 1 -2.275862068965516 75</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">17 108</prop>
     <prop name="Size">146 21</prop>
@@ -626,7 +359,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.310344827586207 0 0 1 -2.275862068965509 -28</prop>
+    <prop name="Geometry">1.310344827586207 0 0 1 -2.275862068965509 35</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">17 108</prop>
     <prop name="Size">146 21</prop>
@@ -638,7 +371,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">489</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">25 145</prop>
+    <prop name="RefPoint">25 208</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -654,7 +387,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">25 145</prop>
+    <prop name="Location">25 208</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -673,7 +406,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">491</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">17.99999999999682 41.25524525540138</prop>
+    <prop name="RefPoint">12.00000000000047 43.00000000000001</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -687,8 +420,8 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">17.99999999999682 41.25524525540136</prop>
-    <prop name="Size">311 21</prop>
+    <prop name="Location">12.00000000000047 42.99999999999999</prop>
+    <prop name="Size">331 21</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
      <prop type="ENUM" name="alignment">132</prop>
@@ -699,7 +432,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">492</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">15 535</prop>
+    <prop name="RefPoint">12.00077215299837 81.07489619269938</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -713,7 +446,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">15 534.9999999999999</prop>
+    <prop name="Location">12.00077215299836 81.07489619269926</prop>
     <prop name="Size">331 41</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
@@ -740,7 +473,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.04387364041765 0 0 1 -5.878244961350902 392.9251038073006</prop>
+    <prop name="Geometry">1.04387364041765 0 0 1 -8.877472808352536 -61</prop>
     <prop name="Location">21.99999999999818 128.6141819069853</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -776,7 +509,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.076923076923075 0 0 1 -3.538461538462731 -58</prop>
+    <prop name="Geometry">1.076923076923075 0 0 1 -9.53846153846273 -58</prop>
     <prop name="Location">21.99999999999818 85.70716833232449</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -796,7 +529,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">501</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">218 75.5</prop>
+    <prop name="RefPoint">218 138.5</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -812,7 +545,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">218 75.5</prop>
+    <prop name="Location">218 138.5</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -848,7 +581,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.440569209719256 0 0 1.057174559912518 -501.0161372629393 -32.02242436983674</prop>
+    <prop name="Geometry">1.440569209719256 0 0 1.057174559912518 -501.0161372629393 31.97757563016326</prop>
     <prop name="Location">511.5151308953635 134.0262019247117</prop>
     <prop name="Size">50 12</prop>
     <prop name="Font">
@@ -886,7 +619,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.43478909346459 0 0 1 -245.0240736472526 -70</prop>
+    <prop name="Geometry">1.43478909346459 0 0 1 -245.0240736472526 -9</prop>
     <prop name="Location">335 200</prop>
     <prop name="Size">51 13</prop>
     <prop name="Font">
@@ -924,7 +657,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1.066666666666667 -20.49999999999977 -155.9000000000001</prop>
+    <prop name="Geometry">1 0 0 1.066666666666667 -20.49999999999977 -92.90000000000009</prop>
     <prop name="Location">255.9999999999991 218</prop>
     <prop name="Size">73 12</prop>
     <prop name="Font">
@@ -945,7 +678,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">510</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">235.6405937443165 94.86239390732445</prop>
+    <prop name="RefPoint">235.6405937443165 157.8623939073244</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -962,7 +695,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Location">235.6405937443165 94.86239390732445</prop>
+    <prop name="Location">235.6405937443165 157.8623939073244</prop>
     <prop name="Size">72 12</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -999,7 +732,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3602571700499697 0 0 1.0256732921736 274.3918150933883 64.15140500102963</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 1.0256732921736 274.3918150933883 128.1514050010296</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1037,7 +770,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3570353978010277 0 0 0.9867641455466143 274.8264982427593 86.63080737510383</prop>
+    <prop name="Geometry">0.3570353978010277 0 0 0.9867641455466143 274.8264982427593 147.6308073751038</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1075,7 +808,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3602571700499697 0 0 0.9762382195539127 274.3918150933882 33.65743419898506</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9762382195539127 274.3918150933882 96.65743419898506</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1113,7 +846,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3602571700499697 0 0 0.9223950611354861 274.3918150933882 54.35390837219389</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9223950611354861 274.3918150933882 117.3539083721939</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1160,7 +893,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">524</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">20 180</prop>
+    <prop name="RefPoint">20 286</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1176,7 +909,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">20 180</prop>
+    <prop name="Location">20 286</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -1195,7 +928,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">525</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">235 180</prop>
+    <prop name="RefPoint">235 286</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1212,7 +945,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Location">235 180</prop>
+    <prop name="Location">235 286</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1249,7 +982,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3602571700499697 0 0 0.9838880652111851 275.0353280735112 136.7747017035767</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9838880652111851 275.0353280735112 242.7747017035767</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1270,7 +1003,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">528</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">235 203.9472859130495</prop>
+    <prop name="RefPoint">235 309.9472859130495</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1287,7 +1020,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Location">235 203.9472859130495</prop>
+    <prop name="Location">235 309.9472859130495</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1324,7 +1057,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3548208350620476 0 0 0.9867641455466143 275.5777464196665 160.6044503316286</prop>
+    <prop name="Geometry">0.3548208350620476 0 0 0.9867641455466143 275.5777464196665 266.6044503316286</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1345,7 +1078,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">535</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">235.4999999999998 145.8571428571429</prop>
+    <prop name="RefPoint">235.4999999999998 209.8571428571429</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1362,7 +1095,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Location">235.4999999999998 145.8571428571429</prop>
+    <prop name="Location">235.4999999999998 209.8571428571429</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1399,7 +1132,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3602571700499697 0 0 0.9838880652111851 274.3918150933882 102.6318445607195</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9838880652111851 274.3918150933882 166.6318445607195</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -1420,7 +1153,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">554</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">25 125</prop>
+    <prop name="RefPoint">25 188</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1436,7 +1169,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">25 125</prop>
+    <prop name="Location">25 188</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -1455,7 +1188,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">556</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">25 85</prop>
+    <prop name="RefPoint">25 148</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1471,7 +1204,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">25 85</prop>
+    <prop name="Location">25 148</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -1490,7 +1223,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <properties>
     <prop name="serialId">568</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">20 465</prop>
+    <prop name="RefPoint">20 571</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -1504,7 +1237,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">20 455.5291479820626</prop>
+    <prop name="Location">20 561.5291479820626</prop>
     <prop name="Size">133 45</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1514,11 +1247,6 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-
-string Adr;
-Adr = DP + &quot;.сPrisadka&quot;;	   //Налив с присадкой
-dpSetWait(Adr, 1);
-
 }
 
 
@@ -1545,7 +1273,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.9016393442622951 0 0 0.2930402930402931 -284.344262295082 370.2380952380952</prop>
+    <prop name="Geometry">0.9016393442622951 0 0 0.2930402930402931 -284.344262295082 476.2380952380952</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Топливо с присадкой</prop>
@@ -1577,7 +1305,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.310344827586207 0 0 1 -2.275862068965523 -8</prop>
+    <prop name="Geometry">1.310344827586207 0 0 1 -2.275862068965523 55</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">17 108</prop>
     <prop name="Size">146 21</prop>
@@ -1589,7 +1317,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">557</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">25 105</prop>
+    <prop name="RefPoint">25 168</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1605,7 +1333,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">25 105</prop>
+    <prop name="Location">25 168</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -1640,7 +1368,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 -51.9973744749092</prop>
+    <prop name="Geometry">1 0 0 1 -100 11.0026255250908</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -1668,7 +1396,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 0.969088123997879 0.25 2.580133041136795</prop>
+    <prop name="Geometry">1 0 0 0.969088123997879 0.25 65.5801330411368</prop>
     <prop name="Location">216.5 94.09202870010263</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
@@ -1704,7 +1432,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 -37.03272325792744</prop>
+    <prop name="Geometry">1 0 0 1 -100 26.96727674207256</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -1716,7 +1444,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">613</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">218.75 108.3226427873161</prop>
+    <prop name="RefPoint">218.75 172.3226427873161</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1732,7 +1460,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">218.75 108.3226427873161</prop>
+    <prop name="Location">218.75 172.3226427873161</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -1767,7 +1495,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 -16.5</prop>
+    <prop name="Geometry">1 0 0 1 -100 44.5</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -1779,7 +1507,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">615</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">218.25 128.8154754202405</prop>
+    <prop name="RefPoint">218.25 189.8154754202405</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1795,7 +1523,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">218.25 128.8154754202405</prop>
+    <prop name="Location">218.25 189.8154754202405</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -1830,7 +1558,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 -0.6428571428571388</prop>
+    <prop name="Geometry">1 0 0 1 -100 63.35714285714286</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -1842,7 +1570,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">617</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">218.75 144.9821428571429</prop>
+    <prop name="RefPoint">218.75 208.9821428571429</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1858,7 +1586,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">218.75 144.9821428571429</prop>
+    <prop name="Location">218.75 208.9821428571429</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -1877,7 +1605,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">618</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">230 325</prop>
+    <prop name="RefPoint">230 431</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Red</prop>
@@ -1891,7 +1619,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">229.9999999999994 318.1428571428571</prop>
+    <prop name="Location">229.9999999999994 424.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1901,9 +1629,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string Adr;
-  Adr = DP + &quot;.sStatusPosta&quot;;
-  dpSetWait(Adr, 0);
 }
 
 
@@ -1914,7 +1639,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">619</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">60 250</prop>
+    <prop name="RefPoint">60 356</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Blue</prop>
@@ -1928,7 +1653,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">59.99999999999942 243.1428571428571</prop>
+    <prop name="Location">59.99999999999942 349.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1938,9 +1663,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string Adr;
-  Adr = DP + &quot;.cCommand&quot;;
-  dpSetWait(Adr, 0x10);
 }
 
 
@@ -1951,7 +1673,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">620</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">210 250</prop>
+    <prop name="RefPoint">210 356</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Blue</prop>
@@ -1965,7 +1687,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">209.9999999999994 243.1428571428571</prop>
+    <prop name="Location">209.9999999999994 349.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1975,9 +1697,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string Adr;
-  Adr = DP + &quot;.cCommand&quot;;
-  dpSetWait(Adr, 0x00);
 }
 
 
@@ -1988,7 +1707,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">621</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">60 285</prop>
+    <prop name="RefPoint">60 391</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Blue</prop>
@@ -2002,7 +1721,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">59.99999999999942 278.1428571428571</prop>
+    <prop name="Location">59.99999999999942 384.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -2012,9 +1731,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string Adr;
-  Adr = DP + &quot;.cCommand&quot;;
-  dpSetWait(Adr, 0x30);
 }
 
 
@@ -2025,7 +1741,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">622</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">210 285</prop>
+    <prop name="RefPoint">210 391</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Blue</prop>
@@ -2039,7 +1755,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">209.9999999999994 278.1428571428571</prop>
+    <prop name="Location">209.9999999999994 384.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -2049,9 +1765,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string Adr;
-  Adr = DP + &quot;.cCommand&quot;;
-  dpSetWait(Adr, 0x40);
 }
 
 
@@ -2078,7 +1791,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1.162162162162162 -295 196.4864864864865</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 -295 302.4864864864865</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -2106,7 +1819,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.162162162162162 -15 -152.1621621621622</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 -15 -46.16216216216219</prop>
     <prop name="Location">38 445.5</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
@@ -2143,7 +1856,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3602571700499697 0 0 1.267685312544913 80.03532807351127 311.1692973388783</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 1.267685312544913 80.03532807351127 417.1692973388783</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -2164,7 +1877,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">627</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">40 369.7168269769937</prop>
+    <prop name="RefPoint">40 475.7168269769937</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2178,7 +1891,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">39.99999999999999 364.7567567567567</prop>
+    <prop name="Location">39.99999999999999 470.7567567567567</prop>
     <prop name="Size">73 20</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Editable">True</prop>
@@ -2187,11 +1900,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
 {
-  string Adr;
-  int VolumeDose_op;
-  Adr = DP + &quot;.cVolumeDose_oper&quot;;
-  VolumeDose_op = VolumeDose_oper.text;
-  dpSetWait(Adr, VolumeDose_op);
 }
 ]]></script>
    </events>
@@ -2216,7 +1924,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.267326732673267 0 0 1 -197.3762376237623 -324</prop>
+    <prop name="Geometry">3.267326732673267 0 0 1 -197.3762376237623 -218</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Задание на налив</prop>
@@ -2248,7 +1956,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 0.9684684684684685 -100 38.30855855855856</prop>
+    <prop name="Geometry">1 0 0 0.9684684684684685 -100 144.3085585585586</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -2276,7 +1984,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.162162162162162 180 -340.1689189189188</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 180 -234.1689189189188</prop>
     <prop name="Location">38 445.5</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
@@ -2312,7 +2020,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -100 57.47364295652475</prop>
+    <prop name="Geometry">1 0 0 1 -100 163.4736429565247</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -2324,7 +2032,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">632</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">216.5 203.0722859130495</prop>
+    <prop name="RefPoint">216.5 309.0722859130495</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2340,7 +2048,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">216.5 203.0722859130495</prop>
+    <prop name="Location">216.5 309.0722859130495</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -2359,7 +2067,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">633</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">20 205</prop>
+    <prop name="RefPoint">20 311</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2375,7 +2083,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">20 205</prop>
+    <prop name="Location">20 311</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
     </prop>
@@ -2410,7 +2118,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.267326732673267 0 0 1.525423728813559 -197.3762376237623 -520.9322033898304</prop>
+    <prop name="Geometry">3.267326732673267 0 0 1.525423728813559 -197.3762376237623 -414.9322033898304</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Управление постом</prop>
@@ -2426,7 +2134,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">635</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">205 465</prop>
+    <prop name="RefPoint">205 571</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -2440,7 +2148,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">205 456.1336072905281</prop>
+    <prop name="Location">205 562.1336072905281</prop>
     <prop name="Size">133 45</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -2450,9 +2158,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string Adr;
-  Adr = DP + &quot;.сPrisadka&quot;;	   //Налив с присадкой
-  dpSetWait(Adr, 0);
 }
 
 
@@ -2479,7 +2184,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.267326732673267 0 0 1.694915254237288 -197.3762376237624 -763.8135593220338</prop>
+    <prop name="Geometry">3.267326732673267 0 0 1.694915254237288 -197.3762376237624 -700.8135593220338</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Состояние налива</prop>
@@ -2511,7 +2216,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.267326732673267 0 0 1.525423728813559 -197.3762376237623 -400.9322033898304</prop>
+    <prop name="Geometry">3.267326732673267 0 0 1.525423728813559 -197.3762376237623 -294.9322033898304</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Ручное задание</prop>
@@ -2527,7 +2232,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">640</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">225 365</prop>
+    <prop name="RefPoint">225 471</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Blue</prop>
@@ -2541,7 +2246,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">224.9999999999994 358.1428571428571</prop>
+    <prop name="Location">224.9999999999994 464.1428571428571</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -2551,12 +2256,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string Adr;
-  int x;
-  Adr = DP + &quot;.cVolumeDose_oper&quot;;
-  dpGet(Adr,x);
-  Adr = DP + &quot;.cVolumeDose&quot;;
-  dpSetWait(Adr, x);
 }
 
 
@@ -2583,7 +2282,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1.162162162162162 -295 231.4864864864865</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 -295 337.4864864864865</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">330 145</prop>
     <prop name="Size">-16 16</prop>
@@ -2611,7 +2310,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.162162162162162 -15 -117.1621621621622</prop>
+    <prop name="Geometry">1 0 0 1.162162162162162 -15 -11.1621621621622</prop>
     <prop name="Location">38 445.5</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
@@ -2648,7 +2347,7 @@ dpSetWait(Adr, 1);
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3602571700499697 0 0 1.267685312544913 80.03532807351127 346.1692973388783</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 1.267685312544913 80.03532807351127 452.1692973388783</prop>
     <prop name="Location">98.84101654846344 44.06280193236713</prop>
     <prop name="Size">73 13</prop>
     <prop name="Font">
@@ -2669,7 +2368,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">644</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">40 404.7168269769937</prop>
+    <prop name="RefPoint">40 510.7168269769937</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2683,7 +2382,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">39.99999999999999 399.7567567567567</prop>
+    <prop name="Location">39.99999999999999 505.7567567567567</prop>
     <prop name="Size">73 20</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Editable">True</prop>
@@ -2692,12 +2391,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
 {
-//   string Adr;
-//   int VolumeDose_op;
-//   Adr = DP + &quot;.cVolumeDose_oper&quot;;
-//   VolumeDose_op = VolumeDose_oper.text;
-//   dpSetWait(Adr, VolumeDose_op);
-
 }
 ]]></script>
    </events>
@@ -2706,7 +2399,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">645</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">225 400</prop>
+    <prop name="RefPoint">225 506</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">Blue</prop>
@@ -2720,7 +2413,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">224.9999999999994 393.1428571428571</prop>
+    <prop name="Location">224.9999999999994 499.1428571428572</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -2730,12 +2423,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-//   string Adr;
-//   int x;
-//   Adr = DP + &quot;.cVolumeDose_oper&quot;;
-//   dpGet(x,Adr);
-//   Adr = DP + &quot;.cVolumeDose&quot;;
-//   dpSetWait(Adr, x);
 }
 
 
@@ -2746,7 +2433,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">647</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">155 475</prop>
+    <prop name="RefPoint">155 581</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2760,7 +2447,7 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">155 470.0399297797628</prop>
+    <prop name="Location">155 576.0399297797628</prop>
     <prop name="Size">46 20</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Editable">True</prop>
@@ -2769,16 +2456,6 @@ dpSetWait(Adr, 1);
    <events>
     <script name="Command" isEscaped="1"><![CDATA[main()
 {
-  string Adr;
-  float VolumeDose_op;
-  Adr = DP + &quot;.cPercentPrisadki&quot;;
-  VolumeDose_op = PercentPrisadki.text;
-  if((VolumeDose_op&gt;0) &amp; (VolumeDose_op&lt;100)){
-    dpSetWait(Adr, VolumeDose_op);
-  }else{
-    dpGet(Adr, VolumeDose_op);
-    PercentPrisadki.text(0.0);
-  }
 }
 ]]></script>
    </events>
@@ -2787,7 +2464,7 @@ dpSetWait(Adr, 1);
    <properties>
     <prop name="serialId">649</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">17 393</prop>
+    <prop name="RefPoint">17 499</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2801,10 +2478,352 @@ dpSetWait(Adr, 1);
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">17 392.9999999999999</prop>
+    <prop name="Location">17 498.9999999999998</prop>
     <prop name="Size">321 34</prop>
     <prop name="ObjectType">BackgroundCover.ewo</prop>
    </properties>
   </shape>
+  <shape Name="sum_mass_txt" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">651</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60.28676058823555 250.4</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="HoverForeCol">black</prop>
+    <prop name="TabOrder">464</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Location">60.28676058823555 250.4</prop>
+    <prop name="Size">73 14</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">####.##</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="sum_mass_eu" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">652</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">98.84101654846344 44.06280193236713</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="HoverForeCol">black</prop>
+    <prop name="TabOrder">465</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9838880652111851 99.28838783848636 207.2461302750052</prop>
+    <prop name="Location">98.84101654846344 44.06280193236713</prop>
+    <prop name="Size">73 13</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">EUEU</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE15" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">653</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">330 145</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">466</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1.062899423731009 -274.8499999999999 94.32998806509693</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">330 145</prop>
+    <prop name="Size">-16 16</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT266" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">654</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">34.6500000000002 247.4625</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">467</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 0.8486167900548822 12.99999999999989 46.94378796282368</prop>
+    <prop name="Location">34.6500000000002 247.4625</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">M</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="sum_vol_txt" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">655</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">206.8409694163018 250.4</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="HoverForeCol">black</prop>
+    <prop name="TabOrder">468</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Location">206.8409694163018 250.4</prop>
+    <prop name="Size">72 14</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">####.##</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="sum_vol_eu" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">656</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">98.84101654846344 44.06280193236713</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="HoverForeCol">black</prop>
+    <prop name="TabOrder">469</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.3602571700499697 0 0 0.9838880652111851 245.7327845096902 207.2461302750052</prop>
+    <prop name="Location">98.84101654846344 44.06280193236713</prop>
+    <prop name="Size">73 13</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">EUEU</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE16" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">657</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">330 145</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">470</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1.066666666666667 -127.2797202388704 93.8047619047619</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">330 145</prop>
+    <prop name="Size">-16 16</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT269" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">658</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">206.1500000000001 249.4625</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">471</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.190539539911989 0 0 0.8469370135959765 -50.03086546074027 45.58411218603035</prop>
+    <prop name="Location">206.1500000000001 249.4625</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Calibri,-1,13,5,50,0,0,0,0,0,Regular</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">V</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="FRAME6" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">659</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">65 489</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">472</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">3.267326732673267 0 0 0.6779661016949159 -197.3762376237623 -100.5254237288138</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Сумматоры</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">65 489</prop>
+    <prop name="Size">102 60</prop>
+   </properties>
+  </shape>
  </shapes>
+ <groups>
+  <group parentSerial="1" Name="SHAPE_GROUP1" serial="0">
+   <properties>
+    <prop name="shapeSerial">653</prop>
+    <prop name="shapeSerial">654</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="SHAPE_GROUP2" serial="1">
+   <properties>
+    <prop name="shapeSerial">651</prop>
+    <prop name="shapeSerial">652</prop>
+    <prop name="groupSerial">0</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="3" Name="SHAPE_GROUP3" serial="2">
+   <properties>
+    <prop name="shapeSerial">657</prop>
+    <prop name="shapeSerial">658</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="SHAPE_GROUP4" serial="3">
+   <properties>
+    <prop name="shapeSerial">655</prop>
+    <prop name="shapeSerial">656</prop>
+    <prop name="groupSerial">2</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+ </groups>
 </panel>

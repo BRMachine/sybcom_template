@@ -274,7 +274,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_06.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_06.png]]</prop>
     <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
@@ -300,7 +300,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_07.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_07.png]]</prop>
     <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
@@ -326,7 +326,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_00.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_00.png]]</prop>
     <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
@@ -352,7 +352,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_01.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_01.png]]</prop>
     <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
@@ -378,7 +378,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_02.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_02.png]]</prop>
     <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
@@ -404,7 +404,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_03.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_03.png]]</prop>
     <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
@@ -430,7 +430,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_04.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_04.png]]</prop>
     <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
@@ -456,7 +456,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ASN_05.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_05.png]]</prop>
     <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
@@ -508,32 +508,32 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
      case 1:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно управления поста &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_management.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
       break;
     case 4:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно параметров поста &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_params.pnl&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_params.pnl&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
       break;
     case 5:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно состояния датчиков поста &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_sensors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_sensors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
       break;
     case 6:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно состояния выходов поста  &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_outs.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_outs.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
       break;
     case 7:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно ошибок поста  &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_errors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_errors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
       break;
     case 3:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно настроек поста  &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN_PARTS\\ASN_config.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_config.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
       break;
     case 2:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
