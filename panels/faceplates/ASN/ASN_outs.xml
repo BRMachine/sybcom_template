@@ -16,26 +16,23 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics.ctl&quot;
 const string DP = $dp;
-const string NumberPost = $NumberPost;]]></script>
+]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
-  const string DP = $dp;
-const string NumberPost = $NumberPost;
-  string PST = NumberPost;
   string Adr;
-  Adr = DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.cOnRead_ds&quot;;
-dpSet(Adr,1);
+  Adr = DP + &quot;.Out_Control.cOnRead_ds&quot;;
+  dpSet(Adr,1);
 
-  dpConnect(&quot;cbWorker&quot;, DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsKUN&quot;,               //1- Состояние КУНы
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsKUZ&quot;,               //2- Состояние КУЗ
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsPumpStarter&quot;,       //3- Пускатель насоса
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsAirVlv&quot;,            //4- Воздушный клапан
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsGreenSignal&quot;,       //5- Зеленый сигнал для светофора
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsRedSignal&quot;,         //6- Красный сигнал для светофора
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsMinFlowVlv&quot;,        //7- Клапан минимального расхода
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsMaxFlowVlv&quot;,        //8- Клапан максимального расхода
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsPumpVlv&quot;,           //9- Насос клапана
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Out_Control.dsBarrier&quot;            //10- Блок управления шлагбаумом
+  dpConnect(&quot;cbWorker&quot;, DP + &quot;.Out_Control.dsKUN&quot;,               //1- Состояние КУНы
+                        DP + &quot;.Out_Control.dsKUZ&quot;,               //2- Состояние КУЗ
+                        DP + &quot;.Out_Control.dsPumpStarter&quot;,       //3- Пускатель насоса
+                        DP + &quot;.Out_Control.dsAirVlv&quot;,            //4- Воздушный клапан
+                        DP + &quot;.Out_Control.dsGreenSignal&quot;,       //5- Зеленый сигнал для светофора
+                        DP + &quot;.Out_Control.dsRedSignal&quot;,         //6- Красный сигнал для светофора
+                        DP + &quot;.Out_Control.dsMinFlowVlv&quot;,        //7- Клапан минимального расхода
+                        DP + &quot;.Out_Control.dsMaxFlowVlv&quot;,        //8- Клапан максимального расхода
+                        DP + &quot;.Out_Control.dsPumpVlv&quot;,           //9- Насос клапана
+                        DP + &quot;.Out_Control.dsBarrier&quot;            //10- Блок управления шлагбаумом
                         );
 }
 

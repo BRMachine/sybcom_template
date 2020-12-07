@@ -23,12 +23,279 @@ const string DP = $dp;
 }*/
 
 string stsToText(int sts){
+  string res;
+  switch(sts){
+    case 0x00:
+      res = &quot;Ожидание&quot;;
+      break;
+    case 0x10:
+      res = &quot;Разрешение налива&quot;;
+      break;
+    case 0x20:
+      res = &quot;Налив&quot;;
+      break;
+    case 0x30:
+      res = &quot;Пауза&quot;;
+      break;
+    case 0x40:
+      res = &quot;Продолжение&quot;;
+      break;
+    case 0x60:
+      res = &quot;Ошибка&quot;;
+      break;
+    case 0x80:
+      res = &quot;Не активный&quot;;
+      break;
+    default:
+      res = &quot;Неизвестно&quot;;
+  }
+  return res;
 }
 
 string stsToColor(int sts){
+  string res;
+  switch(sts){
+    case 0x00:
+      res = &quot;Yellow&quot;;
+      break;
+    case 0x10:
+      res = &quot;Yellow&quot;;
+      break;
+    case 0x20:
+      res = &quot;Green&quot;;
+      break;
+    case 0x30:
+      res = &quot;Yellow&quot;;
+      break;
+    case 0x40:
+      res = &quot;Green&quot;;
+      break;
+    case 0x60:
+      res = &quot;Red&quot;;
+      break;
+    case 0x80:
+      res = &quot;Red&quot;;
+      break;
+    default:
+      res = &quot;Red&quot;;
+  }
+  return res;
 }
 
 string stpToText(int stp){
+  string res = &quot;UNKNOW&quot;;
+  switch(stp){
+  	case 0:
+  		res = &quot;Останова нет&quot;;
+  		break;
+  	case 1:
+  		res = &quot;Сработал датчик перелива&quot;;
+  		break;
+  	case 2:
+  		res = &quot;Сработал датчик перелива 2&quot;;
+  		break;
+  	case 3:
+  		res = &quot;Отключилось заземление&quot;;
+  		break;
+  	case 4:
+  		res = &quot;Наконечник не в рабочем положении&quot;;
+  		break;
+  	case 5:
+  		res = &quot;Стояк в гаражном положении&quot;;
+  		break;
+  	case 6:
+  		res = &quot;Трап в гаражном положении&quot;;
+  		break;
+  	case 7:
+  		res = &quot;Сработал датчик загрязненности фильтра&quot;;
+  		break;
+  	case 8:
+  		res = &quot;Останов по кнопке пуск/стоп&quot;;
+  		break;
+  	case 9:
+  		res = &quot;Сработал датчик загазованности&quot;;
+  		break;
+  	case 10:
+  		res = &quot;Отсутствие потока жидкости&quot;;
+  		break;
+  	case 11:
+  		res = &quot;Переход в паузу по завершению дозы по объему&quot;;
+  		break;
+  	case 12:
+  		res = &quot;Переход в паузу по завершению дозы по массе&quot;;
+  		break;
+  	case 13:
+  		res = &quot;Нерабочее положение уклона стояка&quot;;
+  		break;
+  	case 14:
+  		res = &quot;Сработал внешний датчик запрета налива&quot;;
+  		break;
+  	case 15:
+  		res = &quot;Закрыта задвижка&quot;;
+  		break;
+  	case 16:
+  		res = &quot;Возникновение ошибки в посте&quot;;
+  		break;
+  	case 17:
+  		res = &quot;Останов по команде с компьютера&quot;;
+  		break;
+  	case 18:
+  		res = &quot;Переход в паузу по завершению времени налива&quot;;
+  		break;
+  	case 19:
+  		res = &quot;Переход в паузу по датчику угла&quot;;
+  		break;
+    case 20:
+    res = &quot;Коррекция нуля в массомере&quot;;
+    break;
+  	case 31:
+  		res = &quot;Неизвестная причина останова&quot;;
+  		break;
+  	case 50:
+  		res = &quot;Переход в паузу по завершению дозы по стоимости&quot;;
+  		break;
+  	case 51:
+  		res = &quot;Отключилось заземление&quot;;
+  		break;
+  	case 52:
+  		res = &quot;Останов по кнопке Аварийный стоп&quot;;
+  		break;
+  	case 53:
+  		res = &quot;Аварийный стоп по датчикам КУНА&quot;;
+  		break;
+  	case 54:
+  		res = &quot;Аварийный стоп по МН-2&quot;;
+  		break;
+  	case 55:
+  		res = &quot;Ожидание сброса объема в расходомере&quot;;
+  		break;
+  	case 56:
+  		res = &quot;Ожидание сброса массы в расходомере&quot;;
+  		break;
+  	case 57:
+  		res = &quot;Доза объема меньше упреждения отсечки клапана&quot;;
+  		break;
+  	case 58:
+  		res = &quot;Доза массы меньше упреждения отсечки клапана&quot;;
+  		break;
+  	case 72:
+  		res = &quot;Не задана ни одна из доз&quot;;
+  		break;
+  	case 88:
+  		res = &quot;Ожидание записи переменных&quot;;
+  		break;
+  	case 59:
+  		res = &quot;Останов по УЗ датчику уровня&quot;;
+  		break;
+  	case 60:
+  		res = &quot;Низкий уровень в емкости присадки&quot;;
+  		break;
+  	case 61:
+  		res = &quot;Ошибка состояния внешнего устройства&quot;;
+  		break;
+  	case 62:
+  		res = &quot;Аварийный стоп по МН-1&quot;;
+  		break;
+  	case 63:
+  		res = &quot;Выход за диапазон значений Модуля ввода&quot;;
+  		break;
+  	case 64:
+  		res = &quot;Выход за диапазон датчиков МН-2&quot;;
+  		break;
+  	case 65:
+  		res = &quot;Ошибка управления выходами блока силового&quot;;
+  		break;
+  	case 66:
+  		res = &quot;Ошибка управления выходами КУЗ&quot;;
+  		break;
+  	case 67:
+  		res = &quot;Запрет налива по состоянию обоих мониторов (логика ИЛИ)&quot;;
+  		break;
+  	case 68:
+  		res = &quot;Останов по состоянию ДИО-5&quot;;
+  		break;
+  	case 69:
+  		res = &quot;Ошибка управления выходами КУН3&quot;;
+  		break;
+  	case 70:
+  		res = &quot;Останов по входу безопасности&quot;;
+  		break;
+  	case 71:
+  		res = &quot;Ошибка управления выходами КУД&quot;;
+  		break;
+  	case 73:
+  		res = &quot;Ошибка состояния ПЛОТ-3М&quot;;
+  		break;
+  	case 74:
+  		res = &quot;Ошибка данных ПЛОТ-3М&quot;;
+  		break;
+  	case 75:
+  		res = &quot;Аварийный стоп по МН-2 верхний налив&quot;;
+  		break;
+  	case 76:
+  		res = &quot;Аварийный стоп по МН-2 нижний налив&quot;;
+  		break;
+  	case 77:
+  		res = &quot;Ошибка управления выходами БУК&quot;;
+  		break;
+  	case 78:
+  		res = &quot;Авария КУНА(по датчикам насоса)&quot;;
+  		break;
+  	case 79:
+  		res = &quot;Выход за диапазон значений датчика безопасности&quot;;
+  		break;
+  	case 80:
+  		res = &quot;Выход за диапазон значений датчика загазованности&quot;;
+  		break;
+  	case 81:
+  		res = &quot;Выход за диапазон значений датчика заземления&quot;;
+  		break;
+  	case 82:
+  		res = &quot;Выход за диапазон значений датчика перелива&quot;;
+  		break;
+  	case 83:
+  		res = &quot;Выход за диапазон значений датчика рабочего положения&quot;;
+  		break;
+  	case 84:
+  		res = &quot;Выход за диапазон значений датчика гаражного&quot;;
+  		break;
+  	case 85:
+  		res = &quot;Выход за диапазон значений датчика гаражного&quot;;
+  		break;
+  	case 86:
+  		res = &quot;Выход за диапазон значений датчика аварийного стопа&quot;;
+  		break;
+  	case 87:
+  		res = &quot;Выход за диапазон значений датчика наклона стояка&quot;;
+  		break;
+  	case 89:
+  		res = &quot;Завершение слива&quot;;
+  		break;
+  	case 90:
+  		res = &quot;Выход за диапазон значений датчика уровня дренажного бачка верхнего уровня&quot;;
+  		break;
+  	case 91:
+  		res = &quot;Выход за диапазон значений датчика уровня дренажного бачка нижнего уровня&quot;;
+  		break;
+  	case 92:
+  		res = &quot;Превышен уровень охл. жидкости&quot;;
+  		break;
+  	case 93:
+  		res = &quot;Недостаточен уровень охл. жидкости&quot;;
+  		break;
+  	case 94:
+  		res = &quot;Выход за диапазон датчика микро расхода&quot;;
+  		break;
+  	case 95:
+  		res = &quot;Выход за диапазон датчика окончания налива&quot;;
+  		break;
+  	case 96:
+  		res = &quot;Останов по датчику окончания налива&quot;;
+  		break;
+  	default:
+  		res = &quot;НЕИЗВЕСТНАЯ ПРИЧИНА&quot;;
+  }
+  return res;
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
@@ -1247,6 +1514,9 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
+  string Adr;
+  Adr = DP + &quot;.сPrisadka&quot;;	   //Налив с присадкой
+  dpSetWait(Adr, 1);
 }
 
 
@@ -1629,6 +1899,9 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
+  string Adr;
+  Adr = DP + &quot;.sStatusPosta&quot;;
+  dpSetWait(Adr, 0);
 }
 
 
@@ -1663,6 +1936,9 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
+  string Adr;
+  Adr = DP + &quot;.cCommand&quot;;
+  dpSetWait(Adr, 0x10);
 }
 
 
@@ -1697,6 +1973,9 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
+  string Adr;
+  Adr = DP + &quot;.cCommand&quot;;
+  dpSetWait(Adr, 0x00);
 }
 
 
@@ -1731,6 +2010,9 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
+  string Adr;
+  Adr = DP + &quot;.cCommand&quot;;
+  dpSetWait(Adr, 0x30);
 }
 
 
@@ -1765,6 +2047,9 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
+  string Adr;
+  Adr = DP + &quot;.cCommand&quot;;
+  dpSetWait(Adr, 0x40);
 }
 
 
@@ -1900,6 +2185,11 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
 {
+  string Adr;
+  int VolumeDose_op;
+  Adr = DP + &quot;.cVolumeDose_oper&quot;;
+  VolumeDose_op = VolumeDose_oper.text;
+  dpSetWait(Adr, VolumeDose_op);
 }
 ]]></script>
    </events>
@@ -2158,6 +2448,9 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
+  string Adr;
+  Adr = DP + &quot;.сPrisadka&quot;;	   //Налив с присадкой
+  dpSetWait(Adr, 0);
 }
 
 
@@ -2256,6 +2549,12 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
+  string Adr;
+  int x;
+  Adr = DP + &quot;.cVolumeDose_oper&quot;;
+  dpGet(Adr,x);
+  Adr = DP + &quot;.cVolumeDose&quot;;
+  dpSetWait(Adr, x);
 }
 
 
@@ -2456,6 +2755,16 @@ void cbWorker(dyn_string dp, dyn_anytype val){
    <events>
     <script name="Command" isEscaped="1"><![CDATA[main()
 {
+  string Adr;
+  float VolumeDose_op;
+  Adr = DP + &quot;.cPercentPrisadki&quot;;
+  VolumeDose_op = PercentPrisadki.text;
+  if((VolumeDose_op&gt;0) &amp; (VolumeDose_op&lt;100)){
+    dpSetWait(Adr, VolumeDose_op);
+  }else{
+    dpGet(Adr, VolumeDose_op);
+    PercentPrisadki.text(0.0);
+  }
 }
 ]]></script>
    </events>

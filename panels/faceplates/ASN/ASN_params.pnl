@@ -16,27 +16,23 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics.ctl&quot;
 const string DP = $dp;
-const string NumberPost = $NumberPost;
 
 
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
-
-  const string DP = $dp;
-  const string NumberPost = $NumberPost;
-  dpConnect(&quot;cbWorker&quot;, DP + &quot;.Post&quot; + NumberPost + &quot;.xMassFlow&quot;,                                     //1-  массовый расход+
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xPressure&quot;,                                     //2-  давление+
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xTemperature&quot;,                                  //3-  температура+
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xAverageTemperature&quot;,                           //4-  средняя температура+
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xDensity&quot;,                                      //5-  плотность
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xAverageDensity&quot;,                               //6-  средняя плотность
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xTotalValue&quot;,                                   //7-  общий объём
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xTotalMass&quot;,                                    //8-  общая масса
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xTotalMassDifference&quot;,                          //9-  Накопленная разница массы
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xTotalVolumeDifference&quot;,                        //10- Накопленная разница объема
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.xVolumeFlow&quot;,                                   //11- Объемный расход
-                         DP + &quot;.Post&quot; + NumberPost + &quot;.xSensorLevelUZ&quot;                                //12- Уровень от УЗ датчика
+  dpConnect(&quot;cbWorker&quot;, DP + &quot;.xMassFlow&quot;,                                     //1-  массовый расход+
+                        DP + &quot;.xPressure&quot;,                                     //2-  давление+
+                        DP + &quot;.xTemperature&quot;,                                  //3-  температура+
+                        DP + &quot;.xAverageTemperature&quot;,                           //4-  средняя температура+
+                        DP + &quot;.xDensity&quot;,                                      //5-  плотность
+                        DP + &quot;.xAverageDensity&quot;,                               //6-  средняя плотность
+                        DP + &quot;.xTotalValue&quot;,                                   //7-  общий объём
+                        DP + &quot;.xTotalMass&quot;,                                    //8-  общая масса
+                        DP + &quot;.xTotalMassDifference&quot;,                          //9-  Накопленная разница массы
+                        DP + &quot;.xTotalVolumeDifference&quot;,                        //10- Накопленная разница объема
+                        DP + &quot;.xVolumeFlow&quot;,                                   //11- Объемный расход
+                        DP + &quot;.xSensorLevelUZ&quot;                                 //12- Уровень от УЗ датчика
 						            );
 
 }
