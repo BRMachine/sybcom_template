@@ -342,7 +342,7 @@ string stpToText(int stp){
   dpConnect(&quot;cbWorker&quot;, DP + &quot;.xAverageTemperature&quot;,                           //1-  средняя температура+
                         DP + &quot;.xAverageDensity&quot;,                               //2-  средняя плотность+
                         DP + &quot;.sStatusPosta&quot;,                                  //3-  статус поста
-                        DP + &quot;.cVolumeDose&quot;,                                   //4-  объем дозы
+                        DP + &quot;.xVolumeDose&quot;,                                   //4-  объем дозы
                         DP + &quot;.xVolumeFlow&quot;,                                   //5-  Объемный расход
                         DP + &quot;.xMassDose&quot;,                                     //6-  Массовая доза
                         DP + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //7-  Датчик трапа
