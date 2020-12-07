@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">120 69</prop>
+  <prop name="Size">153 85</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">40 23</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -28,7 +28,7 @@ public void setFp_win(bool a){
     btn_fp.visible(a);
   }
 */
-void cbWorker(dyn_string dp, dyn_int val){
+void cbWorker(dyn_string dp, dyn_anytype val){
   ASN_00.visible(val[1]==0x00);
   ASN_01.visible(val[1]==0x10);
   ASN_02.visible(val[1]==0x20);
@@ -45,9 +45,26 @@ void cbWorker(dyn_string dp, dyn_int val){
   ASN_06.visible(val[1]==32);
   ASN_07.visible(val[1]==64);
   Zadanie.text(val[2]);
-  Prisadka.visible(val[3]==1);
-}
+  sdShowValue(&quot;Tekuchaya&quot;, dp[4], val[4], 2, &quot;9.12&quot;, 2, &quot;м3/ч&quot;);
+  switch(val[5]){
+    case 1:
+      gnd_gr.visible(true);
+      gnd_ok.visible(false);
+      break;
+    case 2:
+      gnd_gr.visible(false);
+      gnd_ok.visible(true);
+      break;
+    default:
+      gnd_gr.visible(false);
+      gnd_ok.visible(false);
+      break;
+  }
+//   Tekuchaya.text(val[4]);
+  Prisadka.visible(val[3]);
 
+//   Zadanie.visible(false);
+}
 
 /*void cbAlarm(dyn_string dp, dyn_string color){
     bool alarm = false;
@@ -75,39 +92,48 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
-  string type;
+  Zadanie.visible(false);
+  string type, tColor;
   int type_int;
 //   dpGet(ASN + &quot;.Post&quot; + POST + &quot;.Type_NP&quot;,type_int);
   dpGet(POST + &quot;.Type_NP&quot;, type_int);
   switch(type_int){
     case 0:
-      type = &quot;АИ-92&quot;;
-      Prisadka.text(&quot;&quot;);
+      type = &quot;92&quot;;
+      tColor = &quot;AI92&quot;;
+      Prisadka.text(&quot;G-Drive&quot;);
       break;
     case 1:
-      type = &quot;АИ-95&quot;;
+      type = &quot;95&quot;;
+      tColor = &quot;AI95&quot;;
       Prisadka.text(&quot;G-Drive&quot;);
       break;
     case 2:
-      type = &quot;АИ-98&quot;;
+      type = &quot;98&quot;;
+      tColor = &quot;AI98&quot;;
       Prisadka.text(&quot;G-Drive&quot;);
       break;
     case 3:
-      type = &quot;АИ-100&quot;;
+      type = &quot;100&quot;;
+      tColor = &quot;AI100&quot;;
       Prisadka.text(&quot;G-Drive&quot;);
       break;
     case 4:
       type = &quot;ДТ&quot;;
+      tColor = &quot;DT&quot;;
       Prisadka.text(&quot;Opti&quot;);
       break;
     default:
       type = &quot;---&quot;;
   }
   type_np.text(type);
+  type_np.backCol(tColor);
   Post_num.text = &quot;Пост №&quot; + strltrim( dpSubStr(POST, DPSUB_DP), &quot;Post_&quot;);
   dpConnect(&quot;cbWorker&quot;, POST + &quot;.sStatusPosta&quot;,
                         POST + &quot;.cVolumeDose&quot;,
-                        POST + &quot;.сPrisadka&quot;);
+                        POST + &quot;.сPrisadka&quot;,
+                        POST + &quot;.xVolumeFlow&quot;,
+                        POST + &quot;.Sensor_Control.sStatusGroundBZA&quot;);
 }
 ]]></script>
  </events>
@@ -132,7 +158,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.295454545454545 0 0 0.7159090909090908 -48.81818181818175 -13.46590909090909</prop>
+    <prop name="Geometry">1.095369554323342 0 0 0.8551136363636367 -40.8323029533878 -14.46225649350647</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">40 23</prop>
     <prop name="Size">89 89</prop>
@@ -167,6 +193,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.851006792851175 0 0 0.718750000000001 -7.620015797557455 1.049107142857174</prop>
     <prop name="Location">7 5</prop>
     <prop name="Size">51 21</prop>
     <prop name="Font">
@@ -180,17 +207,17 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="Bordered">False</prop>
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
   <shape Name="type_np" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">3</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">64.82142857142857 2.357142857142881</prop>
+    <prop name="RefPoint">56.57142857142857 43.99999999999999</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
-    <prop name="ForeColor">STD_windows_available</prop>
+    <prop name="ForeColor">Black</prop>
     <prop name="BackColor">_Window</prop>
     <prop name="TabOrder">2</prop>
     <prop name="ToolTipText">
@@ -202,28 +229,29 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Location">64.82142857142857 2.357142857142881</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.5324615310829621 0 0 0.7613293051359534 27.27868446393878 -9.756662710401471</prop>
+    <prop name="Location">56.57142857142857 43.99999999999999</prop>
     <prop name="Size">51 21</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">АИ-95</prop>
+     <prop name="ru_RU.utf8">95</prop>
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter]</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
   <shape Name="Prisadka" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">6</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">64.82142857142857 16.35714285714288</prop>
+    <prop name="RefPoint">45.6705877075528 40.49107142857146</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">STD_windows_available</prop>
@@ -239,7 +267,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">64.82142857142857 16.35714285714288</prop>
+    <prop name="Location">45.6705877075528 40.49107142857146</prop>
     <prop name="Size">51 21</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -275,7 +303,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_06.png]]</prop>
-    <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
+    <prop name="Geometry">0.75 0 0 0.75 -12.16344862259203 -14.98214285714284</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
@@ -301,7 +329,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_07.png]]</prop>
-    <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
+    <prop name="Geometry">0.75 0 0 0.75 -12.16344862259203 -14.98214285714284</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
@@ -327,7 +355,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_00.png]]</prop>
-    <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
+    <prop name="Geometry">0.75 0 0 0.75 -12.16344862259203 -14.98214285714284</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
@@ -353,7 +381,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_01.png]]</prop>
-    <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
+    <prop name="Geometry">0.75 0 0 0.75 -12.16344862259203 -14.98214285714284</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
@@ -379,7 +407,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_02.png]]</prop>
-    <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
+    <prop name="Geometry">0.75 0 0 0.75 -12.16344862259203 -14.98214285714284</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
@@ -405,7 +433,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_03.png]]</prop>
-    <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
+    <prop name="Geometry">0.75 0 0 0.75 -12.16344862259203 -14.98214285714284</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
@@ -431,7 +459,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_04.png]]</prop>
-    <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
+    <prop name="Geometry">0.75 0 0 0.75 -12.16344862259203 -14.98214285714284</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
@@ -457,10 +485,60 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_05.png]]</prop>
-    <prop name="Geometry">0.75 0 0 0.75 -11.5 -11.5</prop>
+    <prop name="Geometry">0.75 0 0 0.75 -12.16344862259203 -14.98214285714284</prop>
     <prop name="Center">50 70</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
+   </properties>
+  </shape>
+  <shape Name="Zadanie" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">4</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">6.509881089380912 19.52273953387996</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">6.509881089380912 16.52273953387995</prop>
+    <prop name="Size">45 15</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="Tekuchaya" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">5</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">5.076700271261245 63.20535714285722</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">WF_Frame</prop>
+    <prop name="TabOrder">4</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">5.076700271261244 60.20535714285722</prop>
+    <prop name="Size">67 16</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
   <shape Name="RECTANGLE2" shapeType="RECTANGLE" layerId="0">
@@ -483,7 +561,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">2.47826086956522 0 0 1.275510204081633 -46.56521739130449 -27.61224489795919</prop>
+    <prop name="Geometry">2.095489582183788 0 0 1.526421282798833 -38.92731242413002 -31.42875364431481</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">66 24</prop>
     <prop name="Size">-46.99999999999996 50</prop>
@@ -547,54 +625,88 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
 ]]></script>
    </events>
   </shape>
-  <shape Name="Zadanie" shapeType="TEXT_FIELD" layerId="0">
+  <shape Name="gnd_no" shapeType="RECTANGLE" layerId="0">
    <properties>
-    <prop name="serialId">4</prop>
+    <prop name="serialId">24</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">67.32142857142857 34.35714285714288</prop>
+    <prop name="RefPoint">120 10</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">3</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">18</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
-    </prop>
-    <prop name="Location">67.32142857142857 31.35714285714288</prop>
-    <prop name="Size">46 16</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[none,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ground/grnd_no.png]]</prop>
+    <prop name="Geometry">1.993006993006992 0 0 1.851515151515151 -143.1232900112233 39.75405844155852</prop>
     <prop name="BorderStyle">Normal</prop>
-    <prop name="Editable">True</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+    <prop name="Location">120 10</prop>
+    <prop name="Size">-11 11</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape Name="Tekuchaya" shapeType="TEXT_FIELD" layerId="0">
+  <shape Name="gnd_gr" shapeType="RECTANGLE" layerId="0">
    <properties>
-    <prop name="serialId">5</prop>
+    <prop name="serialId">23</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">67.32142857142857 51.35714285714288</prop>
+    <prop name="RefPoint">120 10</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">WF_Frame</prop>
-    <prop name="TabOrder">4</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">17</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
-    </prop>
-    <prop name="Location">67.32142857142857 48.35714285714288</prop>
-    <prop name="Size">46 16</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[none,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ground/grnd_gr.png]]</prop>
+    <prop name="Geometry">1.993006993006992 0 0 1.851515151515151 -143.1232900112233 39.75405844155852</prop>
     <prop name="BorderStyle">Normal</prop>
-    <prop name="Editable">True</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+    <prop name="Location">120 10</prop>
+    <prop name="Size">-11 11</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="gnd_ok" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">25</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">120 10</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">19</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[none,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/ground/grnd_ok.png]]</prop>
+    <prop name="Geometry">1.993006993006992 0 0 1.851515151515151 -143.1232900112233 39.75405844155852</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">120 10</prop>
+    <prop name="Size">-11 11</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
    </properties>
   </shape>
  </shapes>
