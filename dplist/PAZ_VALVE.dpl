@@ -1,0 +1,236 @@
+# ascii dump of database
+
+# DpType
+TypeName
+PAZ_VALVE.PAZ_VALVE	1#1
+	config	1#3
+		mon_time	22#4
+		pulse_time	22#5
+		bounce_time	22#6
+		simulate	23#7
+	command	1#8
+		open	23#9
+		close	23#10
+		stop	23#11
+		auto	23#12
+		reset	23#13
+		maintenance	23#14
+	status	1#15
+		sts_bit	24#16
+		status	1#17
+			closed	23#18
+			opened	23#19
+			middle	23#20
+			opening	23#21
+			closing	23#22
+			maintenance	23#23
+		mode	1#24
+			local	23#25
+			distance	23#26
+			auto	23#27
+			simulate	23#28
+		alarms	1#29
+			position	23#30
+			extended	23#31
+			muff	23#32
+			paz	23#33
+			closing	23#34
+			opening	23#35
+		link_err	23#43
+	asup	1#36
+		state_sts	21#37
+		state_mod	21#38
+		state_rst	21#39
+		cmd_sts	25#40
+		cmd_mod	25#41
+		cmd_rst	25#42
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_PAZ_VALVE	PAZ_VALVE	656
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+DRV (1)/0	_mp_PAZ_VALVE.config.mon_time	PAZ_VALVE	60	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.config.bounce_time	PAZ_VALVE	5	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.config.simulate	PAZ_VALVE	0	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.command.open	PAZ_VALVE	0	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.command.close	PAZ_VALVE	0	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.command.stop	PAZ_VALVE	0	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.command.auto	PAZ_VALVE	0	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.command.reset	PAZ_VALVE	0	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.command.maintenance	PAZ_VALVE	0	0x8300000000000101	22.10.2020 07:16:59.241
+DRV (1)/0	_mp_PAZ_VALVE.status.sts_bit	PAZ_VALVE	0x4	0x8300000000000101	22.10.2020 07:16:59.241
+EV (2)/0	_mp_PAZ_VALVE.status.status.middle	PAZ_VALVE	1	0x8300000000000101	28.08.2020 06:37:32.251
+
+# AlertValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+UI (7)/0	1599729066	64	_mp_PAZ_VALVE.status.status.closed	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729086	390	_mp_PAZ_VALVE.status.status.closed	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Закрыта"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890523	305	_mp_PAZ_VALVE.status.status.closed	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Закрыта"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890523	320	_mp_PAZ_VALVE.status.status.closed	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Закрыта"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729092	140	_mp_PAZ_VALVE.status.status.opened	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729099	414	_mp_PAZ_VALVE.status.status.opened	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Открыта"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890527	97	_mp_PAZ_VALVE.status.status.opened	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Открыта"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890527	111	_mp_PAZ_VALVE.status.status.opened	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Открыта"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729121	115	_mp_PAZ_VALVE.status.status.opening	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729128	967	_mp_PAZ_VALVE.status.status.opening	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Открывается"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890533	546	_mp_PAZ_VALVE.status.status.opening	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Открывается"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890533	560	_mp_PAZ_VALVE.status.status.opening	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Открывается"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729134	4	_mp_PAZ_VALVE.status.status.closing	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729140	396	_mp_PAZ_VALVE.status.status.closing	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Закрывается"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890537	85	_mp_PAZ_VALVE.status.status.closing	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Закрывается"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890537	86	_mp_PAZ_VALVE.status.status.closing	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Закрывается"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729146	888	_mp_PAZ_VALVE.status.status.maintenance	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729154	192	_mp_PAZ_VALVE.status.status.maintenance	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ремонт"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890541	407	_mp_PAZ_VALVE.status.status.maintenance	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ремонт"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890541	408	_mp_PAZ_VALVE.status.status.maintenance	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ремонт"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729161	386	_mp_PAZ_VALVE.status.mode.local	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729168	154	_mp_PAZ_VALVE.status.mode.local	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Местный"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890503	553	_mp_PAZ_VALVE.status.mode.local	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Местный"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890503	567	_mp_PAZ_VALVE.status.mode.local	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Местный"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729174	324	_mp_PAZ_VALVE.status.mode.distance	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729181	650	_mp_PAZ_VALVE.status.mode.distance	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Дистанция"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890508	173	_mp_PAZ_VALVE.status.mode.distance	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Дистанция"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890508	175	_mp_PAZ_VALVE.status.mode.distance	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Дистанция"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729187	758	_mp_PAZ_VALVE.status.mode.auto	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729201	633	_mp_PAZ_VALVE.status.mode.auto	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Автоматический"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890512	89	_mp_PAZ_VALVE.status.mode.auto	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Автоматический"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890512	104	_mp_PAZ_VALVE.status.mode.auto	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Автоматический"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729206	229	_mp_PAZ_VALVE.status.mode.simulate	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729214	116	_mp_PAZ_VALVE.status.mode.simulate	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Симуляция"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890516	663	_mp_PAZ_VALVE.status.mode.simulate	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Симуляция"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890516	676	_mp_PAZ_VALVE.status.mode.simulate	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Симуляция"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1598507730	677	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	677	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	677	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"0"	
+ASC (1)/0	1598507730	679	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	679	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	679	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890382	538	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890382	538	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"*"	
+UI (7)/0	1599890382	538	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890407	160	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890407	160	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890407	160	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Ошибка положения"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890408	586	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599890408	586	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890408	586	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Ошибка положения"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890423	278	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890423	278	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890423	278	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Ошибка положения"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890426	747	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890426	762	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ошибка положения"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890426	763	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ошибка положения"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1598507730	679	_mp_PAZ_VALVE.status.alarms.extended	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1598508064	902	_mp_PAZ_VALVE.status.alarms.extended	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729329	85	_mp_PAZ_VALVE.status.alarms.extended	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Внешняя"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599729329	99	_mp_PAZ_VALVE.status.alarms.extended	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Внешняя"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890413	780	_mp_PAZ_VALVE.status.alarms.extended	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Внешняя"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890439	471	_mp_PAZ_VALVE.status.alarms.extended	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Внешняя авария"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890439	472	_mp_PAZ_VALVE.status.alarms.extended	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Внешняя авария"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1598507730	680	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	681	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	681	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	681	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	682	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	682	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	682	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890086	432	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890086	432	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890086	432	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890088	443	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890088	443	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890088	443	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	683	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	683	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	683	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	685	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	685	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	685	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890445	470	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890445	470	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890445	470	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890450	933	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890450	943	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ПАЗ"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890450	951	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "ПАЗ"	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1598507730	686	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	687	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	687	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	687	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	688	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	688	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	688	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890454	776	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890454	776	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890454	776	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890471	373	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890471	373	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890471	373	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Ошибка закрытия"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890471	389	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599890471	389	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890471	389	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Ошибка закрытия"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	688	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+ASC (1)/0	1598507730	689	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	689	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	689	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	690	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	690	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	690	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890476	240	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599890476	240	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599890476	240	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599890485	970	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890485	972	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ошибка открытия"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599890485	986	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Ошибка открытия"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599735542	494	_mp_PAZ_VALVE.status.link_err	PAZ_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599735561	566	_mp_PAZ_VALVE.status.link_err	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Modbus"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1602932620	259	_mp_PAZ_VALVE.status.link_err	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет сигнала Modbus"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1602932620	274	_mp_PAZ_VALVE.status.link_err	PAZ_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет сигнала Modbus"	lt:1 LANG:10027 ""												0								
+
+# DistributionInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+ASC (1)/0	1598507759	323	_mp_PAZ_VALVE.config.mon_time	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	323	_mp_PAZ_VALVE.config.pulse_time	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	323	_mp_PAZ_VALVE.config.bounce_time	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	323	_mp_PAZ_VALVE.config.simulate	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	323	_mp_PAZ_VALVE.command.open	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	324	_mp_PAZ_VALVE.command.close	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	324	_mp_PAZ_VALVE.command.stop	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	324	_mp_PAZ_VALVE.command.auto	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	324	_mp_PAZ_VALVE.command.reset	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	324	_mp_PAZ_VALVE.command.maintenance	PAZ_VALVE	56	\1
+ASC (1)/0	1598507759	325	_mp_PAZ_VALVE.status.sts_bit	PAZ_VALVE	56	\1
+
+# DpFunction
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
+ASC (1)/0	1598596652	249	_mp_PAZ_VALVE.status.status.closed	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x1"		1
+ASC (1)/0	1598596652	250	_mp_PAZ_VALVE.status.status.opened	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x2"		1
+ASC (1)/0	1598596652	251	_mp_PAZ_VALVE.status.status.middle	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x4"		1
+ASC (1)/0	1598596652	253	_mp_PAZ_VALVE.status.status.opening	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x8"		1
+ASC (1)/0	1598596652	253	_mp_PAZ_VALVE.status.status.closing	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x10"		1
+ASC (1)/0	1598596652	254	_mp_PAZ_VALVE.status.status.maintenance	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x40"		1
+ASC (1)/0	1598596652	255	_mp_PAZ_VALVE.status.mode.local	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x800"		1
+ASC (1)/0	1598596652	256	_mp_PAZ_VALVE.status.mode.distance	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x1000"		1
+ASC (1)/0	1598596652	258	_mp_PAZ_VALVE.status.mode.auto	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x2000"		1
+ASC (1)/0	1598596652	258	_mp_PAZ_VALVE.status.mode.simulate	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x4000"		1
+ASC (1)/0	1598596652	259	_mp_PAZ_VALVE.status.alarms.position	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x10000"		1
+ASC (1)/0	1598596652	260	_mp_PAZ_VALVE.status.alarms.extended	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x20000"		1
+ASC (1)/0	1598596652	261	_mp_PAZ_VALVE.status.alarms.muff	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x40000"		1
+ASC (1)/0	1598596652	263	_mp_PAZ_VALVE.status.alarms.paz	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x80000"		1
+ASC (1)/0	1598596652	263	_mp_PAZ_VALVE.status.alarms.closing	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x100000"		1
+ASC (1)/0	1598596652	264	_mp_PAZ_VALVE.status.alarms.opening	PAZ_VALVE	60	_mp_PAZ_VALVE.status.sts_bit:_original.._value	"p1 & 0x200000"		1
+
+# PeriphAddrMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+UI (7)/0	1598524012	914	_mp_PAZ_VALVE.config.mon_time	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".Mon_Time"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598524022	320	_mp_PAZ_VALVE.config.pulse_time	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".Pulse_time"	_PollPaz	 	0	0	\13	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598524029	200	_mp_PAZ_VALVE.config.bounce_time	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".Bounce_time"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598524034	110	_mp_PAZ_VALVE.config.simulate	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".Sim_On"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (7)/0	1598524041	362	_mp_PAZ_VALVE.command.open	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".OpOpen"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (7)/0	1598524047	661	_mp_PAZ_VALVE.command.close	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".OpClose"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (7)/0	1598524052	607	_mp_PAZ_VALVE.command.stop	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".OpStop"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (7)/0	1598524057	231	_mp_PAZ_VALVE.command.auto	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".OpAuto"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (7)/0	1598524086	522	_mp_PAZ_VALVE.command.reset	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".OpReset"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (7)/0	1598524074	764	_mp_PAZ_VALVE.command.maintenance	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".OosOp"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (7)/0	1598524107	225	_mp_PAZ_VALVE.status.sts_bit	PAZ_VALVE	16	"PAZ.$\"_mp_PAZ_VALVE\".QdwState"	_PollPaz	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	708	"S7"

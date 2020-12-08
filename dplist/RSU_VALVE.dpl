@@ -1,0 +1,291 @@
+# ascii dump of database
+
+# DpType
+TypeName
+RSU_VALVE.RSU_VALVE	1#1
+	config	1#3
+		mon_time	22#4
+		pulse_time	22#5
+		bounce_time	22#6
+		simulate	23#7
+	command	1#8
+		open	23#9
+		close	23#10
+		stop	23#11
+		auto	23#12
+		reset	23#13
+		maintenance	23#14
+		set_pos	22#43
+		pos_on	23#44
+		pos_off	23#45
+		mbs_on	23#46
+		mbs_off	23#47
+	status	1#15
+		sts_bit	24#16
+		status	1#17
+			closed	23#18
+			opened	23#19
+			middle	23#20
+			closing	23#21
+			opening	23#22
+			maintenance	23#23
+		mode	1#24
+			local	23#25
+			distance	23#26
+			auto	23#27
+			simulate	23#28
+		alarms	1#29
+			position	23#30
+			extended	23#31
+			muff	23#32
+			paz	23#33
+			closing	23#34
+			opening	23#35
+		pos	22#48
+		link_err	23#49
+	asup	1#36
+		state_sts	21#37
+		state_mod	21#38
+		state_rst	21#39
+		cmd_sts	25#40
+		cmd_mod	25#41
+		cmd_rst	25#42
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_RSU_VALVE	RSU_VALVE	570
+
+# Aliases/Comments
+AliasId	AliasName	CommentName
+_mp_RSU_VALVE.	""	lt:1 LANG:10027 "Задвижка _mp_RSU_VALVE@%s@"
+_mp_RSU_VALVE.status.status.closed	""	lt:1 LANG:10027 "Закрыта@@"
+_mp_RSU_VALVE.status.status.opened	""	lt:1 LANG:10027 "Открыт@@"
+_mp_RSU_VALVE.status.status.middle	""	lt:1 LANG:10027 "Промежуточное@@"
+_mp_RSU_VALVE.status.status.closing	""	lt:1 LANG:10027 "Закрывается@@"
+_mp_RSU_VALVE.status.status.opening	""	lt:1 LANG:10027 "Открывается@@"
+_mp_RSU_VALVE.status.status.maintenance	""	lt:1 LANG:10027 "Ремонт@@"
+_mp_RSU_VALVE.status.mode.local	""	lt:1 LANG:10027 "Местный@@"
+_mp_RSU_VALVE.status.mode.distance	""	lt:1 LANG:10027 "Дистанция@@"
+_mp_RSU_VALVE.status.mode.auto	""	lt:1 LANG:10027 "Автоматический@@"
+_mp_RSU_VALVE.status.mode.simulate	""	lt:1 LANG:10027 "Симуляция@@"
+_mp_RSU_VALVE.status.alarms.position	""	lt:1 LANG:10027 "Положения@@"
+_mp_RSU_VALVE.status.alarms.extended	""	lt:1 LANG:10027 "Внешняя@@"
+_mp_RSU_VALVE.status.alarms.muff	""	lt:1 LANG:10027 "Муфты@@"
+_mp_RSU_VALVE.status.alarms.paz	""	lt:1 LANG:10027 "ПАЗ@@"
+_mp_RSU_VALVE.status.alarms.closing	""	lt:1 LANG:10027 "Закрытия@@"
+_mp_RSU_VALVE.status.alarms.opening	""	lt:1 LANG:10027 "Открытия@@"
+_mp_RSU_VALVE.status.pos	""	lt:1 LANG:10027 "@%15.1f@"
+_mp_RSU_VALVE.status.link_err	""	lt:1 LANG:10027 "Связь по Modbus@@"
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+DRV (10)/0	_mp_RSU_VALVE.config.mon_time	RSU_VALVE	100	0x8300000000200101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.config.pulse_time	RSU_VALVE	2	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.config.bounce_time	RSU_VALVE	20	0x8300000000200101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.config.simulate	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.open	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.close	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.stop	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.auto	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.reset	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.maintenance	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.status.sts_bit	RSU_VALVE	0x4	0x8300000000000101	22.10.2020 07:17:07.109
+EV (2)/0	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	0	0x8300000000000101	08.09.2020 04:10:42.566
+EV (2)/0	_mp_RSU_VALVE.status.status.opened	RSU_VALVE	0	0x8300000000000101	08.09.2020 04:10:49.255
+EV (2)/0	_mp_RSU_VALVE.status.status.middle	RSU_VALVE	1	0x8300000000300101	13.10.2020 04:29:37.979
+ASC (1)/0	_mp_RSU_VALVE.status.mode.simulate	RSU_VALVE	0	0x8300000000000101	27.08.2020 06:01:00.422
+EV (2)/0	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	0	0x8300000000100101	09.09.2020 05:40:52.244
+ASC (1)/0	_mp_RSU_VALVE.status.alarms.opening	RSU_VALVE	0	0x8300000000000101	27.08.2020 06:01:00.422
+ASC (1)/0	_mp_RSU_VALVE.asup.state_sts	RSU_VALVE	2	0x8300000000000101	27.08.2020 06:01:00.423
+ASC (1)/0	_mp_RSU_VALVE.asup.state_mod	RSU_VALVE	99	0x8300000000000101	27.08.2020 06:01:00.423
+DRV (10)/0	_mp_RSU_VALVE.command.set_pos	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.pos_on	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.pos_off	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.mbs_on	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.command.mbs_off	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.status.pos	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+DRV (10)/0	_mp_RSU_VALVE.status.link_err	RSU_VALVE	0	0x8300000000000101	22.10.2020 07:17:02.754
+
+# AlertValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+ASC (1)/0	1598507730	341	_mp_RSU_VALVE.status.status.closed	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	342	_mp_RSU_VALVE.status.status.closed	RSU_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	342	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	342	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	343	_mp_RSU_VALVE.status.status.closed	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	343	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	343	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	344	_mp_RSU_VALVE.status.status.closed	RSU_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Состояние ВКЛ."	lt:1 LANG:10027 "Состояние ВЫКЛ."												0								
+ASC (1)/0	1598507730	345	_mp_RSU_VALVE.status.status.closed	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	345	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	345	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	348	_mp_RSU_VALVE.status.status.closed	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	348	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	348	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	349	_mp_RSU_VALVE.status.status.opened	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	349	_mp_RSU_VALVE.status.status.opened	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	349	_mp_RSU_VALVE.status.status.opened	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	350	_mp_RSU_VALVE.status.status.opened	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	350	_mp_RSU_VALVE.status.status.opened	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	350	_mp_RSU_VALVE.status.status.opened	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	351	_mp_RSU_VALVE.status.status.middle	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	351	_mp_RSU_VALVE.status.status.middle	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	351	_mp_RSU_VALVE.status.status.middle	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	353	_mp_RSU_VALVE.status.status.middle	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	353	_mp_RSU_VALVE.status.status.middle	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	353	_mp_RSU_VALVE.status.status.middle	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	353	_mp_RSU_VALVE.status.status.closing	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	353	_mp_RSU_VALVE.status.status.closing	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	353	_mp_RSU_VALVE.status.status.closing	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	355	_mp_RSU_VALVE.status.status.closing	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	355	_mp_RSU_VALVE.status.status.closing	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	355	_mp_RSU_VALVE.status.status.closing	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	355	_mp_RSU_VALVE.status.status.opening	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	355	_mp_RSU_VALVE.status.status.opening	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	355	_mp_RSU_VALVE.status.status.opening	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	357	_mp_RSU_VALVE.status.status.opening	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	357	_mp_RSU_VALVE.status.status.opening	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	357	_mp_RSU_VALVE.status.status.opening	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	357	_mp_RSU_VALVE.status.status.maintenance	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	357	_mp_RSU_VALVE.status.status.maintenance	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	357	_mp_RSU_VALVE.status.status.maintenance	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	359	_mp_RSU_VALVE.status.status.maintenance	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	359	_mp_RSU_VALVE.status.status.maintenance	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	359	_mp_RSU_VALVE.status.status.maintenance	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	359	_mp_RSU_VALVE.status.mode.local	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	359	_mp_RSU_VALVE.status.mode.local	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	359	_mp_RSU_VALVE.status.mode.local	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	361	_mp_RSU_VALVE.status.mode.local	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	361	_mp_RSU_VALVE.status.mode.local	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	361	_mp_RSU_VALVE.status.mode.local	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	362	_mp_RSU_VALVE.status.mode.distance	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	362	_mp_RSU_VALVE.status.mode.distance	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	362	_mp_RSU_VALVE.status.mode.distance	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	364	_mp_RSU_VALVE.status.mode.distance	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	364	_mp_RSU_VALVE.status.mode.distance	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	364	_mp_RSU_VALVE.status.mode.distance	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	365	_mp_RSU_VALVE.status.mode.auto	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	365	_mp_RSU_VALVE.status.mode.auto	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	365	_mp_RSU_VALVE.status.mode.auto	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	366	_mp_RSU_VALVE.status.mode.auto	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	366	_mp_RSU_VALVE.status.mode.auto	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	366	_mp_RSU_VALVE.status.mode.auto	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	367	_mp_RSU_VALVE.status.mode.simulate	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	367	_mp_RSU_VALVE.status.mode.simulate	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	367	_mp_RSU_VALVE.status.mode.simulate	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	368	_mp_RSU_VALVE.status.mode.simulate	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	368	_mp_RSU_VALVE.status.mode.simulate	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	368	_mp_RSU_VALVE.status.mode.simulate	RSU_VALVE	2	5									information.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	369	_mp_RSU_VALVE.status.alarms.position	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	369	_mp_RSU_VALVE.status.alarms.position	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	369	_mp_RSU_VALVE.status.alarms.position	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	370	_mp_RSU_VALVE.status.alarms.position	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	370	_mp_RSU_VALVE.status.alarms.position	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	370	_mp_RSU_VALVE.status.alarms.position	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	371	_mp_RSU_VALVE.status.alarms.extended	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	371	_mp_RSU_VALVE.status.alarms.extended	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	371	_mp_RSU_VALVE.status.alarms.extended	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	373	_mp_RSU_VALVE.status.alarms.extended	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	373	_mp_RSU_VALVE.status.alarms.extended	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	373	_mp_RSU_VALVE.status.alarms.extended	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	373	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	373	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	373	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	375	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	375	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	375	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599629961	650	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599629961	650	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (7)/0	1599629961	650	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599629962	661	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599629962	661	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (7)/0	1599629962	661	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599885823	553	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599885823	553	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (7)/0	1599885823	553	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	375	_mp_RSU_VALVE.status.alarms.paz	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	375	_mp_RSU_VALVE.status.alarms.paz	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	375	_mp_RSU_VALVE.status.alarms.paz	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	377	_mp_RSU_VALVE.status.alarms.paz	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	377	_mp_RSU_VALVE.status.alarms.paz	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	377	_mp_RSU_VALVE.status.alarms.paz	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	378	_mp_RSU_VALVE.status.alarms.closing	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	378	_mp_RSU_VALVE.status.alarms.closing	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	378	_mp_RSU_VALVE.status.alarms.closing	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	380	_mp_RSU_VALVE.status.alarms.closing	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	380	_mp_RSU_VALVE.status.alarms.closing	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	380	_mp_RSU_VALVE.status.alarms.closing	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	381	_mp_RSU_VALVE.status.alarms.opening	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	381	_mp_RSU_VALVE.status.alarms.opening	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	381	_mp_RSU_VALVE.status.alarms.opening	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	382	_mp_RSU_VALVE.status.alarms.opening	RSU_VALVE		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	382	_mp_RSU_VALVE.status.alarms.opening	RSU_VALVE	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	382	_mp_RSU_VALVE.status.alarms.opening	RSU_VALVE	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599538487	559	_mp_RSU_VALVE.status.link_err	RSU_VALVE		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599538511	357	_mp_RSU_VALVE.status.link_err	RSU_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+UI (7)/0	1599538511	371	_mp_RSU_VALVE.status.link_err	RSU_VALVE		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Нет связи"	lt:1 LANG:10027 ""												0								
+
+# DistributionInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+ASC (1)/0	1598507759	263	_mp_RSU_VALVE.config.mon_time	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	264	_mp_RSU_VALVE.config.pulse_time	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	264	_mp_RSU_VALVE.config.bounce_time	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	266	_mp_RSU_VALVE.config.simulate	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	266	_mp_RSU_VALVE.command.open	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	267	_mp_RSU_VALVE.command.close	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	267	_mp_RSU_VALVE.command.stop	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	268	_mp_RSU_VALVE.command.auto	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	269	_mp_RSU_VALVE.command.reset	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	269	_mp_RSU_VALVE.command.maintenance	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	270	_mp_RSU_VALVE.status.sts_bit	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	270	_mp_RSU_VALVE.asup.state_sts	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	271	_mp_RSU_VALVE.asup.state_mod	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	272	_mp_RSU_VALVE.command.set_pos	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	272	_mp_RSU_VALVE.command.pos_on	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	273	_mp_RSU_VALVE.command.pos_off	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	274	_mp_RSU_VALVE.command.mbs_on	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	274	_mp_RSU_VALVE.command.mbs_off	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	275	_mp_RSU_VALVE.status.pos	RSU_VALVE	56	\10
+ASC (1)/0	1598507759	275	_mp_RSU_VALVE.status.link_err	RSU_VALVE	56	\10
+
+# DpFunction
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
+UI (7)/0	1599538242	568	_mp_RSU_VALVE.status.status.closed	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x1"		1
+UI (7)/0	1599538249	257	_mp_RSU_VALVE.status.status.opened	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x2"		1
+ASC (1)/0	1598596651	433	_mp_RSU_VALVE.status.status.middle	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x4"		1
+ASC (1)/0	1598596651	433	_mp_RSU_VALVE.status.status.closing	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x8"		1
+ASC (1)/0	1598596651	434	_mp_RSU_VALVE.status.status.opening	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x10"		1
+ASC (1)/0	1598596651	435	_mp_RSU_VALVE.status.status.maintenance	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x40"		1
+ASC (1)/0	1598596651	436	_mp_RSU_VALVE.status.mode.local	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x800"		1
+ASC (1)/0	1598596651	438	_mp_RSU_VALVE.status.mode.distance	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x1000"		1
+ASC (1)/0	1598596651	438	_mp_RSU_VALVE.status.mode.auto	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x2000"		1
+ASC (1)/0	1598596651	439	_mp_RSU_VALVE.status.mode.simulate	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x4000"		1
+ASC (1)/0	1598596651	440	_mp_RSU_VALVE.status.alarms.position	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x10000"		1
+ASC (1)/0	1598596651	441	_mp_RSU_VALVE.status.alarms.extended	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x20000"		1
+UI (7)/0	1599630052	246	_mp_RSU_VALVE.status.alarms.muff	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"0"		1
+ASC (1)/0	1598596651	443	_mp_RSU_VALVE.status.alarms.paz	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x80000"		1
+ASC (1)/0	1598596651	444	_mp_RSU_VALVE.status.alarms.closing	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x100000"		1
+ASC (1)/0	1598596651	445	_mp_RSU_VALVE.status.alarms.opening	RSU_VALVE	60	_mp_RSU_VALVE.status.sts_bit:_original.._value	"p1 & 0x200000"		1
+
+# PeriphAddrMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+ASC (1)/0	1598525159	38	_mp_RSU_VALVE.config.mon_time	RSU_VALVE	16	"_mp_RSU_VALVE.Mon_Time"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1015	"S7PLUS"
+ASC (1)/0	1598525159	38	_mp_RSU_VALVE.config.pulse_time	RSU_VALVE	16	"_mp_RSU_VALVE.Pulse_Time"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1015	"S7PLUS"
+ASC (1)/0	1598525159	40	_mp_RSU_VALVE.config.bounce_time	RSU_VALVE	16	"_mp_RSU_VALVE.Bounce_time"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1015	"S7PLUS"
+ASC (1)/0	1598525159	40	_mp_RSU_VALVE.config.simulate	RSU_VALVE	16	"_mp_RSU_VALVE.Sim_On"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	41	_mp_RSU_VALVE.command.open	RSU_VALVE	16	"_mp_RSU_VALVE.OpOpen"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	41	_mp_RSU_VALVE.command.close	RSU_VALVE	16	"_mp_RSU_VALVE.OpClose"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	42	_mp_RSU_VALVE.command.stop	RSU_VALVE	16	"_mp_RSU_VALVE.OpStop"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	43	_mp_RSU_VALVE.command.auto	RSU_VALVE	16	"_mp_RSU_VALVE.OpAuto"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	43	_mp_RSU_VALVE.command.reset	RSU_VALVE	16	"_mp_RSU_VALVE.OpReset"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	44	_mp_RSU_VALVE.command.maintenance	RSU_VALVE	16	"_mp_RSU_VALVE.OosOp"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (7)/0	1599197367	596	_mp_RSU_VALVE.status.sts_bit	RSU_VALVE	16	"_mp_RSU_VALVE.QdwState"	_SubRSU2	_RSU	0	0	\4	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1005	"S7PLUS"
+ASC (1)/0	1598525159	45	_mp_RSU_VALVE.asup.state_sts	RSU_VALVE	16	"_mp_RSU_VALVE.Status"	 	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525159	46	_mp_RSU_VALVE.asup.state_mod	RSU_VALVE	16	"_mp_RSU_VALVE.Mode"	 	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+ASC (1)/0	1598525159	46	_mp_RSU_VALVE.command.set_pos	RSU_VALVE	16	"_mp_RSU_VALVE.OpCV"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1015	"S7PLUS"
+ASC (1)/0	1598525159	47	_mp_RSU_VALVE.command.pos_on	RSU_VALVE	16	"_mp_RSU_VALVE.OpRegOn"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	47	_mp_RSU_VALVE.command.pos_off	RSU_VALVE	16	"_mp_RSU_VALVE.OpRegOff"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	48	_mp_RSU_VALVE.command.mbs_on	RSU_VALVE	16	"_mp_RSU_VALVE.OpModeMB_ON"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+ASC (1)/0	1598525159	49	_mp_RSU_VALVE.command.mbs_off	RSU_VALVE	16	"_mp_RSU_VALVE.OpModeMB_OFF"	_SubRSU	_RSU	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (7)/0	1598525450	440	_mp_RSU_VALVE.status.pos	RSU_VALVE	16	"_mp_RSU_VALVE.xCV"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1015	"S7PLUS"
+UI (7)/0	1598525571	928	_mp_RSU_VALVE.status.link_err	RSU_VALVE	16	"_mp_RSU_VALVE.MBNotLink"	_SubRSU	_RSU	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
