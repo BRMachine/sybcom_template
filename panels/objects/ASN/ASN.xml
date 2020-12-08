@@ -616,7 +616,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     case 2:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно просмотра сообщений поста  &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\NB\\ai_parts\\alrm.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      ChildPanelOnCentral(&quot;faceplates\\AI\\main\\parts\\alerts.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
       break;
     default:
       DebugN(&quot;ERROR SELECTOR&quot;);
