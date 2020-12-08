@@ -16,27 +16,28 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics.ctl&quot;
 const string DP = $dp;
-const string NumberPost = $NumberPost;]]></script>
+// const string POST = $POST;
+]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
-  const string DP = $dp;
-const string NumberPost = $NumberPost;
-  string PST = NumberPost;
+//   const string DP = $dp;
+// const string NumberPost = $NumberPost;
+//   string PST = NumberPost;
 
 
-  dpConnect(&quot;cbWorker&quot;, DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sStatusGroundBZA&quot;,               //1- состояние БЗА
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorFilter&quot;,                  //2- состояние фильтра
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sGasHH&quot;,                         //3- Датчик загазованности
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sFlowLL&quot;,                        //4- Датчик снижения расхода
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sRiserTiltSensor&quot;,               //5- Датчик наклона стояка
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorGround&quot;,                  //6- Датчик заземления
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorOverflow&quot;,                //7- Датчик перелива
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorWorkPosition&quot;,            //8- Датчик рабочего положения наконечника
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sGaragePosition&quot;,                //9- Датчик гаражного положения
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //10- Датчик трапа
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sButtonStartStop&quot;,               //11- Кнопка пуск/стоп
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorAlarmStop&quot;,               //12- Датчик аварийного стопа 1
-                        DP + &quot;.Post&quot; + NumberPost + &quot;.Sensor_Control.sSensorProduct&quot;                  //13- состояние наличия продукта
+  dpConnect(&quot;cbWorker&quot;, DP + &quot;.Sensor_Control.sStatusGroundBZA&quot;,               //1- состояние БЗА
+                        DP + &quot;.Sensor_Control.sSensorFilter&quot;,                  //2- состояние фильтра
+                        DP + &quot;.Sensor_Control.sGasHH&quot;,                         //3- Датчик загазованности
+                        DP + &quot;.Sensor_Control.sFlowLL&quot;,                        //4- Датчик снижения расхода
+                        DP + &quot;.Sensor_Control.sRiserTiltSensor&quot;,               //5- Датчик наклона стояка
+                        DP + &quot;.Sensor_Control.sSensorGround&quot;,                  //6- Датчик заземления
+                        DP + &quot;.Sensor_Control.sSensorOverflow&quot;,                //7- Датчик перелива
+                        DP + &quot;.Sensor_Control.sSensorWorkPosition&quot;,            //8- Датчик рабочего положения наконечника
+                        DP + &quot;.Sensor_Control.sGaragePosition&quot;,                //9- Датчик гаражного положения
+                        DP + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //10- Датчик трапа
+                        DP + &quot;.Sensor_Control.sButtonStartStop&quot;,               //11- Кнопка пуск/стоп
+                        DP + &quot;.Sensor_Control.sSensorAlarmStop&quot;,               //12- Датчик аварийного стопа 1
+                        DP + &quot;.Sensor_Control.sSensorProduct&quot;                  //13- состояние наличия продукта
                         );
 }
 
@@ -116,7 +117,8 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     setValue(&quot;SensorProduct&quot;, &quot;backCol&quot;, &quot;Green&quot;);
   else
     setValue(&quot;SensorProduct&quot;, &quot;backCol&quot;, &quot;White&quot;);
-}]]></script>
+}
+]]></script>
  </events>
  <shapes>
   <shape Name="RECTANGLE2" shapeType="RECTANGLE" layerId="0">
@@ -231,7 +233,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">183.5 47</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">StatusGroundBZA</prop>
@@ -270,7 +272,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
      <prop name="ru_RU.utf8">Перечень датчиков поста</prop>
     </prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Location">22 70</prop>
     <prop name="Size">326 265</prop>
@@ -666,7 +668,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
      <prop name="ru_RU.utf8">Состояние блока заземления</prop>
     </prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Location">22 70</prop>
     <prop name="Size">326 265</prop>
@@ -1093,7 +1095,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 120</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">1</prop>
@@ -1128,7 +1130,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 140</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">2</prop>
@@ -1163,7 +1165,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 160</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">3</prop>
@@ -1198,7 +1200,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 180</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">4</prop>
@@ -1233,7 +1235,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 200</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">5</prop>
@@ -1268,7 +1270,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 220</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">6</prop>
@@ -1303,7 +1305,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 240</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">7</prop>
@@ -1338,7 +1340,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 260</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">8</prop>
@@ -1373,7 +1375,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">33.5 280</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">9</prop>
@@ -1408,7 +1410,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">30.5 300</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">10</prop>
@@ -1443,7 +1445,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">30.5 320</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">11</prop>
@@ -1478,7 +1480,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">30.5 340</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">12</prop>

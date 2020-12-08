@@ -23,7 +23,7 @@ const string DP = $dp;
 
 
   dpConnect(&quot;cbWorker&quot;, DP + &quot;.sStatusPosta&quot;,                    //1- Ошибка поста
-                        DP + &quot;.sStatusStop.sStatusStop&quot;,         //2- Ошибка на посту дозатора присадок
+                        DP + &quot;.sStatusStop&quot;,                     //2- Ошибка на посту дозатора присадок
                         DP + &quot;.MBNoLink&quot;                         //3- Ошибка опроса прибора
                         );
 }
