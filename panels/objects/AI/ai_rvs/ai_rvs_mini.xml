@@ -49,11 +49,13 @@ void cbAlarm(dyn_string dp, dyn_string color){
 void cbAlarmState(dyn_string dpe, dyn_bool val) {
   bool no_link   = val[1],
        disabled  = val[2],
-       not_ready = val[3];
+       not_ready = val[3],
+       overpass =  val[4];
 
   img_no_link.visible(no_link);
   img_disabled.visible(disabled);
   img_not_ready.visible(not_ready);
+  img_overpass.visible(overpass);
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
@@ -67,7 +69,8 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
 
   dpConnect(&quot;cbAlarmState&quot;, DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.no_link&quot;,
                             DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.disabled&quot;,
-                            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.not_ready&quot;);
+                            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.not_ready&quot;,
+                            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.overpass&quot;);
 
 }
 ]]></script>
@@ -320,6 +323,34 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="img_overpass" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">52</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">40 90</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">17</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[none,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/error.xpm]]</prop>
+    <prop name="Geometry">0.348080808080808 0 0 0.3101780214145521 3.672727272727279 -12.8609486531497</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">40 90</prop>
+    <prop name="Size">51 51</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
    </properties>
   </shape>
  </shapes>
