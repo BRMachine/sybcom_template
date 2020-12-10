@@ -2177,42 +2177,6 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Width">4</prop>
    </properties>
   </shape>
-  <shape Name="PRIMITIVE_TEXT310" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">217</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">408 121.1666666666667</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">190</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.068181818181818 0 0 1 -212.9753246753247 190.3951222443671</prop>
-    <prop name="Location">408 121.1666666666667</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Arial,-1,16,5,50,0,0,0,0,0,Обычный</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">к измерительным системам</prop>
-    </prop>
-    <prop name="Distance">2</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">True</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
   <shape Name="dt_end" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">162</prop>
