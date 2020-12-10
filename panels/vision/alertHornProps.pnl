@@ -1,0 +1,3307 @@
+V 14
+3
+LANG:10027 31 Параметры сирены
+LANG:10000 17 Hupen - Parameter
+LANG:10001 14 Horn parameter
+PANEL,-1 -1 620 560 N "STD_panel_back" 0
+"main()
+{
+  bool 		bBeeperStat, bWavStat, bDpeStat, bTwoPrios;
+  string	sFrequ, freq2, beepDuration, beepDuration2, sPause, pause2, 
+  			sLowerSnd, sHighSnd, sDpeValue, sDpeValue2, sPanelName;
+  int		iPriority, iAlertDelay, iWavSec, iWavSec2;
+  
+  addGlobal(\"MultiPriority\", BOOL_VAR);
+  
+  if (!_WIN32) setValue(\"cmdVolume\",\"visible\",FALSE);
+  
+  // If this panel was opened out of the \"Properties\" panel, the close bitton will be hidden, else it will be shown.
+  
+  dpGet(myUiDpName()+\".ChildPanelOn.PanelName:_online.._value\", sPanelName);
+  
+  if ( (sPanelName == \"Properties\") || (sPanelName == \"Eigenschaften\")) setValue(\"closeHornProp\",\"visible\",0);
+  else setValue(\"closeHornProp\",\"visible\",1);
+  
+    
+  // Function for initializing the saved Selections  
+  
+  dpGet(\"AlertHorn.BeeperProps.Enabled:_online.._value\", 	bBeeperStat,
+  		\"AlertHorn.WavProps.Enabled:_online.._value\",    	bWavStat,
+  		\"AlertHorn.ExternalProps.Enabled:_online.._value\",	bDpeStat,
+  		\"AlertHorn.HighPrioLimit:_original.._value\", 		iPriority,
+  		\"AlertHorn.HornSilenceTime:_online.._value\",		iAlertDelay,
+  		\"AlertHorn.DistinguishTwoPrios:_original.._value\",  bTwoPrios);
+  		
+  chkPriority.state(0) = bTwoPrios;
+  setValue(\"ChooseDelay\",\"text\",iAlertDelay);
+  
+  ///// case Beeper Sound /////
+  if (bBeeperStat == 1)
+  {
+    chkMode.state(0) = 1;
+    
+    dpGet(\"AlertHorn.BeeperProps.LowPrioFrequency:_online.._value\", 	  sFrequ,
+    	  \"AlertHorn.BeeperProps.LowPrioIntervalTime:_online.._value\",    sPause,
+    	  \"AlertHorn.BeeperProps.LowPrioBeepTime:_online.._value\", 		  beepDuration,
+    	  \"AlertHorn.BeeperProps.HighPrioIntervalTime:_original.._value\", pause2,
+		  \"AlertHorn.BeeperProps.HighPrioFrequency:_original.._value\",	  freq2,
+		  \"AlertHorn.BeeperProps.HighPrioBeepTime:_original.._value\",	  beepDuration2);
+  
+    if (bTwoPrios == 1) setMultiValue(\"txtBeeperCaption\",\"enabled\", TRUE,
+  				    				  \"txtBeepBreak\",\"enabled\",		TRUE,
+  				    				  \"txtBeepDuration\",\"enabled\", 	TRUE,
+  				       				  \"txtBeepFrequ\",\"enabled\", 	TRUE,
+  				   					  \"txt_frequency\",\"enabled\", 	TRUE,
+  				   					  \"txt_duration\",\"enabled\",  	TRUE,
+  				   					  \"txt_pause\",\"enabled\",	   	TRUE,
+  				  					  \"txt_frequency2\",\"enabled\",	TRUE,
+  				  					  \"txt_duration2\",\"enabled\", 	TRUE,
+  				   					  \"txt_pause2\",\"enabled\",	   	TRUE,
+  				    				  \"txtMsec1\",\"enabled\",	   		TRUE,
+  				   					  \"txtMsec2\",\"enabled\",	   		TRUE,
+  				   					  \"txtHz\",\"enabled\",		   	TRUE,
+  				    				  \"cmdBeeperTest\",\"enabled\", 	TRUE,
+  				    				  \"txt_frequency\",\"text\",    	sFrequ,
+  				    				  \"txt_duration\",\"text\",     	beepDuration,
+  				    				  \"txt_pause\",\"text\",	       	sPause,
+  				    				  \"txt_frequency2\",\"text\",   	freq2,
+  				    				  \"txt_duration2\",\"text\",	   	beepDuration2,
+  				    				  \"txt_pause2\",\"text\",	   		pause2,
+  				    				  \"txtBeepHighPrio\",\"visible\",	TRUE,
+  				    				  \"txtBeepLowPrio\",\"visible\", 	TRUE,
+  				    				  \"txtHighPrio\",\"visible\",	TRUE,
+  				    				  \"txtLowPrio\",\"visible\", 	TRUE,
+  				    				  \"txt19\",\"visible\",	TRUE,
+  				    				  \"txt20\",\"visible\", 	TRUE,
+  				    				  \"txtMsec3\",\"enabled\",	   		TRUE,
+  				    				  \"txtMsec4\",\"enabled\",	   		TRUE,
+  				    				  \"txtHz2\",\"enabled\",	   		TRUE,
+  				    				  \"cmdBeeperTest2\",\"enabled\",	TRUE,
+  									  \"txt15\",\"enabled\", 	   	   	TRUE,
+  				  					  \"txt16\",\"enabled\", 	   	   	TRUE,
+  				  					  \"ChoosePrio\",\"enabled\",	   	TRUE,
+  				  					  \"ChoosePrio\",\"text\",   	   	iPriority);
+
+    if (bTwoPrios == 0) setMultiValue(\"txtBeeperCaption\",\"enabled\", TRUE,
+  				    				  \"txtBeepBreak\",\"enabled\",		TRUE,
+  				    				  \"txtBeepDuration\",\"enabled\", 	TRUE,
+			  				   		  \"txtBeepFrequ\",\"enabled\", 	TRUE,
+  				    				  \"txt_frequency\",\"enabled\", 	TRUE,
+  				    				  \"txt_duration\",\"enabled\",  	TRUE,
+  				    				  \"txt_pause\",\"enabled\",	   	TRUE,
+  				    				  \"txtMsec1\",\"enabled\",	   		TRUE,
+  				    				  \"txtMsec2\",\"enabled\",	   		TRUE,
+  				    				  \"txtHz\",\"enabled\",		   	TRUE,
+  				   					  \"cmdBeeperTest\",\"enabled\", 	FALSE,
+  				   					  \"cmdBeeperTest2\",\"enabled\", 	FALSE,
+  				    				  \"txt_frequency\",\"text\",    	sFrequ,
+  				   					  \"txt_duration\",\"text\",     	beepDuration,
+  				    				  \"txt_pause\",\"text\",	       	sPause,
+  				    				  \"txtBeepLowPrio\",\"enabled\", 	TRUE);
+  }
+  
+  ///// case .wav Sound ///////
+  if (bWavStat == 1)
+  {
+    chkMode.state(1) = 1;
+    
+    dpGet(\"AlertHorn.WavProps.LowPrioWavFile:_online.._value\",  	  sLowerSnd,
+    	  \"AlertHorn.WavProps.HighPrioWavFile:_online.._value\", 	  sHighSnd,
+    	  \"AlertHorn.WavProps.LowPrioCycleInterval:_online.._value\",  iWavSec,
+    	  \"AlertHorn.WavProps.HighPrioCycleInterval:_online.._value\", iWavSec2);
+    	  
+    if (bTwoPrios == 1)
+    {
+      setMultiValue(\"cmdWavTest\",\"enabled\", 	TRUE,
+    			    \"cmdWavTest2\",\"enabled\",	TRUE,
+    			    \"txtWavCaption\",\"enabled\", 	TRUE,
+  				    \"cmdFileSelect\",\"enabled\", 	TRUE,
+  				    \"cmdFileSelect2\",\"enabled\",	TRUE,
+  				    \"FileName\",\"text\", 	      	sLowerSnd,
+  				    \"FileName2\",\"text\",		 	sHighSnd,
+  				    \"txtLowPrio\",\"enabled\", 	TRUE,
+  				    \"txtHighPrio\",\"enabled\",	TRUE,
+					\"txt15\",\"enabled\", 	  	  	TRUE,
+  				    \"txt16\",\"enabled\", 	  	  	TRUE,
+  				    \"ChoosePrio\",\"enabled\",   	TRUE,
+  				    \"ChoosePrio\",\"text\",   	  	iPriority);
+    
+      if (iWavSec > 0) setMultiValue(\"WavContCyc\",\"enabled\", TRUE,
+      							    \"WavContCyc\",\"number\",  1,
+      							    \"wavCyclMode\",\"enabled\",TRUE,
+      							    \"wavCyclMode\",\"text\",   iWavSec);
+      							    	  
+	  if (iWavSec <= 0) setMultiValue(\"WavContCyc\",\"enabled\", TRUE,
+      							     \"WavContCyc\",\"number\",  0);
+      							   
+	  if (iWavSec2 > 0)setMultiValue(\"WavContCyc2\",\"enabled\", TRUE,
+      							    \"WavContCyc2\",\"number\",  1,
+      							    \"wavCyclMode2\",\"enabled\",TRUE,
+      							    \"wavCyclMode2\",\"text\",   iWavSec2);
+      							  
+	  if (iWavSec2 <= 0) setMultiValue(\"WavContCyc2\",\"enabled\",TRUE,
+      							      \"WavContCyc2\",\"number\", 0);
+     }
+     if (bTwoPrios == 0)
+     {
+       setMultiValue(\"cmdWavTest\",\"enabled\", 	 TRUE,
+    			     \"txtWavCaption\",\"enabled\",  TRUE,
+  				     \"cmdFileSelect\",\"enabled\",  TRUE,
+  				     \"FileName\",\"text\", 	  	 sLowerSnd,
+  				     \"txtLowPrio\",\"enabled\",	 TRUE);
+    
+       if (iWavSec > 0) setMultiValue(\"WavContCyc\",\"enabled\", TRUE,
+      							     \"WavContCyc\",\"number\",  1,
+      							     \"wavCyclMode\",\"enabled\",TRUE,
+      							     \"wavCyclMode\",\"text\",   iWavSec);
+      							    	  
+	   if (iWavSec <= 0) setMultiValue(\"WavContCyc\",\"enabled\", TRUE,
+      							      \"WavContCyc\",\"number\",  0);
+     }  	
+  }
+  
+  ///// case DPE //////
+  if (bDpeStat == 1)
+  {
+    chkMode.state(2) = 1;
+    
+    dpGet(\"AlertHorn.ExternalProps.LowPrioExternalHornDPE:_original.._value\",  sDpeValue,
+    	  \"AlertHorn.ExternalProps.HighPrioExternalHornDPE:_original.._value\", sDpeValue2);
+    
+    if (bTwoPrios == 1) setMultiValue(\"txtDpeCaption\",\"enabled\", TRUE,
+  				    				  \"DpSel\",\"enabled\",	     TRUE,
+  				   					  \"DpSel2\",\"enabled\",	     TRUE,
+  				    				  \"DpName\",\"enabled\",    	 TRUE,
+  				    				  \"DpName\",\"text\", 	   		 sDpeValue,
+  				    				  \"DpName2\",\"enabled\",   	 TRUE,
+  				    				  \"DpName2\",\"text\", 	     sDpeValue2,
+  				    				  \"txt19\",\"enabled\",	     TRUE,
+  				    				  \"txt20\",\"enabled\",	     TRUE,
+  	  								  \"txt15\",\"enabled\",         TRUE,
+  				    				  \"txt16\",\"enabled\",         TRUE,
+  				    				  \"ChoosePrio\",\"enabled\",    TRUE,
+  				    				  \"ChoosePrio\",\"text\",       iPriority);
+  				    
+  	if (bTwoPrios == 0) setMultiValue(\"txtDpeCaption\",\"enabled\", TRUE,
+  				    				  \"DpSel\",\"enabled\",	     TRUE,
+  				    				  \"DpName\",\"enabled\",        TRUE,
+  				    				  \"DpName\",\"text\", 	         sDpeValue,
+  				    				  \"txt19\",\"enabled\",	     TRUE);
+  }
+  if ( (!chkMode.state(0)) && (!chkMode.state(1)) && (!chkMode.state(2)) ) setMultiValue (\"chkPriority\",\"enabled\", FALSE,
+  																						  \"chkPriority\",\"state\",0, FALSE);
+}" 0
+ E E E E 1 -1 -1 0  100 61
+""0  1
+E E 3
+"CBRef" "0"
+"EClose" E
+"dpi" "96"
+0 0 0
+""
+NC
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 6 Layer1
+6 101
+"Border9"
+""
+1 11 301 E E E 1 E 1 E N {255,255,255} E N "_Transparent" E E
+ E E
+84 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 11 171 251 301
+6 100
+"Border4"
+""
+1 10 300 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+83 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 10 170 250 300
+6 33
+"Border3"
+""
+1 260 420 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+39 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 260 170 610 420
+6 34
+"wavBorder"
+""
+1 261 421 E E E 1 E 1 E N {255,255,255} E N "_Transparent" E E
+ E E
+40 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 261 171 611 421
+2 35
+"txtWavCaption"
+""
+1 270 160 E E E 0 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+41 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  1 E 272 162 407 177
+0 2 0 "0s" 0 0 0 192 0 0  272 162 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 33 Параметры wav-файла
+LANG:10000 21  WAV- File Parameter 
+LANG:10001 20  WAV file parameter 
+6 39
+"Border5"
+""
+1 230 520 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+42 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 230 439 610 520
+6 40
+"Border6"
+""
+1 231 521 E E E 1 E 1 E N {255,255,255} E N "_Transparent" E E
+ E E
+43 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 231 440 611 521
+2 41
+"txtDpeCaption"
+""
+1 240 430 E E E 0 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+44 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 1 3 1 0 1 E U  1 E 242 432 385 447
+0 2 0 "0s" 0 0 0 192 0 0  242 432 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 35 Выбор DPE / приоритет
+LANG:10000 13  DPE Auswahl 
+LANG:10001 15  DPE selection 
+6 42
+"Border7"
+""
+1 130 150 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+45 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 130 20 610 150
+6 43
+"Border8"
+""
+1 131 151 E E E 1 E 1 E N {255,255,255} E N "_Transparent" E E
+ E E
+46 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 131 21 611 151
+2 44
+"txtBeeperCaption"
+""
+1 140 10 E E E 0 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+47 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  1 E 142 12 275 27
+0 2 0 "0s" 0 0 0 192 0 0  142 12 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 35  Параметры зуммера 
+LANG:10000 18  Beeper Parameter 
+LANG:10001 18  Beeper parameter 
+2 46
+"txt14"
+""
+1 20 160 E E E 1 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+48 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  1 E 22 162 143 177
+0 2 0 "0s" 0 0 0 192 0 0  22 162 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 33 Приоритеты вывода
+LANG:10000 19  Meldeprioritäten 
+LANG:10001 22  Reporting priorities 
+2 49
+"txt15"
+""
+1 30 224 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+51 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 32 226 129 241
+0 2 0 "0s" 0 0 0 192 0 0  32 226 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 25 Значения выше
+LANG:10000 19 Werte größer als:
+LANG:10001 11 Values over
+2 50
+"txt16"
+""
+1 30 250 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+52 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 32 252 238 283
+0 2 0 "0s" 0 0 0 192 0 0  32 252 2
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 57 имеют высокий приоритет. Значе-
+LANG:10000 25 gelten als erhöht, Werte
+LANG:10001 31 have higher-, values below have
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 58 ния ниже имеют низкий приоритет
+LANG:10000 35 darunter als niedriger priorisiert.
+LANG:10001 15 lower priority.
+2 52
+"txtLowPrio"
+""
+1 280 190 E E E 1 E 0 E N "STD_text" E N "_Transparent" E E
+ E E
+53 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 282 192 393 207
+0 2 0 "0s" 0 0 0 192 0 0  282 192 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 32 Низкий приоритет:
+LANG:10000 20 Niedrige Priorität:
+LANG:10001 12 Low priority
+2 53
+"txtHighPrio"
+""
+1 280 310 E E E 1 E 0 E N "STD_text" E N "_Transparent" E E
+ E E
+54 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 282 312 399 327
+0 2 0 "0s" 0 0 0 192 0 0  282 312 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 33 Высокий приоритет
+LANG:10000 15 Hohe Priorität
+LANG:10001 13 High priority
+2 56
+"txt19"
+""
+1 239 460 E E E 1 E 0 E N "STD_text" E N "_Transparent" E E
+ E E
+55 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 241 462 285 477
+0 2 0 "0s" 0 0 0 192 0 0  241 462 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 12 Низкий
+LANG:10000 7 N. Prio
+LANG:10001 8 L. prio.
+2 57
+"txt20"
+""
+1 239 490 E E E 1 E 0 E N "STD_text" E N "_Transparent" E E
+ E E
+56 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 241 492 295 507
+0 2 0 "0s" 0 0 0 192 0 0  241 492 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 14 Высокий
+LANG:10000 7 H. Prio
+LANG:10001 8 H. prio.
+2 68
+"txtAll2"
+""
+1 380 387 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+57 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 382 389 418 404
+0 2 0 "0s" 0 0 0 192 0 0  382 389 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 9 кажд.
+LANG:10000 4 alle
+LANG:10001 5 every
+2 69
+"txtSec2"
+""
+1 480 387 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+58 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 482 389 508 404
+0 2 0 "0s" 0 0 0 192 0 0  482 389 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 7 сек.
+LANG:10000 4 Sek.
+LANG:10001 3 sec
+2 70
+"txtAll1"
+""
+1 380 268 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+59 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 382 270 418 285
+0 2 0 "0s" 0 0 0 192 0 0  382 270 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 9 кажд.
+LANG:10000 4 alle
+LANG:10001 5 every
+2 71
+"txtSec1"
+""
+1 480 268 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+60 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 482 270 508 285
+0 2 0 "0s" 0 0 0 192 0 0  482 270 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 7 сек.
+LANG:10000 4 Sek.
+LANG:10001 3 sec
+2 77
+"txtBeepLowPrio"
+""
+1 220 30 E E E 1 E 0 E N "STD_text" E N "_Transparent" E E
+ E E
+64 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 222 32 333 47
+0 2 0 "0s" 0 0 0 192 0 0  222 32 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 32 Низкий приоритет:
+LANG:10000 20 Niedrige Priorität:
+LANG:10001 13 Low priority:
+2 78
+"txtBeepHighPrio"
+""
+1 420 30 E E E 1 E 0 E N "STD_text" E N "_Transparent" E E
+ E E
+65 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+"main()
+{
+
+}" 0
+ E 0 1 1 0 1 E U  0 E 422 32 543 47
+0 2 0 "0s" 0 0 0 192 0 0  422 32 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 34 Высокий приоритет:
+LANG:10000 16 Hohe Priorität:
+LANG:10001 14 High priority:
+2 82
+"txt3"
+""
+1 30 342 E E E 1 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+69 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 32 344 226 391
+0 2 0 "0s" 0 0 0 192 0 0  32 344 3
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 54 После квитирования сирены но-
+LANG:10000 25 Nach der Quittierung der 
+LANG:10001 26 After confirming an alarm,
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 34 вые сигналы сирены
+LANG:10000 17 Hupe werden neue 
+LANG:10001 17 new coming alarms
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 34 будут задержаны на
+LANG:10000 20 kommende Alarme für
+LANG:10001 25 will not be displayed for
+2 84
+"txt4"
+""
+1 215 373 E E E 1 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+70 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 217 375 243 390
+0 2 0 "0s" 0 0 0 192 0 0  217 375 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 7 сек.
+LANG:10000 4 Sek.
+LANG:10001 3 sec
+2 85
+"txt5"
+""
+1 30 390 E E E 1 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+71 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 32 392 38 407
+0 2 0 "0s" 0 0 0 192 0 0  32 392 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 1  
+LANG:10000 32 nicht per Hupensignal angezeigt.
+LANG:10001 2   
+2 90
+"txt8"
+""
+1 30 470 E E E 1 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+74 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 3 1 0 1 E U  0 E 32 472 178 491
+0 2 0 "0s" 0 0 0 64 0 0  32 472 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 33 Настройки микшера
+LANG:10000 23 SB Mixer Einstellungen:
+LANG:10001 19 SB mixer properties
+2 93
+"txt7"
+""
+1 587 270 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+76 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 3 1 0 1 E U  0 E 589 272 605 287
+0 2 0 "0s" 0 0 0 192 0 0  589 272 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 2 3x
+LANG:10000 2 3x
+LANG:10001 2 3x
+2 94
+"txt9"
+""
+1 587 390 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+77 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 3 1 0 1 E U  0 E 589 392 605 407
+0 2 0 "0s" 0 0 0 192 0 0  589 392 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 2 3x
+LANG:10000 2 3x
+LANG:10001 2 3x
+2 95
+"txt10"
+""
+1 390 60 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+78 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 3 1 0 1 E U  0 E 392 62 408 77
+0 2 0 "0s" 0 0 0 192 0 0  392 62 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 2 3x
+LANG:10000 2 3x
+LANG:10001 2 3x
+2 96
+"txt11"
+""
+1 587 60 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+79 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 3 1 0 1 E U  0 E 589 62 605 77
+0 2 0 "0s" 0 0 0 192 0 0  589 62 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 2 3x
+LANG:10000 2 3x
+LANG:10001 2 3x
+6 102
+"Border10"
+""
+1 10 420 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+85 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 10 320 250 420
+6 103
+"Border11"
+""
+1 11 421 E E E 1 E 1 E N {255,255,255} E N "_Transparent" E E
+ E E
+86 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 11 321 251 421
+2 81
+"txt1"
+""
+1 20 310 E E E 1 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+68 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  1 E 22 312 135 327
+0 2 0 "0s" 0 0 0 192 0 0  22 312 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 30  Задержка сирены
+LANG:10000 19  Alarmverzögerung 
+LANG:10001 18  Alarm horn delay 
+6 110
+"Border14"
+""
+1 10 148 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+93 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 10 20 120 150
+6 111
+"Border15"
+""
+1 11 151 E E E 1 E 1 E N {255,255,255} E N "_Transparent" E E
+ E E
+94 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 11 21 121 151
+2 99
+"txt2"
+""
+1 20 10 E E E 1 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+82 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 1 3 1 0 1 E U  1 E 22 12 84 27
+0 2 0 "0s" 0 0 0 192 0 0  22 12 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 16  Выборка 
+LANG:10000 9  Auswahl 
+LANG:10001 11  Selection 
+6 112
+"Border1"
+""
+1 11 521 E E E 1 E 1 E N {255,255,255} E N "_Transparent" E E
+ E E
+94 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 11 441 221 521
+6 113
+"Border2"
+""
+1 10 520 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+95 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 10 440 220 520
+2 92
+"txt6"
+""
+1 20 430 E E E 1 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+75 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  1 E 22 432 85 447
+0 2 0 "0s" 0 0 0 192 0 0  22 432 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 18 Громкость
+LANG:10000 13  Lautstärke 
+LANG:10001 8  Volume 
+2 114
+"txtBeepDuration"
+""
+1 140 60 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+96 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 140 60 224 75
+0 0 0 "0s" 0 0 0 192 0 0  140 60 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 24 Длительность
+LANG:10000 10 Ton-Dauer:
+LANG:10001 14 Sound duration
+2 115
+"txtBeepFrequ"
+""
+1 140 120 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+97 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 140 120 189 135
+0 0 0 "0s" 0 0 0 192 0 0  140 120 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 14 Частота
+LANG:10000 13 Ton-Frequenz:
+LANG:10001 15 Sound frequency
+2 116
+"txtBeepBreak"
+""
+1 140 90 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+98 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 140 90 213 105
+0 0 0 "0s" 0 0 0 192 0 0  140 90 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 20 Длит. паузы
+LANG:10000 13 Pausen-Dauer:
+LANG:10001 14 Break duration
+2 117
+"txtMsec1"
+""
+1 300 60 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+98 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 302 62 337 77
+0 2 0 "0s" 0 0 0 192 0 0  302 62 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 9 мсек.
+LANG:10000 4 msec
+LANG:10001 4 msec
+2 120
+"txtMsec2"
+""
+1 300 90 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+101 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 302 92 337 107
+0 2 0 "0s" 0 0 0 192 0 0  302 92 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 9 мсек.
+LANG:10000 4 msec
+LANG:10001 4 msec
+2 121
+"txtHz"
+""
+1 300 120 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+102 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 302 122 320 137
+0 2 0 "0s" 0 0 0 192 0 0  302 122 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 2 Hz
+LANG:10000 2 Hz
+LANG:10001 2 Hz
+2 122
+"txtMsec3"
+""
+1 500 60 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+103 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 502 62 537 77
+0 2 0 "0s" 0 0 0 192 0 0  502 62 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 9 мсек.
+LANG:10000 4 msec
+LANG:10001 4 msec
+2 123
+"txtMsec4"
+""
+1 500 90 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+104 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 502 92 537 107
+0 2 0 "0s" 0 0 0 192 0 0  502 92 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 9 мсек.
+LANG:10000 4 msec
+LANG:10001 4 msec
+2 124
+"txtHz2"
+""
+1 500 120 E E E 0 E 1 E N "STD_text" E N "_Transparent" E E
+ E E
+105 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 502 122 520 137
+0 2 0 "0s" 0 0 0 192 0 0  502 122 1
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0 3
+LANG:10027 2 Hz
+LANG:10000 2 Hz
+LANG:10001 2 Hz
+2 125
+"txt_info"
+""
+1 10 530 E E E 1 E 0 E N "STD_text" E N "_Transparent" E E
+ E E
+106 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 0 1 E U  0 E 12 532 176 548
+0 2 0 "0s" 0 0 0 64 0 0  12 532 1
+3
+LANG:10027 26 Arial,-1,13,5,75,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,75,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,75,0,0,0,0,0
+0 3
+LANG:10027 37 Изменения сохранены
+LANG:10000 25 Einstellungen gespeichert
+LANG:10001 18 New settings saved
+13 25
+"cmdFileSelect"
+""
+1 549 209 E E E 0 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+15 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  548 208 582 238
+
+P 
+3342591
+"25.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  string sFile;
+
+    fileSelector(sFile, getPath(DATA_REL_PATH,\"sounds\"), (!isMotif()), \"*.wav\");
+
+  if (sFile != \"\")
+  {
+    // Convert file name into lower characters and check if ok
+    sFile = strtolower(sFile);
+    strreplace( sFile, \"\\\\\",\"/\");
+    if ( strpos(sFile,\"wav\") < 0 || strpos(sFile,\"/sounds/\") < 0 ) 
+    {
+      string sMessageText=getCatStr(\"misc\",\"AlarmHornWAVFileWrong\");
+      ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+      return;
+    }
+    
+    sFile = substr(sFile, strpos(sFile,\"/sounds/\")+8);
+    setMultiValue(\"FileName\",\"text\",sFile,
+                  \"FileName\",\"enabled\",FALSE,
+                  \"cmdWavTest\",\"enabled\", TRUE);
+    WavContCyc.number = 0;
+  }
+}" 0
+ E E E
+19 65
+"WavContCyc"
+""
+1 280 241 E E E 0 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+16 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  278 239 382 292
+2
+T 
+3
+LANG:10027 18 постоянно
+LANG:10000 14 kontinuierlich
+LANG:10001 13 continuously 
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+T 
+3
+LANG:10027 16 циклично
+LANG:10000 8 zyklisch
+LANG:10001 6 cycled
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+1
+E "main()
+{
+  bool Value;
+  
+  Value = this.number();
+  
+  if (FileName.text == \"\") 
+  {
+    string sMessageText=getCatStr(\"misc\",\"AlarmHornWAVFile\");
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return;
+  }
+  
+  switch(Value)
+  {
+    case 0: 
+    setMultiValue(\"txtAll1\",\"enabled\",  FALSE,
+    			  \"txtSec1\",\"enabled\",   FALSE,
+    			  \"wavCyclMode\",\"enabled\",FALSE,
+    			  \"wavCyclMode\",\"text\",	  \"\");
+    break;
+    
+    case 1:
+    setMultiValue(\"txtAll1\",\"enabled\",  TRUE,
+    			  \"txtSec1\",\"enabled\",   TRUE,
+    			  \"wavCyclMode\",\"enabled\",TRUE);
+  }
+}" 0
+
+14 72
+"wavCyclMode"
+""
+1 420 260 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+17 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  418 258 472 285
+3 "5d" 5 1 0 0 0 -1  E E E
+13 32
+"cmdWavTest"
+""
+1 550 260 E E E 0 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+18 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  548 258 582 288
+
+P 
+3342591
+"32.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{ 
+  int i, wavLoop = wavCyclMode.text;
+  string SoundFile = FileName.text;
+  
+  // WAV sound test
+  
+  if (SoundFile != \"\")
+  {
+    SoundFile = getPath(DATA_REL_PATH,\"sounds/\"+SoundFile);
+    
+    if ( (WavContCyc.number == 0) && (SoundFile != \"\") ) 
+    {
+      dpSet(\"AlertHorn.Enabled:_original.._value\",0);     // Stops alert sound for sound check
+      for (i = 1; i <= 3; i++)
+      {
+        startSound(SoundFile);
+        delay(1);
+      }
+      delay(1);
+      dpSet(\"AlertHorn.Enabled:_original.._value\",1);     // After sound check has finished, the horn will be started again.
+    }
+    
+    if (WavContCyc.number == 1)
+    {
+      if (wavLoop != 0)
+      {
+        dpSet(\"AlertHorn.Enabled:_original.._value\",0);   // Stops alert sound for sound check
+        for (i = 1; i <= 3; i++)
+        {
+          startSound(SoundFile);
+          delay(wavLoop);
+        }
+        delay(1);
+        dpSet(\"AlertHorn.Enabled:_original.._value\",1);   // After sound check has finished, the horn will be started again.
+      }
+      
+      else
+      { 
+        string sMessageText=getCatStr(\"misc\",\"AlarmHornTEST\");
+    	ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    	return;
+  	  }
+    }
+  }
+  
+  else
+  { 
+    string sMessageText=getCatStr(\"misc\",\"AlarmHornTEST\");
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return;
+  }
+}" 0
+ E E E
+14 36
+"FileName2"
+""
+1 280 330 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+19 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  278 328 542 355
+3 "0s" 0 0 0 0 0 -1  E E E
+13 37
+"cmdFileSelect2"
+""
+1 549 329 E E E 0 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+20 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  548 328 582 358
+
+P 
+255
+"37.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  string sFile;
+
+  fileSelector(sFile, getPath(DATA_REL_PATH,\"sounds\"), (!isMotif()), \"*.wav\");
+
+  if (sFile != \"\")
+  {
+    // Convert file name into lower characters and check if ok
+    sFile = strtolower(sFile);
+    strreplace( sFile, \"\\\\\",\"/\");
+    if ( strpos(sFile,\"wav\") < 0 || strpos(sFile,\"/sounds/\") < 0 ) 
+    {
+      string sMessageText=getCatStr(\"misc\",\"AlarmHornWAVFileWrong\");
+      ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+      return;
+    }
+    
+    sFile = substr(sFile, strpos(sFile,\"/sounds/\")+8);
+    setMultiValue(\"FileName2\",\"text\",sFile,
+                  \"FileName2\",\"enabled\",FALSE,
+                  \"cmdWavTest2\",\"enabled\", TRUE);
+    WavContCyc2.number = 0;
+  }
+}" 0
+ E E E
+19 66
+"WavContCyc2"
+""
+1 280 360 E E E 0 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+21 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  278 358 382 412
+2
+T 
+3
+LANG:10027 18 постоянно
+LANG:10000 14 kontinuierlich
+LANG:10001 13 continuously 
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+T 
+3
+LANG:10027 16 циклично
+LANG:10000 8 zyklisch
+LANG:10001 6 cycled
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+1
+E "main()
+{
+  bool Value;
+  
+  Value = this.number();
+  
+  if (FileName2.text == \"\") 
+  {
+    string sMessageText=getCatStr(\"misc\",\"AlarmHornWAVFile\");
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return;
+  }
+  
+  switch(Value)
+  {
+    case 0: 
+    setMultiValue(\"txtAll2\",\"enabled\",   FALSE,
+    			  \"txtSec2\",\"enabled\",    FALSE,
+    			  \"wavCyclMode2\",\"enabled\",FALSE,
+    			  \"wavCyclMode2\",\"text\",   \"\");
+    break;
+    
+    case 1:
+    setMultiValue(\"txtAll2\",\"enabled\",   TRUE,
+    			  \"txtSec2\",\"enabled\",    TRUE,
+    			  \"wavCyclMode2\",\"enabled\",TRUE);
+  }
+}" 0
+
+14 67
+"wavCyclMode2"
+""
+1 420 380 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+22 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  418 378 472 405
+3 "5d" 5 1 0 0 0 -1  E E E
+13 38
+"cmdWavTest2"
+""
+1 550 380 E E E 0 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+23 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  548 378 582 408
+
+P 
+3342591
+"38.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{ 
+  int i, wavLoop = wavCyclMode2.text;
+  string SoundFile = FileName2.text;
+  
+  // WAV sound test
+  
+  if (SoundFile != \"\")
+  {
+    SoundFile = getPath(DATA_REL_PATH,\"sounds/\"+SoundFile);
+    
+    if ( (WavContCyc2.number == 0) && (FileName2.text != \"\") )
+    {
+      dpSet(\"AlertHorn.Enabled:_original.._value\",0);     // Stops alert sound for sound check
+      for (i = 1; i <= 3; i++)
+      {
+        startSound(SoundFile);
+        delay(1);
+      }
+      delay(1);
+      dpSet(\"AlertHorn.Enabled:_original.._value\",1);     // After sound check has finished, the horn will be started again.
+    }
+    
+    if (WavContCyc2.number == 1)
+    {
+      if (wavLoop != 0)
+      {
+        dpSet(\"AlertHorn.Enabled:_original.._value\",0);   // Stops alert sound for sound check
+        
+        for (i = 1; i <= 3; i++)
+        {
+          startSound(SoundFile);
+          delay(wavLoop);
+        }
+        delay(1);
+        dpSet(\"AlertHorn.Enabled:_original.._value\",1);   // After sound check has finished, the horn will be started again.
+      }
+    
+      else
+      { 
+        string sMessageText=getCatStr(\"misc\",\"AlarmHornTEST\");
+    	ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    	return;
+      }
+    }
+  }
+ 
+  else
+  { 
+    string sMessageText=getCatStr(\"misc\",\"AlarmHornTEST\");
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return;
+  }
+}" 0
+ E E E
+14 27
+"DpName"
+""
+1 299 460 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+24 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  297 458 561 485
+3 "0s" 0 0 0 0 0 -1  E E E
+13 26
+"DpSel"
+""
+1 568 460 E E E 0 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+25 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  567 458 601 488
+
+P 
+3342591
+"26.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  string dp;
+
+  dpSelector(dp,FALSE);
+  
+  dp = dpSubStr(dp, DPSUB_DP_EL);
+
+  setValue(\"DpName\",\"text\",dp);
+}" 0
+ E E E
+14 55
+"DpName2"
+""
+1 299 490 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+26 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  297 488 560 515
+3 "0s" 0 0 0 0 0 -1  E E E
+13 54
+"DpSel2"
+""
+1 568 490 E E E 0 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+27 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  567 488 601 518
+
+P 
+3342591
+"54.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  string dp;
+
+  dpSelector(dp,FALSE);
+
+  dp = dpSubStr(dp, DPSUB_DP_EL);
+
+  setValue(\"DpName2\",\"text\",dp);
+}" 0
+ E E E
+13 21
+"cmdOk"
+""
+1 418 528 E E E 1 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+28 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  418 528 512 558
+
+T 
+3
+LANG:10027 18 Сохранить
+LANG:10000 9 Speichern
+LANG:10001 4 Save
+"main()
+{
+  int 		iBeepDuration, iBeepDuration2, iPause, iPause2, iFreq, 
+            iFreq2, iPriority, iWavSec, iWavSec2, iAlertDelay;
+  string 	sFileName1, sFileName2, sDpeValue, sDpeValue2;
+
+  // Function for saving the choosen selections-
+  // Checks general values as priority and alert delay
+  
+  getMultiValue(\"ChooseDelay\",\"text\", iAlertDelay,
+  				\"ChoosePrio\",\"text\",  iPriority);
+  				
+  
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Checks all done settings
+  // Checks case: priority missing
+  if ( (chkPriority.state(0)) && (iPriority == 0) )
+  {
+    string sMessageText=getCatStr(\"misc\",\"NoPriority\");
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return; 
+  }
+  
+  // Checks case: alert delay == 0
+  if (iAlertDelay == 0)
+  {
+    string sMessageText=getCatStr(\"misc\",\"NoAlertDelay\");
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return; 
+  }
+  
+  // Checks case BEEPER
+  if (chkMode.state(0))
+  {
+	getMultiValue(\"txt_duration\",\"text\",	iBeepDuration,
+			      \"txt_frequency\",\"text\",	iFreq,
+			      \"txt_pause\",\"text\",	 	iPause,
+			      \"txt_duration2\",\"text\",	iBeepDuration2,
+			      \"txt_frequency2\",\"text\",	iFreq2,
+			      \"txt_pause2\",\"text\", 	 	iPause2);
+			      
+    if (chkPriority.state(0))
+    {
+      if (iBeepDuration == 0 || iFreq == 0 || iPause == 0 || iBeepDuration2 == 0 || iFreq2 == 0 || iPause2 == 0)
+      {
+        string sMessageText=getCatStr(\"misc\",\"AlertHornBEEPER\");
+        ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+        return; 
+      }
+    }
+    if (iBeepDuration == 0 || iFreq == 0 || iPause == 0 && !chkPriority.state(0))
+    {
+      string sMessageText=getCatStr(\"misc\",\"AlertHornBEEPER\");
+      ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+      return; 
+    }
+  }
+  
+  // Checks case WAV
+  if (chkMode.state(1))
+  {
+    getMultiValue(\"FileName\",\"text\", sFileName1,
+		      	  \"FileName2\",\"text\",sFileName2);			      	  
+
+    if (sFileName1 == \"\" || sFileName2 == \"\" && chkPriority.state(0))
+    {
+      string sMessageText=getCatStr(\"misc\",\"AlertHornWAV\");
+      ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+      return; 
+  	}
+  }
+  
+  // Checks case DPE:
+  if (chkMode.state(2))
+  {
+    getMultiValue(\"DpName\",\"text\", sDpeValue,
+    			  \"DpName2\",\"text\",sDpeValue2);
+    
+    if(!dpExists(sDpeValue))  // Does dp exist?
+    {
+      string sMessageText=getCatStr(\"misc\",\"SelectDp\");
+      ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+      return; 
+    }
+    
+    if (chkPriority.state(0) && !dpExists(sDpeValue2)) // Does dp2 exist?
+    {
+      string sMessageText=getCatStr(\"misc\",\"SelectDp\");
+      ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+      return; 
+    }
+    
+     
+    if (sDpeValue == \"\" || sDpeValue2 == \"\" && chkPriority.state(0))
+    {
+      string sMessageText=getCatStr(\"misc\",\"AlertHornDPE\");
+      ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+      return; 
+    }
+  }
+  
+  // If everything is alright, set values to the datapoints
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  // Stops the horn until the new settings are saved
+  dpSetWait(\"AlertHorn.Enabled:_original.._value\",0);
+  
+  
+  ////////////// If high and low Priority  //////////////////////////////////////////////////
+  if (chkPriority.state(0))
+  {
+	dpSet(\"AlertHorn.DistinguishTwoPrios:_original.._value\", 1);
+    
+    if (iPriority != 0) dpSet(\"AlertHorn.HighPrioLimit:_original.._value\", iPriority);
+  }
+  else dpSet(\"AlertHorn.DistinguishTwoPrios:_original.._value\", 0,
+  			 \"AlertHorn.HighPrioLimit:_original.._value\", 0);
+  
+  dpSetWait(\"AlertHorn.HornSilenceTime:_original.._value\", iAlertDelay,
+  			\"AlertHorn.HighPrioLimit:_original.._value\",   iPriority);		
+  
+  
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // CASE BEEPER:
+  if (chkMode.state(0)) dpSetWait(\"AlertHorn.BeeperProps.LowPrioIntervalTime:_original.._value\",  iPause,
+                                  \"AlertHorn.BeeperProps.LowPrioFrequency:_original.._value\", 	  iFreq,
+                                  \"AlertHorn.BeeperProps.LowPrioBeepTime:_original.._value\",	  iBeepDuration,
+                                  \"AlertHorn.BeeperProps.HighPrioIntervalTime:_original.._value\", iPause2,
+                                  \"AlertHorn.BeeperProps.HighPrioFrequency:_original.._value\",	  iFreq2,
+                                  \"AlertHorn.BeeperProps.HighPrioBeepTime:_original.._value\",	  iBeepDuration2,
+                                  \"AlertHorn.BeeperProps.Enabled:_original.._value\", 			  1);
+  
+  // CASE !BEEPER -SETS DP TO \"\"
+  if (!chkMode.state(0)) dpSetWait(\"AlertHorn.BeeperProps.LowPrioIntervalTime:_original.._value\",  0,
+			  					   \"AlertHorn.BeeperProps.LowPrioFrequency:_original.._value\",     0,
+		      					   \"AlertHorn.BeeperProps.LowPrioBeepTime:_original.._value\",	   0,
+		      					   \"AlertHorn.BeeperProps.HighPrioIntervalTime:_original.._value\", 0,
+		      					   \"AlertHorn.BeeperProps.HighPrioFrequency:_original.._value\",    0,
+		      					   \"AlertHorn.BeeperProps.HighPrioBeepTime:_original.._value\",	   0,
+		      					   \"AlertHorn.BeeperProps.Enabled:_original.._value\", 			   0);
+		      
+		      
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // CASE .WAV SOUND:
+  if (chkMode.state(1))
+  {	
+	dpSetWait(\"AlertHorn.WavProps.LowPrioWavFile:_original.._value\",  sFileName1,
+	   		  \"AlertHorn.WavProps.HighPrioWavFile:_original.._value\", sFileName2,
+	   		  \"AlertHorn.WavProps.Enabled:_original.._value\", 		  1);   
+	    
+	if (WavContCyc.number == 1) 
+	{
+	  getValue(\"wavCyclMode\",\"text\",iWavSec);
+	  dpSetWait(\"AlertHorn.WavProps.LowPrioCycleInterval:_original.._value\", iWavSec,
+	   		 	\"AlertHorn.WavProps.LowPrioContinous:_original.._value\",	 0);
+    }   	  
+
+    if (WavContCyc.number == 0) dpSetWait(\"AlertHorn.WavProps.LowPrioCycleInterval:_original.._value\", \"\",
+    									  \"AlertHorn.WavProps.LowPrioContinous:_original.._value\",	   1);
+	     
+    if (WavContCyc2.number == 1)
+    {
+      getValue(\"wavCyclMode2\",\"text\",iWavSec2);
+      dpSetWait(\"AlertHorn.WavProps.HighPrioCycleInterval:_original.._value\", iWavSec2,
+      			\"AlertHorn.WavProps.HighPrioContinous:_original.._value\",	  0);
+    }
+    if (WavContCyc2.number == 0) dpSet(\"AlertHorn.WavProps.HighPrioCycleInterval:_original.._value\", \"\",
+    								   \"AlertHorn.WavProps.HighPrioContinous:_original.._value\",	 1);
+  }
+  // CASE !WAV -SETS DP TO \"\"
+  if (!chkMode.state(1)) dpSetWait(\"AlertHorn.WavProps.LowPrioWavFile:_original.._value\",  \"\",
+	    		  				   \"AlertHorn.WavProps.HighPrioWavFile:_original.._value\", \"\",
+	    		  				   \"AlertHorn.WavProps.Enabled:_original.._value\", 		   0);
+  
+  
+  
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // CASE DPE:
+  if (chkMode.state(2)) dpSetWait(\"AlertHorn.ExternalProps.LowPrioExternalHornDPE:_original.._value\",  sDpeValue,
+                                  \"AlertHorn.ExternalProps.HighPrioExternalHornDPE:_original.._value\", sDpeValue2,
+                                  \"AlertHorn.ExternalProps.Enabled:_original.._value\", 				   1); 
+  
+  // CASE !DPE -SETS DP TO \"\"
+  if (!chkMode.state(2)) dpSetWait(\"AlertHorn.ExternalProps.LowPrioExternalHornDPE:_original.._value\",  \"\",
+    		  					   \"AlertHorn.ExternalProps.HighPrioExternalHornDPE:_original.._value\", \"\",
+    		  					   \"AlertHorn.ExternalProps.Enabled:_original.._value\", 			    0); 
+    		  						 
+    		  						 
+
+
+  // Everyting is saved, so the horn can be restarted with the new settings.
+  dpSet(\"AlertHorn.Enabled:_original.._value\",0);  
+  dpSet(\"AlertHorn.Enabled:_original.._value\",1);  
+  
+  setValue(\"txt_info\",\"visible\",1);
+  delay(3);
+  
+  setValue(\"txt_info\",\"visible\",0);
+}" 0
+ E E E
+20 23
+"chkMode"
+""
+1 30 30 E E E 1 E 1 E N "STD_text" E N "STD_panel_back" E E
+ E E
+1 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  28 28 112 142
+3
+T 
+3
+LANG:10027 12 Зуммер
+LANG:10000 6 Beeper
+LANG:10001 6 Beeper
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+T 
+3
+LANG:10027 12 Wav-файл
+LANG:10000 8 WAV-File
+LANG:10001 9 Wav -File
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+T 
+3
+LANG:10027 3 DPE
+LANG:10000 3 DPE
+LANG:10001 3 DPE
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+3
+E E
+E E
+E E
+E"main()
+{
+  if ( (!this.state(0))  && (!this.state(1)) && (!this.state(2)) ) setMultiValue(\"chkPriority\",\"enabled\",FALSE,
+  																		         \"txt15\",\"enabled\", 	 FALSE,
+  				  													             \"txt16\",\"enabled\", 	 FALSE,
+  				  													             \"ChoosePrio\",\"enabled\", FALSE,
+  				  													             \"ChoosePrio\",\"text\", 	 \"\");
+  if ( (!chkMode.state(0)) && (!chkMode.state(1)) && (!chkMode.state(2)) ) chkPriority.state(0) = 0; 
+	setMultiValue(\"txtBeepLowPrio\",\"visible\",  (chkPriority.state(0)==1),
+					      \"txtBeepHighPrio\",\"visible\", (chkPriority.state(0)==1),
+	              \"txtLowPrio\",\"visible\",  (chkPriority.state(0)==1),
+					      \"txtHighPrio\",\"visible\", (chkPriority.state(0)==1),
+	              \"txt19\",\"visible\",  (chkPriority.state(0)==1),
+					      \"txt20\",\"visible\", (chkPriority.state(0)==1));
+  
+
+  ///////// BEEPER - MODE ////////////
+  // If Beeper ACTIVE
+  if (this.state(0))
+  {	          				  
+    setMultiValue(\"chkPriority\",\"enabled\",        TRUE,
+    			  \"txtBeeperCaption\",\"enabled\",   TRUE,
+  				  \"txtBeepBreak\",\"enabled\",	  	  TRUE,
+  				  \"txtBeepDuration\",\"enabled\", 	  TRUE,
+  				  \"txtBeepFrequ\",\"enabled\", 	  TRUE,
+  				  \"txt_frequency\",\"enabled\",  	  TRUE,
+  				  \"txt_duration\",\"enabled\", 	  TRUE,
+  				  \"txt_pause\",\"enabled\",	 	  TRUE,
+  				  \"txtMsec1\",\"enabled\",	 	  	  TRUE,
+  				  \"txtMsec2\",\"enabled\",		  	  TRUE,
+  				  \"txtHz\",\"enabled\",		 	  TRUE,
+  				  \"cmdBeeperTest\",\"enabled\",	  TRUE,
+  				  \"txtBeepLowPrio\",\"enabled\", 	  TRUE,
+  				  \"txtBeepHighPrio\",\"enabled\", 	  TRUE,
+  				  \"txt_duration\",   \"text\",       \"500\",
+  				  \"txt_pause\",      \"text\",       \"1000\",
+  				  \"txt_frequency\",  \"text\",       \"2000\");
+    //////////// if high and low Priority  //////////////////////
+    if (chkPriority.state(0)) setMultiValue(\"txt_frequency2\",\"enabled\",	  TRUE,
+  				   							\"txt_duration2\",\"enabled\", 	  TRUE,
+  				    						\"txt_pause2\",\"enabled\",	   	  TRUE,
+  				    						\"txtMsec2\",\"enabled\",	   	  TRUE,
+  				    						\"txtBeepLowPrio\",\"visible\",   TRUE,
+  				    						\"txtBeepHighPrio\",\"visible\",  TRUE,
+  				    						\"txtHz2\",\"enabled\",			  TRUE,
+  				  							\"cmdBeeperTest2\",\"enabled\",	  TRUE,
+  				  							\"txtMsec3\",\"enabled\",		  TRUE,
+  				  							\"txtMsec4\",\"enabled\",		  TRUE,
+  				  							\"txt_duration2\",   \"text\",    \"1000\",
+  				                            \"txt_pause2\",      \"text\",    \"3000\",
+  				                            \"txt_frequency2\",  \"text\",    \"500\");
+  } 
+  
+  // If Beeper INACTIVE
+  if (!this.state(0)) setMultiValue(\"txtBeeperCaption\",\"enabled\", FALSE, 
+	  			  					\"txtBeepBreak\",\"enabled\",	  FALSE,
+  				  					\"txtBeepDuration\",\"enabled\",  FALSE,
+  				  					\"txtBeepFrequ\",\"enabled\", 	  FALSE,
+  				  					\"txt_frequency\",\"enabled\", 	  FALSE,
+  				  					\"txt_duration\",\"enabled\",  	  FALSE,
+  				  					\"txt_pause\",\"enabled\",	 	  FALSE,
+  				  					\"txt_frequency\",\"text\",	 	  \"\",
+  				  					\"txt_duration\",\"text\",	 	  \"\",
+  				  					\"txt_pause\",\"text\",		 	  \"\",
+  				  					\"txt_frequency2\",\"enabled\",	  FALSE,
+  				  					\"txt_duration2\",\"enabled\", 	  FALSE,
+  				  					\"txt_pause2\",\"enabled\",	 	  FALSE,
+  				 					\"txt_frequency2\",\"text\",	  \"\",
+  				  					\"txt_duration2\",\"text\",	 	  \"\",
+  				  					\"txt_pause2\",\"text\",		  \"\",
+  				 	 				\"txtMsec1\",\"enabled\",	 	  FALSE,
+  				  					\"txtMsec2\",\"enabled\",	 	  FALSE,
+  				  					\"txtHz\",\"enabled\",		 	  FALSE,
+  				  					\"cmdBeeperTest\",\"enabled\", 	  FALSE,
+  				  					\"txtBeepHighPrio\",\"enabled\",  FALSE,
+  				  					\"txtBeepLowPrio\",\"enabled\",   FALSE,
+  				  					\"txtMsec3\",\"enabled\",	 	  FALSE,
+  				  					\"txtMsec4\",\"enabled\",	 	  FALSE,
+  				  					\"txtHz2\",\"enabled\",		 	  FALSE,
+  				  					\"cmdBeeperTest2\",\"enabled\",	  FALSE);
+
+  ///////// .WAV - MODE  /////////////
+  // If WAV ACTIVE
+  if (this.state(1))  
+  {  
+    setMultiValue(\"chkPriority\",\"enabled\",	TRUE,	// Priority settings			  
+    			  \"txtWavCaption\",\"enabled\",TRUE,
+  				  \"cmdFileSelect\",\"enabled\",TRUE,
+  				  \"WavContCyc\",\"enabled\",   TRUE,
+  				  \"txtLowPrio\",\"enabled\",   TRUE);	
+  				  
+  	//////////// if high and low Priority  //////////////////////			  
+  	if (chkPriority.state(0)) setMultiValue(\"cmdFileSelect2\",\"enabled\", TRUE,
+  	  										\"WavContCyc2\",\"enabled\",  	TRUE,
+  	  										\"txtHighPrio\",\"enabled\",	TRUE);
+  }			
+  // If WAV INACTIVE									
+  if (!this.state(1)) setMultiValue(\"txtWavCaption\",\"enabled\", FALSE,
+  				  					\"cmdWavTest\",\"enabled\",    FALSE,
+        		  					\"FileName\",\"text\",		   \"\",
+    			  					\"FileName\",\"enabled\",      FALSE,
+    			  					\"cmdFileSelect\",\"enabled\", FALSE,			
+    			  					\"cmdWavTest2\",\"enabled\",   FALSE,
+    			  					\"FileName2\",\"text\",		   \"\",
+    			  					\"FileName2\",\"enabled\",     FALSE,
+    			  					\"cmdFileSelect2\",\"enabled\",FALSE,
+    			  					\"WavContCyc\",\"enabled\",    FALSE,
+    			 	 				\"WavContCyc\",\"number\",	   0,
+    			  					\"WavContCyc2\",\"number\",	   0,
+  				 					\"WavContCyc2\",\"enabled\",   FALSE,
+  				  					\"wavCyclMode\",\"enabled\",   FALSE,
+  				  					\"wavCyclMode\",\"text\",	   \"\",
+  				  					\"wavCyclMode2\",\"enabled\",  FALSE,
+  				  					\"wavCyclMode2\",\"text\",	   \"\",
+  				  					\"txtLowPrio\",\"enabled\",    FALSE,
+  				  					\"txtHighPrio\",\"enabled\",   FALSE);
+  
+  ///////// DPE - MODE  ///////////////
+  // If DPE ACTIVE	
+  if (this.state(2))  
+  {  
+    setMultiValue(\"chkPriority\",\"enabled\",   TRUE,
+    			  \"txtDpeCaption\",\"enabled\", TRUE,
+  				  \"DpSel\",\"enabled\",	 	 TRUE,
+  				  \"DpName\",\"enabled\",    	 TRUE, 				  
+  				  \"txt19\",\"enabled\",	 	 TRUE);
+    //////////// if high and low Priority  //////////////////////
+    if (chkPriority.state(0)) setMultiValue(\"DpSel2\",\"enabled\",	 TRUE,
+      										\"DpName2\",\"enabled\", TRUE,
+      										\"txt20\",\"enabled\",	 TRUE);
+  }
+  // If DPE INACTIVE										
+  if (!this.state(2)) setMultiValue(\"txtDpeCaption\",\"enabled\", FALSE,
+    			  					\"DpSel\",\"enabled\",     	   FALSE,
+    			  					\"DpName\",\"text\",		   \"\",
+    			  					\"DpName\",\"enabled\",    	   FALSE,
+    			  					\"DpSel2\",\"enabled\",	 	   FALSE,
+    			  					\"DpName2\",\"text\", 	 	   \"\",
+  				  					\"DpName2\",\"enabled\",   	   FALSE,
+  				  					\"txt19\",\"enabled\",	 	   FALSE,
+  				  					\"txt20\",\"enabled\",	 	   FALSE);
+}" 0
+20 91
+"chkPriority"
+""
+1 30 190 E E E 1 E 1 E N "_3DText" E N "STD_panel_back" E E
+ E E
+2 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  28 188 222 216
+1
+T 
+3
+LANG:10027 44 Выс. и низкий приоритеты
+LANG:10000 30 Hohe und niedrige Prioritäten
+LANG:10001 23 High and low priorities
+
+0 
+1
+LANG:10027 0 
+E E
+0 0 0 0 0
+1
+E E
+E"main()
+{
+  setMultiValue(\"txtBeepHighPrio\",\"visible\",	  this.state(0),
+                \"txtBeepLowPrio\",\"visible\",	  this.state(0),
+                \"txtHighPrio\",\"visible\",	  this.state(0),
+                \"txtLowPrio\",\"visible\",	  this.state(0),
+                \"txt19\",\"visible\",	  this.state(0),
+                \"txt20\",\"visible\",	  this.state(0));
+
+  if (this.state(0)) //////////// If high and low priority  //////////////////////
+  {
+    setMultiValue(\"txt15\",\"enabled\", 	 TRUE,
+  				  \"txt16\",\"enabled\", 	 TRUE,
+  				  \"ChoosePrio\",\"enabled\",TRUE);
+
+    //BEEPER
+    if (chkMode.state(0))  
+    {					  
+      setMultiValue(\"txtBeeperCaption\",\"enabled\", TRUE,
+  				    \"txtBeepBreak\",\"enabled\",	  TRUE,
+  				    \"txtBeepDuration\",\"enabled\",  TRUE,
+  				    \"txtBeepFrequ\",\"enabled\", 	  TRUE,
+  				    \"txt_frequency\",\"enabled\",    TRUE,
+  				    \"txt_duration\",\"enabled\", 	  TRUE,
+  				    \"txt_pause\",\"enabled\",	 	  TRUE,
+  				    \"txt_frequency2\",\"enabled\",	  TRUE,
+  				    \"txt_duration2\",\"enabled\", 	  TRUE,
+  				    \"txt_pause2\",\"enabled\",	 	  TRUE,
+  				    \"txtMsec1\",\"enabled\",	 	  TRUE,
+  				    \"txtMsec2\",\"enabled\",	 	  TRUE,
+  				    \"txtHz\",\"enabled\",		 	  TRUE,
+  				    \"cmdBeeperTest\",\"enabled\",	  TRUE,
+  				    \"txtBeepHighPrio\",\"enabled\",  TRUE,
+  				    \"txtBeepLowPrio\",\"enabled\",   TRUE,
+  				    \"txtMsec3\",\"enabled\",		  TRUE,
+  				    \"txtMsec4\",\"enabled\",		  TRUE,
+  				    \"txtHz2\",\"enabled\",			  TRUE,
+  				    \"cmdBeeperTest2\",\"enabled\",	  TRUE,
+  				    \"txt_duration2\",  \"text\",     \"1000\",
+  				    \"txt_pause2\",     \"text\",     \"3000\",
+  				    \"txt_frequency2\", \"text\",     \"500\");
+    } 
+    if (!chkMode.state(0)) 
+    {		
+      setMultiValue(\"txtBeeperCaption\",\"enabled\", FALSE, 
+  				    \"txtBeepBreak\",\"enabled\",  	  FALSE,
+  				    \"txtBeepDuration\",\"enabled\",  FALSE,
+  				    \"txtBeepFrequ\",\"enabled\",     FALSE,
+  				    \"txt_frequency\",\"enabled\",    FALSE,
+  				    \"txt_duration\",\"enabled\",     FALSE,
+  				    \"txt_pause\",\"enabled\",	      FALSE,
+  				    \"txt_frequency\",\"text\",	   	  \"\",
+  				    \"txt_duration\",\"text\",	   	  \"\",
+  				    \"txt_pause\",\"text\",		   	  \"\",
+  				    \"txt_frequency2\",\"enabled\",	  FALSE,
+  				    \"txt_duration2\",\"enabled\", 	  FALSE,
+  				    \"txt_pause2\",\"enabled\",	   	  FALSE,
+  				    \"txt_frequency2\",\"text\",   	  \"\",
+  				    \"txt_duration2\",\"text\",    	  \"\",
+  				    \"txt_pause2\",\"text\",       	  \"\",
+  				    \"txtMsec1\",\"enabled\",	   	  FALSE,
+  				    \"txtMsec2\",\"enabled\",	      FALSE,
+  				    \"txtHz\",\"enabled\",		   	  FALSE,
+  				    \"cmdBeeperTest\",\"enabled\", 	  FALSE,
+  				    \"txtBeepHighPrio\",\"enabled\",  FALSE,
+  				    \"txtBeepLowPrio\",\"enabled\",   FALSE,
+  				    \"txtMsec3\",\"enabled\",	      FALSE,
+  				    \"txtMsec4\",\"enabled\",	      FALSE,
+  				    \"txtHz2\",\"enabled\",	   	      FALSE,
+  				    \"cmdBeeperTest2\",\"enabled\",   FALSE);
+    }
+    // WAV
+    if (chkMode.state(1))  
+    {
+      setMultiValue(\"txtWavCaption\",\"enabled\", 	TRUE,
+  				    \"cmdFileSelect\",\"enabled\", 	TRUE,
+  				    \"cmdFileSelect2\",\"enabled\",	TRUE,
+  				    \"WavContCyc\",\"enabled\", 	TRUE,
+  				    \"WavContCyc2\",\"enabled\",	TRUE,
+  				    \"txtLowPrio\",\"enabled\",		TRUE,
+  				    \"txtHighPrio\",\"enabled\",	TRUE,
+  				    \"cmdWavTest2\",\"enabled\", 	TRUE);	
+    }												
+    if (!chkMode.state(1)) 
+    {
+      setMultiValue(\"txtWavCaption\",\"enabled\", 	FALSE,
+  				    \"cmdWavTest\",\"enabled\",    	FALSE,
+        		    \"FileName\",\"text\",			\"\",
+    			    \"FileName\",\"enabled\",   	FALSE,
+    			    \"cmdFileSelect\",\"enabled\", 	FALSE,			
+    			    \"cmdWavTest2\",\"enabled\",   	FALSE,
+    			    \"FileName2\",\"text\",			\"\",
+    			    \"FileName2\",\"enabled\",  	FALSE,
+    			    \"cmdFileSelect2\",\"enabled\",	FALSE,
+    			    \"WavContCyc\",\"enabled\", 	FALSE,
+    			    \"WavContCyc\",\"number\",		0,
+    			    \"WavContCyc2\",\"number\",		0,
+  				    \"WavContCyc2\",\"enabled\",	FALSE,
+  				    \"wavCyclMode\",\"enabled\",	FALSE,
+  				    \"wavCyclMode\",\"text\",		\"\",
+  				    \"wavCyclMode2\",\"enabled\",	FALSE,
+  				    \"wavCyclMode2\",\"text\",		\"\",
+  				    \"txtLowPrio\",\"enabled\",		FALSE,
+  				    \"txtHighPrio\",\"enabled\",	FALSE);
+    }
+  
+    // DPE 
+    if (chkMode.state(2))  
+    {
+      setMultiValue(\"txtDpeCaption\",\"enabled\", TRUE,
+  				    \"DpSel\",\"enabled\",	 	   TRUE,
+  				    \"DpName\",\"enabled\",  	   TRUE,
+  				    \"DpSel2\",\"enabled\",	 	   TRUE,
+  				    \"DpName2\",\"enabled\", 	   TRUE,
+  				    \"txt19\",\"enabled\",	 	   TRUE,
+  				    \"txt20\",\"enabled\",	 	   TRUE);
+    }
+  									
+    if (!chkMode.state(2)) 
+    {				
+      setMultiValue(\"txtDpeCaption\",\"enabled\", FALSE,
+    			    \"DpSel\",\"enabled\",     	   FALSE,
+    			    \"DpName\",\"enabled\",    	   FALSE,
+    			    \"DpSel2\",\"enabled\",	 	   FALSE,
+    			    \"DpName2\",\"text\", 		   \"\",
+  				    \"DpName2\",\"enabled\",   	   FALSE,
+  				    \"txt19\",\"enabled\",	 	   FALSE,
+  				    \"txt20\",\"enabled\",	 	   FALSE);
+    }
+  }
+
+
+
+
+  if (!this.state(0)) ///////////// If there is only one priority //////////////////
+  {
+    setMultiValue(\"txt15\",\"enabled\", 	  FALSE,
+  				  \"txt16\",\"enabled\", 	  FALSE,
+  				  \"ChoosePrio\",\"enabled\", FALSE,
+  				  \"ChoosePrio\",\"text\",	  \"\");
+    
+    //BEEPER
+    if (chkMode.state(0))  
+    {					  
+      setMultiValue(\"txtBeeperCaption\",\"enabled\", TRUE,
+  				    \"txtBeepBreak\",\"enabled\",	  TRUE,
+  				    \"txtBeepDuration\",\"enabled\",  TRUE,
+  				    \"txtBeepFrequ\",\"enabled\", 	  TRUE,
+  				    \"txt_frequency\",\"enabled\", 	  TRUE,
+  				    \"txt_duration\",\"enabled\",  	  TRUE,
+  				    \"txt_pause\",\"enabled\",	   	  TRUE,
+  				    \"txt_frequency2\",\"enabled\",	  FALSE,
+  				    \"txt_duration2\",\"enabled\", 	  FALSE,
+  				    \"txt_pause2\",\"enabled\",	   	  FALSE,
+  				    \"txtMsec1\",\"enabled\",	   	  TRUE,
+  				    \"txtMsec2\",\"enabled\",	   	  TRUE,
+  				    \"txtHz\",\"enabled\",		   	  TRUE,
+  				    \"cmdBeeperTest\",\"enabled\", 	  TRUE,
+  				    \"txtBeepHighPrio\",\"enabled\",  FALSE,
+  				    \"txtBeepLowPrio\",\"enabled\",   TRUE,
+  				    \"txtMsec3\",\"enabled\",	   	  FALSE,
+  				    \"txtMsec4\",\"enabled\",     	  FALSE,
+  				    \"txtHz2\",\"enabled\",       	  FALSE,
+  				    \"cmdBeeperTest2\",\"enabled\",	  FALSE,
+  				    \"txt_duration2\",\"text\",	   	  \"\",
+  				    \"txt_pause2\",\"text\",	   	  \"\",
+  				    \"txt_frequency2\",\"text\",   	  \"\");
+    } 
+    if (!chkMode.state(0)) 
+    {		
+      setMultiValue(\"txtBeeperCaption\",\"enabled\", FALSE, 
+  				    \"txtBeepBreak\",\"enabled\",	  FALSE,
+  				    \"txtBeepDuration\",\"enabled\",  FALSE,
+  				    \"txtBeepFrequ\",\"enabled\", 	  FALSE,
+  				    \"txt_frequency\",\"enabled\", 	  FALSE,
+  				    \"txt_duration\",\"enabled\",  	  FALSE,
+  				    \"txt_pause\",\"enabled\",	   	  FALSE,
+  				    \"txt_frequency\",\"text\",	   	  \"\",
+  				    \"txt_duration\",\"text\",	   	  \"\",
+  				    \"txt_pause\",\"text\",		   	  \"\",
+  				    \"txt_frequency2\",\"enabled\",	  FALSE,
+  				    \"txt_duration2\",\"enabled\", 	  FALSE,
+  				    \"txt_pause2\",\"enabled\",	   	  FALSE,
+  				    \"txt_frequency2\",\"text\",   	  \"\",
+  				    \"txt_duration2\",\"text\",		  \"\",
+  				    \"txt_pause2\",\"text\",		  \"\",
+  				    \"txtMsec1\",\"enabled\",	   	  FALSE,
+  				    \"txtMsec2\",\"enabled\",	   	  FALSE,
+  				    \"txtHz\",\"enabled\",		   	  FALSE,
+  				    \"cmdBeeperTest\",\"enabled\",	  FALSE,
+  				    \"txtBeepHighPrio\",\"enabled\",  FALSE,
+  				    \"txtBeepLowPrio\",\"enabled\",   FALSE,
+  				    \"txtMsec3\",\"enabled\",	   	  FALSE,
+  				    \"txtMsec4\",\"enabled\",	   	  FALSE,
+  				    \"txtHz2\",\"enabled\",	   		  FALSE,
+  				    \"cmdBeeperTest2\",\"enabled\",	  FALSE);
+    }
+    // WAV
+    if (chkMode.state(1))  
+    {
+      setMultiValue(\"txtWavCaption\",\"enabled\",  TRUE,
+  				    \"cmdFileSelect\",\"enabled\",  TRUE,
+  				    \"cmdFileSelect2\",\"enabled\", FALSE,
+  				    \"FileName2\",\"text\",		  	\"\",
+  				    \"WavContCyc\",\"enabled\",   	TRUE,
+  				    \"WavContCyc2\",\"enabled\",  	FALSE,
+  				    \"wavCyclMode2\",\"enabled\", 	FALSE,
+  				    \"wavCyclMode2\",\"text\",	  	\"\",
+  				    \"txtLowPrio\",\"enabled\", 	TRUE,
+  				    \"txtHighPrio\",\"enabled\",	FALSE,
+  				    \"cmdWavTest2\",\"enabled\", 	FALSE);	
+    }												
+    if (!chkMode.state(1)) 
+    {
+      setMultiValue(\"txtWavCaption\",\"enabled\", FALSE,
+  				    \"cmdWavTest\",\"enabled\",    FALSE,
+        		    \"FileName\",\"text\",		   \"\",
+    			    \"FileName\",\"enabled\",      FALSE,
+    			    \"cmdFileSelect\",\"enabled\", FALSE,			
+    			    \"cmdWavTest2\",\"enabled\",   FALSE,
+    			    \"FileName2\",\"text\",		   \"\",
+    			    \"FileName2\",\"enabled\",     FALSE,
+    			    \"cmdFileSelect2\",\"enabled\",FALSE,
+    			    \"WavContCyc\",\"enabled\",    FALSE,
+    			    \"WavContCyc\",\"number\",	   0,
+    			    \"WavContCyc2\",\"number\",	   0,
+  				    \"WavContCyc2\",\"enabled\",   FALSE,
+  				    \"wavCyclMode\",\"enabled\",   FALSE,
+  				    \"wavCyclMode\",\"text\",	   \"\",
+  				    \"wavCyclMode2\",\"enabled\",  FALSE,
+  				    \"wavCyclMode2\",\"text\",	   \"\",
+  				    \"txtLowPrio\",\"enabled\",    FALSE,
+  				    \"txtHighPrio\",\"enabled\",   FALSE);
+    }
+  
+    // DPE 
+    if (!chkMode.state(2))  
+    {
+      setMultiValue(\"txtDpeCaption\",\"enabled\", FALSE,
+  				    \"DpSel\",\"enabled\",	 	   FALSE,
+  				    \"DpName\",\"enabled\",  	   FALSE,
+  				    \"DpSel2\",\"enabled\",	 	   FALSE,
+  				    \"DpName2\",\"enabled\", 	   FALSE,
+  				    \"txt19\",\"enabled\",	 	   FALSE,
+  				    \"txt20\",\"enabled\",	 	   FALSE,
+  				    \"DpName2\",\"text\",		   \"\");
+    }
+  									
+    if (chkMode.state(2)) 
+    {			
+      setMultiValue(\"txtDpeCaption\",\"enabled\", TRUE,
+    			    \"DpSel\",\"enabled\",     	   TRUE,
+    			    \"DpName\",\"enabled\",    	   TRUE,
+    			    \"DpSel2\",\"enabled\",	 	   FALSE,
+    			    \"DpName2\",\"text\", 		   \"\",
+  				    \"DpName2\",\"enabled\",   	   FALSE,
+  				    \"txt19\",\"enabled\",	 	   TRUE,
+  				    \"txt20\",\"enabled\",	 	   FALSE);
+    } 
+  } 											 
+}" 0
+14 51
+"ChoosePrio"
+""
+1 150 220 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+3 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  148 218 212 245
+3 "6d" 6 1 0 0 0 -1  E E E
+14 83
+"ChooseDelay"
+""
+1 170 370 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
+ E E
+4 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  168 368 212 395
+3 "0s" 0 0 0 0 0 -1  E E E
+13 63
+"cmdVolume"
+""
+1 180 470 E E E 1 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+5 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  178 468 212 498
+
+P 
+3342591
+"63.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  string     sWIN;
+  dyn_string dsWIN;
+
+  // This function searches for the file 'sndvol32exe'
+  
+  system (\"cmd /c set windir > C:/temp.txt\");
+  delay(0,300);
+ 
+  if (access(\"C:/temp.txt\",F_OK) == 0)
+  {
+    fileToString(\"C:/temp.txt\", sWIN);
+  
+    dsWIN = strsplit(sWIN,\"=\");
+  
+    if (access (strrtrim(dsWIN[2],\"\\n\") + \"/System32/sndvol32.exe\",F_OK) == 0)
+      system(strrtrim(dsWIN[2],\"\\n\") + \"/System32/sndvol32.exe\");
+    else
+    {
+      string sMessageText=getCatStr(\"general\",\"noFile\")+ \" \\'SNDVOL32.EXE\\'\";
+      ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+      return; 
+    }
+  
+    system (\"rm C:/temp.txt\");
+  }
+  else
+  {
+    string sMessageText=getCatStr(\"general\",\"noFile\")+ \" \\'sndvol32.exe\\'\";
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return; 
+  }
+}" 0
+ E E E
+14 7
+"txt_duration"
+""
+1 240 59 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+6 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  238 58 292 85
+3 "5d" 5 0 0 0 0 -1  E E E
+14 13
+"txt_pause"
+""
+1 239 89 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+7 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  238 88 292 115
+3 "5d" 5 0 0 0 0 -1  E E E
+14 9
+"txt_frequency"
+""
+1 239 119 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+8 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  238 118 292 145
+3 "5d" 5 0 0 0 0 -1  E E E
+13 11
+"cmdBeeperTest"
+""
+1 350 50 E E E 0 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+9 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  348 48 382 78
+
+P 
+3368703
+"11.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  int beepDuration, frequency,pause_time,i;
+  
+  // Beeper sound test
+
+  getMultiValue(\"txt_duration\",\"text\",  beepDuration,
+		      	\"txt_frequency\",\"text\", frequency,
+		      	\"txt_pause\",\"text\",	    pause_time);
+
+  if (beepDuration != 0 || frequency != 0 || pause_time != 0)
+  {
+    dpSet(\"AlertHorn.Enabled:_original.._value\",0);     // Stops alert sound for sound check
+    for(i=1; i<=3; i++)
+	{
+	  beep(frequency,beepDuration);
+	  delay(0,pause_time);
+	}
+	delay(1);
+    dpSet(\"AlertHorn.Enabled:_original.._value\",1);     // After sound check has finished, the horn will be started again.
+  }
+	
+  else
+  { 
+    string sMessageText=getCatStr(\"misc\",\"AlarmHornTEST\");
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return;
+  }
+}" 0
+ E E E
+14 58
+"txt_duration2"
+""
+1 439 59 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+10 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  438 58 492 85
+3 "5d" 5 0 0 0 0 -1  E E E
+14 59
+"txt_pause2"
+""
+1 439 89 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+11 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  438 88 492 115
+3 "5d" 5 0 0 0 0 -1  E E E
+14 60
+"txt_frequency2"
+""
+1 439 119 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+12 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  438 118 492 145
+3 "5d" 5 0 0 0 0 -1  E E E
+13 73
+"cmdBeeperTest2"
+""
+1 550 50 E E E 0 E 1 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+13 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  548 48 582 78
+
+P 
+3342591
+"73.png"
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+"main()
+{
+  int beepDuration, frequency,pause_time,i;
+
+  // Beeper Sound test
+ 
+  getMultiValue(\"txt_duration2\",\"text\",  beepDuration,
+	      	    \"txt_frequency2\",\"text\", frequency,
+		      	\"txt_pause2\",\"text\",	 pause_time);
+    
+  if (beepDuration != 0 || frequency != 0 || pause_time != 0)
+  {
+    dpSet(\"AlertHorn.Enabled:_original.._value\",0);     // Stops alert sound for sound check
+    for(i=1; i<=3; i++)
+    {
+      beep(frequency,beepDuration);
+	  delay(0,pause_time);
+	}
+	delay(1);
+    dpSet(\"AlertHorn.Enabled:_original.._value\",1);     // After sound check has finished, the horn will be started again.
+  }
+  
+  else
+  { 
+    string sMessageText=getCatStr(\"misc\",\"AlarmHornTEST\");
+    ChildPanelOnCentralModal(\"vision/MessageWarning\",getCatStr(\"para\",\"warning\"),makeDynString(sMessageText));
+    return;
+  }  
+}" 0
+ E E E
+14 24
+"FileName"
+""
+1 280 210 E E E 0 E 1 E N "STD_inputfield_text" E N "STD_inputfield_back" E E
+ E E
+14 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  278 208 542 235
+3 "0s" 0 0 0 0 0 -1  E E E
+13 127
+"closeHornProp"
+""
+1 318 528 E E E 1 E 0 E N "STD_button_text" E N "STD_pushbutton_back" E E
+ E E
+107 0 0 0 27 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  318 528 412 558
+
+T 
+3
+LANG:10027 14 Закрыть
+LANG:10000 10 Schließen
+LANG:10001 5 Close
+"main() 
+{ 
+  PanelOff();
+} 
+" 0
+ E E E
+13 128
+"Button3"
+""
+1 1832 1888 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ E E
+108 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  518 528 612 558
+
+T 
+3
+LANG:10027 14 Справка
+LANG:10000 5 Hilfe
+LANG:10001 4 Help
+"main()
+{
+  std_help(\"alertHornProps\");
+}
+" 0
+ E E E
+0
+LAYER, 1 
+1
+LANG:10027 6 Layer2
+0
+LAYER, 2 
+1
+LANG:10027 6 Layer3
+0
+LAYER, 3 
+1
+LANG:10027 6 Layer4
+0
+LAYER, 4 
+1
+LANG:10027 6 Layer5
+0
+LAYER, 5 
+1
+LANG:10027 6 Layer6
+0
+LAYER, 6 
+1
+LANG:10027 6 Layer7
+0
+LAYER, 7 
+1
+LANG:10027 6 Layer8
+0
+0
