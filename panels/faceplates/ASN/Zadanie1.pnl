@@ -6,8 +6,7 @@ PANEL,-1 -1 323 340 N "_3DFace" 2
 "$line"
 E E E E E 1 -1 -1 0  14 21
 ""0  1
-E "const string dp = $dp;
-const string line = $line;" 0
+E "const string line = $line;" 0
  3
 "CBRef" "1"
 "EClose" E
@@ -56,13 +55,14 @@ LANG:10027 0
 E "main(mapping event){
 
   if (getUserPermission(4)){
-     ChildPanelOnCentralModal(\"faceplates/ASN_PARTS/Line_naliv.pnl\",      \"АСН №1\",      makeDynString(\"$line:\" + line));
+     ChildPanelOnCentral(\"faceplates\\\\ASN\\\\Line_naliv.xml\", \"Линия налива \"+line, makeDynString(\"$line:\"+$line));
   }
   else {
-    DebugN(\"Недостаточно прав у пользователя\");
+    //DebugN(\"Недостаточно прав у пользователя\");
     ChildPanelOnCentral(\"faceplates/NoAccessRights.xml\", \"\", makeDynString(\"\"));
   }
-}" 0
+}
+" 0
  -1 1 3 2 1 E 4.29032258064516 0 5.999999999999994 -1413.129032258064 -1918.999999999998 1 E 338 322 400 366
 0
 LAYER, 1 

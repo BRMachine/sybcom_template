@@ -6,8 +6,8 @@ PANEL,-1 -1 323 340 N "_3DFace" 2
 "$line"
 E E E E E 1 -1 -1 0  14 21
 ""0  1
-E "const string dp = $dp;
-const string line = $line;" 0
+E "const string line = $line;
+" 0
  3
 "CBRef" "1"
 "EClose" E
@@ -53,16 +53,19 @@ LANG:10027 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E "// SimpleCtrlScriptStart {valid}
+E "// SimpleCtrlScriptStart {invalid}
 main()
 {
-  EP_childPanelOn();
+  if (getUserPermission(4)){
+     ChildPanelOnCentral(\"faceplates\\\\ASN\\\\Line_naliv.xml\", \"Линия налива \"+line, makeDynString(\"$line:\"+$line));
+  }
+  else {
+    DebugN(\"Недостаточно прав у пользователя\");
+    ChildPanelOnCentral(\"faceplates/NoAccessRights.xml\", \"\", makeDynString(\"\"));
+  }
 }
 
-void EP_childPanelOn()
-{
-  ChildPanelOnCentralModal(\"faceplates/ASN_PARTS/Line_naliv.pnl\",      \"\",      makeDynString(\"$line:\" + line));
-}
+
 
 // SimpleCtrlScript {EP_childPanelOn}
 // Function {ChildPanelOnCentralModal}
