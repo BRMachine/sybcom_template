@@ -18,6 +18,7 @@
 
 // const string ASN = $ASN;
 const string POST = $POST;
+const string LINE = $LINE;
 
 /*#property bool fp_win
 public bool getFp_win(){ return btn_fp.visible; }
@@ -573,6 +574,8 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
    dyn_string txt;
    int answer;
    txt=makeDynString(&quot;PUSH_BUTTON, Окно управления, 1, 1&quot;,
+                     &quot;PUSH_BUTTON, Просмотр задания, 8, 1&quot;,
+                     &quot;SEPARATOR&quot;, // Разделительная линия
                      &quot;PUSH_BUTTON, Окно настройки, 3, 1&quot;,
                      &quot;PUSH_BUTTON, Просмотр сообщений, 2, 1&quot;,
                      &quot;SEPARATOR&quot;, // Разделительная линия
@@ -587,6 +590,12 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно управления поста &quot; + post_title;
       ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      break;
+     case 8:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно задания &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\Line_naliv.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
+                                                                                      &quot;$line:&quot; + LINE));
       break;
     case 4:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
