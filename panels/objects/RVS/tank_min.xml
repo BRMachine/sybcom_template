@@ -25,7 +25,8 @@ enum Fuel{
   AI95 = 3,
   AI98 = 6,
   DT = 4,
-  DTL = 5
+  DTL = 5,
+  Pris = 7
 };
 const string DP = $dp;
 const string LogicRVS = $dpLogicRVS;
@@ -62,6 +63,8 @@ string fuelToColor(Fuel f){
     return &quot;DTL_pipe&quot;;
   }else if(f == Fuel::AI98){
     return &quot;AI98&quot;;
+  }else if(f == Fuel::Pris){
+    return &quot;Pris&quot;;
   }
 }
 string fuelToText(Fuel f){
@@ -77,6 +80,8 @@ string fuelToText(Fuel f){
     return &quot;ДТз&quot;;
   }else if(f == Fuel::DTL){
     return &quot;ДТл&quot;;
+  }else if(f == Fuel::Pris){
+    return &quot;Прис&quot;;
   }
 }
 
