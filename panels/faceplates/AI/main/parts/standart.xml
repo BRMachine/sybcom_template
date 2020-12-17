@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">320 270</prop>
+  <prop name="Size">440 276</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">6 -5</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -66,7 +66,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5462794918330308 0 0 0.8706896551724136 -72.51316565064356 -3.778735632183901</prop>
+    <prop name="Geometry">0.7241379310344827 0 0 0.8706896551724136 -99.05233586248099 -3.778735632183901</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Значение</prop>
@@ -82,7 +82,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">19</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">22.13978857399851 27.71603251642402</prop>
+    <prop name="RefPoint">32.47312190733185 27.71603251642402</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -98,7 +98,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">22.13978857399851 27.71603251642402</prop>
+    <prop name="Location">32.47312190733185 27.71603251642402</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -117,7 +117,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">20</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">24.47312190733185 64.40558924620586</prop>
+    <prop name="RefPoint">32.47312190733185 64.40558924620586</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -133,7 +133,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">24.47312190733185 64.40558924620586</prop>
+    <prop name="Location">32.47312190733185 64.40558924620586</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -152,7 +152,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">21</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">181.1397885739986 23.71603251642402</prop>
+    <prop name="RefPoint">272.1397885739986 23.71603251642402</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -166,7 +166,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">181.1397885739986 23.71603251642401</prop>
+    <prop name="Location">272.1397885739986 23.71603251642401</prop>
     <prop name="Size">112 23</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">9999,00 МПа</prop>
@@ -179,7 +179,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">23</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">181.1397885739986 57.95889345119447</prop>
+    <prop name="RefPoint">272.1397885739986 57.95889345119447</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -193,7 +193,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">181.1397885739986 57.95889345119447</prop>
+    <prop name="Location">272.1397885739986 57.95889345119447</prop>
     <prop name="Size">112 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">20,00 мА</prop>
@@ -222,7 +222,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5462794918330308 0 0 1.431034482758621 -72.51316565064357 95.54022988505747</prop>
+    <prop name="Geometry">0.7241379310344827 0 0 1.431034482758621 -99.05233586248102 95.54022988505747</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Состояние</prop>
@@ -254,7 +254,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -243.4166666666652 43.82456140350875</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -220.75 44.66666666666666</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -266,7 +266,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">26</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">84.9762286324795 122.594480994152</prop>
+    <prop name="RefPoint">107.6428952991447 123.4365862573099</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -282,7 +282,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">84.9762286324795 122.594480994152</prop>
+    <prop name="Location">107.6428952991447 123.4365862573099</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -317,7 +317,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -243.4166666666652 63.36842105263157</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -220.75 64.21052631578948</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -329,7 +329,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">28</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">84.9762286324795 142.1793914432641</prop>
+    <prop name="RefPoint">107.6428952991447 143.021496706422</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -345,7 +345,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">84.9762286324795 142.1793914432641</prop>
+    <prop name="Location">107.6428952991447 143.021496706422</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -380,7 +380,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -243.4166666666652 82.91228070175437</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -220.75 83.75438596491227</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -392,7 +392,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">30</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">84.9762286324795 161.6254671441202</prop>
+    <prop name="RefPoint">107.6428952991447 162.4675724072781</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -408,7 +408,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">84.9762286324795 161.6254671441202</prop>
+    <prop name="Location">107.6428952991447 162.4675724072781</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -443,7 +443,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -243.4166666666652 102.4561403508772</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -220.75 103.2982456140351</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -455,7 +455,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">32</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">84.9762286324795 181.4388613105876</prop>
+    <prop name="RefPoint">107.6428952991447 182.2809665737455</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -471,7 +471,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">84.9762286324795 181.4388613105876</prop>
+    <prop name="Location">107.6428952991447 182.2809665737455</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -506,7 +506,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -84.99912280701629 43.82456140350874</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -6.749999999999986 44.66666666666666</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -518,7 +518,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">34</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">243.1213365946945 122.594480994152</prop>
+    <prop name="RefPoint">321.3704594017108 123.4365862573099</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -534,7 +534,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">243.1213365946945 122.594480994152</prop>
+    <prop name="Location">321.3704594017108 123.4365862573099</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -569,7 +569,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -84.99912280701629 63.36842105263157</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -6.749999999999986 64.21052631578948</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -581,7 +581,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">36</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">243.1213365946945 142.1793914432641</prop>
+    <prop name="RefPoint">321.3704594017108 143.021496706422</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -597,7 +597,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">243.1213365946945 142.1793914432641</prop>
+    <prop name="Location">321.3704594017108 143.021496706422</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -632,7 +632,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -84.99912280701629 82.91228070175436</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -6.749999999999986 83.75438596491227</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -644,7 +644,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">38</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">243.1213365946945 161.6254671441202</prop>
+    <prop name="RefPoint">321.3704594017108 162.4675724072781</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -660,7 +660,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">243.1213365946945 161.6254671441202</prop>
+    <prop name="Location">321.3704594017108 162.4675724072781</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -695,7 +695,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -84.99912280701629 102.4561403508772</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -6.749999999999986 103.2982456140351</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -707,7 +707,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">40</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">243.1213365946945 181.4388613105876</prop>
+    <prop name="RefPoint">321.3704594017108 182.2809665737455</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -723,7 +723,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">243.1213365946945 181.4388613105876</prop>
+    <prop name="Location">321.3704594017108 182.2809665737455</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -758,7 +758,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -243.4166666666652 121.43658625731</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -220.75 122.2786915204679</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -770,7 +770,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">42</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">84.9762286324795 200.2065058479532</prop>
+    <prop name="RefPoint">107.6428952991447 201.0486111111111</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -786,7 +786,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">84.9762286324795 200.2065058479532</prop>
+    <prop name="Location">107.6428952991447 201.0486111111111</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -821,7 +821,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -84.99912280701628 121.43658625731</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -6.749999999999972 122.2786915204679</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -833,7 +833,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">44</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">243.1213365946946 200.2475566479424</prop>
+    <prop name="RefPoint">321.3704594017109 201.0896619111003</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -849,7 +849,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">243.1213365946946 200.2475566479424</prop>
+    <prop name="Location">321.3704594017109 201.0896619111003</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -884,7 +884,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.625 0 0 0.5833333333333334 -84.99912280701631 141.8385048579836</prop>
+    <prop name="Geometry">1.625 0 0 0.5833333333333334 -6.75 142.6806101211415</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">206 136</prop>
     <prop name="Size">25 25</prop>
@@ -896,7 +896,7 @@ void cbStatus(string dpe, bit32 val){
    <properties>
     <prop name="serialId">46</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">243.1213365946945 220.4389144778719</prop>
+    <prop name="RefPoint">321.3704594017108 221.2810197410298</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -912,7 +912,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">243.1213365946945 220.4389144778719</prop>
+    <prop name="Location">321.3704594017108 221.2810197410298</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>

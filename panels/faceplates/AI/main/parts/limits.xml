@@ -34,7 +34,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5462794918330308 0 0 0.9410919540229888 -72.84649898397693 1.010057471264313</prop>
+    <prop name="Geometry">0.7241379310344827 0 0 0.9410919540229888 -99.35092985195261 1.010057471264313</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Диапазон</prop>
@@ -66,7 +66,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5462794918330308 0 0 1.293103448275862 -72.69906308654298 107.1206896551724</prop>
+    <prop name="Geometry">0.7241379310344827 0 0 1.293103448275862 -99.29875804495231 107.1206896551724</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Обработка</prop>
@@ -117,7 +117,7 @@
    <properties>
     <prop name="serialId">17</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">265 19.00000000000005</prop>
+    <prop name="RefPoint">355 19.00000000000005</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -131,7 +131,7 @@
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">265 19.00000000000005</prop>
+    <prop name="Location">355 19.00000000000005</prop>
     <prop name="Size">38 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">EUEU</prop>
@@ -181,7 +181,7 @@
    <properties>
     <prop name="serialId">36</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">204.0001502403846 47.00000000000006</prop>
+    <prop name="RefPoint">294.0001502403846 47.00000000000006</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -195,7 +195,7 @@
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">204.0001502403846 47.00000000000006</prop>
+    <prop name="Location">294.0001502403846 47.00000000000006</prop>
     <prop name="Size">62 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">9999,00</prop>
@@ -236,7 +236,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="serialId">37</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">265.0001502403846 47.00000000000006</prop>
+    <prop name="RefPoint">355.0001502403846 47.00000000000006</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -250,7 +250,7 @@ void worker(string dp, float val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">265.0001502403847 47.00000000000006</prop>
+    <prop name="Location">355.0001502403847 47.00000000000006</prop>
     <prop name="Size">38 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">EUEU</prop>
@@ -300,7 +300,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="serialId">41</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">265.0001502403846 75.00000000000006</prop>
+    <prop name="RefPoint">355.0001502403846 75.00000000000006</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -314,7 +314,7 @@ void worker(string dp, float val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">265.0001502403847 75.00000000000006</prop>
+    <prop name="Location">355.0001502403847 75.00000000000006</prop>
     <prop name="Size">38 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">EUEU</prop>
@@ -364,7 +364,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="serialId">45</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">265.000225360577 232.796875</prop>
+    <prop name="RefPoint">355.000225360577 232.796875</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -378,7 +378,7 @@ void worker(string dp, float val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">265.000225360577 232.796875</prop>
+    <prop name="Location">355.000225360577 232.796875</prop>
     <prop name="Size">38 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">EUEU</prop>
@@ -428,7 +428,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="serialId">49</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">265.0002629206731 123.6953125</prop>
+    <prop name="RefPoint">355.0002629206731 123.6953125</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -442,7 +442,7 @@ void worker(string dp, float val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">265.0002629206731 123.6953125</prop>
+    <prop name="Location">355.0002629206731 123.6953125</prop>
     <prop name="Size">38 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">EUEU</prop>
@@ -492,7 +492,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="serialId">53</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">265.000262920673 151.171875</prop>
+    <prop name="RefPoint">355.000262920673 151.171875</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -506,7 +506,7 @@ void worker(string dp, float val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">265.000262920673 151.171875</prop>
+    <prop name="Location">355.000262920673 151.171875</prop>
     <prop name="Size">38 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">EUEU</prop>
@@ -556,7 +556,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="serialId">57</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">265.000262920673 178.171875</prop>
+    <prop name="RefPoint">355.000262920673 178.171875</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -570,7 +570,7 @@ void worker(string dp, float val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">265.000262920673 178.171875</prop>
+    <prop name="Location">355.000262920673 178.171875</prop>
     <prop name="Size">38 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">EUEU</prop>
@@ -620,7 +620,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="serialId">61</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">265.000262920673 205.140625</prop>
+    <prop name="RefPoint">355.000262920673 205.140625</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -634,7 +634,7 @@ void worker(string dp, float val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">265.000262920673 205.140625</prop>
+    <prop name="Location">355.000262920673 205.140625</prop>
     <prop name="Size">38 24</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">EUEU</prop>
@@ -649,7 +649,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">137.2351916376307 114.6830842391303</prop>
-    <prop name="Geometry">1 0 0 1 31.33333333333329 8.589843750000108</prop>
+    <prop name="Geometry">1 0 0 1 112.3333333333333 8.589843750000108</prop>
     <prop name="TabOrder">60</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -673,7 +673,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">137.2351916376307 114.6830842391303</prop>
-    <prop name="Geometry">1 0 0 1 31.33333333333329 35.8281250000001</prop>
+    <prop name="Geometry">1 0 0 1 112.3333333333333 35.8281250000001</prop>
     <prop name="TabOrder">61</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -697,7 +697,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">137.2351916376307 114.6830842391303</prop>
-    <prop name="Geometry">1 0 0 1 31.33333333333323 62.82812500000011</prop>
+    <prop name="Geometry">1 0 0 1 112.3333333333332 62.82812500000011</prop>
     <prop name="TabOrder">62</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -721,7 +721,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">137.2351916376307 114.6830842391303</prop>
-    <prop name="Geometry">1 0 0 1 31.33333333333323 89.81250000000011</prop>
+    <prop name="Geometry">1 0 0 1 112.3333333333332 89.81250000000011</prop>
     <prop name="TabOrder">63</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -745,7 +745,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">203.9996995192307 19.03125000000008</prop>
-    <prop name="Geometry">1 0 0 1 0.1473593042986749 0.1256720430107357</prop>
+    <prop name="Geometry">1 0 0 1 90.14735930429867 0.1256720430107357</prop>
     <prop name="TabOrder">64</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -764,7 +764,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">203.9996995192307 19.03125000000008</prop>
-    <prop name="Geometry">1 0 0 1 0.1474344244910526 56.12567204301072</prop>
+    <prop name="Geometry">1 0 0 1 90.14743442449105 56.12567204301072</prop>
     <prop name="TabOrder">65</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -783,7 +783,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">203.9996995192307 19.03125000000008</prop>
-    <prop name="Geometry">1 0 0 1 0.0005634014423776534 104.9108282930107</prop>
+    <prop name="Geometry">1 0 0 1 90.00056340144238 104.9108282930107</prop>
     <prop name="TabOrder">66</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -802,7 +802,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">203.9996995192307 19.03125000000008</prop>
-    <prop name="Geometry">1 0 0 1 0.1474907646351937 132.1491095430107</prop>
+    <prop name="Geometry">1 0 0 1 90.14749076463519 132.1491095430107</prop>
     <prop name="TabOrder">67</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -821,7 +821,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">203.9996995192307 19.03125000000008</prop>
-    <prop name="Geometry">1 0 0 1 0.1474907646351937 159.1491095430107</prop>
+    <prop name="Geometry">1 0 0 1 90.14749076463519 159.1491095430107</prop>
     <prop name="TabOrder">68</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -840,7 +840,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">203.9996995192307 19.03125000000008</prop>
-    <prop name="Geometry">1 0 0 1 0.1474907646351937 186.1334845430107</prop>
+    <prop name="Geometry">1 0 0 1 90.14749076463519 186.1334845430107</prop>
     <prop name="TabOrder">69</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -859,7 +859,7 @@ void worker(string dp, float val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">203.9996995192307 19.03125000000008</prop>
-    <prop name="Geometry">1 0 0 1 0.1474719845871846 213.8396139705882</prop>
+    <prop name="Geometry">1 0 0 1 90.14747198458718 213.8396139705882</prop>
     <prop name="TabOrder">70</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
