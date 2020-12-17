@@ -45,7 +45,7 @@ void cbState(dyn_string dpe, dyn_anytype val){
   //sdShowValue(&quot;txt_value&quot;, dpe[2], val[2], 1, &quot;&quot;, 1, &quot;&quot;);
   sdShowValue(&quot;txt_max&quot;,   dpe[2], val[3], 1, &quot;&quot;, 1, &quot;&quot;);
   sdShowValue(&quot;txt_min&quot;,   dpe[2], val[4], 1, &quot;&quot;, 1, &quot;&quot;);
-  HH_LINE.visible(getBit(val[1], 9));
+  /*HH_LINE.visible(getBit(val[1], 9));
   H_LINE.visible( getBit(val[1], 10));
   L_LINE.visible( getBit(val[1], 11));
   LL_LINE.visible(getBit(val[1], 12));
@@ -58,7 +58,7 @@ void cbState(dyn_string dpe, dyn_anytype val){
   HH_LINE2.visible(getBit(val[1], 9));
   H_LINE2.visible( getBit(val[1], 10));
   L_LINE2.visible( getBit(val[1], 11));
-  LL_LINE2.visible(getBit(val[1], 12));
+  LL_LINE2.visible(getBit(val[1], 12));*/
 
   SIMULATE.visible(getBit(val[1], 14));
   REMONT.visible(getBit(val[1], 13));
@@ -67,7 +67,7 @@ void cbState(dyn_string dpe, dyn_anytype val){
   //sdMove(&quot;txt_value&quot;, &quot;Way_Value_point&quot;, val[2],  g_min, g_max*2);
 }
 void cbConf(dyn_string dpe, dyn_float val){
-  sdMove(&quot;HH_LINE&quot;, &quot;Way&quot;, val[1], g_min, g_max*2);
+  /*sdMove(&quot;HH_LINE&quot;, &quot;Way&quot;, val[1], g_min, g_max*2);
   sdMove(&quot;HH_LINE1&quot;, &quot;Way&quot;, val[1], g_min, g_max*2);
   sdMove(&quot;HH_LINE2&quot;, &quot;Way&quot;, val[1], g_min, g_max*2);
   sdMove(&quot;H_LINE&quot;, &quot;Way&quot;, val[2], g_min, g_max*2);
@@ -78,7 +78,7 @@ void cbConf(dyn_string dpe, dyn_float val){
   sdMove(&quot;L_LINE2&quot;, &quot;Way&quot;, val[3], g_min, g_max*2);
   sdMove(&quot;LL_LINE&quot;, &quot;Way&quot;, val[4], g_min, g_max*2);
   sdMove(&quot;LL_LINE1&quot;, &quot;Way&quot;, val[4], g_min, g_max*2);
-  sdMove(&quot;LL_LINE2&quot;, &quot;Way&quot;, val[4], g_min, g_max*2);
+  sdMove(&quot;LL_LINE2&quot;, &quot;Way&quot;, val[4], g_min, g_max*2);*/
 }
 
 ]]></script>
@@ -639,24 +639,24 @@ void cbConf(dyn_string dpe, dyn_float val){
   </shape>
  </shapes>
  <groups>
-  <group parentSerial="-1" Name="SHAPE_GROUP3" serial="2">
+  <group parentSerial="-1" Name="SHAPE_GROUP5" serial="4">
    <properties>
-    <prop name="shapeSerial">3</prop>
-    <prop name="shapeSerial">4</prop>
+    <prop name="shapeSerial">44</prop>
+    <prop name="shapeSerial">19</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP4" serial="3">
+  <group parentSerial="-1" Name="SHAPE_GROUP7" serial="6">
    <properties>
     <prop name="shapeSerial">45</prop>
     <prop name="shapeSerial">17</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP5" serial="4">
+  <group parentSerial="-1" Name="SHAPE_GROUP8" serial="7">
    <properties>
-    <prop name="shapeSerial">44</prop>
-    <prop name="shapeSerial">19</prop>
+    <prop name="shapeSerial">3</prop>
+    <prop name="shapeSerial">4</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </group>
