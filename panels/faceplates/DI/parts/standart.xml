@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">220 215</prop>
+  <prop name="Size">520 215</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">97 88</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -13,8 +13,67 @@
   <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string dp = $dp;]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  dpConnect(&quot;cbValue&quot;, dp + &quot;.status.sts_bit&quot;);
+}
+
+
+void cbValue(dyn_string dp, dyn_anytype value){
+
+  bit32 sts = value[1];
+  bool red  = getBit(sts, 0),
+       yellow   = getBit(sts, 1),
+       green   = getBit(sts, 2),
+       sim = getBit(sts, 14),
+       qerr = getBit(sts, 24);
+
+  if(red){
+    DI_Cir.backCol(&quot;{255,0,0}&quot;);
+    txt_center.text = &quot;АВАРИЯ&quot;;}
+  else if(yellow){
+    DI_Cir.backCol(&quot;{255,255,0}&quot;);
+    txt_center.text = &quot;ПРЕДУПРЕЖДЕНИЕ&quot;;}
+  else if(green){
+    DI_Cir.backCol(&quot;{0,255,0}&quot;);
+    txt_center.text = &quot;ОТКЛЮЧЕН&quot;;}
+  else{
+    DI_Cir.backCol(normalColor);
+    txt_center.text = &quot;НЕИЗВЕСТНО&quot;;}
+}]]></script>
+ </events>
  <shapes>
-  <shape layerId="0" Name="FRAME1" shapeType="FRAME">
+  <shape Name="DI_Cir" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">80</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">70 72</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">31</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">3.909090909090909 0 0 2 -199.6363636363636 -41</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">70 72</prop>
+    <prop name="Size">34 13</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="FRAME1" shapeType="FRAME" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
     <prop name="Type"></prop>
@@ -34,7 +93,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">2.211111111111111 0 0 1.428571428571429 -204.4777777777778 -125.7142857142857</prop>
+    <prop name="Geometry">2.466666666666666 0 0 1.428571428571429 41.73333333333338 -125.7142857142858</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Обработка</prop>
@@ -46,7 +105,7 @@
     <prop name="Size">91 78</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="FRAME2" shapeType="FRAME">
+  <shape Name="FRAME2" shapeType="FRAME" layerId="0">
    <properties>
     <prop name="serialId">2</prop>
     <prop name="Type"></prop>
@@ -66,7 +125,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">2.211111111111111 0 0 1.285714285714286 -204.4777777777778 -3.142857142857153</prop>
+    <prop name="Geometry">2.466666666666666 0 0 1.285714285714286 41.73333333333338 -3.142857142857167</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Симуляция</prop>
@@ -78,7 +137,7 @@
     <prop name="Size">91 78</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">3</prop>
     <prop name="Type"></prop>
@@ -98,7 +157,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.125 0 -3.75</prop>
+    <prop name="Geometry">1 0 0 1.125 294 -3.750000000000014</prop>
     <prop name="Location">20 24</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -114,7 +173,7 @@
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT2" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT2" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">4</prop>
     <prop name="Type"></prop>
@@ -134,7 +193,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.148936170212767 0 -8.744680851063894</prop>
+    <prop name="Geometry">1 0 0 1.148936170212767 294 -8.744680851063908</prop>
     <prop name="Location">20 54</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -150,7 +209,7 @@
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT3" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT3" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">5</prop>
     <prop name="Type"></prop>
@@ -170,7 +229,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.125 0 -11.25</prop>
+    <prop name="Geometry">1 0 0 1.125 294 -11.25000000000002</prop>
     <prop name="Location">20 84</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -186,11 +245,11 @@
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="Cat" shapeType="COMBO_BOX">
+  <shape Name="Cat" shapeType="COMBO_BOX" layerId="0">
    <properties>
     <prop name="serialId">18</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">140.8 85.02894736842104</prop>
+    <prop name="RefPoint">434.8000000000001 85.02894736842103</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -204,8 +263,8 @@
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">141 82.5</prop>
-    <prop name="Size">50 18</prop>
+    <prop name="Location">435 82.49999999999999</prop>
+    <prop name="Size">50 19</prop>
     <prop name="Listitems">
      <prop name="Item">
       <prop name="Text">
@@ -249,11 +308,11 @@
 ]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT4" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT4" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">20</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">20 139.8</prop>
+    <prop name="RefPoint">314 139.8000000000001</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -269,7 +328,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">20 139.8</prop>
+    <prop name="Location">314 139.8000000000001</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -284,7 +343,7 @@
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT5" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT5" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">21</prop>
     <prop name="Type"></prop>
@@ -304,7 +363,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.119266055045872 0 0 1 -2.146788990825684 -1</prop>
+    <prop name="Geometry">1.119266055045872 0 0 1 291.8532110091743 -1.000000000000014</prop>
     <prop name="Location">19.99999999999999 176.8</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -320,11 +379,11 @@
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <reference referenceId="0" Name="PANEL_REF1" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF1" referenceId="0">
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">147.2500000000001 18.98777173913041</prop>
-    <prop name="Geometry">1 0 0 1 6.249999999999943 0</prop>
+    <prop name="Geometry">1 0 0 1 300.25 -1.4210854715202e-14</prop>
     <prop name="TabOrder">25</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -338,17 +397,17 @@
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop name="cmdBit" type="INT">2</prop>
-     <prop name="stsBit" type="INT">12</prop>
-     <prop name="secureBit" type="INT">18</prop>
+     <prop type="INT" name="cmdBit">2</prop>
+     <prop type="INT" name="stsBit">12</prop>
+     <prop type="INT" name="secureBit">18</prop>
     </extended>
    </properties>
   </reference>
-  <reference referenceId="1" Name="PANEL_REF2" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF2" referenceId="1">
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">147.2500000000001 134.8877717391304</prop>
-    <prop name="Geometry">1 0 0 1 6.249999999999886 0</prop>
+    <prop name="Geometry">1 0 0 1 300.2499999999999 -1.4210854715202e-14</prop>
     <prop name="TabOrder">26</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -362,17 +421,17 @@
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop name="cmdBit" type="INT">20</prop>
-     <prop name="stsBit" type="INT">14</prop>
-     <prop name="secureBit" type="INT">18</prop>
+     <prop type="INT" name="cmdBit">20</prop>
+     <prop type="INT" name="stsBit">14</prop>
+     <prop type="INT" name="secureBit">18</prop>
     </extended>
    </properties>
   </reference>
-  <reference referenceId="2" Name="PANEL_REF3" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF3" referenceId="2">
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">147.2500000000002 170.8877717391304</prop>
-    <prop name="Geometry">1 0 0 1 6.249999999999829 0</prop>
+    <prop name="Geometry">1 0 0 1 300.2499999999999 -1.4210854715202e-14</prop>
     <prop name="TabOrder">27</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -386,17 +445,17 @@
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop name="cmdBit" type="INT">1</prop>
-     <prop name="stsBit" type="INT">13</prop>
-     <prop name="secureBit" type="INT">18</prop>
+     <prop type="INT" name="cmdBit">1</prop>
+     <prop type="INT" name="stsBit">13</prop>
+     <prop type="INT" name="secureBit">18</prop>
     </extended>
    </properties>
   </reference>
-  <shape layerId="0" Name="PRIMITIVE_TEXT6" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT6" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">37</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">194 55</prop>
+    <prop name="RefPoint">488 54.99999999999999</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -412,7 +471,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">194 55</prop>
+    <prop name="Location">488 54.99999999999999</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -427,11 +486,11 @@
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <reference referenceId="3" Name="PANEL_REF4" parentSerial="-1">
+  <reference parentSerial="-1" Name="PANEL_REF4" referenceId="3">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">79.99999999999991 68.06250000000007</prop>
-    <prop name="Geometry">0.8032786885245902 0 0 0.7391304347826086 76.73770491803279 2.692934782608656</prop>
+    <prop name="Geometry">0.8032786885245902 0 0 0.7391304347826086 370.7377049180328 2.692934782608642</prop>
     <prop name="TabOrder">29</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -445,9 +504,77 @@
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop name="secureBit" type="INT">18</prop>
+     <prop type="INT" name="secureBit">18</prop>
     </extended>
    </properties>
   </reference>
+  <shape Name="FRAME3" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">58</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">35 129</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">29</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignVCenter</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.936170212765957 0 0 1.444444444444444 -20.26595744680848 -109.8333333333333</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Состояние</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Times,-1,19,5,50,0,0,0,0,0,Roman</prop>
+    </prop>
+    <prop name="Location">35 129</prop>
+    <prop name="Size">95 46</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_center" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">79</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29 32</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">30</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">2.147790107071799 0 0 1.671445988745293 76.21408689491784 61.51372836015061</prop>
+    <prop name="Location">29 32</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">ОТКЛЮЧЕН</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
  </shapes>
 </panel>

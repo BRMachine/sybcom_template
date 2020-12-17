@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">102 91</prop>
+  <prop name="Size">207 91</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">0 0</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -59,13 +59,13 @@ public bool getTxtRightVis(){
   return com_right_text.visible;
 }
 // end add
-#property string centerText
+/*#property string centerText
 public void setCenterText(string s){
   txt_center.text(s);
 }
 public string getCenterText(){
   return txt_center.text;
-}
+}*/
 
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[string normalColor;
@@ -91,14 +91,18 @@ void cbValue(dyn_string dp, dyn_anytype value){
        sim = getBit(sts, 14),
        qerr = getBit(sts, 24);
 
-  if(red)
+  if(red){
     DI_Cir.backCol(&quot;{255,0,0}&quot;);
-  else if(yellow)
+    txt_center.text = &quot;АВАР&quot;;}
+  else if(yellow){
     DI_Cir.backCol(&quot;{255,255,0}&quot;);
-  else if(green)
+    txt_center.text = &quot;ПРЕД&quot;;}
+  else if(green){
     DI_Cir.backCol(&quot;{0,255,0}&quot;);
-  else
+    txt_center.text = &quot;ОТКЛ&quot;;}
+  else{
     DI_Cir.backCol(normalColor);
+    txt_center.text = &quot;НЕИЗ&quot;;}
 
   bERR.visible(qerr);
   bERR_text.visible(qerr);
@@ -108,37 +112,11 @@ void cbValue(dyn_string dp, dyn_anytype value){
 ]]></script>
  </events>
  <shapes>
-  <shape Name="DI_Cir" shapeType="ELLIPSE" layerId="0">
-   <properties>
-    <prop name="serialId">1</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">137 147</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">STDLIB_Green</prop>
-    <prop name="TabOrder">0</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">True</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.5031055900621116 0 0 0.5027870680044592 45.0745341614907 33.09030100334451</prop>
-    <prop name="Center">36.19946280611801 32.75</prop>
-    <prop name="X-Radius">20</prop>
-    <prop name="Y-Radius">20</prop>
-   </properties>
-  </shape>
   <shape Name="btn_fp" shapeType="PUSH_BUTTON" layerId="0">
    <properties>
     <prop name="serialId">8</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">39.50238437640666 34.03529027770671</prop>
+    <prop name="RefPoint">6.999999999999993 21.21233283291932</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_Transparent</prop>
@@ -153,8 +131,8 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">39.50238437640667 25.5405815890672</prop>
-    <prop name="Size">55 37</prop>
+    <prop name="Location">6.999999999999998 15.50529131136049</prop>
+    <prop name="Size">55 25</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">PUSH_BUTTON1</prop>
@@ -178,16 +156,16 @@ void cbValue(dyn_string dp, dyn_anytype value){
 }]]></script>
    </events>
   </shape>
-  <shape Name="comt_txt" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="com_right_text" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
-    <prop name="serialId">9</prop>
+    <prop name="serialId">12</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">63.38507467484817 30.05333007653481</prop>
+    <prop name="RefPoint">49 48</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
     <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">8</prop>
+    <prop name="TabOrder">10</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
     </prop>
@@ -198,7 +176,8 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">63.38507467484817 30.05333007653481</prop>
+    <prop name="Geometry">1.063829787234043 0 0 1 -2.127659574468105 -16</prop>
+    <prop name="Location">49 48</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -210,19 +189,19 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="Bordered">False</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape Name="txt_center" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="DI_Cir" shapeType="RECTANGLE" layerId="0">
    <properties>
-    <prop name="serialId">10</prop>
+    <prop name="serialId">14</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">63.28668625649418 49.55657748049055</prop>
+    <prop name="RefPoint">70 72</prop>
     <prop name="Enable">True</prop>
-    <prop name="Visible">False</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">9</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">11</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
     </prop>
@@ -232,20 +211,13 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Location">63.28668625649418 49.55657748049055</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">HH</prop>
-    </prop>
-    <prop name="Distance">2</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">True</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 -57 -46</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">70 72</prop>
+    <prop name="Size">34 13</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
    </properties>
   </shape>
   <shape Name="bERR" shapeType="RECTANGLE" layerId="0">
@@ -268,7 +240,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,3]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.9285714285714279 0 0 1.004329004329004 0.2393973634196982 9.673459946664671</prop>
+    <prop name="Geometry">0.9285714285714279 0 0 1.004329004329004 -58.78571428571423 -0.1298701298701204</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">73 30</prop>
     <prop name="Size">15 10</prop>
@@ -280,7 +252,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="serialId">6</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">74.71930654878926 43.32840222660693</prop>
+    <prop name="RefPoint">15.69419489965533 33.52507215007213</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -296,7 +268,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">74.71930654878926 43.32840222660693</prop>
+    <prop name="Location">15.69419489965533 33.52507215007213</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,8,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -331,7 +303,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,3]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4090909090909095 0 0 0.4330949948927475 41.00238437640664 34.60108288552356</prop>
+    <prop name="Geometry">0.4090909090909095 0 0 0.4330949948927475 12.9772727272727 14.79775280898878</prop>
     <prop name="Center">77 46.75</prop>
     <prop name="X-Radius">11</prop>
     <prop name="Y-Radius">11</prop>
@@ -341,7 +313,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="serialId">7</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">72.50238437640667 54.26699172021597</prop>
+    <prop name="RefPoint">44.47727272727273 34.46366164368118</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -357,7 +329,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">72.50238437640667 54.26699172021597</prop>
+    <prop name="Location">44.47727272727273 34.46366164368118</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,8,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -372,16 +344,16 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape Name="com_right_text" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="comt_txt" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
-    <prop name="serialId">12</prop>
+    <prop name="serialId">9</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">49 48</prop>
+    <prop name="RefPoint">30 19</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
     <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">10</prop>
+    <prop name="TabOrder">8</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
     </prop>
@@ -392,8 +364,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.063829787234043 0 0 1 -3.255319148936169 0</prop>
-    <prop name="Location">49 48</prop>
+    <prop name="Location">30 19</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -405,8 +376,72 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="Bordered">False</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignRight|AlignVCenter]</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_center" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">10</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29 32</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">9</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.03125 0 0 1 -0.40625 0</prop>
+    <prop name="Location">29 32</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">ОТКЛ</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
  </shapes>
+ <groups>
+  <group parentSerial="-1" Name="SHAPE_GROUP1" serial="0">
+   <properties>
+    <prop name="shapeSerial">3</prop>
+    <prop name="shapeSerial">6</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="2" Name="SHAPE_GROUP2" serial="1">
+   <properties>
+    <prop name="shapeSerial">2</prop>
+    <prop name="shapeSerial">7</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="SHAPE_GROUP3" serial="2">
+   <properties>
+    <prop name="groupSerial">1</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="SHAPE_GROUP4" serial="3">
+   <properties>
+    <prop name="shapeSerial">9</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+ </groups>
 </panel>
