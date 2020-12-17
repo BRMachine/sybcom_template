@@ -123,43 +123,17 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -179.2693411853361 -52.04433256156142</prop>
+    <prop name="Geometry">1 0 0 1 -180 -40</prop>
     <prop name="Center">216.3155231363774 98.40000000000005</prop>
     <prop name="X-Radius">20</prop>
     <prop name="Y-Radius">20</prop>
-   </properties>
-  </shape>
-  <shape Name="el_fault" shapeType="ELLIPSE" layerId="0">
-   <properties>
-    <prop name="serialId">3</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">130 150</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{182,0,0}</prop>
-    <prop name="TabOrder">2</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">True</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4822118101293422 0 0 0.472085084586677 -25.64135336577324 -24.45709524956291</prop>
-    <prop name="Center">130 150</prop>
-    <prop name="X-Radius">40</prop>
-    <prop name="Y-Radius">40</prop>
    </properties>
   </shape>
   <shape Name="txt_alias" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">10</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">37.46809586914897 20.97546531165987</prop>
+    <prop name="RefPoint">37 31</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -175,7 +149,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">37.46809586914897 20.97546531165987</prop>
+    <prop name="Location">37 31</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,8,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -188,6 +162,32 @@ void initArrow(){
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="ELLIPSE1" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">14</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">130 150</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">WF_PanelBackground</prop>
+    <prop name="TabOrder">11</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 3 2</prop>
+    <prop name="Center">33.31552313637741 56.40000000000005</prop>
+    <prop name="X-Radius">16.5</prop>
+    <prop name="Y-Radius">16.5</prop>
    </properties>
   </shape>
   <shape Name="el_ready" shapeType="ELLIPSE" layerId="0">
@@ -210,10 +210,36 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3905290701816279 0 0 0.3928945882602834 -13.72259717257039 -12.57852080060388</prop>
-    <prop name="Center">130 150</prop>
-    <prop name="X-Radius">40</prop>
-    <prop name="Y-Radius">40</prop>
+    <prop name="Geometry">1 0 0 1 -40.68447686362259 27.40000000000005</prop>
+    <prop name="Center">77 31</prop>
+    <prop name="X-Radius">16.5</prop>
+    <prop name="Y-Radius">16.5</prop>
+   </properties>
+  </shape>
+  <shape Name="el_fault" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">3</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">130 150</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,0,0}</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 -0.6123587623291726 12.40000000000005</prop>
+    <prop name="Center">36.92788189870658 46</prop>
+    <prop name="X-Radius">16.5</prop>
+    <prop name="Y-Radius">16.5</prop>
    </properties>
   </shape>
   <shape Name="ar_down" shapeType="POLYGON" layerId="0">
@@ -236,7 +262,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.07179393496529043 0 0 -0.0915372670807454 16.94388016075992 71.22517767692455</prop>
+    <prop name="Geometry">0.07179393496529043 0 0 -0.0915372670807454 16.19992643351481 83.18439414651327</prop>
     <prop name="Closed">True</prop>
     <prop name="Points">
      <prop name="Location">280 100</prop>
@@ -265,7 +291,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">-0.07179393496529043 0 0 0.0915372670807454 57.14848374132264 21.48615719995275</prop>
+    <prop name="Geometry">-0.07179393496529043 0 0 0.0915372670807454 56.40453001407752 33.44537366954147</prop>
     <prop name="Closed">True</prop>
     <prop name="Points">
      <prop name="Location">280 100</prop>
@@ -294,7 +320,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">-2.335433773606898e-17 0.07628105590062108 0.0915372670807454 2.802520528328281e-17 12.27129243570165 24.99697178626473</prop>
+    <prop name="Geometry">-2.335433773606898e-17 0.07628105590062108 0.0915372670807454 2.802520528328281e-17 11.52733870845654 36.95618825585345</prop>
     <prop name="Closed">True</prop>
     <prop name="Points">
      <prop name="Location">280 100</prop>
@@ -323,7 +349,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">2.335433773606898e-17 -0.07628105590062108 -0.0915372670807454 -2.802520528328281e-17 61.82107146638116 67.71436309061254</prop>
+    <prop name="Geometry">2.335433773606898e-17 -0.07628105590062108 -0.0915372670807454 -2.802520528328281e-17 61.07711773913604 79.67357956020126</prop>
     <prop name="Closed">True</prop>
     <prop name="Points">
      <prop name="Location">280 100</prop>
@@ -352,10 +378,10 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.019736842105263 0 0 0.9294255316946892 14.61197142472544 18.47290148759795</prop>
+    <prop name="Geometry">0.8578501850801049 0 0 0.7428875270606906 17.14393526372415 35.34193042464894</prop>
     <prop name="Location">21.98060344827588 30.49999999999999</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,9,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">РЕМОНТ</prop>
@@ -372,7 +398,7 @@ void initArrow(){
    <properties>
     <prop name="serialId">7</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">37.02640257263833 46.82038020428597</prop>
+    <prop name="RefPoint">36 58</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -389,9 +415,10 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinMiter,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Location">37.02640257263833 46.82038020428597</prop>
+    <prop name="Geometry">0.8687734962406017 0 0 0.8160107651087969 5.286654135338341 10.8652530692178</prop>
+    <prop name="Location">36 58</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,9,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">И</prop>
@@ -408,7 +435,7 @@ void initArrow(){
    <properties>
     <prop name="serialId">8</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">12.79416416394349 37.42253663526178</prop>
+    <prop name="RefPoint">16 49</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -422,8 +449,8 @@ void initArrow(){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">12.79416416394349 16.94673913043477</prop>
-    <prop name="Size">49 51</prop>
+    <prop name="Location">16 28.52420249517299</prop>
+    <prop name="Size">42 51</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8"></prop>
@@ -481,4 +508,15 @@ main(int iType)
    </events>
   </shape>
  </shapes>
+ <groups>
+  <group parentSerial="-1" Name="SHAPE_GROUP1" serial="0">
+   <properties>
+    <prop name="shapeSerial">2</prop>
+    <prop name="shapeSerial">6</prop>
+    <prop name="shapeSerial">5</prop>
+    <prop name="shapeSerial">4</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+ </groups>
 </panel>

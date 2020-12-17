@@ -26,7 +26,7 @@
    <properties>
     <prop name="FileName">objects/PUMP/d_pump.xml</prop>
     <prop name="Location">30 20</prop>
-    <prop name="Geometry">1 0 0 1 -3 28.64704402515723</prop>
+    <prop name="Geometry">1 0 0 1 -20 28.64704402515723</prop>
     <prop name="TabOrder">1</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -45,7 +45,7 @@
    <properties>
     <prop name="serialId">22</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">41 188.3254914004914</prop>
+    <prop name="RefPoint">3 188.3254914004914</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -61,12 +61,12 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">41 188.3254914004914</prop>
+    <prop name="Location">3 188.3254914004914</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Наработка</prop>
+     <prop name="ru_RU.utf8">Общий моторесурс</prop>
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
@@ -80,7 +80,7 @@
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">150 89.51562500000001</prop>
-    <prop name="Geometry">1 0 0 0.828337874659402 -47.14054054054051 110.5801620519493</prop>
+    <prop name="Geometry">1 0 0 0.828337874659402 -45.14054054054051 110.5801620519493</prop>
     <prop name="TabOrder">6</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -102,7 +102,7 @@
    <properties>
     <prop name="serialId">26</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">82.80000000000003 162.9269482961253</prop>
+    <prop name="RefPoint">82.80000000000003 160.9269482961253</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -118,7 +118,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">82.80000000000003 162.9269482961253</prop>
+    <prop name="Location">82.80000000000003 160.9269482961253</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -137,7 +137,7 @@
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">276 13</prop>
-    <prop name="Geometry">1 0 0 1 -133.9999999999999 143.9147200352557</prop>
+    <prop name="Geometry">1 0 0 1 -133.9999999999999 141.9147200352557</prop>
     <prop name="TabOrder">9</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -161,7 +161,7 @@
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">276 13</prop>
-    <prop name="Geometry">1 0 0 1 -58.2809917355371 143.9147200352557</prop>
+    <prop name="Geometry">1 0 0 1 -58.2809917355371 141.9147200352557</prop>
     <prop name="TabOrder">10</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -185,7 +185,7 @@
    <properties>
     <prop name="serialId">33</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">179 162.8538965922506</prop>
+    <prop name="RefPoint">179 160.8538965922506</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -201,7 +201,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">179 162.8538965922506</prop>
+    <prop name="Location">179 160.8538965922506</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -220,7 +220,7 @@
    <properties>
     <prop name="serialId">34</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">82.58257765961218 472.0933485433485</prop>
+    <prop name="RefPoint">84.58257765961218 472.0933485433485</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -234,7 +234,7 @@
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">163.9241324880653 184.4504914004914</prop>
+    <prop name="Location">165.9241324880653 184.4504914004914</prop>
     <prop name="Size">21 21</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">ч</prop>
