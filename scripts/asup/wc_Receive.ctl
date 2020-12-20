@@ -14,7 +14,6 @@
 // variables and constants
 
  string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
-// string dp_srv_act = "_ReduManager_2.EvStatus"; // Для резервного сервера
 //--------------------------------------------------------------------------------
 
 // pubic functions
@@ -207,5 +206,8 @@ private void cbIS(string ud, dyn_dyn_anytype res){
 */
 main()
 {
+  if(p1 == "-RES"){
+    dp_srv_act = "_ReduManager_2.EvStatus";
+  }
   dpQueryConnectSingle("cbIS", false, "ud", "SELECT '_original.._value' FROM 'IS_?.PST_?.status'");
 }

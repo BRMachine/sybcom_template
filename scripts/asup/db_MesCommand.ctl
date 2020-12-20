@@ -24,8 +24,7 @@ changelog:
 bool busy;
 int iConnection = 1;
 dyn_mapping mConfig;
- string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
-// string dp_srv_act = "_ReduManager_2.EvStatus"; // Для резервного сервера
+string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
 
 //--------------------------------------------------------------------------------
 
@@ -137,7 +136,10 @@ void cbDatabase(string dp, int db){
   iConnection = db;
 }
 
-main(){
+main(string p1){
+  if(p1 == "-RES"){
+    dp_srv_act = "_ReduManager_2.EvStatus";
+  }
   mConfig = getConnectionParams();
   dpConnect("cbDatabase", "_NB_CONFIG.ST");
   dpConnect("getLastCommand", "Sybcom.Triggers.1s_Trigger");
