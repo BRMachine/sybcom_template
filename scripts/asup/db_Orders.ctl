@@ -305,7 +305,7 @@ void workerEnd(anytype ud, dyn_dyn_anytype data){
   }
 }
 
-main(){
+main(string p1){
   if(p1 == "-RES"){
     dp_srv_act = "_ReduManager_2.EvStatus";
   }

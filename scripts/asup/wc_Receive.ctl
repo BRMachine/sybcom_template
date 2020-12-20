@@ -204,8 +204,7 @@ private void cbIS(string ud, dyn_dyn_anytype res){
 
 /**
 */
-main()
-{
+main(string p1){
   if(p1 == "-RES"){
     dp_srv_act = "_ReduManager_2.EvStatus";
   }

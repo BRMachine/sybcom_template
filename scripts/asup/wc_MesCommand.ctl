@@ -186,7 +186,7 @@ void cbDatabase(string dp, int db){
 //--------------------------------------------------------------------------------
 /**
 */
-main(){
+main(string p1){
   if(p1 == "-RES"){
     dp_srv_act = "_ReduManager_2.EvStatus";
   }
