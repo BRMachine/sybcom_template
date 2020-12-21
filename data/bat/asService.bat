@@ -4,7 +4,7 @@ echo "***********Введи имя папки с проектом**********"
 echo "***********************************************"
 set /p PROJ="ProjName: "
 
-set /p "ch=путь до проекта "C:/WinccOA_Proj/%PROJ%/"? [y] " 
+set /p "ch=путь до проекта "C:/Wincc_OA_Proj/%PROJ%/"? [y] " 
 IF "%ch%" == "Y" ( goto confirm )
 IF "%ch%" == "y" ( goto confirm )
 IF "%ch%" == "Д" ( goto confirm )
@@ -14,7 +14,7 @@ goto end
 
 :confirm
 echo "Регистрация проекта в качестве службы запущена"
-WCCILpmon -install -set C:/WinCCOA_Proj/%PROJ%/config/config 1 -name SSPD-SRV-SVC
+WCCILpmon -install -set C:/WinCC_OA_Proj/%PROJ%/config/config 1 -name SSPD-SRV-SVC
 echo "Регистрация завершена, остановите проект и запустите его как службу (SSPD-SRV-SVC)"
 echo "%userprofile%"
 xcopy "links\" "%userprofile%\desktop\" /Y 
