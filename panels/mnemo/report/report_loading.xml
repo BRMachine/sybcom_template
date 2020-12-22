@@ -1,0 +1,1394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">1890 800</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">11.24999999999989 229</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;lib_report&quot;
+#uses &quot;csv&quot;
+
+dyn_dyn_string data_now;
+
+void fill_table(dyn_dyn_string data){
+  TABLE1.deleteAllLines();
+  data_now = data;
+  string ts = TS_num.text();
+  int len = dynlen(data[1]);
+  if(len &gt; 0){
+    TABLE1.appendLines(len, &quot;id&quot;, data[1], &quot;DateRecording&quot;, data[2], &quot;RecipeId&quot;, data[3], &quot;PostNumber&quot;, data[4], &quot;TankCode&quot;, data[5],
+                           &quot;RegistrationNumber&quot;, data[6], &quot;SectionNumber&quot;, data[7], &quot;OrderedVolume&quot;, data[8], &quot;OrderedWeight&quot;, data[9],
+                           &quot;LoadedVolume&quot;, data[10], &quot;LoadedWeight&quot;, data[11], &quot;LoadedTemperature&quot;, data[12], &quot;LoadedDensity&quot;, data[13],
+                           &quot;LoadedBaseVolume&quot;, data[14], &quot;LoadedBaseWeight&quot;, data[15], &quot;LoadedBaseTemp&quot;, data[16], &quot;LoadedBaseDensity&quot;, data[17],
+                           &quot;LoadedMixed1Volume&quot;, data[18], &quot;LoadedMixed1Temp&quot;, data[19], &quot;LoadedMixed1Density&quot;, data[20], &quot;LoadedMixed1Weight&quot;, data[21],
+                           &quot;DtStart&quot;, data[22], &quot;DtEnd&quot;, data[23], &quot;SumVolumeStart&quot;, data[24], &quot;SumVolumeEnd&quot;, data[25], &quot;SumWeightStart&quot;, data[26],
+                           &quot;SumWeightEnd&quot;, data[27], &quot;ModeCtrl&quot;, data[28]);
+  }
+  else{
+//     TABLE1.deleteAllLines();
+  }
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  string query = &quot;SELECT TOP 10 * FROM [ASU_MES_DB].[dbo].[vLoadingResult] ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="TABLE1" shapeType="TABLE" layerId="0">
+   <properties>
+    <prop name="serialId">3</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">11.24999999999989 123</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">1</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">11.24999999999989 123</prop>
+    <prop name="Size">1869 668</prop>
+    <prop name="ShowColumnHeader">True</prop>
+    <prop name="ShowRowHeader">False</prop>
+    <prop name="SortOnClick">True</prop>
+    <prop name="RowHeight">17</prop>
+    <prop name="RowHeaderWidth">0</prop>
+    <prop name="GridType">Cross</prop>
+    <prop name="VScrollBarMode">Auto</prop>
+    <prop name="HScrollBarMode">Auto</prop>
+    <prop name="Column">
+     <prop name="Name">id</prop>
+     <prop name="Width">52</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">ID</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">DateRecording</prop>
+     <prop name="Width">135</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Дата записи</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">RecipeId</prop>
+     <prop name="Width">42</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Продукт</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">PostNumber</prop>
+     <prop name="Width">42</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Пост</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">TankCode</prop>
+     <prop name="Width">32</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">РВС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">RegistrationNumber</prop>
+     <prop name="Width">62</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">№ ТС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SectionNumber</prop>
+     <prop name="Width">62</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Секция</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">OrderedVolume</prop>
+     <prop name="Width">112</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Зад. объем</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">OrderedWeight</prop>
+     <prop name="Width">112</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Зад. масса</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedVolume</prop>
+     <prop name="Width">112</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Отгруж. объем</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedWeight</prop>
+     <prop name="Width">112</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Отгруж. масса</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedTemperature</prop>
+     <prop name="Width">92</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Температура</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedDensity</prop>
+     <prop name="Width">92</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Плотность</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedBaseVolume</prop>
+     <prop name="Width">69</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Отгруж. объем базового НП</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedBaseWeight</prop>
+     <prop name="Width">69</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Отгруж. масса базового НП</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedBaseTemp</prop>
+     <prop name="Width">135</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Темпер. базового НП</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedBaseDensity</prop>
+     <prop name="Width">135</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Плотность базового НП</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedMixed1Volume</prop>
+     <prop name="Width">55</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Объем прис.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedMixed1Temp</prop>
+     <prop name="Width">60</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Темпер. прис.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedMixed1Density</prop>
+     <prop name="Width">60</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Плотность прис.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">LoadedMixed1Weight</prop>
+     <prop name="Width">280</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Масса прис.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">DtStart</prop>
+     <prop name="Width">60</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Время начала</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">DtEnd</prop>
+     <prop name="Width">30</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Время окончания</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SumVolumeStart</prop>
+     <prop name="Width">50</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Сумматор V нач.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SumVolumeEnd</prop>
+     <prop name="Width">50</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Сумматор V оконч.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SumWeightStart</prop>
+     <prop name="Width">50</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Сумматор M нач.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SumWeightEnd</prop>
+     <prop name="Width">50</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Сумматор M оконч.</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">ModeCtrl</prop>
+     <prop name="Width">50</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Тип налива</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+    </prop>
+   </properties>
+  </shape>
+  <shape Name="but_1hour" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">4</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">398.75 42.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">398.75 32.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">1 час</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-1,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_1day" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">5</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">398.75 83.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">3</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">398.75 73.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">1 день</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-1,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_2day" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">6</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">462.75 83.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">4</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">462.75 73.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">2 дня</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-2,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_4day" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">7</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">526.75 83.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">5</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">526.75 73.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">4 дня</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-4,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_7day" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">8</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">590.75 83.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">6</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">590.75 73.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">7 дней</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-7,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_10day" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">9</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">654.75 83.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">7</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">654.75 73.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">10 дней</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-10,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_2hour" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">10</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">462.75 42.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">8</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">462.75 32.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">2 часа</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-2,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_4hour" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">11</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">526.75 42.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">9</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">526.75 32.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">4 часа</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-4,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_7hour" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">12</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">590.75 42.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">10</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">590.75 32.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">7 часов</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-7,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="but_10hour" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">13</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">654.75 42.39344262295083</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">11</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">654.75 32.96721311475412</prop>
+    <prop name="Size">65 24</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">10 часов</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-10,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="FRAME1" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">15</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29 7</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">13</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,2]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 1 357.75 -2.393442622950857</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Быстрая выборка</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">29 7</prop>
+    <prop name="Size">345 109</prop>
+   </properties>
+  </shape>
+  <shape Name="but_last" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">16</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1187.75 28.59996271681609</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">14</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">1187.75 15.13945601040777</prop>
+    <prop name="Size">127 39</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Последний отпуск</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string query = &quot;SELECT TOP 1 * FROM [ASU_MES_DB].[dbo].[vLoadingResult] ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="DateTimeStart" shapeType="GENERIC" layerId="0">
+   <properties>
+    <prop name="serialId">17</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">43.984375 26.99795081967212</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">15</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">43.984375 26.99795081967212</prop>
+    <prop name="Size">166 34</prop>
+    <prop name="ObjectType">DateTimeEdit.ewo</prop>
+    <extended>
+     <prop type="ENUM" name="buttonSymbols">0</prop>
+     <prop type="BOOL" name="calendarPopup">True</prop>
+    </extended>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  this.dateTime(getCurrentTime());
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="DateTimeEnd" shapeType="GENERIC" layerId="0">
+   <properties>
+    <prop name="serialId">18</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">43.71875 69.99795081967213</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">16</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">43.71875 69.99795081967213</prop>
+    <prop name="Size">166 34</prop>
+    <prop name="ObjectType">DateTimeEdit.ewo</prop>
+    <extended>
+     <prop type="ENUM" name="buttonSymbols">0</prop>
+     <prop type="BOOL" name="calendarPopup">True</prop>
+    </extended>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  this.dateTime(getCurrentTime());
+}]]></script>
+   </events>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">19</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">26.75 43</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">17</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">26.75 43</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">С:</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT2" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">20</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">20.71875 86.49897540983608</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">18</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">20.71875 86.49897540983608</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">По:</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="but_range" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">21</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">231.78125 53.70131812140008</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">19</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">ВНИМАНИЕ! Чем больше диапазон дат, тем дольше получение данных!</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">231.78125 26.99897540983605</prop>
+    <prop name="Size">137 77</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Применить</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string date_start, date_end;
+  date_start = DateTimeStart.dateTime();
+  date_end = DateTimeEnd.dateTime();
+  date_start = substr(date_start, 0, 19);
+  date_end = substr(date_end, 0, 19);
+  strreplace(date_start, &quot;.&quot;, &quot;&quot;);
+  strreplace(date_end, &quot;.&quot;, &quot;&quot;);
+  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
+  dyn_dyn_string data;
+  data = loading_data(query);
+  fill_table(data);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="FRAME2" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">22</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29 7</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">20</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,2]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.092296511627907 0 0 1 -20.6765988372093 -2</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Диапазон</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">29 7</prop>
+    <prop name="Size">345 109</prop>
+   </properties>
+  </shape>
+  <shape Name="FRAME3" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">23</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29 7</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">21</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,2]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.270348837209302 0 0 1 693.9098837209301 -1.967213114754287</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">С выбором номера АМ</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">29 7</prop>
+    <prop name="Size">345 109</prop>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">24</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">965.8750000000001 81.64359872460209</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">22</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8">ВНИМАНИЕ! Чем больше диапазон дат, тем дольше получение данных!</prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">965.8750000000001 70.04895676824411</prop>
+    <prop name="Size">174 34</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Применить</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  string date_start, date_end;
+  date_start = DateTimeStart_IS.dateTime();
+  date_end = DateTimeEnd_IS.dateTime();
+  date_start = substr(date_start, 0, 19);
+  date_end = substr(date_end, 0, 19);
+  strreplace(date_start, &quot;.&quot;, &quot;&quot;);
+  strreplace(date_end, &quot;.&quot;, &quot;&quot;);
+  string num_ts = TS_num.text();
+  if(num_ts == &quot;&quot;){
+    string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE RegistrationNumber LIKE ('%') AND DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
+    dyn_dyn_string data;
+    data = loading_data(query);
+    fill_table(data);
+  }
+  else{
+    string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE RegistrationNumber LIKE ('&quot;+num_ts+&quot;') AND DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
+    dyn_dyn_string data;
+    data = loading_data(query);
+    fill_table(data);
+  }
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="DateTimeStart_IS" shapeType="GENERIC" layerId="0">
+   <properties>
+    <prop name="serialId">25</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">772.234375 27.09791353648821</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">23</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">772.234375 27.09791353648821</prop>
+    <prop name="Size">166 34</prop>
+    <prop name="ObjectType">DateTimeEdit.ewo</prop>
+    <extended>
+     <prop type="ENUM" name="buttonSymbols">0</prop>
+     <prop type="BOOL" name="calendarPopup">True</prop>
+    </extended>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  this.dateTime(getCurrentTime());
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="DateTimeEnd_IS" shapeType="GENERIC" layerId="0">
+   <properties>
+    <prop name="serialId">26</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">771.96875 70.09791353648822</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">24</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">771.96875 70.09791353648822</prop>
+    <prop name="Size">166 34</prop>
+    <prop name="ObjectType">DateTimeEdit.ewo</prop>
+    <extended>
+     <prop type="ENUM" name="buttonSymbols">0</prop>
+     <prop type="BOOL" name="calendarPopup">True</prop>
+    </extended>
+   </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  this.dateTime(getCurrentTime());
+}]]></script>
+   </events>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT3" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">27</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">755 43.09996271681609</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">25</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">755 43.09996271681609</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">С:</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT4" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">28</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">748.96875 86.59893812665217</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">26</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">748.96875 86.59893812665217</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">По:</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="export_report" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">29</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1187.75 81.53023471161222</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">27</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">1187.75 68.0697280052039</prop>
+    <prop name="Size">127 39</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Выгрузить отчет</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  //Время создания отчета
+  string time_now = getCurrentTime();
+  time_now = substr(time_now, 0, 19);
+  strreplace(time_now, &quot;.&quot;, &quot;&quot;);
+  strreplace(time_now, &quot;:&quot;, &quot;&quot;);
+  strreplace(time_now, &quot; &quot;, &quot;_&quot;);
+  //-------------------------
+  dynDynTurn(data_now);
+  //Создаем массив из названия столбцов
+  dyn_string headers;
+  int num_column = TABLE1.columnCount();
+  for(int i = 1; i &lt;= num_column; i++){
+    headers[i] = TABLE1.columnToName(i-1);
+  }
+  //--------------------------------
+  data_now.insertAt(0, headers);
+  //Создаем csv файл и выгружаем данные в него
+  string file_name = &quot;C:/WinCC_OA_Proj/TOBOLSK/data/Reporting/Loading/loading_report_&quot; + time_now + &quot;.CSV&quot;;
+  file f;
+  f=fopen(file_name, &quot;w&quot;); // Guaranteed &quot;new&quot; file
+  fclose(f);
+  csvFileWrite(file_name, data_now, ';');
+  //--------------------------------------------
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="TS_num" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">31</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">965.890625 40.07319423576588</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">28</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">965.890625 37</prop>
+    <prop name="Size">174 24</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT5" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">33</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">967.890625 22</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">29</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">967.890625 22</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Номер ТС</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+ </shapes>
+</panel>
