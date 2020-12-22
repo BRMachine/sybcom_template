@@ -39,8 +39,7 @@ dyn_string datapoints;
 string sConnection, sDatabase;
 
 
- string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
-// string dp_srv_act = "_ReduManager_2.EvStatus"; // Для резервного сервера
+string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
 //--------------------------------------------------------------------------------
 // predefined functions
 //
@@ -223,7 +222,11 @@ void refreshRVS(string dp, bool trg){
 
 //--------------------------------------------------------------------------------
 
-main(){
+main(string p1){
+
+  if(p1 == "-RES"){
+    dp_srv_act = "_ReduManager_2.EvStatus";
+  }
   mConfig = getConnectionParams();
   dpConnect("cbDatabase", "_NB_CONFIG.ST");
   dpConnect("refreshRVS", true, "Sybcom.Triggers.1min_Trigger"); // TODO: delete init startup

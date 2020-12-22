@@ -36,7 +36,6 @@ mapping c_command;
 dyn_mapping mConfig;
 int iConnection = 1;
  string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
-// string dp_srv_act = "_ReduManager_2.EvStatus"; // Для резервного сервера
 
 //--------------------------------------------------------------------------------
 /**
@@ -187,7 +186,10 @@ void cbDatabase(string dp, int db){
 //--------------------------------------------------------------------------------
 /**
 */
-main(){
+main(string p1){
+  if(p1 == "-RES"){
+    dp_srv_act = "_ReduManager_2.EvStatus";
+  }
   mConfig = getConnectionParams();
   dpConnect("cbDatabase", "_NB_CONFIG.ST");
   dpConnect("worker", "Sybcom.Triggers.1s_Trigger");

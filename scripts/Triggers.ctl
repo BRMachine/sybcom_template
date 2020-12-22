@@ -13,10 +13,12 @@
 
 string System = getSystemName();
 
-main ()
+main (string p1)
 {
-  dpConnect("updateTrigger", System + "_Event.Heartbeat");  // Для основной системы
-//  dpConnect("updateTrigger", System + "_Event_2.Heartbeat"); // Для резервной системы
+  if(p1 != "-RES")
+    dpConnect("updateTrigger", System + "_Event.Heartbeat");  // Для основной системы
+  else
+    dpConnect("updateTrigger", System + "_Event_2.Heartbeat"); // Для резервной системы
 }
 
 void updateTrigger (string dpeName, int dpeValue)
