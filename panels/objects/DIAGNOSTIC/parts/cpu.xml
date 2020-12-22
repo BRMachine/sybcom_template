@@ -13,8 +13,17 @@
   <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string DP = $dp;
+
+const mapping COLORS = makeMapping(&quot;ERROR&quot;  , &quot;Red&quot;,
+                                   &quot;STOP&quot;  , &quot;Red&quot;,
+                                   &quot;RUN&quot;   , &quot;Green&quot;,
+                                   &quot;RUNNING&quot;  , &quot;Yellow&quot;,
+                                   &quot;MAINT&quot;  , &quot;Yellow&quot;);]]></script>
+ </events>
  <shapes>
-  <shape layerId="0" Name="RECTANGLE5" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE5" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
     <prop name="Type"></prop>
@@ -42,7 +51,7 @@
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE123" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE123" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">41</prop>
     <prop name="Type"></prop>
@@ -70,7 +79,7 @@
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE119" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE119" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">11</prop>
     <prop name="Type"></prop>
@@ -98,7 +107,7 @@
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON">
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
    <properties>
     <prop name="serialId">37</prop>
     <prop name="Type"></prop>
@@ -125,12 +134,12 @@
    </properties>
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-  ChildPanelOnCentral(g_panel, &quot;Модуль AI &quot; + txt_name.text, makeDynString());
+  ChildPanelOnCentral(&quot;faceplates/DIAGNOSTIC/diag_cpu_RSU.xml&quot;, dpGetDescription(DP + &quot;.&quot;), makeDynString(&quot;$dp:&quot; + DP));
 }
 ]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="RECTANGLE120" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE120" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">38</prop>
     <prop name="Type"></prop>
@@ -158,7 +167,7 @@
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE121" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE121" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">39</prop>
     <prop name="Type"></prop>
@@ -186,7 +195,7 @@
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE122" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE122" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">40</prop>
     <prop name="Type"></prop>
@@ -214,7 +223,7 @@
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">42</prop>
     <prop name="Type"></prop>
@@ -249,7 +258,7 @@
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="POLYGON4" shapeType="POLYGON">
+  <shape Name="POLYGON4" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">49</prop>
     <prop name="Type"></prop>
@@ -277,7 +286,7 @@
     </prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="POLYGON5" shapeType="POLYGON">
+  <shape Name="POLYGON5" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">50</prop>
     <prop name="Type"></prop>
@@ -304,7 +313,7 @@
     </prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="POLYGON6" shapeType="POLYGON">
+  <shape Name="POLYGON6" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">51</prop>
     <prop name="Type"></prop>
@@ -342,7 +351,7 @@
     </prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="POLYGON9" shapeType="POLYGON">
+  <shape Name="POLYGON9" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">54</prop>
     <prop name="Type"></prop>
@@ -372,7 +381,7 @@
     </prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="POLYGON10" shapeType="POLYGON">
+  <shape Name="POLYGON10" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">55</prop>
     <prop name="Type"></prop>
@@ -402,7 +411,7 @@
     </prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="POLYGON11" shapeType="POLYGON">
+  <shape Name="POLYGON11" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">56</prop>
     <prop name="Type"></prop>
@@ -432,7 +441,7 @@
     </prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="POLYGON12" shapeType="POLYGON">
+  <shape Name="POLYGON12" shapeType="POLYGON" layerId="0">
    <properties>
     <prop name="serialId">57</prop>
     <prop name="Type"></prop>
