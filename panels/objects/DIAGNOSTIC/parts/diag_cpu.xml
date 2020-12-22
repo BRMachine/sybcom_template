@@ -64,6 +64,26 @@ void worker(dyn_string dp, dyn_bool val){
     else
       setValue(name_shape, &quot;backCol&quot;, &quot;White&quot;);
   }
+  if(val[10])
+    Master.text(&quot;Основной&quot;);
+  else
+    Master.text(&quot;Резервный&quot;);
+  if(val[3]){
+    if(val[9]){
+      State.text(&quot;В работе (одиночный режим)&quot;);
+    }
+    else{
+      State.text(&quot;В работе (резервированный режим)&quot;);
+    }
+  }
+  else{
+    if(val[1]){
+      State.text(&quot;Остановлен (внутренний)&quot;);
+    }
+    else{
+      State.text(&quot;Остановлен (внешний)&quot;);
+    }
+  }
 }
 ]]></script>
  </events>
@@ -88,7 +108,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.2908145803029 0 0 0.7090349904643329 -151.7548924934909 -145.7544908546528</prop>
+    <prop name="Geometry">1.2908145803029 0 0 0.7090349904643329 -34.89774963634801 -89.89734799750991</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">120 210</prop>
     <prop name="Size">63 211</prop>
@@ -116,7 +136,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -164.7110883728181</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -108.8539455156752</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -144,7 +164,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -174.0394107089567</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -118.1822678518138</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -172,7 +192,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -183.3677330450953</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -127.5105901879524</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -200,7 +220,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -155.3827660366795</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -99.52562317953661</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -228,7 +248,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -146.054443700541</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -90.1973008433981</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -256,7 +276,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -136.7261213644024</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -80.8689785072595</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -284,7 +304,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -127.3977990282638</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -71.54065617112092</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -312,7 +332,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -118.0694766921252</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -62.21233383498232</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -340,7 +360,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -108.7411543559866</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -52.88401149884371</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -368,7 +388,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -99.41283201984804</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -43.55568916270515</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -396,7 +416,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -39.3505739795918 -90.08450968370947</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 77.50656887755109 -34.22736682656658</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -424,7 +444,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -164.3226340703425</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -108.4654912131996</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -452,7 +472,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -173.6509564064811</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -117.7938135493382</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -480,7 +500,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -182.9792787426197</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -127.1221358854768</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -508,7 +528,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -154.9943117342039</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -99.13716887706101</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -536,7 +556,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -145.6659893980653</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -89.80884654092242</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -564,7 +584,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339703 -136.3376670619267</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -80.48052420478382</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -592,7 +612,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -127.0093447257882</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -71.15220186864531</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -620,7 +640,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -117.6810223896496</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -61.82387953250671</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -648,7 +668,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -108.8372972920285</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -52.98015443488561</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -676,7 +696,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -99.02437771737242</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -43.16723486022953</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -704,7 +724,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -4.927125850339674 -89.69605538123385</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 111.9300170068032 -33.83891252409096</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -732,7 +752,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.355330901333283 -19.42857142857142 -80.64904678225825</prop>
+    <prop name="Geometry">1 0 0 1.355330901333283 97.42857142857147 -24.79190392511536</prop>
     <prop name="Location">25.42857142857143 149.8020218880004</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -768,7 +788,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.355330901333283 -19.42857142857139 -89.97736911839685</prop>
+    <prop name="Geometry">1 0 0 1.355330901333283 97.4285714285715 -34.12022626125396</prop>
     <prop name="Location">25.42857142857143 149.8020218880004</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -804,7 +824,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.355330901333283 -19.14285714285711 -117.784319687734</prop>
+    <prop name="Geometry">1 0 0 1.355330901333283 97.71428571428578 -61.92717683059111</prop>
     <prop name="Location">25.42857142857143 149.8020218880004</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -840,7 +860,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.355330901333283 -19.42857142857139 -127.2906584629512</prop>
+    <prop name="Geometry">1 0 0 1.355330901333283 97.4285714285715 -71.43351560580831</prop>
     <prop name="Location">25.42857142857143 149.8020218880004</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -876,7 +896,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.355330901333283 -19.85714285714286 -135.1954203677134</prop>
+    <prop name="Geometry">1 0 0 1.355330901333283 97.00000000000003 -79.33827751057052</prop>
     <prop name="Location">25.42857142857143 149.8020218880004</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -912,7 +932,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.355330901333283 -19.85714285714283 -154.5099613146637</prop>
+    <prop name="Geometry">1 0 0 1.355330901333283 97.00000000000006 -98.65281845752082</prop>
     <prop name="Location">25.42857142857143 149.8020218880004</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -948,7 +968,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.355330901333283 -19.42857142857139 -164.2656034769773</prop>
+    <prop name="Geometry">1 0 0 1.355330901333283 97.4285714285715 -108.4084606198344</prop>
     <prop name="Location">25.42857142857143 149.8020218880004</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -968,7 +988,7 @@ void worker(dyn_string dp, dyn_bool val){
    <properties>
     <prop name="serialId">79</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">6.159885204081748 29.38127770060225</prop>
+    <prop name="RefPoint">123.0170280612246 85.23842055774514</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -984,7 +1004,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">6.159885204081748 29.38127770060225</prop>
+    <prop name="Location">123.0170280612246 85.23842055774514</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1019,7 +1039,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.749271355884369 -6.523809523809089 -69.82549861819116</prop>
+    <prop name="Geometry">1 0 0 1.749271355884369 110.3333333333338 -13.96835576104827</prop>
     <prop name="Location">73.18704195537627 56.99747992713345</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -1055,7 +1075,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.564960011553959 -6.523809523809089 -70.01501152851517</prop>
+    <prop name="Geometry">1 0 0 1.564960011553959 110.3333333333338 -14.15786867137228</prop>
     <prop name="Location">73.47275624109056 75.51995553268831</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -1075,7 +1095,7 @@ void worker(dyn_string dp, dyn_bool val){
    <properties>
     <prop name="serialId">82</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">66.56112586612929 94.79819732974607</prop>
+    <prop name="RefPoint">183.4182687232722 150.655340186889</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1091,7 +1111,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">66.56112586612929 94.79819732974607</prop>
+    <prop name="Location">183.4182687232722 150.655340186889</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1110,7 +1130,7 @@ void worker(dyn_string dp, dyn_bool val){
    <properties>
     <prop name="serialId">83</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">66.57142857142895 103.9235305566905</prop>
+    <prop name="RefPoint">183.4285714285718 159.7806734138334</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1126,7 +1146,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">66.57142857142895 103.9235305566905</prop>
+    <prop name="Location">183.4285714285718 159.7806734138334</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1161,7 +1181,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.349026878977182 -13.85714285714286 -74.56002085792076</prop>
+    <prop name="Geometry">1 0 0 1.349026878977182 103 -18.70287800077787</prop>
     <prop name="Location">80.42857142857187 140.4046734486712</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -1197,7 +1217,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.5 0 0 0.8625 -24.20572817986613 -13.74372229939775</prop>
+    <prop name="Geometry">0.5 0 0 0.8625 92.65141467727676 42.11342055774514</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">120 50</prop>
     <prop name="Size">11 81</prop>
@@ -1225,7 +1245,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -86.70572817986616 -26.11872229939775</prop>
+    <prop name="Geometry">1 0 0 1 30.15141467727673 29.73842055774514</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">120 60</prop>
     <prop name="Size">11 61</prop>
@@ -1253,7 +1273,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.1 0 0 0.4 30.5791303524062 9.827538761051358</prop>
+    <prop name="Geometry">0.1 0 0 0.4 147.4362732095491 65.68468161819425</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">52.15141467727673 60.13434734887723</prop>
     <prop name="Size">50.99999999999997 50.99999999999997</prop>
@@ -1281,7 +1301,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.1 0 0 0.4 30.5791303524062 49.82753876105136</prop>
+    <prop name="Geometry">0.1 0 0 0.4 147.4362732095491 105.6846816181942</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">52.15141467727673 60.13434734887723</prop>
     <prop name="Size">50.99999999999997 50.99999999999997</prop>
@@ -1309,7 +1329,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.564960011553959 -6.523809523809103 -59.68668919237649</prop>
+    <prop name="Geometry">1 0 0 1.564960011553959 110.3333333333338 -3.829546335233601</prop>
     <prop name="Location">73.47275624109056 75.51995553268831</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,5,5,50,0,0,0,0,0,Обычный</prop>
@@ -1345,7 +1365,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4 0 0 1 2.659885204081751 -23.50306964827497</prop>
+    <prop name="Geometry">0.4 0 0 1 119.5170280612246 32.35407320886792</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">20 160</prop>
     <prop name="Size">6 11</prop>
@@ -1357,7 +1377,7 @@ void worker(dyn_string dp, dyn_bool val){
    <properties>
     <prop name="serialId">91</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">28.34779974489797 136.496930351725</prop>
+    <prop name="RefPoint">145.2049426020409 192.3540732088679</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1373,7 +1393,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">28.34779974489797 136.496930351725</prop>
+    <prop name="Location">145.2049426020409 192.3540732088679</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,3,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1392,7 +1412,7 @@ void worker(dyn_string dp, dyn_bool val){
    <properties>
     <prop name="serialId">92</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">28.39285714285714 140.496930351725</prop>
+    <prop name="RefPoint">145.25 196.3540732088679</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1408,7 +1428,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">28.39285714285714 140.496930351725</prop>
+    <prop name="Location">145.25 196.3540732088679</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,3,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1427,7 +1447,7 @@ void worker(dyn_string dp, dyn_bool val){
    <properties>
     <prop name="serialId">93</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">28.64285714285714 144.621930351725</prop>
+    <prop name="RefPoint">145.5 200.4790732088679</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1443,7 +1463,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">28.64285714285714 144.621930351725</prop>
+    <prop name="Location">145.5 200.4790732088679</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,3,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1478,7 +1498,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.6517028061224619 0 0 1 -3.408227040816707 -23.50306964827497</prop>
+    <prop name="Geometry">0.6517028061224619 0 0 1 113.4489158163262 32.35407320886792</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">30 160</prop>
     <prop name="Size">11 11</prop>
@@ -1506,7 +1526,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8 0 0 0.4 1.401371173469447 75.49693035172498</prop>
+    <prop name="Geometry">0.8 0 0 0.4 118.2585140306123 131.3540732088679</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">20 160</prop>
     <prop name="Size">6 11</prop>
@@ -1518,7 +1538,7 @@ void worker(dyn_string dp, dyn_bool val){
    <properties>
     <prop name="serialId">96</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">3.142857142857167 14.60100356059291</prop>
+    <prop name="RefPoint">120.0000000000001 70.4581464177358</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
@@ -1533,8 +1553,8 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">3.142857142857167 14.60100356059291</prop>
-    <prop name="End">83.14285714285714 14.60100356059291</prop>
+    <prop name="Start">120.0000000000001 70.4581464177358</prop>
+    <prop name="End">200 70.4581464177358</prop>
    </properties>
   </shape>
   <shape Name="RECTANGLE37" shapeType="RECTANGLE" layerId="0">
@@ -1557,7 +1577,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.2908145803029 0 0 0.7090349904643329 -71.72438851471109 -145.7544908546528</prop>
+    <prop name="Geometry">1.2908145803029 0 0 0.7090349904643329 -115.897749636348 -89.89734799750991</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">120 210</prop>
     <prop name="Size">63 211</prop>
@@ -1590,7 +1610,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -170.8364215997625</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -114.9792787426196</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1618,7 +1638,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -180.1647439359011</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -124.3076010787582</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1646,7 +1666,7 @@ void worker(dyn_string dp, dyn_bool val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -189.4930662720397</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -133.6359234148968</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1664,14 +1684,14 @@ void EP_setBackColor()
 {
   dyn_errClass err;
 
-  if( !dpExists( &quot;System1:1_0.INTF:_online.._value&quot;))
+  if( !dpExists( DP + &quot;.CPU.INTF:_online.._value&quot;))
   {
     setValue(&quot;&quot;, &quot;color&quot;, &quot;_dpdoesnotexist&quot;);
     return;
   }
 
   dpConnect(&quot;EP_setBackColorCB&quot;,
-            &quot;System1:1_0.INTF:_online.._value&quot;);
+            DP + &quot;.CPU.INTF:_online.._value&quot;);
   err = getLastError();
   if (dynlen(err) &gt; 0)
     setValue(&quot;&quot;, &quot;color&quot;, &quot;_dpdoesnotexist&quot;);
@@ -1734,7 +1754,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -161.5080992636239</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -105.650956406481</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1762,7 +1782,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -152.1797769274854</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -96.3226340703425</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1790,7 +1810,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -142.8514545913468</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -86.9943117342039</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1818,7 +1838,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -133.5231322552082</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -77.66598939806531</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1846,7 +1866,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -124.1948099190697</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -68.33766706192681</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1874,7 +1894,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -114.8664875829311</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -59.00934472578821</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1902,7 +1922,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -105.5381652467925</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -49.68102238964961</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1930,7 +1950,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 34.33208675048275 -96.20984291065396</prop>
+    <prop name="Geometry">0.4689413265306121 0 0 0.4909643334809774 -9.841274371154157 -40.35270005351107</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -1958,7 +1978,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4 0 0 1 82.53897450558482 -18.93757614280505</prop>
+    <prop name="Geometry">0.4 0 0 1 38.3656133839479 36.91956671433784</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">20 160</prop>
     <prop name="Size">6 11</prop>
@@ -1970,7 +1990,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">110</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">83.17336112163694 14.56242385719495</prop>
+    <prop name="RefPoint">39.00000000000004 70.41956671433783</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
@@ -1985,8 +2005,8 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">83.17336112163694 14.56242385719495</prop>
-    <prop name="End">163.1733611216369 14.56242385719495</prop>
+    <prop name="Start">39.00000000000004 70.41956671433783</prop>
+    <prop name="End">119 70.41956671433783</prop>
    </properties>
   </shape>
   <shape Name="RECTANGLE42" shapeType="RECTANGLE" layerId="0">
@@ -2009,7 +2029,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.6517028061224619 0 0 1 76.47086226068635 -18.93757614280505</prop>
+    <prop name="Geometry">0.6517028061224619 0 0 1 32.29750113904947 36.91956671433784</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">30 160</prop>
     <prop name="Size">11 11</prop>
@@ -2037,7 +2057,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8 0 0 0.4 81.28046047497251 80.06242385719493</prop>
+    <prop name="Geometry">0.8 0 0 0.4 37.10709935333563 135.9195667143378</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">20 160</prop>
     <prop name="Size">6 11</prop>
@@ -2065,7 +2085,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.4 0 0 1 82.53897450558482 -32.76685717769507</prop>
+    <prop name="Geometry">0.4 0 0 1 38.3656133839479 23.09028567944782</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">20 160</prop>
     <prop name="Size">6 11</prop>
@@ -2093,7 +2113,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.6517028061224619 0 0 1 76.47086226068636 -32.76685717769507</prop>
+    <prop name="Geometry">0.6517028061224619 0 0 1 32.29750113904947 23.09028567944782</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">30 160</prop>
     <prop name="Size">11 11</prop>
@@ -2121,7 +2141,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8 0 0 0.4 81.28046047497253 66.23314282230488</prop>
+    <prop name="Geometry">0.8 0 0 0.4 37.10709935333563 122.0902856794478</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">20 160</prop>
     <prop name="Size">6 11</prop>
@@ -2149,7 +2169,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 63.02194644436021 -22.29164935167293</prop>
+    <prop name="Geometry">1 0 0 1 18.8485853227233 33.56549350546996</prop>
     <prop name="Center">45.45919961734698 168.3540732088679</prop>
     <prop name="X-Radius">3.5</prop>
     <prop name="Y-Radius">3.5</prop>
@@ -2159,7 +2179,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">117</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">104.7889745055848 127.7331428223049</prop>
+    <prop name="RefPoint">60.6156133839479 183.5902856794478</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2175,7 +2195,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">104.7889745055848 127.7331428223049</prop>
+    <prop name="Location">60.6156133839479 183.5902856794478</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,7,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2210,7 +2230,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 63.02194644436021 -21.29164935167293</prop>
+    <prop name="Geometry">1 0 0 1 18.8485853227233 34.56549350546996</prop>
     <prop name="Center">45.45919961734694 161.3540732088679</prop>
     <prop name="X-Radius">4</prop>
     <prop name="Y-Radius">4</prop>
@@ -2220,7 +2240,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">119</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">108.9403456790541 141.180448260151</prop>
+    <prop name="RefPoint">64.7669845574172 197.0375911172939</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
@@ -2235,15 +2255,15 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">108.4811460617072 140.944399454239</prop>
-    <prop name="End">108.4811460617072 142.944399454239</prop>
+    <prop name="Start">64.30778494007029 196.8015423113819</prop>
+    <prop name="End">64.30778494007029 198.8015423113819</prop>
    </properties>
   </shape>
   <shape Name="PRIMITIVE_TEXT29" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">120</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">108.2311460617072 21.78575829284982</prop>
+    <prop name="RefPoint">64.05778494007029 77.64290114999271</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2259,7 +2279,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">108.2311460617072 21.78575829284982</prop>
+    <prop name="Location">64.05778494007029 77.64290114999271</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,7,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2278,7 +2298,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">121</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">108.2311460617072 40.44240296512703</prop>
+    <prop name="RefPoint">64.05778494007029 96.29954582226992</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2294,7 +2314,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">108.2311460617072 40.44240296512703</prop>
+    <prop name="Location">64.05778494007029 96.29954582226992</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,7,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2313,7 +2333,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">122</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">108.0219464443602 49.70835064832707</prop>
+    <prop name="RefPoint">63.8485853227233 105.56549350547</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2329,7 +2349,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">108.0219464443602 49.70835064832707</prop>
+    <prop name="Location">63.8485853227233 105.56549350547</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,7,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2348,7 +2368,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">123</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">108.0219464443602 59.70835064832708</prop>
+    <prop name="RefPoint">63.8485853227233 115.56549350547</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2364,7 +2384,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">108.0219464443602 59.70835064832708</prop>
+    <prop name="Location">63.8485853227233 115.56549350547</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,7,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2383,7 +2403,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">124</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">108.0219464443602 96.70835064832703</prop>
+    <prop name="RefPoint">63.8485853227233 152.5654935054699</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2399,7 +2419,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">108.0219464443602 96.70835064832703</prop>
+    <prop name="Location">63.8485853227233 152.5654935054699</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,7,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2418,7 +2438,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">125</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">108.4811460617072 87.49726112227331</prop>
+    <prop name="RefPoint">64.30778494007029 143.3544039794162</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2434,7 +2454,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">108.4811460617072 87.49726112227331</prop>
+    <prop name="Location">64.30778494007029 143.3544039794162</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,7,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2447,6 +2467,79 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="Master" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">127</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">81 23</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">125</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">81 23</prop>
+    <prop name="Size">79 13</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,50,0,0,0,0,0,Regular</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Основной</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="State" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">128</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">43 41</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">126</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">2.679835025045046 0 0 1 -100.6115301872466 0</prop>
+    <prop name="Location">43 41</prop>
+    <prop name="Size">79 13</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,11,5,50,0,0,0,0,0,Regular</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Основной</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
  </shapes>
