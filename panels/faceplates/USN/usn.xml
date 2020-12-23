@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">670 478</prop>
+  <prop name="Size">144 0</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">30 40</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -606,11 +606,12 @@ void cbAll(string dp, int fuel,
     dyn_int is_sts;
     int is_1, is_2, is_3, is_4;
     dpGet(is_dps, is_sts);
-
+    bool mes_act;
     for(int i=1; i&lt;=is_sts.count(); i++){
       string car, fuel, task, inventory;
       int uu, rvs;
       float dose;
+      DebugN(i,is_dps[i],is_sts[i]);
       if(is_sts[i] != 2 ){
         dpGet(&quot;LAST_RECEIVE_&quot; + i + &quot;.init.&quot; + num_usn + &quot;.task&quot;, task,
               &quot;LAST_RECEIVE_&quot; + i + &quot;.init.&quot; + num_usn + &quot;.doc&quot;, inventory,
@@ -628,11 +629,13 @@ void cbAll(string dp, int fuel,
           txt_inventory.text(inventory);
           if(cur_uu != uu)
             dpSetWait(DP + &quot;.ALL.FIL_TYP&quot;, uu);
+          mes_act = true;
           break;
         }
-      }else{
-        dpSetWait(DP + &quot;.ALL.MES&quot;, 0);
       }
+    }
+    if(!mes_act){
+      dpSetWait(DP + &quot;.ALL.MES&quot;, 0);
     }
 
   }else{
@@ -956,12 +959,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 320.482622279681</prop>
     <prop name="TabOrder">308</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Стоп</prop>
@@ -981,12 +978,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 268.8460079780899</prop>
     <prop name="TabOrder">309</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Разрешение налива</prop>
@@ -1006,12 +997,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 345.4473281620336</prop>
     <prop name="TabOrder">310</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пауза</prop>
@@ -1030,12 +1015,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 371.4355634561514</prop>
     <prop name="TabOrder">311</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Продолжение</prop>
@@ -1055,12 +1034,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 294.8342432722077</prop>
     <prop name="TabOrder">312</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пуск</prop>
@@ -1080,12 +1053,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 319.4826222796809</prop>
     <prop name="TabOrder">313</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Стоп</prop>
@@ -1105,12 +1072,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 267.8460079780901</prop>
     <prop name="TabOrder">314</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Разрешение налива</prop>
@@ -1130,12 +1091,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 345.8107138604428</prop>
     <prop name="TabOrder">315</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пауза</prop>
@@ -1154,12 +1109,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 371.7989491545605</prop>
     <prop name="TabOrder">316</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Продолжение</prop>
@@ -1179,12 +1128,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 293.8342432722078</prop>
     <prop name="TabOrder">317</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пуск</prop>
@@ -1204,12 +1147,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 317.9400519212285</prop>
     <prop name="TabOrder">318</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Стоп</prop>
@@ -1229,12 +1166,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 266.3034376196376</prop>
     <prop name="TabOrder">319</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Разрешение налива</prop>
@@ -1254,12 +1185,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 343.9047578035822</prop>
     <prop name="TabOrder">320</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пауза</prop>
@@ -1278,12 +1203,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 369.8929930977019</prop>
     <prop name="TabOrder">321</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Продолжение</prop>
@@ -1303,12 +1222,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 292.2916729137552</prop>
     <prop name="TabOrder">322</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пуск</prop>
@@ -1328,12 +1241,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 317.9400519212285</prop>
     <prop name="TabOrder">323</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Стоп</prop>
@@ -1353,12 +1260,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 266.3034376196374</prop>
     <prop name="TabOrder">324</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Разрешение налива</prop>
@@ -1378,12 +1279,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 344.2681435019913</prop>
     <prop name="TabOrder">325</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пауза</prop>
@@ -1402,12 +1297,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 370.2563787961109</prop>
     <prop name="TabOrder">326</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Продолжение</prop>
@@ -1427,12 +1316,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 292.2916729137552</prop>
     <prop name="TabOrder">327</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пуск</prop>
@@ -4224,12 +4107,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">2.248477513465103 0 0 0.8974358974358975 -54.75442228570448 85.02564102564104</prop>
     <prop name="TabOrder">416</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Добавить задание</prop>
@@ -4617,12 +4494,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.7865047274780658 0 0 0.8974358974358975 363.7731700164689 381.7252747252724</prop>
     <prop name="TabOrder">448</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Перечитать задание</prop>
@@ -4643,12 +4514,6 @@ int fuelToPost(string fuel){
     <prop name="Location">30 60</prop>
     <prop name="Geometry">0.7865047274780658 0 0 0.8974358974358975 502.9434798046713 381.7252747252724</prop>
     <prop name="TabOrder">449</prop>
-    <prop name="dollarParameters">
-     <prop name="dollarParameter">
-      <prop name="Dollar">$dp</prop>
-      <prop name="Value">$dp</prop>
-     </prop>
-    </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Очистить задание</prop>
