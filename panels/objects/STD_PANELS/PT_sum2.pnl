@@ -1,0 +1,251 @@
+V 14
+3
+LANG:10027 18 (БезИмени)
+LANG:10000 8 (NoName)
+LANG:10001 8 (NoName)
+PANEL,-1 -1 421 174 N "_3DFace" 6
+"$1"
+"$2"
+"$3"
+"$panelName"
+"$panelNumber"
+"$refNumber"
+E E E E E 1 -1 -1 0  10 10
+"objects_parampanels/STD_PANELS/PTSumAlert_para.pnl"0  1
+E E 3
+"CBRef" "0"
+"EClose" E
+"dpi" "96"
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:10027 6 Layer1
+6 10
+"RECTANGLE2"
+""
+1 1098 18 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
+ E E
+9 0 0 0 0 0
+E E E
+0
+1
+LANG:10027 0 
+
+3
+"layoutAlignment" "AlignNone"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 3 2 1 E 0.904 0 0.8421052631578947 -983.5919999999999 -6.157894736842111 1 E 1098 18 1223 56
+13 0
+"cmdPanelOn"
+""
+1 10 10 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+ "main()
+{
+  int refNr = $refNumber;
+
+  pt_sumParaAtRightClick(refNr, false);
+}
+" 0
+ E
+1 0 0 0 0 0
+E E E
+1
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+1
+"layoutAlignment" "AlignCenter"
+3
+LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
+LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
+0  8 8 122 42
+
+T 
+3
+LANG:10027 9 Detail A1
+LANG:10000 8 Button11
+LANG:10001 9 Detail A1
+"main()
+{
+  pt_panelOn2(myModuleName());
+  int refNr = $refNumber;
+  dpSet(\"System1:Menu.Num\",refNr);
+
+}" 0
+ E E "dyn_bool   ptAlertDone;
+dyn_string ptOldFileName;
+dyn_int    ptOldPanelNumber;
+
+main()
+{
+  pt_init_PT_navi_sumX(\"sum2\");
+  dpConnect(\"cbMenu\",\"System1:Menu.Num\");
+}
+
+void cbMenu(string dp, int val){
+  int refNr2 = $refNumber;
+
+  if (val == refNr2)
+  {
+    cmdPanelOn.backCol(\"cyan\");
+  }
+  else
+  {
+    cmdPanelOn.backCol(\"_Button\");//_Button\");
+  }
+}
+" 0
+
+6 7
+"sum1"
+""
+1 120 20 E E E 1 E 1 E N "STD_grey_dark" E N "_3DFace" E "// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  std_quittScript(pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$1,iType);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$1}
+// SimpleCtrlScriptEnd {EP_confirm}
+" 0
+
+ "main()
+{
+  int refNr = $refNumber;
+
+  pt_sumParaAtRightClick(refNr, false);
+}
+" 0
+ E
+6 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E "main()
+{
+  pt_panelOn2(myModuleName());
+}" 0
+ 0 1 1 0 1 E 1 0 1 2 0 1 E 120 10 130 20
+6 8
+"sum2"
+""
+1 120 30 E E E 1 E 1 E N "STD_grey_dark" E N "_3DFace" E "// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  std_quittScript(pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$2,iType);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$2}
+// SimpleCtrlScriptEnd {EP_confirm}
+" 0
+
+ "main()
+{
+  int refNr = $refNumber;
+
+  pt_sumParaAtRightClick(refNr, false);
+}
+" 0
+ E
+7 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E "main()
+{
+  pt_panelOn2(myModuleName());
+}" 0
+ 0 1 1 0 1 E 1 0 1 2 0 1 E 120 20 130 30
+6 9
+"sum3"
+""
+1 120 40 E E E 1 E 1 E N "STD_grey_dark" E N "_3DFace" E "// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  std_quittScript(pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$3,iType);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$3}
+// SimpleCtrlScriptEnd {EP_confirm}
+" 0
+
+ "main()
+{
+  int refNr = $refNumber;
+
+  pt_sumParaAtRightClick(refNr, false);
+}
+" 0
+ E
+8 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E "main()
+{
+  pt_panelOn2(myModuleName());
+}" 0
+ 0 1 1 0 1 E 1 0 1 2 0 1 E 120 30 130 40
+0
+LAYER, 1 
+1
+LANG:10027 6 Layer2
+0
+LAYER, 2 
+1
+LANG:10027 6 Layer3
+0
+LAYER, 3 
+1
+LANG:10027 6 Layer4
+0
+LAYER, 4 
+1
+LANG:10027 6 Layer5
+0
+LAYER, 5 
+1
+LANG:10027 6 Layer6
+0
+LAYER, 6 
+1
+LANG:10027 6 Layer7
+0
+LAYER, 7 
+1
+LANG:10027 6 Layer8
+0
+0
