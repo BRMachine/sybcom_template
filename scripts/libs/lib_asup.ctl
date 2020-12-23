@@ -22,6 +22,9 @@ changelog:
 //--------------------------------------------------------------------------------
 // variables and constants
 
+const string RVS_WHERE = "WHERE [basename] LIKE 'RVS_%'";
+const string ALL_WHERE = "WHERE [basename] != '' AND [basename] NOT LIKE 'RVS_%'";
+
 enum Fuels{
   UNDEF,
   DT = 0, DT_OPTI = 1,
@@ -142,104 +145,108 @@ public void changeActiveConnection(int cur, dyn_mapping conf){
 
 }
 
-// not used TODO: delete it
-// public void updateDB(mapping unack){
-//   if(dynlen(unack["dp"]) == 0){
-//     return;
-//   }
-//   DebugFTN("info", "Unacknowledge variable");
-//   dbConnection con;
-//
-//   string loc_connection = mConfig[iConnection]["connection"];
-//   string loc_database = mConfig[iConnection]["db"];
-//
-//   int res = dbOpenConnection(loc_connection, con);
-//   if(!res){
-//     DebugFTN("db_verbose", "Database connected Update fct");
-//     for(int i = 1; i<=dynlen(unack["dp"]); i++){
-//       bit64 sts;
-//       bool d,n,f,s, D,E,R;
-//       dpGet(unack["dp"][i] + ":_online.._default_bad"  , d,
-//             unack["dp"][i] + ":_online.._online_bad"   , n,
-//             unack["dp"][i] + ":_online.._offline_bad"  , f,
-//             unack["dp"][i] + ":_online.._stime_inv"    , s,
-//             unack["dp"][i] + ":_online.._aut_inv"      , D,
-//             unack["dp"][i] + ":_online.._invalid"      , E,
-//             unack["dp"][i] + ":_online.._bad"          , R);
-//       setBit(sts, 0, d);
-//       setBit(sts, 1, n);
-//       setBit(sts, 2, f);
-//       setBit(sts, 3, s);
-//       setBit(sts, 4, D);
-//       setBit(sts, 8, E);
-//       setBit(sts, 9, R);
-//
-      // prepare update value command
-//       dbCommand cmd;
-//       string sCommand = "update ["+loc_database+"].[dbo].[OperativeData] ";
-//       sCommand += " SET [value] = '" + (string)unack["val"][i] + "', ";
-//       sCommand += "[quality] = IIF("+ (long)sts + " > 1, 0, 1) ";
-//       sCommand += "where (basename = '" + unack["dp"][i] + "') AND (instanceid not between 1000 and 2000) ";
-//
-//       DebugFTN("db_verbose", "update value command", sCommand);
-//       dbStartCommand(con, sCommand, cmd);
-//       dbExecuteCommand(cmd);
-//       dyn_errClass err = getLastError();
-//       if(dynlen(err)>0){
-//         DebugFTN("db_error",err);
-//       }else{
-//         DebugFTN("info", "success updated row");
-//         DebugFTN("info", unack["dp"][i], unack["val"][i]);
-//       }
-//       dbFinishCommand(cmd);
-//
-      /// update timestamp now
-//       dbCommand cmd;
-//       time now = getCurrentTime();
-//
-//       string s_time = formatTime("%Y-%m-%d %H:%M:%S", now, ".%03d");
-//       dyn_string d_time = strsplit(s_time, ".");
-//       string sCommand = "update ["+loc_database+"].[dbo].[OperativeData] ";
-//       sCommand += "set timestamp = {ts '"+ s_time +"'} ";
-//       sCommand += "where (instanceid not between 1000 and 2000) and (instanceid = " + unack["id"][i]+")";
-//       DebugFTN("db_verbose", "update timestamp command", sCommand);
-//       dbStartCommand(con, sCommand, cmd);
-//       dbExecuteCommand(cmd);
-//       dyn_errClass err = getLastError();
-//       if(dynlen(err)>0){
-//         DebugFTN("db_error",err);
-//       }else{
-//         DebugFTN("info", "success updated row");
-//         DebugFTN("info", unack["dp"][i], unack["val"][i]);
-//       }
-//       dbFinishCommand(cmd);
-//       DebugFTN("db_verbose", sCommand);
-//       dbStartCommand(con, sCommand, cmd);
-//       dbExecuteCommand(cmd);
-//       dyn_errClass err = getLastError();
-//       if(dynlen(err)>0){
-//         DebugFTN("db_error",err);
-//       }else{
-//         DebugFTN("info", "success updated row");
-//         DebugFTN("info", unack["dp"][i], unack["val"][i]);
-//       }
-//       DebugFTN("db_verbose", "Update row", unack["dp"][i], unack["val"][i]);
-//       dbValues[dynContains(datapoints, unack["dp"][i])] = unack["val"][i];
-//       dbFinishCommand(cmd);
-//     }
-//   }else{ // Error connection
-//     dyn_errClass err = getLastError();
-//     if(dynlen(err)>0){
-//       for(int i = 1; i<=dynlen(err); i++){
-//         DebugFTN("db_error", err[i]);
-//       }
-//     }
-//     DebugFTN("db_error", "Error query DB_MES_COMMAND", iConnection);
-//     changeActiveConnection(iConnection, mConfig);
-//     init = true;
-//   }
-//   dbCloseConnection(con);
-// }
+public void updateDB(mapping unack){
+  if(dynlen(unack["dp"]) == 0){
+    return;
+  }
+  DebugFTN("info", "Unacknowledge variable");
+  dbConnection con;
+
+  string loc_connection = mConfig[iConnection]["connection"];
+  string loc_database = mConfig[iConnection]["db"];
+
+  int res = dbOpenConnection(loc_connection, con);
+  if(!res){
+    DebugFTN("db_verbose", "Database connected Update fct");
+    for(int i = 1; i<=dynlen(unack["dp"]); i++){
+      bit64 sts;
+      bool d,n,f,s, D,E,R;
+      dpGet(unack["dp"][i] + ":_online.._default_bad"  , d,
+            unack["dp"][i] + ":_online.._online_bad"   , n,
+            unack["dp"][i] + ":_online.._offline_bad"  , f,
+            unack["dp"][i] + ":_online.._stime_inv"    , s,
+            unack["dp"][i] + ":_online.._aut_inv"      , D,
+            unack["dp"][i] + ":_online.._invalid"      , E,
+            unack["dp"][i] + ":_online.._bad"          , R);
+      setBit(sts, 0, d);
+      setBit(sts, 1, n);
+      setBit(sts, 2, f);
+      setBit(sts, 3, s);
+      setBit(sts, 4, D);
+      setBit(sts, 8, E);
+      setBit(sts, 9, R);
+
+//        prepare update value command {ts '"+ rvs_time +"'}
+      dbCommand cmd;
+      string sCommand = "update ["+loc_database+"].[dbo].[OperativeData] ";
+      sCommand += " SET [value] = '" + (string)unack["val"][i] + "', ";
+      sCommand += "     [quality] = IIF("+ (long)sts + " > 1, 0, 1), ";
+      sCommand += "     [timestamp] = '" + formatTime("%Y-%m-%d %H:%M:%S", getCurrentTime(), ".%03d") + "' ";
+      sCommand += "where (basename = '" + unack["dp"][i] + "') ";
+
+      DebugFTN("db_verbose", "update value command", sCommand);
+      dbStartCommand(con, sCommand, cmd);
+      dbExecuteCommand(cmd);
+      dyn_errClass err = getLastError();
+      if(dynlen(err)>0){
+        DebugFTN("db_error",err);
+      }else{
+        DebugFTN("info", "success updated row");
+        DebugFTN("info", unack["dp"][i], unack["val"][i]);
+      }
+      /*
+      dbFinishCommand(cmd);
+//        update timestamp now
+      dbCommand cmd;
+      time now = getCurrentTime();
+
+      string s_time = formatTime("%Y-%m-%d %H:%M:%S", now, ".%03d");
+      dyn_string d_time = strsplit(s_time, ".");
+      string sCommand = "update ["+loc_database+"].[dbo].[OperativeData] ";
+      sCommand += "set timestamp = {ts '"+ s_time +"'} ";
+      sCommand += "where (instanceid not between 1000 and 2000) and (instanceid = " + unack["id"][i]+")";
+      DebugFTN("db_verbose", "update timestamp command", sCommand);
+      dbStartCommand(con, sCommand, cmd);
+      dbExecuteCommand(cmd);
+
+      dyn_errClass err = getLastError();
+      if(dynlen(err)>0){
+        DebugFTN("db_error",err);
+      }else{
+        DebugFTN("info", "success updated row");
+        DebugFTN("info", unack["dp"][i], unack["val"][i]);
+      }
+      dbFinishCommand(cmd);
+
+      DebugFTN("db_verbose", sCommand);
+      dbStartCommand(con, sCommand, cmd);
+      dbExecuteCommand(cmd);
+      dyn_errClass err = getLastError();
+      if(dynlen(err)>0){
+        DebugFTN("db_error",err);
+      }else{
+        DebugFTN("info", "success updated row");
+        DebugFTN("info", unack["dp"][i], unack["val"][i]);
+      }
+      */
+
+      DebugFTN("db_verbose", "Update row", unack["dp"][i], unack["val"][i]);
+      dbValues[dynContains(datapoints, unack["dp"][i])] = unack["val"][i];
+      dbFinishCommand(cmd);
+    }
+  }else{ // Error connection
+    dyn_errClass err = getLastError();
+    if(dynlen(err)>0){
+      for(int i = 1; i<=dynlen(err); i++){
+        DebugFTN("db_error", err[i]);
+      }
+    }
+    DebugFTN("db_error", "Error query DB_MES_COMMAND", iConnection);
+    changeActiveConnection(iConnection, mConfig);
+    init = true;
+  }
+  dbCloseConnection(con);
+}
 
 // to operative data IS_RVS type
 public void updateRVS(mapping unack, time timestamp){
@@ -303,7 +310,7 @@ public void updateRVS(mapping unack, time timestamp){
 
       string sCommand = "update ["+loc_database+"].[dbo].[OperativeData] ";
       sCommand += "set [timestamp] = {ts '"+ rvs_time +"'} ";
-      sCommand += "where instanceid between 1000 and 2000"; // = " + unack["id"][i];
+      sCommand += RVS_WHERE;
       DebugFTN("db_verbose", "update timestamp command", sCommand);
       dbStartCommand(con, sCommand, cmd);
       dbExecuteCommand(cmd);
