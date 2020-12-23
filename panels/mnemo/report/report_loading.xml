@@ -19,13 +19,19 @@
 
 dyn_dyn_string data_now;
 
+string query_base_initilize = &quot;SELECT TOP 10 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
+string query_base_single = &quot;SELECT TOP 1 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
+string query_base = &quot;SELECT ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
+
 void fill_table(dyn_dyn_string data){
   TABLE1.deleteAllLines();
+  dynDynTurn(data);
   data_now = data;
   string ts = TS_num.text();
-  int len = dynlen(data[1]);
+  int len = dynlen(data);
   if(len &gt; 0){
-    TABLE1.appendLines(len, &quot;id&quot;, data[1], &quot;DateRecording&quot;, data[2], &quot;RecipeId&quot;, data[3], &quot;PostNumber&quot;, data[4], &quot;TankCode&quot;, data[5],
+    int len_table = dynlen(data[1]);
+    TABLE1.appendLines(len_table, &quot;id&quot;, data[1], &quot;DateRecording&quot;, data[2], &quot;RecipeId&quot;, data[3], &quot;PostNumber&quot;, data[4], &quot;TankCode&quot;, data[5],
                            &quot;RegistrationNumber&quot;, data[6], &quot;SectionNumber&quot;, data[7], &quot;OrderedVolume&quot;, data[8], &quot;OrderedWeight&quot;, data[9],
                            &quot;LoadedVolume&quot;, data[10], &quot;LoadedWeight&quot;, data[11], &quot;LoadedTemperature&quot;, data[12], &quot;LoadedDensity&quot;, data[13],
                            &quot;LoadedBaseVolume&quot;, data[14], &quot;LoadedBaseWeight&quot;, data[15], &quot;LoadedBaseTemp&quot;, data[16], &quot;LoadedBaseDensity&quot;, data[17],
@@ -33,14 +39,12 @@ void fill_table(dyn_dyn_string data){
                            &quot;DtStart&quot;, data[22], &quot;DtEnd&quot;, data[23], &quot;SumVolumeStart&quot;, data[24], &quot;SumVolumeEnd&quot;, data[25], &quot;SumWeightStart&quot;, data[26],
                            &quot;SumWeightEnd&quot;, data[27], &quot;ModeCtrl&quot;, data[28]);
   }
-  else{
-//     TABLE1.deleteAllLines();
-  }
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
-  string query = &quot;SELECT TOP 10 * FROM [ASU_MES_DB].[dbo].[vLoadingResult] ORDER BY id DESC;&quot;;
+  TABLE1.alternatingRowColors(makeDynString(&quot;{222,236,195}&quot;, &quot;{255,234,0,128}&quot;));
+  string query = query_base_initilize + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] ORDER BY ID DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -442,7 +446,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-1,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-1,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -478,7 +482,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-1,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-1,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -514,7 +518,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-2,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-2,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -550,7 +554,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-4,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-4,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -586,7 +590,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-7,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-7,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -622,7 +626,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-10,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(DD,-10,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -658,7 +662,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-2,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-2,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -694,7 +698,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-4,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-4,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -730,7 +734,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-7,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-7,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -766,7 +770,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-10,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;SFROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN dateadd(HH,-10,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -834,7 +838,7 @@ void fill_table(dyn_dyn_string data){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  string query = &quot;SELECT TOP 1 * FROM [ASU_MES_DB].[dbo].[vLoadingResult] ORDER BY id DESC;&quot;;
+  string query = query_base_single + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -990,7 +994,7 @@ void fill_table(dyn_dyn_string data){
     <prop name="BackColor">_Button</prop>
     <prop name="TabOrder">19</prop>
     <prop name="ToolTipText">
-     <prop name="ru_RU.utf8">ВНИМАНИЕ! Чем больше диапазон дат, тем дольше получение данных!</prop>
+     <prop name="ru_RU.utf8">ВНИМАНИЕ! Объем ограничен! 600 строк!</prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
@@ -1014,7 +1018,8 @@ void fill_table(dyn_dyn_string data){
   date_end = substr(date_end, 0, 19);
   strreplace(date_start, &quot;.&quot;, &quot;&quot;);
   strreplace(date_end, &quot;.&quot;, &quot;&quot;);
-  string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
+  string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
+  DebugN(query);
   dyn_dyn_string data;
   data = loading_data(query);
   fill_table(data);
@@ -1123,13 +1128,13 @@ void fill_table(dyn_dyn_string data){
   strreplace(date_end, &quot;.&quot;, &quot;&quot;);
   string num_ts = TS_num.text();
   if(num_ts == &quot;&quot;){
-    string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE RegistrationNumber LIKE ('%') AND DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
+    string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE RegistrationNumber LIKE ('%') AND DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
     dyn_dyn_string data;
     data = loading_data(query);
     fill_table(data);
   }
   else{
-    string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE RegistrationNumber LIKE ('&quot;+num_ts+&quot;') AND DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
+    string query = query_base + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] WHERE RegistrationNumber LIKE ('&quot;+num_ts+&quot;') AND DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
     dyn_dyn_string data;
     data = loading_data(query);
     fill_table(data);

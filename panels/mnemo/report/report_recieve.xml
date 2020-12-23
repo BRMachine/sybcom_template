@@ -18,26 +18,28 @@
 
 dyn_dyn_string data_now;
 
+string query_base_initilize = &quot;SELECT TOP 10 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
+string query_base_single = &quot;SELECT TOP 1 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
+string query_base = &quot;SELECT ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
+
 void fill_table(dyn_dyn_string data){
   TABLE1.deleteAllLines();
+  dynDynTurn(data);
   data_now = data;
-  int len = dynlen(data[1]);
+  int len = dynlen(data);
   if(len &gt; 0){
-    TABLE1.appendLines(len, &quot;id&quot;, data[1], &quot;DateRecording&quot;, data[2], &quot;PostName&quot;, data[3], &quot;PumpNr&quot;, data[4], &quot;TankCode&quot;, data[5],
+    int len_table = dynlen(data[1]);
+    TABLE1.appendLines(len_table, &quot;id&quot;, data[1], &quot;DateRecording&quot;, data[2], &quot;PostName&quot;, data[3], &quot;PumpNr&quot;, data[4], &quot;TankCode&quot;, data[5],
                            &quot;RecWeight&quot;, data[6], &quot;RecVolume&quot;, data[7], &quot;RecDensity&quot;, data[8], &quot;RecTemperature&quot;, data[9],
                            &quot;RecDensityCoerced&quot;, data[10], &quot;RecVoluemeCoerced&quot;, data[11], &quot;SumVolume&quot;, data[12], &quot;SumWeight&quot;, data[13],
                            &quot;DtStart&quot;, data[14], &quot;DtEnd&quot;, data[15], &quot;Volume&quot;, data[16], &quot;CompNbr&quot;, data[17], &quot;DispathOrder&quot;, data[18],
                            &quot;sInvNum&quot;, data[19], &quot;OsProduct&quot;, data[20], &quot;iProcessed&quot;, data[21], &quot;Fingerprint&quot;, data[22]);
   }
-  else{
-//     TABLE1.deleteAllLines();
-  }
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
-//   mapping data;
-//   data = recieve_data();
+  TABLE1.alternatingRowColors(makeDynString(&quot;{222,236,195}&quot;, &quot;{255,234,0,128}&quot;));
   string query = &quot;SELECT TOP 10 * FROM [ASU_MES_DB].[dbo].[vReceptionResult] ORDER BY id DESC;&quot;;
   dyn_dyn_string data;
   data = recieve_data(query);
