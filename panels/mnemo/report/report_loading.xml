@@ -94,7 +94,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">DateRecording</prop>
-     <prop name="Width">135</prop>
+     <prop name="Width">140</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -106,7 +106,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">RecipeId</prop>
-     <prop name="Width">42</prop>
+     <prop name="Width">60</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -214,7 +214,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedTemperature</prop>
-     <prop name="Width">92</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -226,7 +226,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedDensity</prop>
-     <prop name="Width">92</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -238,7 +238,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedBaseVolume</prop>
-     <prop name="Width">69</prop>
+     <prop name="Width">150</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -250,7 +250,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedBaseWeight</prop>
-     <prop name="Width">69</prop>
+     <prop name="Width">150</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -262,7 +262,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedBaseTemp</prop>
-     <prop name="Width">135</prop>
+     <prop name="Width">140</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -274,7 +274,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedBaseDensity</prop>
-     <prop name="Width">135</prop>
+     <prop name="Width">130</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -286,7 +286,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedMixed1Volume</prop>
-     <prop name="Width">55</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -298,7 +298,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedMixed1Temp</prop>
-     <prop name="Width">60</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -310,7 +310,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedMixed1Density</prop>
-     <prop name="Width">60</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -322,7 +322,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedMixed1Weight</prop>
-     <prop name="Width">280</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -334,7 +334,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">DtStart</prop>
-     <prop name="Width">60</prop>
+     <prop name="Width">140</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -346,7 +346,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">DtEnd</prop>
-     <prop name="Width">30</prop>
+     <prop name="Width">140</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -358,7 +358,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">SumVolumeStart</prop>
-     <prop name="Width">50</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -370,7 +370,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">SumVolumeEnd</prop>
-     <prop name="Width">50</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -382,7 +382,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">SumWeightStart</prop>
-     <prop name="Width">50</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -394,7 +394,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">SumWeightEnd</prop>
-     <prop name="Width">50</prop>
+     <prop name="Width">100</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -406,7 +406,7 @@ void fill_table(dyn_dyn_string data){
     </prop>
     <prop name="Column">
      <prop name="Name">ModeCtrl</prop>
-     <prop name="Width">50</prop>
+     <prop name="Width">70</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -1324,8 +1324,16 @@ void fill_table(dyn_dyn_string data){
   }
   //--------------------------------
   data_now.insertAt(0, headers);
+  //Проверка пути (папок)
+  string data_path = getPath(DATA_REL_PATH);
+  bool result;
+  result = isdir(data_path + &quot;Reporting/Loading&quot;);
+  if(!result){
+    mkdir(data_path + &quot;Reporting/Loading&quot;);
+  }
+  //-----------------------
   //Создаем csv файл и выгружаем данные в него
-  string file_name = &quot;C:/WinCC_OA_Proj/TOBOLSK/data/Reporting/Loading/loading_report_&quot; + time_now + &quot;.CSV&quot;;
+  string file_name = data_path + &quot;Reporting/Loading/loading_report_&quot; + time_now + &quot;.CSV&quot;;
   file f;
   f=fopen(file_name, &quot;w&quot;); // Guaranteed &quot;new&quot; file
   fclose(f);

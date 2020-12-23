@@ -1323,8 +1323,16 @@ void fill_table(dyn_dyn_string data){
   }
   //--------------------------------
   data_now.insertAt(0, headers);
+  //Проверка пути (папок)
+  string data_path = getPath(DATA_REL_PATH);
+  bool result;
+  result = isdir(data_path + &quot;Reporting/Recieve&quot;);
+  if(!result){
+    mkdir(data_path + &quot;Reporting/Recieve&quot;);
+  }
+  //-----------------------
   //Создаем csv файл и выгружаем данные в него
-  string file_name = &quot;C:/WinCC_OA_Proj/TOBOLSK/data/Reporting/Recieve/recieve_report_&quot; + time_now + &quot;.CSV&quot;;
+  string file_name = data_path + &quot;Reporting/Recieve/recieve_report_&quot; + time_now + &quot;.CSV&quot;;
   file f;
   f=fopen(file_name, &quot;w&quot;); // Guaranteed &quot;new&quot; file
   fclose(f);
