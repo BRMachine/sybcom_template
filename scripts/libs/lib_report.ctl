@@ -12,7 +12,7 @@
 #uses "rdb"
 //--------------------------------------------------------------------------------
 // variables and constants
-const string CONNECTION_LINE = "DSN=ASUP_DB1;UID=sa;PWD=Qwerty123;";
+const string CONNECTION_LINE = "DSN=ASUP-DB1;UID=sa;PWD=Qwerty123;";
 
 //--------------------------------------------------------------------------------
 //@public members
