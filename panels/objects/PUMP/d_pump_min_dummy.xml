@@ -31,7 +31,23 @@ public void setDirect(Directions v){
   Direct = v;
 }
 
+int state;
+#property int state
+public int getState(){
+  return state;
+}
+public void setState(int val){
+  state = val;
+}
 
+int ready;
+#property int ready
+public int getReady(){
+  return ready;
+}
+public void setReady(int val){
+  ready = val;
+}
 
 
 const string name_pump =&quot;Насос &quot;+ $name_pump;
@@ -75,6 +91,28 @@ void initArrow(){
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   txt_alias.text(name_pump);
   initArrow();
+
+  switch(state){
+    case 0:
+      el_fault.backCol(&quot;Grey&quot;);
+      break;
+    case 1:
+      el_fault.backCol(&quot;Green&quot;);
+      break;
+    case 2:
+      el_fault.backCol(&quot;{182,0,0}&quot;);
+  }
+
+  switch(ready){
+    case 0:
+      el_ready.backCol(&quot;Grey&quot;);
+      break;
+    case 1:
+      el_ready.backCol(&quot;Green&quot;);
+      break;
+    case 2:
+      el_ready.backCol(&quot;{182,0,0}&quot;);
+  }
 }
 ]]></script>
  </events>
