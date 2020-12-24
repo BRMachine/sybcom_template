@@ -460,7 +460,7 @@ void initArrow(){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string desc = &quot;Насос: &quot; + dpGetAlias(DP + &quot;.&quot;);
-  ChildPanelOnCentral(&quot;faceplates\\NB\\d_pump.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP));
+  ChildPanelOnCentral(&quot;faceplates\\PUMP\\d_pump.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP));
 }]]></script>
     <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
 main(int iType)
