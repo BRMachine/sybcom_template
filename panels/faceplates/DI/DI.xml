@@ -14,12 +14,14 @@
   <prop name="layoutType">None</prop>
  </properties>
  <events>
-  <script name="ScopeLib" isEscaped="1"><![CDATA[const string dp = $dp;]]></script>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string dp = $dp;
+
+]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
   main_module.ModuleName(dp + &quot;_main&quot;);
   RootPanelOnModule(&quot;faceplates\\DI\\parts\\standart.xml&quot;,&quot;&quot;, dp + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+dp));
-  setPanelSize(myModuleName(), &quot;&quot;, false, 520, 280);
+  setPanelSize(myModuleName(), &quot;&quot;, false, 440, 280);
 //   PANEL_REF2.position(86,-18);
   /*txt_alias.text(dpGetDescription(dp + &quot;.&quot;));
   txt_alias.size(143, 39);
@@ -32,7 +34,7 @@
    <properties>
     <prop name="serialId">6</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">-78 63</prop>
+    <prop name="RefPoint">1 59</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -40,6 +42,9 @@
     <prop name="TabOrder">5</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="sizePolicy">
+     <sizePolicy vertical="Expanding" horizontal="Expanding"/>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
@@ -49,13 +54,13 @@
     <prop name="Location">0.8231510340297632 58.68421052631574</prop>
     <prop name="Size">520 215</prop>
     <extended>
-     <prop type="INT" name="newPanelAnimDuration">0</prop>
-     <prop type="INT" name="oldPanelAnimDuration">0</prop>
+     <prop type="INT" name="newPanelAnimDuration">10</prop>
+     <prop type="INT" name="oldPanelAnimDuration">500</prop>
      <prop type="BOOL" name="newPanelAnimateOpacity">True</prop>
      <prop type="BOOL" name="oldPanelAnimateOpacity">True</prop>
      <prop type="BOOL" name="newPanelAnimateSize">True</prop>
      <prop type="BOOL" name="oldPanelAnimateSize">True</prop>
-     <prop type="CHAR_STRING" name="newPanelAnimType">None</prop>
+     <prop type="ENUM" name="newPanelAnimType">6</prop>
      <prop type="CHAR_STRING" name="oldPanelAnimType">None</prop>
     </extended>
    </properties>
@@ -89,7 +94,7 @@
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   RootPanelOnModule(&quot;faceplates\\DI\\parts\\standart.xml&quot;,&quot;&quot;, dp + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+dp));
-  setPanelSize(myModuleName(), &quot;&quot;, false, 520, 280);
+  setPanelSize(myModuleName(), &quot;&quot;, false, 440, 280);
  // txt_alias.size(143, 39);
  // txt_alias.position(162,-56);
 //   PANEL_REF2.position(86,-18);
@@ -125,8 +130,8 @@
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
-  RootPanelOnModule(&quot;faceplates\\DI\\parts\\alerts.xml&quot;,&quot;&quot;, dp + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+dp, &quot;$_ALERTROW:FALSE&quot;));//, &quot;$DP:&quot; + dp));
   setPanelSize(myModuleName(), &quot;&quot;, false, 520, 280);
+  RootPanelOnModule(&quot;faceplates\\DI\\parts\\alerts.xml&quot;,&quot;&quot;, dp + &quot;_main&quot; , makeDynString(&quot;$dp:&quot;+dp, &quot;$_ALERTROW:FALSE&quot;));//, &quot;$DP:&quot; + dp));
  // txt_alias.size(438, 39);
  // txt_alias.position(348,-56);
 //   PANEL_REF2.position(236,-18);
@@ -160,6 +165,29 @@
      <prop type="ENUM" name="textFormat">2</prop>
      <prop type="ENUM" name="alignment">132</prop>
     </extended>
+   </properties>
+  </shape>
+  <shape Name="line_zero" shapeType="LINE" layerId="0">
+   <properties>
+    <prop name="serialId">26</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">1 51</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">12</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,6]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="Start">1 51</prop>
+    <prop name="End">1 51</prop>
    </properties>
   </shape>
  </shapes>

@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">520 215</prop>
+  <prop name="Size">434 215</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">97 88</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -65,7 +65,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">3.909090909090909 0 0 2 -199.6363636363636 -41</prop>
+    <prop name="Geometry">3.909090909090909 0 0 2 -236.6363636363636 -41</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">70 72</prop>
     <prop name="Size">34 13</prop>
@@ -93,7 +93,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">2.466666666666666 0 0 1.428571428571429 41.73333333333338 -125.7142857142858</prop>
+    <prop name="Geometry">2.466666666666666 0 0 1.428571428571429 -36.26666666666662 -125.7142857142858</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Обработка</prop>
@@ -125,7 +125,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">2.466666666666666 0 0 1.285714285714286 41.73333333333338 -3.142857142857167</prop>
+    <prop name="Geometry">2.466666666666666 0 0 1.285714285714286 -36.26666666666662 -3.142857142857167</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Симуляция</prop>
@@ -157,7 +157,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.125 294 -3.750000000000014</prop>
+    <prop name="Geometry">1 0 0 1.125 216 -3.750000000000014</prop>
     <prop name="Location">20 24</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -193,7 +193,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.148936170212767 294 -8.744680851063908</prop>
+    <prop name="Geometry">1 0 0 1.148936170212767 216 -8.744680851063908</prop>
     <prop name="Location">20 54</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -229,7 +229,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1 0 0 1.125 294 -11.25000000000002</prop>
+    <prop name="Geometry">1 0 0 1.125 216 -11.25000000000002</prop>
     <prop name="Location">20 84</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -249,7 +249,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="serialId">18</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">434.8000000000001 85.02894736842103</prop>
+    <prop name="RefPoint">356.8000000000001 85.02894736842103</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -263,7 +263,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">435 82.49999999999999</prop>
+    <prop name="Location">357 82.49999999999999</prop>
     <prop name="Size">50 19</prop>
     <prop name="Listitems">
      <prop name="Item">
@@ -312,7 +312,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="serialId">20</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">314 139.8000000000001</prop>
+    <prop name="RefPoint">236 139.8000000000001</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -328,7 +328,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">314 139.8000000000001</prop>
+    <prop name="Location">236 139.8000000000001</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -363,7 +363,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.119266055045872 0 0 1 291.8532110091743 -1.000000000000014</prop>
+    <prop name="Geometry">1.119266055045872 0 0 1 213.8532110091743 -1.000000000000014</prop>
     <prop name="Location">19.99999999999999 176.8</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -383,7 +383,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">147.2500000000001 18.98777173913041</prop>
-    <prop name="Geometry">1 0 0 1 300.25 -1.4210854715202e-14</prop>
+    <prop name="Geometry">1 0 0 1 222.25 -1.4210854715202e-14</prop>
     <prop name="TabOrder">25</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -407,7 +407,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">147.2500000000001 134.8877717391304</prop>
-    <prop name="Geometry">1 0 0 1 300.2499999999999 -1.4210854715202e-14</prop>
+    <prop name="Geometry">1 0 0 1 222.2499999999999 -1.4210854715202e-14</prop>
     <prop name="TabOrder">26</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -431,7 +431,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">147.2500000000002 170.8877717391304</prop>
-    <prop name="Geometry">1 0 0 1 300.2499999999999 -1.4210854715202e-14</prop>
+    <prop name="Geometry">1 0 0 1 222.2499999999999 -1.4210854715202e-14</prop>
     <prop name="TabOrder">27</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -455,7 +455,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="serialId">37</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">488 54.99999999999999</prop>
+    <prop name="RefPoint">410 54.99999999999999</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -471,7 +471,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">488 54.99999999999999</prop>
+    <prop name="Location">410 54.99999999999999</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -490,7 +490,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">79.99999999999991 68.06250000000007</prop>
-    <prop name="Geometry">0.8032786885245902 0 0 0.7391304347826086 370.7377049180328 2.692934782608642</prop>
+    <prop name="Geometry">0.8032786885245902 0 0 0.7391304347826086 292.7377049180328 2.692934782608642</prop>
     <prop name="TabOrder">29</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -528,7 +528,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.936170212765957 0 0 1.444444444444444 -20.26595744680848 -109.8333333333333</prop>
+    <prop name="Geometry">1.936170212765957 0 0 1.444444444444444 -57.26595744680848 -109.8333333333333</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Состояние</prop>
@@ -560,7 +560,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">2.147790107071799 0 0 1.671445988745293 76.21408689491784 61.51372836015061</prop>
+    <prop name="Geometry">2.147790107071799 0 0 1.671445988745293 39.21408689491784 61.51372836015061</prop>
     <prop name="Location">29 32</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
