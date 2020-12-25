@@ -78,10 +78,10 @@ void worker(dyn_string dp, dyn_bool val){
   }
   else{
     if(val[1]){
-      State.text(&quot;Остановлен (внутренний)&quot;);
+      State.text(&quot;Остановлен (Внутренняя ошибка)&quot;);
     }
     else{
-      State.text(&quot;Остановлен (внешний)&quot;);
+      State.text(&quot;Остановлен (Внешняя ошибка)&quot;);
     }
   }
 }
