@@ -136,7 +136,7 @@ void refreshData(string dp, bool trg){
           dynAppend(unack["id"], dbIds[i]);
         }
       }
-      updateDB(unack);
+      updateDB(unack, getCurrentTime());//
       DebugFTN("lg_verbose", "Unacknowledge data", unack);
     }else{
       DebugFTN("lg_error", "NOT Equal lenght");

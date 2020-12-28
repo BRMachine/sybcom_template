@@ -145,7 +145,7 @@ public void changeActiveConnection(int cur, dyn_mapping conf){
 
 }
 
-public void updateDB(mapping unack){
+public void updateDB(mapping unack, time timestamp){ //
   if(dynlen(unack["dp"]) == 0){
     return;
   }
@@ -175,13 +175,14 @@ public void updateDB(mapping unack){
       setBit(sts, 4, D);
       setBit(sts, 8, E);
       setBit(sts, 9, R);
-
+string rvs_time = formatTime("%Y-%m-%d %H:%M:%S", timestamp, ".%03d");
+//sCommand += "set [timestamp] = {ts '"+ rvs_time +"'} ";
 //        prepare update value command {ts '"+ rvs_time +"'}
       dbCommand cmd;
       string sCommand = "update ["+loc_database+"].[dbo].[OperativeData] ";
       sCommand += " SET [value] = '" + (string)unack["val"][i] + "', ";
       sCommand += "     [quality] = IIF("+ (long)sts + " > 1, 0, 1), ";
-      sCommand += "     [timestamp] = '" + formatTime("%Y-%m-%d %H:%M:%S", getCurrentTime(), ".%03d") + "' ";
+      sCommand += "     [timestamp] = {ts '"+ rvs_time +"'} ";
       sCommand += "where (basename = '" + unack["dp"][i] + "') ";
 
       DebugFTN("db_verbose", "update value command", sCommand);
