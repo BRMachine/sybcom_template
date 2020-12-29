@@ -50,7 +50,7 @@ public Fuel getFuel(){return fuel;}
 
 
 // ============================= Predefined functions
-string fuelToColor(Fuel f){
+/*string fuelToColor(Fuel f){
   if(f == Fuel::AI100){
     return &quot;AI100&quot;;
   }else if(f == Fuel::AI95){
@@ -79,6 +79,23 @@ string fuelToText(Fuel f){
   }else if(f == Fuel::DTL){
     return &quot;ДТл&quot;;
   }
+}*/
+
+string fuelToColor(string fuel){
+  switch(fuel){
+    case &quot;ДТ&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТл&quot;:
+      return &quot;DTL_pipe&quot;;
+    case &quot;92&quot;:
+      return &quot;AI92&quot;;
+    case &quot;95&quot;:
+      return &quot;AI95&quot;;
+    case &quot;98&quot;:
+      return &quot;AI98&quot;;
+    case &quot;100&quot;:
+      return &quot;AI100&quot;;
+  }
 }
 
 void worker_val(dyn_string dp, dyn_anytype val){
@@ -88,18 +105,27 @@ void worker_val(dyn_string dp, dyn_anytype val){
   nolink_back.visible((val[4] == 1));
 }
 
-void initFuel(Fuel f){
+/*void initFuel(Fuel f){
   txt_fuel.text(fuelToText(f));
 
   rec_fuel.backCol(fuelToColor(f));
   top_bar.backCol(fuelToColor(f));
+}*/
+
+void fuel_type(string dpe, string val){
+  txt_fuel.text(val);
+
+  rec_fuel.backCol(fuelToColor(val));
+  top_bar.backCol(fuelToColor(val));
 }
 
   void cbAlarmLogic(string dp, string color){
     if(color != &quot;&quot;){
       top_bar.backCol(color);
     }else{
-      initFuel(fuel);
+      string fuel;
+      dpGet(DP + &quot;.fuel_type&quot;, fuel);
+      top_bar.backCol(fuelToColor(fuel));
     }
 }
 ]]></script>
@@ -111,7 +137,9 @@ void initFuel(Fuel f){
                           DP + &quot;.SCL.LSL&quot;,
                           DP + &quot;.STS.MBS_ERR&quot;);
 
-  initFuel(fuel);
+  dpConnect(&quot;fuel_type&quot;, DP + &quot;.fuel_type&quot;);
+
+//   initFuel(fuel);
 }
 ]]></script>
  </events>

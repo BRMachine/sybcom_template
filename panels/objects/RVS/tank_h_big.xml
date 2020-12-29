@@ -59,7 +59,7 @@ public Fuel getFuel(){return fuel;}
 
 
 // ============================= Predefined functions
-string fuelToColor(Fuel f){
+/*string fuelToColor(Fuel f){
   if(f == Fuel::AI100){
     return &quot;AI100&quot;;
   }else if(f == Fuel::AI95){
@@ -87,6 +87,23 @@ string fuelToText(Fuel f){
     return &quot;ДТ&quot;;
   }else if(f == Fuel::DTL){
     return &quot;ДТЛ&quot;;
+  }
+}*/
+
+string fuelToColor(string fuel){
+  switch(fuel){
+    case &quot;ДТ&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТл&quot;:
+      return &quot;DTL_pipe&quot;;
+    case &quot;92&quot;:
+      return &quot;AI92&quot;;
+    case &quot;95&quot;:
+      return &quot;AI95&quot;;
+    case &quot;98&quot;:
+      return &quot;AI98&quot;;
+    case &quot;100&quot;:
+      return &quot;AI100&quot;;
   }
 }
 string stateToString(int state){
@@ -184,18 +201,27 @@ void worker_ls(dyn_string dp, dyn_bit32 sts){
    rec_ls3.backCol = (ls3 &amp; 0x01 | ls3 &amp; 0x02 | ls3 &amp; 0x04) ? &quot;Red&quot; : &quot;Grey&quot;;
  }
 }
-void initFuel(Fuel f){
+/*void initFuel(Fuel f){
   txt_fuel.text(fuelToText(f));
 
   rec_fuel.backCol(fuelToColor(f));
   top_bar.backCol(fuelToColor(f));
+}*/
+
+void fuel_type(string dpe, string val){
+  txt_fuel.text(val);
+
+  rec_fuel.backCol(fuelToColor(val));
+  top_bar.backCol(fuelToColor(val));
 }
 
   void cbAlarmLogic(string dp, string color){
     if(color != &quot;&quot;){
       top_bar.backCol(color);
     }else{
-      initFuel(fuel);
+      string fuel;
+      dpGet(DP + &quot;.fuel_type&quot;, fuel);
+      top_bar.backCol(fuelToColor(fuel));
     }
 }
 ]]></script>
@@ -209,6 +235,8 @@ void initFuel(Fuel f){
                           DP + &quot;.SCL.LSH&quot;,
                           DP + &quot;.SCL.LSL&quot;,
                           DP + &quot;.STS.MBS_ERR&quot;);
+
+  dpConnect(&quot;fuel_type&quot;, DP + &quot;.fuel_type&quot;);
 
   if(LS3 != &quot;&quot; &amp; LS2 != &quot;&quot;){
     rec_ls2.visible(true);
@@ -233,7 +261,7 @@ void initFuel(Fuel f){
     dpConnect(&quot;worker_ls&quot;, LS1 + &quot;.status.sts_bit&quot;);
   }
 
-  initFuel(fuel);
+//   initFuel(fuel);
 }
 ]]></script>
  </events>
