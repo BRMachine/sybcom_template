@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">786 446</prop>
+  <prop name="Size">786 422</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">20 20</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -542,7 +542,7 @@ bool BtnVisible = 1;
    <properties>
     <prop name="serialId">22</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">271.076923076923 -0.9999999999999981</prop>
+    <prop name="RefPoint">271.076923076923 -0.999999999999998</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
@@ -557,8 +557,8 @@ bool BtnVisible = 1;
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">271.076923076923 -0.9999999999999981</prop>
-    <prop name="End">271.076923076923 457</prop>
+    <prop name="Start">271.076923076923 -0.999999999999998</prop>
+    <prop name="End">271.076923076923 425.9999999999999</prop>
    </properties>
   </shape>
   <shape Name="lbl_comment" shapeType="Label" layerId="0">
@@ -605,7 +605,7 @@ bool BtnVisible = 1;
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Location">300 101.9999999999999</prop>
-    <prop name="Size">476 333</prop>
+    <prop name="Size">476 314</prop>
     <prop name="ShowColumnHeader">True</prop>
     <prop name="ShowRowHeader">True</prop>
     <prop name="SortOnClick">True</prop>
@@ -1356,114 +1356,6 @@ bool BtnVisible = 1;
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
-  </shape>
-  <shape Name="PRIMITIVE_TEXT17" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">497</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">17 424</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">121</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Location">17 424</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Тип топлива:</prop>
-    </prop>
-    <prop name="Distance">2</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">True</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
-   </properties>
-  </shape>
-  <shape Name="fuel_type" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">498</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">100 426</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">122</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0</prop>
-    </prop>
-    <prop name="Location">100 421</prop>
-    <prop name="Size">126 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТл</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-   <events>
-    <script name="Changed" isEscaped="1"><![CDATA[main()
-{
-  dpSet(DP + &quot;.fuel_type&quot;, fuel_type.text());
-}]]></script>
-    <script name="Initialize" isEscaped="1"><![CDATA[main()
-{
-  string fuel;
-  dpGet(DP + &quot;.fuel_type&quot;, fuel);
-  fuel_type.text(fuel);
-}]]></script>
-   </events>
   </shape>
  </shapes>
 </panel>
