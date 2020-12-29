@@ -16,9 +16,7 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[// ============================= Used libraries
 #uses &quot;sdSymbolDynamics&quot;
-//--------------------------------------------------
-
-// ============================= Used variables/constants
+//----------------------------------============ Used variables/constants
 enum Fuel{
   G100 = 1,
   AI92 = 2,
@@ -34,6 +32,8 @@ const string DP = $dp;
 const string LogicRVS = $dpLogicRVS;
 
 const string LS1 = $ls1;
+
+// =================
 const string LS2 = $ls2;
 const string LS3 = $ls3;
 
@@ -54,19 +54,27 @@ public string getResName(){return text_name.text;}
 // public void setMin_lvl(float s){min_lvl = s;}
 // public float getMin_lvl(){return min_lvl;}
 
-#property Fuel fuel
+/*#property Fuel fuel
 public void setFuel(Fuel f){
-  fuel = f;
-  string fuel_type = fuelToASUP(fuel);
-  dpSet(DP + &quot;.fuel_type&quot;, fuel_type);
+//   fuel = f;
+  string fuel_type = fuelToText(f);
+  dpSetWait(DP + &quot;.fuel_type&quot;, fuel_type);
+  dpGet(DP + &quot;.fuel_type&quot;, fuel);
+
 }
-public Fuel getFuel(){return fuel;}
+public Fuel getFuel(){
+  string temp;
+  Fuel tmp_fuel;
+  dpGet(DP + &quot;.fuel_type&quot;, temp);
+  tmp_fuel = textToFuel((int)temp);
+  return tmp_fuel;
+}*/
 
 //--------------------------------------------------
 
 
 // ============================= Predefined functions
-string fuelToColor(Fuel f){
+/*string fuelToColor(Fuel f){
   if(f == Fuel::G100){
     return &quot;100&quot;;
   }else if(f == Fuel::AI95){
@@ -89,28 +97,6 @@ string fuelToColor(Fuel f){
 }
 string fuelToText(Fuel f){
   if(f == Fuel::G100){
-    return &quot;100&quot;;
-  }else if(f == Fuel::AI95){
-    return &quot;95&quot;;
-  }else if(f == Fuel::AI92){
-    return &quot;92&quot;;
-  }else if(f == Fuel::AI98){
-    return &quot;98&quot;;
-  }else if(f == Fuel::DT){
-    return &quot;ДТ&quot;;
-  }else if(f == Fuel::DTL){
-    return &quot;ДТЛ&quot;;
-  }else if(f == Fuel::DTZ){
-    return &quot;ДТЗ&quot;;
-  }else if(f == Fuel::DTA){
-    return &quot;ДТА&quot;;
-  }else if(f == Fuel::DTM){
-    return &quot;ДТМ&quot;;
-  }
-}
-
-string fuelToASUP(Fuel f){
-  if(f == Fuel::G100){
     return &quot;G-100&quot;;
   }else if(f == Fuel::AI95){
     return &quot;АИ-95&quot;;
@@ -129,7 +115,31 @@ string fuelToASUP(Fuel f){
   }else if(f == Fuel::DTM){
     return &quot;ДТМ&quot;;
   }
+}*/
+
+string fuelToColor(string fuel){
+  switch(fuel){
+    case &quot;G-100&quot;:
+      return &quot;AI100&quot;;
+    case &quot;АИ-92&quot;:
+      return &quot;AI92&quot;;
+    case &quot;АИ-95&quot;:
+      return &quot;AI95&quot;;
+    case &quot;АИ-98&quot;:
+      return &quot;AI98&quot;;
+    case &quot;ДТ&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТЛ&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТЗ&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТА&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТМ&quot;:
+      return &quot;DT&quot;;
+  }
 }
+
 string stateToString(int state){
   string res = &quot;НЕИЗВЕСТНО&quot;;
   switch(state){
@@ -225,18 +235,39 @@ void worker_ls(dyn_string dp, dyn_bit32 sts){
    rec_ls3.backCol = (ls3 &amp; 0x01 | ls3 &amp; 0x02 | ls3 &amp; 0x04) ? &quot;Red&quot; : &quot;Grey&quot;;
  }
 }
-void initFuel(Fuel f){
-  txt_fuel.text(fuelToText(f));
+/*void initFuel(Fuel f){
+  DebugN(f);
+  if(f == Fuel::G100 | f == Fuel::AI92 | f == Fuel::AI95 | f == Fuel::AI98){
+    DebugN(&quot;if&quot;, f);
+    txt_fuel.text(strltrim(fuelToText(f), &quot;GАИ-&quot;));
+  }
+  else{
+    txt_fuel.text(fuelToText(f));
+  }
+//   txt_fuel.text(fuelToText(f));
 
   rec_fuel.backCol(fuelToColor(f));
   top_bar.backCol(fuelToColor(f));
+}*/
+
+void cb_fuel(string dpe, string val){
+  if(val == &quot;G-100&quot; | val == &quot;АИ-92&quot; | val == &quot;АИ-95&quot; | val == &quot;АИ-98&quot;){
+    txt_fuel.text(strltrim(val, &quot;GАИ-&quot;));
+  }
+  else{txt_fuel.text(val);}
+
+  rec_fuel.backCol(fuelToColor(val));
+  top_bar.backCol(fuelToColor(val));
 }
 
   void cbAlarmLogic(string dp, string color){
     if(color != &quot;&quot;){
       top_bar.backCol(color);
     }else{
-      initFuel(fuel);
+      string fuel;
+      dpGet(DP + &quot;.fuel_type&quot;, fuel);
+      top_bar.backCol(fuelToColor(fuel));
+//       initFuel(fuel);
     }
 }
 ]]></script>
@@ -250,6 +281,8 @@ void initFuel(Fuel f){
                           DP + &quot;.SCL.LSH&quot;,
                           DP + &quot;.SCL.LSL&quot;,
                           DP + &quot;.STS.MBS_ERR&quot;);
+
+  dpConnect(&quot;cb_fuel&quot;, DP + &quot;.fuel_type&quot;);
 
   if(LS3 != &quot;&quot; &amp; LS2 != &quot;&quot;){
     rec_ls2.visible(true);
@@ -274,7 +307,7 @@ void initFuel(Fuel f){
     dpConnect(&quot;worker_ls&quot;, LS1 + &quot;.status.sts_bit&quot;);
   }
 
-  initFuel(fuel);
+//   initFuel(fuel);
 }
 ]]></script>
  </events>
@@ -711,7 +744,7 @@ void initFuel(Fuel f){
    <properties>
     <prop name="serialId">76</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">-3.684803040575777 -122.7209736390328</prop>
+    <prop name="RefPoint">-3.576681518307709 -121.7808819829014</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -725,8 +758,8 @@ void initFuel(Fuel f){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">14.05687977858986 6.463432364096009</prop>
-    <prop name="Size">162 154</prop>
+    <prop name="Location">14.16500130085799 7.403524020227421</prop>
+    <prop name="Size">162 153</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8"></prop>
@@ -1491,7 +1524,7 @@ main(int iType)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[hatch,[cross,10,left]]</prop>
-    <prop name="Geometry">0.641673121946841 0 0 0.5201082099432714 7.712907494988798 -1.787543186080438</prop>
+    <prop name="Geometry">0.641673121946841 0 0 0.5201082099432714 7.749527817701363 -1.768500834626568</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">10 10</prop>
     <prop name="Size">251 301</prop>
@@ -1519,7 +1552,7 @@ main(int iType)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.6030724453301881 0 0 0.5388859487293071 10.51221407135627 -28.03633175118396</prop>
+    <prop name="Geometry">0.6030724453301881 0 0 0.5388859487293071 10.54883439406908 -29.01728939973009</prop>
     <prop name="Location">10 130</prop>
     <prop name="Size">261 61</prop>
     <prop name="Font">
@@ -1547,13 +1580,6 @@ main(int iType)
     <prop name="shapeSerial">72</prop>
     <prop name="shapeSerial">73</prop>
     <prop name="shapeSerial">74</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP7" serial="9">
-   <properties>
-    <prop name="shapeSerial">140</prop>
-    <prop name="shapeSerial">141</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </group>

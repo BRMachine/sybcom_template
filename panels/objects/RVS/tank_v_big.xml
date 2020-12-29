@@ -54,19 +54,24 @@ public string getResName(){return text_name.text;}
 // public void setMin_lvl(float s){min_lvl = s;}
 // public float getMin_lvl(){return min_lvl;}
 
-#property Fuel fuel
+/*#property Fuel fuel
 public void setFuel(Fuel f){
   fuel = f;
-  string fuel_type = fuelToASUP(fuel);
+  string fuel_type = fuelToText(fuel);
   dpSet(DP + &quot;.fuel_type&quot;, fuel_type);
 }
-public Fuel getFuel(){return fuel;}
+public Fuel getFuel(){
+  string temp;
+  dpGet(DP + &quot;.fuel_type&quot;, temp);
+  fuel = textToFuel((int)temp);
+  return fuel;
+}*/
 
 //--------------------------------------------------
 
 
 // ============================= Predefined functions
-string fuelToColor(Fuel f){
+/*string fuelToColor(Fuel f){
   if(f == Fuel::G100){
     return &quot;100&quot;;
   }else if(f == Fuel::AI95){
@@ -89,28 +94,6 @@ string fuelToColor(Fuel f){
 }
 string fuelToText(Fuel f){
   if(f == Fuel::G100){
-    return &quot;100&quot;;
-  }else if(f == Fuel::AI95){
-    return &quot;95&quot;;
-  }else if(f == Fuel::AI92){
-    return &quot;92&quot;;
-  }else if(f == Fuel::AI98){
-    return &quot;98&quot;;
-  }else if(f == Fuel::DT){
-    return &quot;ДТ&quot;;
-  }else if(f == Fuel::DTL){
-    return &quot;ДТЛ&quot;;
-  }else if(f == Fuel::DTZ){
-    return &quot;ДТЗ&quot;;
-  }else if(f == Fuel::DTA){
-    return &quot;ДТА&quot;;
-  }else if(f == Fuel::DTM){
-    return &quot;ДТМ&quot;;
-  }
-}
-
-string fuelToASUP(Fuel f){
-  if(f == Fuel::G100){
     return &quot;G-100&quot;;
   }else if(f == Fuel::AI95){
     return &quot;АИ-95&quot;;
@@ -128,6 +111,29 @@ string fuelToASUP(Fuel f){
     return &quot;ДТА&quot;;
   }else if(f == Fuel::DTM){
     return &quot;ДТМ&quot;;
+  }
+}*/
+
+string fuelToColor(string fuel){
+  switch(fuel){
+    case &quot;G-100&quot;:
+      return &quot;AI100&quot;;
+    case &quot;АИ-92&quot;:
+      return &quot;AI92&quot;;
+    case &quot;АИ-95&quot;:
+      return &quot;AI95&quot;;
+    case &quot;АИ-98&quot;:
+      return &quot;AI98&quot;;
+    case &quot;ДТ&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТЛ&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТЗ&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТА&quot;:
+      return &quot;DT&quot;;
+    case &quot;ДТМ&quot;:
+      return &quot;DT&quot;;
   }
 }
 
@@ -225,18 +231,39 @@ void worker_ls(dyn_string dp, dyn_bit32 sts){
    rec_ls3.backCol = (ls3 &amp; 0x01 | ls3 &amp; 0x02 | ls3 &amp; 0x04) ? &quot;Red&quot; : &quot;Grey&quot;;
  }
 }
-void initFuel(Fuel f){
-  txt_fuel.text(fuelToText(f));
+/*void initFuel(Fuel f){
+  DebugN(f);
+  if(f == Fuel::G100 | f == Fuel::AI92 | f == Fuel::AI95 | f == Fuel::AI98){
+    DebugN(&quot;if&quot;, f);
+    txt_fuel.text(strltrim(fuelToText(f), &quot;GАИ-&quot;));
+  }
+  else{
+    txt_fuel.text(fuelToText(f));
+  }
+//   txt_fuel.text(fuelToText(f));
 
   rec_fuel.backCol(fuelToColor(f));
   top_bar.backCol(fuelToColor(f));
+}*/
+
+void cb_fuel(string dpe, string val){
+  if(val == &quot;G-100&quot; | val == &quot;АИ-92&quot; | val == &quot;АИ-95&quot; | val == &quot;АИ-98&quot;){
+    txt_fuel.text(strltrim(val, &quot;GАИ-&quot;));
+  }
+  else{txt_fuel.text(val);}
+
+  rec_fuel.backCol(fuelToColor(val));
+  top_bar.backCol(fuelToColor(val));
 }
 
 void cbAlarmLogic(string dp, string color){
   if(color != &quot;&quot;){
     top_bar.backCol(color);
   }else{
-    initFuel(fuel);
+    string fuel;
+    dpGet(DP + &quot;.fuel_type&quot;, fuel);
+    top_bar.backCol(fuelToColor(fuel));
+//       initFuel(fuel);
   }
 }
 //--------------------------------------------------
@@ -252,6 +279,7 @@ void cbAlarmLogic(string dp, string color){
                           DP + &quot;.SCL.LSH&quot;,
                           DP + &quot;.SCL.LSL&quot;,
                           DP + &quot;.STS.MBS_ERR&quot;);
+  dpConnect(&quot;cb_fuel&quot;, DP + &quot;.fuel_type&quot;);
 
   if(LS3 != &quot;&quot; &amp; LS2 != &quot;&quot;){
     rec_ls2.visible(true);
@@ -276,7 +304,7 @@ void cbAlarmLogic(string dp, string color){
     dpConnect(&quot;worker_ls&quot;, LS1 + &quot;.status.sts_bit&quot;);
   }
 
-  initFuel(fuel);
+//   initFuel(fuel);
 }
 ]]></script>
  </events>
