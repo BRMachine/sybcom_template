@@ -204,7 +204,7 @@ void initArrow(){
    <properties>
     <prop name="serialId">8</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">25.71428571428572 51.28571428571428</prop>
+    <prop name="RefPoint">25.3392857142857 50.81509785251433</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -218,8 +218,8 @@ void initArrow(){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">25.71428571428571 22.19700614070711</prop>
-    <prop name="Size">62 73</prop>
+    <prop name="Location">25.3392857142857 21.72638970750716</prop>
+    <prop name="Size">63 73</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8"></prop>
@@ -289,7 +289,7 @@ main(int iType)
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">Grey</prop>
+    <prop name="BackColor">WF_PanelBackground</prop>
     <prop name="TabOrder">11</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
@@ -327,7 +327,7 @@ main(int iType)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 14.00000000000006 1</prop>
+    <prop name="Geometry">1 0 0 1 14 1</prop>
     <prop name="Center">42 64</prop>
     <prop name="X-Radius">24</prop>
     <prop name="Y-Radius">24</prop>

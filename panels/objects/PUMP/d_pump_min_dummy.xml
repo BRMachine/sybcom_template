@@ -105,7 +105,7 @@ void initArrow(){
 
   switch(ready){
     case 0:
-      el_ready.backCol(&quot;Grey&quot;);
+      el_ready.backCol(&quot;WF_PanelBackground&quot;);
       break;
     case 1:
       el_ready.backCol(&quot;Green&quot;);
@@ -215,7 +215,7 @@ void initArrow(){
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{182,0,0}</prop>
+    <prop name="BackColor">WF_PanelBackground</prop>
     <prop name="TabOrder">25</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>

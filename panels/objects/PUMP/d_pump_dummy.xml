@@ -103,7 +103,7 @@ void initArrow(){
 
   switch(ready){
     case 0:
-      el_ready.backCol(&quot;Grey&quot;);
+      el_ready.backCol(&quot;WF_PanelBackground&quot;);
       break;
     case 1:
       el_ready.backCol(&quot;Green&quot;);
@@ -222,7 +222,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.7119565217391304 0 0 0.7119565217391304 -56.08577316722278 -55.13916974857975</prop>
+    <prop name="Geometry">0.7119565217391304 0 0 0.7119565217391304 -56.06599378881989 -55.60388251442708</prop>
     <prop name="Center">130 150</prop>
     <prop name="X-Radius">40</prop>
     <prop name="Y-Radius">40</prop>

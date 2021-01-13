@@ -172,7 +172,7 @@ void initArrow(){
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">Grey</prop>
+    <prop name="BackColor">WF_PanelBackground</prop>
     <prop name="TabOrder">11</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
@@ -210,7 +210,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -40.4375 27.193877445528</prop>
+    <prop name="Geometry">1 0 0 1 -40.4375 27.19387744552803</prop>
     <prop name="Center">77 31</prop>
     <prop name="X-Radius">16.5</prop>
     <prop name="Y-Radius">16.5</prop>
@@ -236,7 +236,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -0.3653818987065804 12.193877445528</prop>
+    <prop name="Geometry">1 0 0 1 -0.3653818987065804 12.19387744552803</prop>
     <prop name="Center">36.92788189870658 46</prop>
     <prop name="X-Radius">16.5</prop>
     <prop name="Y-Radius">16.5</prop>
@@ -435,7 +435,7 @@ void initArrow(){
    <properties>
     <prop name="serialId">8</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">15.81552313637741 48.45116642462449</prop>
+    <prop name="RefPoint">15.75604627275482 48.81030059531997</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -449,7 +449,7 @@ void initArrow(){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">15.81552313637741 27.97536891979748</prop>
+    <prop name="Location">15.75604627275482 28.33450309049296</prop>
     <prop name="Size">42 51</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
