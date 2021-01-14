@@ -205,12 +205,16 @@
   dyn_anytype headers = makeDynString(&quot;Tag name&quot;, &quot;Time&quot;, &quot;Value&quot;);
   //--------------------------------
   //Считываем все данные по РВСам
-//   dpQuery(&quot;SELECT '_offline.._stime', '_offline.._value' FROM '{RVS_*.MAS.val,RVS_*.LVL.val}' TIMERANGE(\&quot;&quot; + time_start + &quot;\&quot;,\&quot;&quot; + time_end + &quot;\&quot;,1,0)&quot;, data);
-  dpQuery(&quot;SELECT '_offline.._stime', '_offline.._value' FROM 'RVS_*.*.val' TIMERANGE(\&quot;&quot; + time_start + &quot;\&quot;,\&quot;&quot; + time_end + &quot;\&quot;,1,0)&quot;, data);
+  dpQuery(&quot;SELECT '_offline.._stime', '_offline.._value' FROM '{RVS_*.MAS.val,RVS_*.LVL.val}' TIMERANGE(\&quot;&quot; + time_start + &quot;\&quot;,\&quot;&quot; + time_end + &quot;\&quot;,1,0)&quot;, data);
+//   dpQuery(&quot;SELECT '_offline.._stime', '_offline.._value' FROM 'RVS_*.*.val' TIMERANGE(\&quot;&quot; + time_start + &quot;\&quot;,\&quot;&quot; + time_end + &quot;\&quot;,1,0)&quot;, data);
   //--------------------------------
   data.insertAt(0, headers);
   data.removeAt(1);
-  DebugN(data);
+//   DebugN(data);
+//   dpSet(&quot;System1:report.newNode&quot;, data);
+//   dyn_dyn_string data_dpe;
+//   dpGet(&quot;System1:report.newNode&quot;, data_dpe);
+//   DebugN(data_dpe);
   //Проверка пути (папок)
   string data_path = getPath(DATA_REL_PATH);
   bool result;

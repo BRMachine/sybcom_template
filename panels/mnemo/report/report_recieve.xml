@@ -14,9 +14,10 @@
   <prop name="layoutType">None</prop>
  </properties>
  <events>
-  <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;lib_report&quot;
+  <script name="ScopeLib" isEscaped="1"><![CDATA[// #uses &quot;lib_report&quot;
+#uses &quot;csv&quot;
 
-dyn_dyn_string data_now;
+dyn_dyn_string data, data_now;
 
 string query_base_initilize = &quot;SELECT TOP 10 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
 string query_base_single = &quot;SELECT TOP 1 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
@@ -24,7 +25,6 @@ string query_base = &quot;SELECT ID, DateRecording, RecipeId, PostNumber, TankCo
 
 void fill_table(dyn_dyn_string data){
   TABLE1.deleteAllLines();
-  dynDynTurn(data);
   data_now = data;
   int len = dynlen(data);
   if(len &gt; 0){
@@ -41,9 +41,19 @@ void fill_table(dyn_dyn_string data){
 {
   TABLE1.alternatingRowColors(makeDynString(&quot;{222,236,195}&quot;, &quot;{255,234,0,128}&quot;));
   string query = &quot;SELECT TOP 10 * FROM [ASU_MES_DB].[dbo].[vReceptionResult] ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
+
+  dpConnect(&quot;cb_recieve_data&quot;, false, &quot;report.recieve.report_data&quot;);
+}
+
+void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
+  int len_data = dynlen(dp_data);
+  int i;
+  for(i = 1; i &lt;= len_data; i++){
+    dp_data[i] = strsplit(dp_data[i], &quot;|&quot;);
+  }
+  dynDynTurn(dp_data);
+  fill_table(dp_data);
 }
 ]]></script>
  </events>
@@ -371,9 +381,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(HH,-1,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -407,9 +415,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(DD,-1,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -443,9 +449,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(DD,-2,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -479,9 +483,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(DD,-4,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -515,9 +517,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(DD,-7,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -551,9 +551,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(DD,-10,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -587,9 +585,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(HH,-2,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -623,9 +619,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(HH,-4,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -659,9 +653,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(HH,-7,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -695,9 +687,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN dateadd(HH,-10,(CAST(getdate() as datetime))) AND CAST(GETDATE() AS datetime) ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -764,15 +754,11 @@ void fill_table(dyn_dyn_string data){
 //   int currentInd = IS_num.currentIndex();
 //   if(currentInd == 0){
 //     string query = &quot;SELECT TOP 10 * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE PostName LIKE ('ИС%') ORDER BY ID DESC&quot;;
-//     dyn_dyn_string data;
-//     data = recieve_data(query);
-//     fill_table(data);
+//     dpSetWait(&quot;report.recieve.query&quot;, query);
 //   }
 //   else{
 //     string query = &quot;SELECT TOP 10 * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE PostName LIKE ('ИС&quot;+currentInd+&quot;') ORDER BY ID DESC&quot;;
-//     dyn_dyn_string data;
-//     data = recieve_data(query);
-//     fill_table(data);
+//     dpSetWait(&quot;report.recieve.query&quot;, query);
 //   }
 }
 ]]></script>
@@ -839,9 +825,7 @@ void fill_table(dyn_dyn_string data){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string query = &quot;SELECT TOP 1 * FROM [ASU_MES_DB].[dbo].[vReceptionResult] ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -1019,9 +1003,7 @@ void fill_table(dyn_dyn_string data){
   strreplace(date_start, &quot;.&quot;, &quot;&quot;);
   strreplace(date_end, &quot;.&quot;, &quot;&quot;);
   string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
-  dyn_dyn_string data;
-  data = recieve_data(query);
-  fill_table(data);
+  dpSetWait(&quot;report.recieve.query&quot;, query);
 }
 ]]></script>
    </events>
@@ -1128,15 +1110,11 @@ void fill_table(dyn_dyn_string data){
   int currentInd = IS_num.currentIndex();
   if(currentInd == 0){
     string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE PostName LIKE ('ИС%') AND DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
-    dyn_dyn_string data;
-    data = recieve_data(query);
-    fill_table(data);
+    dpSetWait(&quot;report.recieve.query&quot;, query);
   }
   else{
     string query = &quot;SELECT * FROM [ASU_MES_DB].[dbo].[vReceptionResult] WHERE PostName LIKE ('ИС&quot;+currentInd+&quot;') AND DateRecording BETWEEN '&quot;+date_start+&quot;' AND '&quot;+date_end+&quot;' ORDER BY id DESC;&quot;;
-    dyn_dyn_string data;
-    data = recieve_data(query);
-    fill_table(data);
+    dpSetWait(&quot;report.recieve.query&quot;, query);
   }
 }
 ]]></script>
