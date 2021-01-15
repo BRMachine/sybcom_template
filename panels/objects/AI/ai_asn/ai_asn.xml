@@ -16,7 +16,7 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics&quot;
 
-const string POST_num = $POST_num;
+const string DP = $dp;
 const string ANALOG = $ANALOG;
 
 void cbWorker(string dp, float val){
@@ -24,8 +24,8 @@ void cbWorker(string dp, float val){
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
-  txt_eu.text(dpGetUnit(POST_num + &quot;.&quot; + ANALOG));
-  dpConnect(&quot;cbWorker&quot;, POST_num + &quot;.&quot; + ANALOG);
+  txt_eu.text(dpGetUnit(DP + &quot;.&quot; + ANALOG));
+  dpConnect(&quot;cbWorker&quot;, DP + &quot;.&quot; + ANALOG);
 }
 ]]></script>
  </events>
