@@ -500,36 +500,6 @@ main()
 ]]></script>
    </events>
   </shape>
-  <shape Name="Border2" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">5</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">810 630</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">False</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">_Transparent</prop>
-    <prop name="TabOrder">4</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-     <prop name="de_AT.utf8"></prop>
-     <prop name="en_US.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignCenter</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinMiter,CapButt,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType" SharedPixmap="0">[pattern,[tile,any,5.png]]</prop>
-    <prop name="Geometry">0.7942245358693001 0 0 1.139318885448916 180.1781259458669 233.5325077399382</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">410 130</prop>
-    <prop name="Size">141 381</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
   <shape Name="sl_gauge" shapeType="SLIDER" layerId="0">
    <properties>
     <prop name="serialId">10</prop>

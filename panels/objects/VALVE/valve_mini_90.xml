@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">287 220</prop>
+  <prop name="Size">229 220</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">82.65896491771795 101.2984022556392</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -88,7 +88,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
    <properties>
     <prop name="serialId">15</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">109.5607817443544 28.6330142036881</prop>
+    <prop name="RefPoint">70.99999999999999 41.30098440702861</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -103,8 +103,8 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">109.5607817443544 20.23283056905916</prop>
-    <prop name="Size">12 22</prop>
+    <prop name="Location">70.99999999999999 28.59981636537106</prop>
+    <prop name="Size">18 32</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8"></prop>
@@ -139,7 +139,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.780008889752739 0 0 1 24.68432043210076 -3.413619055952559</prop>
+    <prop name="Geometry">1.780008889752739 0 0 1 -7.871792028556271 9.371674755417395</prop>
     <prop name="Location">45.6801147186949 33.99531104089451</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,9,5,50,0,0,0,0,0,Обычный</prop>
@@ -175,7 +175,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">-0.2499999999999961 -3.170654848552179e-17 6.12323399573667e-17 -0.5178072323807505 150.7113815430063 41.40941471445836</prop>
+    <prop name="Geometry">-0.3214285714285663 -4.458733380776502e-17 7.872729423090004e-17 -0.7281664205354305 124.4392182556449 58.93031420702052</prop>
     <prop name="Closed">False</prop>
     <prop name="Points">
      <prop name="Location">140 20</prop>
@@ -188,7 +188,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
    <properties>
     <prop name="serialId">6</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">115.7113815430068 31.05569804378048</prop>
+    <prop name="RefPoint">79.43921825564559 44.36698579631189</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
@@ -203,8 +203,8 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">115.7113815430068 31.05569804378048</prop>
-    <prop name="End">110.7113815430069 20.69955339616547</prop>
+    <prop name="Start">79.43921825564559 44.36698579631189</prop>
+    <prop name="End">73.4392182556457 30.01084114869689</prop>
    </properties>
   </shape>
   <shape Name="l_state" shapeType="POLYGON" layerId="0">
@@ -227,7 +227,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">-0.2499999999999961 0 0 0.5178072323807505 150.7113815430063 20.69712541922833</prop>
+    <prop name="Geometry">-0.2999999999999953 0 0 0.7281664205354305 121.4392182556449 29.80365738560329</prop>
     <prop name="Closed">False</prop>
     <prop name="Points">
      <prop name="Location">140 20</prop>
@@ -240,7 +240,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
    <properties>
     <prop name="serialId">8</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">115.7113815430068 30.99097213973289</prop>
+    <prop name="RefPoint">79.43921825564561 44.36698579631191</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
@@ -255,8 +255,8 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">115.7113815430068 30.99097213973289</prop>
-    <prop name="End">110.7113815430069 41.34711678734789</prop>
+    <prop name="Start">79.43921825564561 44.36698579631191</prop>
+    <prop name="End">73.43921825564561 58.36698579631191</prop>
    </properties>
   </shape>
   <shape Name="rec_paz" shapeType="RECTANGLE" layerId="0">
@@ -279,7 +279,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="LineType">[solid,oneColor,JoinRound,CapProjecting,2]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.1486486486486464 0 0 0.3236295202379693 108.7248950565204 17.46083021684863</prop>
+    <prop name="Geometry">0.216216216216213 0 0 0.4931497451245246 69.27705609348347 23.43548834506665</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">10 10</prop>
     <prop name="Size">74.99999999999999 65</prop>
@@ -307,7 +307,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.2499998898616135 -0.0002430258155156333 0.0004693364640703385 0.5178070042589464 80.63951023309949 20.66642769178902</prop>
+    <prop name="Geometry">0.2999998678339362 -0.0003417550530688593 0.0005632037568844062 0.7281660997391434 37.42797268375685 29.85150950895867</prop>
     <prop name="Closed">False</prop>
     <prop name="Points">
      <prop name="Location">140 20</prop>
@@ -336,7 +336,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.2499428169127072 0.005537223759043757 0.01069360065440738 -0.5176887931160782 80.29164314905151 40.62946581760532</prop>
+    <prop name="Geometry">-0.2999313802952487 0.007701152549494235 -0.01283232078528886 -0.7199998667994905 121.9719721984005 57.68882177537252</prop>
     <prop name="Closed">False</prop>
     <prop name="Points">
      <prop name="Location">140 20</prop>
@@ -365,7 +365,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">-1.646147001353858e-16 0.9280355483789461 -0.8999999999999851 -1.712153618218175e-16 155.7613815430061 -14.8844895779145</prop>
+    <prop name="Geometry">-1.646147001353858e-16 0.9280355483789461 -0.8999999999999851 -1.712153618218175e-16 119.239218255645 -1.250684977498551</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">46.99999999999999 42</prop>
     <prop name="Size">6.000000000000007 6.000000000000007</prop>
