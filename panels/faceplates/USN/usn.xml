@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">144 0</prop>
+  <prop name="Size">350 480</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">30 40</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -457,9 +457,9 @@ void cbWorker(dyn_string dps, dyn_anytype vals){
   PANEL_REF50.enabled(dd_vals[4][6] == 32);
   //Кнопка Стоп
   PANEL_REF1.enabled(dd_vals[1][6]  != 0 &amp; dd_vals[1][6] != 48);
-  PANEL_REF44.enabled(dd_vals[2][6] != 0 &amp; dd_vals[1][6] != 48);
-  PANEL_REF54.enabled(dd_vals[3][6] != 0 &amp; dd_vals[1][6] != 48);
-  PANEL_REF53.enabled(dd_vals[4][6] != 0 &amp; dd_vals[1][6] != 48);
+  PANEL_REF44.enabled(dd_vals[2][6] != 0 &amp; dd_vals[2][6] != 48);
+  PANEL_REF54.enabled(dd_vals[3][6] != 0 &amp; dd_vals[3][6] != 48);
+  PANEL_REF53.enabled(dd_vals[4][6] != 0 &amp; dd_vals[4][6] != 48);
   btn_add.enabled((dd_vals[1][6]  == 0 &amp;&amp; dd_vals[2][6] == 0 &amp;&amp; dd_vals[3][6] == 0 &amp;&amp; dd_vals[4][6] == 0 &amp;&amp; !g_mes));
   for(int i=1; i&lt;=dynlen(dd_vals); i++){
     setValue(&quot;pst&quot;+i+&quot;_sts&quot;, &quot;text&quot;, stsToText(dd_vals[i][6]));
