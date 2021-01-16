@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">350 480</prop>
+  <prop name="Size">661 510</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">30 40</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -794,7 +794,10 @@ int fuelToPost(string fuel){
 
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
-  setPanelSize(myModuleName(), dpGetDescription(DP + &quot;.&quot;), false, 350, 480 );
+  setPanelSize(myModuleName(), dpGetDescription(DP + &quot;.&quot;), false, 350, 510 );
+  load_effect.visible(false);
+  back_cover.visible(false);
+
   detail_btn.visible(false);
   detail_btn.visible(true);
   refereshBlocks();
@@ -957,7 +960,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 320.482622279681</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -7.338292247403679 321.3773695238251</prop>
     <prop name="TabOrder">308</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -976,7 +979,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 268.8460079780899</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -7.338292247403679 269.740755222234</prop>
     <prop name="TabOrder">309</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -995,7 +998,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 345.4473281620336</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -7.338292247403679 346.3420754061777</prop>
     <prop name="TabOrder">310</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1013,7 +1016,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 371.4355634561514</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -7.338292247403679 372.3303107002955</prop>
     <prop name="TabOrder">311</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1032,7 +1035,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.83829224740372 294.8342432722077</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -7.338292247403679 295.7289905163518</prop>
     <prop name="TabOrder">312</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1051,7 +1054,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 319.4826222796809</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -3.999804843083695 320.377369523825</prop>
     <prop name="TabOrder">313</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1070,7 +1073,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 267.8460079780901</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -3.999804843083695 268.7407552222343</prop>
     <prop name="TabOrder">314</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1089,7 +1092,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 345.8107138604428</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -3.999804843083695 346.7054611045869</prop>
     <prop name="TabOrder">315</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1107,7 +1110,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 371.7989491545605</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -3.999804843083695 372.6936963987047</prop>
     <prop name="TabOrder">316</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1126,7 +1129,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -3.499804843083695 293.8342432722078</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -3.999804843083695 294.7289905163519</prop>
     <prop name="TabOrder">317</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1145,7 +1148,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 317.9400519212285</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -6.512415929026588 318.8347991653726</prop>
     <prop name="TabOrder">318</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1164,7 +1167,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 266.3034376196376</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -6.512415929026588 267.1981848637818</prop>
     <prop name="TabOrder">319</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1183,7 +1186,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 343.9047578035822</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -6.512415929026588 344.7995050477264</prop>
     <prop name="TabOrder">320</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1201,7 +1204,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 369.8929930977019</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -6.512415929026588 370.7877403418461</prop>
     <prop name="TabOrder">321</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1220,7 +1223,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -6.012415929026617 292.2916729137552</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -6.512415929026588 293.1864201578993</prop>
     <prop name="TabOrder">322</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1239,7 +1242,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 317.9400519212285</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -2.338292247403842 318.8347991653726</prop>
     <prop name="TabOrder">323</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1258,7 +1261,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 266.3034376196374</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -2.338292247403842 267.1981848637815</prop>
     <prop name="TabOrder">324</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1277,7 +1280,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 344.2681435019913</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -2.338292247403842 345.1628907461354</prop>
     <prop name="TabOrder">325</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1295,7 +1298,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 370.2563787961109</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -2.338292247403842 371.151126040255</prop>
     <prop name="TabOrder">326</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1314,7 +1317,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.835636277302944 0 0 1 -1.838292247403833 292.2916729137552</prop>
+    <prop name="Geometry">0.835636277302944 0 0 1 -2.338292247403842 293.1864201578993</prop>
     <prop name="TabOrder">327</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1349,7 +1352,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.267326732673267 0 0 4.482490097764781 -218.7128712871287 -40.18267040750334</prop>
+    <prop name="Geometry">3.267326732673267 0 0 4.482490097764781 -219.2128712871287 -39.28792316335921</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Пост №1</prop>
@@ -1381,7 +1384,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.062417421066692 0 0 1 -20.60567652960628 129.871794871796</prop>
+    <prop name="Geometry">1.062417421066692 0 0 1 -21.10567652960624 130.7665421159401</prop>
     <prop name="Location">171.9153272973901 223.7852941176459</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1401,7 +1404,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">421</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973901 443.1779034690799</prop>
+    <prop name="RefPoint">161.4153272973901 444.0726507132241</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1417,7 +1420,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973901 443.1779034690799</prop>
+    <prop name="Location">161.4153272973901 444.0726507132241</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -1452,7 +1455,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 216.7269362501379 260.9753824606765</prop>
+    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 216.226936250138 261.8701297048207</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -1473,7 +1476,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">423</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973901 398.2609351432881</prop>
+    <prop name="RefPoint">161.4153272973901 399.1556823874322</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1489,7 +1492,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973901 398.2609351432881</prop>
+    <prop name="Location">161.4153272973901 399.1556823874322</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -1524,7 +1527,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.05122644254698 0 0 1 -18.70415775165133 129.871794871796</prop>
+    <prop name="Geometry">1.05122644254698 0 0 1 -19.20415775165129 130.7665421159401</prop>
     <prop name="Location">171.91532729739 245.9350500119065</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1560,7 +1563,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.073170731707317 0 0 1 -28.75900116144054 129.871794871796</prop>
+    <prop name="Geometry">1.073170731707317 0 0 1 -29.25900116144049 130.7665421159401</prop>
     <prop name="Location">258 290.9999999999989</prop>
     <prop name="Size">79 13</prop>
     <prop name="Font">
@@ -1581,7 +1584,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">426</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973899 420.749632849091</prop>
+    <prop name="RefPoint">161.4153272973899 421.6443800932351</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1597,7 +1600,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973899 420.749632849091</prop>
+    <prop name="Location">161.4153272973899 421.6443800932351</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -1616,7 +1619,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">427</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.0740374003644 236.6570889894427</prop>
+    <prop name="RefPoint">18.57403740036444 237.5518362335868</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -1630,7 +1633,7 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">19.0740374003644 236.6570889894427</prop>
+    <prop name="Location">18.57403740036444 237.5518362335868</prop>
     <prop name="Size">311 22</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
@@ -1642,7 +1645,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">428</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">21.22835067666279 266.0160256410256</prop>
+    <prop name="RefPoint">20.72835067666283 266.9107728851696</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1658,7 +1661,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">21.22835067666279 266.0160256410256</prop>
+    <prop name="Location">20.72835067666283 266.9107728851696</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -1677,7 +1680,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">429</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.4508763183776 222.3237179487187</prop>
+    <prop name="RefPoint">18.95087631837764 223.2184651928628</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1693,7 +1696,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">19.4508763183776 222.3237179487187</prop>
+    <prop name="Location">18.95087631837764 223.2184651928628</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -1728,7 +1731,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.267326732673267 0 0 4.482490097764781 -218.7128712871287 -40.18267040750334</prop>
+    <prop name="Geometry">3.267326732673267 0 0 4.482490097764781 -219.2128712871287 -39.28792316335921</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Пост №2</prop>
@@ -1760,7 +1763,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.078021776333366 0 0 1 -400.5647173786858 129.8717948717959</prop>
+    <prop name="Geometry">1.078021776333366 0 0 1 -401.0647173786858 130.7665421159401</prop>
     <prop name="Location">521.9153272973901 223.7852941176459</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1780,7 +1783,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">432</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973902 443.1779034690798</prop>
+    <prop name="RefPoint">161.4153272973902 444.0726507132239</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1796,7 +1799,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973902 443.1779034690798</prop>
+    <prop name="Location">161.4153272973902 444.0726507132239</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -1831,7 +1834,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 216.7269362501378 260.9753824606765</prop>
+    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 216.2269362501378 261.8701297048207</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -1852,7 +1855,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">434</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973902 398.2609351432878</prop>
+    <prop name="RefPoint">161.4153272973902 399.155682387432</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1868,7 +1871,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973902 398.2609351432878</prop>
+    <prop name="Location">161.4153272973902 399.155682387432</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -1903,7 +1906,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.064033053183725 0 0 1 -393.2917658038676 129.8717948717959</prop>
+    <prop name="Geometry">1.064033053183725 0 0 1 -393.7917658038676 130.7665421159401</prop>
     <prop name="Location">521.9153272973901 245.9350500119064</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1939,7 +1942,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.073170731707317 0 0 1 -404.3687572590011 129.8717948717959</prop>
+    <prop name="Geometry">1.073170731707317 0 0 1 -404.8687572590011 130.7665421159401</prop>
     <prop name="Location">608 290.9999999999989</prop>
     <prop name="Size">79 13</prop>
     <prop name="Font">
@@ -1960,7 +1963,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">437</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.91532729739 420.7496328490909</prop>
+    <prop name="RefPoint">161.41532729739 421.6443800932351</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1976,7 +1979,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.91532729739 420.7496328490909</prop>
+    <prop name="Location">161.41532729739 421.6443800932351</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -1995,7 +1998,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">438</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.07403740036438 236.6570889894427</prop>
+    <prop name="RefPoint">18.57403740036441 237.5518362335868</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2009,7 +2012,7 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">19.07403740036442 236.6570889894427</prop>
+    <prop name="Location">18.57403740036445 237.5518362335868</prop>
     <prop name="Size">311 22</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
@@ -2020,7 +2023,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">439</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.07403740036438 279.4767399267407</prop>
+    <prop name="RefPoint">18.57403740036441 280.3714871708848</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2034,7 +2037,7 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">19 279.8717948717957</prop>
+    <prop name="Location">18.50000000000003 280.7665421159398</prop>
     <prop name="Size">311 36</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
@@ -2045,7 +2048,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">440</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">21.22835067666309 266.0160256410256</prop>
+    <prop name="RefPoint">20.7283506766631 266.9107728851696</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2061,7 +2064,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">21.22835067666309 266.0160256410256</prop>
+    <prop name="Location">20.7283506766631 266.9107728851696</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2080,7 +2083,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">441</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.4508763183779 222.3237179487187</prop>
+    <prop name="RefPoint">18.95087631837791 223.2184651928628</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2096,7 +2099,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">19.4508763183779 222.3237179487187</prop>
+    <prop name="Location">18.95087631837791 223.2184651928628</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2131,7 +2134,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.267326732673267 0 0 4.469850374884002 -218.7128712871287 -39.12725354695829</prop>
+    <prop name="Geometry">3.267326732673267 0 0 4.469850374884002 -219.2128712871287 -38.23250630281416</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Пост №3</prop>
@@ -2147,7 +2150,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">443</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.91532729739 350.6661781814506</prop>
+    <prop name="RefPoint">161.41532729739 351.5609254255947</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2163,7 +2166,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.91532729739 350.6661781814506</prop>
+    <prop name="Location">161.41532729739 351.5609254255947</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2182,7 +2185,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">444</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973902 440.1869926610905</prop>
+    <prop name="RefPoint">161.4153272973901 441.0817399052346</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2198,7 +2201,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973902 440.1869926610905</prop>
+    <prop name="Location">161.4153272973901 441.0817399052346</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2233,7 +2236,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.5528125685151 257.9844716526839</prop>
+    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.052812568515 258.879218896828</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -2254,7 +2257,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">446</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973902 395.2700243352987</prop>
+    <prop name="RefPoint">161.4153272973901 396.1647715794428</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2270,7 +2273,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973902 395.2700243352987</prop>
+    <prop name="Location">161.4153272973901 396.1647715794428</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2289,7 +2292,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">447</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.91532729739 372.8159340757127</prop>
+    <prop name="RefPoint">161.41532729739 373.7106813198568</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2305,7 +2308,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.91532729739 372.8159340757127</prop>
+    <prop name="Location">161.41532729739 373.7106813198568</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2340,7 +2343,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.073170731707317 0 0 1 -27.93312484306344 -141.0341611850655</prop>
+    <prop name="Geometry">1.073170731707317 0 0 1 -28.43312484306341 -140.1394139409214</prop>
     <prop name="Location">258 559.0000000000022</prop>
     <prop name="Size">79 13</prop>
     <prop name="Font">
@@ -2361,7 +2364,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">449</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.91532729739 417.7587220411016</prop>
+    <prop name="RefPoint">161.41532729739 418.6534692852457</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2377,7 +2380,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.91532729739 417.7587220411016</prop>
+    <prop name="Location">161.41532729739 418.6534692852457</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2396,7 +2399,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">450</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.07403740036489 236.66617818145</prop>
+    <prop name="RefPoint">18.57403740036489 237.5609254255941</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2410,7 +2413,7 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">19.07403740036489 236.6661781814499</prop>
+    <prop name="Location">18.57403740036489 237.560925425594</prop>
     <prop name="Size">311 22</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
@@ -2421,7 +2424,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">451</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.07403740036489 279.4858291187481</prop>
+    <prop name="RefPoint">18.57403740036489 280.3805763628922</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2435,8 +2438,8 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">18.8258763183776 279.9658388149342</prop>
-    <prop name="Size">311 36</prop>
+    <prop name="Location">18.3258763183776 280.8605860590783</prop>
+    <prop name="Size">312 36</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
     </extended>
@@ -2446,7 +2449,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">452</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">21.22835067666264 266.0251148330331</prop>
+    <prop name="RefPoint">20.72835067666256 266.9198620771772</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2462,7 +2465,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">21.22835067666264 266.0251148330331</prop>
+    <prop name="Location">20.72835067666256 266.9198620771772</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2481,7 +2484,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">453</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.45087631837745 222.3328071407253</prop>
+    <prop name="RefPoint">18.95087631837737 223.2275543848694</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2497,7 +2500,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">19.45087631837745 222.3328071407253</prop>
+    <prop name="Location">18.95087631837737 223.2275543848694</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2532,7 +2535,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.267326732673267 0 0 4.469850374884002 -218.7128712871287 -39.12725354695829</prop>
+    <prop name="Geometry">3.267326732673267 0 0 4.469850374884002 -219.2128712871287 -38.23250630281416</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Пост №4</prop>
@@ -2548,7 +2551,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">455</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973892 350.6661781814506</prop>
+    <prop name="RefPoint">161.4153272973892 351.5609254255947</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2564,7 +2567,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973892 350.6661781814506</prop>
+    <prop name="Location">161.4153272973892 351.5609254255947</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2583,7 +2586,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">456</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973901 440.1869926610902</prop>
+    <prop name="RefPoint">161.4153272973901 441.0817399052344</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2599,7 +2602,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973901 440.1869926610902</prop>
+    <prop name="Location">161.4153272973901 441.0817399052344</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2634,7 +2637,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296982 0 0 1.214285714285714 217.5528125685153 257.9844716526839</prop>
+    <prop name="Geometry">1.046403712296982 0 0 1.214285714285714 217.0528125685153 258.879218896828</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -2655,7 +2658,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">458</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973901 395.2700243352987</prop>
+    <prop name="RefPoint">161.4153272973901 396.1647715794428</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2671,7 +2674,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973901 395.2700243352987</prop>
+    <prop name="Location">161.4153272973901 396.1647715794428</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2690,7 +2693,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">459</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973892 372.8159340757127</prop>
+    <prop name="RefPoint">161.4153272973892 373.7106813198568</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2706,7 +2709,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973892 372.8159340757127</prop>
+    <prop name="Location">161.4153272973892 373.7106813198568</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2741,7 +2744,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.073170731707317 0 0 1 -403.5428809406238 -141.0341611850655</prop>
+    <prop name="Geometry">1.073170731707317 0 0 1 -404.0428809406237 -140.1394139409214</prop>
     <prop name="Location">608 559.0000000000022</prop>
     <prop name="Size">79 13</prop>
     <prop name="Font">
@@ -2762,7 +2765,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">461</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.9153272973892 417.7587220411016</prop>
+    <prop name="RefPoint">161.4153272973892 418.6534692852457</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2778,7 +2781,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.9153272973892 417.7587220411016</prop>
+    <prop name="Location">161.4153272973892 418.6534692852457</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2797,7 +2800,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">462</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.07403740036375 236.66617818145</prop>
+    <prop name="RefPoint">18.57403740036375 237.5609254255941</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2811,7 +2814,7 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">19.07403740036382 236.6661781814499</prop>
+    <prop name="Location">18.57403740036382 237.560925425594</prop>
     <prop name="Size">311 22</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
@@ -2822,7 +2825,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">463</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.07403740036375 279.4858291187479</prop>
+    <prop name="RefPoint">18.57403740036375 280.380576362892</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2836,8 +2839,8 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">18.82587631837669 279.9658388149342</prop>
-    <prop name="Size">311 36</prop>
+    <prop name="Location">18.32587631837669 280.8605860590783</prop>
+    <prop name="Size">312 36</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
     </extended>
@@ -2847,7 +2850,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">464</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">21.22835067666325 266.0251148330329</prop>
+    <prop name="RefPoint">20.72835067666324 266.919862077177</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2863,7 +2866,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">21.22835067666325 266.0251148330329</prop>
+    <prop name="Location">20.72835067666324 266.919862077177</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2882,7 +2885,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">465</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.45087631837828 222.3328071407253</prop>
+    <prop name="RefPoint">18.95087631837828 223.2275543848694</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2898,7 +2901,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">19.45087631837828 222.3328071407253</prop>
+    <prop name="Location">18.95087631837828 223.2275543848694</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2917,7 +2920,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">466</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">-47.07368552243347 40.38573313941031</prop>
+    <prop name="RefPoint">-47.57368552243343 41.28048038355444</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2931,8 +2934,8 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">179.9263144775665 321.6044036845515</prop>
-    <prop name="Size">150 22</prop>
+    <prop name="Location">179.4263144775666 322.4991509286957</prop>
+    <prop name="Size">151 23</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
      <prop type="ENUM" name="alignment">132</prop>
@@ -2943,7 +2946,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">467</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">162.0664323489875 325.8460079780898</prop>
+    <prop name="RefPoint">161.5664323489875 326.7407552222339</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2959,7 +2962,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">162.0664323489875 325.8460079780898</prop>
+    <prop name="Location">161.5664323489875 326.7407552222339</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -2978,7 +2981,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">468</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">-48.07368552243338 40.38573313941042</prop>
+    <prop name="RefPoint">-48.57368552243335 41.28048038355455</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -2992,8 +2995,8 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">178.9263144775665 321.6044036845516</prop>
-    <prop name="Size">150 22</prop>
+    <prop name="Location">178.4263144775665 322.4991509286957</prop>
+    <prop name="Size">151 23</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
      <prop type="ENUM" name="alignment">132</prop>
@@ -3004,7 +3007,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">469</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.0664323489876 325.8460079780901</prop>
+    <prop name="RefPoint">160.5664323489875 326.7407552222343</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -3020,7 +3023,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.0664323489876 325.8460079780901</prop>
+    <prop name="Location">160.5664323489875 326.7407552222343</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -3039,7 +3042,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">470</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">-47.24780920405567 39.47977708254888</prop>
+    <prop name="RefPoint">-47.74780920405567 40.37452432669301</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -3053,8 +3056,8 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">179.7521907959444 320.6984476276899</prop>
-    <prop name="Size">150 22</prop>
+    <prop name="Location">179.2521907959444 321.593194871834</prop>
+    <prop name="Size">151 22</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
      <prop type="ENUM" name="alignment">132</prop>
@@ -3065,7 +3068,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">471</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.8923086673647 324.9400519212285</prop>
+    <prop name="RefPoint">161.3923086673647 325.8347991653726</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -3081,7 +3084,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.8923086673647 324.9400519212285</prop>
+    <prop name="Location">161.3923086673647 325.8347991653726</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -3100,7 +3103,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">472</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">-47.24780920405624 39.47977708254888</prop>
+    <prop name="RefPoint">-47.74780920405624 40.37452432669301</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -3114,8 +3117,8 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">179.7521907959438 320.6984476276899</prop>
-    <prop name="Size">150 22</prop>
+    <prop name="Location">179.2521907959438 321.593194871834</prop>
+    <prop name="Size">151 22</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
      <prop type="ENUM" name="alignment">132</prop>
@@ -3126,7 +3129,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">473</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">161.8923086673651 324.9400519212285</prop>
+    <prop name="RefPoint">161.3923086673651 325.8347991653726</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -3142,7 +3145,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">161.8923086673651 324.9400519212285</prop>
+    <prop name="Location">161.3923086673651 325.8347991653726</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
@@ -3161,7 +3164,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="serialId">474</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">19.0740374003644 279.4767399267407</prop>
+    <prop name="RefPoint">18.57403740036444 280.3714871708848</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -3175,8 +3178,8 @@ int fuelToPost(string fuel){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">18.9999999999998 279.8717948717957</prop>
-    <prop name="Size">311 36</prop>
+    <prop name="Location">18.49999999999984 280.7665421159398</prop>
+    <prop name="Size">312 36</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
     </extended>
@@ -3202,7 +3205,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.049835996190879 0 0 1.214285714285714 216.623967733321 195.8241758241768</prop>
+    <prop name="Geometry">1.049835996190879 0 0 1.214285714285714 216.123967733321 196.7189230683209</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3239,7 +3242,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 216.7269362501379 217.4908424908432</prop>
+    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 216.226936250138 218.3855897349873</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3276,7 +3279,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296982 0 0 1.214285714285714 216.726936250138 195.1575091575099</prop>
+    <prop name="Geometry">1.046403712296982 0 0 1.214285714285714 216.226936250138 196.0522564016541</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3313,7 +3316,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296986 0 0 1.214285714285714 216.7269362501378 216.8241758241766</prop>
+    <prop name="Geometry">1.046403712296986 0 0 1.214285714285714 216.2269362501378 217.7189230683207</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3350,7 +3353,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.5528125685151 191.5848864339809</prop>
+    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.052812568515 192.479633678125</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3387,7 +3390,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.5528125685151 213.2515531006477</prop>
+    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.052812568515 214.1463003447918</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3424,7 +3427,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.5528125685153 192.9182197673145</prop>
+    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.0528125685153 193.8129670114586</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3461,7 +3464,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.5528125685153 214.584886433981</prop>
+    <prop name="Geometry">1.046403712296984 0 0 1.214285714285714 217.0528125685153 215.4796336781251</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3498,7 +3501,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.05952380952381 0 0 1.214285714285714 216.333333333333 174.15750915751</prop>
+    <prop name="Geometry">1.05952380952381 0 0 1.214285714285714 215.833333333333 175.0522564016541</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3535,7 +3538,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.05952380952381 0 0 1.214285714285714 216.3333333333331 174.1575091575102</prop>
+    <prop name="Geometry">1.05952380952381 0 0 1.214285714285714 215.8333333333331 175.0522564016543</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3572,7 +3575,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.05952380952381 0 0 1.214285714285714 217.1592096517103 170.584886433981</prop>
+    <prop name="Geometry">1.05952380952381 0 0 1.214285714285714 216.6592096517103 171.4796336781251</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -3609,7 +3612,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.05952380952381 0 0 1.214285714285714 217.1592096517113 170.584886433981</prop>
+    <prop name="Geometry">1.05952380952381 0 0 1.214285714285714 216.6592096517113 171.4796336781251</prop>
     <prop name="Location">30 150</prop>
     <prop name="Size">81 11</prop>
     <prop name="Font">
@@ -4400,7 +4403,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.090517604534056 0 0 1.174150064804941 -124.675004416146 -141.5402490329598</prop>
+    <prop name="Geometry">1.090517604534056 0 0 1.174150064804941 -129.5847702384891 -102.2545347472453</prop>
     <prop name="Location">586.4965109955868 257.4241094109705</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -4420,7 +4423,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/usn_parts/receive_line.xml</prop>
     <prop name="Location">390 150</prop>
-    <prop name="Geometry">1 0 0 1 -3.631688159189009 37.85714285714182</prop>
+    <prop name="Geometry">1 0 0 1 -8.541453981532113 77.14285714285634</prop>
     <prop name="TabOrder">440</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
@@ -4429,7 +4432,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/usn_parts/receive_line.xml</prop>
     <prop name="Location">390 150</prop>
-    <prop name="Geometry">1 0 0 1 -3.631688159189009 67.8571428571418</prop>
+    <prop name="Geometry">1 0 0 1 -8.541453981532113 107.1428571428563</prop>
     <prop name="TabOrder">441</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
@@ -4438,7 +4441,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/usn_parts/receive_line.xml</prop>
     <prop name="Location">390 150</prop>
-    <prop name="Geometry">1 0 0 1 -3.631688159189123 97.85714285714181</prop>
+    <prop name="Geometry">1 0 0 1 -8.541453981532227 137.1428571428563</prop>
     <prop name="TabOrder">442</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
@@ -4447,7 +4450,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/usn_parts/receive_line.xml</prop>
     <prop name="Location">390 150</prop>
-    <prop name="Geometry">1 0 0 1 -3.631688159189009 127.8571428571418</prop>
+    <prop name="Geometry">1 0 0 1 -8.541453981532113 167.1428571428563</prop>
     <prop name="TabOrder">443</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
@@ -4456,7 +4459,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/usn_parts/receive_line.xml</prop>
     <prop name="Location">390 150</prop>
-    <prop name="Geometry">1 0 0 1 -3.631688159189009 157.8571428571418</prop>
+    <prop name="Geometry">1 0 0 1 -8.541453981532113 197.1428571428563</prop>
     <prop name="TabOrder">444</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
@@ -4465,7 +4468,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/usn_parts/receive_line.xml</prop>
     <prop name="Location">390 150</prop>
-    <prop name="Geometry">1 0 0 1 -3.631688159189009 187.8571428571419</prop>
+    <prop name="Geometry">1 0 0 1 -8.541453981532113 227.1428571428564</prop>
     <prop name="TabOrder">445</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
@@ -4474,7 +4477,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/usn_parts/receive_line.xml</prop>
     <prop name="Location">390 150</prop>
-    <prop name="Geometry">1 0 0 1 -3.631688159189123 217.8571428571419</prop>
+    <prop name="Geometry">1 0 0 1 -8.541453981532227 257.1428571428564</prop>
     <prop name="TabOrder">446</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
@@ -4483,7 +4486,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/usn_parts/receive_line.xml</prop>
     <prop name="Location">390 150</prop>
-    <prop name="Geometry">1 0 0 1 -3.631688159189123 247.857142857142</prop>
+    <prop name="Geometry">1 0 0 1 -8.541453981532227 287.1428571428565</prop>
     <prop name="TabOrder">447</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
@@ -4492,7 +4495,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.7865047274780658 0 0 0.8974358974358975 363.7731700164689 381.7252747252724</prop>
+    <prop name="Geometry">0.7865047274780658 0 0 0.8974358974358975 358.8634041941258 421.0109890109869</prop>
     <prop name="TabOrder">448</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -4512,7 +4515,7 @@ int fuelToPost(string fuel){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">30 60</prop>
-    <prop name="Geometry">0.7865047274780658 0 0 0.8974358974358975 502.9434798046713 381.7252747252724</prop>
+    <prop name="Geometry">0.7865047274780658 0 0 0.8974358974358975 498.0337139823282 421.0109890109869</prop>
     <prop name="TabOrder">449</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -4562,7 +4565,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.718244764459678 0 0 1 -276.8637687657462 -1</prop>
+    <prop name="Geometry">1.718244764459678 0 0 1 -281.7735345880893 38.28571428571453</prop>
     <prop name="Location">400 183</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Arial,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -4598,7 +4601,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.392234921244398 0 0 1 -166.1997784464341 -2</prop>
+    <prop name="Geometry">1.392234921244398 0 0 1 -171.1095442687772 37.28571428571453</prop>
     <prop name="Location">449 183.5</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Arial,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -4634,7 +4637,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.559102506805668 0 0 1 -192.0973990848215 -2</prop>
+    <prop name="Geometry">1.559102506805668 0 0 1 -197.0071649071646 37.28571428571453</prop>
     <prop name="Location">449 183.5</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Arial,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -4670,7 +4673,7 @@ int fuelToPost(string fuel){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">2.549210944438702 0 0 1 -556.7465801392933 -2</prop>
+    <prop name="Geometry">2.549210944438702 0 0 1 -561.6563459616364 37.28571428571453</prop>
     <prop name="Location">449 183.5</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Arial,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -4684,6 +4687,84 @@ int fuelToPost(string fuel){
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <reference parentSerial="-1" Name="btn_reset" referenceId="35">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">30 60</prop>
+    <prop name="Geometry">2.248477513465103 0 0 0.8974358974358975 -57.45432540395309 420.1538461538461</prop>
+    <prop name="TabOrder">459</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="CHAR_STRING" name="text">Сброс команды</prop>
+     <prop type="INT" name="secureBit">18</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn(){
+  back_cover.visible(true);
+  load_effect.visible(true);
+  load_effect.start();
+  dpSetWait(DP + &quot;.PST_1.CMD&quot;, 0x8000,
+            DP + &quot;.PST_2.CMD&quot;, 0x8000,
+            DP + &quot;.PST_3.CMD&quot;, 0x8000,
+            DP + &quot;.PST_4.CMD&quot;, 0x8000);
+  delay(30);
+  back_cover.visible(false);
+  load_effect.stop();
+  load_effect.visible(false);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <shape Name="back_cover" shapeType="GENERIC" layerId="0">
+   <properties>
+    <prop name="serialId">743</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">8.999999999999986 202.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">461</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">8.999999999999986 202.9999999999999</prop>
+    <prop name="Size">331 265</prop>
+    <prop name="ObjectType">BackgroundCover.ewo</prop>
+   </properties>
+  </shape>
+  <shape Name="load_effect" shapeType="GENERIC" layerId="0">
+   <properties>
+    <prop name="serialId">742</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">44.47791798107246 208.0055970149253</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">460</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">44.47791798107246 208.0055970149253</prop>
+    <prop name="Size">260 255</prop>
+    <prop name="ObjectType">AttentionEffect.ewo</prop>
+    <extended>
+     <prop type="ENUM" name="effectType">4</prop>
+     <prop type="ENUM" name="layoutDirection">0</prop>
+     <prop type="BOOL" name="tabletTracking">False</prop>
+    </extended>
    </properties>
   </shape>
  </shapes>
