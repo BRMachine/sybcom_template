@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">699 741</prop>
+  <prop name="Size">699 564</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">20 20</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -85,235 +85,230 @@ string stsToColor(int sts){
 string stpToText(int stp){
   string res = &quot;UNKNOW&quot;;
   switch(stp){
-  	case 0:
-  		res = &quot;Останова нет&quot;;
-  		break;
-  	case 1:
-  		res = &quot;Сработал датчик перелива&quot;;
-  		break;
-  	case 2:
-  		res = &quot;Сработал датчик перелива 2&quot;;
-  		break;
-  	case 3:
-  		res = &quot;Отключилось заземление&quot;;
-  		break;
-  	case 4:
-  		res = &quot;Наконечник не в рабочем положении&quot;;
-  		break;
-  	case 5:
-  		res = &quot;Стояк в гаражном положении&quot;;
-  		break;
-  	case 6:
-  		res = &quot;Трап в гаражном положении&quot;;
-  		break;
-  	case 7:
-  		res = &quot;Сработал датчик загрязненности фильтра&quot;;
-  		break;
-  	case 8:
-  		res = &quot;Останов по кнопке пуск/стоп&quot;;
-  		break;
-  	case 9:
-  		res = &quot;Сработал датчик загазованности&quot;;
-  		break;
-  	case 10:
-  		res = &quot;Отсутствие потока жидкости&quot;;
-  		break;
-  	case 11:
-  		res = &quot;Переход в паузу по завершению дозы по объему&quot;;
-  		break;
-  	case 12:
-  		res = &quot;Переход в паузу по завершению дозы по массе&quot;;
-  		break;
-  	case 13:
-  		res = &quot;Нерабочее положение уклона стояка&quot;;
-  		break;
-  	case 14:
-  		res = &quot;Сработал внешний датчик запрета налива&quot;;
-  		break;
-  	case 15:
-  		res = &quot;Закрыта задвижка&quot;;
-  		break;
-  	case 16:
-  		res = &quot;Возникновение ошибки в посте&quot;;
-  		break;
-  	case 17:
-  		res = &quot;Останов по команде с компьютера&quot;;
-  		break;
-  	case 18:
-  		res = &quot;Переход в паузу по завершению времени налива&quot;;
-  		break;
-  	case 19:
-  		res = &quot;Переход в паузу по датчику угла&quot;;
-  		break;
+    case 0:
+      res = &quot;Останова нет&quot;;
+      break;
+    case 1:
+      res = &quot;Сработал датчик перелива&quot;;
+      break;
+    case 2:
+      res = &quot;Сработал датчик перелива 2&quot;;
+      break;
+    case 3:
+      res = &quot;Отключилось заземление&quot;;
+      break;
+    case 4:
+      res = &quot;Наконечник не в рабочем положении&quot;;
+      break;
+    case 5:
+      res = &quot;Стояк в гаражном положении&quot;;
+      break;
+    case 6:
+      res = &quot;Трап в гаражном положении&quot;;
+      break;
+    case 7:
+      res = &quot;Сработал датчик загрязненности фильтра&quot;;
+      break;
+    case 8:
+      res = &quot;Останов по кнопке пуск/стоп&quot;;
+      break;
+    case 9:
+      res = &quot;Сработал датчик загазованности&quot;;
+      break;
+    case 10:
+      res = &quot;Отсутствие потока жидкости&quot;;
+      break;
+    case 11:
+      res = &quot;Переход в паузу по завершению дозы по объему&quot;;
+      break;
+    case 12:
+      res = &quot;Переход в паузу по завершению дозы по массе&quot;;
+      break;
+    case 13:
+      res = &quot;Нерабочее положение уклона стояка&quot;;
+      break;
+    case 14:
+      res = &quot;Сработал внешний датчик запрета налива&quot;;
+      break;
+    case 15:
+      res = &quot;Закрыта задвижка&quot;;
+      break;
+    case 16:
+      res = &quot;Возникновение ошибки в посте&quot;;
+      break;
+    case 17:
+      res = &quot;Останов по команде с компьютера&quot;;
+      break;
+    case 18:
+      res = &quot;Переход в паузу по завершению времени налива&quot;;
+      break;
+    case 19:
+      res = &quot;Переход в паузу по датчику угла&quot;;
+      break;
     case 20:
-    res = &quot;Коррекция нуля в массомере&quot;;
-    break;
-  	case 31:
-  		res = &quot;Неизвестная причина останова&quot;;
-  		break;
-  	case 50:
-  		res = &quot;Переход в паузу по завершению дозы по стоимости&quot;;
-  		break;
-  	case 51:
-  		res = &quot;Отключилось заземление&quot;;
-  		break;
-  	case 52:
-  		res = &quot;Останов по кнопке Аварийный стоп&quot;;
-  		break;
-  	case 53:
-  		res = &quot;Аварийный стоп по датчикам КУНА&quot;;
-  		break;
-  	case 54:
-  		res = &quot;Аварийный стоп по МН-2&quot;;
-  		break;
-  	case 55:
-  		res = &quot;Ожидание сброса объема в расходомере&quot;;
-  		break;
-  	case 56:
-  		res = &quot;Ожидание сброса массы в расходомере&quot;;
-  		break;
-  	case 57:
-  		res = &quot;Доза объема меньше упреждения отсечки клапана&quot;;
-  		break;
-  	case 58:
-  		res = &quot;Доза массы меньше упреждения отсечки клапана&quot;;
-  		break;
-  	case 72:
-  		res = &quot;Не задана ни одна из доз&quot;;
-  		break;
-  	case 88:
-  		res = &quot;Ожидание записи переменных&quot;;
-  		break;
-  	case 59:
-  		res = &quot;Останов по УЗ датчику уровня&quot;;
-  		break;
-  	case 60:
-  		res = &quot;Низкий уровень в емкости присадки&quot;;
-  		break;
-  	case 61:
-  		res = &quot;Ошибка состояния внешнего устройства&quot;;
-  		break;
-  	case 62:
-  		res = &quot;Аварийный стоп по МН-1&quot;;
-  		break;
-  	case 63:
-  		res = &quot;Выход за диапазон значений Модуля ввода&quot;;
-  		break;
-  	case 64:
-  		res = &quot;Выход за диапазон датчиков МН-2&quot;;
-  		break;
-  	case 65:
-  		res = &quot;Ошибка управления выходами блока силового&quot;;
-  		break;
-  	case 66:
-  		res = &quot;Ошибка управления выходами КУЗ&quot;;
-  		break;
-  	case 67:
-  		res = &quot;Запрет налива по состоянию обоих мониторов (логика ИЛИ)&quot;;
-  		break;
-  	case 68:
-  		res = &quot;Останов по состоянию ДИО-5&quot;;
-  		break;
-  	case 69:
-  		res = &quot;Ошибка управления выходами КУН3&quot;;
-  		break;
-  	case 70:
-  		res = &quot;Останов по входу безопасности&quot;;
-  		break;
-  	case 71:
-  		res = &quot;Ошибка управления выходами КУД&quot;;
-  		break;
-  	case 73:
-  		res = &quot;Ошибка состояния ПЛОТ-3М&quot;;
-  		break;
-  	case 74:
-  		res = &quot;Ошибка данных ПЛОТ-3М&quot;;
-  		break;
-  	case 75:
-  		res = &quot;Аварийный стоп по МН-2 верхний налив&quot;;
-  		break;
-  	case 76:
-  		res = &quot;Аварийный стоп по МН-2 нижний налив&quot;;
-  		break;
-  	case 77:
-  		res = &quot;Ошибка управления выходами БУК&quot;;
-  		break;
-  	case 78:
-  		res = &quot;Авария КУНА(по датчикам насоса)&quot;;
-  		break;
-  	case 79:
-  		res = &quot;Выход за диапазон значений датчика безопасности&quot;;
-  		break;
-  	case 80:
-  		res = &quot;Выход за диапазон значений датчика загазованности&quot;;
-  		break;
-  	case 81:
-  		res = &quot;Выход за диапазон значений датчика заземления&quot;;
-  		break;
-  	case 82:
-  		res = &quot;Выход за диапазон значений датчика перелива&quot;;
-  		break;
-  	case 83:
-  		res = &quot;Выход за диапазон значений датчика рабочего положения&quot;;
-  		break;
-  	case 84:
-  		res = &quot;Выход за диапазон значений датчика гаражного&quot;;
-  		break;
-  	case 85:
-  		res = &quot;Выход за диапазон значений датчика гаражного&quot;;
-  		break;
-  	case 86:
-  		res = &quot;Выход за диапазон значений датчика аварийного стопа&quot;;
-  		break;
-  	case 87:
-  		res = &quot;Выход за диапазон значений датчика наклона стояка&quot;;
-  		break;
-  	case 89:
-  		res = &quot;Завершение слива&quot;;
-  		break;
-  	case 90:
-  		res = &quot;Выход за диапазон значений датчика уровня дренажного бачка верхнего уровня&quot;;
-  		break;
-  	case 91:
-  		res = &quot;Выход за диапазон значений датчика уровня дренажного бачка нижнего уровня&quot;;
-  		break;
-  	case 92:
-  		res = &quot;Превышен уровень охл. жидкости&quot;;
-  		break;
-  	case 93:
-  		res = &quot;Недостаточен уровень охл. жидкости&quot;;
-  		break;
-  	case 94:
-  		res = &quot;Выход за диапазон датчика микро расхода&quot;;
-  		break;
-  	case 95:
-  		res = &quot;Выход за диапазон датчика окончания налива&quot;;
-  		break;
-  	case 96:
-  		res = &quot;Останов по датчику окончания налива&quot;;
-  		break;
-  	default:
-  		res = &quot;НЕИЗВЕСТНАЯ ПРИЧИНА&quot;;
+      res = &quot;Коррекция нуля в массомере&quot;;
+      break;
+    case 31:
+      res = &quot;Неизвестная причина останова&quot;;
+      break;
+    case 50:
+      res = &quot;Переход в паузу по завершению дозы по стоимости&quot;;
+      break;
+    case 51:
+      res = &quot;Отключилось заземление&quot;;
+      break;
+    case 52:
+      res = &quot;Останов по кнопке Аварийный стоп&quot;;
+      break;
+    case 53:
+      res = &quot;Аварийный стоп по датчикам КУНА&quot;;
+      break;
+    case 54:
+      res = &quot;Аварийный стоп по МН-2&quot;;
+      break;
+    case 55:
+      res = &quot;Ожидание сброса объема в расходомере&quot;;
+      break;
+    case 56:
+      res = &quot;Ожидание сброса массы в расходомере&quot;;
+      break;
+    case 57:
+      res = &quot;Доза объема меньше упреждения отсечки клапана&quot;;
+      break;
+    case 58:
+      res = &quot;Доза массы меньше упреждения отсечки клапана&quot;;
+      break;
+    case 72:
+      res = &quot;Не задана ни одна из доз&quot;;
+      break;
+    case 88:
+      res = &quot;Ожидание записи переменных&quot;;
+      break;
+    case 59:
+      res = &quot;Останов по УЗ датчику уровня&quot;;
+      break;
+    case 60:
+      res = &quot;Низкий уровень в емкости присадки&quot;;
+      break;
+    case 61:
+      res = &quot;Ошибка состояния внешнего устройства&quot;;
+      break;
+    case 62:
+      res = &quot;Аварийный стоп по МН-1&quot;;
+      break;
+    case 63:
+      res = &quot;Выход за диапазон значений Модуля ввода&quot;;
+      break;
+    case 64:
+      res = &quot;Выход за диапазон датчиков МН-2&quot;;
+      break;
+    case 65:
+      res = &quot;Ошибка управления выходами блока силового&quot;;
+      break;
+    case 66:
+      res = &quot;Ошибка управления выходами КУЗ&quot;;
+      break;
+    case 67:
+      res = &quot;Запрет налива по состоянию обоих мониторов (логика ИЛИ)&quot;;
+      break;
+    case 68:
+      res = &quot;Останов по состоянию ДИО-5&quot;;
+      break;
+    case 69:
+      res = &quot;Ошибка управления выходами КУН3&quot;;
+      break;
+    case 70:
+      res = &quot;Останов по входу безопасности&quot;;
+      break;
+    case 71:
+      res = &quot;Ошибка управления выходами КУД&quot;;
+      break;
+    case 73:
+      res = &quot;Ошибка состояния ПЛОТ-3М&quot;;
+      break;
+    case 74:
+      res = &quot;Ошибка данных ПЛОТ-3М&quot;;
+      break;
+    case 75:
+      res = &quot;Аварийный стоп по МН-2 верхний налив&quot;;
+      break;
+    case 76:
+      res = &quot;Аварийный стоп по МН-2 нижний налив&quot;;
+      break;
+    case 77:
+      res = &quot;Ошибка управления выходами БУК&quot;;
+      break;
+    case 78:
+      res = &quot;Авария КУНА(по датчикам насоса)&quot;;
+      break;
+    case 79:
+      res = &quot;Выход за диапазон значений датчика безопасности&quot;;
+      break;
+    case 80:
+      res = &quot;Выход за диапазон значений датчика загазованности&quot;;
+      break;
+    case 81:
+      res = &quot;Выход за диапазон значений датчика заземления&quot;;
+      break;
+    case 82:
+      res = &quot;Выход за диапазон значений датчика перелива&quot;;
+      break;
+    case 83:
+      res = &quot;Выход за диапазон значений датчика рабочего положения&quot;;
+      break;
+    case 84:
+      res = &quot;Выход за диапазон значений датчика гаражного&quot;;
+      break;
+    case 85:
+      res = &quot;Выход за диапазон значений датчика гаражного&quot;;
+      break;
+    case 86:
+      res = &quot;Выход за диапазон значений датчика аварийного стопа&quot;;
+      break;
+    case 87:
+      res = &quot;Выход за диапазон значений датчика наклона стояка&quot;;
+      break;
+    case 89:
+      res = &quot;Завершение слива&quot;;
+      break;
+    case 90:
+      res = &quot;Выход за диапазон значений датчика уровня дренажного бачка верхнего уровня&quot;;
+      break;
+    case 91:
+      res = &quot;Выход за диапазон значений датчика уровня дренажного бачка нижнего уровня&quot;;
+      break;
+    case 92:
+      res = &quot;Превышен уровень охл. жидкости&quot;;
+      break;
+    case 93:
+      res = &quot;Недостаточен уровень охл. жидкости&quot;;
+      break;
+    case 94:
+      res = &quot;Выход за диапазон датчика микро расхода&quot;;
+      break;
+    case 95:
+      res = &quot;Выход за диапазон датчика окончания налива&quot;;
+      break;
+    case 96:
+      res = &quot;Останов по датчику окончания налива&quot;;
+      break;
+    default:
+    res = &quot;НЕИЗВЕСТНАЯ ПРИЧИНА&quot;;
   }
   return res;
 }
 ]]></script>
-  <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  <script name="Initialize" isEscaped="1"><![CDATA[void cb_status_and_stop_reason(dyn_string dpe, dyn_anytype val){
+  txt_post_state.text(stsToText(val[1]));
+  txt_stop_reason.text(stpToText(val[2]));
+}
 
-  /*ВЫКЛЮЧИЛ КНОПКИ ПАУЗА и ПРОДОЛЖЕНИЕ*/
- /* PANEL_REF4.visible(false);
-  PANEL_REF3.visible(false);
-  PANEL_REF26.visible(false);
-  PANEL_REF25.visible(false);
-  PANEL_REF31.visible(false);
-  PANEL_REF30.visible(false);*/
-// const string DP = $dp;
-// const string NumberPost = $NumberPost;
-//   string PST = NumberPost;
+
+main(){
   string type;
   int type_int;
-  dpGet(DP + &quot;.Type_NP&quot;,type_int);
-  switch(type_int){
+  dpGet(DP + &quot;.Type_NP&quot;, type_int);
+   switch(type_int){
     case 0:
       type = &quot;АИ-92&quot;;
       break;
@@ -332,164 +327,11 @@ string stpToText(int stp){
     default:
       type = &quot;---&quot;;
   }
-  Label17.text=dpGetDescription(DP+&quot;.&quot;)+&quot;, &quot;+type;
+  txt_type_np.text(type);
 
-
- // dpConnect(&quot;cbAll&quot;, DP + &quot;.Global_Variable.bui_Temp&quot;,
-                     //DP + &quot;.MBNoLink&quot;,                                                         //+
-                    // DP + &quot;.Post&quot; + PST + &quot;.Sensor_Control.sSensorAlarmStop&quot;);                                //состояние кнопки стоп
-
-  dpConnect(&quot;cbWorker&quot;, DP + &quot;.xAverageTemperature&quot;,                           //1-  средняя температура+
-                        DP + &quot;.xAverageDensity&quot;,                               //2-  средняя плотность+
-                        DP + &quot;.sStatusPosta&quot;,                                  //3-  статус поста
-                        DP + &quot;.xVolumeDose&quot;,                                   //4-  объем дозы
-                        DP + &quot;.xVolumeFlow&quot;,                                   //5-  Объемный расход
-                        DP + &quot;.xMassDose&quot;,                                     //6-  Массовая доза
-                        DP + &quot;.Sensor_Control.sSensorTrapa&quot;,                   //7-  Датчик трапа
-                        DP + &quot;.Sensor_Control.sSensorGround&quot;,                  //8-  Датчик заземления
-                        DP + &quot;.Sensor_Control.sGaragePosition&quot;,                //9-  Датчик гаражного положения
-                        DP + &quot;.сPrisadka&quot;,                                     //10- налив с присадкой
-                        DP + &quot;.Sensor_Control.sSensorOverflow&quot;,                //11- Датчик перелива
-                        DP + &quot;.xVolumeFact&quot;,                                   //12- Фактический объем
-                        DP + &quot;.xMassFact&quot;,                                     //13- Фактическая масса
-                        DP + &quot;.cVolumeDose_oper&quot;,                              //14- объем дозы от оператора
-                        DP + &quot;.cMassDose_oper&quot;,                                //15- Массовая доза от оператора
-                        DP + &quot;.license_plate&quot;,                                 //16- гос.номер
-                        DP + &quot;.cPercentPrisadki&quot;,                              //17- процент присадки
-                        DP + &quot;.sStatusStop&quot;,                                   //18- причина останова
-                        DP + &quot;.xTotalMass&quot;,                                    //19- массовый сумматор
-                        DP + &quot;.xTotalValue&quot;);                                  //19- объемный сумматор
-
+  dpConnect(&quot;cb_status_and_stop_reason&quot;, DP + &quot;.sStatusPosta&quot;,
+                                         DP + &quot;.sStatusStop&quot;);
 }
-
-
-
-void cbWorker(dyn_string dp, dyn_anytype val){
-      // Average temp
-      sdShowValue(&quot;txt1_atemp&quot;, dp[1], val[1], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;eu1_atemp&quot;, &quot;text&quot;, dpGetUnit(dp[1]));
-      // Average density
-      sdShowValue(&quot;txt1_adens&quot;, dp[2], val[2], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;eu1_adens&quot;, &quot;text&quot;, dpGetUnit(dp[2]));
-      // current status post
-      PUSH_BUTTON6.enabled = (val[3] == 0x30);
-      PUSH_BUTTON6.enabled = (val[3] == 0x00);
-      PUSH_BUTTON7.enabled = (val[3] != 0x20);
-      PUSH_BUTTON8.enabled = (val[3] == 0x20);
-      PUSH_BUTTON9.enabled = (val[3] == 0x30);
-      string res;
-      switch(val[3]){
-        case 0x00:
-          res = &quot;Ожидание&quot;;
-
-          break;
-        case 0x10:
-          res = &quot;Разрешение налива&quot;;
-          break;
-        case 0x20:
-          res = &quot;Налив&quot;;
-          break;
-        case 0x30:
-          res = &quot;Пауза&quot;;
-          break;
-        case 0x40:
-          res = &quot;Продолжение&quot;;
-          break;
-        case 0x60:
-          res = &quot;Ошибка&quot;;
-          break;
-        case 0x80:
-          res = &quot;Не активный&quot;;
-          break;
-        default:
-          res = &quot;Неизвестно&quot;;
-      }
-      setValue(&quot;pst1_sts&quot;, &quot;text&quot;, res);
-      // Vol dose
-      sdShowValue(&quot;txt1_vol_dose&quot;, dp[4], val[4], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;eu1_vol_dose&quot;, &quot;text&quot;, dpGetUnit(dp[4]));
-      // Vol flow
-      sdShowValue(&quot;txt1_flow_v&quot;, dp[5], val[5], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;eu1_flow_v&quot;, &quot;text&quot;, dpGetUnit(dp[5]));
-      // Total dose
-      sdShowValue(&quot;txt1_mass_dose&quot;, dp[6], val[6], 1, &quot;1&quot;, 0, &quot;&quot;); //6- Массовая доза
-      setValue(&quot;eu1_mass_dose&quot;, &quot;text&quot;, dpGetUnit(dp[6]));
-      if(val[7] == 1){
-        setValue(&quot;trap&quot;, &quot;backCol&quot;, &quot;Green&quot;);
-        trap_txt.text(&quot;Рабочее положение трапа&quot;);
-      }
-      else
-      {
-        setValue(&quot;trap&quot;, &quot;backCol&quot;, &quot;Grey&quot;);
-        trap_txt.text(&quot;Гаражное положение трапа&quot;);
-      }
-      if(val[8] == 1)
-      {
-        setValue(&quot;ground&quot;, &quot;backCol&quot;, &quot;Green&quot;);
-        ground_txt.text(&quot;Заземлено&quot;);
-      }
-      else
-      {
-        setValue(&quot;ground&quot;, &quot;backCol&quot;, &quot;Grey&quot;);
-        ground_txt.text(&quot;Не заземлено&quot;);
-      }
-      if(val[9] == 1)
-      {
-        setValue(&quot;garage_pos&quot;, &quot;backCol&quot;, &quot;Grey&quot;);
-        garage_pos_txt.text(&quot;Гаражное положение стояка&quot;);
-      }
-      else
-      {
-        setValue(&quot;garage_pos&quot;, &quot;backCol&quot;, &quot;Green&quot;);
-        garage_pos_txt.text(&quot;Рабочее положение стояка&quot;);
-      }
-      if(val[10] == 1)
-      {
-        naliv_s_prisadk.enabled(0);
-        naliv_bez_prisadk.enabled(1);
-        PercentPrisadki.enabled(1);
-        FRAME1.text(&quot;Выбран налив с присадкой&quot;);
-      }
-      else
-      {
-        naliv_s_prisadk.enabled(1);
-        naliv_bez_prisadk.enabled(0);
-        PercentPrisadki.enabled(0);
-        FRAME1.text(&quot;Выбран налив без присадки&quot;);
-      }
-       if(val[11] == 1){
-        setValue(&quot;pst1_ovr&quot;, &quot;backCol&quot;, &quot;Red&quot;);
-        pst1_ovr_txt.text(&quot;Перелив&quot;);
-      }
-      else
-      {
-        setValue(&quot;pst1_ovr&quot;, &quot;backCol&quot;, &quot;Grey&quot;);
-        pst1_ovr_txt.text(&quot;Уровень в норме&quot;);
-      }
-      // Volume Fact
-      sdShowValue(&quot;txt1_vol&quot;, dp[12], val[12], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;eu1_vol&quot;, &quot;text&quot;, dpGetUnit(dp[12]));
-      // Mass Fact
-      sdShowValue(&quot;txt1_mass&quot;, dp[13], val[13], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;eu1_mass&quot;, &quot;text&quot;, dpGetUnit(dp[13]));
-      // Mass Summ
-      sdShowValue(&quot;sum_mass_txt&quot;, dp[19], val[19], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;sum_mass_eu&quot;, &quot;text&quot;, dpGetUnit(dp[19]));
-      // Vol Summ
-      sdShowValue(&quot;sum_vol_txt&quot;, dp[19], val[20], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;sum_vol_eu&quot;, &quot;text&quot;, dpGetUnit(dp[20]));
-
-      sdShowValue(&quot;VolumeDose_oper&quot;, dp[14], val[14], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;VolumeDose_oper_eu&quot;, &quot;text&quot;, dpGetUnit(dp[14]));
-
-      license_plate.text = &quot;Гос. номер: &quot; + val[16];
-      sdShowValue(&quot;PercentPrisadki&quot;, dp[17], val[17], 1, &quot;1&quot;, 0, &quot;&quot;);
-
-      pst1_stp.text = stpToText(val[18]);
-
-
-}
-
 
 ]]></script>
  </events>
@@ -581,7 +423,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">26.99999999999957 73.07142857142853</prop>
+    <prop name="Location">26.99999999999957 73.07142857142854</prop>
     <prop name="Size">111 33</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1626,7 +1468,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">6.643564356435641 0 0 0.9491525423728819 -731.0792079207918 314.1186440677966</prop>
+    <prop name="Geometry">6.643564356435641 0 0 0.9491525423728819 -731.0792079207918 374.1186440677966</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Причина останова</prop>
@@ -1638,7 +1480,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Size">102 60</prop>
    </properties>
   </shape>
-  <shape Name="PRIMITIVE_TEXT22" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="txt_stop_reason" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">720</prop>
     <prop name="Type"></prop>
@@ -1658,7 +1500,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.043783791090058 0 0 1 -11.9346718345348 -5.384615384615358</prop>
+    <prop name="Geometry">1.043783791090058 0 0 1 321.8070244917496 61.61538461538464</prop>
     <prop name="Location">28.62499999999983 420.9999999999999</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,75,0,0,0,0,0,Полужирный</prop>
@@ -1671,7 +1513,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Bordered">False</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
   <shape Name="FRAME5" shapeType="FRAME" layerId="0">
@@ -1694,7 +1536,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">6.643564356435641 0 0 0.8305084745762686 -730.9253617669463 379.5749674054763</prop>
+    <prop name="Geometry">6.643564356435641 0 0 0.8305084745762686 -730.9253617669463 439.5749674054763</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Авария</prop>
@@ -1706,7 +1548,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Size">102 60</prop>
    </properties>
   </shape>
-  <shape Name="PRIMITIVE_TEXT23" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="txt_alarm" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">722</prop>
     <prop name="Type"></prop>
@@ -1726,7 +1568,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.054414704431579 0 0 1 0.3780945722013085 -20</prop>
+    <prop name="Geometry">1.054414704431579 0 0 1 194.1115886071129 48</prop>
     <prop name="Location">146.4711538461534 487.5384615384617</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,75,0,0,0,0,0,Полужирный</prop>
@@ -1739,7 +1581,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="Bordered">False</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
   <shape Name="txt_nakon" shapeType="PRIMITIVE_TEXT" layerId="0">
@@ -2184,5 +2026,136 @@ void cbWorker(dyn_string dp, dyn_anytype val){
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
+  <shape Name="shp_start" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">775</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">62 116</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Grey</prop>
+    <prop name="TabOrder">530</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.278048780487805 0 0 0.728 134.7609756097561 31.352</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">62 116</prop>
+    <prop name="Size">42 26</prop>
+    <prop name="CornerRadius">3</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT24" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">776</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">30.09999999999978 125.2</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">531</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">30.09999999999978 125.2</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Кнопка СТАРТ по месту</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="FRAME6" shapeType="FRAME" layerId="0">
+   <properties>
+    <prop name="serialId">818</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">112 81</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{0,0,0}</prop>
+    <prop name="TabOrder">532</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">6.643564356435641 0 0 0.9491525423728819 -731.0792079207918 318.1186440677966</prop>
+    <prop name="BorderStyle">3D</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Состояние поста</prop>
+    </prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">112 81</prop>
+    <prop name="Size">102 60</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_post_state" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">819</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">28.62499999999983 420.9999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">533</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1.043783791090058 0 0 1 317.7864055125117 5.615384615384642</prop>
+    <prop name="Location">28.62499999999983 420.9999999999999</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,75,0,0,0,0,0,Полужирный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Разрешение налива</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
  </shapes>
 </panel>

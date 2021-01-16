@@ -20,19 +20,19 @@ DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
 LAYER, 0 
 1
 LANG:10027 6 Layer1
-1 432 51 "" 10
+1 489 51 "" 10
 0
-1 437 52 "" 10
+1 494 52 "" 10
 0
-1 442 53 "" 10
+1 499 53 "" 10
 0
-1 447 54 "" 10
+1 504 54 "" 10
 0
-1 452 55 "" 10
+1 509 55 "" 10
 0
-1 457 56 "" 10
+1 514 56 "" 10
 0
-1 462 58 "" 10
+1 519 58 "" 10
 0
 13 308
 "but_trend"
@@ -93,7 +93,8 @@ T
 LANG:10027 27 Журнал событий
 "main(mapping event)
 {
-  RootPanelOnModule(\"Alarm_Panels_Struct/Alarm_main.xml\", \"Журнал событий\", \"mainModule_1\", \"\");
+  RootPanelOnModule(\"Alarm_Panels_Struct/Alarm_main.xml\", \"Журнал событий\", \"main_module\", \"\");
+//   RootPanelOnModule(\"Alarm_Panels_Struct/Alarm_main.xml\", \"Журнал событий\", \"mainModule_1\", \"\");
   dpSet(\"Menu.Num\", 100);
 }" 0
  E E "main()
@@ -124,7 +125,7 @@ LANG:10027 0
 "dashclr"N "_Transparent"
 "antiAliased" "0"
 E E -1 1 3 2 1 E 1.663157894736842 0 1.84090909090909 -1249.842105263158 -18.88636363636363 2  1 0  "pictures/gazprom_logo_print.png" 4294967295 E 1755 7 1850 51
-1 467 59 "" 10
+1 524 59 "" 10
 0
 4 380
 "LINE1"
@@ -142,9 +143,9 @@ LANG:10027 0
 "dashclr"N "_Transparent"
 "antiAliased" "1"
 E E 0 4 3 2 1 E  1596 -6.000000000000004 1596 84
-1 472 60 "" 10
+1 529 60 "" 10
 0
-1 477 61 "" 10
+1 534 61 "" 10
 0
 13 431
 "but_report"
@@ -168,7 +169,7 @@ T
 LANG:10027 12 Отчеты
 "main(mapping event)
 {
-  RootPanelOnModule(\"TREND/TREND.xml\", \"Тренды\", \"mainModule_1\", \"\");
+  RootPanelOnModule(\"mnemo/report/report.xml\", \"Отчеты\", \"mainModule_1\", \"\");
   dpSet(\"Menu.Num\", 102);
 }" 0
  E E "main()
