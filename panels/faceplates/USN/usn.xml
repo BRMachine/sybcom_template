@@ -26,7 +26,10 @@ void refereshBlocks(){
   b_uu_set = cbx_uu.currentIndex();
   b_rvs_set = (loc_rvs &gt; 0 &amp; loc_rvs &lt;=22);
   if(b_rvs_set){
-    dpGet(&quot;LogicRVS_&quot; + txt_rvs.text +  &quot;.STS.sts_bool.taking&quot;, b_rvs_rdy);
+    int mes_sts;
+    dpGet(&quot;LogicRVS_&quot; + txt_rvs.text +  &quot;.STS.status_mes&quot;, mes_sts);
+    b_rvs_rdy = (mes_sts == 2);
+//     dpGet(&quot;LogicRVS_&quot; + txt_rvs.text +  &quot;.STS.sts_bool.taking&quot;, b_rvs_rdy);
   }else{
     b_rvs_rdy = false;
   }
