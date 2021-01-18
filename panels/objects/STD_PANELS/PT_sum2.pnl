@@ -75,9 +75,12 @@ LANG:10001 9 Detail A1
 {
   pt_panelOn2(myModuleName());
   int refNr = $refNumber;
-  dpSet(\"System1:Menu.Num\",refNr);
 
-}" 0
+  string dp_top = myUiDpName() + \".Navbar.num\";
+  dpSet(dp_top, refNr);
+
+}
+" 0
  E E "dyn_bool   ptAlertDone;
 dyn_string ptOldFileName;
 dyn_int    ptOldPanelNumber;
@@ -85,7 +88,8 @@ dyn_int    ptOldPanelNumber;
 main()
 {
   pt_init_PT_navi_sumX(\"sum2\");
-  dpConnect(\"cbMenu\",\"System1:Menu.Num\");
+  string dp_top = myUiDpName() + \".Navbar.num\";
+  dpConnect(\"cbMenu\",dp_top);
 }
 
 void cbMenu(string dp, int val){

@@ -56,12 +56,15 @@ T
 LANG:10027 12 Тренды
 "main(mapping event)
 {
+  string dp_top = myUiDpName() + \".Navbar.num\";
   RootPanelOnModule(\"TREND/TREND.xml\", \"Тренды\", \"mainModule_1\", \"\");
-  dpSet(\"Menu.Num\", 101);
-}" 0
+  dpSet(dp_top, 101);
+}
+" 0
  E E "main()
 {
-  dpConnect(\"cbMenu\", \"Menu.Num\");
+  string dp_top = myUiDpName() + \".Navbar.num\";
+  dpConnect(\"cbMenu\", dp_top);
 }
 
 void cbMenu(string dpe, int val){
@@ -69,7 +72,8 @@ void cbMenu(string dpe, int val){
     but_trend.backCol(\"cyan\");
   else
     but_trend.backCol(\"_Button\");
-}" 0
+}
+" 0
 
 13 309
 "but_journal"
@@ -93,13 +97,16 @@ T
 LANG:10027 27 Журнал событий
 "main(mapping event)
 {
-  RootPanelOnModule(\"Alarm_Panels_Struct/Alarm_main.xml\", \"Журнал событий\", \"main_module\", \"\");
+  string dp_top = myUiDpName() + \".Navbar.num\";
+  RootPanelOnModule(\"Alarm_Panels_Struct/Alarm_main.xml\", \"Журнал событий\", \"mainModule_1\", \"\");
 //   RootPanelOnModule(\"Alarm_Panels_Struct/Alarm_main.xml\", \"Журнал событий\", \"mainModule_1\", \"\");
-  dpSet(\"Menu.Num\", 100);
-}" 0
+  dpSet(dp_top, 100);
+}
+" 0
  E E "main()
 {
-  dpConnect(\"cbMenu\", \"Menu.Num\");
+  string dp_top = myUiDpName() + \".Navbar.num\";
+  dpConnect(\"cbMenu\", dp_top);
 }
 
 void cbMenu(string dpe, int val){
@@ -107,7 +114,8 @@ void cbMenu(string dpe, int val){
     but_journal.backCol(\"cyan\");
   else
     but_journal.backCol(\"_Button\");
-}" 0
+}
+" 0
 
 6 339
 "RECTANGLE1"
@@ -170,11 +178,14 @@ LANG:10027 12 Отчеты
 "main(mapping event)
 {
   RootPanelOnModule(\"mnemo/report/report.xml\", \"Отчеты\", \"mainModule_1\", \"\");
-  dpSet(\"Menu.Num\", 102);
-}" 0
+  string dp_top = myUiDpName() + \".Navbar.num\";
+  dpSet(dp_top, 102);
+}
+" 0
  E E "main()
 {
-  dpConnect(\"cbMenu\", \"Menu.Num\");
+  string dp_top = myUiDpName() + \".Navbar.num\";
+  dpConnect(\"cbMenu\", dp_top);
 }
 
 void cbMenu(string dpe, int val){
@@ -182,7 +193,8 @@ void cbMenu(string dpe, int val){
     but_report.backCol(\"cyan\");
   else
     but_report.backCol(\"_Button\");
-}" 0
+}
+" 0
 
 6 484
 "RECTANGLE5"
