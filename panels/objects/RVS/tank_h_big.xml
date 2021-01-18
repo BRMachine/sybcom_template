@@ -260,15 +260,15 @@ void cb_fuel(string dpe, string val){
   top_bar.backCol(fuelToColor(val));
 }
 
-  void cbAlarmLogic(string dp, string color){
-    if(color != &quot;&quot;){
-      top_bar.backCol(color);
-    }else{
-      string fuel;
-      dpGet(DP + &quot;.fuel_type&quot;, fuel);
-      top_bar.backCol(fuelToColor(fuel));
-//       initFuel(fuel);
-    }
+void cbAlarmLogic(string dp, string color){
+  if(color != &quot;&quot;){
+    top_bar.backCol(color);
+  }else{
+    string fuel;
+    dpGet(DP + &quot;.fuel_type&quot;, fuel);
+    top_bar.backCol(fuelToColor(fuel));
+//    initFuel(fuel);
+  }
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){

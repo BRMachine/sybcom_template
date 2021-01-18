@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">125 861</prop>
+  <prop name="Size">89 824</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">230 32</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -190,21 +190,26 @@ void cbAlarmLogic(string dp, string color){
   if(color != &quot;&quot;){
     top_bar.backCol(color);
   }else{
-    initFuel(fuel);
+    top_bar.backCol(fuelToColor(fuel));
+//    initFuel(fuel);
   }
 }
 //--------------------------------------------------
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
+  initFuel(fuel);
   dpConnect(&quot;cbLogicRVS&quot;, LogicRVS + &quot;.STS.status_rvs&quot;,
                           LogicRVS + &quot;.STS.status_mes&quot;);
-  initFuel(fuel);
+
   dpConnect(&quot;worker_val&quot;, DP + &quot;.LVL.val&quot;,
                           DP + &quot;.SCL.LSH&quot;,
                           DP + &quot;.SCL.LSL&quot;,
                           DP + &quot;.STS.MBS_ERR&quot;);
-}]]></script>
+
+  dpConnect(&quot;cbAlarmLogic&quot;, LogicRVS + &quot;.UnsanctionedChangeLevel:_alert_hdl.._act_state_color&quot;);
+}
+]]></script>
  </events>
  <shapes>
   <shape Name="RECTANGLE35" shapeType="RECTANGLE" layerId="0">
@@ -802,7 +807,7 @@ void cbAlarmLogic(string dp, string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[hatch,[cross,10,left]]</prop>
-    <prop name="Geometry">0.316 0 0 0.8014658634538152 -0.03660933660924881 85.54558232931726</prop>
+    <prop name="Geometry">0.316 0 0 2.383333333333333 -1.036609336609246 71.16666666666661</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">10 10</prop>
     <prop name="Size">251 301</prop>
@@ -830,7 +835,7 @@ void cbAlarmLogic(string dp, string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.2907553152895906 0 0 0.5388859487293071 1.917646522848066 122.9448266651901</prop>
+    <prop name="Geometry">0.2907553152895906 0 0 0.5388859487293071 0.9176465228480595 366.2782482033108</prop>
     <prop name="Location">10 130</prop>
     <prop name="Size">261 61</prop>
     <prop name="Font">
@@ -882,6 +887,98 @@ void cbAlarmLogic(string dp, string color){
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignRight]</prop>
    </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">283</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">-8.579669655285485 -688</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Transparent</prop>
+    <prop name="TabOrder">32</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">0.4942320729735883 -0.4642733881595689</prop>
+    <prop name="Size">84 807</prop>
+    <prop name="BorderStyle">None</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  ChildPanelOnCentral(&quot;faceplates/RVS/rvs.xml&quot;, dpGetDescription(DP + &quot;.&quot;), makeDynString(&quot;$dp:&quot; + DP,
+                                                                                           &quot;$dpLogicRVS:&quot; + LogicRVS,
+                                                                                           &quot;$ls1:&quot; + LS1,
+                                                                                           &quot;$ls2:&quot; + LS2,
+                                                                                           &quot;$ls3:&quot; + LS3,
+                                                                                           &quot;$name:&quot; + getResName(),
+                                                                                           &quot;$fuel:&quot; + (int)fuel));
+}
+]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 12;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $dp+&quot;.LVL._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[2] = $dp+&quot;.LVL._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[3] = $dp+&quot;.LVL._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[4] = $dp+&quot;.LVL._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[5] = $dp+&quot;.WTR._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[6] = $dp+&quot;.WTR._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[7] = $dp+&quot;.WTR._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[8] = $dp+&quot;.WTR._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[9] = $dp+&quot;.UnsanctionedChangeLevel&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[10] = $ls1+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[11] = $ls2+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[12] = $ls3+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {12}
+// dp1 {$dp + &quot;.LVL._sAH_Level&quot;}
+// dp2 {$dp + &quot;.LVL._sWH_Level&quot;}
+// dp3 {$dp + &quot;.LVL._sWL_Level&quot;}
+// dp4 {$dp + &quot;.LVL._sAL_Level&quot;}
+// dp5 {$dp + &quot;.WTR._sAH_Level&quot;}
+// dp6 {$dp + &quot;.WTR._sWH_Level&quot;}
+// dp7 {$dp + &quot;.WTR._sWL_Level&quot;}
+// dp8 {$dp + &quot;.WTR._sAL_Level&quot;}
+// dp9 {$dp + &quot;.UnsanctionedChangeLevel&quot;}
+// dp10 {$ls1 + &quot;.status.bool.red&quot;}
+// dp11 {$ls2 + &quot;.status.bool.red&quot;}
+// dp12 {$ls3 + &quot;.status.bool.red&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
+]]></script>
+   </events>
   </shape>
  </shapes>
 </panel>
