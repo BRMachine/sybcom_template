@@ -297,12 +297,99 @@ string stpToText(int stp){
   }
   return res;
 }
+
+string errToText(int sts){
+  string res;
+  switch(sts){
+    case 20:
+      res = &quot;Коррекция нуля в массомере&quot;;
+      break;
+    case 55:
+      res = &quot;Ожидание сброса объема в расходомере&quot;;
+      break;
+    case 56:
+      res = &quot;Ожидание сброса массы в расходомере&quot;;
+      break;
+    case 57:
+      res = &quot;Доза объема меньше упреждения отсечки клапана&quot;;
+      break;
+    case 58:
+      res = &quot;Доза массы меньше упреждения отсечки клапана&quot;;
+      break;
+    case 72:
+      res = &quot;Не задана ни одна из доз&quot;;
+      break;
+    case 88:
+      res = &quot;Ожидание записи переменных&quot;;
+      break;
+    case 100:
+      res = &quot;Запрет от дозатора налива&quot;;
+      break;
+    case 103:
+      res = &quot;Ожидание сброса объема в дозаторе&quot;;
+      break;
+    case 104:
+      res = &quot;Ожидание записи дозы в ДИО5&quot;;
+      break;
+    case 105:
+      res = &quot;Ожидание записи состояния в ДИО5&quot;;
+      break;
+    case 106:
+      res = &quot;Минимальная порция присадки меньше 5 условных ед.&quot;;
+      break;
+    case 107:
+      res = &quot;Совпадают стороны основного поста и дозатора&quot;;
+      break;
+    case 108:
+      res = &quot;Дозатор занят другим постом&quot;;
+      break;
+    case 109:
+      res = &quot;Маленькая доза при наливе с дозатором&quot;;
+      break;
+    case 110:
+      res = &quot;Не удалось записать состояние дозатора&quot;;
+      break;
+    case 111:
+      res = &quot;Ошибка расчета дозы для дозатора&quot;;
+      break;
+    default:
+      res = &quot;Неизвестно&quot;;
+  }
+  return res;
+}
 ]]></script>
-  <script name="Initialize" isEscaped="1"><![CDATA[void cb_status_and_stop_reason(dyn_string dpe, dyn_anytype val){
-  txt_sts_post.text(stsToText(val[1]));
-  txt_stop_reason.text(stpToText(val[2]));
+  <script name="Initialize" isEscaped="1"><![CDATA[void cb_sts_stop_err_reason(dyn_string dpe, dyn_anytype val){
+  txt_stop_reason.text(stpToText(val[1]));
+  txt_alarm.text(errToText(val[2]));
 }
 
+void cb_post_params(dyn_string dpe, dyn_anytype val){
+  txt_sts_post.text(stsToText(val[1]));
+  //Заземление
+  val[2] == true ? txt_grd.text(&quot;Подключено&quot;) : txt_grd.text(&quot;Отключено&quot;);
+  //Датчик перелива
+  val[3] == true ? txt_overflow.text(&quot;Перелив&quot;) : txt_overflow.text(&quot;В норме&quot;);
+  //Положение наконечника
+  if(val[4] == false &amp; val[5] == false | val[4] == true &amp; val[5] == true){ txt_nakon.text(&quot;Неизвестно&quot;); }
+  else if(val[4] == true){ txt_nakon.text(&quot;Гаражное&quot;); }
+  else{ txt_nakon.text(&quot;Рабочее&quot;); }
+  //Положение трапа
+  val[6] == true ? txt_trap.text(&quot;Поднят&quot;) : txt_trap.text(&quot;Опущен&quot;);
+  //Наличие продукта
+  val[7] == true ? txt_product.text(&quot;Есть&quot;) : txt_product.text(&quot;Отсутствует&quot;);
+  //Газоотделитель
+  //==== ???не понятно какой тэг в ПЛК??? ====
+  //Фильтр
+  val[8] == true ? txt_filtr.text(&quot;Неисправлен&quot;) : txt_filtr.text(&quot;В норме&quot;);
+  //Датчик снижение расхода
+  val[9] == true ? txt_sens_flow.text(&quot;Неисправлен&quot;) : txt_sens_flow.text(&quot;В норме&quot;);
+  //Датчик наклона стока
+  val[10] ==  true ? txt_sens_naklon.text(&quot;Неисправлен&quot;) : txt_sens_naklon.text(&quot;В норме&quot;);
+
+  //Кнопка СТАРТ по месту
+  val[11] == true ? shp_start.backCol(&quot;Red&quot;) : shp_start.backCol(&quot;Grey&quot;);
+
+}
 
 main(){
   string type;
@@ -329,10 +416,23 @@ main(){
   }
   txt_type_np.text(type);
 
-  dpConnect(&quot;cb_status_and_stop_reason&quot;, DP + &quot;.sStatusPosta&quot;,
-                                         DP + &quot;.sStatusStop&quot;);
-}
+  dpConnect(&quot;cb_sts_stop_err_reason&quot;, DP + &quot;.sStatusStop&quot;,
+                                      DP + &quot;.sErrorNaliv&quot;);
 
+
+  dpConnect(&quot;cb_post_params&quot;, DP + &quot;.sStatusPosta&quot;,                        //1
+                              DP + &quot;.Sensor_Control.sSensorGround&quot;,        //2
+                              DP + &quot;.Sensor_Control.sSensorOverflow&quot;,      //3
+                              DP + &quot;.Sensor_Control.sGaragePosition&quot;,      //4
+                              DP + &quot;.Sensor_Control.sSensorWorkPosition&quot;,  //5
+                              DP + &quot;.Sensor_Control.sSensorTrapa&quot;,         //6
+                              DP + &quot;.Sensor_Control.sSensorProduct&quot;,       //7
+                              DP + &quot;.Sensor_Control.sSensorFilter&quot;,        //8
+                              DP + &quot;.Sensor_Control.sFlowLL&quot;,              //9
+                              DP + &quot;.Sensor_Control.sRiserTiltSensor&quot;,     //10
+                              DP + &quot;.Sensor_Control.sButtonStartStop&quot;);    //11
+
+}
 ]]></script>
  </events>
  <shapes>
@@ -646,7 +746,7 @@ main(){
     <prop name="dollarParameters">
      <prop name="dollarParameter">
       <prop name="Dollar">$ANALOG</prop>
-      <prop name="Value">xTotalVolume</prop>
+      <prop name="Value">xTotalValue</prop>
      </prop>
      <prop name="dollarParameter">
       <prop name="Dollar">$dp</prop>
@@ -808,7 +908,7 @@ main(){
     <prop name="dollarParameters">
      <prop name="dollarParameter">
       <prop name="Dollar">$ANALOG</prop>
-      <prop name="Value">xVolumeTotal</prop>
+      <prop name="Value">xDensity</prop>
      </prop>
      <prop name="dollarParameter">
       <prop name="Dollar">$dp</prop>
@@ -1574,7 +1674,7 @@ main(){
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,75,0,0,0,0,0,Полужирный</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Ощибка конфиг. очереди опроса данных поста</prop>
+     <prop name="ru_RU.utf8">Минимальная порция присадки меньше 5 условных ед.</prop>
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
