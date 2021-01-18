@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">699 564</prop>
+  <prop name="Size">699 508</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">20 20</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -299,7 +299,7 @@ string stpToText(int stp){
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[void cb_status_and_stop_reason(dyn_string dpe, dyn_anytype val){
-  txt_post_state.text(stsToText(val[1]));
+  txt_sts_post.text(stsToText(val[1]));
   txt_stop_reason.text(stpToText(val[2]));
 }
 
@@ -595,8 +595,8 @@ main(){
       <prop name="Value">cVolumeDose</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -649,8 +649,8 @@ main(){
       <prop name="Value">xTotalVolume</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -703,8 +703,8 @@ main(){
       <prop name="Value">xTotalMass</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -757,8 +757,8 @@ main(){
       <prop name="Value">xTemperature</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -811,8 +811,8 @@ main(){
       <prop name="Value">xVolumeTotal</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -865,8 +865,8 @@ main(){
       <prop name="Value">xVolumeFact</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -919,8 +919,8 @@ main(){
       <prop name="Value">xMassFact</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -1018,7 +1018,7 @@ main(){
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Состояние поста</prop>
+     <prop name="ru_RU.utf8">Состояние поста в БУИ</prop>
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
@@ -1468,7 +1468,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">6.643564356435641 0 0 0.9491525423728819 -731.0792079207918 374.1186440677966</prop>
+    <prop name="Geometry">6.643564356435641 0 0 0.9491525423728819 -731.0792079207918 318.1186440677966</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Причина останова</prop>
@@ -1500,7 +1500,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.043783791090058 0 0 1 321.8070244917496 61.61538461538464</prop>
+    <prop name="Geometry">1.043783791090058 0 0 1 321.8070244917496 5.615384615384642</prop>
     <prop name="Location">28.62499999999983 420.9999999999999</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,75,0,0,0,0,0,Полужирный</prop>
@@ -1536,7 +1536,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">6.643564356435641 0 0 0.8305084745762686 -730.9253617669463 439.5749674054763</prop>
+    <prop name="Geometry">6.643564356435641 0 0 0.8305084745762686 -730.9253617669463 383.5749674054763</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Авария</prop>
@@ -1568,7 +1568,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.054414704431579 0 0 1 194.1115886071129 48</prop>
+    <prop name="Geometry">1.054414704431579 0 0 1 194.1115886071129 -8</prop>
     <prop name="Location">146.4711538461534 487.5384615384617</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,75,0,0,0,0,0,Полужирный</prop>
@@ -1981,8 +1981,8 @@ main(){
       <prop name="Value">xVolumeFlow</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -2000,8 +2000,8 @@ main(){
       <prop name="Value">xMassFlow</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -2019,8 +2019,8 @@ main(){
       <prop name="Value">sCountInspector</prop>
      </prop>
      <prop name="dollarParameter">
-      <prop name="Dollar">$POST_num</prop>
-      <prop name="Value">$POST_num</prop>
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -2087,74 +2087,6 @@ main(){
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="FRAME6" shapeType="FRAME" layerId="0">
-   <properties>
-    <prop name="serialId">818</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">112 81</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">{0,0,0}</prop>
-    <prop name="TabOrder">532</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">6.643564356435641 0 0 0.9491525423728819 -731.0792079207918 318.1186440677966</prop>
-    <prop name="BorderStyle">3D</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Состояние поста</prop>
-    </prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
-    </prop>
-    <prop name="Location">112 81</prop>
-    <prop name="Size">102 60</prop>
-   </properties>
-  </shape>
-  <shape Name="txt_post_state" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">819</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">28.62499999999983 420.9999999999999</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">533</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.043783791090058 0 0 1 317.7864055125117 5.615384615384642</prop>
-    <prop name="Location">28.62499999999983 420.9999999999999</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,75,0,0,0,0,0,Полужирный</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Разрешение налива</prop>
-    </prop>
-    <prop name="Distance">2</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">True</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
  </shapes>
