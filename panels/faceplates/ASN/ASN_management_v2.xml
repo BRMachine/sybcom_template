@@ -2443,11 +2443,11 @@ main(){
 {
   if(VolumeDose_oper.text() == &quot;&quot;){
     string mass = MassDose_oper.text();
-    dpSet(&quot;POST_1.cMassDose&quot;, mass);
+    dpSet(&quot;DP.cMassDose&quot;, mass);
   }
   else{
     string vol = VolumeDose_oper.text();
-    dpSet(&quot;POST_1.cVolumeDose&quot;, vol);
+    dpSet(&quot;DP.cVolumeDose&quot;, vol);
   }
  /* string Adr;
   int x;
@@ -2615,7 +2615,7 @@ main(){
      </prop>
      <prop name="dollarParameter">
       <prop name="Dollar">$dp</prop>
-      <prop name="Value">POST_101</prop>
+      <prop name="Value">POS_101</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -2644,7 +2644,7 @@ main(){
    <properties>
     <prop name="serialId">933</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">240.6871794871788 581.4707999097717</prop>
+    <prop name="RefPoint">227.6871794871788 581.4707999097717</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2660,7 +2660,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">240.6871794871788 581.4707999097717</prop>
+    <prop name="Location">227.6871794871788 581.4707999097717</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2675,11 +2675,11 @@ main(){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape Name="COMBO_BOX1" shapeType="COMBO_BOX" layerId="0">
+  <shape Name="prisadka" shapeType="COMBO_BOX" layerId="0">
    <properties>
     <prop name="serialId">934</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">351 575.4558946488294</prop>
+    <prop name="RefPoint">338 575.4558946488294</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2693,7 +2693,7 @@ main(){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,75,0,0,0,0,0,Полужирный</prop>
     </prop>
-    <prop name="Location">351 568.9877717391304</prop>
+    <prop name="Location">338 568.9877717391304</prop>
     <prop name="Size">107 25</prop>
     <prop name="Listitems">
      <prop name="Item">
@@ -2711,12 +2711,27 @@ main(){
     </prop>
     <prop name="Editable">True</prop>
    </properties>
+   <events>
+    <script name="Changed" isEscaped="1"><![CDATA[main()
+{
+  float OPTI = 0.000405;
+  float GFRIVE = 0.000560;
+  if(this.currentIndex() == 0){
+    txt_pris_percent.text(OPTI + &quot;%&quot;);
+    dpSet(&quot;POST_1.cPercentPrisadki&quot;, OPTI);
+  }
+  else{
+    txt_pris_percent.text(GFRIVE + &quot;%&quot;);
+    dpSet(&quot;POST_1.cPercentPrisadki&quot;, GFRIVE);
+  }
+}]]></script>
+   </events>
   </shape>
   <shape Name="PRIMITIVE_TEXT33" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">935</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">476.6871794871788 580.4707999097717</prop>
+    <prop name="RefPoint">457.6871794871788 580.4707999097717</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2732,7 +2747,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">476.6871794871788 580.4707999097717</prop>
+    <prop name="Location">457.6871794871788 580.4707999097717</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2751,7 +2766,7 @@ main(){
    <properties>
     <prop name="serialId">936</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">623.6871794871788 580.4707999097717</prop>
+    <prop name="RefPoint">604.6871794871788 581.4707999097717</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2767,9 +2782,9 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">623.6871794871788 580.4707999097717</prop>
+    <prop name="Location">604.6871794871788 581.4707999097717</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,75,0,0,0,0,0,Полужирный</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,75,0,0,0,0,0,Полужирный</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">100%</prop>
@@ -2781,6 +2796,14 @@ main(){
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
+   <events>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  float pris;
+  dpGet(&quot;POST_1.cPercentPrisadki&quot;, pris);
+  this.text(pris + &quot;%&quot;);
+}]]></script>
+   </events>
   </shape>
   <shape Name="FRAME7" shapeType="FRAME" layerId="0">
    <properties>
