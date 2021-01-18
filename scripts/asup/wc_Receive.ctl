@@ -14,6 +14,8 @@
 // variables and constants
 
  string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
+ dyn_bool init_is_sts = makeDynBool(false, false, false);
+ dyn_dyn_bool g_is_prev_sts = makeDynBool(init_is_sts, init_is_sts, init_is_sts, init_is_sts);
 //--------------------------------------------------------------------------------
 
 // pubic functions
@@ -36,6 +38,7 @@ public int getPostIS(string dp){
 // private functions
 
 private void startReceive(int is, int post){
+  g_is_prev_sts[is][post] = true;
   string dp_rec = "LAST_RECEIVE_" + is + ".result.";
   time dt_start = getCurrentTime();
   dpSetWait("LAST_RECEIVE_" + is + ".state", 1);
@@ -43,134 +46,141 @@ private void startReceive(int is, int post){
 }
 
 private void endReceive(int is, int post){
-  string dp_is = "IS_" + is + ".PST_" + post + ".";
-  string dp_rec = "LAST_RECEIVE_" + is + ".result.";
+  if(g_is_prev_sts[is][post]){
+    string dp_is = "IS_" + is + ".PST_" + post + ".";
+    string dp_rec = "LAST_RECEIVE_" + is + ".result.";
 
-  float volume_dose;
-  string rails, task, inventory, product, fuel;
-  int tank;
+    float volume_dose;
+    string rails, task, inventory, product, fuel;
+    int tank;
 
-  time dt_end = getCurrentTime();
-  float weight, volume, dens, temp, dens_15, volume_15, volume_sum, weight_sum;
+    time dt_end = getCurrentTime();
+    float weight, volume, dens, temp, dens_15, volume_15, volume_sum, weight_sum;
 
 
-  dyn_dyn_anytype q_res;
-  string query = "SELECT '_original.._value' "                     +
-                 "FROM   '{LAST_RECEIVE_" + is + ".init.?.task,"   +
-                          "LAST_RECEIVE_" + is + ".init.?.doc,"    +
-                          "LAST_RECEIVE_" + is + ".init.?.usn,"    +
-                          "LAST_RECEIVE_" + is + ".init.?.tank,"   +
-                          "LAST_RECEIVE_" + is + ".init.?.fuel,"   +
-                          "LAST_RECEIVE_" + is + ".init.?.weight}'";
-  dpQuery(query, q_res);
-  normalizeQueryData(q_res);
-  delay(30);  // Задержка для опроса актуальных значений по modbus
-  for(int i=1; i<=q_res.count(); i+=6){
-    if(q_res[i+0][2] != ""){
-      task           = q_res[i+0][2];
-      inventory     += q_res[i+1][2] + "-";
-      rails         += q_res[i+2][2] + "-";
-      tank           = q_res[i+3][2];
-      fuel           = q_res[i+4][2];
-      volume_dose   += q_res[i+5][2];
-      dpSetWait("LAST_RECEIVE_" + is + ".init." + q_res[i+2][2] + ".state", 2);
+    dyn_dyn_anytype q_res;
+    string query = "SELECT '_original.._value' "                     +
+                   "FROM   '{LAST_RECEIVE_" + is + ".init.?.task,"   +
+                            "LAST_RECEIVE_" + is + ".init.?.doc,"    +
+                            "LAST_RECEIVE_" + is + ".init.?.usn,"    +
+                            "LAST_RECEIVE_" + is + ".init.?.tank,"   +
+                            "LAST_RECEIVE_" + is + ".init.?.fuel,"   +
+                            "LAST_RECEIVE_" + is + ".init.?.weight}'";
+    dpQuery(query, q_res);
+    normalizeQueryData(q_res);
+    delay(30);  // Задержка для опроса актуальных значений по modbus
+    for(int i=1; i<=q_res.count(); i+=6){
+      if(q_res[i+0][2] != ""){
+        task           = q_res[i+0][2];
+        inventory     += q_res[i+1][2] + "-";
+        rails         += q_res[i+2][2] + "-";
+        tank           = q_res[i+3][2];
+        fuel           = q_res[i+4][2];
+        volume_dose   += q_res[i+5][2];
+        dpSetWait("LAST_RECEIVE_" + is + ".init." + q_res[i+2][2] + ".state", 2);
+      }
     }
+
+    rails = strrtrim(rails, "-");
+    inventory = strrtrim(inventory, "-");
+
+    dpSetWait("LAST_RECEIVE_" + is + ".state", 2);
+    dpGet(dp_is + "mass_fact"       , weight,
+          dp_is + "vol_fact"        , volume,
+          dp_is + "avg_density"     , dens,
+          dp_is + "avg_temperature" , temp,
+          dp_is + "dens_15"         , dens_15,
+          dp_is + "vol_15"          , volume_15,
+          dp_is + "vol_total"       , volume_sum,
+          dp_is + "mass_total"      , weight_sum);
+
+    dpSetWait(dp_rec + "weight_fct"    , weight,
+              dp_rec + "volume_fct"    , volume,
+              dp_rec + "density_fct"   , dens,
+              dp_rec + "temp_fct"      , temp,
+              dp_rec + "density_15"    , dens_15,
+              dp_rec + "volume_15"     , volume_15,
+              dp_rec + "volume_sum"    , volume_sum,
+              dp_rec + "weight_sum"    , weight_sum,
+              dp_rec + "dt_end"        , dt_end,
+              dp_rec + "tank"          , tank,
+              dp_rec + "volume_dose"   , volume_dose,
+              dp_rec + "task"          , task,
+              dp_rec + "inventory"     , inventory,
+              dp_rec + "product"       , fuel,
+              dp_rec + "rail_num"      , rails,
+              dp_rec + "post_name"     , "ИС" + is);
+
+    g_is_prev_sts[is][post] = false;
   }
-
-  rails = strrtrim(rails, "-");
-  inventory = strrtrim(inventory, "-");
-
-  dpSetWait("LAST_RECEIVE_" + is + ".state", 2);
-  dpGet(dp_is + "mass_fact"       , weight,
-        dp_is + "vol_fact"        , volume,
-        dp_is + "avg_density"     , dens,
-        dp_is + "avg_temperature" , temp,
-        dp_is + "dens_15"         , dens_15,
-        dp_is + "vol_15"          , volume_15,
-        dp_is + "vol_total"       , volume_sum,
-        dp_is + "mass_total"      , weight_sum);
-
-  dpSetWait(dp_rec + "weight_fct"    , weight,
-            dp_rec + "volume_fct"    , volume,
-            dp_rec + "density_fct"   , dens,
-            dp_rec + "temp_fct"      , temp,
-            dp_rec + "density_15"    , dens_15,
-            dp_rec + "volume_15"     , volume_15,
-            dp_rec + "volume_sum"    , volume_sum,
-            dp_rec + "weight_sum"    , weight_sum,
-            dp_rec + "dt_end"        , dt_end,
-            dp_rec + "tank"          , tank,
-            dp_rec + "volume_dose"   , volume_dose,
-            dp_rec + "task"          , task,
-            dp_rec + "inventory"     , inventory,
-            dp_rec + "product"       , fuel,
-            dp_rec + "rail_num"      , rails,
-            dp_rec + "post_name"     , "ИС" + is);
 }
 
 private void errReceive(int is, int post){
-  string dp_is = "IS_" + is + ".PST_" + post + ".";
-  string dp_rec = "LAST_RECEIVE_" + is + ".result.";
+  if(g_is_prev_sts[is][post]){
+    string dp_is = "IS_" + is + ".PST_" + post + ".";
+    string dp_rec = "LAST_RECEIVE_" + is + ".result.";
 
-  float volume_dose;
-  string rails, task, inventory, product, fuel;
-  int tank;
+    float volume_dose;
+    string rails, task, inventory, product, fuel;
+    int tank;
 
-  time dt_end = getCurrentTime();
-  float weight, volume, dens, temp, dens_15, volume_15, volume_sum, weight_sum;
+    time dt_end = getCurrentTime();
+    float weight, volume, dens, temp, dens_15, volume_15, volume_sum, weight_sum;
 
 
-  dyn_dyn_anytype q_res;
-  string query = "SELECT '_original.._value' "                     +
-                 "FROM   '{LAST_RECEIVE_" + is + ".init.?.task,"   +
-                          "LAST_RECEIVE_" + is + ".init.?.doc,"    +
-                          "LAST_RECEIVE_" + is + ".init.?.usn,"    +
-                          "LAST_RECEIVE_" + is + ".init.?.tank,"   +
-                          "LAST_RECEIVE_" + is + ".init.?.fuel,"   +
-                          "LAST_RECEIVE_" + is + ".init.?.weight}'";
-  dpQuery(query, q_res);
-  normalizeQueryData(q_res);
-  for(int i=1; i<=q_res.count(); i+=6){
-    if(q_res[i+0][2] != ""){
-      task           = q_res[i+0][2];
-      inventory     += q_res[i+1][2] + "-";
-      rails         += q_res[i+2][2] + "-";
-      tank           = q_res[i+3][2];
-      fuel           = q_res[i+4][2];
-      volume_dose   += q_res[i+5][2];
-      dpSetWait("LAST_RECEIVE_" + is + ".init." + q_res[i+2][2] + ".state", -1);
+    dyn_dyn_anytype q_res;
+    string query = "SELECT '_original.._value' "                     +
+                   "FROM   '{LAST_RECEIVE_" + is + ".init.?.task,"   +
+                            "LAST_RECEIVE_" + is + ".init.?.doc,"    +
+                            "LAST_RECEIVE_" + is + ".init.?.usn,"    +
+                            "LAST_RECEIVE_" + is + ".init.?.tank,"   +
+                            "LAST_RECEIVE_" + is + ".init.?.fuel,"   +
+                            "LAST_RECEIVE_" + is + ".init.?.weight}'";
+    dpQuery(query, q_res);
+    normalizeQueryData(q_res);
+    for(int i=1; i<=q_res.count(); i+=6){
+      if(q_res[i+0][2] != ""){
+        task           = q_res[i+0][2];
+        inventory     += q_res[i+1][2] + "-";
+        rails         += q_res[i+2][2] + "-";
+        tank           = q_res[i+3][2];
+        fuel           = q_res[i+4][2];
+        volume_dose   += q_res[i+5][2];
+        dpSetWait("LAST_RECEIVE_" + is + ".init." + q_res[i+2][2] + ".state", -1);
+      }
     }
+    rails = strrtrim(rails, "-");
+    inventory = strrtrim(inventory, "-");
+    dpSetWait("LAST_RECEIVE_" + is + ".state", -1);
+
+    delay(30);  // Задержка для опроса актуальных значений по modbus
+    dpGet(dp_is + "mass_fact"       , weight,
+          dp_is + "vol_fact"        , volume,
+          dp_is + "avg_density"     , dens,
+          dp_is + "avg_temperature" , temp,
+          dp_is + "dens_15"         , dens_15,
+          dp_is + "vol_15"          , volume_15,
+          dp_is + "vol_total"       , volume_sum,
+          dp_is + "mass_total"      , weight_sum);
+
+    dpSetWait(dp_rec + "weight_fct"    , weight,
+              dp_rec + "volume_fct"    , volume,
+              dp_rec + "density_fct"   , dens,
+              dp_rec + "temp_fct"      , temp,
+              dp_rec + "density_15"    , dens_15,
+              dp_rec + "volume_15"     , volume_15,
+              dp_rec + "volume_sum"    , volume_sum,
+              dp_rec + "weight_sum"    , weight_sum,
+              dp_rec + "dt_end"        , dt_end,
+              dp_rec + "tank"          , tank,
+              dp_rec + "volume_dose"   , volume_dose,
+              dp_rec + "task"          , task,
+              dp_rec + "inventory"     , inventory,
+              dp_rec + "product"       , fuel,
+              dp_rec + "rail_num"      , rails,
+              dp_rec + "post_name"     , "ИС" + is);
   }
-  rails = strrtrim(rails, "-");
-  inventory = strrtrim(inventory, "-");
-  dpSetWait("LAST_RECEIVE_" + is + ".state", -1);
-
-  delay(30);  // Задержка для опроса актуальных значений по modbus
-  dpGet(dp_is + "mass_fact"       , weight,
-        dp_is + "vol_fact"        , volume,
-        dp_is + "avg_density"     , dens,
-        dp_is + "avg_temperature" , temp,
-        dp_is + "dens_15"         , dens_15,
-        dp_is + "vol_15"          , volume_15,
-        dp_is + "vol_total"       , volume_sum,
-        dp_is + "mass_total"      , weight_sum);
-
-  dpSetWait(dp_rec + "weight_fct"    , weight,
-            dp_rec + "volume_fct"    , volume,
-            dp_rec + "density_fct"   , dens,
-            dp_rec + "temp_fct"      , temp,
-            dp_rec + "density_15"    , dens_15,
-            dp_rec + "volume_15"     , volume_15,
-            dp_rec + "volume_sum"    , volume_sum,
-            dp_rec + "weight_sum"    , weight_sum,
-            dp_rec + "dt_end"        , dt_end,
-            dp_rec + "tank"          , tank,
-            dp_rec + "volume_dose"   , volume_dose,
-            dp_rec + "task"          , task,
-            dp_rec + "inventory"     , inventory,
-            dp_rec + "product"       , fuel,
-            dp_rec + "rail_num"      , rails,
-            dp_rec + "post_name"     , "ИС" + is);
+  g_is_prev_sts[is][post] = false;
 }
 
 private void cbIS(string ud, dyn_dyn_anytype res){

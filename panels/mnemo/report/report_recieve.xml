@@ -39,6 +39,8 @@ void fill_table(dyn_dyn_string data){
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
+  TABLE1.tableMode(TABLE_SELECT_BROWSE);
+  TABLE1.selectByClick(TABLE_SELECT_LINE);
   TABLE1.alternatingRowColors(makeDynString(&quot;{222,236,195}&quot;, &quot;{255,234,0,128}&quot;));
   string query = &quot;SELECT TOP 10 * FROM [ASU_MES_DB].[dbo].[vReceptionResult] ORDER BY id DESC;&quot;;
   dpSetWait(&quot;report.recieve.query&quot;, query);
@@ -85,7 +87,7 @@ void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
     <prop name="RowHeaderWidth">0</prop>
     <prop name="GridType">Cross</prop>
     <prop name="VScrollBarMode">Auto</prop>
-    <prop name="HScrollBarMode">AlwaysOff</prop>
+    <prop name="HScrollBarMode">Auto</prop>
     <prop name="Column">
      <prop name="Name">id</prop>
      <prop name="Width">52</prop>
@@ -125,7 +127,7 @@ void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Column">
      <prop name="Name">PumpNr</prop>
      <prop name="Width">42</prop>
-     <prop name="Visible">True</prop>
+     <prop name="Visible">False</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
       <prop name="ru_RU.utf8">№ НА</prop>
@@ -181,6 +183,7 @@ void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignLeft,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">RecTemperature</prop>
@@ -193,6 +196,7 @@ void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.1f,False,False,AlignLeft,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">RecDensityCoerced</prop>
@@ -205,6 +209,7 @@ void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignLeft,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">RecVoluemeCoerced</prop>
@@ -272,7 +277,7 @@ void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
-      <prop name="ru_RU.utf8">Объем</prop>
+      <prop name="ru_RU.utf8">Масса ЖДН</prop>
      </prop>
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
@@ -328,11 +333,11 @@ void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
     </prop>
     <prop name="Column">
      <prop name="Name">iProcessed</prop>
-     <prop name="Width">30</prop>
-     <prop name="Visible">True</prop>
+     <prop name="Width">0</prop>
+     <prop name="Visible">False</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
-      <prop name="ru_RU.utf8">Тип</prop>
+      <prop name="ru_RU.utf8">Статус</prop>
      </prop>
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
@@ -341,7 +346,7 @@ void cb_recieve_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Column">
      <prop name="Name">Fingerprint</prop>
      <prop name="Width">50</prop>
-     <prop name="Visible">True</prop>
+     <prop name="Visible">False</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
       <prop name="ru_RU.utf8">фингер</prop>
