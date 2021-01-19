@@ -2444,11 +2444,11 @@ main(){
 {
   if(VolumeDose_oper.text() == &quot;&quot;){
     string mass = MassDose_oper.text();
-    dpSet(&quot;DP.cMassDose&quot;, mass);
+    dpSet(DP + &quot;.cMassDose&quot;, mass);
   }
   else{
     string vol = VolumeDose_oper.text();
-    dpSet(&quot;DP.cVolumeDose&quot;, vol);
+    dpSet(DP + &quot;.cVolumeDose&quot;, vol);
   }
  /* string Adr;
   int x;
@@ -2719,11 +2719,11 @@ main(){
   float GFRIVE = 0.000560;
   if(this.currentIndex() == 0){
     txt_pris_percent.text(OPTI + &quot;%&quot;);
-    dpSet(&quot;POST_1.cPercentPrisadki&quot;, OPTI);
+    dpSet(DP + &quot;.cPercentPrisadki&quot;, OPTI);
   }
   else{
     txt_pris_percent.text(GFRIVE + &quot;%&quot;);
-    dpSet(&quot;POST_1.cPercentPrisadki&quot;, GFRIVE);
+    dpSet( DP + &quot;.cPercentPrisadki&quot;, GFRIVE);
   }
 }]]></script>
    </events>
@@ -2801,9 +2801,11 @@ main(){
     <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
   float pris;
-  dpGet(&quot;POST_1.cPercentPrisadki&quot;, pris);
-  this.text(pris + &quot;%&quot;);
-}]]></script>
+  dpGet(DP + &quot;.cPercentPrisadki&quot;, pris);
+  sdShowValue(&quot;txt_pris_percent&quot;, DP + &quot;.cPercentPrisadki&quot;, pris, 2, &quot;0.123456&quot;, 2, &quot;%&quot;);
+//   this.text(pris + &quot;%&quot;);
+}
+]]></script>
    </events>
   </shape>
   <shape Name="FRAME7" shapeType="FRAME" layerId="0">
