@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">343 513</prop>
+  <prop name="Size">357 513</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">20 20</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -535,6 +535,14 @@ void cbAll(dyn_string dp, dyn_int val){
                         DP + &quot;.PST_3.mass_fact&quot;,
                         DP + &quot;.PST_3.vol_15&quot;,
                         DP + &quot;.PST_3.dens_15&quot;);
+
+  float init_jdn;
+  for(int i=1; i&lt;=8; i++){
+    float tmp;
+    dpGet(&quot;LAST_RECEIVE_&quot; + strltrim(dpSubStr(DP, DPSUB_DP), &quot;IS_&quot;) + &quot;.init.&quot; + i + &quot;.weight&quot;, tmp);
+    init_jdn += tmp;
+  }
+  pst1_jdn_txt.text(init_jdn);
 }
 ]]></script>
  </events>
@@ -605,7 +613,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1153</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.47955564008904 87.09620310699498</prop>
+    <prop name="RefPoint">19 88</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -619,7 +627,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">23.47955564008895 87.09620310699476</prop>
+    <prop name="Location">18.99999999999987 87.99999999999979</prop>
     <prop name="Size">288 22</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
@@ -631,7 +639,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1154</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.47132382134415 127.948244707666</prop>
+    <prop name="RefPoint">18.99176818125511 128.852041600671</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -645,7 +653,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">23.47132382134383 127.9482447076659</prop>
+    <prop name="Location">18.99176818125483 128.8520416006709</prop>
     <prop name="Size">288 41</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
@@ -815,7 +823,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1420</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.52488044660949 93.97477675115793</prop>
+    <prop name="RefPoint">19.04532480652053 94.87857364416308</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -829,7 +837,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">23.52488044660939 93.97477675115773</prop>
+    <prop name="Location">19.04532480652043 94.87857364416288</prop>
     <prop name="Size">288 22</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
@@ -841,7 +849,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1421</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.49464277551507 144.3684789556332</prop>
+    <prop name="RefPoint">19.01508713542611 145.2722758486384</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -855,8 +863,8 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">23.49464277551506 144.3684789556331</prop>
-    <prop name="Size">288 42</prop>
+    <prop name="Location">19.0150871354261 145.2722758486383</prop>
+    <prop name="Size">287 42</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
     </extended>
@@ -882,7 +890,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.137583314251211 0 0 7.679878978976946 -211.0018662903476 -364.7314332061136</prop>
+    <prop name="Geometry">3.137583314251211 0 0 7.679878978976946 -215.4814219304366 -363.8276363131084</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Основной</prop>
@@ -914,7 +922,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.049535603715171 0 0 1.160067114954905 0.8607937593019912 -22.85296621386663</prop>
+    <prop name="Geometry">1.049535603715171 0 0 1.160067114954905 -3.989796173549848 -28.33555871485157</prop>
     <prop name="Location">23.50000000000102 124.4836563609514</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -934,7 +942,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1482</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">25.52488044660952 74.01293843620084</prop>
+    <prop name="RefPoint">20.67429051375768 75.89876698784747</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -950,7 +958,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">25.52488044660952 74.01293843620084</prop>
+    <prop name="Location">20.67429051375768 75.89876698784747</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -969,7 +977,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1491</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.32417060080098 227.9184213351897</prop>
+    <prop name="RefPoint">18.47358066794914 210.0220357307564</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -985,7 +993,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">23.32417060080098 227.9184213351897</prop>
+    <prop name="Location">18.47358066794914 210.0220357307564</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1004,7 +1012,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1498</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.52488044660962 93.97477675115783</prop>
+    <prop name="RefPoint">18.6742905137578 91.65007898701501</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -1018,7 +1026,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">23.52488044660962 93.97477675115773</prop>
+    <prop name="Location">18.6742905137578 91.65007898701491</prop>
     <prop name="Size">287 22</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
@@ -1030,7 +1038,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1499</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.52488044660962 144.3210387098162</prop>
+    <prop name="RefPoint">18.6742905137578 132.6315496571071</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -1044,8 +1052,8 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">23.52488044660962 144.3210387098161</prop>
-    <prop name="Size">287 42</prop>
+    <prop name="Location">18.6742905137578 132.6315496571071</prop>
+    <prop name="Size">287 41</prop>
     <extended>
      <prop type="ENUM" name="alignment">132</prop>
     </extended>
@@ -1071,7 +1079,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.090517604534056 0 0 1.174150064804941 -504.0499110141371 73.79246319567594</prop>
+    <prop name="Geometry">1.090517604534056 0 0 1.174150064804941 -508.9005009469888 77.7835549052173</prop>
     <prop name="Location">586.4965109955868 257.4241094109705</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -1087,11 +1095,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <reference parentSerial="86" Name="granted_main" referenceId="22">
+  <reference parentSerial="126" Name="granted_main" referenceId="22">
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">1.612554957558058 0 0 1.123859320734746 1767.726193196723 -838.382375004021</prop>
+    <prop name="Geometry">1.612554957558058 0 0 1.123859320734746 862.7261931967225 -844.382375004021</prop>
     <prop name="TabOrder">1136</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1105,20 +1113,20 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1.191918352995681 0 0 0.9999999999999999 -2486.096247848411 476.8496374681551</prop>
+     <prop type="TRANSFORM" name="transform">1.191918352995681 0 0 0.9999999999999999 -1412.260728320172 484.7354660198018</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1.19191835299568 0 0 1 -2486.099578929608 476.8430265309717</prop>
+     <prop type="TRANSFORM" name="transform">1.19191835299568 0 0 1 -1412.26405940137 484.7288550826182</prop>
     </properties>
    </shape>
   </reference>
-  <reference parentSerial="86" Name="start_main" referenceId="23">
+  <reference parentSerial="126" Name="start_main" referenceId="23">
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 2549.689682425535 -828.3283370115819</prop>
+    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 1644.689682425535 -834.3283370115819</prop>
     <prop name="TabOrder">1137</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1132,20 +1140,20 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2716.64030121921 476.8496374681551</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1816.490891152062 484.7354660198018</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2716.641889854332 476.8428334609574</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1816.492479787184 484.7286620126042</prop>
     </properties>
    </shape>
   </reference>
-  <reference parentSerial="86" Name="stop_main" referenceId="24">
+  <reference parentSerial="126" Name="stop_main" referenceId="24">
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 2549.716461847665 -793.5510002477372</prop>
+    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 1644.716461847665 -799.5510002477372</prop>
     <prop name="TabOrder">1138</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1159,20 +1167,20 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -2716.640301219212 476.8496374681552</prop>
+     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -1816.490891152064 484.7354660198021</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2716.641889854332 476.8428334609578</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1816.492479787184 484.7286620126046</prop>
     </properties>
    </shape>
   </reference>
-  <reference parentSerial="86" Name="continue_main" referenceId="25">
+  <reference parentSerial="126" Name="continue_main" referenceId="25">
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 2668.746970909348 -828.1503224146102</prop>
+    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 1763.746970909348 -834.1503224146102</prop>
     <prop name="TabOrder">1139</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1186,20 +1194,20 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2689.410940930223 476.8496374681548</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1789.261530863075 484.7354660198014</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2689.412529565343 476.8428334609574</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1789.263119498195 484.7286620126039</prop>
     </properties>
    </shape>
   </reference>
-  <reference parentSerial="86" Name="pause_main" referenceId="26">
+  <reference parentSerial="126" Name="pause_main" referenceId="26">
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 2667.32888703338 -793.5510002477372</prop>
+    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 1762.328887033379 -799.5510002477372</prop>
     <prop name="TabOrder">1140</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1213,20 +1221,20 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -2687.992857054257 476.8496374681552</prop>
+     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -1787.843446987109 484.7354660198021</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2687.994445689376 476.8428334609578</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1787.845035622228 484.7286620126046</prop>
     </properties>
    </shape>
   </reference>
-  <reference parentSerial="86" Name="PANEL_REF10" referenceId="38">
+  <reference parentSerial="126" Name="PANEL_REF10" referenceId="38">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.3656016503173 -271.3338110959689</prop>
+    <prop name="Geometry">1 0 0 1 -914.2161915831691 -289.2301967004021</prop>
     <prop name="TabOrder">1233</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1245,11 +1253,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference parentSerial="86" Name="PANEL_REF14" referenceId="42">
+  <reference parentSerial="126" Name="PANEL_REF14" referenceId="42">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379694 -271.3338110959688</prop>
+    <prop name="Geometry">1 0 0 1 -799.2316049708212 -289.2301967004021</prop>
     <prop name="TabOrder">1237</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1272,7 +1280,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1990</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">118.7179745780959 194.412803109183</prop>
+    <prop name="RefPoint">113.8673846452441 176.5164175047497</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1288,7 +1296,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">118.7179745780959 194.412803109183</prop>
+    <prop name="Location">113.8673846452441 176.5164175047497</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1307,7 +1315,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">1991</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">230.4871478027899 195.7823970389259</prop>
+    <prop name="RefPoint">225.6365578699379 177.8860114344926</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1323,7 +1331,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">230.4871478027899 195.7823970389259</prop>
+    <prop name="Location">225.6365578699379 177.8860114344926</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1358,7 +1366,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.0375 0 0 1 -600.2133293991982 17.57370525002604</prop>
+    <prop name="Geometry">1.0375 0 0 1 -605.06391933205 -0.3226803544071792</prop>
     <prop name="Location">601 231.4087842615203</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -1374,11 +1382,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <reference parentSerial="86" Name="PANEL_REF55" referenceId="78">
+  <reference parentSerial="126" Name="PANEL_REF55" referenceId="78">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.3656016503239 -250.3165357257632</prop>
+    <prop name="Geometry">1 0 0 1 -914.2161915831757 -268.2129213301964</prop>
     <prop name="TabOrder">1281</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1397,11 +1405,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference parentSerial="86" Name="PANEL_REF56" referenceId="79">
+  <reference parentSerial="126" Name="PANEL_REF56" referenceId="79">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379769 -250.3165357257632</prop>
+    <prop name="Geometry">1 0 0 1 -799.2316049708287 -268.2129213301964</prop>
     <prop name="TabOrder">1282</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1440,7 +1448,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.063179940006127 0 0 1 -482.9965998694059 -67.45139171627926</prop>
+    <prop name="Geometry">1.063179940006127 0 0 1 -487.8471898022577 -65.56556316463264</prop>
     <prop name="Location">517.3775309184495 386.4570568798981</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -1456,11 +1464,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <reference parentSerial="86" Name="PANEL_REF57" referenceId="80">
+  <reference parentSerial="126" Name="PANEL_REF57" referenceId="80">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.154769586164 -180.3416326920683</prop>
+    <prop name="Geometry">1 0 0 1 -821.0053595190158 -178.4558041404217</prop>
     <prop name="TabOrder">1284</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1483,7 +1491,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2006</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">67.06881241298927 339.8214033800912</prop>
+    <prop name="RefPoint">62.21822248013746 341.7072319317379</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1499,7 +1507,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">67.06881241298927 339.8214033800912</prop>
+    <prop name="Location">62.21822248013746 341.7072319317379</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1514,11 +1522,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <reference parentSerial="86" Name="PANEL_REF58" referenceId="81">
+  <reference parentSerial="126" Name="PANEL_REF58" referenceId="81">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861642 -159.3243573218622</prop>
+    <prop name="Geometry">1 0 0 1 -821.005359519016 -157.4385287702156</prop>
     <prop name="TabOrder">1286</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1557,7 +1565,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.049316231124702 0 0 1 -130.9489478367791 37.59098062023196</prop>
+    <prop name="Geometry">1.049316231124702 0 0 1 -135.7995377696309 19.69459501579874</prop>
     <prop name="Location">146.8825590104214 231.6856281492363</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -1573,11 +1581,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <reference parentSerial="86" Name="PANEL_REF59" referenceId="82">
+  <reference parentSerial="126" Name="PANEL_REF59" referenceId="82">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.3656016503239 -229.299260355557</prop>
+    <prop name="Geometry">1 0 0 1 -914.2161915831757 -247.1956459599903</prop>
     <prop name="TabOrder">1288</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1596,11 +1604,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </reference>
-  <reference parentSerial="86" Name="PANEL_REF60" referenceId="83">
+  <reference parentSerial="126" Name="PANEL_REF60" referenceId="83">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379767 -229.299260355557</prop>
+    <prop name="Geometry">1 0 0 1 -799.2316049708285 -247.1956459599903</prop>
     <prop name="TabOrder">1289</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1639,7 +1647,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.055450579695315 0 0 1 56.73010342069712 -44.41684097586744</prop>
+    <prop name="Geometry">1.055450579695315 0 0 1 51.87951348784532 -42.53101242422081</prop>
     <prop name="Location">9.795540588244933 405.051220730023</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -1655,11 +1663,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <reference parentSerial="86" Name="PANEL_REF61" referenceId="84">
+  <reference parentSerial="126" Name="PANEL_REF61" referenceId="84">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861644 -138.3070819516565</prop>
+    <prop name="Geometry">1 0 0 1 -821.0053595190162 -136.4212534000098</prop>
     <prop name="TabOrder">1291</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1682,7 +1690,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2025</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">67.06881241298927 297.3488863403206</prop>
+    <prop name="RefPoint">62.21822248013746 299.2347148919671</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1698,7 +1706,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">67.06881241298927 297.3488863403206</prop>
+    <prop name="Location">62.21822248013746 299.2347148919671</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1713,11 +1721,11 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <reference parentSerial="86" Name="PANEL_REF62" referenceId="85">
+  <reference parentSerial="126" Name="PANEL_REF62" referenceId="85">
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861669 -201.358908062274</prop>
+    <prop name="Geometry">1 0 0 1 -821.0053595190187 -199.4730795106273</prop>
     <prop name="TabOrder">1293</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -1756,7 +1764,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.137583314251211 0 0 7.679878978976946 -211.0018662903476 -364.7314332061136</prop>
+    <prop name="Geometry">3.137583314251211 0 0 7.679878978976946 -215.4814219304366 -363.8276363131084</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Резервный</prop>
@@ -1788,7 +1796,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.049535603715171 0 0 1.160067114954905 0.8607937593019024 -22.85296621386663</prop>
+    <prop name="Geometry">1.049535603715171 0 0 1.160067114954905 -3.618761880787133 -21.94916932086144</prop>
     <prop name="Location">23.50000000000102 124.4836563609514</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -1808,7 +1816,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2113</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">25.52488044660955 74.01293843620084</prop>
+    <prop name="RefPoint">21.04532480652051 74.91673532920603</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1824,7 +1832,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">25.52488044660955 74.01293843620084</prop>
+    <prop name="Location">21.04532480652051 74.91673532920603</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1843,7 +1851,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2114</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.324170600801 227.9184213351897</prop>
+    <prop name="RefPoint">18.84461496071208 228.8222182281949</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1859,7 +1867,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">23.324170600801 227.9184213351897</prop>
+    <prop name="Location">18.84461496071208 228.8222182281949</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1894,7 +1902,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.090517604534056 0 0 1.174150064804941 -504.0499110141362 73.79246319567594</prop>
+    <prop name="Geometry">1.090517604534056 0 0 1.174150064804941 -508.5294666542252 74.69626008868113</prop>
     <prop name="Location">586.4965109955868 257.4241094109705</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -1914,7 +1922,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">1.612554957558058 0 0 1.123859320734746 1749.551809254581 -845.445163871369</prop>
+    <prop name="Geometry">1.612554957558058 0 0 1.123859320734746 879.0269288079719 -849.419940622527</prop>
     <prop name="TabOrder">1338</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1928,12 +1936,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1.19191835299568 0 0 0.9999999999999999 -2464.433866073381 483.9124263355031</prop>
+     <prop type="TRANSFORM" name="transform">1.19191835299568 0 0 0.9999999999999999 -1431.318839969786 488.7909999796664</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1.19191835299568 0 0 1 -2464.437197154577 483.9058153983196</prop>
+     <prop type="TRANSFORM" name="transform">1.19191835299568 0 0 1 -1431.322171050982 488.7843890424828</prop>
     </properties>
    </shape>
   </reference>
@@ -1941,7 +1949,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 2531.515298483393 -835.3911258789299</prop>
+    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 1660.990418036783 -839.3659026300878</prop>
     <prop name="TabOrder">1339</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1955,12 +1963,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2698.465917277068 483.912426335503</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1832.420592470547 488.790999979666</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2698.46750591219 483.9056223283056</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1832.42218110567 488.7841959724687</prop>
     </properties>
    </shape>
   </reference>
@@ -1968,7 +1976,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 2531.542077905521 -800.6137891150852</prop>
+    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 1661.017197458912 -804.5885658662431</prop>
     <prop name="TabOrder">1340</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -1982,12 +1990,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -2698.465917277069 483.9124263355031</prop>
+     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -1832.420592470549 488.7909999796663</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2698.46750591219 483.9056223283058</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1832.42218110567 488.7841959724691</prop>
     </properties>
    </shape>
   </reference>
@@ -1995,7 +2003,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 2650.572586967206 -835.2131112819582</prop>
+    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 1780.047706520596 -839.1878880331161</prop>
     <prop name="TabOrder">1341</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -2009,12 +2017,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2671.236556988082 483.9124263355029</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1805.191232181562 488.7909999796658</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2671.238145623201 483.9056223283051</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1805.19282081668 488.7841959724683</prop>
     </properties>
    </shape>
   </reference>
@@ -2022,7 +2030,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 2649.154503091238 -800.6137891150852</prop>
+    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 1778.629622644628 -804.5885658662431</prop>
     <prop name="TabOrder">1342</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -2036,12 +2044,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -2669.818473112114 483.9124263355031</prop>
+     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -1803.773148305595 488.7909999796663</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -2669.820061747233 483.9056223283058</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -1803.774736940712 488.7841959724691</prop>
     </properties>
    </shape>
   </reference>
@@ -2049,7 +2057,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.365601650316 -271.3338110959689</prop>
+    <prop name="Geometry">1 0 0 1 -913.8451572904049 -270.4300142029636</prop>
     <prop name="TabOrder">1343</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2072,7 +2080,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379682 -271.3338110959688</prop>
+    <prop name="Geometry">1 0 0 1 -798.8605706780571 -270.4300142029636</prop>
     <prop name="TabOrder">1344</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2095,7 +2103,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2136</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">118.7179745780958 194.412803109183</prop>
+    <prop name="RefPoint">114.2384189380068 195.3166000021882</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2111,7 +2119,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">118.7179745780958 194.412803109183</prop>
+    <prop name="Location">114.2384189380068 195.3166000021882</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2130,7 +2138,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2137</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">230.48714780279 195.7823970389259</prop>
+    <prop name="RefPoint">226.007592162701 196.6861939319311</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2146,7 +2154,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">230.48714780279 195.7823970389259</prop>
+    <prop name="Location">226.007592162701 196.6861939319311</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2181,7 +2189,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.0375 0 0 1 -600.2133293991969 17.57370525002604</prop>
+    <prop name="Geometry">1.0375 0 0 1 -604.6928850392859 18.47750214303123</prop>
     <prop name="Location">601 231.4087842615203</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -2201,7 +2209,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.3656016503226 -250.3165357257632</prop>
+    <prop name="Geometry">1 0 0 1 -913.8451572904115 -249.412738832758</prop>
     <prop name="TabOrder">1345</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2224,7 +2232,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379757 -250.3165357257632</prop>
+    <prop name="Geometry">1 0 0 1 -798.8605706780646 -249.412738832758</prop>
     <prop name="TabOrder">1346</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2263,7 +2271,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.063179940006127 0 0 1 -482.9965998694059 -67.45139171627926</prop>
+    <prop name="Geometry">1.063179940006127 0 0 1 -487.4761555094949 -66.54759482327407</prop>
     <prop name="Location">517.3775309184495 386.4570568798981</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -2283,7 +2291,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861627 -180.3416326920684</prop>
+    <prop name="Geometry">1 0 0 1 -820.6343252262517 -179.4378357990632</prop>
     <prop name="TabOrder">1347</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2306,7 +2314,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2152</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">67.06881241298919 339.8214033800912</prop>
+    <prop name="RefPoint">62.58925677290017 340.7252002730965</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2322,7 +2330,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">67.06881241298919 339.8214033800912</prop>
+    <prop name="Location">62.58925677290017 340.7252002730965</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2341,7 +2349,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.154769586163 -159.3243573218622</prop>
+    <prop name="Geometry">1 0 0 1 -820.6343252262519 -158.420560428857</prop>
     <prop name="TabOrder">1348</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2380,7 +2388,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.049316231124702 0 0 1 -130.9489478367792 37.59098062023196</prop>
+    <prop name="Geometry">1.049316231124702 0 0 1 -135.4285034768682 38.49477751323715</prop>
     <prop name="Location">146.8825590104214 231.6856281492363</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -2400,7 +2408,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.3656016503226 -229.299260355557</prop>
+    <prop name="Geometry">1 0 0 1 -913.8451572904115 -228.3954634625518</prop>
     <prop name="TabOrder">1349</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2423,7 +2431,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379754 -229.299260355557</prop>
+    <prop name="Geometry">1 0 0 1 -798.8605706780644 -228.3954634625518</prop>
     <prop name="TabOrder">1350</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2462,7 +2470,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.055450579695315 0 0 1 56.73010342069703 -44.41684097586744</prop>
+    <prop name="Geometry">1.055450579695315 0 0 1 52.25054778060803 -43.51304408286225</prop>
     <prop name="Location">9.795540588244933 405.051220730023</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -2482,7 +2490,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861632 -138.3070819516566</prop>
+    <prop name="Geometry">1 0 0 1 -820.6343252262521 -137.4032850586514</prop>
     <prop name="TabOrder">1351</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2505,7 +2513,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2171</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">67.06881241298919 297.3488863403206</prop>
+    <prop name="RefPoint">62.58925677290017 298.2526832333258</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2521,7 +2529,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">67.06881241298919 297.3488863403206</prop>
+    <prop name="Location">62.58925677290017 298.2526832333258</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2540,7 +2548,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861657 -201.358908062274</prop>
+    <prop name="Geometry">1 0 0 1 -820.6343252262546 -200.4551111692688</prop>
     <prop name="TabOrder">1352</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2579,7 +2587,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">3.137583314251211 0 0 7.679878978976946 -211.0018662903476 -364.7314332061136</prop>
+    <prop name="Geometry">3.137583314251211 0 0 7.679878978976946 -215.4814219304366 -363.8276363131085</prop>
     <prop name="BorderStyle">3D</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Метролог</prop>
@@ -2611,7 +2619,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.049535603715171 0 0 1.160067114954905 0.8607937593019024 -33.28774882256229</prop>
+    <prop name="Geometry">1.049535603715171 0 0 1.160067114954905 -3.618761880787076 -32.38395192955727</prop>
     <prop name="Location">23.50000000000102 124.4836563609514</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -2631,7 +2639,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2180</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">25.52488044660955 71.40424278402691</prop>
+    <prop name="RefPoint">21.04532480652051 72.30803967703193</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2647,7 +2655,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">25.52488044660955 71.40424278402691</prop>
+    <prop name="Location">21.04532480652051 72.30803967703193</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2666,7 +2674,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2181</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">23.324170600801 196.0550672979224</prop>
+    <prop name="RefPoint">18.84461496071202 196.9588641909274</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2682,7 +2690,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">23.324170600801 196.0550672979224</prop>
+    <prop name="Location">18.84461496071202 196.9588641909274</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2717,7 +2725,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.090517604534056 0 0 1.174150064804941 -504.0499110141363 52.51917127021056</prop>
+    <prop name="Geometry">1.090517604534056 0 0 1.174150064804941 -508.5294666542252 53.42296816321559</prop>
     <prop name="Location">586.4965109955868 257.4241094109705</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -2737,7 +2745,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">1.612554957558058 0 0 1.123859320734746 2761.461501877191 -832.8598159934011</prop>
+    <prop name="Geometry">1.612554957558058 0 0 1.123859320734746 2459.13135630425 -856.0701905487495</prop>
     <prop name="TabOrder">1368</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -2751,12 +2759,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1.191918352995681 0 0 0.9999999999999999 -3670.547600284492 483.500991501013</prop>
+     <prop type="TRANSFORM" name="transform">1.191918352995681 0 0 0.9999999999999999 -3314.674306752336 507.6151629493665</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1.19191835299568 0 0 1 -3670.550931365685 483.4943805638301</prop>
+     <prop type="TRANSFORM" name="transform">1.19191835299568 0 0 1 -3314.67763783353 507.6085520121835</prop>
     </properties>
    </shape>
   </reference>
@@ -2764,7 +2772,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 3543.424991106005 -828.0231693053095</prop>
+    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 3241.094845533064 -851.2335438606578</prop>
     <prop name="TabOrder">1369</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -2778,12 +2786,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -3710.375609899681 483.5009915010128</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -3412.52501996683 507.6151629493662</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -3710.377198534802 483.4941874938157</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -3412.52660860195 507.6083589421692</prop>
     </properties>
    </shape>
   </reference>
@@ -2791,7 +2799,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 3543.451770528133 -800.202354280595</prop>
+    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 3241.121624955192 -823.4127288359434</prop>
     <prop name="TabOrder">1370</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -2805,12 +2813,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -3710.375609899681 483.5009915010131</prop>
+     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -3412.525019966829 507.6151629493667</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -3710.377198534801 483.4941874938156</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -3412.526608601949 507.6083589421693</prop>
     </properties>
    </shape>
   </reference>
@@ -2818,7 +2826,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 3662.482279589818 -827.8451547083378</prop>
+    <prop name="Geometry">0.9166424650321027 0 0 1.156681223148505 3360.152134016877 -851.0555292636861</prop>
     <prop name="TabOrder">1371</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -2832,12 +2840,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -3683.146249610693 483.5080122258198</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -3385.295659677842 507.6221836741731</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -3683.147838245814 483.5012082186226</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -3385.297248312961 507.6153796669761</prop>
     </properties>
    </shape>
   </reference>
@@ -2845,7 +2853,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">210.5265559279894 674</prop>
-    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 3661.064195713851 -800.202354280595</prop>
+    <prop name="Geometry">0.9166424650321029 0 0 1.156681223148505 3358.73405014091 -823.4127288359434</prop>
     <prop name="TabOrder">1372</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -2859,12 +2867,12 @@ void cbAll(dyn_string dp, dyn_int val){
    </properties>
    <shape GroupPath="" RefShapeSerial="5" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -3681.728165734727 483.5009915010131</prop>
+     <prop type="TRANSFORM" name="transform">0.9999999999999999 0 0 0.9999999999999999 -3383.877575801876 507.6151629493667</prop>
     </properties>
    </shape>
    <shape GroupPath="" RefShapeSerial="6" shapeType="RefShape" layerId="0">
     <properties>
-     <prop type="TRANSFORM" name="transform">1 0 0 1 -3681.729754369848 483.4941874938156</prop>
+     <prop type="TRANSFORM" name="transform">1 0 0 1 -3383.879164436995 507.6083589421693</prop>
     </properties>
    </shape>
   </reference>
@@ -2872,7 +2880,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.365601650316 -303.197165133236</prop>
+    <prop name="Geometry">1 0 0 1 -913.845157290405 -302.293368240231</prop>
     <prop name="TabOrder">1373</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2895,7 +2903,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379682 -303.1971651332359</prop>
+    <prop name="Geometry">1 0 0 1 -798.8605706780572 -302.2933682402308</prop>
     <prop name="TabOrder">1374</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -2918,7 +2926,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2201</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">118.7179745780958 167.7668403762636</prop>
+    <prop name="RefPoint">114.2384189380068 168.6706372692686</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2934,7 +2942,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">118.7179745780958 167.7668403762636</prop>
+    <prop name="Location">114.2384189380068 168.6706372692686</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2953,7 +2961,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2202</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">230.48714780279 169.1364343060065</prop>
+    <prop name="RefPoint">226.007592162701 170.0402311990115</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2969,7 +2977,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">230.48714780279 169.1364343060065</prop>
+    <prop name="Location">226.007592162701 170.0402311990115</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -3004,7 +3012,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.0375 0 0 1 -600.2133293991986 -14.28964878724112</prop>
+    <prop name="Geometry">1.0375 0 0 1 -604.6928850392875 -13.3858518942361</prop>
     <prop name="Location">601 231.4087842615203</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -3024,7 +3032,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.365601650316 -282.1798897630304</prop>
+    <prop name="Geometry">1 0 0 1 -913.845157290405 -281.2760928700254</prop>
     <prop name="TabOrder">1375</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3047,7 +3055,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379683 -282.1798897630304</prop>
+    <prop name="Geometry">1 0 0 1 -798.8605706780572 -281.2760928700254</prop>
     <prop name="TabOrder">1376</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3086,7 +3094,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.063179940006127 0 0 1 -482.9965998694059 -83.97313084671353</prop>
+    <prop name="Geometry">1.063179940006127 0 0 1 -487.4761555094948 -83.06933395370851</prop>
     <prop name="Location">517.3775309184495 386.4570568798981</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -3106,7 +3114,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861627 -196.8633718225026</prop>
+    <prop name="Geometry">1 0 0 1 -820.6343252262517 -195.9595749294975</prop>
     <prop name="TabOrder">1377</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3129,7 +3137,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2217</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">67.06881241298919 323.2996642496569</prop>
+    <prop name="RefPoint">62.58925677290023 324.203461142662</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -3145,7 +3153,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">67.06881241298919 323.2996642496569</prop>
+    <prop name="Location">62.58925677290023 324.203461142662</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -3164,7 +3172,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.154769586163 -175.8460964522964</prop>
+    <prop name="Geometry">1 0 0 1 -820.634325226252 -174.9422995592914</prop>
     <prop name="TabOrder">1378</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3203,7 +3211,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.049316231124702 0 0 1 -130.8020826379661 5.727626582964806</prop>
+    <prop name="Geometry">1.049316231124702 0 0 1 -135.281638278055 6.631423475969831</prop>
     <prop name="Location">146.8825590104214 231.6856281492363</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -3223,7 +3231,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -909.365601650316 -261.1626143928242</prop>
+    <prop name="Geometry">1 0 0 1 -913.845157290405 -260.2588174998191</prop>
     <prop name="TabOrder">1379</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3246,7 +3254,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.3810150379682 -261.1626143928242</prop>
+    <prop name="Geometry">1 0 0 1 -798.8605706780572 -260.2588174998191</prop>
     <prop name="TabOrder">1380</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3285,7 +3293,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.055450579695315 0 0 1 56.73010342069726 -60.93858010630171</prop>
+    <prop name="Geometry">1.055450579695315 0 0 1 52.25054778060831 -60.03478321329668</prop>
     <prop name="Location">9.795540588244933 405.051220730023</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -3305,7 +3313,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861632 -154.8288210820908</prop>
+    <prop name="Geometry">1 0 0 1 -820.6343252262523 -153.9250241890858</prop>
     <prop name="TabOrder">1381</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3328,7 +3336,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="serialId">2236</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">67.06881241298919 280.8271472098864</prop>
+    <prop name="RefPoint">62.58925677290023 281.7309441028914</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -3344,7 +3352,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">67.06881241298919 280.8271472098864</prop>
+    <prop name="Location">62.58925677290023 281.7309441028914</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -3363,7 +3371,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -816.1547695861657 -217.8806471927082</prop>
+    <prop name="Geometry">1 0 0 1 -820.6343252262548 -216.9768502997032</prop>
     <prop name="TabOrder">1382</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3402,7 +3410,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.049316231124702 0 0 1 -130.8020826379661 26.93852526831782</prop>
+    <prop name="Geometry">1.049316231124702 0 0 1 -135.281638278055 27.84232216132284</prop>
     <prop name="Location">146.8825590104214 231.6856281492363</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -3422,7 +3430,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -908.8359016852492 -239.9517157074712</prop>
+    <prop name="Geometry">1 0 0 1 -913.3154573253382 -239.0479188144662</prop>
     <prop name="TabOrder">1398</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3445,7 +3453,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/AI/ai_is/ai_is.xml</prop>
     <prop name="Location">995.1726001824836 496.3902409757889</prop>
-    <prop name="Geometry">1 0 0 1 -794.5501873995381 -239.9517157074712</prop>
+    <prop name="Geometry">1 0 0 1 -799.0297430396271 -239.0479188144662</prop>
     <prop name="TabOrder">1399</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3468,7 +3476,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">811 387</prop>
-    <prop name="Geometry">1.213114754098361 0 0 0.6611961963444634 -896.5896790633994 128.5269397179609</prop>
+    <prop name="Geometry">1.213114754098361 0 0 0.6611961963444634 -901.0692347034885 129.4307366109659</prop>
     <prop name="TabOrder">1404</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3503,7 +3511,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.628352490421456 0 0 0.7619047619047618 -16.15372295870479 364.8622486556491</prop>
+    <prop name="Geometry">1.628352490421456 0 0 0.7619047619047618 -20.63327859879382 365.7660455486542</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">109 25</prop>
     <prop name="Size">22 22</prop>
@@ -3531,7 +3539,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.3280612905212367 0 0 0.7762026618026385 145.9632136705051 374.4453078127088</prop>
+    <prop name="Geometry">0.3280612905212367 0 0 0.7762026618026385 141.4836580304161 375.3491047057138</prop>
     <prop name="Location">53 15</prop>
     <prop name="Size">93 16</prop>
     <prop name="Font">
@@ -3568,7 +3576,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.049316231124702 0 0 1 -130.8020826379661 159.4098677032682</prop>
+    <prop name="Geometry">1.049316231124702 0 0 1 -135.281638278055 160.3136645962732</prop>
     <prop name="Location">146.8825590104214 231.6856281492363</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
@@ -3588,7 +3596,7 @@ void cbAll(dyn_string dp, dyn_int val){
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">811 387</prop>
-    <prop name="Geometry">1.213114754098361 0 0 0.6611961963444634 -783.1611076348302 128.5269397179609</prop>
+    <prop name="Geometry">1.213114754098361 0 0 0.6611961963444634 -787.6406632749192 129.4307366109659</prop>
     <prop name="TabOrder">1413</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -3623,7 +3631,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.628352490421456 0 0 0.7619047619047618 97.98913418415015 364.8622486556491</prop>
+    <prop name="Geometry">1.628352490421456 0 0 0.7619047619047618 93.50957854406118 365.7660455486542</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">109 25</prop>
     <prop name="Size">22 22</prop>
@@ -3651,7 +3659,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.3280612905212367 0 0 0.7762026618026385 260.1060708133601 374.4453078127088</prop>
+    <prop name="Geometry">0.3280612905212367 0 0 0.7762026618026385 255.6265151732712 375.3491047057138</prop>
     <prop name="Location">53 15</prop>
     <prop name="Size">93 16</prop>
     <prop name="Font">
@@ -3667,6 +3675,203 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT709" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">2588</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">62.21822248013746 276.8858285516466</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">1417</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">62.21822248013746 276.8858285516466</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Tahoma,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Задание ЖДН</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE5" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">2593</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">254 268</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">1418</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 -4.85058993285179 1.885828551646622</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">254 268</prop>
+    <prop name="Size">-76 16</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE6" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">2594</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">254 268</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">1419</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.4533333333333333 0 0 1 168.0027434004819 1.885828551646622</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">254 268</prop>
+    <prop name="Size">-76 16</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT710" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">2595</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">99.35714285714286 21.86186594202903</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">1420</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.3283141426532319 0 0 0.7448174981786769 233.5423178891829 260.7593406032523</prop>
+    <prop name="Location">53 15</prop>
+    <prop name="Size">93 16</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">кг</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="pst1_jdn_txt" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">2596</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">99.35714285714286 21.86186594202903</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">1421</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">0.774973383903824 0 0 0.7448174981786769 135.1402468813908 260.6027282551869</prop>
+    <prop name="Location">53 15</prop>
+    <prop name="Size">93 16</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">########</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">2597</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">173.6742905137578 267.0738373788352</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Transparent</prop>
+    <prop name="TabOrder">1422</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">173.6742905137578 270.0738373788352</prop>
+    <prop name="Size">110 15</prop>
+    <prop name="BorderStyle">None</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+    ChildPanelOnCentral(&quot;faceplates/USN/usn_order.xml&quot;, &quot;Задание. УУ &quot; + strltrim(dpSubStr(DP, DPSUB_DP), &quot;IS_&quot;) , makeDynString(&quot;$line:&quot; + strltrim(dpSubStr(DP, DPSUB_DP), &quot;IS_&quot;)));
+}
+]]></script>
+   </events>
   </shape>
   <shape Name="nolink_back" shapeType="RECTANGLE" layerId="1">
    <properties>
@@ -3688,7 +3893,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[hatch,[cross,10,left]]</prop>
-    <prop name="Geometry">1.32 0 0 1.6 -11.12307692307697 11.30769230769236</prop>
+    <prop name="Geometry">1.288 0 0 1.623333333333333 -7.880000000000109 1.766666666666669</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">10 10</prop>
     <prop name="Size">251 301</prop>
@@ -3716,7 +3921,7 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.21237267044818 0 0 2.272797860387004 -2.65525078582188 -96.3399653542285</prop>
+    <prop name="Geometry">1.21237267044818 0 0 2.272797860387004 -5.123726704481896 -110.4637218503105</prop>
     <prop name="Location">10 130</prop>
     <prop name="Size">261 61</prop>
     <prop name="Font">
@@ -3735,41 +3940,6 @@ void cbAll(dyn_string dp, dyn_int val){
   </shape>
  </shapes>
  <groups>
-  <group parentSerial="-1" Name="SHAPE_GROUP1" serial="86">
-   <properties>
-    <prop name="shapeSerial">1480</prop>
-    <prop name="shapeSerial">1481</prop>
-    <prop name="shapeSerial">1482</prop>
-    <prop name="shapeSerial">1491</prop>
-    <prop name="shapeSerial">1498</prop>
-    <prop name="shapeSerial">1499</prop>
-    <prop name="shapeSerial">1500</prop>
-    <prop name="shapeSerial">1990</prop>
-    <prop name="shapeSerial">1991</prop>
-    <prop name="shapeSerial">1992</prop>
-    <prop name="shapeSerial">2001</prop>
-    <prop name="shapeSerial">2006</prop>
-    <prop name="shapeSerial">2011</prop>
-    <prop name="shapeSerial">2020</prop>
-    <prop name="shapeSerial">2025</prop>
-    <prop name="groupSerial">22</prop>
-    <prop name="groupSerial">23</prop>
-    <prop name="groupSerial">24</prop>
-    <prop name="groupSerial">25</prop>
-    <prop name="groupSerial">26</prop>
-    <prop name="groupSerial">38</prop>
-    <prop name="groupSerial">42</prop>
-    <prop name="groupSerial">78</prop>
-    <prop name="groupSerial">79</prop>
-    <prop name="groupSerial">80</prop>
-    <prop name="groupSerial">81</prop>
-    <prop name="groupSerial">82</prop>
-    <prop name="groupSerial">83</prop>
-    <prop name="groupSerial">84</prop>
-    <prop name="groupSerial">85</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
   <group parentSerial="-1" Name="SHAPE_GROUP2" serial="118">
    <properties>
     <prop name="shapeSerial">1420</prop>
@@ -3847,6 +4017,47 @@ void cbAll(dyn_string dp, dyn_int val){
     <prop name="groupSerial">120</prop>
     <prop name="groupSerial">122</prop>
     <prop name="groupSerial">124</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="SHAPE_GROUP1" serial="126">
+   <properties>
+    <prop name="shapeSerial">1480</prop>
+    <prop name="shapeSerial">1481</prop>
+    <prop name="shapeSerial">1482</prop>
+    <prop name="shapeSerial">1491</prop>
+    <prop name="shapeSerial">1498</prop>
+    <prop name="shapeSerial">1499</prop>
+    <prop name="shapeSerial">1500</prop>
+    <prop name="shapeSerial">1990</prop>
+    <prop name="shapeSerial">1991</prop>
+    <prop name="shapeSerial">1992</prop>
+    <prop name="shapeSerial">2001</prop>
+    <prop name="shapeSerial">2006</prop>
+    <prop name="shapeSerial">2011</prop>
+    <prop name="shapeSerial">2020</prop>
+    <prop name="shapeSerial">2025</prop>
+    <prop name="shapeSerial">2588</prop>
+    <prop name="shapeSerial">2593</prop>
+    <prop name="shapeSerial">2594</prop>
+    <prop name="shapeSerial">2595</prop>
+    <prop name="shapeSerial">2596</prop>
+    <prop name="shapeSerial">2597</prop>
+    <prop name="groupSerial">22</prop>
+    <prop name="groupSerial">23</prop>
+    <prop name="groupSerial">24</prop>
+    <prop name="groupSerial">25</prop>
+    <prop name="groupSerial">26</prop>
+    <prop name="groupSerial">38</prop>
+    <prop name="groupSerial">42</prop>
+    <prop name="groupSerial">78</prop>
+    <prop name="groupSerial">79</prop>
+    <prop name="groupSerial">80</prop>
+    <prop name="groupSerial">81</prop>
+    <prop name="groupSerial">82</prop>
+    <prop name="groupSerial">83</prop>
+    <prop name="groupSerial">84</prop>
+    <prop name="groupSerial">85</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </group>

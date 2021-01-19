@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">427 58</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">20 21</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[// public void setUsn(int num){ usn_fl.text(num); }
+// public int getUsn()        { return usn_fl.text(); }
+//
+// public void setFuel(string in){ fuel.text(in); }
+// public string getFuel()       { return fuel.text(); }
+//
+// public void setRvs(int in){ rvs.text(in); }
+// public int getRvs()       { return rvs.text(); }
+//
+// public void  setWeight(float in){ weight.text(in); }
+// public float getWeight()        { return weight.text(); }
+
+const string LINE = $line;
+const string USN = $usn;
+
+string dp_usn = &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN;
+
+void cbState(dyn_string dp, dyn_anytype val){
+  usn_fl.text(val[1]);
+  wgh_fl.text(val[2]);
+  jdn_fl.text(val[3]);
+  rail_fl.text(val[4]);
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  dpConnect(&quot;cbState&quot;, dp_usn + &quot;.usn&quot;,
+                       dp_usn + &quot;.weight&quot;,
+                       dp_usn + &quot;.doc&quot;,
+                       dp_usn + &quot;.rail&quot;);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="usn_fl" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">7</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">12 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">5</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">12 15</prop>
+    <prop name="Size">50 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0d,True,False,AlignHCenter|AlignVCenter,False]</prop>
+   </properties>
+   <events>
+    <script name="Command" isEscaped="1"><![CDATA[main(){
+  if(this.text == &quot;&quot;){
+    dpSetWait(&quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.id&quot;       , 0,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.task&quot;     , &quot;&quot;,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.doc&quot;      , &quot;&quot;,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.usn&quot;      , 0,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.rail&quot;     , &quot;&quot;,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.tank&quot;     , 0,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.fuel&quot;     , &quot;&quot;,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.weight&quot;   , 0,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.uu&quot;       , 0,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.state&quot;    , 99,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.datetime&quot; , 0,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.init&quot;     , 0,
+              &quot;LAST_RECEIVE_&quot; + LINE + &quot;.init.&quot; + USN + &quot;.type&quot;     , 0);
+  }else{
+    dpSetWait(dp_usn + &quot;.usn&quot;, this.text);
+  }
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="wgh_fl" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">8</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">62.00000000000001 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">6</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">62.00000000000001 15</prop>
+    <prop name="Size">110 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0d,True,False,AlignHCenter|AlignVCenter,False]</prop>
+   </properties>
+   <events>
+    <script name="Command" isEscaped="1"><![CDATA[main(){
+  dpSetWait(dp_usn + &quot;.weight&quot;, this.text);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="jdn_fl" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">9</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">172 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">7</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">172 15</prop>
+    <prop name="Size">110 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+   <events>
+    <script name="Command" isEscaped="1"><![CDATA[main(){
+  dpSetWait(dp_usn + &quot;.doc&quot;, this.text);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="rail_fl" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">13</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">282 20</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">9</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">282 15</prop>
+    <prop name="Size">110 31</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+   <events>
+    <script name="Command" isEscaped="1"><![CDATA[main(){
+  dpSetWait(dp_usn + &quot;.rail&quot;, this.text);
+}
+]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>
