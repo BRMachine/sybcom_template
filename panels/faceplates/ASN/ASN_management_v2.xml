@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">699 677</prop>
+  <prop name="Size">699 676</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">20 20</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -16,6 +16,7 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics.ctl&quot;
 const string DP = $dp;
+const string DOZPOST_num = $DOZPOST_num;
 // const string NumberPost = $NumberPost;
 
 
@@ -2615,7 +2616,7 @@ main(){
      </prop>
      <prop name="dollarParameter">
       <prop name="Dollar">$dp</prop>
-      <prop name="Value">POS_101</prop>
+      <prop name="Value">$DOZPOST_num</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -2634,7 +2635,7 @@ main(){
      </prop>
      <prop name="dollarParameter">
       <prop name="Dollar">$dp</prop>
-      <prop name="Value">POST_101</prop>
+      <prop name="Value">$DOZPOST_num</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>

@@ -18,6 +18,7 @@
 
 // const string ASN = $ASN;
 const string POST = $POST;
+const string DOZPOST_num = $DOZPOST_num;
 const string LINE = $LINE;
 
 #property bool left_type_visible
@@ -589,7 +590,8 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
      case 1:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
       title = &quot;Окно управления поста &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management_v2.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
+                                                                                      &quot;$DOZPOST_num:&quot; + DOZPOST_num));
       break;
      case 8:
       post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
