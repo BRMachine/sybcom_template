@@ -26,7 +26,7 @@
    <properties>
     <prop name="FileName">objects/PUMP/d_pump.xml</prop>
     <prop name="Location">30 20</prop>
-    <prop name="Geometry">1 0 0 1 -20 28.64704402515723</prop>
+    <prop name="Geometry">1 0 0 1 -20 17.50418688230008</prop>
     <prop name="TabOrder">1</prop>
     <prop name="dollarParameters">
      <prop name="dollarParameter">
@@ -61,6 +61,7 @@
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
+    <prop name="Geometry">1 0 0 1.191393559865351 0 -35.66149909280087</prop>
     <prop name="Location">3 188.3254914004914</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -259,7 +260,7 @@
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">8.434169431112323 5.437957342083686</prop>
+    <prop name="Location">8.434169431112322 5.437957342083685</prop>
     <prop name="Size">235 33</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">comment pump signal</prop>
@@ -273,7 +274,7 @@
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">422.8333333333334 28.73030303030298</prop>
-    <prop name="Geometry">1.046659779614325 0 0 1 -351.5626434802576 14.26969696969702</prop>
+    <prop name="Geometry">1.046659779614325 0 0 1 -351.5626434802576 14.26969696969703</prop>
     <prop name="TabOrder">15</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
@@ -313,11 +314,11 @@
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">422.8333333333334 28.73030303030298</prop>
-    <prop name="Geometry">1.046659779614325 0 0 1 -351.5626434802576 62.26969696969702</prop>
+    <prop name="Geometry">1.046659779614325 0 0 1 -351.5626434802576 62.26969696969704</prop>
     <prop name="TabOrder">17</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="CHAR_STRING" name="text">Деблокировать</prop>
+     <prop type="CHAR_STRING" name="text">Сброс</prop>
      <prop type="INT" name="secureBit">25</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
@@ -362,7 +363,7 @@
     <prop name="TabOrder">18</prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="CHAR_STRING" name="text">Сброс блокировки</prop>
+     <prop type="CHAR_STRING" name="text">Деблокировать</prop>
      <prop type="INT" name="secureBit">25</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
