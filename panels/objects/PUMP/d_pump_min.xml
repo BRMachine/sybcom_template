@@ -45,11 +45,11 @@ void cbStatus(string dp, bit32 val){
   if(getBit(val, 28)){
     el_sts.backCol(&quot;&lt;green,4,White,4&gt;&quot;);
   }else if(getBit(val,29)){
-    el_sts.backCol(&quot;&lt;yellow,4,White,4&gt;&quot;);
+    el_sts.backCol(&quot;&lt;Grey,4,White,4&gt;&quot;);
   }else if(getBit(val, 26)){
     el_sts.backCol(&quot;green&quot;);
   }else if(getBit(val, 27)){
-    el_sts.backCol(&quot;yellow&quot;);
+    el_sts.backCol(&quot;Grey&quot;);
   }else{
     el_sts.backCol(&quot;WF_Border&quot;);
   }
