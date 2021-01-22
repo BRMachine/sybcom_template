@@ -63,6 +63,7 @@ void cbWorker(dyn_string dp, dyn_anytype val){
   Prisadka.visible(val[3]);
   pst_sts.text(stsToText(val[1]));
   pst_sts.backCol(stsToColor(val[1]));
+  shp_back_asn.backCol(stsToColor(val[1]));
 //   Zadanie.visible(false);
 
   nolink_text.visible(val[6]);
@@ -103,7 +104,7 @@ string stsToColor(int sts){
   string res;
   switch(sts){
     case 0x00:
-      res = &quot;Yellow&quot;;
+      res = &quot;WF_PanelBackground&quot;;
       break;
     case 0x10:
       res = &quot;Yellow&quot;;
@@ -121,7 +122,7 @@ string stsToColor(int sts){
       res = &quot;Red&quot;;
       break;
     case 0x80:
-      res = &quot;Red&quot;;
+      res = &quot;Yellow&quot;;
       break;
     default:
       res = &quot;Red&quot;;
@@ -204,7 +205,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
 ]]></script>
  </events>
  <shapes>
-  <shape Name="RECTANGLE1" shapeType="RECTANGLE" layerId="0">
+  <shape Name="shp_back_asn" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
     <prop name="Type"></prop>
@@ -524,7 +525,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
    <properties>
     <prop name="serialId">29</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">32.57095069756014 19.65431662056475</prop>
+    <prop name="RefPoint">32.4417062172943 19.65431662056475</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -538,15 +539,15 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,9,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">32.57095069756014 19.65431662056474</prop>
-    <prop name="Size">97 21</prop>
+    <prop name="Location">32.4417062172943 19.65431662056474</prop>
+    <prop name="Size">98 21</prop>
     <extended>
      <prop type="FILL" name="backgroundBrush">[solid]</prop>
      <prop type="ENUM" name="alignment">132</prop>
     </extended>
    </properties>
   </shape>
-  <shape Name="RECTANGLE2" shapeType="RECTANGLE" layerId="0">
+  <shape Name="RECTANGLE" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">20</prop>
     <prop name="Type"></prop>
@@ -566,7 +567,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">2.095489582183788 0 0 1.526421282798833 -9.468085426381592 -33.47339650145771</prop>
+    <prop name="Geometry">2.095489582183786 0 0 1.526421282798833 -9.468085426381542 -33.0180393586005</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">66 24</prop>
     <prop name="Size">-46.99999999999996 50</prop>
@@ -659,7 +660,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[hatch,[cross,10,left]]</prop>
-    <prop name="Geometry">0.3876109755929495 0 0 0.2507173357915947 28.12389024407051 1.492826642084054</prop>
+    <prop name="Geometry">0.3855700831218163 0 0 0.2507173357915947 28.58600538607613 0.6883401903199591</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">10 10</prop>
     <prop name="Size">251 301</prop>
@@ -687,7 +688,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.3581144370619266 0 0 0.2147291028783384 30.31526548478888 14.38191469510297</prop>
+    <prop name="Geometry">0.3554565661209315 0 0 0.2147291028783384 30.87581788843417 14.38191469510297</prop>
     <prop name="Location">10 130</prop>
     <prop name="Size">261 61</prop>
     <prop name="Font">
