@@ -637,9 +637,9 @@ void cbAll(string dp, int fuel,
         }
       }
     }
-    if(!mes_act){
-      dpSetWait(DP + &quot;.ALL.MES&quot;, 0);
-    }
+//     if(!mes_act){
+//       dpSetWait(DP + &quot;.ALL.MES&quot;, 0);
+//     }
 
   }else{
     string l_car, l_fuel, l_task, l_inventory;
