@@ -709,9 +709,15 @@ int fuelToPost(string fuel){
      <prop type="CHAR_STRING" name="text">Добавить задание</prop>
      <prop type="INT" name="secureBit">18</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn(){
+  dyn_string dyn_init_dp;
+  dyn_int dyn_init_usn;
   int local_uu = LINE;
   int local_sts;
   dpGet(&quot;LAST_RECEIVE_&quot; + local_uu + &quot;.state&quot;, local_sts);
+  for(int i=1; i&lt;=8; i++){
+    dyn_init_dp.append(&quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + i +&quot;.usn&quot;);
+  }
+  dpGet(dyn_init_dp, dyn_init_usn);
   for(int j=1; j&lt;=8; j++){
   /*  dpSetWait(&quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.id&quot;       , 0,
                 &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.task&quot;     , &quot;&quot;,
@@ -727,11 +733,12 @@ int fuelToPost(string fuel){
                 &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.init&quot;     , 0,
                 &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.type&quot;     , 0,
                 &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.state&quot;                   , 0);*/
-
-    dpSetWait(&quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.task&quot;     , &quot;ОПЕРАТОР&quot;,
-              &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.tank&quot;     , txt_rvs.text(),
-              &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.fuel&quot;     , txt_fuel.text(),
-              &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.uu&quot;       , local_uu);
+    if(dyn_init_usn[j] &gt; 0){
+      dpSetWait(&quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.task&quot;     , &quot;ОПЕРАТОР&quot;,
+                &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.tank&quot;     , txt_rvs.text(),
+                &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.fuel&quot;     , txt_fuel.text(),
+                &quot;LAST_RECEIVE_&quot; + local_uu + &quot;.init.&quot; + j + &quot;.uu&quot;       , local_uu);
+    }
   }
 
   refreshOrder(local_uu);
@@ -798,7 +805,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">23 78</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">#1</prop>
@@ -833,7 +840,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">23 108.7142857142857</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">#2</prop>
@@ -868,7 +875,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">23 139.4285714285714</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">#3</prop>
@@ -903,7 +910,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">23 170.1428571428571</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">#4</prop>
@@ -938,7 +945,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">23 200.8571428571429</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">#5</prop>
@@ -973,7 +980,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">23 231.5714285714286</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">#6</prop>
@@ -1008,7 +1015,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">23 262.2857142857143</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">#7</prop>
@@ -1043,7 +1050,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">24 293</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">#8</prop>
@@ -1078,7 +1085,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">62 51</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">УСН</prop>
@@ -1113,7 +1120,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">134 51</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Масса</prop>
@@ -1148,7 +1155,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">250 51</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">ЖДН</prop>
@@ -1183,7 +1190,7 @@ int fuelToPost(string fuel){
     <prop name="FillType">[outline]</prop>
     <prop name="Location">360 51</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Вагон</prop>
