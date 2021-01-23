@@ -5,7 +5,14 @@
   @copyright $copyright
   @author r.arslanov
 */
+/*
 
+INSERT INTO [ASU_MES_DB].[dbo].[vReceptionResult_new] (
+  DateRecording, PostName, TankCode, DtStart, DtEnd, RecWeight, RecVolume, RecDensity, RecTemperature, RecDensityCoerced, RecVolumeCoerced, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, Volume,
+  CompNbr, DispathOrder, sInvNum, OsProduct, iProcessed, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qTankWaterLStart, qCoercedDensityStart, qCoercedVolumeStart,
+  qPressureStart, qLevelWaterStart, qVolumeWaterStart, qTankLevelEnd, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qTankWaterLEnd, qCoercedDensityEnd, qCoercedVolumeEnd, qPressureEnd, qLevelWaterEnd,
+  qVolumeWaterEnd, ModeCtrl) Values(GETDATE(), 'ИС3', 0, '2021-01-22T22:26:35', '2021-01-22T22:27:16', 0, 0, 0.761, -19.7, 0, 0, 24121834, 24121834, 18032536, 18032536, 0, '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2);
+*/
 //--------------------------------------------------------------------------------
 // used libraries (#uses)
 #uses "CtrlADO"
@@ -201,8 +208,16 @@ void updateReceive(int is, string dp, time val){
       string PostName, CompNbr, DispathOrder, sInvNum, OsProduct;
       int TankCode;
       time DtStart, DtEnd;
-      float RecWeight, RecVolume, RecDensity, RecTemperature,
-            RecDensityCoerced, RecVolumeCoerced, SumVolume, SumWeight, Volume;
+      float RecWeight, RecVolume, RecDensity, RecTemperature, RecDensityCoerced, RecVolumeCoerced,
+            SumVolumeEnd, SumWeightEnd, SumVolumeStart, SumWeightStart, Volume,
+            qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart,
+            qTempTankStart, qTankWaterLStart, qCoercedDensityStart, qCoercedVolumeStart,
+            qPressureStart, qLevelWaterStart, qVolumeWaterStart,
+
+            qTankLevelEnd, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd,
+            qTempTankEnd, qTankWaterLEnd, qCoercedDensityEnd, qCoercedVolumeEnd,
+            qPressureEnd, qLevelWaterEnd, qVolumeWaterEnd, ModeCtrl;
+
       dpGet(dp_rec + "post_name"      , PostName,
             dp_rec + "tank"           , TankCode,
             dp_rec + "dt_start"       , DtStart,
@@ -213,35 +228,84 @@ void updateReceive(int is, string dp, time val){
             dp_rec + "temp_fct"       , RecTemperature,
             dp_rec + "density_15"     , RecDensityCoerced,
             dp_rec + "volume_15"      , RecVolumeCoerced,
-            dp_rec + "volume_sum"     , SumVolume,
-            dp_rec + "weight_sum"     , SumWeight,
+            dp_rec + "volume_sum"     , SumVolumeEnd,
+            dp_rec + "weight_sum"     , SumWeightEnd,
             dp_rec + "volume_dose"    , Volume,
             dp_rec + "post_name"      , PostName,
             dp_rec + "rail_num"       , CompNbr,
             dp_rec + "task"           , DispathOrder,
             dp_rec + "inventory"      , sInvNum,
-            dp_rec + "product"        , OsProduct);
+            dp_rec + "product"        , OsProduct,
+
+            dp_rec + "volume_sum_start"  , SumVolumeStart,
+            dp_rec + "weight_sum_start"  , SumWeightStart,
+
+            dp_rec + "tank_data.level_start"      , qTankLevelStart,
+            dp_rec + "tank_data.volume_start"     , qVolumeTankStart,
+            dp_rec + "tank_data.weight_start"     , qWeightTankStart,
+            dp_rec + "tank_data.density_start"    , qDensityTankStart, // checkpoint
+            dp_rec + "tank_data.temp_start"       , qTempTankStart,
+            dp_rec + "tank_data.waterl_start"     , qTankWaterLStart,
+            dp_rec + "tank_data.density_15_start" , qCoercedDensityStart,
+            dp_rec + "tank_data.volume_15_start"  , qCoercedVolumeStart,
+            dp_rec + "tank_data.press_start"      , qPressureStart,
+            dp_rec + "tank_data.lwater_start"     , qLevelWaterStart,
+            dp_rec + "tank_data.vwater_start"     , qVolumeWaterStart,
+
+            dp_rec + "tank_data.level_end"        , qTankLevelStart,
+            dp_rec + "tank_data.volume_end"       , qVolumeTankStart,
+            dp_rec + "tank_data.weight_end"       , qWeightTankStart,
+            dp_rec + "tank_data.density_end"      , qDensityTankStart, // checkpoint
+            dp_rec + "tank_data.temp_end"         , qTempTankStart,
+            dp_rec + "tank_data.waterl_end"       , qTankWaterLStart,
+            dp_rec + "tank_data.density_15_end"   , qCoercedDensityStart,
+            dp_rec + "tank_data.volume_15_end"    , qCoercedVolumeStart,
+            dp_rec + "tank_data.press_end"        , qPressureStart,
+            dp_rec + "tank_data.lwater_end"       , qLevelWaterStart,
+            dp_rec + "tank_data.vwater_end"       , qVolumeWaterStart,
+
+            dp_rec + "ModeCtrl"              , ModeCtrl);
+
       delay(10);
       int cur_is_sts;
-      dpGet("IS_" + is + ".PST_1.status", cur_is_sts);
-      if(cur_is_sts == 0x00 || 0x60){
+//       dpGet("IS_" + is + ".PST_1.status", cur_is_sts);
+//       if(cur_is_sts == 0x00 || 0x60){
+   // Old query
         string query = "INSERT INTO [" + loc_database + "].[dbo].[vReceptionResult] " +
                        "(DateRecording, PostName, TankCode, DtStart, DtEnd, RecWeight, RecVolume, RecDensity, " +
                        "RecTemperature, RecDensityCoerced, RecVolumeCoerced, SumVolume, SumWeight, Volume, CompNbr, DispathOrder, sInvNum, OsProduct, iProcessed) " +
                        "VALUES ( GETDATE(), '" + PostName + "', " + TankCode + ", '" + formatTime("%Y-%m-%dT%H:%M:%S", DtStart) + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", DtEnd) + "', " +
-                                 RecWeight + ", " + RecVolume + ", " + RecDensity + ", " + RecTemperature + ", " + RecDensityCoerced + ", " + RecVolumeCoerced + ", " + SumVolume + ", " +
-                                 SumWeight + ", " + Volume + ", '" + CompNbr + "', '" + DispathOrder + "', '" + sInvNum + "', '" + OsProduct + "', 0);";
+                                 RecWeight + ", " + RecVolume + ", " + RecDensity + ", " + RecTemperature + ", " + RecDensityCoerced + ", " + RecVolumeCoerced + ", " + SumVolumeEnd + ", " +
+                                 SumWeightEnd + ", " + Volume + ", '" + CompNbr + "', '" + DispathOrder + "', '" + sInvNum + "', '" + OsProduct + "', 0);";
+   // New query
+//         string query = "INSERT INTO [" + loc_database + "].[dbo].[vReceptionResult_new] " +
+//                        "(DateRecording, PostName, TankCode, DtStart, DtEnd, RecWeight, RecVolume, RecDensity, RecTemperature, RecDensityCoerced, RecVolumeCoerced, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, " +
+//                        "Volume, CompNbr, DispathOrder, sInvNum, OsProduct, iProcessed, " + //, Fingerprint
+//                        "qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qTankWaterLStart, qCoercedDensityStart, qCoercedVolumeStart, qPressureStart, qLevelWaterStart, qVolumeWaterStart, " +
+//                        "qTankLevelEnd, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qTankWaterLEnd, qCoercedDensityEnd, qCoercedVolumeEnd, qPressureEnd, qLevelWaterEnd, qVolumeWaterEnd, " +
+//                        "ModeCtrl) " +
+//                        "Values(GETDATE(), '" + PostName + "', " + TankCode + ", '" + formatTime("%Y-%m-%dT%H:%M:%S", DtStart) + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", DtEnd) + "', " +
+//                        RecWeight + ", " + RecVolume + ", " + RecDensity + ", " + RecTemperature + ", " + RecDensityCoerced + ", " +
+//                        RecVolumeCoerced + ", " + SumVolumeStart + ", " + SumVolumeEnd + ", " + SumWeightStart + ", " + SumWeightEnd + ", " +
+//
+//                        Volume + ", '" + CompNbr + "', '" + DispathOrder + "', '" + sInvNum + "', '" + OsProduct + "', 0, " + //, Fingerprint
+//
+//                        qTankLevelStart + ", " + qVolumeTankStart + ", " + qWeightTankStart + ", " + qDensityTankStart + ", " + qTempTankStart + ", " +
+//                        qTankWaterLStart + ", " + qCoercedDensityStart + ", " + qCoercedDensityStart + ", " + qPressureStart + ", " + qLevelWaterStart + ", " + qVolumeWaterStart + ", " +
+//
+//                        qTankLevelEnd + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " + qTempTankEnd + ", " +
+//                        qTankWaterLEnd + ", " + qCoercedDensityEnd + ", " + qCoercedDensityEnd + ", " + qPressureEnd + ", " + qLevelWaterEnd + ", " + qVolumeWaterEnd + ", " + ModeCtrl + ");";
 
         DebugFTN("db_info", "RECEIVE | updateReceive query \n", query);
         dbStartCommand(con, query, cmd);
         dbExecuteCommand(cmd);
-        DebugFTN("db_error", getLastError());
+        DebugTN(getLastError());
         dbFinishCommand(cmd);
-      }else{
-
-      }
+//       }else{
+//
+//       }
     }else{  // db open connection
-      DebugFTN("db_error", "RECEIVE | Error connection database");
+      DebugTN("RECEIVE | Error connection database");
       traceErrors();
       changeActiveConnection(iConnection, mConfig);
     }
