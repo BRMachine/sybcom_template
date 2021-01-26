@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">1893 945</prop>
+  <prop name="Size">1893 915</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">0 0</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -883,7 +883,7 @@ void work(string dpe, bool value)
    <properties>
     <prop name="serialId">70</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">410 690</prop>
+    <prop name="RefPoint">410 704.0530192713977</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -901,8 +901,8 @@ void work(string dpe, bool value)
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">387.7006698210404 780.0271547073922</prop>
-    <prop name="Size">1506 158</prop>
+    <prop name="Location">387.7006698210404 780.0271547073921</prop>
+    <prop name="Size">1506 133</prop>
     <prop name="ShowColumnHeader">True</prop>
     <prop name="ShowRowHeader">False</prop>
     <prop name="SortOnClick">True</prop>
@@ -1255,7 +1255,7 @@ void ShowCurves( dyn_string dpe, dyn_anytype DPD_T)
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">751.7311320754714 20.23797808083861</prop>
+    <prop name="Location">751.7311320754712 20.23797808083861</prop>
     <prop name="Size">223 22</prop>
     <prop name="Listitems">
      <prop name="Item">
@@ -1408,7 +1408,7 @@ void ShowCurves( dyn_string dpe, dyn_anytype DPD_T)
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">557.1037248276488 20.27564231655643</prop>
+    <prop name="Location">557.1037248276486 20.27564231655643</prop>
     <prop name="Size">181 22</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Editable">False</prop>
@@ -1896,7 +1896,7 @@ main(mapping event)
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Location">-0.04117121986365647 268.9595379190825</prop>
-    <prop name="Size">377 666</prop>
+    <prop name="Size">377 645</prop>
     <prop name="TabBarAutoHide">False</prop>
     <prop name="Page">
      <prop name="Name">CNS</prop>
