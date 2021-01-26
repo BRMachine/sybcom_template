@@ -576,66 +576,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
    </properties>
    <events>
     <script name="RightMousePressed" isEscaped="1"><![CDATA[main(mapping event){
-   dyn_string txt;
-   int answer;
-   txt=makeDynString(&quot;PUSH_BUTTON, Окно управления, 1, 1&quot;,
-                     &quot;PUSH_BUTTON, Просмотр задания, 8, 1&quot;,
-                     &quot;SEPARATOR&quot;, // Разделительная линия
-                     &quot;PUSH_BUTTON, Окно настройки, 3, 1&quot;,
-                     &quot;PUSH_BUTTON, Просмотр сообщений, 2, 1&quot;,
-                     &quot;SEPARATOR&quot;, // Разделительная линия
-                     &quot;PUSH_BUTTON, Окно параметров поста, 4, 1&quot;,
-                     &quot;PUSH_BUTTON, Окно состояния датчиков, 5, 1&quot;,
-                     &quot;PUSH_BUTTON, Окно состояния выходов, 6, 1&quot;,
-                     &quot;PUSH_BUTTON, Окно ошибок, 7, 1&quot; );
-   popupMenu(txt, answer);
-   string post_title, title;
-   switch(answer){
-     case 1:
-      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
-      title = &quot;Окно управления поста &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management_v2.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
-                                                                                      &quot;$DOZPOST_num:&quot; + DOZPOST_num));
-      break;
-     case 8:
-      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
-      title = &quot;Окно задания &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN\\Line_naliv.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
-                                                                                      &quot;$line:&quot; + LINE));
-      break;
-    case 4:
-      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
-      title = &quot;Окно параметров поста &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_params.pnl&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
-      break;
-    case 5:
-      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
-      title = &quot;Окно состояния датчиков поста &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_sensors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
-      break;
-    case 6:
-      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
-      title = &quot;Окно состояния выходов поста  &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_outs.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
-      break;
-    case 7:
-      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
-      title = &quot;Окно ошибок поста  &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_errors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
-      break;
-    case 3:
-      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
-      title = &quot;Окно настроек поста  &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_config.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
-      break;
-    case 2:
-      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
-      title = &quot;Окно просмотра сообщений поста  &quot; + post_title;
-      ChildPanelOnCentral(&quot;faceplates\\AI\\main\\parts\\alerts.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
-      break;
-    default:
-      DebugN(&quot;ERROR SELECTOR&quot;);
-   }
+
 }
 ]]></script>
    </events>
@@ -704,6 +645,103 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">34</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">32 30</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">_Transparent</prop>
+    <prop name="TabOrder">24</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">32 3</prop>
+    <prop name="Size">97 76</prop>
+    <prop name="BorderStyle">None</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  string post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+  string title = &quot;Окно управления поста &quot; + post_title;
+  ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management_v2.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
+                                                                                     &quot;$DOZPOST_num:&quot; + DOZPOST_num));
+}]]></script>
+    <script name="RightMousePressed" isEscaped="1"><![CDATA[main(mapping event)
+{
+   dyn_string txt;
+   int answer;
+   txt=makeDynString(&quot;PUSH_BUTTON, Окно управления, 1, 1&quot;,
+                     &quot;PUSH_BUTTON, Просмотр задания, 8, 1&quot;,
+                     &quot;SEPARATOR&quot;, // Разделительная линия
+                     &quot;PUSH_BUTTON, Окно настройки, 3, 1&quot;,
+                     &quot;PUSH_BUTTON, Просмотр сообщений, 2, 1&quot;,
+                     &quot;SEPARATOR&quot;, // Разделительная линия
+                     &quot;PUSH_BUTTON, Окно параметров поста, 4, 1&quot;,
+                     &quot;PUSH_BUTTON, Окно состояния датчиков, 5, 1&quot;,
+                     &quot;PUSH_BUTTON, Окно состояния выходов, 6, 1&quot;,
+                     &quot;PUSH_BUTTON, Окно ошибок, 7, 1&quot; );
+   popupMenu(txt, answer);
+   string post_title, title;
+   switch(answer){
+     case 1:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно управления поста &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management_v2.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
+                                                                                      &quot;$DOZPOST_num:&quot; + DOZPOST_num));
+      break;
+     case 8:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно задания &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\Line_naliv.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
+                                                                                      &quot;$line:&quot; + LINE));
+      break;
+    case 4:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно параметров поста &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_params.pnl&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      break;
+    case 5:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно состояния датчиков поста &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_sensors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      break;
+    case 6:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно состояния выходов поста  &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_outs.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      break;
+    case 7:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно ошибок поста  &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_errors.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      break;
+    case 3:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно настроек поста  &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_config.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      break;
+    case 2:
+      post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
+      title = &quot;Окно просмотра сообщений поста  &quot; + post_title;
+      ChildPanelOnCentral(&quot;faceplates\\AI\\main\\parts\\alerts.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST));
+      break;
+    default:
+      DebugN(&quot;ERROR SELECTOR&quot;);
+   }
+}]]></script>
+   </events>
   </shape>
  </shapes>
 </panel>
