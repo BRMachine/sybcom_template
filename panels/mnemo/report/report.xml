@@ -14,6 +14,8 @@
   <prop name="layoutType">None</prop>
  </properties>
  <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;csv&quot;
+]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
   main_module.ModuleName(&quot;info&quot;);
@@ -182,7 +184,7 @@
     <prop name="Size">118 73</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Выгрузить отчет&#xd;
+     <prop name="ru_RU.utf8">Выгрузить отчет&#xd;&#xd;
 по РВС</prop>
     </prop>
    </properties>
