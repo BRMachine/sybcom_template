@@ -405,8 +405,10 @@ main(){
   float pris;
   dpGet(DP + &quot;.Type_NP&quot;, type_int,
         DP + &quot;.cPercentPrisadki&quot;, pris);
+
   sdShowValue(&quot;txt_pris_percent&quot;, DP + &quot;.cPercentPrisadki&quot;, pris, 2, &quot;0.123456&quot;, 2, &quot;%&quot;);
   string str_pris = ValToFormatedString(DP + &quot;.cPercentPrisadki&quot;, pris);
+  DebugN((float)str_pris, pris, OPTI, GDRIVE);
   if((float)str_pris == OPTI){
     prisadka.currentIndex(0);
   }else if((float)str_pris == GDRIVE){
@@ -873,7 +875,7 @@ main(){
     <prop name="dollarParameters">
      <prop name="dollarParameter">
       <prop name="Dollar">$ANALOG</prop>
-      <prop name="Value">xTemperature</prop>
+      <prop name="Value">xAverageTemperature</prop>
      </prop>
      <prop name="dollarParameter">
       <prop name="Dollar">$dp</prop>
@@ -927,7 +929,7 @@ main(){
     <prop name="dollarParameters">
      <prop name="dollarParameter">
       <prop name="Dollar">$ANALOG</prop>
-      <prop name="Value">xDensity</prop>
+      <prop name="Value">xAverageDensity</prop>
      </prop>
      <prop name="dollarParameter">
       <prop name="Dollar">$dp</prop>
