@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">89 824</prop>
+  <prop name="Size">94 824</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">230 32</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -181,8 +181,9 @@ void worker_ls(dyn_string dp, dyn_bit32 sts){
 }
 void initFuel(Fuel f){
   txt_fuel.text(fuelToText(f));
+  txt_fuel.color(fuelToColor(f));
 
-  rec_fuel.backCol(fuelToColor(f));
+  //rec_fuel.backCol(fuelToColor(f));
   top_bar.backCol(fuelToColor(f));
 }
 
@@ -807,7 +808,7 @@ void cbAlarmLogic(string dp, string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[hatch,[cross,10,left]]</prop>
-    <prop name="Geometry">0.316 0 0 2.383333333333333 -1.036609336609246 71.16666666666661</prop>
+    <prop name="Geometry">0.316 0 0 2.383333333333333 1.086781326781534 70.16666666666683</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">10 10</prop>
     <prop name="Size">251 301</prop>
@@ -892,7 +893,7 @@ void cbAlarmLogic(string dp, string color){
    <properties>
     <prop name="serialId">283</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">-8.579669655285485 -688</prop>
+    <prop name="RefPoint">-7.073901728259145 -686.5357266118403</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -906,7 +907,7 @@ void cbAlarmLogic(string dp, string color){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">0.4942320729735883 -0.4642733881595689</prop>
+    <prop name="Location">1.999999999999929 1.000000000000085</prop>
     <prop name="Size">84 807</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
