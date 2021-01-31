@@ -374,25 +374,32 @@ void cb_post_params(dyn_string dpe, dyn_anytype val){
   txt_sts_post.text(stsToText(val[1]));
   txt_sts_post.backCol(stsToColor(val[1]));
   //Заземление
-  val[2] == true ? txt_grd.text(&quot;Подключено&quot;) : txt_grd.text(&quot;Отключено&quot;);
+  val[2] ? txt_grd.text(&quot;Подключено&quot;) : txt_grd.text(&quot;Отключено&quot;);
+  val[2] ? txt_grd.backCol(&quot;Green&quot;) : txt_grd.backCol(&quot;Yellow&quot;);
   //Датчик перелива
-  val[3] == true ? txt_overflow.text(&quot;Перелив&quot;) : txt_overflow.text(&quot;В норме&quot;);
+  val[3] ? txt_overflow.text(&quot;Перелив&quot;) : txt_overflow.text(&quot;В норме&quot;);
+  val[3] ? txt_overflow.backCol(&quot;Red&quot;) : txt_overflow.backCol(&quot;Green&quot;);
   //Положение наконечника
-  if(val[4] == false &amp; val[5] == false | val[4] == true &amp; val[5] == true){ txt_nakon.text(&quot;Неизвестно&quot;); }
-  else if(val[4] == true){ txt_nakon.text(&quot;Гаражное&quot;); }
-  else{ txt_nakon.text(&quot;Рабочее&quot;); }
+  if(val[4] == false &amp; val[5] == false | val[4] == true &amp; val[5] == true){ txt_nakon.text(&quot;Неизвестно&quot;); txt_nakon.backCol(&quot;Red&quot;);}
+  else if(val[4] == true){ txt_nakon.text(&quot;Гаражное&quot;); txt_nakon.backCol(&quot;Yellow&quot;);}
+  else{ txt_nakon.text(&quot;Рабочее&quot;); txt_nakon.backCol(&quot;Green&quot;);}
   //Положение трапа
-  val[6] == true ? txt_trap.text(&quot;Поднят&quot;) : txt_trap.text(&quot;Опущен&quot;);
+  val[6] ? txt_trap.text(&quot;Поднят&quot;) : txt_trap.text(&quot;Опущен&quot;);
+  val[6] ? txt_trap.backCol(&quot;Yellow&quot;) : txt_trap.backCol(&quot;Green&quot;);
   //Наличие продукта
-  val[7] == true ? txt_product.text(&quot;Есть&quot;) : txt_product.text(&quot;Отсутствует&quot;);
+  val[7] ? txt_product.text(&quot;Есть&quot;) : txt_product.text(&quot;Отсутствует&quot;);
+  val[7] ? txt_product.backCol(&quot;Green&quot;) : txt_trap.backCol(&quot;Yellow&quot;);
   //Газоотделитель
   //==== ???не понятно какой тэг в ПЛК??? ====
   //Фильтр
-  val[8] == true ? txt_filtr.text(&quot;Неисправлен&quot;) : txt_filtr.text(&quot;В норме&quot;);
+  val[8] ? txt_filtr.text(&quot;Неисправлен&quot;) : txt_filtr.text(&quot;В норме&quot;);
+  val[8] ? txt_filtr.backCol(&quot;Red&quot;) : txt_filtr.backCol(&quot;Green&quot;);
   //Датчик снижение расхода
-  val[9] == true ? txt_sens_flow.text(&quot;Неисправлен&quot;) : txt_sens_flow.text(&quot;В норме&quot;);
+  val[9] ? txt_sens_flow.text(&quot;Неисправлен&quot;) : txt_sens_flow.text(&quot;В норме&quot;);
+  val[9] ? txt_sens_flow.backCol(&quot;Red&quot;) : txt_sens_flow.backCol(&quot;Green&quot;);
   //Датчик наклона стока
-  val[10] ==  true ? txt_sens_naklon.text(&quot;Неисправлен&quot;) : txt_sens_naklon.text(&quot;В норме&quot;);
+  val[10] ? txt_sens_naklon.text(&quot;Неисправлен&quot;) : txt_sens_naklon.text(&quot;В норме&quot;);
+  val[10] ? txt_sens_naklon.backCol(&quot;Red&quot;) : txt_sens_naklon.backCol(&quot;Green&quot;);
 
   //Кнопка СТАРТ по месту
 //   val[11] == true ? shp_start.backCol(&quot;Red&quot;) : shp_start.backCol(&quot;Grey&quot;);
@@ -1724,7 +1731,7 @@ main(){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
+    <prop name="FillType">[solid]</prop>
     <prop name="Location">532.3333333333331 143.9587912087912</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -1734,7 +1741,7 @@ main(){
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
@@ -1759,7 +1766,7 @@ main(){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
+    <prop name="FillType">[solid]</prop>
     <prop name="Location">532.3333333333331 119.3434065934066</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -1769,7 +1776,7 @@ main(){
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
@@ -1779,7 +1786,7 @@ main(){
    <properties>
     <prop name="serialId">725</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">532.3333333333331 94.72802197802196</prop>
+    <prop name="RefPoint">532 94</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -1794,8 +1801,8 @@ main(){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Location">532.3333333333331 94.72802197802196</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Location">532 94</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1804,7 +1811,7 @@ main(){
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
@@ -1827,7 +1834,7 @@ main(){
     <prop name="snapMode">Point</prop>
     <prop name="DashBackColor">_Transparent</prop>
     <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,2]</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
     <prop name="Location">532.3333333333331 70.11263736263734</prop>
@@ -1899,7 +1906,7 @@ main(){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
+    <prop name="FillType">[solid]</prop>
     <prop name="Location">532.3333333333331 168.5741758241758</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -1909,7 +1916,7 @@ main(){
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
@@ -1934,7 +1941,7 @@ main(){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
+    <prop name="FillType">[solid]</prop>
     <prop name="Location">532.3333333333331 193.1895604395604</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -1944,7 +1951,7 @@ main(){
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
@@ -2004,7 +2011,7 @@ main(){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
+    <prop name="FillType">[solid]</prop>
     <prop name="Location">532.3333333333334 242.4203296703297</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -2014,7 +2021,7 @@ main(){
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
@@ -2039,7 +2046,7 @@ main(){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
+    <prop name="FillType">[solid]</prop>
     <prop name="Location">531.3333333333334 267.0357142857143</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -2049,7 +2056,7 @@ main(){
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
@@ -2074,7 +2081,7 @@ main(){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
+    <prop name="FillType">[solid]</prop>
     <prop name="Location">531.3333333333331 291.6510989010989</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
@@ -2084,7 +2091,7 @@ main(){
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
@@ -2860,6 +2867,29 @@ main(){
     </prop>
     <prop name="Location">112 81</prop>
     <prop name="Size">102 60</prop>
+   </properties>
+  </shape>
+  <shape Name="BackgroundCover_ewo1" shapeType="GENERIC" layerId="0">
+   <properties>
+    <prop name="serialId">1042</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">310 210</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_3DText</prop>
+    <prop name="BackColor">_3DFace</prop>
+    <prop name="TabOrder">556</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">310 210</prop>
+    <prop name="Size">317 17</prop>
+    <prop name="ObjectType">BackgroundCover.ewo</prop>
    </properties>
   </shape>
  </shapes>
