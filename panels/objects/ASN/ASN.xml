@@ -662,7 +662,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Location">32 3</prop>
     <prop name="Size">97 76</prop>
@@ -675,7 +675,7 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   string post_title = strltrim(dpSubStr(POST, DPSUB_DP), &quot;POST_&quot;);
   string title = &quot;Окно управления поста &quot; + post_title;
-  ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management_v2.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
+  ChildPanelOnCentral(&quot;faceplates\\ASN\\ASN_management_v3.xml&quot;, title, makeDynString(&quot;$dp:&quot; + POST,
                                                                                      &quot;$DOZPOST_num:&quot; + DOZPOST_num));
 }]]></script>
     <script name="RightMousePressed" isEscaped="1"><![CDATA[main(mapping event)
