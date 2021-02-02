@@ -24,6 +24,7 @@ const string DOZPOST_num = $DOZPOST_num;
 //Рецептура присадок
 const float OPTI = 0.0405;
 const float GDRIVE = 0.0560;
+const float KMH = 0.1;
 const float DEFPR = 0.0;
 
 /*--dyn_dyn_anytype sortData(dyn_anytype vals){
@@ -420,8 +421,10 @@ main(){
     prisadka.currentIndex(0);
   }else if((float)str_pris == GDRIVE){
     prisadka.currentIndex(1);
-  }else{
+  }else if((float)str_pris == KMH){
     prisadka.currentIndex(2);
+  }else{
+    prisadka.currentIndex(3);
   }
    switch(type_int){
     case 0:
@@ -2738,6 +2741,12 @@ main(){
      </prop>
      <prop name="Item">
       <prop name="Text">
+       <prop name="ru_RU.utf8">КМХ</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
        <prop name="ru_RU.utf8">НЕТ</prop>
       </prop>
       <prop name="Select">False</prop>
@@ -2757,6 +2766,9 @@ main(){
     }else if(this.currentIndex() == 1){
       txt_pris_percent.text(GDRIVE + &quot;%&quot;);
       dpSet( DP + &quot;.cPercentPrisadki&quot;, GDRIVE);
+    }else if(this.currentIndex() == 2){
+      txt_pris_percent.text(KMH + &quot;%&quot;);
+      dpSet( DP + &quot;.cPercentPrisadki&quot;, KMH);
     }else{
       txt_pris_percent.text(DEFPR + &quot;%&quot;);
       dpSet( DP + &quot;.cPercentPrisadki&quot;, DEFPR);
@@ -2885,7 +2897,7 @@ main(){
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
     </prop>
     <prop name="Location">310 210</prop>
     <prop name="Size">317 17</prop>
