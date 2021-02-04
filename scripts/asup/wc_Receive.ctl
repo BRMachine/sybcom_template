@@ -83,8 +83,11 @@ private void startReceive(int is, int post){
   time dt_start = getCurrentTime();
   int rvs_num = getRvsNum(is);
   mapping rvs_data = getRvsData(rvs_num);
+  mapping is_data = getSumData(is, post);
 
-  dpSetWait(dp_rec + "tank_data.level_start"   ,rvs_data["lvl"],
+  dpSetWait(dp_rec + "volume_sum_start"        , is_data["vol"],
+            dp_rec + "weight_sum_start"        , is_data["mas"]);
+  dpSetWait(dp_rec + "tank_data.level_start"   , rvs_data["lvl"],
             dp_rec + "tank_data.volume_start"  , rvs_data["vol"],
             dp_rec + "tank_data.weight_start"  , rvs_data["mas"],
             dp_rec + "tank_data.density_start" , rvs_data["dns"],
@@ -98,9 +101,11 @@ private void startReceive(int is, int post){
 }
 
 private void endReceive(int is, int post){
+
   if(g_is_prev_sts[is][post]){
     string dp_is = "IS_" + is + ".PST_" + post + ".";
     string dp_rec = "LAST_RECEIVE_" + is + ".result.";
+
 
     float volume_dose;
     string rails, task, inventory, product, fuel;
@@ -121,20 +126,21 @@ private void endReceive(int is, int post){
     normalizeQueryData(q_res);
     delay(30);  // Задержка для опроса актуальных значений по modbus
 // add rvs data
+    mapping is_data = getSumData(is, post);
     int rvs_num = getRvsNum(is);
     mapping rvs_data = getRvsData(rvs_num);
-    mapping is_data = getSumData(is, post);
 
-    dpSetWait(dp_rec + "tank_data.level_start"   , rvs_data["lvl"],
-              dp_rec + "tank_data.volume_start"  , rvs_data["vol"],
-              dp_rec + "tank_data.weight_start"  , rvs_data["mas"],
-              dp_rec + "tank_data.density_start" , rvs_data["dns"],
-              dp_rec + "tank_data.temp_start"    , rvs_data["tmp"],
-              dp_rec + "tank_data.waterl_start"  , rvs_data["wtr"],
-              dp_rec + "tank_data.press_start"   , rvs_data["prs"],
-              dp_rec + "tank_data.lwater_start"  , rvs_data["lwtr"],
-              dp_rec + "volume_sum_start"        , is_data["vol"],
-              dp_rec + "weight_sum_start"        , is_data["mas"]);
+    dpSetWait(dp_rec + "tank_data.level_end"   , rvs_data["lvl"],
+              dp_rec + "tank_data.volume_end"  , rvs_data["vol"],
+              dp_rec + "tank_data.weight_end"  , rvs_data["mas"],
+              dp_rec + "tank_data.density_end" , rvs_data["dns"],
+              dp_rec + "tank_data.temp_end"    , rvs_data["tmp"],
+              dp_rec + "tank_data.waterl_end"  , rvs_data["wtr"],
+              dp_rec + "tank_data.press_end"   , rvs_data["prs"],
+              dp_rec + "tank_data.lwater_end"  , rvs_data["lwtr"]);
+
+    dpSetWait(dp_rec + "volume_sum"        , is_data["vol"],
+              dp_rec + "weight_sum"        , is_data["mas"]);
 // end rvs data
 
     for(int i=1; i<=q_res.count(); i+=6){
@@ -178,7 +184,7 @@ private void endReceive(int is, int post){
               dp_rec + "inventory"     , inventory,
               dp_rec + "product"       , fuel,
               dp_rec + "rail_num"      , rails,
-              dp_rec + "post_name"     , "ИС" + is,
+              dp_rec + "post_name"     , is,
               dp_rec + "ModeCtrl"      , mode);
 
     g_is_prev_sts[is][post] = false;
@@ -247,7 +253,7 @@ private void errReceive(int is, int post){
               dp_rec + "inventory"     , inventory,
               dp_rec + "product"       , fuel,
               dp_rec + "rail_num"      , rails,
-              dp_rec + "post_name"     , "ИС" + is);
+              dp_rec + "post_name"     , is);
   }
   g_is_prev_sts[is][post] = false;
 }
