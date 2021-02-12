@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">161 87</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">40 23</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[// const string ASN = $ASN;
+const string Post = $Post;
+
+void worker(dyn_string dp, dyn_anytype color){
+  if(color[1]){
+     ELLIPSE51.backCol = &quot;Green&quot;;
+ //   then statement
+  }else if(color[2]){
+     ELLIPSE51.backCol = &quot;Red&quot;;
+ //   else statement
+   } else{
+      ELLIPSE51.backCol = &quot;&lt;Green,5,Red,5&gt;&quot;;
+    }
+}
+
+
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  dpConnect(&quot;worker&quot;, &quot;Post_&quot; + Post + &quot;.Out_Control.dsGreenSignal&quot;,
+                      &quot;Post_&quot; + Post + &quot;.Out_Control.dsRedSignal&quot;);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="RECTANGLE621" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">36</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">658 784</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">25</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[gradient,[linear,pad,-1.23,0.964,1.71,0.952,0,{0,0,0},1,{255,255,255}]]</prop>
+    <prop name="Geometry">1 0 0 1 -578 -744</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">658 784</prop>
+    <prop name="Size">10 31</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE623" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">37</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">636 794</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">26</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[gradient,[linear,pad,-1.28,0.916,1.69,0.916,0,{0,0,0},1,{255,255,255}]]</prop>
+    <prop name="Geometry">1 0 0 1 -575.5 -744</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">636 794</prop>
+    <prop name="Size">49 21</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE624" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">38</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">644 750</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">27</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[gradient,[linear,pad,-1.23,0.964,1.71,0.952,0,{0,0,0},1,{255,255,255}]]</prop>
+    <prop name="Geometry">1 0 0 1 -575.5 -743.0000000000001</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">644 750</prop>
+    <prop name="Size">33 35</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="ELLIPSE51" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">39</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">664 770</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">28</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 -579.5 -746</prop>
+    <prop name="Center">664 770</prop>
+    <prop name="X-Radius">14</prop>
+    <prop name="Y-Radius">14</prop>
+   </properties>
+  </shape>
+ </shapes>
+</panel>

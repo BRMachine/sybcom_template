@@ -93,9 +93,8 @@ void getItems(dyn_mapping &orders, dbConnection con){
     dbRecordset rs_it;
     string query = "SELECT [OrderItem].[sOrderNr], [OrderItem].[iCompNr], [OrderItem].[sProductCode], [OrderItem].[iQuantity], [OrderItem].[dtAdded], " +
                           "[OrderItem].[iProcessed], [OrderItem].[bTrailer], [OrderItem].[sRegNr], [OrderItem].[sKompNr], [OrderItem].[sDoc], " +
-                          "[OrderItem].[sDelivery], [OrderItem].[nMass], [OrderItem].[Device], [Specification].[K] AS iPercent, [OrderItem].[iID]\n" +
+                          "[OrderItem].[sDelivery], [OrderItem].[nMass], [OrderItem].[Device], [OrderItem].[iPercent], [OrderItem].[iID]\n" +
                    "FROM ["+loc_database+"].[dbo].[OrderItem]\n" +
-                   "LEFT JOIN Specification ON [OrderItem].sProductCode = Specification.sProductCode and [OrderItem].[sKompNr] = Specification.sComponentCode "
                    "WHERE [OrderItem].[iProcessed] = 0 and [OrderItem].[sOrderNr] = '" + orders[i]["sOrderNr"] + "';";
     DebugFTN("db_info", "ORDERS | select items for order: " + orders[i]["sOrderNr"]);
     DebugFTN("db_info", "ORDERS | query is \n-----------------------------\n", query, "\n-----------------------------");
@@ -166,8 +165,8 @@ void setOrderDp(dyn_mapping orders, dbConnection con){
     for(int j=1; j<=items.count(); j++){
       int section = items[j]["iCompNr"];
       float prisadka = 0.0;
-      if(items[j]["iPercent"] != "")
-        prisadka = (items[j]["iPercent"] < 0.1) ? items[j]["iPercent"] * 100 : (1 - items[j]["iPercent"]) * 100;
+//       if(items[j]["iPercent"] != "")
+//         prisadka = (items[j]["iPercent"] < 0.1) ? items[j]["iPercent"] * 100 : (1 - items[j]["iPercent"]) * 100;
 
       dpSetWait("ORDER_LINE" + line + ".items." + section + ".init.sOrderNr",     items[j]["sOrderNr"],
                 "ORDER_LINE" + line + ".items." + section + ".init.iCompNr",      items[j]["iCompNr"],
@@ -183,7 +182,7 @@ void setOrderDp(dyn_mapping orders, dbConnection con){
                 "ORDER_LINE" + line + ".items." + section + ".init.nMass",        items[j]["nMass"],
                 "ORDER_LINE" + line + ".items." + section + ".init.Device",       items[j]["Device"],
                 "ORDER_LINE" + line + ".items." + section + ".init.iID",          items[j]["iID"],
-                "ORDER_LINE" + line + ".items." + section + ".init.iPercent",     prisadka);
+                "ORDER_LINE" + line + ".items." + section + ".init.iPercent",     items[j]["iPercent"]);
       updItemProcessed(items[j]["iID"], con);
       DebugFTN("lg_info", "ORDERS | update itmes DP", items[j]["iCompNr"], items[j]["iID"]);
     }
@@ -247,7 +246,9 @@ void workerEnd(anytype ud, dyn_dyn_anytype data){
           rLoadedWeight, rLoadedVolume, rLoadedTemperature, rLoadedDensity, rTankCode,
           rLoadedBaseWeight, rLoadedBaseVolume, rLoadedBaseTemperature, rLoadedBaseDensity,
           rLoadedMixed1Weight, rLoadedMixed1Volume, rLoadedMixed1Temperature, rLoadedMixed1Density,
-          rErrorCode, rResultCode ,rDtStart, rDtEnd, rSumVolumeStart, rSumVolumeEnd, rSumWeightStart, rSumWeightEnd, rModeCtrl, rsHash, rDispatchOrder;
+          rErrorCode, rResultCode ,rDtStart, rDtEnd, rSumVolumeStart, rSumVolumeEnd, rSumWeightStart, rSumWeightEnd, rModeCtrl, rsHash, rDispatchOrder,
+          SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart,
+          qVolumeWaterStart, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine;
 
       dpGet(dp_section + ".result.ReceipId"                , rReceipId,
             dp_section + ".result.PostNumber"              , rPostNumber,
@@ -277,21 +278,46 @@ void workerEnd(anytype ud, dyn_dyn_anytype data){
             dp_section + ".result.DtStart"                 , rDtStart,
             dp_section + ".result.DtEnd"                   , rDtEnd,
             dp_section + ".result.OrderedWeight"           , rOrderedWeight,
-            dp_section + ".result.OrderedWeight"           , rOrderedWeight,
-            dp_section + ".init.sOrderNr"                  , rDispatchOrder);
+ //           dp_section + ".result.OrderedWeight"           , rOrderedWeight,
+            dp_section + ".init.sOrderNr"                  , rDispatchOrder,
+            dp_section + ".result.SumVolumeStartpr"        , SumVolumeStartpr,
+            dp_section + ".result.SumVolumeEndpr"          , SumVolumeEndpr,
+            dp_section + ".result.qTankLevelStart"         , qTankLevelStart,
+            dp_section + ".result.qVolumeTankStart"        , qVolumeTankStart,
+            dp_section + ".result.qWeightTankStart"        , qWeightTankStart,
+            dp_section + ".result.qDensityTankStart"       , qDensityTankStart,
+            dp_section + ".result.qTempTankStart"          , qTempTankStart,
+            dp_section + ".result.qPressureStart"          , qPressureStart,
+            dp_section + ".result.qLevelWaterStart"        , qLevelWaterStart,
+            dp_section + ".result.qVolumeWaterStart"       , qVolumeWaterStart,
+            dp_section + ".result.qVolumeTankEnd"          , qVolumeTankEnd,
+            dp_section + ".result.qWeightTankEnd"          , qWeightTankEnd,
+            dp_section + ".result.qDensityTankEnd"         , qDensityTankEnd,
+            dp_section + ".result.qTempTankEnd"            , qTempTankEnd,
+            dp_section + ".result.qPressureEnd"            , qPressureEnd,
+            dp_section + ".result.qLevelWaterEnd"          , qLevelWaterEnd,
+            dp_section + ".result.qCardID"                 , qCardID,
+            dp_section + ".result.qNbrLine"                , qNbrLine);
+
       string dataToHash =  rLoadedWeight + ", " + rLoadedVolume + ", " + rLoadedTemperature;
       string rSHash = getHash(dataToHash);
       string query = "INSERT INTO [" + loc_database + "].[dbo].[vLoadingResult] " +
                          "(DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, " +
                          "LoadedWeight, LoadedVolume, LoadedTemperature, LoadedDensity, LoadedBaseWeight, LoadedBaseVolume, LoadedBaseTemp, LoadedBaseDensity, "+
                          "LoadedMixed1Weight, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, ErrorCode, ResultCode, SumVolumeStart, SumVolumeEnd, "+
-                         "SumWeightStart, SumWeightEnd, ModeCtrl, DtStart, DtEnd, OrderedWeight, DispatchOrder, sHash, iProcessed, ID) " +
+                         "SumWeightStart, SumWeightEnd, ModeCtrl, DtStart, DtEnd, OrderedWeight, DispatchOrder, sHash, iProcessed, "+
+                         "SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart, qVolumeWaterStart, "+
+                         "qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine) " +
                          "VALUES ( GETDATE(), '" + rReceipId + "', " + rPostNumber + ", '" + rTankCode + "', '" + rRegistrationNumber + "', " +
                                    rSectionNumber + ", " + rOrderedVolume + ", " + rLoadedWeight + ", " + rLoadedVolume + ", " + rLoadedTemperature + ", " +
                                    rLoadedDensity + ", " + rLoadedBaseWeight + ", " + rLoadedBaseVolume + ", " + rLoadedBaseTemperature + ", " + rLoadedBaseDensity + ", " +
                                    rLoadedMixed1Weight + ", " + rLoadedMixed1Volume + ", " + rLoadedMixed1Temperature + ", '" + rLoadedMixed1Density + "', '" +
                                    rErrorCode + "', '" + rResultCode + "', '" + rSumVolumeStart + "', '" + rSumVolumeEnd + "', '" + rSumWeightStart + "', '" + rSumWeightEnd + "', '" + rModeCtrl + "', '" +
-                                   formatTime("%Y-%m-%dT%H:%M:%S", rDtStart)  + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", rDtEnd) + "', '" + rOrderedWeight + "', '" + rDispatchOrder + "', '" + rSHash + "', 0, 123456789);";
+                                   formatTime("%Y-%m-%dT%H:%M:%S", rDtStart)  + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", rDtEnd) + "', '" + rOrderedWeight + "', '" + rDispatchOrder + "', '" + rSHash + "', 0, " +
+                                   SumVolumeStartpr + ", " + SumVolumeEndpr + ", " + qTankLevelStart + ", " + qVolumeTankStart + ", " + qWeightTankStart + ", " + qDensityTankStart + ", " + qTempTankStart + ", " +
+                                   qPressureStart + ", " + qLevelWaterStart + ", " + qVolumeWaterStart + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " +
+                                   qTempTankEnd + ", " + qPressureEnd + ", " + qLevelWaterEnd + ", " + qCardID + ", " + qNbrLine +" )";
+
       DebugFTN("db_info", "ORDERS | update vLoadingResult query \n", query);
       dbStartCommand(con, query, cmd);
       dbExecuteCommand(cmd);

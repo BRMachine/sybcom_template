@@ -252,17 +252,17 @@ void updateReceive(int is, string dp, time val){
             dp_rec + "tank_data.lwater_start"     , qLevelWaterStart,
             dp_rec + "tank_data.vwater_start"     , qVolumeWaterStart,
 
-            dp_rec + "tank_data.level_end"        , qTankLevelStart,
-            dp_rec + "tank_data.volume_end"       , qVolumeTankStart,
-            dp_rec + "tank_data.weight_end"       , qWeightTankStart,
-            dp_rec + "tank_data.density_end"      , qDensityTankStart, // checkpoint
-            dp_rec + "tank_data.temp_end"         , qTempTankStart,
-            dp_rec + "tank_data.waterl_end"       , qTankWaterLStart,
-            dp_rec + "tank_data.density_15_end"   , qCoercedDensityStart,
-            dp_rec + "tank_data.volume_15_end"    , qCoercedVolumeStart,
-            dp_rec + "tank_data.press_end"        , qPressureStart,
-            dp_rec + "tank_data.lwater_end"       , qLevelWaterStart,
-            dp_rec + "tank_data.vwater_end"       , qVolumeWaterStart,
+            dp_rec + "tank_data.level_end"        , qTankLevelEnd,
+            dp_rec + "tank_data.volume_end"       , qVolumeTankEnd,
+            dp_rec + "tank_data.weight_end"       , qWeightTankEnd,
+            dp_rec + "tank_data.density_end"      , qDensityTankEnd, // checkpoint
+            dp_rec + "tank_data.temp_end"         , qTempTankEnd,
+            dp_rec + "tank_data.waterl_end"       , qTankWaterLEnd,
+            dp_rec + "tank_data.density_15_end"   , qCoercedDensityEnd,
+            dp_rec + "tank_data.volume_15_end"    , qCoercedVolumeEnd,
+            dp_rec + "tank_data.press_end"        , qPressureEnd,
+            dp_rec + "tank_data.lwater_end"       , qLevelWaterEnd,
+            dp_rec + "tank_data.vwater_end"       , qVolumeWaterEnd,
 
             dp_rec + "ModeCtrl"              , ModeCtrl);
 
@@ -295,7 +295,7 @@ void updateReceive(int is, string dp, time val){
 //
 //                        qTankLevelEnd + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " + qTempTankEnd + ", " +
 //                        qTankWaterLEnd + ", " + qCoercedDensityEnd + ", " + qCoercedDensityEnd + ", " + qPressureEnd + ", " + qLevelWaterEnd + ", " + qVolumeWaterEnd + ", " + ModeCtrl + ");";
-
+//
         DebugFTN("db_info", "RECEIVE | updateReceive query \n", query);
         dbStartCommand(con, query, cmd);
         dbExecuteCommand(cmd);

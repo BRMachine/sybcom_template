@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">161 89</prop>
+  <prop name="Size">161 87</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">40 23</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -35,12 +35,12 @@ void cbWorker(dyn_string dp, dyn_anytype val){
   ASN_03.visible(val[1]==0x30);
   ASN_04.visible(val[1]==0x40);
   ASN_05.visible(val[1]==0x60);*/
-  if (val[1]==0x60) {
-    RECTANGLE1.backCol(&quot;Red&quot;);
-  }
-  else{
-    RECTANGLE1.backCol(&quot;WF_PanelBackground&quot;);
-  }
+//   if (val[1]==0x60) {
+//     RECTANGLE1.backCol(&quot;Red&quot;);
+//   }
+//   else{
+//     RECTANGLE1.backCol(&quot;WF_PanelBackground&quot;);
+//   }
  /* ASN_06.visible(val[1]==32);
   ASN_07.visible(val[1]==64);*/
 //   Zadanie.text(val[2]);

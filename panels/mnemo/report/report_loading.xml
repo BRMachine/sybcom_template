@@ -19,9 +19,9 @@
 
 dyn_dyn_string data, data_now;
 
-string query_base_initilize = &quot;SELECT TOP 10 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
-string query_base_single = &quot;SELECT TOP 1 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
-string query_base = &quot;SELECT ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl &quot;;
+string query_base_initilize = &quot;SELECT TOP 10 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl, DispatchOrder, SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart, qVolumeWaterStart, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine &quot;;
+string query_base_single = &quot;SELECT TOP 1 ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl, DispatchOrder, SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart, qVolumeWaterStart, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine &quot;;
+string query_base = &quot;SELECT ID, DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, OrderedWeight, LoadedVolume, LoadedWeight, LoadedTemperature, LoadedDensity, LoadedBaseVolume, LoadedBaseWeight, LoadedBaseTemp, LoadedBaseDensity, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, LoadedMixed1Weight, DtStart, DtEnd, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, ModeCtrl, DispatchOrder, SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart, qVolumeWaterStart, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine &quot;;
 
 void fill_table(dyn_dyn_string data){
   TABLE1.deleteAllLines();
@@ -36,12 +36,17 @@ void fill_table(dyn_dyn_string data){
                            &quot;LoadedBaseVolume&quot;, data[14], &quot;LoadedBaseWeight&quot;, data[15], &quot;LoadedBaseTemp&quot;, data[16], &quot;LoadedBaseDensity&quot;, data[17],
                            &quot;LoadedMixed1Volume&quot;, data[18], &quot;LoadedMixed1Temp&quot;, data[19], &quot;LoadedMixed1Density&quot;, data[20], &quot;LoadedMixed1Weight&quot;, data[21],
                            &quot;DtStart&quot;, data[22], &quot;DtEnd&quot;, data[23], &quot;SumVolumeStart&quot;, data[24], &quot;SumVolumeEnd&quot;, data[25], &quot;SumWeightStart&quot;, data[26],
-                           &quot;SumWeightEnd&quot;, data[27], &quot;ModeCtrl&quot;, data[28]);
+                           &quot;SumWeightEnd&quot;, data[27], &quot;ModeCtrl&quot;, data[28], &quot;DispatchOrder&quot;, data[29], &quot;SumVolumeStartpr&quot;, data[30], &quot;SumVolumeEndpr&quot;, data[31],
+                           &quot;qTankLevelStart&quot;, data[32], &quot;qVolumeTankStart&quot;, data[33], &quot;qWeightTankStart&quot;, data[34], &quot;qDensityTankStart&quot;, data[35], &quot;qTempTankStart&quot;, data[36],
+                           &quot;qPressureStart&quot;, data[37], &quot;qLevelWaterStart&quot;, data[38], &quot;qVolumeWaterStart&quot;, data[39], &quot;qVolumeTankEnd&quot;, data[40], &quot;qWeightTankEnd&quot;, data[41],
+                           &quot;qDensityTankEnd&quot;, data[42], &quot;qTempTankEnd&quot;, data[43], &quot;qPressureEnd&quot;, data[44], &quot;qLevelWaterEnd&quot;, data[45], &quot;qCardID&quot;, data[46], &quot;qNbrLine&quot;, data[47]);
   }
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
+  TABLE1.tableMode(TABLE_SELECT_BROWSE);
+  TABLE1.selectByClick(TABLE_SELECT_LINE);
   TABLE1.alternatingRowColors(makeDynString(&quot;{222,236,195}&quot;, &quot;{255,234,0,128}&quot;));
   string query = query_base_initilize + &quot;FROM [ASU_MES_DB].[dbo].[vLoadingResult] ORDER BY ID DESC;&quot;;
   dpSetWait(&quot;report.loading.query&quot;, query);
@@ -65,7 +70,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
    <properties>
     <prop name="serialId">3</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">11.24999999999989 123</prop>
+    <prop name="RefPoint">10 120</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -79,7 +84,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">11.24999999999989 123</prop>
+    <prop name="Location">10 120</prop>
     <prop name="Size">1869 668</prop>
     <prop name="ShowColumnHeader">True</prop>
     <prop name="ShowRowHeader">False</prop>
@@ -91,7 +96,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="HScrollBarMode">Auto</prop>
     <prop name="Column">
      <prop name="Name">id</prop>
-     <prop name="Width">52</prop>
+     <prop name="Width">51</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -100,6 +105,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">DateRecording</prop>
@@ -112,6 +118,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">RecipeId</prop>
@@ -124,10 +131,11 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">PostNumber</prop>
-     <prop name="Width">42</prop>
+     <prop name="Width">41</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -136,10 +144,11 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">TankCode</prop>
-     <prop name="Width">32</prop>
+     <prop name="Width">31</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -148,10 +157,11 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">RegistrationNumber</prop>
-     <prop name="Width">62</prop>
+     <prop name="Width">61</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -160,10 +170,11 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">SectionNumber</prop>
-     <prop name="Width">62</prop>
+     <prop name="Width">61</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -172,10 +183,11 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">OrderedVolume</prop>
-     <prop name="Width">112</prop>
+     <prop name="Width">111</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -184,10 +196,11 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">OrderedWeight</prop>
-     <prop name="Width">112</prop>
+     <prop name="Width">111</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -196,10 +209,11 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedVolume</prop>
-     <prop name="Width">112</prop>
+     <prop name="Width">111</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -208,10 +222,11 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedWeight</prop>
-     <prop name="Width">112</prop>
+     <prop name="Width">111</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
      <prop name="Label">
@@ -220,6 +235,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedTemperature</prop>
@@ -232,6 +248,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedDensity</prop>
@@ -244,6 +261,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedBaseVolume</prop>
@@ -256,6 +274,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedBaseWeight</prop>
@@ -268,6 +287,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedBaseTemp</prop>
@@ -280,6 +300,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedBaseDensity</prop>
@@ -292,6 +313,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedMixed1Volume</prop>
@@ -304,6 +326,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedMixed1Temp</prop>
@@ -316,6 +339,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedMixed1Density</prop>
@@ -328,6 +352,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">LoadedMixed1Weight</prop>
@@ -340,6 +365,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">DtStart</prop>
@@ -352,6 +378,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">DtEnd</prop>
@@ -364,6 +391,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">SumVolumeStart</prop>
@@ -376,6 +404,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">SumVolumeEnd</prop>
@@ -388,6 +417,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">SumWeightStart</prop>
@@ -400,6 +430,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">SumWeightEnd</prop>
@@ -412,6 +443,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
     <prop name="Column">
      <prop name="Name">ModeCtrl</prop>
@@ -424,6 +456,254 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
      <prop name="ToolTipText">
       <prop name="ru_RU.utf8"></prop>
      </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">DispatchOrder</prop>
+     <prop name="Width">90</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Номер задания</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SumVolumeStartpr</prop>
+     <prop name="Width">160</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Объем присадки до налива</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">SumVolumeEndpr</prop>
+     <prop name="Width">170</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Объем присадки после налива</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qTankLevelStart</prop>
+     <prop name="Width">190</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Уровень в РВС на начало налива</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qVolumeTankStart</prop>
+     <prop name="Width">170</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Объем НП на начало налива</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qWeightTankStart</prop>
+     <prop name="Width">190</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Масса НП на начало налива в РВС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qDensityTankStart</prop>
+     <prop name="Width">210</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Плотность НП на начало налива в РВС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qTempTankStart</prop>
+     <prop name="Width">190</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Темп. НП в начале налива в РВС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qPressureStart</prop>
+     <prop name="Width">220</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Гидростатическое давл. на начало слива</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qLevelWaterStart</prop>
+     <prop name="Width">180</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Уровень воды в РВС на начало</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qVolumeWaterStart</prop>
+     <prop name="Width">170</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Объем воды в РВС на начало</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qVolumeTankEnd</prop>
+     <prop name="Width">140</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Объем НП после налива</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qWeightTankEnd</prop>
+     <prop name="Width">160</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Масса НП после налива в РВС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qDensityTankEnd</prop>
+     <prop name="Width">190</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Плотность НП после налива в РВС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qTempTankEnd</prop>
+     <prop name="Width">200</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Температура НП после налива в РВС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qPressureEnd</prop>
+     <prop name="Width">250</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Гидростатическое давл. после налива из РВС</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qLevelWaterEnd</prop>
+     <prop name="Width">190</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Уровень воды в РВС на окончание</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0.4f,False,False,AlignHCenter|AlignVCenter,False]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qCardID</prop>
+     <prop name="Width">140</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Номер карты для рейса</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+    </prop>
+    <prop name="Column">
+     <prop name="Name">qNbrLine</prop>
+     <prop name="Width">120</prop>
+     <prop name="Visible">True</prop>
+     <prop name="Editable">False</prop>
+     <prop name="Label">
+      <prop name="ru_RU.utf8">Номер линии налива</prop>
+     </prop>
+     <prop name="ToolTipText">
+      <prop name="ru_RU.utf8"></prop>
+     </prop>
+     <prop name="ColumnFormat">[0d,False,False,AlignHCenter|AlignVCenter,False]</prop>
     </prop>
    </properties>
   </shape>
@@ -445,7 +725,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">398.75 32.96721311475412</prop>
+    <prop name="Location">398.7499999999999 32.96721311475412</prop>
     <prop name="Size">65 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -479,7 +759,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">398.75 73.96721311475412</prop>
+    <prop name="Location">398.7499999999999 73.9672131147541</prop>
     <prop name="Size">65 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -513,7 +793,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">462.75 73.96721311475412</prop>
+    <prop name="Location">462.75 73.9672131147541</prop>
     <prop name="Size">65 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -547,7 +827,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">526.75 73.96721311475412</prop>
+    <prop name="Location">526.75 73.9672131147541</prop>
     <prop name="Size">65 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -581,7 +861,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">590.75 73.96721311475412</prop>
+    <prop name="Location">590.7499999999999 73.9672131147541</prop>
     <prop name="Size">65 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -615,7 +895,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">654.75 73.96721311475412</prop>
+    <prop name="Location">654.75 73.9672131147541</prop>
     <prop name="Size">65 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -717,7 +997,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">590.75 32.96721311475412</prop>
+    <prop name="Location">590.7499999999999 32.96721311475412</prop>
     <prop name="Size">65 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -851,7 +1131,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">43.984375 26.99795081967212</prop>
+    <prop name="Location">43.98437499999999 26.99795081967212</prop>
     <prop name="Size">166 34</prop>
     <prop name="ObjectType">DateTimeEdit.ewo</prop>
     <extended>
@@ -885,7 +1165,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">43.71875 69.99795081967213</prop>
+    <prop name="Location">43.71874999999999 69.99795081967213</prop>
     <prop name="Size">166 34</prop>
     <prop name="ObjectType">DateTimeEdit.ewo</prop>
     <extended>
@@ -904,7 +1184,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
    <properties>
     <prop name="serialId">19</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">26.75 43</prop>
+    <prop name="RefPoint">26.75 43.00000000000001</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -920,7 +1200,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">26.75 43</prop>
+    <prop name="Location">26.75 43.00000000000001</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -1093,7 +1373,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">965.8750000000001 70.04895676824411</prop>
+    <prop name="Location">965.875 70.0489567682441</prop>
     <prop name="Size">174 34</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -1141,7 +1421,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">772.234375 27.09791353648821</prop>
+    <prop name="Location">772.2343749999999 27.09791353648821</prop>
     <prop name="Size">166 34</prop>
     <prop name="ObjectType">DateTimeEdit.ewo</prop>
     <extended>
@@ -1175,7 +1455,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">771.96875 70.09791353648822</prop>
+    <prop name="Location">771.9687499999999 70.09791353648821</prop>
     <prop name="Size">166 34</prop>
     <prop name="ObjectType">DateTimeEdit.ewo</prop>
     <extended>
@@ -1341,7 +1621,7 @@ void cb_loading_data(string dpe, dyn_dyn_string dp_data){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">965.890625 37</prop>
+    <prop name="Location">965.8906249999999 36.99999999999999</prop>
     <prop name="Size">174 24</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Editable">True</prop>

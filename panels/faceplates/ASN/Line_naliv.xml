@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">696 598</prop>
+  <prop name="Size">711 599</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">709 127</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -14,168 +14,352 @@
   <prop name="layoutType">None</prop>
  </properties>
  <events>
-  <script name="ScopeLib" isEscaped="1"><![CDATA[const string line = $line;
-]]></script>
-  <script name="Initialize" isEscaped="1"><![CDATA[main()
-{
-  Name_line.text = &quot;Линия налива №&quot; + line;
-  dpConnect(&quot;cbWorker&quot;, &quot;ORDER_LINE&quot;+line + &quot;.items.1.init.iQuantity&quot;,//1
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.1.init.iPercent&quot;,//2
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.1.init.sProductCode&quot;,//3
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.1.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.1.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.1.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.1.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.1.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.2.init.iQuantity&quot;,//9
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.2.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.2.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.2.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.2.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.2.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.2.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.2.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.3.init.iQuantity&quot;,//17
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.3.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.3.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.3.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.3.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.3.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.3.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.3.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.4.init.iQuantity&quot;,//25
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.4.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.4.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.4.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.4.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.4.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.4.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.4.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.5.init.iQuantity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.5.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.5.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.5.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.5.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.5.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.5.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.5.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.6.init.iQuantity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.6.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.6.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.6.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.6.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.6.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.6.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.6.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.7.init.iQuantity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.7.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.7.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.7.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.7.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.7.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.7.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.7.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.8.init.iQuantity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.8.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.8.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.8.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.8.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.8.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.8.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.8.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.9.init.iQuantity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.9.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.9.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.9.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.9.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.9.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.9.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.9.result.TankCode&quot;,
-
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.10.init.iQuantity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.10.init.iPercent&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.10.init.sProductCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.10.init.nMass&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.10.result.LoadedTemperature&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.10.result.LoadedDensity&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.10.init.Device&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.items.10.result.TankCode&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.sRegANr&quot;,
-                        &quot;ORDER_LINE&quot;+line + &quot;.current_card&quot;);
-
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string LINE = $line;
+string stpToText(int stp){
+  string res = &quot;UNKNOW&quot;;
+  switch(stp){
+    case 0:
+      res = &quot;Останова нет&quot;;
+      break;
+    case 1:
+      res = &quot;Сработал датчик перелива&quot;;
+      break;
+    case 2:
+      res = &quot;Сработал датчик перелива 2&quot;;
+      break;
+    case 3:
+      res = &quot;Отключилось заземление&quot;;
+      break;
+    case 4:
+      res = &quot;Наконечник не в рабочем положении&quot;;
+      break;
+    case 5:
+      res = &quot;Стояк в гаражном положении&quot;;
+      break;
+    case 6:
+      res = &quot;Трап в гаражном положении&quot;;
+      break;
+    case 7:
+      res = &quot;Сработал датчик загрязненности фильтра&quot;;
+      break;
+    case 8:
+      res = &quot;Останов по кнопке пуск/стоп&quot;;
+      break;
+    case 9:
+      res = &quot;Сработал датчик загазованности&quot;;
+      break;
+    case 10:
+      res = &quot;Отсутствие потока жидкости&quot;;
+      break;
+    case 11:
+      res = &quot;Переход в паузу по завершению дозы по объему&quot;;
+      break;
+    case 12:
+      res = &quot;Переход в паузу по завершению дозы по массе&quot;;
+      break;
+    case 13:
+      res = &quot;Нерабочее положение уклона стояка&quot;;
+      break;
+    case 14:
+      res = &quot;Сработал внешний датчик запрета налива&quot;;
+      break;
+    case 15:
+      res = &quot;Закрыта задвижка&quot;;
+      break;
+    case 16:
+      res = &quot;Возникновение ошибки в посте&quot;;
+      break;
+    case 17:
+      res = &quot;Останов по команде с компьютера&quot;;
+      break;
+    case 18:
+      res = &quot;Переход в паузу по завершению времени налива&quot;;
+      break;
+    case 19:
+      res = &quot;Переход в паузу по датчику угла&quot;;
+      break;
+    case 20:
+      res = &quot;Коррекция нуля в массомере&quot;;
+      break;
+    case 31:
+      res = &quot;Неизвестная причина останова&quot;;
+      break;
+    case 50:
+      res = &quot;Переход в паузу по завершению дозы по стоимости&quot;;
+      break;
+    case 51:
+      res = &quot;Отключилось заземление&quot;;
+      break;
+    case 52:
+      res = &quot;Останов по кнопке Аварийный стоп&quot;;
+      break;
+    case 53:
+      res = &quot;Аварийный стоп по датчикам КУНА&quot;;
+      break;
+    case 54:
+      res = &quot;Аварийный стоп по МН-2&quot;;
+      break;
+    case 55:
+      res = &quot;Ожидание сброса объема в расходомере&quot;;
+      break;
+    case 56:
+      res = &quot;Ожидание сброса массы в расходомере&quot;;
+      break;
+    case 57:
+      res = &quot;Доза объема меньше упреждения отсечки клапана&quot;;
+      break;
+    case 58:
+      res = &quot;Доза массы меньше упреждения отсечки клапана&quot;;
+      break;
+    case 72:
+      res = &quot;Не задана ни одна из доз&quot;;
+      break;
+    case 88:
+      res = &quot;Ожидание записи переменных&quot;;
+      break;
+    case 59:
+      res = &quot;Останов по УЗ датчику уровня&quot;;
+      break;
+    case 60:
+      res = &quot;Низкий уровень в емкости присадки&quot;;
+      break;
+    case 61:
+      res = &quot;Ошибка состояния внешнего устройства&quot;;
+      break;
+    case 62:
+      res = &quot;Аварийный стоп по МН-1&quot;;
+      break;
+    case 63:
+      res = &quot;Выход за диапазон значений Модуля ввода&quot;;
+      break;
+    case 64:
+      res = &quot;Выход за диапазон датчиков МН-2&quot;;
+      break;
+    case 65:
+      res = &quot;Ошибка управления выходами блока силового&quot;;
+      break;
+    case 66:
+      res = &quot;Ошибка управления выходами КУЗ&quot;;
+      break;
+    case 67:
+      res = &quot;Запрет налива по состоянию обоих мониторов (логика ИЛИ)&quot;;
+      break;
+    case 68:
+      res = &quot;Останов по состоянию ДИО-5&quot;;
+      break;
+    case 69:
+      res = &quot;Ошибка управления выходами КУН3&quot;;
+      break;
+    case 70:
+      res = &quot;Останов по входу безопасности&quot;;
+      break;
+    case 71:
+      res = &quot;Ошибка управления выходами КУД&quot;;
+      break;
+    case 73:
+      res = &quot;Ошибка состояния ПЛОТ-3М&quot;;
+      break;
+    case 74:
+      res = &quot;Ошибка данных ПЛОТ-3М&quot;;
+      break;
+    case 75:
+      res = &quot;Аварийный стоп по МН-2 верхний налив&quot;;
+      break;
+    case 76:
+      res = &quot;Аварийный стоп по МН-2 нижний налив&quot;;
+      break;
+    case 77:
+      res = &quot;Ошибка управления выходами БУК&quot;;
+      break;
+    case 78:
+      res = &quot;Авария КУНА(по датчикам насоса)&quot;;
+      break;
+    case 79:
+      res = &quot;Выход за диапазон значений датчика безопасности&quot;;
+      break;
+    case 80:
+      res = &quot;Выход за диапазон значений датчика загазованности&quot;;
+      break;
+    case 81:
+      res = &quot;Выход за диапазон значений датчика заземления&quot;;
+      break;
+    case 82:
+      res = &quot;Выход за диапазон значений датчика перелива&quot;;
+      break;
+    case 83:
+      res = &quot;Выход за диапазон значений датчика рабочего положения&quot;;
+      break;
+    case 84:
+      res = &quot;Выход за диапазон значений датчика гаражного&quot;;
+      break;
+    case 85:
+      res = &quot;Выход за диапазон значений датчика гаражного&quot;;
+      break;
+    case 86:
+      res = &quot;Выход за диапазон значений датчика аварийного стопа&quot;;
+      break;
+    case 87:
+      res = &quot;Выход за диапазон значений датчика наклона стояка&quot;;
+      break;
+    case 89:
+      res = &quot;Завершение слива&quot;;
+      break;
+    case 90:
+      res = &quot;Выход за диапазон значений датчика уровня дренажного бачка верхнего уровня&quot;;
+      break;
+    case 91:
+      res = &quot;Выход за диапазон значений датчика уровня дренажного бачка нижнего уровня&quot;;
+      break;
+    case 92:
+      res = &quot;Превышен уровень охл. жидкости&quot;;
+      break;
+    case 93:
+      res = &quot;Недостаточен уровень охл. жидкости&quot;;
+      break;
+    case 94:
+      res = &quot;Выход за диапазон датчика микро расхода&quot;;
+      break;
+    case 95:
+      res = &quot;Выход за диапазон датчика окончания налива&quot;;
+      break;
+    case 96:
+      res = &quot;Останов по датчику окончания налива&quot;;
+      break;
+    default:
+    res = &quot;НЕИЗВЕСТНАЯ ПРИЧИНА&quot;;
+  }
+  return res;
 }
 
-void cbWorker(dyn_string dp, dyn_anytype val){
-
-      sdShowValue(&quot;txt_sRegANr&quot;, dp[81], val[81], 1, &quot;1&quot;, 0, &quot;&quot;);
-      setValue(&quot;current_card&quot;, &quot;text&quot;, val[82]);
-      //TABLE2.updateLines(1,&quot;#1_l&quot;, val[3] , &quot;#2_l&quot;, val[4], &quot;#3_l&quot;,val[5],&quot;#4_l&quot;,val[6], &quot;#5_l&quot;, val[7], &quot;#6_l&quot;, val[8], &quot;#7_l&quot;,val[9], &quot;#8_l&quot;, val[10]);
-//setValue (&quot;TABLE2&quot;, &quot;updateLines&quot;, 3, &quot;#1&quot;, val[3] , &quot;#2&quot;, val[4], &quot;#3&quot;,val[5],
-  //            &quot;#4&quot;,val[6], &quot;#5&quot;, val[7], &quot;#6&quot;, val[8], &quot;#7&quot;,val[9], &quot;#8&quot;, val[10]);
-
-
-      //license_plate.text = &quot;Гос. номер: &quot; + val[16];
-     // sdShowValue(&quot;PercentPrisadki&quot;, dp[17], val[17], 1, &quot;1&quot;, 0, &quot;&quot;);
-dyn_float temp, temp1;
- for(int i=1; i&lt;=10; i++){
-    temp[i] = val[i*8-7]*val[i*8-6]/100;
-    temp1[i] = val[i*8-7] - temp[i];
-    TABLE2.cellValueRC(i-1, &quot;#1_l&quot;, dpValToString(dp[i*8-7], val[i*8-7]));
-    TABLE2.cellValueRC(i-1, &quot;#2_l&quot;, dpValToString(dp[i*8-7], temp1[i]));
-    TABLE2.cellValueRC(i-1, &quot;#3_l&quot;, dpValToString(dp[i*8-7], temp[i]));
-    TABLE2.cellValueRC(i-1, &quot;#4_l&quot;, dpValToString(dp[i*8-4], val[i*8-4]));
-    TABLE2.cellValueRC(i-1, &quot;#5_l&quot;, dpValToString(dp[i*8-3], val[i*8-3]));
-    TABLE2.cellValueRC(i-1, &quot;#6_l&quot;, dpValToString(dp[i*8-2], val[i*8-2]));
-    TABLE2.cellValueRC(i-1, &quot;#7_l&quot;, dpValToString(dp[i*8-1], val[i*8-1]));
-    TABLE2.cellValueRC(i-1, &quot;#8_l&quot;, dpValToString(dp[i*8], val[i*8]));
-    switch(val[i*8-5]){
-     case &quot;АИ-92&quot;:
-       setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 1);
-      //COMBO_BOX1.currentIndex = 1;
+string errToText(int sts){
+  string res;
+  switch(sts){
+    case 20:
+      res = &quot;Коррекция нуля в массомере&quot;;
       break;
-     case &quot;АИ-95&quot;:
-      setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 2);
+    case 55:
+      res = &quot;Ожидание сброса объема в расходомере&quot;;
       break;
-     case &quot;АИ-98&quot;:
-      setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 3);
+    case 56:
+      res = &quot;Ожидание сброса массы в расходомере&quot;;
       break;
-     case &quot;АИ-100&quot;:
-      setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 4);
+    case 57:
+      res = &quot;Доза объема меньше упреждения отсечки клапана&quot;;
       break;
-     case &quot;ДТ&quot;:
-      setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 5);
+    case 58:
+      res = &quot;Доза массы меньше упреждения отсечки клапана&quot;;
       break;
-     case &quot;ДТ(О)&quot;:
-      setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 6);
+    case 72:
+      res = &quot;Не задана ни одна из доз&quot;;
       break;
-     case &quot;ДТ(G)&quot;:
-      setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 7);
+    case 88:
+      res = &quot;Ожидание записи переменных&quot;;
       break;
-     case &quot;G100&quot;:
-      setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 8);
+    case 100:
+      res = &quot;Запрет от дозатора налива&quot;;
       break;
-     default:
-      setValue(&quot;COMBO_BOX&quot;+i, &quot;currentIndex&quot;, 0);
-
-    }
-    TABLE3.cellValueRC(i-1, &quot;Num&quot;, i);
-
+    case 103:
+      res = &quot;Ожидание сброса объема в дозаторе&quot;;
+      break;
+    case 104:
+      res = &quot;Ожидание записи дозы в ДИО5&quot;;
+      break;
+    case 105:
+      res = &quot;Ожидание записи состояния в ДИО5&quot;;
+      break;
+    case 106:
+      res = &quot;Минимальная порция присадки меньше 5 условных ед.&quot;;
+      break;
+    case 107:
+      res = &quot;Совпадают стороны основного поста и дозатора&quot;;
+      break;
+    case 108:
+      res = &quot;Дозатор занят другим постом&quot;;
+      break;
+    case 109:
+      res = &quot;Маленькая доза при наливе с дозатором&quot;;
+      break;
+    case 110:
+      res = &quot;Не удалось записать состояние дозатора&quot;;
+      break;
+    case 111:
+      res = &quot;Ошибка расчета дозы для дозатора&quot;;
+      break;
+    default:
+      res = &quot;Неизвестно&quot;;
   }
+  return res;
+}
 
+void clrOrderDp(){
+  dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.sOrderNr&quot;,         &quot;&quot;,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.sIdCard&quot;,          &quot;&quot;,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.sRegNr&quot;,           &quot;&quot;,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.sRegANr&quot;,          &quot;&quot;,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.bLoadingType&quot;,     false,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.dtAdded&quot;,          0,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iOrderPriority&quot;,   0,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iLine&quot;,            0,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;,       99);
 
+  for(int j=1; j&lt;=10; j++){
+      dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sOrderNr&quot;,     &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iCompNr&quot;,      0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sProductCode&quot;, &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iQuantity&quot;,    0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.dtAdded&quot;,      0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iProcessed&quot;,   99,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.bTrailer&quot;,     false,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sRegNr&quot;,       &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sKompNr&quot;,      &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sDoc&quot;,         &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sDelivery&quot;,    &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.nMass&quot;,        0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.Device&quot;,       0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iPercent&quot;,     0);
+  }
+}
 
+void worker(dyn_string dp, dyn_anytype val){
+  radio_mode.number(val[1]);
+  current_card.text(val[2]);
+  txt_sRegANr.text(val[3]);
 
+  sc1.setEnable(!val[1]);
+  sc2.setEnable(!val[1]);
+  sc3.setEnable(!val[1]);
+  sc4.setEnable(!val[1]);
+  sc5.setEnable(!val[1]);
+  sc6.setEnable(!val[1]);
+  sc7.setEnable(!val[1]);
+  sc8.setEnable(!val[1]);
+  sc9.setEnable(!val[1]);
+  sc10.setEnable(!val[1]);
+  btn_start.enabled(!val[1]);
+  btn_clr.enabled(!val[1]);
+}
 
-
-
+void worker_post(dyn_string dp, dyn_anytype val){
+  TABLE4.deleteAllLines();
+  for(int i=1; i&lt;=val.count(); i+=2){
+    string tmp = strltrim(dpSubStr(dp[i], DPSUB_DP),&quot;Post_&quot;);
+    TABLE4.appendLine(&quot;#1&quot;, tmp, &quot;stpCell&quot;, stpToText(val[i+1]), &quot;alrCell&quot;, errToText(val[i]));
+  }
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  Name_line.text = &quot;Линия налива №&quot; + LINE;
+  dpConnect(&quot;worker&quot;, &quot;ORDER_LINE&quot; + LINE + &quot;.control&quot;,
+                      &quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;,
+                      &quot;ORDER_LINE&quot; + LINE + &quot;.sRegNr&quot;);
+  dyn_int posts;
+  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.local.HelperPosts&quot;, posts);
+  dyn_string dp_posts;
+  for(int i=1; i&lt;=posts.count(); i++){
+    dp_posts.append(&quot;Post_&quot; + posts[i] + &quot;.sStatusPosta&quot;);
+    dp_posts.append(&quot;Post_&quot; + posts[i] + &quot;.sStatusStop&quot;);
+  }
+  dpConnect(&quot;worker_post&quot;, dp_posts);
 }
 ]]></script>
  </events>
@@ -198,7 +382,7 @@ dyn_float temp, temp1;
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,16,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">4 55</prop>
+    <prop name="Location">4 54.99999999999999</prop>
     <prop name="Size">686 25</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Задание на налив</prop>
@@ -307,1113 +491,6 @@ dyn_float temp, temp1;
     <prop name="TextFormat">[0s,,,AlignHCenter]</prop>
    </properties>
   </shape>
-  <shape Name="TABLE2" shapeType="TABLE" layerId="0">
-   <properties>
-    <prop name="serialId">13</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">34 135.12</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">12</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,19,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">116 123</prop>
-    <prop name="Size">570 203</prop>
-    <prop name="ShowColumnHeader">False</prop>
-    <prop name="ShowRowHeader">False</prop>
-    <prop name="SortOnClick">True</prop>
-    <prop name="RowHeight">20</prop>
-    <prop name="RowHeaderWidth">0</prop>
-    <prop name="GridType">Cross</prop>
-    <prop name="VScrollBarMode">Auto</prop>
-    <prop name="HScrollBarMode">Auto</prop>
-    <prop name="Column">
-     <prop name="Name">#1_l</prop>
-     <prop name="Width">70</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#1</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-    </prop>
-    <prop name="Column">
-     <prop name="Name">#2_l</prop>
-     <prop name="Width">70</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#2</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-    </prop>
-    <prop name="Column">
-     <prop name="Name">#3_l</prop>
-     <prop name="Width">70</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#3</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-    </prop>
-    <prop name="Column">
-     <prop name="Name">#4_l</prop>
-     <prop name="Width">70</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#4</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-    </prop>
-    <prop name="Column">
-     <prop name="Name">#5_l</prop>
-     <prop name="Width">70</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#5</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-    </prop>
-    <prop name="Column">
-     <prop name="Name">#6_l</prop>
-     <prop name="Width">70</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#6</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-    </prop>
-    <prop name="Column">
-     <prop name="Name">#7_l</prop>
-     <prop name="Width">70</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#7</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-    </prop>
-    <prop name="Column">
-     <prop name="Name">#8_l</prop>
-     <prop name="Width">70</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#8</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#1</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#2</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#3</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#4</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#5</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#6</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#7</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#8</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#9</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#10</prop>
-     </prop>
-    </prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE3" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">3</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">2</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.155172413793103 0 0 1.111111111111111 155.9655172413793 -39</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="TABLE3" shapeType="TABLE" layerId="0">
-   <properties>
-    <prop name="serialId">14</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">34 135.12</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">13</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,19,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">5 123</prop>
-    <prop name="Size">52 203</prop>
-    <prop name="ShowColumnHeader">False</prop>
-    <prop name="ShowRowHeader">False</prop>
-    <prop name="SortOnClick">True</prop>
-    <prop name="RowHeight">20</prop>
-    <prop name="RowHeaderWidth">0</prop>
-    <prop name="GridType">Cross</prop>
-    <prop name="VScrollBarMode">Auto</prop>
-    <prop name="HScrollBarMode">Auto</prop>
-    <prop name="Column">
-     <prop name="Name">Num</prop>
-     <prop name="Width">50</prop>
-     <prop name="Visible">True</prop>
-     <prop name="Editable">False</prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#1</prop>
-     </prop>
-     <prop name="ToolTipText">
-      <prop name="ru_RU.utf8"></prop>
-     </prop>
-     <prop name="ColumnFormat">[0s,,,AlignLeft]</prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#1</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#2</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#3</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#4</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#5</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#6</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#7</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#8</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#9</prop>
-     </prop>
-    </prop>
-    <prop name="Row">
-     <prop name="Name"></prop>
-     <prop name="Label">
-      <prop name="ru_RU.utf8">#10</prop>
-     </prop>
-    </prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX1" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">15</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 485.4761904761905</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">14</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56 123</prop>
-    <prop name="Size">61 23</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX2" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">16</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 469</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">15</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56 143</prop>
-    <prop name="Size">61 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX3" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">17</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 469</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">16</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56 163</prop>
-    <prop name="Size">61 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX4" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">18</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 469</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">17</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56.00000000000001 183</prop>
-    <prop name="Size">61 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX5" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">19</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 469</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">18</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56 203</prop>
-    <prop name="Size">61 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX6" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">20</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 469</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">19</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56.00000000000001 223</prop>
-    <prop name="Size">61 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX7" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">21</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 469</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">20</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56.00000000000001 243</prop>
-    <prop name="Size">61 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX8" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">22</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 468.3333333333335</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">21</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56 263.3333333333335</prop>
-    <prop name="Size">61 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX9" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">23</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 469</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">22</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56 283</prop>
-    <prop name="Size">61 22</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="COMBO_BOX10" shapeType="COMBO_BOX" layerId="0">
-   <properties>
-    <prop name="serialId">24</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">214 469.6666666666667</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">23</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">56 302.6666666666667</prop>
-    <prop name="Size">61 21</prop>
-    <prop name="Listitems">
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">???</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">92</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">95</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">98</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(О)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(G)</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-     <prop name="Item">
-      <prop name="Text">
-       <prop name="ru_RU.utf8">G100</prop>
-      </prop>
-      <prop name="Select">False</prop>
-     </prop>
-    </prop>
-    <prop name="Editable">True</prop>
-   </properties>
-  </shape>
   <shape Name="PRIMITIVE_TEXT31" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">31</prop>
@@ -1434,7 +511,7 @@ dyn_float temp, temp1;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.365810875847273 0 0 0.773690331885404 -172.6621751694547 313.5997673883546</prop>
+    <prop name="Geometry">1.365810875847273 0 0 0.773690331885404 -172.6621751694547 321.0997673883546</prop>
     <prop name="Location">138 38</prop>
     <prop name="Size">125 23</prop>
     <prop name="Font">
@@ -1451,48 +528,11 @@ dyn_float temp, temp1;
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <shape Name="txt_sRegANr" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">32</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">138 38</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">31</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.4175573797058915 0 0 0.6646945219782235 135.377081600587 318.429968423067</prop>
-    <prop name="Location">138 38</prop>
-    <prop name="Size">125 23</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,50,0,0,0,0,0,Regular</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">В549СТ</prop>
-    </prop>
-    <prop name="Distance">2</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">False</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
   <shape Name="Label11" shapeType="Label" layerId="0">
    <properties>
     <prop name="serialId">33</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">310.9999999999999 338</prop>
+    <prop name="RefPoint">280 347.5</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -1506,18 +546,18 @@ dyn_float temp, temp1;
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,16,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">310.9999999999999 338</prop>
-    <prop name="Size">379 25</prop>
+    <prop name="Location">279.9999999999999 347.4999999999998</prop>
+    <prop name="Size">411 25</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Источик данных</prop>
     </extended>
    </properties>
   </shape>
-  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+  <shape Name="btn_start" shapeType="PUSH_BUTTON" layerId="0">
    <properties>
     <prop name="serialId">34</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">441 373</prop>
+    <prop name="RefPoint">450.0000000000001 382.5</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -1531,19 +571,37 @@ dyn_float temp, temp1;
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,16,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">441 373</prop>
-    <prop name="Size">116 25</prop>
+    <prop name="Location">450 382.5</prop>
+    <prop name="Size">116 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Запуск</prop>
     </prop>
    </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  anytype card, regNr;
+  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;, card,
+        &quot;ORDER_LINE&quot; + LINE + &quot;.sRegNr&quot;      , regNr);
+  dyn_string fuels = makeDynString(sc1.getFuel(), sc2.getFuel(), sc3.getFuel(), sc4.getFuel(), sc5.getFuel(),
+                                   sc6.getFuel(), sc7.getFuel(), sc8.getFuel(), sc9.getFuel(), sc10.getFuel());
+  for(int i=1; i&lt;=fuels.count(); i++){
+    if(fuels[i] != &quot;НЕТ&quot;){
+      dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + i + &quot;.init.sRegNr&quot;, regNr);
+    }
+  }
+// Запуск задания в ручном режиме
+  dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;, card,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;, 1);
+}
+]]></script>
+   </events>
   </shape>
-  <shape Name="PUSH_BUTTON2" shapeType="PUSH_BUTTON" layerId="0">
+  <shape Name="btn_clr" shapeType="PUSH_BUTTON" layerId="0">
    <properties>
     <prop name="serialId">35</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">564 373</prop>
+    <prop name="RefPoint">574.9999999999999 382.5</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -1557,19 +615,25 @@ dyn_float temp, temp1;
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,16,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">564 373</prop>
-    <prop name="Size">116 25</prop>
+    <prop name="Location">575 382.5</prop>
+    <prop name="Size">116 24</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Завершить</prop>
+     <prop name="ru_RU.utf8">Очистить</prop>
     </prop>
    </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  clrOrderDp();
+}
+]]></script>
+   </events>
   </shape>
-  <shape Name="RADIO_BOX2" shapeType="RADIO_BOX" layerId="0">
+  <shape Name="radio_mode" shapeType="RADIO_BOX" layerId="0">
    <properties>
     <prop name="serialId">36</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">315 368</prop>
+    <prop name="RefPoint">284.0000000000001 377.5</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -1583,8 +647,8 @@ dyn_float temp, temp1;
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">315 368</prop>
-    <prop name="Size">376 33</prop>
+    <prop name="Location">284.0000000000001 377.5</prop>
+    <prop name="Size">127 33</prop>
     <prop name="Listitems">
      <prop name="Item">
       <prop name="Text">
@@ -1600,12 +664,18 @@ dyn_float temp, temp1;
      </prop>
     </prop>
    </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(int button){
+  dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.control&quot;, button);
+}
+]]></script>
+   </events>
   </shape>
   <shape Name="Label12" shapeType="Label" layerId="0">
    <properties>
     <prop name="serialId">37</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">4.000000000000005 408</prop>
+    <prop name="RefPoint">4.000000000000005 415.5</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_3DText</prop>
@@ -1619,8 +689,8 @@ dyn_float temp, temp1;
     <prop name="Font">
      <prop name="ru_RU.utf8">Noto Sans,-1,16,5,75,0,0,0,0,0,Bold</prop>
     </prop>
-    <prop name="Location">4.000000000000005 408</prop>
-    <prop name="Size">686 25</prop>
+    <prop name="Location">4.000000000000005 415.4999999999998</prop>
+    <prop name="Size">686 26</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Причины остановок и аварий</prop>
     </extended>
@@ -1642,9 +712,9 @@ dyn_float temp, temp1;
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,75,0,0,0,0,0,Bold</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
-    <prop name="Location">3 470</prop>
+    <prop name="Location">3 469.9999999999998</prop>
     <prop name="Size">682 123</prop>
     <prop name="ShowColumnHeader">False</prop>
     <prop name="ShowRowHeader">False</prop>
@@ -1667,7 +737,7 @@ dyn_float temp, temp1;
      </prop>
     </prop>
     <prop name="Column">
-     <prop name="Name">Причины остановки</prop>
+     <prop name="Name">stpCell</prop>
      <prop name="Width">310</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
@@ -1679,7 +749,7 @@ dyn_float temp, temp1;
      </prop>
     </prop>
     <prop name="Column">
-     <prop name="Name">Авария</prop>
+     <prop name="Name">alrCell</prop>
      <prop name="Width">310</prop>
      <prop name="Visible">True</prop>
      <prop name="Editable">False</prop>
@@ -1887,34 +957,6 @@ dyn_float temp, temp1;
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape Name="RECTANGLE6" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">49</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">48</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8620689655172413 0 0 1.944444444444445 -16.41379310344827 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
   <shape Name="PRIMITIVE_TEXT36" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">50</prop>
@@ -1934,50 +976,22 @@ dyn_float temp, temp1;
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.4175573797058915 0 0 0.6646945219782235 -52.5114759411783 71.92996842306707</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.3741699722833845 0 0 1.252685624069335 -41.94761203845982 40.56030842036272</prop>
     <prop name="Location">138 38</prop>
     <prop name="Size">125 23</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Секция</prop>
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE7" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">51</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">50</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.03448275862069 0 0 1.944444444444445 29.10344827586206 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
    </properties>
   </shape>
   <shape Name="PRIMITIVE_TEXT37" shapeType="PRIMITIVE_TEXT" layerId="0">
@@ -1999,50 +1013,22 @@ dyn_float temp, temp1;
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.4175573797058915 0 0 0.6646945219782235 2.488524058821696 71.92996842306707</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.641913834794609 0 0 1.271466367813455 -27.61193705047327 39.64005197690082</prop>
     <prop name="Location">138 38</prop>
     <prop name="Size">125 23</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">Топливо</prop>
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE8" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">53</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">52</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.206896551724138 0 0 1.944444444444445 154.6206896551724 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
    </properties>
   </shape>
   <shape Name="PRIMITIVE_TEXT38" shapeType="PRIMITIVE_TEXT" layerId="0">
@@ -2064,51 +1050,23 @@ dyn_float temp, temp1;
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5308947489747999 0 0 1.391972148626621 114.82105020504 36.2933647172955</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.5308947489747999 0 0 1.286503495714376 151.7365246414776 38.9032327097557</prop>
     <prop name="Location">138 38</prop>
     <prop name="Size">125 23</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Объем, л
+     <prop name="ru_RU.utf8">Объем, л&#xd;
 базов.топл.</prop>
     </prop>
     <prop name="Distance">0</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE9" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">55</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">54</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.206896551724138 0 0 1.944444444444445 84.62068965517238 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
    </properties>
   </shape>
   <shape Name="PRIMITIVE_TEXT39" shapeType="PRIMITIVE_TEXT" layerId="0">
@@ -2130,51 +1088,23 @@ dyn_float temp, temp1;
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5308947489747999 0 0 1.391972148626621 44.82105020504002 36.2933647172955</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6006031114565081 0 0 1.266401878593838 63.28846861778927 39.88821194866206</prop>
     <prop name="Location">138 38</prop>
     <prop name="Size">125 23</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Объем, л
+     <prop name="ru_RU.utf8">Объем, л&#xd;
 задание</prop>
     </prop>
     <prop name="Distance">0</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE11" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">59</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">58</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.206896551724138 0 0 1.944444444444445 224.6206896551724 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
    </properties>
   </shape>
   <shape Name="PRIMITIVE_TEXT41" shapeType="PRIMITIVE_TEXT" layerId="0">
@@ -2196,381 +1126,23 @@ dyn_float temp, temp1;
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5308947489747999 0 0 1.391972148626621 184.82105020504 36.2933647172955</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.5308947489747999 0 0 1.286503495714376 221.7365246414778 38.90323270975569</prop>
     <prop name="Location">138 38</prop>
     <prop name="Size">125 23</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Объем, л
+     <prop name="ru_RU.utf8">Объем, л&#xd;
 присадки</prop>
     </prop>
     <prop name="Distance">0</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE12" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">61</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">60</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.206896551724138 0 0 1.944444444444445 294.6206896551724 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="PRIMITIVE_TEXT42" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">62</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">138 38</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">61</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5308947489747999 0 0 1.391972148626621 254.82105020504 36.2933647172955</prop>
-    <prop name="Location">138 38</prop>
-    <prop name="Size">125 23</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Масса
-кг</prop>
-    </prop>
-    <prop name="Distance">0</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">False</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE13" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">63</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">62</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.206896551724138 0 0 1.944444444444445 364.6206896551724 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="PRIMITIVE_TEXT43" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">64</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">138 38</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">63</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5308947489747999 0 0 1.391972148626621 324.82105020504 36.2933647172955</prop>
-    <prop name="Location">138 38</prop>
-    <prop name="Size">125 23</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Темпера-
-тура, С</prop>
-    </prop>
-    <prop name="Distance">0</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">False</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE14" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">65</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">64</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.206896551724138 0 0 1.944444444444445 434.6206896551724 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="PRIMITIVE_TEXT44" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">66</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">138 38</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">65</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5308947489747999 0 0 1.391972148626621 394.82105020504 36.2933647172955</prop>
-    <prop name="Location">138 38</prop>
-    <prop name="Size">125 23</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Плотность
-кг/м3</prop>
-    </prop>
-    <prop name="Distance">0</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">False</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE15" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">67</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">66</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.206896551724138 0 0 1.944444444444445 504.6206896551724 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="PRIMITIVE_TEXT45" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">68</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">138 38</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">67</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5308947489747999 0 0 1.391972148626621 464.82105020504 36.2933647172955</prop>
-    <prop name="Location">138 38</prop>
-    <prop name="Size">125 23</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Номер
-поста</prop>
-    </prop>
-    <prop name="Distance">0</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">False</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE16" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">69</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">68</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.206896551724138 0 0 1.944444444444445 575.6206896551724 -578.0000000000001</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
-  <shape Name="PRIMITIVE_TEXT46" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">70</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">138 38</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">69</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.5308947489747999 0 0 1.391972148626621 535.82105020504 36.2933647172955</prop>
-    <prop name="Location">138 38</prop>
-    <prop name="Size">125 23</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Номер
-рез-вуара</prop>
-    </prop>
-    <prop name="Distance">0</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
-    <prop name="Fit">False</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
-   </properties>
-  </shape>
-  <shape Name="RECTANGLE17" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">71</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">26 342</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">White</prop>
-    <prop name="TabOrder">70</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">2.210004729353982 0 0 1.111111111111111 67.5398770367965 -9</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">26 342</prop>
-    <prop name="Size">59 19</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
    </properties>
   </shape>
   <shape Name="PRIMITIVE_TEXT47" shapeType="PRIMITIVE_TEXT" layerId="0">
@@ -2593,7 +1165,7 @@ dyn_float temp, temp1;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.365810875847273 0 0 0.773690331885404 -172.4819008669236 343.5997673883546</prop>
+    <prop name="Geometry">1.365810875847273 0 0 0.773690331885404 -172.4819008669236 351.0997673883546</prop>
     <prop name="Location">138 38</prop>
     <prop name="Size">125 23</prop>
     <prop name="Font">
@@ -2610,16 +1182,35 @@ dyn_float temp, temp1;
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
    </properties>
   </shape>
-  <shape Name="current_card" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <reference parentSerial="-1" Name="sc1" referenceId="15">
    <properties>
-    <prop name="serialId">73</prop>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -242</prop>
+    <prop name="TabOrder">73</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">1</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <shape Name="PRIMITIVE_TEXT49" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">98</prop>
     <prop name="Type"></prop>
     <prop name="RefPoint">138 38</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
     <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">72</prop>
+    <prop name="TabOrder">76</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
     </prop>
@@ -2629,19 +1220,440 @@ dyn_float temp, temp1;
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.7988450666827951 0 0 0.6646945219782235 28.15134975475524 348.429968423067</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.5308947489747999 0 0 1.286503495714376 291.6456155505686 38.90323270975569</prop>
     <prop name="Location">138 38</prop>
     <prop name="Size">125 23</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,50,0,0,0,0,0,Regular</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">5524524521652</prop>
+     <prop name="ru_RU.utf8">Масса
+кг</prop>
     </prop>
-    <prop name="Distance">2</prop>
+    <prop name="Distance">0</prop>
     <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">False</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT50" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">99</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">138 38</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">77</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.5308947489747999 0 0 1.286503495714376 361.6456155505686 38.90323270975569</prop>
+    <prop name="Location">138 38</prop>
+    <prop name="Size">125 23</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Темпер.</prop>
+    </prop>
+    <prop name="Distance">0</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT51" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">100</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">138 38</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">78</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.5308947489747999 0 0 1.286503495714376 431.6456155505686 38.90323270975569</prop>
+    <prop name="Location">138 38</prop>
+    <prop name="Size">125 23</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Плотность</prop>
+    </prop>
+    <prop name="Distance">0</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT52" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">101</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">138 38</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">79</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.3588848503069648 0 0 1.286503495714376 525.2416482333964 38.90323270975569</prop>
+    <prop name="Location">138 38</prop>
+    <prop name="Size">125 23</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Пост</prop>
+    </prop>
+    <prop name="Distance">0</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT53" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">102</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">138 38</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">80</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.2848728086357373 0 0 1.286503495714376 584.10119584861 38.90323270975569</prop>
+    <prop name="Location">138 38</prop>
+    <prop name="Size">125 23</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">РВС</prop>
+    </prop>
+    <prop name="Distance">0</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <reference parentSerial="-1" Name="sc2" referenceId="16">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -219.6</prop>
+    <prop name="TabOrder">82</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">2</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="sc3" referenceId="17">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -31.99999999999999 -197.2</prop>
+    <prop name="TabOrder">83</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">3</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="sc4" referenceId="20">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -174.8</prop>
+    <prop name="TabOrder">86</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">4</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="sc5" referenceId="19">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -152.4</prop>
+    <prop name="TabOrder">85</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">5</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="sc6" referenceId="18">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -130</prop>
+    <prop name="TabOrder">84</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">6</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <shape Name="txt_sRegANr" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">169</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">190 349.0105936507394</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">87</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">190 349.0105936507394</prop>
+    <prop name="Size">71 22</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+   <events>
+    <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
+{
+  dpSetWait(&quot;ORDER_LINE&quot;+LINE+&quot;.sRegNr&quot;, newText);
+}
+]]></script>
+   </events>
+  </shape>
+  <shape Name="current_card" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">170</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">119.9999999999999 379.0105936507394</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">88</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">119.9999999999999 379.0105936507392</prop>
+    <prop name="Size">141 22</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0d,False,False,AlignLeft,False]</prop>
+   </properties>
+   <events>
+    <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
+{
+  dpSetWait(&quot;ORDER_LINE&quot;+LINE+&quot;.sIdCard&quot;, newText);
+}
+]]></script>
+   </events>
+  </shape>
+  <reference parentSerial="-1" Name="sc7" referenceId="21">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -108</prop>
+    <prop name="TabOrder">89</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">7</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="sc8" referenceId="22">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -85.60000000000002</prop>
+    <prop name="TabOrder">90</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">8</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="sc9" referenceId="23">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -63.20000000000002</prop>
+    <prop name="TabOrder">91</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">9</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="sc10" referenceId="24">
+   <properties>
+    <prop name="FileName">faceplates/ASN_PARTS/ASN_zadane_line.xml</prop>
+    <prop name="Location">50 340</prop>
+    <prop name="Geometry">1 0 0 1 -32 -40.80000000000001</prop>
+    <prop name="TabOrder">92</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$line</prop>
+      <prop name="Value">$line</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$section</prop>
+      <prop name="Value">10</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </reference>
+  <shape Name="PRIMITIVE_TEXT54" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">282</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">138 38</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">93</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.13522517783635 0 0 1.286503495714376 644.95496443273 38.90323270975569</prop>
+    <prop name="Location">138 38</prop>
+    <prop name="Size">125 23</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,12,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">#</prop>
+    </prop>
+    <prop name="Distance">0</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
     <prop name="Fit">False</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
@@ -2660,69 +1672,6 @@ dyn_float temp, temp1;
    <properties>
     <prop name="shapeSerial">45</prop>
     <prop name="shapeSerial">46</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP15" serial="4">
-   <properties>
-    <prop name="shapeSerial">49</prop>
-    <prop name="shapeSerial">50</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP16" serial="5">
-   <properties>
-    <prop name="shapeSerial">51</prop>
-    <prop name="shapeSerial">52</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP18" serial="7">
-   <properties>
-    <prop name="shapeSerial">55</prop>
-    <prop name="shapeSerial">56</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP21" serial="9">
-   <properties>
-    <prop name="shapeSerial">59</prop>
-    <prop name="shapeSerial">60</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP22" serial="10">
-   <properties>
-    <prop name="shapeSerial">61</prop>
-    <prop name="shapeSerial">62</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP23" serial="11">
-   <properties>
-    <prop name="shapeSerial">63</prop>
-    <prop name="shapeSerial">64</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP24" serial="12">
-   <properties>
-    <prop name="shapeSerial">65</prop>
-    <prop name="shapeSerial">66</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP25" serial="13">
-   <properties>
-    <prop name="shapeSerial">67</prop>
-    <prop name="shapeSerial">68</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP26" serial="14">
-   <properties>
-    <prop name="shapeSerial">69</prop>
-    <prop name="shapeSerial">70</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </group>
