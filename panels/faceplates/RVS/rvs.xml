@@ -273,6 +273,9 @@ bool BtnVisible = 1;
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <shape Name="LINE1" shapeType="LINE" layerId="0">
@@ -386,6 +389,9 @@ bool BtnVisible = 1;
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <shape Name="LINE2" shapeType="LINE" layerId="0">
@@ -869,8 +875,8 @@ bool BtnVisible = 1;
      <prop name="ru_RU.utf8">Noto Sans,-1,11,5,75,0,0,0,0,0,Bold</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">Несанкц-ое
-измнение
+     <prop name="ru_RU.utf8">Несанкц-ое&#xd;
+измнение&#xd;
 уровня</prop>
     </prop>
     <prop name="Distance">2</prop>
@@ -1112,6 +1118,7 @@ bool BtnVisible = 1;
     <extended>
      <prop type="BOOL" name="act">False</prop>
      <prop type="CHAR_STRING" name="text">Хранение</prop>
+     <prop type="INT" name="secureBit">8</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   // storage=1|taking=2|release=3|maint=6
@@ -1131,6 +1138,7 @@ bool BtnVisible = 1;
     <extended>
      <prop type="BOOL" name="act">False</prop>
      <prop type="CHAR_STRING" name="text">Прием</prop>
+     <prop type="INT" name="secureBit">8</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   // storage=1|taking=2|release=3|maint=6
@@ -1150,6 +1158,7 @@ bool BtnVisible = 1;
     <extended>
      <prop type="BOOL" name="act">False</prop>
      <prop type="CHAR_STRING" name="text">Отпуск</prop>
+     <prop type="INT" name="secureBit">8</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   // storage=1|taking=2|release=3|maint=6
@@ -1169,6 +1178,7 @@ bool BtnVisible = 1;
     <extended>
      <prop type="BOOL" name="act">False</prop>
      <prop type="CHAR_STRING" name="text">Ремонт</prop>
+     <prop type="INT" name="secureBit">8</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   // storage=1|taking=2|release=3|maint=6

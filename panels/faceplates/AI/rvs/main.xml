@@ -382,6 +382,9 @@ void cbAlarm(dyn_string dpe, dyn_bool val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF29" referenceId="30">
@@ -405,6 +408,9 @@ void cbAlarm(dyn_string dpe, dyn_bool val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF30" referenceId="31">
@@ -428,6 +434,9 @@ void cbAlarm(dyn_string dpe, dyn_bool val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF31" referenceId="32">
@@ -451,6 +460,33 @@ void cbAlarm(dyn_string dpe, dyn_bool val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="btn_ack" referenceId="33">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">210 210</prop>
+    <prop name="Geometry">1 0 0 1 -150 -20</prop>
+    <prop name="TabOrder">62</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">5</prop>
+     <prop type="CHAR_STRING" name="text">Квитировать</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+    dpSetWait(DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.no_link:_alert_hdl.._ack&quot;,2,
+            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.disabled:_alert_hdl.._ack&quot;,2,
+            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.not_ready:_alert_hdl.._ack&quot;,2,
+            LogicRVS + &quot;.&quot; + ANALOG + &quot;._sAH_Level:_alert_hdl.._ack&quot;,2,
+            LogicRVS + &quot;.&quot; + ANALOG + &quot;._sWH_Level:_alert_hdl.._ack&quot;,2,
+            LogicRVS + &quot;.&quot; + ANALOG + &quot;._sWL_Level:_alert_hdl.._ack&quot;,2,
+            LogicRVS + &quot;.&quot; + ANALOG + &quot;._sAL_Level:_alert_hdl.._ack&quot;,2);
+}
+]]></script>
+    </extended>
    </properties>
   </reference>
   <shape Name="FRAME1" shapeType="FRAME" layerId="1">
@@ -521,45 +557,6 @@ void cbAlarm(dyn_string dpe, dyn_bool val){
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
-  </shape>
-  <shape Name="btn_ack" shapeType="PUSH_BUTTON" layerId="1">
-   <properties>
-    <prop name="serialId">53</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">77.91666666666666 201.5</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">30</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
-    </prop>
-    <prop name="Location">77.91666666666666 196.5</prop>
-    <prop name="Size">100 23</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Квитировать</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
-{
-  dpSetWait(DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.no_link:_alert_hdl.._ack&quot;,2,
-            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.disabled:_alert_hdl.._ack&quot;,2,
-            DP + &quot;.&quot; + ANALOG + &quot;.sts_bool.not_ready:_alert_hdl.._ack&quot;,2,
-            LogicRVS + &quot;.&quot; + ANALOG + &quot;._sAH_Level:_alert_hdl.._ack&quot;,2,
-            LogicRVS + &quot;.&quot; + ANALOG + &quot;._sWH_Level:_alert_hdl.._ack&quot;,2,
-            LogicRVS + &quot;.&quot; + ANALOG + &quot;._sWL_Level:_alert_hdl.._ack&quot;,2,
-            LogicRVS + &quot;.&quot; + ANALOG + &quot;._sAL_Level:_alert_hdl.._ack&quot;,2);
-}
-]]></script>
-   </events>
   </shape>
  </shapes>
 </panel>

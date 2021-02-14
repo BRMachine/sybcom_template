@@ -30,40 +30,6 @@ DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
 LAYER, 0 
 1
 LANG:10027 0 
-14 1
-"timer"
-""
-1 9 118 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
- E E
-0 0 0 0 0 0
-E E E
-0
-1
-LANG:10027 0 
-
-1
-"layoutAlignment" "AlignNone"
-1
-LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
-0  7.000000000000002 108.7272727272727 80 136
-3 "0s" 0 0 0 0 0 -1  E E E
-14 2
-"hist"
-""
-1 9 87 E E E 1 E 1 E N "_WindowText" E N "_Window" E E
- E E
-1 0 0 0 0 0
-E E E
-0
-1
-LANG:10027 0 
-
-1
-"layoutAlignment" "AlignNone"
-1
-LANG:10027 35 Noto Sans,-1,13,5,75,0,0,0,0,0,Bold
-0  7.000000000000002 77.72727272727272 80 105
-3 "0s" 0 0 0 0 0 -1  E E E
 2 3
 "PRIMITIVE_TEXT2"
 ""
@@ -134,49 +100,12 @@ E E 0 1 3 2 1 E 1.318654550995555 0 0.7352941176470589 -228.1144013409243 78.647
 LANG:10027 38 Noto Sans,-1,16,5,50,0,0,0,0,0,Regular
 0 1
 LANG:10027 31 Время наблюдения
-13 6
-"PUSH_BUTTON1"
-""
-1 313 103 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
- E E
-5 0 0 0 0 0
-E E E
-8
-1
-LANG:10027 0 
-
-1
-"layoutAlignment" "AlignNone"
-1
-LANG:10027 32 Arial,-1,13,5,87,0,0,0,0,0,Black
-0  311 83.51387355560462 429 133.1329211746522
-
-T 
-1
-LANG:10027 35 Записать
-изменения
-"main(mapping event)
-{
-
-const string DP = $dp;
-dyn_string Adr;
-dyn_int new_okr;
-
-  Adr[1] = \"Logic\" + DP + \".Time_DelayHist:_original.._value\";
-  Adr[2] = \"Logic\" + DP + \".PV_Hist:_original.._value\";
-
-getValue(\"timer\" , \"text\", new_okr[1]);
-getValue(\"hist\" , \"text\", new_okr[2]);
-
-// запись в пару
-  for(int i=1; i<=2; i++){
-    dpSetWait(Adr[i], new_okr[i]);
-
-  }
-}
-
-" 0
- E E E
+1 7 0 "" 1
+0
+1 8 1 "" 1
+0
+1 9 2 "" 5
+0
 0
 LAYER, 1 
 1
@@ -205,5 +134,47 @@ LANG:10027 0
 LAYER, 7 
 1
 LANG:10027 0 
+0
+3 0 "hist" -1
+"layoutAlignment" "AlignNone"
+"UDP secureBit" "int 10"
+"" ""
+"objects/parts/analogInput.xml" 220 80 T 6 1.131147540983606 0 1.025855916752622 -239.8524590163934 -3.675425211867551
+2
+"$_el"""
+"$dp""\"Logic\" + DP + \".PV_Hist:_original.._value\""
+3 1 "timer" -1
+"layoutAlignment" "AlignNone"
+"UDP secureBit" "int 10"
+"" ""
+"objects/parts/analogInput.xml" 220 80 T 7 1.131147540983606 0 1.025855916752622 -239.8524590163934 28.32457478813245
+2
+"$_el"""
+"$dp""\"Logic\" + DP + \".Time_DelayHist:_original.._value\""
+3 2 "PANEL_REF1" -1
+"layoutAlignment" "AlignNone"
+"UDS clickedBtn" "void clickedBtn()
+{
+const string DP = $dp;
+dyn_string Adr;
+dyn_int new_okr;
+
+  Adr[1] = \"Logic\" + DP + \".Time_DelayHist:_original.._value\";
+  Adr[2] = \"Logic\" + DP + \".PV_Hist:_original.._value\";
+
+getValue(\"timer\" , \"text\", new_okr[1]);
+getValue(\"hist\" , \"text\", new_okr[2]);
+
+// запись в пару
+  for(int i=1; i<=2; i++){
+    dpSetWait(Adr[i], new_okr[i]);
+
+  }
+}
+"
+"UDP secureBit" "int 10"
+"UDP text" "string Записать изменения"
+"" ""
+"objects/parts/button.xml" 200 100 T 8 0.7536534446764094 0 1.878892846906604 151.2693110647181 -109.8892846906604
 0
 0

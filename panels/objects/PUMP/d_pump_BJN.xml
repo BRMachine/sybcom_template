@@ -207,13 +207,13 @@ void cbStatus(string dpe, bit32 val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
 
-  if (getUserPermission(4)){
+//   if (getUserPermission(4)){
      ChildPanelOnCentral(&quot;panels\\objects\\LOCK\\LOCK&quot; + Lock_fp + &quot;.xml&quot;, &quot;Блокировки &quot; + &quot;Npump&quot;, makeDynString(&quot;$dp:&quot; + Lock_dp, &quot;$dpNA:&quot; + dp));
-  }
-  else {
-    DebugN(&quot;Недостаточно прав у пользователя&quot;);
-    ChildPanelOnCentral(&quot;faceplates/NoAccessRights.xml&quot;, &quot;&quot;, makeDynString(&quot;&quot;));
-  }
+//   }
+//   else {
+//     DebugN(&quot;Недостаточно прав у пользователя&quot;);
+//     ChildPanelOnCentral(&quot;faceplates/NoAccessRights.xml&quot;, &quot;&quot;, makeDynString(&quot;&quot;));
+//   }
 }]]></script>
    </events>
   </shape>

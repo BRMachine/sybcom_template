@@ -154,7 +154,7 @@
     <extended>
      <prop type="INT" name="cmdBit">20</prop>
      <prop type="INT" name="stsBit">16</prop>
-     <prop type="INT" name="secureBit">20</prop>
+     <prop type="INT" name="secureBit">12</prop>
     </extended>
    </properties>
   </reference>
@@ -178,7 +178,7 @@
     <extended>
      <prop type="INT" name="cmdBit">21</prop>
      <prop type="INT" name="stsBit">11</prop>
-     <prop type="INT" name="secureBit">20</prop>
+     <prop type="INT" name="secureBit">12</prop>
     </extended>
    </properties>
   </reference>
@@ -279,7 +279,7 @@
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Пуск</prop>
-     <prop type="INT" name="secureBit">23</prop>
+     <prop type="INT" name="secureBit">14</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   bit32 cmd;
@@ -299,7 +299,7 @@
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Стоп</prop>
-     <prop type="INT" name="secureBit">23</prop>
+     <prop type="INT" name="secureBit">14</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   bit32 cmd;
@@ -319,7 +319,7 @@
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Сброс аварий</prop>
-     <prop type="INT" name="secureBit">25</prop>
+     <prop type="INT" name="secureBit">5</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   bit32 state, stsBit;
@@ -344,7 +344,7 @@
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Сброс</prop>
-     <prop type="INT" name="secureBit">20</prop>
+     <prop type="INT" name="secureBit">12</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   bit32 cmd;
@@ -364,7 +364,7 @@
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Деблокировать</prop>
-     <prop type="INT" name="secureBit">25</prop>
+     <prop type="INT" name="secureBit">16</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   dpSetWait(DP + &quot;.cmd.reset&quot;, true);

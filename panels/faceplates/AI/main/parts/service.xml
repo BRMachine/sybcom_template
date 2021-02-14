@@ -470,6 +470,7 @@
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">21</prop>
      <prop type="INT" name="stsBit">13</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -490,6 +491,9 @@
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF8" referenceId="8">
@@ -513,6 +517,7 @@
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">20</prop>
      <prop type="INT" name="stsBit">14</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -537,6 +542,7 @@
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">7</prop>
      <prop type="INT" name="stsBit">17</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -561,6 +567,7 @@
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">8</prop>
      <prop type="INT" name="stsBit">18</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -581,6 +588,9 @@
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF12" referenceId="12">
@@ -600,6 +610,9 @@
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF13" referenceId="13">
@@ -623,6 +636,7 @@
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">5</prop>
      <prop type="INT" name="stsBit">16</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -647,6 +661,7 @@
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">6</prop>
      <prop type="INT" name="stsBit">15</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>

@@ -10,7 +10,7 @@
   <prop name="InitAndTermRef">True</prop>
   <prop name="SendClick">False</prop>
   <prop name="RefFileName"></prop>
-  <prop name="DPI">120</prop>
+  <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
  <events>
@@ -46,7 +46,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="RECTANGLE1" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE1" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
     <prop name="Type"></prop>
@@ -74,7 +74,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_tag" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_tag" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">25</prop>
     <prop name="Type"></prop>
@@ -110,7 +110,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="" shapeType="RECTANGLE">
+  <shape Name="" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">26</prop>
     <prop name="Type"></prop>
@@ -138,7 +138,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE2" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE2" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">2</prop>
     <prop name="Type"></prop>
@@ -166,7 +166,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE3" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE3" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">3</prop>
     <prop name="Type"></prop>
@@ -201,7 +201,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
 ]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="el_sts" shapeType="ELLIPSE">
+  <shape Name="el_sts" shapeType="ELLIPSE" layerId="0">
    <properties>
     <prop name="serialId">12</prop>
     <prop name="Type"></prop>
@@ -227,7 +227,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="Y-Radius">13.65</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_comment" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_comment" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">14</prop>
     <prop name="Type"></prop>
@@ -263,7 +263,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE6" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE6" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">15</prop>
     <prop name="Type"></prop>
@@ -291,7 +291,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_number" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_number" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">16</prop>
     <prop name="Type"></prop>
@@ -326,7 +326,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_phys" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_phys" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">17</prop>
     <prop name="Type"></prop>
@@ -363,7 +363,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_scaled" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_scaled" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">18</prop>
     <prop name="Type"></prop>
@@ -400,7 +400,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <reference referenceId="2" Name="cbx_sim_en" parentSerial="-1">
+  <reference parentSerial="-1" Name="cbx_sim_en" referenceId="2">
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">888 76</prop>
@@ -418,12 +418,13 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop name="cmdBit" type="INT">20</prop>
-     <prop name="stsBit" type="INT">14</prop>
+     <prop type="INT" name="cmdBit">20</prop>
+     <prop type="INT" name="stsBit">14</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
-  <reference referenceId="3" Name="inp_sim_val" parentSerial="-1">
+  <reference parentSerial="-1" Name="inp_sim_val" referenceId="3">
    <properties>
     <prop name="FileName">objects/parts/analogInput.xml</prop>
     <prop name="Location">798 68</prop>
@@ -440,9 +441,12 @@ void cbDigital(dyn_string dp, dyn_anytype val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
-  <shape layerId="0" Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON">
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
    <properties>
     <prop name="serialId">32</prop>
     <prop name="Type"></prop>
@@ -460,7 +464,7 @@ void cbDigital(dyn_string dp, dyn_anytype val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">896.4986821632357 9.012228260869591</prop>
+    <prop name="Location">896.4986821632358 9.012228260869591</prop>
     <prop name="Size">90 29</prop>
     <prop name="BorderStyle">Styled</prop>
     <prop name="Text">
@@ -475,6 +479,10 @@ void cbDigital(dyn_string dp, dyn_anytype val){
   dpSetWait(DP + &quot;.cmd.cmd_bit&quot;, stsBit);
 }
 ]]></script>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+ PUSH_BUTTON1.enabled = getUserPermission(5);
+}]]></script>
    </events>
   </shape>
  </shapes>

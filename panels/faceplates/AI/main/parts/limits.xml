@@ -666,6 +666,7 @@ void worker(string dp, float val){
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">1</prop>
      <prop type="INT" name="stsBit">9</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -690,6 +691,7 @@ void worker(string dp, float val){
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">2</prop>
      <prop type="INT" name="stsBit">10</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -714,6 +716,7 @@ void worker(string dp, float val){
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">3</prop>
      <prop type="INT" name="stsBit">11</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -738,6 +741,7 @@ void worker(string dp, float val){
      <prop type="COLOR" name="backgroundColor">_Transparent</prop>
      <prop type="INT" name="cmdBit">4</prop>
      <prop type="INT" name="stsBit">12</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -758,6 +762,9 @@ void worker(string dp, float val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF12" referenceId="9">
@@ -777,6 +784,9 @@ void worker(string dp, float val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF13" referenceId="10">
@@ -796,6 +806,9 @@ void worker(string dp, float val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF14" referenceId="11">
@@ -815,6 +828,9 @@ void worker(string dp, float val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF15" referenceId="12">
@@ -834,6 +850,9 @@ void worker(string dp, float val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF16" referenceId="13">
@@ -853,6 +872,9 @@ void worker(string dp, float val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
   <reference parentSerial="-1" Name="PANEL_REF17" referenceId="14">
@@ -872,6 +894,9 @@ void worker(string dp, float val){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">10</prop>
+    </extended>
    </properties>
   </reference>
  </shapes>

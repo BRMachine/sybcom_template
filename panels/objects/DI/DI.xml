@@ -141,13 +141,13 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
 
-  if (getUserPermission(4)){
+//   if (getUserPermission(4)){
      ChildPanelOnCentral(&quot;faceplates\\DI\\DI.xml&quot;, ALIAS , makeDynString(&quot;$dp:&quot; + dp));
-  }
-  else {
-    DebugN(&quot;Недостаточно прав у пользователя&quot;);
-    ChildPanelOnCentral(&quot;faceplates/NoAccessRights.xml&quot;, &quot;Ошибка!&quot;, makeDynString(&quot;&quot;));
-  }
+//   }
+//   else {
+//     DebugN(&quot;Недостаточно прав у пользователя&quot;);
+//     ChildPanelOnCentral(&quot;faceplates/NoAccessRights.xml&quot;, &quot;Ошибка!&quot;, makeDynString(&quot;&quot;));
+//   }
 }
 ]]></script>
     <script name="Initialize" isEscaped="1"><![CDATA[main()

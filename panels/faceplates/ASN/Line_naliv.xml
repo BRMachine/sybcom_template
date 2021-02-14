@@ -300,7 +300,8 @@ void clrOrderDp(){
             &quot;ORDER_LINE&quot; + LINE + &quot;.dtAdded&quot;,          0,
             &quot;ORDER_LINE&quot; + LINE + &quot;.iOrderPriority&quot;,   0,
             &quot;ORDER_LINE&quot; + LINE + &quot;.iLine&quot;,            0,
-            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;,       99);
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;,       99,
+            &quot;ORDER_LINE&quot; + LINE + &quot;ErrorCode&quot;,         0);
 
   for(int j=1; j&lt;=10; j++){
       dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sOrderNr&quot;,     &quot;&quot;,
@@ -360,6 +361,10 @@ void worker_post(dyn_string dp, dyn_anytype val){
     dp_posts.append(&quot;Post_&quot; + posts[i] + &quot;.sStatusStop&quot;);
   }
   dpConnect(&quot;worker_post&quot;, dp_posts);
+  txt_sRegANr.enabled = getUserPermission(17);
+  current_card.enabled = getUserPermission(17);
+  radio_mode.enabled = getUserPermission(17);
+
 }
 ]]></script>
  </events>
@@ -552,82 +557,6 @@ void worker_post(dyn_string dp, dyn_anytype val){
      <prop type="CHAR_STRING" name="text">Источик данных</prop>
     </extended>
    </properties>
-  </shape>
-  <shape Name="btn_start" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">34</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">450.0000000000001 382.5</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">33</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">450 382.5</prop>
-    <prop name="Size">116 24</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Запуск</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-  anytype card, regNr;
-  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;, card,
-        &quot;ORDER_LINE&quot; + LINE + &quot;.sRegNr&quot;      , regNr);
-  dyn_string fuels = makeDynString(sc1.getFuel(), sc2.getFuel(), sc3.getFuel(), sc4.getFuel(), sc5.getFuel(),
-                                   sc6.getFuel(), sc7.getFuel(), sc8.getFuel(), sc9.getFuel(), sc10.getFuel());
-  for(int i=1; i&lt;=fuels.count(); i++){
-    if(fuels[i] != &quot;НЕТ&quot;){
-      dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + i + &quot;.init.sRegNr&quot;, regNr);
-    }
-  }
-// Запуск задания в ручном режиме
-  dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;, card,
-            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;, 1);
-}
-]]></script>
-   </events>
-  </shape>
-  <shape Name="btn_clr" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">35</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">574.9999999999999 382.5</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">34</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,16,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">575 382.5</prop>
-    <prop name="Size">116 24</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Очистить</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-  clrOrderDp();
-}
-]]></script>
-   </events>
   </shape>
   <shape Name="radio_mode" shapeType="RADIO_BOX" layerId="0">
    <properties>
@@ -1659,6 +1588,54 @@ void worker_post(dyn_string dp, dyn_anytype val){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
+  <reference parentSerial="-1" Name="PANEL_REF1" referenceId="25">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">330 380</prop>
+    <prop name="Geometry">0.7666666666666667 0 0 0.9038461538461539 197 36.53846153846155</prop>
+    <prop name="TabOrder">94</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+     <prop type="CHAR_STRING" name="text">Запуск</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  anytype card, regNr;
+  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;, card,
+        &quot;ORDER_LINE&quot; + LINE + &quot;.sRegNr&quot;      , regNr);
+  dyn_string fuels = makeDynString(sc1.getFuel(), sc2.getFuel(), sc3.getFuel(), sc4.getFuel(), sc5.getFuel(),
+                                   sc6.getFuel(), sc7.getFuel(), sc8.getFuel(), sc9.getFuel(), sc10.getFuel());
+  for(int i=1; i&lt;=fuels.count(); i++){
+    if(fuels[i] != &quot;НЕТ&quot;){
+      dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + i + &quot;.init.sRegNr&quot;, regNr);
+    }
+  }
+// Запуск задания в ручном режиме
+  dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;, card,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;, 1);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="PANEL_REF2" referenceId="26">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">330 380</prop>
+    <prop name="Geometry">0.7666666666666667 0 0 0.9038461538461539 323.0666666666666 36.53846153846155</prop>
+    <prop name="TabOrder">95</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+     <prop type="CHAR_STRING" name="text">Очистить</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  clrOrderDp();
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
  </shapes>
  <groups>
   <group parentSerial="-1" Name="SHAPE_GROUP6" serial="2">

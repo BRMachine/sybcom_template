@@ -499,154 +499,6 @@ main(){
     <prop name="Size">102 60</prop>
    </properties>
   </shape>
-  <shape Name="PUSH_BUTTON6" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">664</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">27 43</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">475</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">26.99999999999942 36.14285714285712</prop>
-    <prop name="Size">111 33</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Начать</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
-{
-  string Adr;
-  Adr = DP + &quot;.cCommand&quot;;
-  dpSetWait(Adr, 0x10);
-}
-
-
-]]></script>
-   </events>
-  </shape>
-  <shape Name="PUSH_BUTTON7" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">665</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">27.00000000000017 79.92857142857144</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">476</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">26.99999999999957 73.07142857142856</prop>
-    <prop name="Size">111 33</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Завершить</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
-{
-  string Adr;
-  Adr = DP + &quot;.cCommand&quot;;
-  dpSetWait(Adr, 0x00);
-}
-
-
-]]></script>
-   </events>
-  </shape>
-  <shape Name="PUSH_BUTTON8" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">666</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">164.0000000000003 42.92857142857144</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">477</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">163.9999999999997 36.07142857142857</prop>
-    <prop name="Size">111 33</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Пауза</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
-{
-  string Adr;
-  Adr = DP + &quot;.cCommand&quot;;
-  dpSetWait(Adr, 0x30);
-}
-
-
-]]></script>
-   </events>
-  </shape>
-  <shape Name="PUSH_BUTTON9" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">667</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">164.0000000000004 79.89285714285717</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">478</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">163.9999999999998 73.03571428571428</prop>
-    <prop name="Size">111 33</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Продолжить</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
-{
-  string Adr;
-  Adr = DP + &quot;.cCommand&quot;;
-  dpSetWait(Adr, 0x40);
-}
-
-
-]]></script>
-   </events>
-  </shape>
   <shape Name="FRAME2" shapeType="FRAME" layerId="0">
    <properties>
     <prop name="serialId">668</prop>
@@ -2233,6 +2085,9 @@ main(){
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+    </extended>
    </properties>
   </reference>
   <shape Name="PRIMITIVE_TEXT25" shapeType="PRIMITIVE_TEXT" layerId="0">
@@ -2302,47 +2157,11 @@ main(){
     <prop name="Size">102 60</prop>
    </properties>
   </shape>
-  <shape Name="VolumeDose_oper" shapeType="TEXT_FIELD" layerId="0">
-   <properties>
-    <prop name="serialId">872</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">83.3576923076905 641.7478528092901</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">540</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">83.35769230769051 635.7567567567568</prop>
-    <prop name="Size">94 24</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Editable">True</prop>
-    <prop name="TextFormat">[0d,False,False,AlignHCenter,False]</prop>
-   </properties>
-   <events>
-    <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
-{
-  string Adr;
-  long VolumeDose_op;
-  Adr = DP + &quot;.cVolumeDose_oper&quot;;
-  VolumeDose_op = VolumeDose_oper.text;
-  dpSetWait(Adr, VolumeDose_op);
-}
-]]></script>
-   </events>
-  </shape>
   <shape Name="PRIMITIVE_TEXT26" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">873</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">33.04487179486921 647.0814785231674</prop>
+    <prop name="RefPoint">170 650</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2358,7 +2177,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">33.04487179486921 647.0814785231674</prop>
+    <prop name="Location">170 650</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2373,47 +2192,11 @@ main(){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape Name="MassDose_oper" shapeType="TEXT_FIELD" layerId="0">
-   <properties>
-    <prop name="serialId">874</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">263.4512820512799 642.9910960525334</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">_Window</prop>
-    <prop name="TabOrder">542</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">263.4512820512799 637.0000000000001</prop>
-    <prop name="Size">94 24</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Editable">True</prop>
-    <prop name="TextFormat">[0d,False,False,AlignHCenter,False]</prop>
-   </properties>
-   <events>
-    <script name="TextChanged" isEscaped="1"><![CDATA[main(string newText)
-{
-  string Adr;
-  long MassDose_op;
-  Adr = DP + &quot;.cMassDose_oper&quot;;
-  MassDose_op = MassDose_oper.text;
-  dpSetWait(Adr, MassDose_op);
-}
-]]></script>
-   </events>
-  </shape>
   <shape Name="PRIMITIVE_TEXT27" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">875</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">220.0948717948692 648.0814785231673</prop>
+    <prop name="RefPoint">357.05 650.9999999999999</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2429,7 +2212,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">220.0948717948692 648.0814785231673</prop>
+    <prop name="Location">357.05 650.9999999999999</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2444,60 +2227,11 @@ main(){
     <prop name="TextFormat">[0s,,,AlignLeft|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape Name="PUSH_BUTTON10" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">876</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">542.9053934571158 638.8928571428572</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">Black</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">544</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">Noto Sans,-1,13,5,75,0,0,0,0,0,Bold</prop>
-    </prop>
-    <prop name="Location">542.9053934571153 632.0357142857143</prop>
-    <prop name="Size">111 33</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Установить</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
-{
-  if(VolumeDose_oper.text() == &quot;&quot;){
-    string mass = MassDose_oper.text();
-    dpSet(DP + &quot;.cMassDose&quot;, mass);
-  }
-  else{
-    string vol = VolumeDose_oper.text();
-    dpSet(DP + &quot;.cVolumeDose&quot;, vol);
-  }
- /* string Adr;
-  int x;
-  Adr = DP + &quot;.cVolumeDose_oper&quot;;
-  dpGet(Adr,x);
-  Adr = DP + &quot;.cVolumeDose&quot;;
-  dpSetWait(Adr, x);*/
-
-}
-
-
-]]></script>
-   </events>
-  </shape>
   <shape Name="PRIMITIVE_TEXT28" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">877</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">182.0948717948692 648.0814785231673</prop>
+    <prop name="RefPoint">319.05 650.9999999999999</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2513,7 +2247,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">182.0948717948692 648.0814785231673</prop>
+    <prop name="Location">319.05 650.9999999999999</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2532,7 +2266,7 @@ main(){
    <properties>
     <prop name="serialId">878</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">361.0948717948692 648.0814785231673</prop>
+    <prop name="RefPoint">498.05 650.9999999999999</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -2548,7 +2282,7 @@ main(){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">361.0948717948692 648.0814785231673</prop>
+    <prop name="Location">498.05 650.9999999999999</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
@@ -2904,5 +2638,129 @@ main(){
     <prop name="ObjectType">BackgroundCover.ewo</prop>
    </properties>
   </shape>
+  <reference parentSerial="-1" Name="PANEL_REF14" referenceId="13">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">350 200</prop>
+    <prop name="Geometry">0.7333333333333372 0 0 1.225274725274726 -227.6666666666684 -211.3983516483518</prop>
+    <prop name="TabOrder">557</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+     <prop type="CHAR_STRING" name="text">Начать</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  string Adr;
+  Adr = DP + &quot;.cCommand&quot;;
+  dpSetWait(Adr, 0x10);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="PANEL_REF15" referenceId="14">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">350 200</prop>
+    <prop name="Geometry">0.7333333333333372 0 0 1.225274725274726 -227.6666666666684 -174.416208791209</prop>
+    <prop name="TabOrder">558</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+     <prop type="CHAR_STRING" name="text">Завершить</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  string Adr;
+  Adr = DP + &quot;.cCommand&quot;;
+  dpSetWait(Adr, 0x00);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="PANEL_REF16" referenceId="15">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">350 200</prop>
+    <prop name="Geometry">0.7333333333333372 0 0 1.225274725274726 -91.20000000000178 -174.416208791209</prop>
+    <prop name="TabOrder">559</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+     <prop type="CHAR_STRING" name="text">Продолжить</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  string Adr;
+  Adr = DP + &quot;.cCommand&quot;;
+  dpSetWait(Adr, 0x40);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="PANEL_REF17" referenceId="16">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">350 200</prop>
+    <prop name="Geometry">0.7333333333333372 0 0 1.225274725274726 -91.20000000000181 -211.3983516483518</prop>
+    <prop name="TabOrder">560</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+     <prop type="CHAR_STRING" name="text">Пауза</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  string Adr;
+  Adr = DP + &quot;.cCommand&quot;;
+  dpSetWait(Adr, 0x30);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="VolumeDose_oper" referenceId="18">
+   <properties>
+    <prop name="FileName">objects/parts/analogInput.xml</prop>
+    <prop name="Location">290 600</prop>
+    <prop name="Geometry">1.518726355611631 0 0 1.024556268209441 -220.1178226145516 25.54086979825169</prop>
+    <prop name="TabOrder">562</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$_el</prop>
+      <prop name="Value">.cVolumeDose</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="MassDose_oper" referenceId="19">
+   <properties>
+    <prop name="FileName">objects/parts/analogInput.xml</prop>
+    <prop name="Location">290 600</prop>
+    <prop name="Geometry">1.518726355611631 0 0 1.024556268209441 -40.07102774275691 25.5408697982518</prop>
+    <prop name="TabOrder">563</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$_el</prop>
+      <prop name="Value">.cMassDose</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dp</prop>
+      <prop name="Value">$dp</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="INT" name="secureBit">17</prop>
+    </extended>
+   </properties>
+  </reference>
  </shapes>
 </panel>

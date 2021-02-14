@@ -10,7 +10,7 @@
   <prop name="InitAndTermRef">True</prop>
   <prop name="SendClick">False</prop>
   <prop name="RefFileName"></prop>
-  <prop name="DPI">120</prop>
+  <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
  <events>
@@ -34,7 +34,7 @@ void cbState(string dp, bit32 state){
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="RECTANGLE1" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE1" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
     <prop name="Type"></prop>
@@ -62,7 +62,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE2" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE2" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">2</prop>
     <prop name="Type"></prop>
@@ -90,7 +90,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE3" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE3" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">3</prop>
     <prop name="Type"></prop>
@@ -118,7 +118,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="el_sts" shapeType="ELLIPSE">
+  <shape Name="el_sts" shapeType="ELLIPSE" layerId="0">
    <properties>
     <prop name="serialId">12</prop>
     <prop name="Type"></prop>
@@ -144,7 +144,7 @@ void cbState(string dp, bit32 state){
     <prop name="Y-Radius">13.65</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_comment" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_comment" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">14</prop>
     <prop name="Type"></prop>
@@ -187,7 +187,7 @@ void cbState(string dp, bit32 state){
 ]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="RECTANGLE6" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE6" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">15</prop>
     <prop name="Type"></prop>
@@ -215,7 +215,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_number" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_number" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">16</prop>
     <prop name="Type"></prop>
@@ -250,7 +250,7 @@ void cbState(string dp, bit32 state){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE7" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE7" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">29</prop>
     <prop name="Type"></prop>
@@ -278,7 +278,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="el_out" shapeType="ELLIPSE">
+  <shape Name="el_out" shapeType="ELLIPSE" layerId="0">
    <properties>
     <prop name="serialId">30</prop>
     <prop name="Type"></prop>
@@ -304,7 +304,7 @@ void cbState(string dp, bit32 state){
     <prop name="Y-Radius">13.65</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE8" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE8" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">31</prop>
     <prop name="Type"></prop>
@@ -332,7 +332,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE9" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE9" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">32</prop>
     <prop name="Type"></prop>
@@ -360,7 +360,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE10" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE10" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">36</prop>
     <prop name="Type"></prop>
@@ -388,7 +388,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <reference referenceId="3" Name="cbx_sim_en" parentSerial="-1">
+  <reference parentSerial="-1" Name="cbx_sim_en" referenceId="3">
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">344 20</prop>
@@ -406,12 +406,13 @@ void cbState(string dp, bit32 state){
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop name="cmdBit" type="INT">20</prop>
-     <prop name="stsBit" type="INT">14</prop>
+     <prop type="INT" name="cmdBit">20</prop>
+     <prop type="INT" name="stsBit">14</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
-  <reference referenceId="4" Name="cbx_sim_val" parentSerial="-1">
+  <reference parentSerial="-1" Name="cbx_sim_val" referenceId="4">
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">368.0000000000001 19.99999999999986</prop>
@@ -429,12 +430,13 @@ void cbState(string dp, bit32 state){
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop name="cmdBit" type="INT">1</prop>
-     <prop name="stsBit" type="INT">13</prop>
+     <prop type="INT" name="cmdBit">1</prop>
+     <prop type="INT" name="stsBit">13</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
-  <reference referenceId="5" Name="cbx_inv" parentSerial="-1">
+  <reference parentSerial="-1" Name="cbx_inv" referenceId="5">
    <properties>
     <prop name="FileName">objects/parts/checkBox.xml</prop>
     <prop name="Location">320 19.99999999999991</prop>
@@ -452,8 +454,9 @@ void cbState(string dp, bit32 state){
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop name="cmdBit" type="INT">2</prop>
-     <prop name="stsBit" type="INT">12</prop>
+     <prop type="INT" name="cmdBit">2</prop>
+     <prop type="INT" name="stsBit">12</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>

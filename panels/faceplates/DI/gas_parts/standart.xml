@@ -205,6 +205,7 @@
     <extended>
      <prop type="INT" name="cmdBit">2</prop>
      <prop type="INT" name="stsBit">12</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -228,6 +229,7 @@
     <extended>
      <prop type="INT" name="cmdBit">20</prop>
      <prop type="INT" name="stsBit">14</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -251,6 +253,7 @@
     <extended>
      <prop type="INT" name="cmdBit">1</prop>
      <prop type="INT" name="stsBit">13</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>

@@ -39,6 +39,11 @@ public void setBackgroundColor(string c){
 public string getBackgroundColor(){
   return rec_bg.backCol;
 }
+
+#property int secureBit
+public int getSecureBit(){ return sb; }
+public int setSecureBit(int i){ sb = i; }
+
 const string dp = $dp;
 //string el = &quot;.status.sts_bit&quot;;
 ]]></script>
@@ -53,7 +58,7 @@ void cbSts(string dpe, bool val){
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="rec_bg" shapeType="RECTANGLE">
+  <shape Name="rec_bg" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">3</prop>
     <prop name="Type"></prop>
@@ -81,7 +86,7 @@ void cbSts(string dpe, bool val){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="rec_btn_on" shapeType="RECTANGLE">
+  <shape Name="rec_btn_on" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">2</prop>
     <prop name="Type"></prop>
@@ -100,7 +105,7 @@ void cbSts(string dpe, bool val){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop SharedPixmap="1" name="FillType">[pattern,[fit,any,pictures/apply_22.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/apply_22.png]]</prop>
     <prop name="Geometry">1 0 0 1 -60.87804878048786 -125.4711098398169</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60.8780487804878 125.4711098398169</prop>
@@ -110,13 +115,18 @@ void cbSts(string dpe, bool val){
    </properties>
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-  bit32 mBit;
+  bool sec = getUserPermission(sb);
+  if(sec){
   dpSetWait(dp, 0);
+  }else{
+    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+  }
 }
 ]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="rec_btn_off" shapeType="RECTANGLE">
+  <shape Name="rec_btn_off" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">4</prop>
     <prop name="Type"></prop>
@@ -135,7 +145,7 @@ void cbSts(string dpe, bool val){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop SharedPixmap="1" name="FillType">[pattern,[fit,any,pictures/delete_24.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/delete_24.png]]</prop>
     <prop name="Geometry">1 0 0 1 -60.87804878048789 -125.4711098398168</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60.8780487804878 125.4711098398169</prop>
@@ -145,8 +155,13 @@ void cbSts(string dpe, bool val){
    </properties>
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-  bit32 mBit;
+  bool sec = getUserPermission(sb);
+  if(sec){
   dpSetWait(dp, 1);
+  }else{
+    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+  }
 }
 ]]></script>
    </events>

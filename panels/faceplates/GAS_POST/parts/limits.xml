@@ -77,7 +77,7 @@ void worker(string dp, bit32 sts){
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">18</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -99,7 +99,7 @@ void worker(string dp, bit32 sts){
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">18</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -121,7 +121,7 @@ void worker(string dp, bit32 sts){
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">18</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -360,7 +360,7 @@ void worker(string dp, bit32 sts){
     <extended>
      <prop type="INT" name="cmdBit">21</prop>
      <prop type="INT" name="stsBit">13</prop>
-     <prop type="INT" name="secureBit">18</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -384,7 +384,7 @@ void worker(string dp, bit32 sts){
     <extended>
      <prop type="INT" name="cmdBit">2</prop>
      <prop type="INT" name="stsBit">14</prop>
-     <prop type="INT" name="secureBit">18</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
