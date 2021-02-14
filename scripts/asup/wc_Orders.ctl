@@ -48,12 +48,13 @@ void postAsnStart(int line, int section, int device){
   time rDtStart = getCurrentTime();
   anytype rSumVolumeStart,rSumWeightStart;
   int numdoz = getDozer(device);
-  anytype SumVolumeStartpr;
+  anytype SumVolumeStartpr, Delivery;
   int num_rvs = getPostRvs(device);
   mapping resrvs = getRvsData(num_rvs);
 
   dpGet("Post_" + device + ".xTotalMass"  , rSumWeightStart,
-        "Post_" + device + ".xTotalValue" , rSumVolumeStart);
+        "Post_" + device + ".xTotalValue" , rSumVolumeStart,
+        "ORDER_LINE"+line+".items."+section+".init.sDelivery"     , Delivery);
 
   if (numdoz > 0){
     dpGet("Post_" +numdoz + ".xTotalValue"  , SumVolumeStartpr);
@@ -71,7 +72,10 @@ void postAsnStart(int line, int section, int device){
             "ORDER_LINE"+line+".items."+section+".result.qDensityTankStart"  , resrvs["dns"],
             "ORDER_LINE"+line+".items."+section+".result.qTempTankStart"     , resrvs["tmp"],
             "ORDER_LINE"+line+".items."+section+".result.qPressureStart"     , resrvs["prs"],
-            "ORDER_LINE"+line+".items."+section+".result.qLevelWaterStart"   , resrvs["wtr"]);
+            "ORDER_LINE"+line+".items."+section+".result.qLevelWaterStart"   , resrvs["wtr"],
+            "Post_"+device+".MES.TimeStart"                                  , getCurrentTime(),
+            "Post_"+device+".MES.sDelivery"                                  , Delivery,
+            "Post_"+device+".MES.numSection"                                 , section);
 }
 
 int getPostRvs_OLD(int device){
@@ -188,11 +192,13 @@ void postAsnStop(int line, int section, int device){
             "ORDER_LINE"+line+".items."+section+".result.qLevelWaterEnd"          , resrvs["wtr"],
             "ORDER_LINE"+line+".items."+section+".result.qCardID"                 , idCard,
             "ORDER_LINE"+line+".items."+section+".result.qNbrLine"                , line,
-            "ORDER_LINE"+line+".items."+section+".result.SumVolumeEndpr"        , SumVolumeEndpr);
+            "ORDER_LINE"+line+".items."+section+".result.SumVolumeEndpr"          , SumVolumeEndpr,
+            "Post_"+device+".MES.TimeEnd"                                         , getCurrentTime());
 }
 
 void worker(int line, string dp, int card){
   int order_sts;
+  bool init;
   string order_card;
   dyn_dyn_anytype items;   // 0 - iCompNr | 1 - iQuantity | 2 - iProcessed | 3 - Device | 4 - iPercent
   dyn_int prev_post_sts = makeDynInt(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
@@ -214,6 +220,10 @@ void worker(int line, string dp, int card){
   while(order_sts < 2){ //& order_card == card)   // Пока налив задание не налито
     dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
           "ORDER_LINE" + line + ".sIdCard", order_card);   // Номер карты водителя из задания
+    if(!init){
+       dpSetWait("ORDER_LINE"+line+".TimeStart", getCurrentTime());
+       init = !init;
+     }
     dpQuery(query, items);
     normalizeQueryData(items);
 // Перебор секций в задании
@@ -231,6 +241,9 @@ void worker(int line, string dp, int card){
           DebugFTN("lg_info", "WC_ORDERS | End section: ", items[i+2][1]);
           postAsnStop(line, items[i+0][2], device);
           dpSetWait(items[i+2][1], 2);
+          if(post_sts == 0x60){
+            dpSetWait("ORDER_LINE"+line+".ErrorCode", 0-i);
+          }
         }
         // Запись предыдущего состояние поста
         if(items[i+2][2] > 0){
@@ -252,7 +265,7 @@ void worker(int line, string dp, int card){
                   items[i+2][1], 1);
           DebugFTN("lg_info", "WC_ORDERS | Start section: ", items[i+2][1]);
         postAsnStart(line, items[i+0][2], device);
-        delay(30); // Для опроса АСН по modbus
+        delay(40); // Для опроса АСН по modbus
       }
     }
     // Проверка завершения налива задания
@@ -270,7 +283,8 @@ void worker(int line, string dp, int card){
           "ORDER_LINE"+line+".items.10.init.iProcessed", sts_itm0);
     if(sts_itm1 > 1 & sts_itm2 > 1 & sts_itm3 > 1 & sts_itm4 > 1 & sts_itm5 > 1 &
        sts_itm6 > 1 & sts_itm7 > 1 & sts_itm8 > 1 & sts_itm9 > 1 & sts_itm0 > 1){
-      dpSetWait("ORDER_LINE" + line + ".iProcessed", 2);
+      dpSetWait("ORDER_LINE" + line + ".iProcessed", 2,
+                "ORDER_LINE"+line+".TimeEnd", getCurrentTime());
     }
     DebugFTN("lg_info", "WC_ORDERS | ========================END WHILE======================");
     delay(2);
