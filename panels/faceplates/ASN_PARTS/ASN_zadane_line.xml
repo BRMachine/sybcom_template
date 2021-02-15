@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">738 114</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">20 35</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[//---------------------- constants
+const string SECT = $section;
+const string LINE = $line;
+const float OPTI = 0.0405;
+const float GDRIVE = 0.0560;
+const float DEFPR = 0.0;
+const dyn_string ds_dp = makeDynString(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iCompNr&quot;,        // 1
+                                       &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sProductCode&quot;,   // 2
+                                       &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iQuantity&quot;,      // 3
+                                       &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iPercent&quot;,       // 4
+                                       &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.Device&quot;,         // 5
+                                       &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iProcessed&quot;);    // 6
+
+//--------------------- variables
+dyn_anytype da_order;
+int g_post = 0;
+int g_dozer = 0;
+int g_rvs = 0;
+dyn_string ds_cur_post;
+//--------------------------- properties
+#property bool enable
+public void setEnable(bool b) {
+  cbx_fuel.enabled(b);
+  txt_dose.enabled(b);
+  txt_post.enabled(b);
+//  txt_rvs.enabled(b);
+}
+public bool getEnable() {
+  return cbx_fuel.enabled;
+}
+
+//--------------------------- public functions
+public int getLine()   { return LINE; }
+public int getSection(){ return SECT; }
+public string getFuel(){ return cbx_fuel.selectedText(); }
+public int getDose()   { return txt_dose.text(); }
+public int getPost()   { return txt_post.text(); }
+public int getRvs()    { return txt_rvs.text(); }
+// public int getBase() { return txt_b_vol.text(); }
+// public int getPris() { return txt_d_vol.text(); }
+
+//--------------------------- private functions
+
+private int textToCbx(string fuel){
+  int res = 1;
+  switch(fuel){
+   case &quot;АИ-92&quot;    : res = 2; break;
+   case &quot;АИ-92(G)&quot; : res = 3; break;
+   case &quot;АИ-95&quot;    : res = 4; break;
+   case &quot;АИ-95(G)&quot; : res = 5; break;
+   case &quot;G-100&quot;   : res = 6; break;
+   case &quot;ДТ&quot;    : res = 7; break;
+   case &quot;ДТ(O)&quot; : res = 8; break;
+   default      : res = 1;
+  }
+  return res;
+}
+
+private void worker_order(dyn_string dp, dyn_anytype order){
+//   btn_add.enabled = (order[6] &gt;= 2 | order == 0); // Отключить кнопку если задание в работе
+
+  if(order[6] != 99){ // Секция есть в задании
+    g_post = order[5];
+    g_dozer = getDozer(order[5]);
+    g_rvs = getRvs(order[5]);
+
+    cbx_fuel.selectedPos = textToCbx(order[2]);
+    txt_dose.text         = order[3];
+    txt_post.text         = g_post;
+    txt_rvs.text          = g_rvs;
+//     if(order[4] &gt; 0){ // Налив с присадкой
+//       cbx_fuel.selectedPos = cbx_fuel.selectedPos + 1;
+//     }
+  } // if(order[6] != 99)
+}
+private void worker_data(dyn_string dp, dyn_anytype data){
+    txt_b_vol.text = data[1];
+    txt_d_vol.text = data[2];
+    txt_mass.text  = data[3];
+    txt_temp.text  = data[4];
+    txt_dns.text   = data[5];
+}
+
+// private void need_update(){
+//   dpDisconnect(&quot;worker_data&quot;, ds_cur_post);
+//   ds_cur_post = genDpData(g_post, g_dozer);
+//   dpConnect(&quot;worker_data&quot;, ds_cur_post);
+// }
+
+private int getDozer(int post){
+  int dozer = 0;
+  dpGet(&quot;Post_&quot; + post + &quot;.local.HelperDozer&quot;, dozer);
+  return dozer;
+}
+
+private int getRvs(int post){
+  int res = 0;
+  dyn_int di_postRvs;
+  dpGet(&quot;Post_&quot; + post + &quot;.local.HelperRvs&quot;, di_postRvs);
+  for(int i=1; i&lt;=di_postRvs.count(); i++){
+    int tmp_sts;
+    dpGet(&quot;LogicRVS_&quot; + di_postRvs[i] + &quot;.STS.status_mes&quot;, tmp_sts);
+    if(tmp_sts == 3){
+      res = di_postRvs[i];
+      break;
+    }
+  }
+  return res;
+}
+
+private dyn_string genDpData(int post, int dozer){
+  string post_dp = &quot;Post_&quot; + post;
+  string doze_dp = &quot;Post_&quot; + dozer;
+  if(dozer != 0){
+    dyn_string ds_res = makeDynString(post_dp + &quot;.xVolumeFact&quot;,
+                                      doze_dp + &quot;.xVolumeFact&quot;,
+                                      post_dp + &quot;.xMassFact&quot;,
+                                      post_dp + &quot;.xAverageTemperature&quot;,
+                                      post_dp + &quot;.xAverageDensity&quot;);
+  }else{
+    dyn_string ds_res = makeDynString(post_dp + &quot;.xVolumeFact&quot;,
+                                      post_dp + &quot;.xMassFact&quot;,
+                                      post_dp + &quot;.xAverageTemperature&quot;,
+                                      post_dp + &quot;.xAverageDensity&quot;);
+
+  }
+  return ds_res;
+}
+
+void clrOrderDp(){
+  dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.sOrderNr&quot;,         &quot;&quot;,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.sIdCard&quot;,          &quot;&quot;,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.sRegNr&quot;,           &quot;&quot;,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.sRegANr&quot;,          &quot;&quot;,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.bLoadingType&quot;,     false,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.dtAdded&quot;,          0,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iOrderPriority&quot;,   0,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iLine&quot;,            0,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;,       99);
+
+  for(int j=1; j&lt;=10; j++){
+      dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sOrderNr&quot;,     &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iCompNr&quot;,      0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sProductCode&quot;, &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iQuantity&quot;,    0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.dtAdded&quot;,      0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iProcessed&quot;,   99,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.bTrailer&quot;,     false,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sRegNr&quot;,       &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sKompNr&quot;,      &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sDoc&quot;,         &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sDelivery&quot;,    &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.nMass&quot;,        0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.Device&quot;,       0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iPercent&quot;,     0);
+  }
+}
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main(){
+  txt_section.text(SECT);
+  dpConnect(&quot;worker_order&quot;, ds_dp);
+
+  dpConnect(&quot;worker_data&quot;, &quot;LINE&quot;+ LINE + &quot;_PV.&quot; + SECT + &quot;.vol_base&quot;,
+                           &quot;LINE&quot;+ LINE + &quot;_PV.&quot; + SECT + &quot;.vol_doser&quot;,
+                           &quot;LINE&quot;+ LINE + &quot;_PV.&quot; + SECT + &quot;.mas_base&quot;,
+                           &quot;LINE&quot;+ LINE + &quot;_PV.&quot; + SECT + &quot;.temp&quot;,
+                           &quot;LINE&quot;+ LINE + &quot;_PV.&quot; + SECT + &quot;.density&quot;);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="cbx_fuel" shapeType="COMBO_BOX" layerId="0">
+   <properties>
+    <prop name="serialId">172</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">304.9384615384616 505.3846153846155</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">168</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">60.07692307692305 55.38461538461541</prop>
+    <prop name="Size">86 23</prop>
+    <prop name="Listitems">
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">НЕТ</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">АИ-92</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">АИ-92(G)</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">АИ-95</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">АИ-95(G)</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">G-100</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">ДТ</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">ДТ(O)</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+    </prop>
+    <prop name="Editable">False</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_section" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">174</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">9.999999999999998 55.35239760239762</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">170</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">10 55</prop>
+    <prop name="Size">51 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_dose" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">178</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">-93.4987834549878 41.45604395604398</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">174</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">146 55.45604395604397</prop>
+    <prop name="Size">80 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_post" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">179</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">358.2292682926777 41.45604395604399</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">175</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">574 55</prop>
+    <prop name="Size">50 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_rvs" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">180</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">446 41.45604395604399</prop>
+    <prop name="Enable">False</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">176</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">624 55</prop>
+    <prop name="Size">40 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_b_vol" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">181</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">16.03743364358699 41.45604395604398</prop>
+    <prop name="Enable">False</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">177</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">225.1754346544726 55.45604395604397</prop>
+    <prop name="Size">71 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_d_vol" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">182</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">84.28780487804562 41.45604395604398</prop>
+    <prop name="Enable">False</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">178</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">295.4999999999999 55.45604395604399</prop>
+    <prop name="Size">71 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_mass" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">183</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">157.0840336134454 41.456043956044</prop>
+    <prop name="Enable">False</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">179</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">364.9999999999998 55.45604395604399</prop>
+    <prop name="Size">70 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_temp" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">184</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">223.9535864978904 41.456043956044</prop>
+    <prop name="Enable">False</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">180</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">435.0000000000001 55.45604395604399</prop>
+    <prop name="Size">71 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_dns" shapeType="TEXT_FIELD" layerId="0">
+   <properties>
+    <prop name="serialId">185</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">297.0840336134453 41.456043956044</prop>
+    <prop name="Enable">False</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">181</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">504.9999999999998 55.45604395604399</prop>
+    <prop name="Size">70 23</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Editable">True</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="btn_add" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">188</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">670 55.38461538461539</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">183</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Location">662.9999999999999 55.38461538461538</prop>
+    <prop name="Size">23 23</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">+</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  int sts_order;
+  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;, sts_order);
+  string loc_fuel = cbx_fuel.selectedText;
+  if(sts_order == 2){
+    clrOrderDp();
+  }
+    float prisadka;
+    switch(loc_fuel){
+      case &quot;АИ-92(G)&quot;:
+      case &quot;АИ-95(G)&quot;:
+        prisadka = 0.056;
+        break;
+      case &quot;ДТ(O)&quot;:
+        prisadka = 0.0405;
+    }
+    dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sOrderNr&quot;,     &quot;ОПЕРАТОР&quot;,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iCompNr&quot;,      SECT,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sProductCode&quot;, cbx_fuel.selectedText,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iQuantity&quot;,    txt_dose.text,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.dtAdded&quot;,      getCurrentTime(),
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iProcessed&quot;,   0,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.bTrailer&quot;,     false,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sRegNr&quot;,       &quot;A777AA&quot;,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sKompNr&quot;,      &quot;Номер бочки&quot;,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDoc&quot;,         &quot;Номер накладной&quot;,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDelivery&quot;,    &quot;Грузополучатель&quot;,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.nMass&quot;,        0,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.Device&quot;,       txt_post.text,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iID&quot;,          0,
+              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iPercent&quot;,     prisadka);
+
+}
+]]></script>
+    <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  this.enabled = getUserPermission(17);
+}]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>
