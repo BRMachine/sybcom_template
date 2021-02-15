@@ -14,7 +14,7 @@
   <prop name="layoutType">None</prop>
  </properties>
  <events>
-  <script name="ScopeLib" isEscaped="1"><![CDATA[int g_bit, g_cmdBit;
+  <script name="ScopeLib" isEscaped="1"><![CDATA[int g_bit, g_cmdBit, sb;
 /*
 #property int stsBit
 public void setStsBit(int b){
@@ -117,7 +117,7 @@ void cbSts(string dpe, bool val){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   bool sec = getUserPermission(sb);
   if(sec){
-  dpSetWait(dp, 0);
+    dpSetWait(dp, 0);
   }else{
     ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
                              &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
@@ -157,7 +157,7 @@ void cbSts(string dpe, bool val){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   bool sec = getUserPermission(sb);
   if(sec){
-  dpSetWait(dp, 1);
+    dpSetWait(dp, 1);
   }else{
     ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
                              &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
