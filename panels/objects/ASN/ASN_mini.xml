@@ -42,7 +42,8 @@ if (val[1]==16) {
     }
 else
 {
-  RECTANGLE1.backCol(&quot;WF_PanelBackground&quot;);
+  //RECTANGLE1.backCol(&quot;WF_PanelBackground&quot;);
+  RECTANGLE1.backCol(&quot;_Transparent&quot;);
 }
 /*ASN_06.visible(val[1]==32);
 ASN_07.visible(val[1]==64);*/
@@ -780,7 +781,7 @@ ASN_07.visible(val[1]==64);*/
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">WF_PanelBackground</prop>
+    <prop name="BackColor">_Transparent</prop>
     <prop name="TabOrder">0</prop>
     <prop name="ToolTipText">
      <prop name="ru_RU.utf8"></prop>
