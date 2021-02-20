@@ -22,8 +22,8 @@ DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
 LAYER, 0 
 1
 LANG:10027 6 Layer1
-6 9
-"sum3"
+6 11
+"RECTANGLE5"
 ""
 1 120 40 E E E 1 E 1 E N "STD_grey_dark" E N "_3DFace" E "// SimpleCtrlScriptStart {valid}
 main(int iType)
@@ -44,7 +44,7 @@ main(int iType)
 }
 " 0
  E
-8 0 0 0 0 0
+10 0 0 0 0 0
 E E E
 0
 3
@@ -60,13 +60,13 @@ E "main()
 {
   pt_panelOn2(myModuleName());
 }" 0
- 0 1 1 0 1 E 1.8 0 1.8 90.00000000000014 -45 1 E 120 30 130 40
-6 10
-"RECTANGLE2"
+ 0 1 1 0 1 E 2.098642471042493 0 1.8 105.662903474901 -38.16666666666666 1 E 120 30 130 40
+6 12
+"RECTANGLE6"
 ""
 1 1098 18 E E E 1 E 1 E N {0,0,0} E N "_Transparent" E E
  E E
-9 0 0 0 0 0
+11 0 0 0 0 0
 E E E
 0
 1
@@ -76,11 +76,11 @@ LANG:10027 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 0 1 3 2 1 E 2.215999999999997 0 0.4736842105263159 -2424.167999999996 0.4736842105263079 1 E 1098 18 1223 56
-13 0
-"cmdPanelOn"
+E E 0 1 3 2 1 E 2.559999999999999 0 0.4736842105263159 -2796.366424710423 7.307017543859587 1 E 1098 18 1223 56
+13 13
+"PUSH_BUTTON1"
 ""
-1 9.800000000000384 9.5 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 -1.686424710424168 -175.6666666666667 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
  "main()
 {
   int refNr = $refNumber;
@@ -89,7 +89,7 @@ E E 0 1 3 2 1 E 2.215999999999997 0 0.4736842105263159 -2424.167999999996 0.4736
 }
 " 0
  E
-1 0 0 0 0 0
+12 0 0 0 0 0
 E E E
 1
 3
@@ -103,7 +103,7 @@ LANG:10001 0
 LANG:10027 47 Arial,-1,11,5,75,0,0,0,0,0,Полужирный
 LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
 LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
-0  8 8 287 28
+0  13.51357528957545 14.83333333333334 335.5135752895754 34.83333333333334
 
 T 
 3
@@ -141,8 +141,8 @@ void cbMenu(string dp, int val){
 }
 " 0
 
-6 7
-"sum1"
+6 14
+"RECTANGLE7"
 ""
 1 120 20 E E E 1 E 1 E N "STD_grey_dark" E N "_3DFace" E "// SimpleCtrlScriptStart {valid}
 main(int iType)
@@ -163,7 +163,7 @@ main(int iType)
 }
 " 0
  E
-6 0 0 0 0 0
+13 0 0 0 0 0
 E E E
 0
 3
@@ -179,9 +179,9 @@ E "main()
 {
   pt_panelOn2(myModuleName());
 }" 0
- 0 1 1 0 1 E 1.8 0 1.8 70 -9.000000000000004 1 E 120 10 130 20
-6 8
-"sum2"
+ 0 1 1 0 1 E 2.0986424710425 0 1.8 82.67647876447506 -2.166666666666657 1 E 120 10 130 20
+6 15
+"RECTANGLE8"
 ""
 1 120 30 E E E 1 E 1 E N "STD_grey_dark" E N "_3DFace" E "// SimpleCtrlScriptStart {valid}
 main(int iType)
@@ -202,7 +202,7 @@ main(int iType)
 }
 " 0
  E
-7 0 0 0 0 0
+14 0 0 0 0 0
 E E E
 0
 3
@@ -218,7 +218,7 @@ E "main()
 {
   pt_panelOn2(myModuleName());
 }" 0
- 0 1 1 0 1 E 1.8 0 1.8 90.00000000000017 -27.00000000000001 1 E 120 20 130 30
+ 0 1 1 0 1 E 2.098642471042493 0 1.8 105.662903474901 -20.16666666666666 1 E 120 20 130 30
 0
 LAYER, 1 
 1
