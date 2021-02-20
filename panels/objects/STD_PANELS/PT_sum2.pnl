@@ -3,7 +3,7 @@ V 14
 LANG:10027 18 (БезИмени)
 LANG:10000 8 (NoName)
 LANG:10001 8 (NoName)
-PANEL,-1 -1 421 174 N "_3DFace" 6
+PANEL,-1 -1 711 89 N "_3DFace" 6
 "$1"
 "$2"
 "$3"
@@ -22,6 +22,45 @@ DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
 LAYER, 0 
 1
 LANG:10027 6 Layer1
+6 9
+"sum3"
+""
+1 120 40 E E E 1 E 1 E N "STD_grey_dark" E N "_3DFace" E "// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  std_quittScript(pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$3,iType);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$3}
+// SimpleCtrlScriptEnd {EP_confirm}
+" 0
+
+ "main()
+{
+  int refNr = $refNumber;
+
+  pt_sumParaAtRightClick(refNr, false);
+}
+" 0
+ E
+8 0 0 0 0 0
+E E E
+0
+3
+LANG:10027 0 
+LANG:10000 0 
+LANG:10001 0 
+
+3
+"layoutAlignment" "AlignCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E "main()
+{
+  pt_panelOn2(myModuleName());
+}" 0
+ 0 1 1 0 1 E 1.8 0 1.8 90.00000000000014 -45 1 E 120 30 130 40
 6 10
 "RECTANGLE2"
 ""
@@ -37,11 +76,11 @@ LANG:10027 0
 "layoutAlignment" "AlignNone"
 "dashclr"N "_Transparent"
 "antiAliased" "0"
-E E 0 1 3 2 1 E 0.904 0 0.8421052631578947 -983.5919999999999 -6.157894736842111 1 E 1098 18 1223 56
+E E 0 1 3 2 1 E 2.215999999999997 0 0.4736842105263159 -2424.167999999996 0.4736842105263079 1 E 1098 18 1223 56
 13 0
 "cmdPanelOn"
 ""
-1 10 10 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
+1 9.800000000000384 9.5 E E E 1 E 1 E N "_ButtonText" E N "_Button" E E
  "main()
 {
   int refNr = $refNumber;
@@ -61,10 +100,10 @@ LANG:10001 0
 1
 "layoutAlignment" "AlignCenter"
 3
-LANG:10027 26 arial,-1,13,5,50,0,0,0,0,0
+LANG:10027 47 Arial,-1,11,5,75,0,0,0,0,0,Полужирный
 LANG:10000 26 Arial,-1,13,5,50,0,0,0,0,0
 LANG:10001 26 Arial,-1,13,5,50,0,0,0,0,0
-0  8 8 122 42
+0  8 8 287 28
 
 T 
 3
@@ -75,12 +114,9 @@ LANG:10001 9 Detail A1
 {
   pt_panelOn2(myModuleName());
   int refNr = $refNumber;
+  dpSet(\"System1:Menu.Num\",refNr);
 
-  string dp_top = myUiDpName() + \".Navbar.num\";
-  dpSet(dp_top, refNr);
-
-}
-" 0
+}" 0
  E E "dyn_bool   ptAlertDone;
 dyn_string ptOldFileName;
 dyn_int    ptOldPanelNumber;
@@ -88,8 +124,7 @@ dyn_int    ptOldPanelNumber;
 main()
 {
   pt_init_PT_navi_sumX(\"sum2\");
-  string dp_top = myUiDpName() + \".Navbar.num\";
-  dpConnect(\"cbMenu\",dp_top);
+  dpConnect(\"cbMenu\",\"System1:Menu.Num\");
 }
 
 void cbMenu(string dp, int val){
@@ -144,7 +179,7 @@ E "main()
 {
   pt_panelOn2(myModuleName());
 }" 0
- 0 1 1 0 1 E 1 0 1 2 0 1 E 120 10 130 20
+ 0 1 1 0 1 E 1.8 0 1.8 70 -9.000000000000004 1 E 120 10 130 20
 6 8
 "sum2"
 ""
@@ -183,46 +218,7 @@ E "main()
 {
   pt_panelOn2(myModuleName());
 }" 0
- 0 1 1 0 1 E 1 0 1 2 0 1 E 120 20 130 30
-6 9
-"sum3"
-""
-1 120 40 E E E 1 E 1 E N "STD_grey_dark" E N "_3DFace" E "// SimpleCtrlScriptStart {valid}
-main(int iType)
-{
-  std_quittScript(pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$3,iType);
-}
-// SimpleCtrlScript {EP_confirm}
-// dpCount {1}
-// dp1 {pt_fileNameToDpName($panelName,$panelNumber)+\".\"+$3}
-// SimpleCtrlScriptEnd {EP_confirm}
-" 0
-
- "main()
-{
-  int refNr = $refNumber;
-
-  pt_sumParaAtRightClick(refNr, false);
-}
-" 0
- E
-8 0 0 0 0 0
-E E E
-0
-3
-LANG:10027 0 
-LANG:10000 0 
-LANG:10001 0 
-
-3
-"layoutAlignment" "AlignCenter"
-"dashclr"N "_Transparent"
-"antiAliased" "0"
-E "main()
-{
-  pt_panelOn2(myModuleName());
-}" 0
- 0 1 1 0 1 E 1 0 1 2 0 1 E 120 30 130 40
+ 0 1 1 0 1 E 1.8 0 1.8 90.00000000000017 -27.00000000000001 1 E 120 20 130 30
 0
 LAYER, 1 
 1
