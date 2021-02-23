@@ -46,14 +46,14 @@ public string g_panel;]]></script>
 
 void cbState(dyn_string dp, dyn_anytype sts){
   for(int i=1; i&lt;=dynlen(sts); i++){
-    string color = getBit(sts[i], 24) ? &quot;red&quot; : &quot;green&quot;;
+    string color = getBit(sts[i], 24) ? &quot;red&quot; : &quot;Grey&quot;;
     setValue(&quot;sts_&quot;+i, &quot;backCol&quot;, color);
   }
 }
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="RECTANGLE5" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE5" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">106</prop>
     <prop name="Type"></prop>
@@ -81,7 +81,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE78" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE78" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">107</prop>
     <prop name="Type"></prop>
@@ -109,7 +109,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_name" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_name" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">108</prop>
     <prop name="Type"></prop>
@@ -145,7 +145,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="sts_8" shapeType="RECTANGLE">
+  <shape Name="sts_8" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">109</prop>
     <prop name="Type"></prop>
@@ -173,7 +173,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="sts_7" shapeType="RECTANGLE">
+  <shape Name="sts_7" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">110</prop>
     <prop name="Type"></prop>
@@ -201,7 +201,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="sts_6" shapeType="RECTANGLE">
+  <shape Name="sts_6" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">111</prop>
     <prop name="Type"></prop>
@@ -229,7 +229,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="sts_5" shapeType="RECTANGLE">
+  <shape Name="sts_5" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">112</prop>
     <prop name="Type"></prop>
@@ -257,7 +257,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="sts_4" shapeType="RECTANGLE">
+  <shape Name="sts_4" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">113</prop>
     <prop name="Type"></prop>
@@ -285,7 +285,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="sts_3" shapeType="RECTANGLE">
+  <shape Name="sts_3" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">114</prop>
     <prop name="Type"></prop>
@@ -313,7 +313,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="sts_2" shapeType="RECTANGLE">
+  <shape Name="sts_2" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">115</prop>
     <prop name="Type"></prop>
@@ -341,7 +341,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="sts_1" shapeType="RECTANGLE">
+  <shape Name="sts_1" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">116</prop>
     <prop name="Type"></prop>
@@ -369,7 +369,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE120" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE120" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">117</prop>
     <prop name="Type"></prop>
@@ -397,7 +397,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE20" shapeType="LINE">
+  <shape Name="LINE20" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">118</prop>
     <prop name="Type"></prop>
@@ -420,7 +420,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">15.73985969387761 30.42557412026551</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE21" shapeType="LINE">
+  <shape Name="LINE21" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">119</prop>
     <prop name="Type"></prop>
@@ -443,7 +443,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 44.59172664535217</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE22" shapeType="LINE">
+  <shape Name="LINE22" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">120</prop>
     <prop name="Type"></prop>
@@ -466,7 +466,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 59.61638077628564</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE23" shapeType="LINE">
+  <shape Name="LINE23" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">121</prop>
     <prop name="Type"></prop>
@@ -489,7 +489,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 75.8329440578834</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE24" shapeType="LINE">
+  <shape Name="LINE24" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">122</prop>
     <prop name="Type"></prop>
@@ -512,7 +512,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 91.79950733948112</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE25" shapeType="LINE">
+  <shape Name="LINE25" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">123</prop>
     <prop name="Type"></prop>
@@ -535,7 +535,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 107.7660706210788</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE26" shapeType="LINE">
+  <shape Name="LINE26" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">124</prop>
     <prop name="Type"></prop>
@@ -558,7 +558,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 123.7326339026766</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE27" shapeType="LINE">
+  <shape Name="LINE27" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">125</prop>
     <prop name="Type"></prop>
@@ -581,7 +581,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 139.6991971842743</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE28" shapeType="LINE">
+  <shape Name="LINE28" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">126</prop>
     <prop name="Type"></prop>
@@ -604,7 +604,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 155.665760465872</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE29" shapeType="LINE">
+  <shape Name="LINE29" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">127</prop>
     <prop name="Type"></prop>
@@ -627,7 +627,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 46.8938383800407</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE30" shapeType="LINE">
+  <shape Name="LINE30" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">128</prop>
     <prop name="Type"></prop>
@@ -650,7 +650,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 62.86040166163846</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE31" shapeType="LINE">
+  <shape Name="LINE31" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">129</prop>
     <prop name="Type"></prop>
@@ -673,7 +673,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 78.82696494323622</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE32" shapeType="LINE">
+  <shape Name="LINE32" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">130</prop>
     <prop name="Type"></prop>
@@ -696,7 +696,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 94.79352822483392</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE33" shapeType="LINE">
+  <shape Name="LINE33" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">131</prop>
     <prop name="Type"></prop>
@@ -719,7 +719,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 110.7600915064316</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE34" shapeType="LINE">
+  <shape Name="LINE34" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">132</prop>
     <prop name="Type"></prop>
@@ -742,7 +742,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 126.8217588742728</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="LINE35" shapeType="LINE">
+  <shape Name="LINE35" shapeType="LINE" layerId="0">
    <properties>
     <prop name="serialId">133</prop>
     <prop name="Type"></prop>
@@ -765,7 +765,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="End">16.31245124240358 142.7883221558705</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT19" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT19" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">134</prop>
     <prop name="Type"></prop>
@@ -802,7 +802,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT20" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT20" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">135</prop>
     <prop name="Type"></prop>
@@ -839,7 +839,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT21" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT21" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">136</prop>
     <prop name="Type"></prop>
@@ -876,7 +876,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT22" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT22" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">137</prop>
     <prop name="Type"></prop>
@@ -913,7 +913,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT23" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT23" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">138</prop>
     <prop name="Type"></prop>
@@ -950,7 +950,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT24" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT24" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">139</prop>
     <prop name="Type"></prop>
@@ -987,7 +987,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT25" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT25" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">140</prop>
     <prop name="Type"></prop>
@@ -1024,7 +1024,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PRIMITIVE_TEXT26" shapeType="PRIMITIVE_TEXT">
+  <shape Name="PRIMITIVE_TEXT26" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">141</prop>
     <prop name="Type"></prop>
@@ -1061,7 +1061,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON">
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
    <properties>
     <prop name="serialId">142</prop>
     <prop name="Type"></prop>
