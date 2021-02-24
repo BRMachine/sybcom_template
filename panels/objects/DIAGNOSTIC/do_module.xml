@@ -4,13 +4,13 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">722 473</prop>
+  <prop name="Size">154 182</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">27.99999999999989 24.17244820467059</prop>
   <prop name="InitAndTermRef">True</prop>
   <prop name="SendClick">False</prop>
   <prop name="RefFileName"></prop>
-  <prop name="DPI">120</prop>
+  <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
  <events>
@@ -95,8 +95,13 @@ public string g_panel;
 
 void cbState(dyn_string dp, dyn_anytype sts){
   for(int i=1; i&lt;=dynlen(sts); i++){
-    string color = getBit(sts[i], 24) ? &quot;red&quot; : &quot;green&quot;;
-    setValue(&quot;sts_&quot; + i, &quot;backCol&quot;, color);
+    if(getBit(sts[i], 0)){
+      setValue(&quot;sts_&quot; + i, &quot;backCol&quot;, &quot;green&quot;);
+    }else if(getBit(sts[i], 24)){
+      setValue(&quot;sts_&quot; + i, &quot;backCol&quot;, &quot;red&quot;);
+    }else{
+      setValue(&quot;sts_&quot; + i, &quot;backCol&quot;, &quot;Grey&quot;);
+    }
   }
 }
 ]]></script>
