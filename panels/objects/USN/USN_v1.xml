@@ -170,19 +170,36 @@ void cbWorker(dyn_string dps, dyn_anytype vals){
   }
 
   bool vis_pst_sts_00 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x00))|((vals[29]==2)&amp;(dd_vals[2][6]==0x00))|((vals[29]==3)&amp;(dd_vals[3][6]==0x00))|((vals[29]==4)&amp;(dd_vals[4][6]==0x00));
-  pst_sts_00.visible = vis_pst_sts_00;
+//   pst_sts_00.visible = vis_pst_sts_00;
   bool vis_pst_sts_10 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x10))|((vals[29]==2)&amp;(dd_vals[2][6]==0x10))|((vals[29]==3)&amp;(dd_vals[3][6]==0x10))|((vals[29]==4)&amp;(dd_vals[4][6]==0x10));
-  pst_sts_10.visible= vis_pst_sts_10;
+//   pst_sts_10.visible= vis_pst_sts_10;
   bool vis_pst_sts_20 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x20))|((vals[29]==2)&amp;(dd_vals[2][6]==0x20))|((vals[29]==3)&amp;(dd_vals[3][6]==0x20))|((vals[29]==4)&amp;(dd_vals[4][6]==0x20));
-  pst_sts_20.visible= vis_pst_sts_20;
+//   pst_sts_20.visible= vis_pst_sts_20;
   bool vis_pst_sts_30 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x30))|((vals[29]==2)&amp;(dd_vals[2][6]==0x30))|((vals[29]==3)&amp;(dd_vals[3][6]==0x30))|((vals[29]==4)&amp;(dd_vals[4][6]==0x30));
-  pst_sts_30.visible= vis_pst_sts_30;
+//   pst_sts_30.visible= vis_pst_sts_30;
   bool vis_pst_sts_40 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x40))|((vals[29]==2)&amp;(dd_vals[2][6]==0x40))|((vals[29]==3)&amp;(dd_vals[3][6]==0x40))|((vals[29]==4)&amp;(dd_vals[4][6]==0x40));
-  pst_sts_40.visible= vis_pst_sts_40;
+//   pst_sts_40.visible= vis_pst_sts_40;
   bool vis_pst_sts_60 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x60))|((vals[29]==2)&amp;(dd_vals[2][6]==0x60))|((vals[29]==3)&amp;(dd_vals[3][6]==0x60))|((vals[29]==4)&amp;(dd_vals[4][6]==0x60));
-  pst_sts_60.visible= vis_pst_sts_60;
+//   pst_sts_60.visible= vis_pst_sts_60;
   bool vis_pst_sts_80 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x80))|((vals[29]==2)&amp;(dd_vals[2][6]==0x80))|((vals[29]==3)&amp;(dd_vals[3][6]==0x80))|((vals[29]==4)&amp;(dd_vals[4][6]==0x80));
-  pst_sts_80.visible= vis_pst_sts_80;
+//   pst_sts_80.visible= vis_pst_sts_80;
+  //СКРЫЛ КРУЖОЧКИ. УДАЛИТЬ КРУЖКИ И ПОЧИСТИТЬ КОД ЕСЛИ СОГЛАСУЮТ КВАДРАТИК
+  pst_sts_def.visible(false);
+  pst_sts_00.visible(false);
+  pst_sts_10.visible(false);
+  pst_sts_20.visible(false);
+  pst_sts_30.visible(false);
+  pst_sts_40.visible(false);
+  pst_sts_60.visible(false);
+  pst_sts_80.visible(false);
+  //=======================================================================
+  if(vis_pst_sts_60)
+    usn_state.backCol(&quot;Red&quot;);
+  else if(vis_pst_sts_20)
+    usn_state.backCol(&quot;Green&quot;);
+  else
+    usn_state.backCol(&quot;Grey&quot;);
+
 
   if(dd_vals[1][3] == 2 || dd_vals[2][3] == 2 || dd_vals[3][3] == 2 || dd_vals[4][3] == 2){
     gnd_ok.visible(true);
@@ -393,14 +410,14 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinRound,CapRound,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.9045894773579968 0 0 0.7120393848652489 70.35820857026634 -2.405654164340433</prop>
+    <prop name="Geometry">1.084602044857362 0 0 2.186066261901473 62.273240308396 -49.48004144863386</prop>
     <prop name="Location">53.00000000000006 33.99999999999999</prop>
     <prop name="Size">49 17</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Text">
-     <prop name="ru_RU.utf8">ДТ</prop>
+     <prop name="ru_RU.utf8">неизв.</prop>
     </prop>
     <prop name="Distance">2</prop>
     <prop name="BorderOffset">2</prop>
@@ -545,39 +562,6 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="X-Radius">10</prop>
     <prop name="Y-Radius">10</prop>
    </properties>
-  </shape>
-  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">172</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">19.00000000000003 141.6086623067222</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Transparent</prop>
-    <prop name="TabOrder">149</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="TransparentForMouseInGedi">True</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
-    </prop>
-    <prop name="Location">19.00000000000003 9.499999999999924</prop>
-    <prop name="Size">408 278</prop>
-    <prop name="BorderStyle">None</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-  ChildPanelOnCentral(&quot;faceplates/USN/usn.xml&quot;, dpGetDescription(DP + &quot;.&quot;), makeDynString(&quot;$dp:&quot; + DP));
-}
-]]></script>
-   </events>
   </shape>
   <shape Name="pst1_ovr" shapeType="ELLIPSE" layerId="0">
    <properties>
@@ -2297,7 +2281,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_07.png]]</prop>
-    <prop name="Geometry">1 0 0 1 91.34285714285716 -26</prop>
+    <prop name="Geometry">1 0 0 1 -38.74532556343135 -45.99390919158409</prop>
     <prop name="Center">131.5 78.5</prop>
     <prop name="X-Radius">17.5</prop>
     <prop name="Y-Radius">17.5</prop>
@@ -2323,7 +2307,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_00.png]]</prop>
-    <prop name="Geometry">1 0 0 1 91.34285714285716 -26</prop>
+    <prop name="Geometry">1 0 0 1 -38.74532556343135 -45.99390919158409</prop>
     <prop name="Center">131.5 78.5</prop>
     <prop name="X-Radius">17.5</prop>
     <prop name="Y-Radius">17.5</prop>
@@ -2349,7 +2333,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_01.png]]</prop>
-    <prop name="Geometry">1 0 0 1 91.34285714285716 -26</prop>
+    <prop name="Geometry">1 0 0 1 -38.74532556343135 -45.99390919158409</prop>
     <prop name="Center">131.5 78.5</prop>
     <prop name="X-Radius">17.5</prop>
     <prop name="Y-Radius">17.5</prop>
@@ -2375,7 +2359,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_02.png]]</prop>
-    <prop name="Geometry">1 0 0 1 91.34285714285716 -26</prop>
+    <prop name="Geometry">1 0 0 1 -38.74532556343135 -45.99390919158409</prop>
     <prop name="Center">131.5 78.5</prop>
     <prop name="X-Radius">17.5</prop>
     <prop name="Y-Radius">17.5</prop>
@@ -2401,7 +2385,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_03.png]]</prop>
-    <prop name="Geometry">1 0 0 1 91.34285714285716 -26</prop>
+    <prop name="Geometry">1 0 0 1 -38.74532556343135 -45.99390919158409</prop>
     <prop name="Center">131.5 78.5</prop>
     <prop name="X-Radius">17.5</prop>
     <prop name="Y-Radius">17.5</prop>
@@ -2427,7 +2411,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_04.png]]</prop>
-    <prop name="Geometry">1 0 0 1 91.34285714285716 -26</prop>
+    <prop name="Geometry">1 0 0 1 -38.74532556343135 -45.99390919158409</prop>
     <prop name="Center">131.5 78.5</prop>
     <prop name="X-Radius">17.5</prop>
     <prop name="Y-Radius">17.5</prop>
@@ -2453,7 +2437,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_05.png]]</prop>
-    <prop name="Geometry">1 0 0 1 91.34285714285716 -26</prop>
+    <prop name="Geometry">1 0 0 1 -38.74532556343135 -45.99390919158409</prop>
     <prop name="Center">131.5 78.5</prop>
     <prop name="X-Radius">17.5</prop>
     <prop name="Y-Radius">17.5</prop>
@@ -2479,11 +2463,72 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/status/ASN/ASN_06.png]]</prop>
-    <prop name="Geometry">1 0 0 1 91.34285714285716 -26</prop>
+    <prop name="Geometry">1 0 0 1 -38.74532556343136 -45.99390919158409</prop>
     <prop name="Center">131.5 78.5</prop>
     <prop name="X-Radius">17.5</prop>
     <prop name="Y-Radius">17.5</prop>
    </properties>
+  </shape>
+  <shape Name="usn_state" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">228</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60 22</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Grey</prop>
+    <prop name="TabOrder">199</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1.500000000000001 0 0 2.785714285714286 83.98725092870421 -38.39205162013036</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">60 22</prop>
+    <prop name="Size">27 15</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">172</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">19.00000000000003 141.6086623067222</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Transparent</prop>
+    <prop name="TabOrder">149</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="TransparentForMouseInGedi">True</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">19.00000000000003 9.499999999999924</prop>
+    <prop name="Size">408 278</prop>
+    <prop name="BorderStyle">None</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
+  ChildPanelOnCentral(&quot;faceplates/USN/usn.xml&quot;, dpGetDescription(DP + &quot;.&quot;), makeDynString(&quot;$dp:&quot; + DP));
+}
+]]></script>
+   </events>
   </shape>
  </shapes>
  <groups>
