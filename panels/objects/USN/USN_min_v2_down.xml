@@ -180,9 +180,9 @@ void cbWorker(dyn_string dps, dyn_anytype vals){
 
   for(int i=1; i&lt;=dynlen(dd_vals); i++){
     if(dd_vals[i][1] == 1)
-      setValue(&quot;pst&quot;+i+&quot;_ovr&quot;, &quot;backCol&quot;, &quot;Green&quot;);
-    else
       setValue(&quot;pst&quot;+i+&quot;_ovr&quot;, &quot;backCol&quot;, &quot;Red&quot;);
+    else
+      setValue(&quot;pst&quot;+i+&quot;_ovr&quot;, &quot;backCol&quot;, &quot;Green&quot;);
 
     if(dd_vals[i][2] == 1)
       setMultiValue(&quot;pst&quot;+i+&quot;_vlv1&quot;, &quot;backCol&quot;, &quot;Green&quot;,
