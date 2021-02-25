@@ -13,7 +13,7 @@
 // variables and constants
 dyn_dyn_int prev_state;
 dyn_mapping prev_connects;
-
+string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
 //--------------------------------------------------------------------------------
 /**
 */
@@ -45,50 +45,62 @@ int getSection(string dp){
 }
 
 void worker_order(int line, dyn_dyn_anytype val){
-  for(int i=2; i<=val.count(); i++){
-    dyn_string local_dps;
-    int post, dozer;
-    int section = getSection(val[i][1]);
-    DebugTN(line, section, val[i][2],  prev_state[i][section]);
+  bool temp_srv;
+  dpGet(dp_srv_act, temp_srv);
+  if (temp_srv){           //если сервер активный
+    for(int i=2; i<=val.count(); i++){
+      dyn_string local_dps;
+      int post, dozer;
+      int section = getSection(val[i][1]);
+      DebugTN("ASN_PV", line, section, val[i][2],  prev_state[i][section]);
 
-    if(val[i][2] == 1 & prev_state[i][section] == 0){
-      dpGet("ORDER_LINE" + line + ".items." + section + ".init.Device", post);
-      dpGet("Post_" + post + ".local.HelperDozer"                     , dozer);
-      local_dps = genDpData(post, dozer);
-      dpConnectUserData("worker_data", line + "|" + section, local_dps);
-      DebugTN("ASNPV", "dpConnect()", "worker_data", line + "|" + section, dynStringToString(local_dps));
-      // previous
-      prev_connects[line]["sections"][section]["ud"]   = line + "|" + section;
-      prev_connects[line]["sections"][section]["data"] = local_dps;
-    }else if(val[i][2] == 99 & (prev_state[i][section] == 2 | prev_state[i][section] == 0 | prev_state[i][section] == 99)){
-//       DebugTN("ASN_PV", line, section, "Задание очищено");
-      worker_data(line + "|" + section, local_dps, makeDynAnytype(0,0,0,0,0));
-    }else{
-      dpDisconnectUserData("worker_data", prev_connects[line]["sections"][section]["ud"], prev_connects[line]["sections"][section]["data"]);
-      DebugTN("ASNPV", "dpDisconnect()", "worker_data", prev_connects[line]["sections"][section]["ud"], dynStringToString(prev_connects[line]["sections"][section]["data"]));
+      if(val[i][2] == 1 & (prev_state[i][section] == 0 | prev_state[i][section] == 99)){
+        dpGet("ORDER_LINE" + line + ".items." + section + ".init.Device", post);
+        dpGet("Post_" + post + ".local.HelperDozer"                     , dozer);
+        local_dps = genDpData(post, dozer);
+        dpConnectUserData("worker_data", line + "|" + section, local_dps);
+        DebugTN("ASNPV", "dpConnect()", "worker_data", line + "|" + section, dynStringToString(local_dps));
+        // previous
+        prev_connects[line]["sections"][section]["ud"]   = line + "|" + section;
+        prev_connects[line]["sections"][section]["data"] = local_dps;
+      }else if(val[i][2] == 99 & (prev_state[i][section] == 2 | prev_state[i][section] == 0 | prev_state[i][section] == 99)){
+  //       DebugTN("ASN_PV", line, section, "Задание очищено");
+        dpDisconnectUserData("worker_data", prev_connects[line]["sections"][section]["ud"], prev_connects[line]["sections"][section]["data"]);
+        worker_data(line + "|" + section, local_dps, makeDynAnytype(0,0,0,0,0));
+  //       delay(5);
+      }else{
+        dpDisconnectUserData("worker_data", prev_connects[line]["sections"][section]["ud"], prev_connects[line]["sections"][section]["data"]);
+        DebugTN("ASNPV", "dpDisconnect()", "worker_data", prev_connects[line]["sections"][section]["ud"], dynStringToString(prev_connects[line]["sections"][section]["data"]));
+  //       delay(5);
+      }
+      prev_state[line][section] = val[i][2];
     }
-    prev_state[i][section] = val[i][2];
   }
 }
 
 void worker_data(string ud, dyn_string dp, dyn_anytype data){
-  dyn_string asn = stringToDynString(ud);
-  if(data.count() == 4){
-    dpSetWait("LINE" + asn[1] + "_PV." + asn[2] + ".vol_base"    , data[1],
-              "LINE" + asn[1] + "_PV." + asn[2] + ".vol_doser"   , 0,
-              "LINE" + asn[1] + "_PV." + asn[2] + ".mas_base"    , data[2],
-              "LINE" + asn[1] + "_PV." + asn[2] + ".temp"        , data[3],
-              "LINE" + asn[1] + "_PV." + asn[2] + ".density"     , data[4]);
-  }else{
-    dpSetWait("LINE" + asn[1] + "_PV." + asn[2] + ".vol_base"   , data[1],
-              "LINE" + asn[1] + "_PV." + asn[2] + ".vol_doser"  , data[2],
-              "LINE" + asn[1] + "_PV." + asn[2] + ".mas_base"   , data[3],
-              "LINE" + asn[1] + "_PV." + asn[2] + ".temp"       , data[4],
-              "LINE" + asn[1] + "_PV." + asn[2] + ".density"    , data[5]);
+  bool temp_srv;
+  dpGet(dp_srv_act, temp_srv);
+  if (temp_srv){           //если сервер активный
+    dyn_string asn = stringToDynString(ud);
+    if(data.count() == 4){
+      dpSetWait("LINE" + asn[1] + "_PV." + asn[2] + ".vol_base"    , data[1],
+                "LINE" + asn[1] + "_PV." + asn[2] + ".vol_doser"   , 0,
+                "LINE" + asn[1] + "_PV." + asn[2] + ".mas_base"    , data[2],
+                "LINE" + asn[1] + "_PV." + asn[2] + ".temp"        , data[3],
+                "LINE" + asn[1] + "_PV." + asn[2] + ".density"     , data[4]);
+    }else{
+      dpSetWait("LINE" + asn[1] + "_PV." + asn[2] + ".vol_base"   , data[1],
+                "LINE" + asn[1] + "_PV." + asn[2] + ".vol_doser"  , data[2],
+                "LINE" + asn[1] + "_PV." + asn[2] + ".mas_base"   , data[3],
+                "LINE" + asn[1] + "_PV." + asn[2] + ".temp"       , data[4],
+                "LINE" + asn[1] + "_PV." + asn[2] + ".density"    , data[5]);
+    }
   }
 }
 
-main(){
+main(string p1){
+  if(p1 == "-RES"){ dp_srv_act = "_ReduManager_2.EvStatus"; } // RESERVER SERVER
   string query_order1 = "SELECT '_original.._value' FROM 'ORDER_LINE1.items.*.init.iProcessed'",
          query_order2 = "SELECT '_original.._value' FROM 'ORDER_LINE2.items.*.init.iProcessed'",
          query_order3 = "SELECT '_original.._value' FROM 'ORDER_LINE3.items.*.init.iProcessed'";
