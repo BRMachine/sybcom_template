@@ -109,37 +109,41 @@ void initialValue(){
 }
 
 void refreshData(string dp, bool trg){
-  DebugFTN("lg_verbose", "INIT", init);
-  if(init){
-    initialValue();
-  }else{
-    mapping unack;
-    DebugFTN("lg_verbose", "Exec refresh data");
-    if(dynlen(datapoints) == 0)
-      return;
-    dpGet(datapoints, wcValues);
-    dyn_errClass dp_err = getLastError();
-    for (int i = 1; i<=dynlen(dp_err); i++){
-      DebugFTN("lg_error", dp_err[i]);
-    }
-    DebugFTN("lg_verbose", "WCC Values | dbValues");
-    DebugFTN("lg_verbose", dynlen(wcValues), dynlen(dbValues));
-    if(dynlen(dbValues) == dynlen(wcValues)){
-      unack["dp"]  = makeDynString();
-      unack["val"] = makeDynString();
-      unack["id"] = makeDynString();
-      DebugFTN("lg_verbose", "Equal lenght");
-      for(int i=1; i<=dynlen(wcValues); i++){
-        if(dbValues[i] != wcValues[i]){
-          dynAppend(unack["dp"], datapoints[i]);
-          dynAppend(unack["val"], wcValues[i]);
-          dynAppend(unack["id"], dbIds[i]);
-        }
-      }
-      updateDB(unack, getCurrentTime());//
-      DebugFTN("lg_verbose", "Unacknowledge data", unack);
+  bool temp_srv;
+  dpGet(dp_srv_act, temp_srv);
+  if (temp_srv){           //если сервер активный
+    DebugFTN("lg_verbose", "INIT", init);
+    if(init){
+      initialValue();
     }else{
-      DebugFTN("lg_error", "NOT Equal lenght");
+      mapping unack;
+      DebugFTN("lg_verbose", "Exec refresh data");
+      if(dynlen(datapoints) == 0)
+        return;
+      dpGet(datapoints, wcValues);
+      dyn_errClass dp_err = getLastError();
+      for (int i = 1; i<=dynlen(dp_err); i++){
+        DebugFTN("lg_error", dp_err[i]);
+      }
+      DebugFTN("lg_verbose", "WCC Values | dbValues");
+      DebugFTN("lg_verbose", dynlen(wcValues), dynlen(dbValues));
+      if(dynlen(dbValues) == dynlen(wcValues)){
+        unack["dp"]  = makeDynString();
+        unack["val"] = makeDynString();
+        unack["id"] = makeDynString();
+        DebugFTN("lg_verbose", "Equal lenght");
+        for(int i=1; i<=dynlen(wcValues); i++){
+          if(dbValues[i] != wcValues[i]){
+            dynAppend(unack["dp"], datapoints[i]);
+            dynAppend(unack["val"], wcValues[i]);
+            dynAppend(unack["id"], dbIds[i]);
+          }
+        }
+        updateDB(unack, getCurrentTime());//
+        DebugFTN("lg_verbose", "Unacknowledge data", unack);
+      }else{
+        DebugFTN("lg_error", "NOT Equal lenght");
+      }
     }
   }
 }

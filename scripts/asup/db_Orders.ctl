@@ -222,7 +222,7 @@ void clrOrderDp(int line){
 void worker(int line, string dp, bool val){
   bool temp_srv;
   dpGet(dp_srv_act, temp_srv);
-  if(true & val){ // (temp_srv & val)
+  if(temp_srv & val){
     getOrders(line);
   }else{
     DebugFTN("lg_info", "This project NoActive(main)");
@@ -230,104 +230,108 @@ void worker(int line, string dp, bool val){
 }
 
 void workerEnd(anytype ud, dyn_dyn_anytype data){
-  data.removeAt(0);
-  for(int i=1; i<=data.count(); i++){
-    dbConnection con;
-    dbCommand cmd;
-    int res;
-    string loc_connection = mConfig[iConnection]["connection"];
-    string loc_database = mConfig[iConnection]["db"];
-    res = dbOpenConnection(loc_connection, con);
-      if(!res){
-      string dp_section = dpSubStr(data[i][1], DPSUB_DP_EL);
-      dyn_string temp_dp = stringToDynString(dp_section , ".");
-      dp_section = temp_dp[1] + "." + temp_dp[2] + "." + temp_dp[3];
-      DebugFTN("lg_info", "ORDERS | result datapoint: ", dp_section);
-      anytype rDispatchOrder, rReceipId, rPostNumber, rRegistrationNumber, rSectionNumber, rOrderedVolume, rDispatchOrder, rOrderedWeight,
-          rLoadedWeight, rLoadedVolume, rLoadedTemperature, rLoadedDensity, rTankCode,
-          rLoadedBaseWeight, rLoadedBaseVolume, rLoadedBaseTemperature, rLoadedBaseDensity,
-          rLoadedMixed1Weight, rLoadedMixed1Volume, rLoadedMixed1Temperature, rLoadedMixed1Density,
-          rErrorCode, rResultCode ,rDtStart, rDtEnd, rSumVolumeStart, rSumVolumeEnd, rSumWeightStart, rSumWeightEnd, rModeCtrl, rsHash, rDispatchOrder,
-          SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart,
-          qVolumeWaterStart, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine;
+  bool temp_srv;
+  dpGet(dp_srv_act, temp_srv);
+  if(temp_srv){
+    data.removeAt(0);
+    for(int i=1; i<=data.count(); i++){
+      dbConnection con;
+      dbCommand cmd;
+      int res;
+      string loc_connection = mConfig[iConnection]["connection"];
+      string loc_database = mConfig[iConnection]["db"];
+      res = dbOpenConnection(loc_connection, con);
+        if(!res){
+        string dp_section = dpSubStr(data[i][1], DPSUB_DP_EL);
+        dyn_string temp_dp = stringToDynString(dp_section , ".");
+        dp_section = temp_dp[1] + "." + temp_dp[2] + "." + temp_dp[3];
+        DebugFTN("lg_info", "ORDERS | result datapoint: ", dp_section);
+        anytype rDispatchOrder, rReceipId, rPostNumber, rRegistrationNumber, rSectionNumber, rOrderedVolume, rDispatchOrder, rOrderedWeight,
+            rLoadedWeight, rLoadedVolume, rLoadedTemperature, rLoadedDensity, rTankCode,
+            rLoadedBaseWeight, rLoadedBaseVolume, rLoadedBaseTemperature, rLoadedBaseDensity,
+            rLoadedMixed1Weight, rLoadedMixed1Volume, rLoadedMixed1Temperature, rLoadedMixed1Density,
+            rErrorCode, rResultCode ,rDtStart, rDtEnd, rSumVolumeStart, rSumVolumeEnd, rSumWeightStart, rSumWeightEnd, rModeCtrl, rsHash, rDispatchOrder,
+            SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart,
+            qVolumeWaterStart, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine;
 
-      dpGet(dp_section + ".result.ReceipId"                , rReceipId,
-            dp_section + ".result.PostNumber"              , rPostNumber,
-            dp_section + ".result.TankCode"                , rTankCode,
-            dp_section + ".result.RegistrationNumber"      , rRegistrationNumber,
-            dp_section + ".result.SectionNumber"           , rSectionNumber,
-            dp_section + ".result.OrderedVolume"           , rOrderedVolume,
-            dp_section + ".result.LoadedWeight"            , rLoadedWeight,
-            dp_section + ".result.LoadedVolume"            , rLoadedVolume,
-            dp_section + ".result.LoadedTemperature"       , rLoadedTemperature,
-            dp_section + ".result.LoadedDensity"           , rLoadedDensity, //asd
-            dp_section + ".result.LoadedBaseWeight"        , rLoadedBaseWeight,
-            dp_section + ".result.LoadedBaseVolume"        , rLoadedBaseVolume,
-            dp_section + ".result.LoadedBaseTemperature"   , rLoadedBaseTemperature,
-            dp_section + ".result.LoadedBaseDensity"       , rLoadedBaseDensity,
-            dp_section + ".result.LoadedMixed1Weight"      , rLoadedMixed1Weight,
-            dp_section + ".result.LoadedMixed1Volume"      , rLoadedMixed1Volume,
-            dp_section + ".result.LoadedMixed1Temperature" , rLoadedMixed1Temperature,
-            dp_section + ".result.LoadedMixed1Density"     , rLoadedMixed1Density,
-            dp_section + ".result.ErrorCode"               , rErrorCode,
-            dp_section + ".result.ResultCode"              , rResultCode,
-            dp_section + ".result.SumVolumeStart"          , rSumVolumeStart,
-            dp_section + ".result.SumVolumeEnd"            , rSumVolumeEnd,
-            dp_section + ".result.SumWeightStart"          , rSumWeightStart,
-            dp_section + ".result.SumWeightEnd"            , rSumWeightEnd,
-            dp_section + ".result.ModeCtrl"                , rModeCtrl,
-            dp_section + ".result.DtStart"                 , rDtStart,
-            dp_section + ".result.DtEnd"                   , rDtEnd,
-            dp_section + ".result.OrderedWeight"           , rOrderedWeight,
- //           dp_section + ".result.OrderedWeight"           , rOrderedWeight,
-            dp_section + ".init.sOrderNr"                  , rDispatchOrder,
-            dp_section + ".result.SumVolumeStartpr"        , SumVolumeStartpr,
-            dp_section + ".result.SumVolumeEndpr"          , SumVolumeEndpr,
-            dp_section + ".result.qTankLevelStart"         , qTankLevelStart,
-            dp_section + ".result.qVolumeTankStart"        , qVolumeTankStart,
-            dp_section + ".result.qWeightTankStart"        , qWeightTankStart,
-            dp_section + ".result.qDensityTankStart"       , qDensityTankStart,
-            dp_section + ".result.qTempTankStart"          , qTempTankStart,
-            dp_section + ".result.qPressureStart"          , qPressureStart,
-            dp_section + ".result.qLevelWaterStart"        , qLevelWaterStart,
-            dp_section + ".result.qVolumeWaterStart"       , qVolumeWaterStart,
-            dp_section + ".result.qVolumeTankEnd"          , qVolumeTankEnd,
-            dp_section + ".result.qWeightTankEnd"          , qWeightTankEnd,
-            dp_section + ".result.qDensityTankEnd"         , qDensityTankEnd,
-            dp_section + ".result.qTempTankEnd"            , qTempTankEnd,
-            dp_section + ".result.qPressureEnd"            , qPressureEnd,
-            dp_section + ".result.qLevelWaterEnd"          , qLevelWaterEnd,
-            dp_section + ".result.qCardID"                 , qCardID,
-            dp_section + ".result.qNbrLine"                , qNbrLine);
+        dpGet(dp_section + ".result.ReceipId"                , rReceipId,
+              dp_section + ".result.PostNumber"              , rPostNumber,
+              dp_section + ".result.TankCode"                , rTankCode,
+              dp_section + ".result.RegistrationNumber"      , rRegistrationNumber,
+              dp_section + ".result.SectionNumber"           , rSectionNumber,
+              dp_section + ".result.OrderedVolume"           , rOrderedVolume,
+              dp_section + ".result.LoadedWeight"            , rLoadedWeight,
+              dp_section + ".result.LoadedVolume"            , rLoadedVolume,
+              dp_section + ".result.LoadedTemperature"       , rLoadedTemperature,
+              dp_section + ".result.LoadedDensity"           , rLoadedDensity, //asd
+              dp_section + ".result.LoadedBaseWeight"        , rLoadedBaseWeight,
+              dp_section + ".result.LoadedBaseVolume"        , rLoadedBaseVolume,
+              dp_section + ".result.LoadedBaseTemperature"   , rLoadedBaseTemperature,
+              dp_section + ".result.LoadedBaseDensity"       , rLoadedBaseDensity,
+              dp_section + ".result.LoadedMixed1Weight"      , rLoadedMixed1Weight,
+              dp_section + ".result.LoadedMixed1Volume"      , rLoadedMixed1Volume,
+              dp_section + ".result.LoadedMixed1Temperature" , rLoadedMixed1Temperature,
+              dp_section + ".result.LoadedMixed1Density"     , rLoadedMixed1Density,
+              dp_section + ".result.ErrorCode"               , rErrorCode,
+              dp_section + ".result.ResultCode"              , rResultCode,
+              dp_section + ".result.SumVolumeStart"          , rSumVolumeStart,
+              dp_section + ".result.SumVolumeEnd"            , rSumVolumeEnd,
+              dp_section + ".result.SumWeightStart"          , rSumWeightStart,
+              dp_section + ".result.SumWeightEnd"            , rSumWeightEnd,
+              dp_section + ".result.ModeCtrl"                , rModeCtrl,
+              dp_section + ".result.DtStart"                 , rDtStart,
+              dp_section + ".result.DtEnd"                   , rDtEnd,
+              dp_section + ".result.OrderedWeight"           , rOrderedWeight,
+   //           dp_section + ".result.OrderedWeight"           , rOrderedWeight,
+              dp_section + ".init.sOrderNr"                  , rDispatchOrder,
+              dp_section + ".result.SumVolumeStartpr"        , SumVolumeStartpr,
+              dp_section + ".result.SumVolumeEndpr"          , SumVolumeEndpr,
+              dp_section + ".result.qTankLevelStart"         , qTankLevelStart,
+              dp_section + ".result.qVolumeTankStart"        , qVolumeTankStart,
+              dp_section + ".result.qWeightTankStart"        , qWeightTankStart,
+              dp_section + ".result.qDensityTankStart"       , qDensityTankStart,
+              dp_section + ".result.qTempTankStart"          , qTempTankStart,
+              dp_section + ".result.qPressureStart"          , qPressureStart,
+              dp_section + ".result.qLevelWaterStart"        , qLevelWaterStart,
+              dp_section + ".result.qVolumeWaterStart"       , qVolumeWaterStart,
+              dp_section + ".result.qVolumeTankEnd"          , qVolumeTankEnd,
+              dp_section + ".result.qWeightTankEnd"          , qWeightTankEnd,
+              dp_section + ".result.qDensityTankEnd"         , qDensityTankEnd,
+              dp_section + ".result.qTempTankEnd"            , qTempTankEnd,
+              dp_section + ".result.qPressureEnd"            , qPressureEnd,
+              dp_section + ".result.qLevelWaterEnd"          , qLevelWaterEnd,
+              dp_section + ".result.qCardID"                 , qCardID,
+              dp_section + ".result.qNbrLine"                , qNbrLine);
 
-      string dataToHash =  rLoadedWeight + ", " + rLoadedVolume + ", " + rLoadedTemperature;
-      string rSHash = getHash(dataToHash);
-      string query = "INSERT INTO [" + loc_database + "].[dbo].[vLoadingResult] " +
-                         "(DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, " +
-                         "LoadedWeight, LoadedVolume, LoadedTemperature, LoadedDensity, LoadedBaseWeight, LoadedBaseVolume, LoadedBaseTemp, LoadedBaseDensity, "+
-                         "LoadedMixed1Weight, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, ErrorCode, ResultCode, SumVolumeStart, SumVolumeEnd, "+
-                         "SumWeightStart, SumWeightEnd, ModeCtrl, DtStart, DtEnd, OrderedWeight, DispatchOrder, sHash, iProcessed, "+
-                         "SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart, qVolumeWaterStart, "+
-                         "qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine) " +
-                         "VALUES ( GETDATE(), '" + rReceipId + "', " + rPostNumber + ", '" + rTankCode + "', '" + rRegistrationNumber + "', " +
-                                   rSectionNumber + ", " + rOrderedVolume + ", " + rLoadedWeight + ", " + rLoadedVolume + ", " + rLoadedTemperature + ", " +
-                                   rLoadedDensity + ", " + rLoadedBaseWeight + ", " + rLoadedBaseVolume + ", " + rLoadedBaseTemperature + ", " + rLoadedBaseDensity + ", " +
-                                   rLoadedMixed1Weight + ", " + rLoadedMixed1Volume + ", " + rLoadedMixed1Temperature + ", '" + rLoadedMixed1Density + "', '" +
-                                   rErrorCode + "', '" + rResultCode + "', '" + rSumVolumeStart + "', '" + rSumVolumeEnd + "', '" + rSumWeightStart + "', '" + rSumWeightEnd + "', '" + rModeCtrl + "', '" +
-                                   formatTime("%Y-%m-%dT%H:%M:%S", rDtStart)  + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", rDtEnd) + "', '" + rOrderedWeight + "', '" + rDispatchOrder + "', '" + rSHash + "', 0, " +
-                                   SumVolumeStartpr + ", " + SumVolumeEndpr + ", " + qTankLevelStart + ", " + qVolumeTankStart + ", " + qWeightTankStart + ", " + qDensityTankStart + ", " + qTempTankStart + ", " +
-                                   qPressureStart + ", " + qLevelWaterStart + ", " + qVolumeWaterStart + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " +
-                                   qTempTankEnd + ", " + qPressureEnd + ", " + qLevelWaterEnd + ", " + qCardID + ", " + qNbrLine +" )";
+        string dataToHash =  rLoadedWeight + ", " + rLoadedVolume + ", " + rLoadedTemperature;
+        string rSHash = getHash(dataToHash);
+        string query = "INSERT INTO [" + loc_database + "].[dbo].[vLoadingResult] " +
+                           "(DateRecording, RecipeId, PostNumber, TankCode, RegistrationNumber, SectionNumber, OrderedVolume, " +
+                           "LoadedWeight, LoadedVolume, LoadedTemperature, LoadedDensity, LoadedBaseWeight, LoadedBaseVolume, LoadedBaseTemp, LoadedBaseDensity, "+
+                           "LoadedMixed1Weight, LoadedMixed1Volume, LoadedMixed1Temp, LoadedMixed1Density, ErrorCode, ResultCode, SumVolumeStart, SumVolumeEnd, "+
+                           "SumWeightStart, SumWeightEnd, ModeCtrl, DtStart, DtEnd, OrderedWeight, DispatchOrder, sHash, iProcessed, "+
+                           "SumVolumeStartpr, SumVolumeEndpr, qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qPressureStart, qLevelWaterStart, qVolumeWaterStart, "+
+                           "qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qPressureEnd, qLevelWaterEnd, qCardID, qNbrLine) " +
+                           "VALUES ( GETDATE(), '" + rReceipId + "', " + rPostNumber + ", '" + rTankCode + "', '" + rRegistrationNumber + "', " +
+                                     rSectionNumber + ", " + rOrderedVolume + ", " + rLoadedWeight + ", " + rLoadedVolume + ", " + rLoadedTemperature + ", " +
+                                     rLoadedDensity + ", " + rLoadedBaseWeight + ", " + rLoadedBaseVolume + ", " + rLoadedBaseTemperature + ", " + rLoadedBaseDensity + ", " +
+                                     rLoadedMixed1Weight + ", " + rLoadedMixed1Volume + ", " + rLoadedMixed1Temperature + ", '" + rLoadedMixed1Density + "', '" +
+                                     rErrorCode + "', '" + rResultCode + "', '" + rSumVolumeStart + "', '" + rSumVolumeEnd + "', '" + rSumWeightStart + "', '" + rSumWeightEnd + "', '" + rModeCtrl + "', '" +
+                                     formatTime("%Y-%m-%dT%H:%M:%S", rDtStart)  + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", rDtEnd) + "', '" + rOrderedWeight + "', '" + rDispatchOrder + "', '" + rSHash + "', 0, " +
+                                     SumVolumeStartpr + ", " + SumVolumeEndpr + ", " + qTankLevelStart + ", " + qVolumeTankStart + ", " + qWeightTankStart + ", " + qDensityTankStart + ", " + qTempTankStart + ", " +
+                                     qPressureStart + ", " + qLevelWaterStart + ", " + qVolumeWaterStart + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " +
+                                     qTempTankEnd + ", " + qPressureEnd + ", " + qLevelWaterEnd + ", " + qCardID + ", " + qNbrLine +" )";
 
-      DebugFTN("db_info", "ORDERS | update vLoadingResult query \n", query);
-      dbStartCommand(con, query, cmd);
-      dbExecuteCommand(cmd);
-      DebugFTN("db_error", getLastError());
-      dbFinishCommand(cmd);
-    }else{  // db open connection
-      DebugFTN("db_error", "RECEIVE | Error connection database");
-      traceErrors();
-      changeActiveConnection(iConnection, mConfig);
+        DebugFTN("db_info", "ORDERS | update vLoadingResult query \n", query);
+        dbStartCommand(con, query, cmd);
+        dbExecuteCommand(cmd);
+        DebugFTN("db_error", getLastError());
+        dbFinishCommand(cmd);
+      }else{  // db open connection
+        DebugFTN("db_error", "RECEIVE | Error connection database");
+        traceErrors();
+        changeActiveConnection(iConnection, mConfig);
+      }
     }
   }
 }
