@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">751 427</prop>
+  <prop name="Size">218 211</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">7.500000000000227 9</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -148,19 +148,35 @@ void cbWorker(dyn_string dps, dyn_anytype vals){
     ai_arm.visible(false);
   }
   bool vis_pst_sts_00 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x00))|((vals[29]==2)&amp;(dd_vals[2][6]==0x00))|((vals[29]==3)&amp;(dd_vals[3][6]==0x00))|((vals[29]==4)&amp;(dd_vals[4][6]==0x00));
-  pst_sts_00.visible = vis_pst_sts_00;
+//   pst_sts_00.visible = vis_pst_sts_00;
   bool vis_pst_sts_10 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x10))|((vals[29]==2)&amp;(dd_vals[2][6]==0x10))|((vals[29]==3)&amp;(dd_vals[3][6]==0x10))|((vals[29]==4)&amp;(dd_vals[4][6]==0x10));
-  pst_sts_10.visible= vis_pst_sts_10;
+//   pst_sts_10.visible= vis_pst_sts_10;
   bool vis_pst_sts_20 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x20))|((vals[29]==2)&amp;(dd_vals[2][6]==0x20))|((vals[29]==3)&amp;(dd_vals[3][6]==0x20))|((vals[29]==4)&amp;(dd_vals[4][6]==0x20));
-  pst_sts_20.visible= vis_pst_sts_20;
+//   pst_sts_20.visible= vis_pst_sts_20;
   bool vis_pst_sts_30 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x30))|((vals[29]==2)&amp;(dd_vals[2][6]==0x30))|((vals[29]==3)&amp;(dd_vals[3][6]==0x30))|((vals[29]==4)&amp;(dd_vals[4][6]==0x30));
-  pst_sts_30.visible= vis_pst_sts_30;
+//   pst_sts_30.visible= vis_pst_sts_30;
   bool vis_pst_sts_40 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x40))|((vals[29]==2)&amp;(dd_vals[2][6]==0x40))|((vals[29]==3)&amp;(dd_vals[3][6]==0x40))|((vals[29]==4)&amp;(dd_vals[4][6]==0x40));
-  pst_sts_40.visible= vis_pst_sts_40;
+//   pst_sts_40.visible= vis_pst_sts_40;
   bool vis_pst_sts_60 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x60))|((vals[29]==2)&amp;(dd_vals[2][6]==0x60))|((vals[29]==3)&amp;(dd_vals[3][6]==0x60))|((vals[29]==4)&amp;(dd_vals[4][6]==0x60));
-  pst_sts_60.visible= vis_pst_sts_60;
+//   pst_sts_60.visible= vis_pst_sts_60;
   bool vis_pst_sts_80 = ((vals[29]==1)&amp;(dd_vals[1][6]==0x80))|((vals[29]==2)&amp;(dd_vals[2][6]==0x80))|((vals[29]==3)&amp;(dd_vals[3][6]==0x80))|((vals[29]==4)&amp;(dd_vals[4][6]==0x80));
-  pst_sts_80.visible= vis_pst_sts_80;
+//   pst_sts_80.visible= vis_pst_sts_80;
+  //СКРЫЛ КРУЖОЧКИ. УДАЛИТЬ КРУЖКИ И ПОЧИСТИТЬ КОД ЕСЛИ СОГЛАСУЮТ КВАДРАТИК
+  pst_sts_def.visible(false);
+  pst_sts_00.visible(false);
+  pst_sts_10.visible(false);
+  pst_sts_20.visible(false);
+  pst_sts_30.visible(false);
+  pst_sts_40.visible(false);
+  pst_sts_60.visible(false);
+  pst_sts_80.visible(false);
+  //=======================================================================
+  if(vis_pst_sts_60)
+    usn_state.backCol(&quot;Red&quot;);
+  else if(vis_pst_sts_20)
+    usn_state.backCol(&quot;Green&quot;);
+  else
+    usn_state.backCol(&quot;Grey&quot;);
 
   for(int i=1; i&lt;=dynlen(dd_vals); i++){
     if(dd_vals[i][1] == 1)
@@ -577,43 +593,6 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignRight]</prop>
-   </properties>
-  </shape>
-  <shape Name="txt_type" shapeType="PRIMITIVE_TEXT" layerId="0">
-   <properties>
-    <prop name="serialId">24</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">53.00000000000006 33.99999999999999</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_WindowText</prop>
-    <prop name="BackColor">{207,207,12}</prop>
-    <prop name="TabOrder">13</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinRound,CapRound,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.9045894773579968 0 0 0.7120393848652489 -14.74694700084139 2.094345835659797</prop>
-    <prop name="Location">53.00000000000006 33.99999999999999</prop>
-    <prop name="Size">49 17</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
-    </prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">ДТ</prop>
-    </prop>
-    <prop name="Distance">2</prop>
-    <prop name="BorderOffset">2</prop>
-    <prop name="Bordered">True</prop>
-    <prop name="Fit">False</prop>
-    <prop name="Transformable">False</prop>
-    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
   <shape Name="pst4_ovr" shapeType="ELLIPSE" layerId="0">
@@ -1661,6 +1640,71 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="BeginStyle">0</prop>
     <prop name="EndStyle">0</prop>
     <prop name="Width">4</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_type" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">227</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">53.00000000000006 33.99999999999999</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">{207,207,12}</prop>
+    <prop name="TabOrder">196</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinRound,CapRound,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.6707270160580078 0 0 1.096155071573024 -2.02074651090603 -13.24439535900796</prop>
+    <prop name="Location">53.00000000000006 33.99999999999999</prop>
+    <prop name="Size">49 17</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">неизв.</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">True</prop>
+    <prop name="Fit">False</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <shape Name="usn_state" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">228</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">60 22</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Grey</prop>
+    <prop name="TabOrder">197</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.7757781420909989 0 0 1.565935816532892 20.51744761760884 -12.61802103239481</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">60 22</prop>
+    <prop name="Size">27 15</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
    </properties>
   </shape>
  </shapes>

@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">252 277</prop>
+  <prop name="Size">252 200</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">7.500000000000227 9</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -20,6 +20,11 @@
 public void   setCarName(string s){ txt_name.text = s; }
 public string getCarName()        { return txt_name.text; }
 
+string line1;
+
+#property string line1_name
+public void setLine1_name(string s) { line1_text.text = s; line1 = s; }
+public string getLine1_name() { return line1_text.text; }
 
 
 public void setFuel(int fuel){
@@ -100,6 +105,36 @@ string stsToColor(int sts){
       break;
     case 0x20:
       res = &quot;Green&quot;;
+      break;
+    case 0x30:
+      res = &quot;Yellow&quot;;
+      break;
+    case 0x40:
+      res = &quot;Green&quot;;
+      break;
+    case 0x60:
+      res = &quot;Red&quot;;
+      break;
+    case 0x80:
+      res = &quot;Red&quot;;
+      break;
+    default:
+      res = &quot;Red&quot;;
+  }
+  return res;
+}
+
+string fuelToColor(string fuel){
+  string res;
+  switch(fuel){
+    case &quot;ДТ&quot;:
+      res = &quot;DT&quot;;
+      break;
+    case &quot;ДТл&quot;:
+      res = &quot;DT&quot;;
+      break;
+    case &quot;ДТз&quot;:
+      res = &quot;DT&quot;;
       break;
     case 0x30:
       res = &quot;Yellow&quot;;
@@ -253,6 +288,10 @@ void fil_type(dyn_string dpe, dyn_int val) {
                          DP + &quot;.ALL.FIL_TYP&quot;);
     dpConnect(&quot;fil_type&quot;, DP + &quot;.ALL.FIL_TYP&quot;,
                         DP + &quot;.ALL.CAR_NUM&quot;);
+
+    //Определение цвета линий в зависимости от заданного вида топлива.
+
+    //===============================================================
 }
 
 ]]></script>
@@ -284,7 +323,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Y-Radius">17.5</prop>
    </properties>
   </shape>
-  <shape Name="PIPE17" shapeType="PIPE" layerId="0">
+  <shape Name="line4_pipe" shapeType="PIPE" layerId="0">
    <properties>
     <prop name="serialId">369</prop>
     <prop name="Type"></prop>
@@ -308,7 +347,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
      <prop name="Location">211 27</prop>
      <prop name="Location">210 27</prop>
     </prop>
-    <prop name="Geometry">7.793206903664976e-17 -1.272727272727273 1 6.123233995736766e-17 129.5 430.5454545454546</prop>
+    <prop name="Geometry">7.793206903664976e-17 -1.842902707280073 1 8.866412113469953e-17 129.5 544.5805414560148</prop>
     <prop name="BeginStyle">0</prop>
     <prop name="EndStyle">0</prop>
     <prop name="Width">4</prop>
@@ -646,7 +685,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinRound,CapRound,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.6707270160580078 0 0 1.096155071573024 5.594268670131384 -18.88667054552787</prop>
+    <prop name="Geometry">0.6707270160580078 0 0 1.096155071573024 5.594268670131391 -18.88667054552788</prop>
     <prop name="Location">53.00000000000006 33.99999999999999</prop>
     <prop name="Size">49 17</prop>
     <prop name="Font">
@@ -689,7 +728,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Y-Radius">7.5</prop>
    </properties>
   </shape>
-  <shape Name="RECTANGLE537" shapeType="RECTANGLE" layerId="0">
+  <shape Name="line3_shape" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">382</prop>
     <prop name="Type"></prop>
@@ -709,7 +748,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.126969528056485 0 0 1.069767441860465 27.28182831661093 148.2651162790698</prop>
+    <prop name="Geometry">1.126969528056485 0 0 1.069767441860465 28.2312244518766 148.2651162790697</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60 22</prop>
     <prop name="Size">27 15</prop>
@@ -717,7 +756,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape Name="PRIMITIVE_TEXT309" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="line3_text" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">383</prop>
     <prop name="Type"></prop>
@@ -737,7 +776,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.9919396815676673 0 0 1.315126050420168 81.7762927808397 125.3682040257964</prop>
+    <prop name="Geometry">0.9919396815676673 0 0 1.315126050420168 82.72568891610534 125.3682040257963</prop>
     <prop name="Location">14 36</prop>
     <prop name="Size">29 11</prop>
     <prop name="Font">
@@ -754,7 +793,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <shape Name="PIPE18" shapeType="PIPE" layerId="0">
+  <shape Name="line3_pipe" shapeType="PIPE" layerId="0">
    <properties>
     <prop name="serialId">384</prop>
     <prop name="Type"></prop>
@@ -784,7 +823,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Width">4</prop>
    </properties>
   </shape>
-  <shape Name="PIPE19" shapeType="PIPE" layerId="0">
+  <shape Name="line2_pipe" shapeType="PIPE" layerId="0">
    <properties>
     <prop name="serialId">385</prop>
     <prop name="Type"></prop>
@@ -814,7 +853,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Width">4</prop>
    </properties>
   </shape>
-  <shape Name="PIPE20" shapeType="PIPE" layerId="0">
+  <shape Name="line1_pipe" shapeType="PIPE" layerId="0">
    <properties>
     <prop name="serialId">386</prop>
     <prop name="Type"></prop>
@@ -1104,7 +1143,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Y-Radius">17.5</prop>
    </properties>
   </shape>
-  <shape Name="RECTANGLE376" shapeType="RECTANGLE" layerId="0">
+  <shape Name="line4_shape" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">397</prop>
     <prop name="Type"></prop>
@@ -1124,7 +1163,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.126969528056485 0 0 1.069767441860465 74.28182831661093 148.4651162790698</prop>
+    <prop name="Geometry">1.126969528056485 0 0 1.069767441860465 74.28182831661093 148.2651162790698</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60 22</prop>
     <prop name="Size">27 15</prop>
@@ -1132,7 +1171,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape Name="PRIMITIVE_TEXT231" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="line4_text" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">398</prop>
     <prop name="Type"></prop>
@@ -1152,7 +1191,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.9919396815676673 0 0 1.315126050420168 128.7762927808396 125.5682040257964</prop>
+    <prop name="Geometry">0.9919396815676673 0 0 1.315126050420168 128.7762927808396 125.3682040257964</prop>
     <prop name="Location">14 36</prop>
     <prop name="Size">29 11</prop>
     <prop name="Font">
@@ -1521,7 +1560,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="End">84.44696806727364 162.4232737790281</prop>
    </properties>
   </shape>
-  <shape Name="RECTANGLE117" shapeType="RECTANGLE" layerId="0">
+  <shape Name="line2_shape" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">413</prop>
     <prop name="Type"></prop>
@@ -1541,7 +1580,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.9838994440596369 0 0 1.069767441860465 5.812032044740761 148.4651162790698</prop>
+    <prop name="Geometry">1.141323355109179 0 0 1.069767441860465 -5.304412404123662 148.2651162790697</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60 22</prop>
     <prop name="Size">27 15</prop>
@@ -1549,7 +1588,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape Name="PRIMITIVE_TEXT274" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="line2_text" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">414</prop>
     <prop name="Type"></prop>
@@ -1569,7 +1608,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.8660117926331407 0 0 1.315126050420168 53.38836126736635 125.5682040257963</prop>
+    <prop name="Geometry">0.9113607445795084 0 0 1.315126050420168 52.46884987704633 125.3682040257963</prop>
     <prop name="Location">14 36</prop>
     <prop name="Size">29 11</prop>
     <prop name="Font">
@@ -1713,7 +1752,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="End">36.44515049694279 162.4195472075963</prop>
    </properties>
   </shape>
-  <shape Name="RECTANGLE126" shapeType="RECTANGLE" layerId="0">
+  <shape Name="line1_shape" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">420</prop>
     <prop name="Type"></prop>
@@ -1733,7 +1772,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.9326447980554874 0 0 1.069767441860465 -37.8363376391838 148.4651162790698</prop>
+    <prop name="Geometry">1.12694579765038 0 0 1.069767441860465 -52.46890798068043 148.2651162790698</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60 22</prop>
     <prop name="Size">27 15</prop>
@@ -1741,7 +1780,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape Name="PRIMITIVE_TEXT283" shapeType="PRIMITIVE_TEXT" layerId="0">
+  <shape Name="line1_text" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">421</prop>
     <prop name="Type"></prop>
@@ -1761,7 +1800,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.8208983126583109 0 0 1.315126050420168 7.261579864434054 125.5682040257964</prop>
+    <prop name="Geometry">0.8941770687113095 0 0 1.315126050420168 4.718275250923234 125.3682040257964</prop>
     <prop name="Location">14 36</prop>
     <prop name="Size">29 11</prop>
     <prop name="Font">
@@ -1922,7 +1961,7 @@ void fil_type(dyn_string dpe, dyn_int val) {
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.7757781420909989 0 0 1.532967908266446 28.13246279864626 -17.07345152132269</prop>
+    <prop name="Geometry">0.7757781420909989 0 0 1.565935816532892 28.13246279864626 -18.26029621891473</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60 22</prop>
     <prop name="Size">27 15</prop>
@@ -1964,34 +2003,4 @@ void fil_type(dyn_string dpe, dyn_int val) {
    </events>
   </shape>
  </shapes>
- <groups>
-  <group parentSerial="-1" Name="SHAPE_GROUP24" serial="0">
-   <properties>
-    <prop name="shapeSerial">382</prop>
-    <prop name="shapeSerial">383</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP26" serial="1">
-   <properties>
-    <prop name="shapeSerial">397</prop>
-    <prop name="shapeSerial">398</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP19" serial="2">
-   <properties>
-    <prop name="shapeSerial">413</prop>
-    <prop name="shapeSerial">414</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
-  <group parentSerial="-1" Name="SHAPE_GROUP18" serial="3">
-   <properties>
-    <prop name="shapeSerial">420</prop>
-    <prop name="shapeSerial">421</prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-   </properties>
-  </group>
- </groups>
 </panel>
