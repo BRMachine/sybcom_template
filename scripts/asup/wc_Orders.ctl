@@ -264,14 +264,33 @@ void worker(int line, string dp, int card){
   //       if((items[i+2][2] == 0 & post_sts == 0x00) | (items[i+2][2] == 1 & post_sts == 0x00 & prev_post_sts[items[i+0][2]] == 0x00))
         if(items[i+2][2] == 0 & post_sts == 0x00){
           bool prisadka = (items[i+4][2] > 0);
-          dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
-                    "Post_" + device + ".сPrisadka"         , prisadka,
-                    "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
-                    "Post_" + device + ".cCommand"          , 0x10,
-                    items[i+2][1], 1);
-            DebugFTN("lg_info", "WC_ORDERS | Start section: ", items[i+2][1]);
+          DebugFTN("lg_info", "WC_ORDERS | Start section: ", items[i+2][1]);
+          anytype post_dose, post_prisadka, post_percent, post_status;
+          int count_while;
+          while(items[i+1][2] != post_dose | prisadka != post_prisadka | items[i+4][2] != post_percent & (post_status != 0x10 | post_status != 0x20)){
+            dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
+                      "Post_" + device + ".сPrisadka"         , prisadka,
+                      "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
+                      "Post_" + device + ".cCommand"          , 0x10,
+                      items[i+2][1], 1);
+            delay(30); // Для опроса АСН по modbus
+            dpGet("Post_" + device + ".xVolumeDose", post_dose,
+                  "Post_" + device + ".sPrisadka", post_prisadka,
+                  "Post_" + device + ".sPercentPrisadki", post_percent,
+                  "Post_" + device + ".sStatusPosta", post_status);
+            if(count_while >= 5){
+              dpSetWait("ORDER_LINE"+line+".items."+items[i+0][2]+".init.iProcessed", 101);
+              break;
+            }
+            count_while++;
+          }
+//           dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
+//                     "Post_" + device + ".сPrisadka"         , prisadka,
+//                     "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
+//                     "Post_" + device + ".cCommand"          , 0x10,
+//                     items[i+2][1], 1);
+//           delay(40); // Для опроса АСН по modbus
           postAsnStart(line, items[i+0][2], device);
-          delay(40); // Для опроса АСН по modbus
         }
       }
       // Проверка завершения налива задания
@@ -288,7 +307,7 @@ void worker(int line, string dp, int card){
             "ORDER_LINE"+line+".items.9.init.iProcessed" , sts_itm9,
             "ORDER_LINE"+line+".items.10.init.iProcessed", sts_itm0);
       if(sts_itm1 > 1 & sts_itm2 > 1 & sts_itm3 > 1 & sts_itm4 > 1 & sts_itm5 > 1 &
-         sts_itm6 > 1 & sts_itm7 > 1 & sts_itm8 > 1 & sts_itm9 > 1 & sts_itm0 > 1){
+          sts_itm6 > 1 & sts_itm7 > 1 & sts_itm8 > 1 & sts_itm9 > 1 & sts_itm0 > 1){
         dpSetWait("ORDER_LINE" + line + ".iProcessed", 2,
                   "ORDER_LINE"+line+".TimeEnd", getCurrentTime());
       }
