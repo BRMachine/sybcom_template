@@ -260,37 +260,53 @@ void worker(int line, string dp, int card){
           continue;
         }
         // Секция была в задании и пост свободен
-
   //       if((items[i+2][2] == 0 & post_sts == 0x00) | (items[i+2][2] == 1 & post_sts == 0x00 & prev_post_sts[items[i+0][2]] == 0x00))
         if(items[i+2][2] == 0 & post_sts == 0x00){
           bool prisadka = (items[i+4][2] > 0);
           DebugFTN("lg_info", "WC_ORDERS | Start section: ", items[i+2][1]);
           anytype post_dose, post_prisadka, post_percent, post_status;
           int count_while;
-          while(items[i+1][2] != post_dose | prisadka != post_prisadka | items[i+4][2] != post_percent & (post_status != 0x10 | post_status != 0x20)){
-            dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
-                      "Post_" + device + ".сPrisadka"         , prisadka,
-                      "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
-                      "Post_" + device + ".cCommand"          , 0x10,
-                      items[i+2][1], 1);
-            delay(30); // Для опроса АСН по modbus
-            dpGet("Post_" + device + ".xVolumeDose", post_dose,
-                  "Post_" + device + ".sPrisadka", post_prisadka,
-                  "Post_" + device + ".sPercentPrisadki", post_percent,
-                  "Post_" + device + ".sStatusPosta", post_status);
-            if(count_while >= 5){
-              dpSetWait("ORDER_LINE"+line+".items."+items[i+0][2]+".init.iProcessed", 101);
-              break;
-            }
-            count_while++;
-          }
-//           dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
-//                     "Post_" + device + ".сPrisadka"         , prisadka,
-//                     "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
-//                     "Post_" + device + ".cCommand"          , 0x10,
-//                     items[i+2][1], 1);
-//           delay(40); // Для опроса АСН по modbus
+//           while(items[i+1][2] != post_dose | prisadka != post_prisadka | items[i+4][2] != post_percent & (post_status != 0x10 | post_status != 0x20)){
+//             dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
+//                       "Post_" + device + ".сPrisadka"         , prisadka,
+//                       "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
+//                       "Post_" + device + ".cCommand"          , 0x10,
+//                       items[i+2][1], 1);
+//             delay(30); // Для опроса АСН по modbus
+//             dpGet("Post_" + device + ".xVolumeDose", post_dose,
+//                   "Post_" + device + ".sPrisadka", post_prisadka,
+//                   "Post_" + device + ".sPercentPrisadki", post_percent,
+//                   "Post_" + device + ".sStatusPosta", post_status);
+//             if(count_while >= 5){
+//               dpSetWait("ORDER_LINE"+line+".items."+items[i+0][2]+".init.iProcessed", 101);
+//               break;
+//             }
+//             count_while++;
+//           }
+          dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
+                    "Post_" + device + ".сPrisadka"         , prisadka,
+                    "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
+                    "Post_" + device + ".cCommand"          , 0x10,
+                    items[i+2][1], 1);
+          delay(40); // Для опроса АСН по modbus
           postAsnStart(line, items[i+0][2], device);
+        }
+
+        // Перекладка данных в ORDERS_PV
+        if(items[i+2][2] == 1){
+          anytype vol_base, vol_doser, mas_base, temp, density;
+          dpGet("Post_" + device + ".xVolumeFact"          , vol_base,
+                "Post_" + getDozer(device) + ".xVolumeFact", vol_doser,
+                "Post_" + device + ".xMassFact"            , mas_base,
+                "Post_" + device + ".xAverageTemperature"  , temp,
+                "Post_" + device + ".xAverageDensity"      , density);
+          if(items[i+4][2]<=0) { vol_doser = 0; }
+
+          dpSetWait("LINE" + line + "_PV."+items[i+0][2]+".vol_base", vol_base,
+                    "LINE" + line + "_PV."+items[i+0][2]+".vol_doser", vol_doser,
+                    "LINE" + line + "_PV."+items[i+0][2]+".mas_base", mas_base,
+                    "LINE" + line + "_PV."+items[i+0][2]+".temp", temp,
+                    "LINE" + line + "_PV."+items[i+0][2]+".density", density);
         }
       }
       // Проверка завершения налива задания
@@ -319,10 +335,10 @@ void worker(int line, string dp, int card){
 }
 
 private mapping getRvsData(int rvs_num){
-  mapping res = makeMapping("lvl", 0, "vol", 0,
-                            "mas", 0, "dns", 0,
-                            "tmp", 0, "wtr", 0,
-                            "prs", 0
+  mapping res = makeMapping("lvl", 0.0, "vol", 0.0,
+                            "mas", 0.0, "dns", 0.0,
+                            "tmp", 0.0, "wtr", 0.0,
+                            "prs", 0.0
                             );
   if(rvs_num > 0){
     dpGet("RVS_" + rvs_num + ".LVL.val"    , res["lvl"],
@@ -349,9 +365,9 @@ main(string p1){
   dpConnectUserData("worker", 1, false, "ORDER_LINE1.current_card");
   dpConnectUserData("worker", 2, false, "ORDER_LINE2.current_card");
   dpConnectUserData("worker", 3, false, "ORDER_LINE3.current_card");
-//   dpConnectUserData("worker", 4, false, "ORDER_LINE4.current_card");
-//   dpConnectUserData("worker", 5, false, "ORDER_LINE5.current_card");
-//   dpConnectUserData("worker", 6, false, "ORDER_LINE6.current_card");
+  dpConnectUserData("worker", 4, false, "ORDER_LINE4.current_card");
+  dpConnectUserData("worker", 5, false, "ORDER_LINE5.current_card");
+  dpConnectUserData("worker", 6, false, "ORDER_LINE6.current_card");
 
 //   dpQueryConnectSingle("worker_order", false, 1, query_order1);
 }
