@@ -49,7 +49,7 @@ public string getEnable(){ return btn_opn.enabled; }
 
 #property bool act
 public bool getAct(){
-  return tmp = (btn_opn.backCol != &quot;STDLIB_Green&quot;);
+  return (btn_opn.backCol != &quot;STDLIB_Green&quot;);
 }
 public void setAct(bool a){
   a ? btn_opn.backCol(&quot;STDLIB_Green&quot;) : btn_opn.backCol(&quot;_Button&quot;);

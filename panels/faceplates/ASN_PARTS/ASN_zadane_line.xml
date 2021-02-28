@@ -169,6 +169,12 @@ void clrOrderDp(){
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.nMass&quot;,        0,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.Device&quot;,       0,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iPercent&quot;,     0);
+
+      dpSetWait(&quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.vol_base&quot;  , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.vol_doser&quot; , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.mas_base&quot;  , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.temp&quot;      , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.density&quot;   , 0.0);
   }
 }
 ]]></script>
@@ -525,21 +531,44 @@ void clrOrderDp(){
       case &quot;ДТ(O)&quot;:
         prisadka = 0.0405;
     }
-    dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sOrderNr&quot;,     &quot;ОПЕРАТОР&quot;,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iCompNr&quot;,      SECT,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sProductCode&quot;, cbx_fuel.selectedText,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iQuantity&quot;,    txt_dose.text,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.dtAdded&quot;,      getCurrentTime(),
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iProcessed&quot;,   0,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.bTrailer&quot;,     false,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sRegNr&quot;,       &quot;A777AA&quot;,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sKompNr&quot;,      &quot;Номер бочки&quot;,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDoc&quot;,         &quot;Номер накладной&quot;,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDelivery&quot;,    &quot;Грузополучатель&quot;,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.nMass&quot;,        0,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.Device&quot;,       txt_post.text,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iID&quot;,          0,
-              &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iPercent&quot;,     prisadka);
+    if(loc_fuel != &quot;НЕТ&quot;){
+      dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sOrderNr&quot;,     &quot;ОПЕРАТОР&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iCompNr&quot;,      SECT,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sProductCode&quot;, cbx_fuel.selectedText,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iQuantity&quot;,    txt_dose.text,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.dtAdded&quot;,      getCurrentTime(),
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iProcessed&quot;,   0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.bTrailer&quot;,     false,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sRegNr&quot;,       &quot;A777AA&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sKompNr&quot;,      &quot;Номер бочки&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDoc&quot;,         &quot;Номер накладной&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDelivery&quot;,    &quot;Грузополучатель&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.nMass&quot;,        0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.Device&quot;,       txt_post.text,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iID&quot;,          0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iPercent&quot;,     prisadka);
+    }else{
+      dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sOrderNr&quot;,     &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iCompNr&quot;,      0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sProductCode&quot;, &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iQuantity&quot;,    0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.dtAdded&quot;,      0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iProcessed&quot;,   99,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.bTrailer&quot;,     false,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sRegNr&quot;,       &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sKompNr&quot;,      &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDoc&quot;,         &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDelivery&quot;,    &quot;&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.nMass&quot;,        0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.Device&quot;,       0,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iPercent&quot;,     0);
+
+      dpSetWait(&quot;LINE&quot;+LINE+&quot;_PV.&quot; + SECT + &quot;.vol_base&quot;  , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + SECT + &quot;.vol_doser&quot; , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + SECT + &quot;.mas_base&quot;  , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + SECT + &quot;.temp&quot;      , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + SECT + &quot;.density&quot;   , 0.0);
+    }
 
 }
 ]]></script>

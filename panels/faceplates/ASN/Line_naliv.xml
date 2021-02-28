@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">711 599</prop>
+  <prop name="Size">692 599</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">709 127</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -1588,7 +1588,7 @@ void worker_post(dyn_string dp, dyn_anytype val){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
-  <reference parentSerial="-1" Name="PANEL_REF1" referenceId="25">
+  <reference parentSerial="-1" Name="start_btn" referenceId="25">
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">330 380</prop>
@@ -1618,7 +1618,7 @@ void worker_post(dyn_string dp, dyn_anytype val){
     </extended>
    </properties>
   </reference>
-  <reference parentSerial="-1" Name="PANEL_REF2" referenceId="26">
+  <reference parentSerial="-1" Name="clear_btn" referenceId="26">
    <properties>
     <prop name="FileName">objects/parts/button.xml</prop>
     <prop name="Location">330 380</prop>
