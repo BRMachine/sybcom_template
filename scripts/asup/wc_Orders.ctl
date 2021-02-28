@@ -26,21 +26,6 @@ public void normalizeQueryData(dyn_dyn_anytype &data){
 
 int getDozer(int device){
   int dozer = 0;
-  /*
-  dyn_string ds_dp;
-  dyn_int di_conf;
-  for(int i=1; i<=12; i++){
-    ds_dp.append("ASN_" + line + ".Global_Variable.bui_PostDozator_" + i);
-  }
-  dpGet(ds_dp, di_conf);
-  for(int i=1; i<=di_conf.count(); i++){
-    if(di_conf[i] == post){
-      dozer = i;
-      break;
-    }
-  }
-  */
-
   dpGet("Post_" + device + ".local.HelperDozer", dozer);
   return dozer;
 }
@@ -79,23 +64,6 @@ void postAsnStart(int line, int section, int device){
             "Post_"+device+".MES.numSection"                                 , section);
 }
 
-int getPostRvs_OLD(int device){
-  int tank = -1;
-  dyn_int list_rvs;
-  dpGet("Post_" + device + ".local.HelperRvs", list_rvs);
-  for(int i=1; i<=list_rvs.count(); i++){
-    int temp_sts;
-//     if(dpExists("LogicRVS_"+list_rvs[i] + ".STS.ststus_mes")){
-      dpGet("LogicRVS_"+list_rvs[i] + ".STS.ststus_mes", temp_sts);
-      if(temp_sts == 3){
-        rTankCode = list_rvs[i];
-        break;
-      }
-//     }
-  }
-  return tank;
-}
-
 private int getPostRvs(int post){
   int res = 0;
   dyn_int di_postRvs;
@@ -118,12 +86,13 @@ void postAsnStop(int line, int section, int device){
           rLoadedMixed1Weight, rLoadedMixed1Volume, rLoadedMixed1Temperature, rLoadedMixed1Density,
           rErrorCode, rResultCode ,rDtEnd, rSumVolumeEnd, rSumWeightEnd, rModeCtrl, rsHash, SumVolumeEndpr, idCard, iPercent;
 
-  int dozer = getDozer(device);
-  int rTankCode = getPostRvs(device);
+  int dozer = getDozer(device);       // Номер поста дозатора
+  int rTankCode = getPostRvs(device); //РВС, который в отпуске
   rDtEnd = getCurrentTime();
   rOrderedWeight = 0.0;
-  mapping resrvs = getRvsData(rTankCode);
+  rLoadedMixed1Volume = 0.0;
 
+  mapping resrvs = getRvsData(rTankCode);
   dpGet("ORDER_LINE"+line+".items."+section+".init.sProductCode", rReceipId,
         "ORDER_LINE"+line+".items."+section+".init.sOrderNr"    , rDispatchOrder,
         "ORDER_LINE"+line+".items."+section+".init.Device"      , rPostNumber,
@@ -145,19 +114,23 @@ void postAsnStop(int line, int section, int device){
         "ORDER_LINE"+line+".sIdCard"                            , idCard);
 
   if(dozer > 0 & iPercent > 0){
-    dpGet("Post_" + dozer + ".xMassFact"                , rLoadedMixed1Weight,
-          "Post_" + dozer + ".xVolumeFact"              , rLoadedMixed1Volume,
-          "Post_" + dozer + ".xAverageTemperature"      , rLoadedMixed1Temperature,
-          "Post_" + dozer + ".xAverageDensity"          , rLoadedMixed1Density,
-          "Post_" + dozer + ".xTotalValue"              , SumVolumeEndpr);
-    rLoadedMixed1Volume = rLoadedMixed1Volume / 1000;
+     dpGet("Post_" + dozer + ".xVolumeFact"              , rLoadedMixed1Volume,
+           "Post_" + dozer + ".MES.DensityPr"            , rLoadedMixed1Density,
+           "Post_" + dozer + ".xTotalValue"              , SumVolumeEndpr);
   }else{
     rLoadedMixed1Weight       = 0;
     rLoadedMixed1Volume       = 0;
     rLoadedMixed1Temperature  = 0;
     rLoadedMixed1Density      = 0;
   }
-
+// Расчет присадки
+  rLoadedMixed1Volume = rLoadedMixed1Volume / 1000;
+  rLoadedMixed1Temperature = rLoadedBaseTemperature;
+  if(rLoadedMixed1Density > 1)
+    rLoadedMixed1Weight = rLoadedMixed1Volume * (rLoadedMixed1Density/1000);
+  else
+    rLoadedMixed1Weight = rLoadedMixed1Volume * rLoadedMixed1Density;
+// Расчет брендированого топлива
   rLoadedVolume = rLoadedBaseVolume + rLoadedMixed1Volume;  // Проверить правильность
   rLoadedWeight = rLoadedBaseWeight + rLoadedMixed1Weight;  // Проверить правильность
 
@@ -217,7 +190,7 @@ void worker(int line, string dp, int card){
 
     dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
           "ORDER_LINE" + line + ".sIdCard", order_card);   // Номер карты водителя из задания
-    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard")
+    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard") //После интеграции МЕС (водители будут везде прикладывать карты) перенести условие из if в while 231 строки (цикл налива задания).
       DebugFTN("lg_info", "WC_ORDERS | Order and driver cards is equals");
     else
       DebugTN("WC_ORDERS | Order and driver cards NOT equals", order_card, card);
@@ -243,7 +216,7 @@ void worker(int line, string dp, int card){
           // Налив по секции завершен
           if((prev_post_sts[items[i+0][2]] == 0x20 | prev_post_sts[items[i+0][2]] == 0x10 | prev_post_sts[items[i+0][2]] == 0x30) &
             post_sts == 0x00 & items[i+2][2] == 1 ){
-            delay(10);
+            delay(40);
             DebugFTN("lg_info", "WC_ORDERS | End section: ", items[i+2][1]);
             postAsnStop(line, items[i+0][2], device);
             dpSetWait(items[i+2][1], 2);
@@ -266,23 +239,6 @@ void worker(int line, string dp, int card){
           DebugFTN("lg_info", "WC_ORDERS | Start section: ", items[i+2][1]);
           anytype post_dose, post_prisadka, post_percent, post_status;
           int count_while;
-//           while(items[i+1][2] != post_dose | prisadka != post_prisadka | items[i+4][2] != post_percent & (post_status != 0x10 | post_status != 0x20)){
-//             dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
-//                       "Post_" + device + ".сPrisadka"         , prisadka,
-//                       "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
-//                       "Post_" + device + ".cCommand"          , 0x10,
-//                       items[i+2][1], 1);
-//             delay(30); // Для опроса АСН по modbus
-//             dpGet("Post_" + device + ".xVolumeDose", post_dose,
-//                   "Post_" + device + ".sPrisadka", post_prisadka,
-//                   "Post_" + device + ".sPercentPrisadki", post_percent,
-//                   "Post_" + device + ".sStatusPosta", post_status);
-//             if(count_while >= 5){
-//               dpSetWait("ORDER_LINE"+line+".items."+items[i+0][2]+".init.iProcessed", 101);
-//               break;
-//             }
-//             count_while++;
-//           }
           dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
                     "Post_" + device + ".сPrisadka"         , prisadka,
                     "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],

@@ -346,9 +346,9 @@ main(string p1){
   dpConnectUserData("worker",1, false, "System1:ORDER_LINE1.getOrder");
   dpConnectUserData("worker",2, false, "System1:ORDER_LINE2.getOrder");
   dpConnectUserData("worker",3, false, "System1:ORDER_LINE3.getOrder");
-//   dpConnectUserData("worker",4, false, "System1:ORDER_LINE4.getOrder");
-//   dpConnectUserData("worker",5, false, "System1:ORDER_LINE5.getOrder");
-//   dpConnectUserData("worker",6, false, "System1:ORDER_LINE6.getOrder");
+  dpConnectUserData("worker",4, false, "System1:ORDER_LINE4.getOrder");
+  dpConnectUserData("worker",5, false, "System1:ORDER_LINE5.getOrder");
+  dpConnectUserData("worker",6, false, "System1:ORDER_LINE6.getOrder");
 
   dpQueryConnectSingle("workerEnd", false, "ud", "SELECT '_original.._value' FROM 'ORDER_LINE?.items.?.result.DtEnd'");
 }
