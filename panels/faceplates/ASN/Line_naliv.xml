@@ -347,6 +347,10 @@ void worker_post(dyn_string dp, dyn_anytype val){
     TABLE4.appendLine(&quot;#1&quot;, tmp, &quot;stpCell&quot;, stpToText(val[i+1]), &quot;alrCell&quot;, errToText(val[i]));
   }
 }
+
+void start_btn(string dpe, int val){
+  start_btn.enabled((!val) | (val == 99));
+}
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   Name_line.text = &quot;Линия налива №&quot; + LINE;
@@ -364,6 +368,8 @@ void worker_post(dyn_string dp, dyn_anytype val){
   txt_sRegANr.enabled = getUserPermission(17);
   current_card.enabled = getUserPermission(17);
   radio_mode.enabled = getUserPermission(17);
+
+  dpConnect(&quot;start_btn&quot;, &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;);
 
 }
 ]]></script>
