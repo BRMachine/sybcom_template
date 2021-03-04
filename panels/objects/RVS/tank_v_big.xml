@@ -228,6 +228,7 @@ void worker_ls(dyn_string dp, dyn_bit32 sts){
   else if(dynlen(sts) == 3){
    int ls2 = (uint)sts[2];
    int ls3 = (uint)sts[3];
+   rec_ls2.backCol = (ls2 &amp; 0x01 | ls2 &amp; 0x02 | ls2 &amp; 0x04) ? &quot;Red&quot; : &quot;Grey&quot;;
    rec_ls3.backCol = (ls3 &amp; 0x01 | ls3 &amp; 0x02 | ls3 &amp; 0x04) ? &quot;Red&quot; : &quot;Grey&quot;;
  }
 }
