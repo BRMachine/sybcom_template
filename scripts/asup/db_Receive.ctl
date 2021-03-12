@@ -278,24 +278,24 @@ void updateReceive(int is, string dp, time val){
                                  RecWeight + ", " + RecVolume + ", " + RecDensity + ", " + RecTemperature + ", " + RecDensityCoerced + ", " + RecVolumeCoerced + ", " + SumVolumeEnd + ", " +
                                  SumWeightEnd + ", " + Volume + ", '" + CompNbr + "', '" + DispathOrder + "', '" + sInvNum + "', '" + OsProduct + "', 0);";
    // New query
-//         string query = "INSERT INTO [" + loc_database + "].[dbo].[vReceptionResult_new] " +
-//                        "(DateRecording, PostName, TankCode, DtStart, DtEnd, RecWeight, RecVolume, RecDensity, RecTemperature, RecDensityCoerced, RecVolumeCoerced, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, " +
-//                        "Volume, CompNbr, DispathOrder, sInvNum, OsProduct, iProcessed, " + //, Fingerprint
-//                        "qTankLevelStart, qVolumeTankStart, qWeightTankStart, qDensityTankStart, qTempTankStart, qTankWaterLStart, qCoercedDensityStart, qCoercedVolumeStart, qPressureStart, qLevelWaterStart, qVolumeWaterStart, " +
-//                        "qTankLevelEnd, qVolumeTankEnd, qWeightTankEnd, qDensityTankEnd, qTempTankEnd, qTankWaterLEnd, qCoercedDensityEnd, qCoercedVolumeEnd, qPressureEnd, qLevelWaterEnd, qVolumeWaterEnd, " +
-//                        "ModeCtrl) " +
-//                        "Values(GETDATE(), '" + PostName + "', " + TankCode + ", '" + formatTime("%Y-%m-%dT%H:%M:%S", DtStart) + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", DtEnd) + "', " +
-//                        RecWeight + ", " + RecVolume + ", " + RecDensity + ", " + RecTemperature + ", " + RecDensityCoerced + ", " +
-//                        RecVolumeCoerced + ", " + SumVolumeStart + ", " + SumVolumeEnd + ", " + SumWeightStart + ", " + SumWeightEnd + ", " +
-//
-//                        Volume + ", '" + CompNbr + "', '" + DispathOrder + "', '" + sInvNum + "', '" + OsProduct + "', 0, " + //, Fingerprint
-//
-//                        qTankLevelStart + ", " + qVolumeTankStart + ", " + qWeightTankStart + ", " + qDensityTankStart + ", " + qTempTankStart + ", " +
-//                        qTankWaterLStart + ", " + qCoercedDensityStart + ", " + qCoercedDensityStart + ", " + qPressureStart + ", " + qLevelWaterStart + ", " + qVolumeWaterStart + ", " +
-//
-//                        qTankLevelEnd + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " + qTempTankEnd + ", " +
-//                        qTankWaterLEnd + ", " + qCoercedDensityEnd + ", " + qCoercedDensityEnd + ", " + qPressureEnd + ", " + qLevelWaterEnd + ", " + qVolumeWaterEnd + ", " + ModeCtrl + ");";
-//
+        // string query = "INSERT INTO [" + loc_database + "].[dbo].[vReceptionResult] " +
+        //                "(DateRecording, PostName, TankCode, DtStart, DtEnd, RecWeight, RecVolume, RecDensity, RecTemperature, RecDensityCoerced, RecVolumeCoerced, SumVolumeStart, SumVolumeEnd, SumWeightStart, SumWeightEnd, " +
+        //                "Volume, CompNbr, DispathOrder, sInvNum, OsProduct, iProcessed, " + //, Fingerprint  
+
+        //                "qTankLevelStartTo, qVolumeTankStartTo, qWeightTankStartTo, qDensityTankStartTo, qTempTankStartTo, qTankWaterLStartTo, qPressureStartTo, " + // start RVS section
+        //                "qTankLevelEndTo, qVolumeTankEndTo, qWeightTankEndTo, qDensityTankEndTo, qTempTankEndTo, qTankWaterLEndTo, qPressureEndTo, " + // end RVS section
+        //                "ModeCtrl) " +
+        //                "Values(GETDATE(), '" + PostName + "', " + TankCode + ", '" + formatTime("%Y-%m-%dT%H:%M:%S", DtStart) + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", DtEnd) + "', " +
+        //                RecWeight + ", " + RecVolume + ", " + RecDensity + ", " + RecTemperature + ", " + RecDensityCoerced + ", " +
+        //                RecVolumeCoerced + ", " + SumVolumeStart + ", " + SumVolumeEnd + ", " + SumWeightStart + ", " + SumWeightEnd + ", " +
+
+        //                Volume + ", '" + CompNbr + "', '" + DispathOrder + "', '" + sInvNum + "', '" + OsProduct + "', 0, " + //, Fingerprint 
+
+        //                qTankLevelStart + ", " + qVolumeTankStart + ", " + qWeightTankStart + ", " + qDensityTankStart + ", " + qTempTankStart + ", " + qTankWaterLStart + ", " + qPressureStart + ", " +  // start RVS values
+        //                qTankLevelEnd + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " + qTempTankEnd + ", " + qTankWaterLEnd + ", " + qPressureEnd + ", " +  // end RVS values
+
+        //                ModeCtrl + ");";
+
         DebugFTN("db_info", "RECEIVE | updateReceive query \n", query);
         dbStartCommand(con, query, cmd);
         dbExecuteCommand(cmd);
