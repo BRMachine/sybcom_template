@@ -25,7 +25,7 @@ void cbWorker(dyn_string dp, dyn_int val){
   if(val[1] == 32){
     asn_state.backCol(&quot;Green&quot;);
   }
-  else if(val[1] == 16){
+  else if(val[1] == 96){
     asn_state.backCol(&quot;Red&quot;);
   }
   else{
