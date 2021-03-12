@@ -16,7 +16,7 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics&quot;
 const string dp = $dp;
-
+const string tooltip = $tooltip;
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
 
@@ -253,6 +253,11 @@ void cbValue(dyn_string dp, dyn_anytype value){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   ChildPanelOnCentral(&quot;faceplates\\AI\\main\\AI.xml&quot;,&quot;AI&quot;+dp , makeDynString(&quot;$dp:&quot; + dp));
+}
+]]></script>
+    <script name="MouseOver" isEscaped="1"><![CDATA[main(bool enter)
+{
+  btn_fp.toolTipText(tooltip);
 }
 ]]></script>
     <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
