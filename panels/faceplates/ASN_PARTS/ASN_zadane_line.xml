@@ -177,10 +177,16 @@ void clrOrderDp(){
                 &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.density&quot;   , 0.0);
   }
 }
+
+void line_sts(string dpe, int val){
+  val == 1 ? btn_add.enabled(false) : btn_add.enabled(true);
+}
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   txt_section.text(SECT);
   dpConnect(&quot;worker_order&quot;, ds_dp);
+
+  dpConnect(&quot;line_sts&quot;, &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;);
 
   dpConnect(&quot;worker_data&quot;, &quot;LINE&quot;+ LINE + &quot;_PV.&quot; + SECT + &quot;.vol_base&quot;,
                            &quot;LINE&quot;+ LINE + &quot;_PV.&quot; + SECT + &quot;.vol_doser&quot;,

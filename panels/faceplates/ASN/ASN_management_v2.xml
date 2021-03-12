@@ -300,6 +300,66 @@ string stpToText(int stp){
     case 96:
       res = &quot;Останов по датчику окончания налива&quot;;
       break;
+    case 97:
+      res = &quot;Выход за диапазон датчика управляемого клапана&quot;;
+      break;
+    case 98:
+      res = &quot;Ошибка БУС&quot;;
+      break;
+    case 99:
+      res = &quot;Аварийный стоп по МН-4&quot;;
+      break;
+    case 101:
+      res = &quot;Останов дозатором налива&quot;;
+      break;
+    case 102:
+      res = &quot;Останов по датчику сухого хода&quot;;
+      break;
+    case 112:
+      res = &quot;Ошибка на посту дозатора&quot;;
+      break;
+    case 114:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 2&quot;;
+      break;
+    case 115:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 3&quot;;
+      break;
+    case 116:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 4&quot;;
+      break;
+    case 117:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 5&quot;;
+      break;
+    case 118:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 6&quot;;
+      break;
+    case 119:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 7&quot;;
+      break;
+    case 120:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 8&quot;;
+      break;
+    case 121:
+      res = &quot;Останов по кнопке 'Аварийный стоп 2'&quot;;
+      break;
+    case 122:
+      res = &quot;Останов по кнопке 'Аварийный стоп 3'&quot;;
+      break;
+    case 123:
+      res = &quot;Останов по кнопке 'Аварийный стоп 4'&quot;;
+      break;
+    case 124:
+      res = &quot;Останов по кнопке 'Аварийный стоп 5'&quot;;
+      break;
+    case 125:
+      res = &quot;Останов по кнопке 'Аварийный стоп 6'&quot;;
+      break;
+    case 126:
+      res = &quot;Останов по кнопке 'Аварийный стоп 7'&quot;;
+      break;
+    case 127:
+      res = &quot;Останов по кнопке 'Аварийный стоп 8'&quot;;
+      break;
     default:
     res = &quot;НЕИЗВЕСТНАЯ ПРИЧИНА&quot;;
   }
@@ -309,6 +369,9 @@ string stpToText(int stp){
 string errToText(int sts){
   string res;
   switch(sts){
+    case 0:
+      res = &quot;Аварии нет&quot;;
+      break;
     case 20:
       res = &quot;Коррекция нуля в массомере&quot;;
       break;
@@ -413,6 +476,9 @@ main(){
   float pris;
   dpGet(DP + &quot;.Type_NP&quot;, type_int,
         DP + &quot;.cPercentPrisadki&quot;, pris);
+
+  //Отключил кнопку &quot;Продолжить&quot;, водитель сам должен двойным нажатием кнопки переводить пост из Паузы в Продолжение и из Продолжения в Пуск
+  PANEL_REF16.visible(false);
 
   sdShowValue(&quot;txt_pris_percent&quot;, DP + &quot;.cPercentPrisadki&quot;, pris, 2, &quot;0.123456&quot;, 2, &quot;%&quot;);
   string str_pris = ValToFormatedString(DP + &quot;.cPercentPrisadki&quot;, pris);

@@ -225,6 +225,66 @@ string stpToText(int stp){
     case 96:
       res = &quot;Останов по датчику окончания налива&quot;;
       break;
+    case 97:
+      res = &quot;Выход за диапазон датчика управляемого клапана&quot;;
+      break;
+    case 98:
+      res = &quot;Ошибка БУС&quot;;
+      break;
+    case 99:
+      res = &quot;Аварийный стоп по МН-4&quot;;
+      break;
+    case 101:
+      res = &quot;Останов дозатором налива&quot;;
+      break;
+    case 102:
+      res = &quot;Останов по датчику сухого хода&quot;;
+      break;
+    case 112:
+      res = &quot;Ошибка на посту дозатора&quot;;
+      break;
+    case 114:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 2&quot;;
+      break;
+    case 115:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 3&quot;;
+      break;
+    case 116:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 4&quot;;
+      break;
+    case 117:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 5&quot;;
+      break;
+    case 118:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 6&quot;;
+      break;
+    case 119:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 7&quot;;
+      break;
+    case 120:
+      res = &quot;Выход за диапазон знач-й датчика авар. стопа 8&quot;;
+      break;
+    case 121:
+      res = &quot;Останов по кнопке 'Аварийный стоп 2'&quot;;
+      break;
+    case 122:
+      res = &quot;Останов по кнопке 'Аварийный стоп 3'&quot;;
+      break;
+    case 123:
+      res = &quot;Останов по кнопке 'Аварийный стоп 4'&quot;;
+      break;
+    case 124:
+      res = &quot;Останов по кнопке 'Аварийный стоп 5'&quot;;
+      break;
+    case 125:
+      res = &quot;Останов по кнопке 'Аварийный стоп 6'&quot;;
+      break;
+    case 126:
+      res = &quot;Останов по кнопке 'Аварийный стоп 7'&quot;;
+      break;
+    case 127:
+      res = &quot;Останов по кнопке 'Аварийный стоп 8'&quot;;
+      break;
     default:
     res = &quot;НЕИЗВЕСТНАЯ ПРИЧИНА&quot;;
   }
@@ -234,6 +294,9 @@ string stpToText(int stp){
 string errToText(int sts){
   string res;
   switch(sts){
+    case 0:
+      res = &quot;Аварии нет&quot;;
+      break;
     case 20:
       res = &quot;Коррекция нуля в массомере&quot;;
       break;
@@ -350,6 +413,22 @@ void worker_post(dyn_string dp, dyn_anytype val){
 
 void start_btn(string dpe, int val){
   start_btn.enabled((!val) | (val == 99));
+  switch(val){
+    case 0:
+      txt_line_sts.text(&quot;Состояние линии: Ожидание&quot;);
+      break;
+    case 1:
+      txt_line_sts.text(&quot;Состояние линии: Налив&quot;);
+      break;
+    case 2:
+      txt_line_sts.text(&quot;Состояние линии: Завершено&quot;);
+      break;
+    case 99:
+      txt_line_sts.text(&quot;Состояние линии: Завершено&quot;);
+      break;
+    default:
+      txt_line_sts.text(&quot;Состояние линии: Неизвестно&quot;);
+  }
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
@@ -1642,6 +1721,41 @@ void start_btn(string dpe, int val){
     </extended>
    </properties>
   </reference>
+  <shape Name="txt_line_sts" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">398</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">6.000000000000171 33.99999999999989</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">96</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">6.000000000000171 33.99999999999989</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,-1,12,5,50,0,0,0,0,0,Regular</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Состояние линии:</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
  </shapes>
  <groups>
   <group parentSerial="-1" Name="SHAPE_GROUP6" serial="2">

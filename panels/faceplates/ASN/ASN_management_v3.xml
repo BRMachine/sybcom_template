@@ -406,6 +406,10 @@ main(){
   float pris;
   dpGet(DP + &quot;.Type_NP&quot;, type_int,
         DP + &quot;.cPercentPrisadki&quot;, pris);
+
+  //Отключил кнопку &quot;Продолжить&quot;, водитель сам должен двойным нажатием кнопки переводить пост из Паузы в Продолжение и из Продолжения в Пуск
+  PANEL_REF16.visible(false);
+
   sdShowValue(&quot;txt_pris_percent&quot;, DP + &quot;.cPercentPrisadki&quot;, pris, 2, &quot;0.123456&quot;, 2, &quot;%&quot;);
   string str_pris = ValToFormatedString(DP + &quot;.cPercentPrisadki&quot;, pris);
   NOM_POST.text = &quot;ПОСТ № &quot;+strltrim(dpSubStr(DP, DPSUB_DP), &quot;Post_&quot;);
