@@ -16,7 +16,15 @@
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[#uses &quot;sdSymbolDynamics&quot;
 const string dp = $dp;
-const string tooltip = $tooltip;
+
+string eu;
+#property string eu
+public string getEu(){
+  return eu;
+}
+public void setEu(string val){
+  eu = val;
+}
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
 
@@ -25,7 +33,8 @@ const string tooltip = $tooltip;
                        dp + &quot;.config.calc.c_max&quot;,
                        dp + &quot;.config.calc.c_min&quot;);
 
-  txt_eu.text(dpGetUnit(dp + &quot;.value.scaled&quot;));
+//   txt_eu.text(dpGetUnit(dp + &quot;.value.scaled&quot;));
+  txt_eu.text(eu);
   txt_comment.text(dpGetDescription(dp + &quot;.&quot;));
 }
 
@@ -257,7 +266,6 @@ void cbValue(dyn_string dp, dyn_anytype value){
 ]]></script>
     <script name="MouseOver" isEscaped="1"><![CDATA[main(bool enter)
 {
-  btn_fp.toolTipText(tooltip);
 }
 ]]></script>
     <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
