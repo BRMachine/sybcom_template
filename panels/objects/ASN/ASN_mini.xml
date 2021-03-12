@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">105 41</prop>
+  <prop name="Size">114 41</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">40 23</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -22,7 +22,7 @@ const string POST = $POST;
 
 void cbWorker(dyn_string dp, dyn_int val){
   //На всяуий оставил графику и скрипты, но все в комментарий загнал
-  if(val[1] == 2){
+  if(val[1] == 32){
     asn_state.backCol(&quot;Green&quot;);
   }
   else if(val[1] == 16){
