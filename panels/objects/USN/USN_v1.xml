@@ -23,8 +23,8 @@ public string getCarName()        { return txt_name.text; }
 public void setFuel(int fuel){
   switch (fuel){
     case 1:
-      txt_type.text(&quot;ДТ&quot;);
-      txt_type.backCol(&quot;DT&quot;);
+      txt_type.text(&quot;100&quot;);
+      txt_type.backCol(&quot;AI100&quot;);
       break;
     case 2:
       txt_type.text(&quot;ДТ&quot;);
