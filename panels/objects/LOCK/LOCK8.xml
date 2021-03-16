@@ -90,7 +90,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
       temp_in.backCol(&quot;Red&quot;);
     }
     else {
-      temp_in.backCol(&quot;Green&quot;);
+      temp_in.backCol(&quot;Grey&quot;);
     }
   }
 
@@ -100,7 +100,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;),
       temp_out.backCol(&quot;Red&quot;);
     }
     else {
-      temp_out.backCol(&quot;Green&quot;);
+      temp_out.backCol(&quot;Grey&quot;);
     }
   }
 

@@ -10,7 +10,7 @@
   <prop name="InitAndTermRef">True</prop>
   <prop name="SendClick">False</prop>
   <prop name="RefFileName"></prop>
-  <prop name="DPI">120</prop>
+  <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
  <events>
@@ -27,13 +27,13 @@ const string DP = $dp;]]></script>
 }
 
 void cbState(string dp, bit32 state){
-  el_sts.backCol = getBit(state, 24) ? &quot;Red&quot; : &quot;Green&quot;;
-  el_sts.backCol = getBit(state, 3) ? &quot;Red&quot; : &quot;Green&quot;;
+  el_sts.backCol = getBit(state, 24) ? &quot;Red&quot; : &quot;Grey&quot;;
+  el_sts.backCol = getBit(state, 3) ? &quot;Red&quot; : &quot;Grey&quot;;
 }
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="RECTANGLE2" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE2" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">11</prop>
     <prop name="Type"></prop>
@@ -61,7 +61,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="RECTANGLE3" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE3" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">12</prop>
     <prop name="Type"></prop>
@@ -89,7 +89,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="el_sts" shapeType="ELLIPSE">
+  <shape Name="el_sts" shapeType="ELLIPSE" layerId="0">
    <properties>
     <prop name="serialId">13</prop>
     <prop name="Type"></prop>
@@ -115,7 +115,7 @@ void cbState(string dp, bit32 state){
     <prop name="Y-Radius">13.65</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_comment" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_comment" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">14</prop>
     <prop name="Type"></prop>
@@ -158,7 +158,7 @@ void cbState(string dp, bit32 state){
 ]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="RECTANGLE6" shapeType="RECTANGLE">
+  <shape Name="RECTANGLE6" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">15</prop>
     <prop name="Type"></prop>
@@ -186,7 +186,7 @@ void cbState(string dp, bit32 state){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="txt_number" shapeType="PRIMITIVE_TEXT">
+  <shape Name="txt_number" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">16</prop>
     <prop name="Type"></prop>

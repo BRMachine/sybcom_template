@@ -33,7 +33,7 @@ main(){
 }
 
 void cbState(string dp, bit32 state){
-  el_sts.backCol = getBit(state, 24) ? &quot;Red&quot; : &quot;Green&quot;;
+  el_sts.backCol = getBit(state, 24) ? &quot;Red&quot; : &quot;Grey&quot;;
 }
 
 void cbDigital(dyn_string dp, dyn_anytype val){

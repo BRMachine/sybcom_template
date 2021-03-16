@@ -13,7 +13,7 @@ PANEL,-1 -1 898 63 N "_3DFace" 1
 }
 
 void cbState(string dp, bit32 state){
-  el_sts.backCol = getBit(state, 24) ? \"Red\" : \"Green\";
+  el_sts.backCol = getBit(state, 24) ? \"Red\" : \"Grey\";
 }
 
 void cbDigital(dyn_string dp, dyn_anytype val){

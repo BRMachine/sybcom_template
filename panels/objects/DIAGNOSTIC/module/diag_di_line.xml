@@ -27,8 +27,8 @@ const string DP = $dp;
 }
 
 void cbState(string dp, bit32 state){
-  el_sts.backCol = getBit(state, 24) ? &quot;Red&quot; : &quot;Green&quot;;
-  el_out.backCol = getBit(state, 4) ? &quot;Red&quot; : &quot;Green&quot;;
+  el_sts.backCol = getBit(state, 24) ? &quot;Red&quot; : &quot;Grey&quot;;
+  el_out.backCol = getBit(state, 4) ? &quot;Red&quot; : &quot;Grey&quot;;
 }
 
 ]]></script>
