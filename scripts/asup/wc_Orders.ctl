@@ -244,7 +244,9 @@ void worker(int line, string dp, int card){
                     "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
                     "Post_" + device + ".cCommand"          , 0x10,
                     items[i+2][1], 1);
-          delay(60); // Для опроса АСН по modbus
+
+          delay(90); // Для опроса АСН по modbus
+
           postAsnStart(line, items[i+0][2], device);
         }
 
