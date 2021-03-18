@@ -245,7 +245,7 @@ void worker(int line, string dp, int card){
                     "Post_" + device + ".cCommand"          , 0x10,
                     items[i+2][1], 1);
 
-          delay(90); // Для опроса АСН по modbus
+          delay(70); // Для опроса АСН по modbus
 
           postAsnStart(line, items[i+0][2], device);
         }
