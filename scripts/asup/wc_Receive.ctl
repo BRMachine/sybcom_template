@@ -14,8 +14,10 @@
 // variables and constants
 
  string dp_srv_act = "_ReduManager.EvStatus";      // Для основного сервера
- dyn_bool init_is_sts = makeDynBool(false, false, false);
- dyn_dyn_bool g_is_prev_sts = makeDynBool(init_is_sts, init_is_sts, init_is_sts, init_is_sts);
+//  dyn_bool init_is_sts = makeDynBool(false, false, false);
+//  dyn_dyn_bool g_is_prev_sts = makeDynBool(init_is_sts, init_is_sts, init_is_sts, init_is_sts);
+ dyn_dyn_bool g_is_prev_sts;  // init on main
+
 //--------------------------------------------------------------------------------
 
 // pubic functions
@@ -293,5 +295,9 @@ main(string p1){
   if(p1 == "-RES"){
     dp_srv_act = "_ReduManager_2.EvStatus";
   }
+   g_is_prev_sts[1] = makeDynBool(false, false, false);
+   g_is_prev_sts[2] = makeDynBool(false, false, false);
+   g_is_prev_sts[3] = makeDynBool(false, false, false);
+   g_is_prev_sts[4] = makeDynBool(false, false, false);
   dpQueryConnectSingle("cbIS", false, "ud", "SELECT '_original.._value' FROM 'IS_?.PST_?.status'");
 }
