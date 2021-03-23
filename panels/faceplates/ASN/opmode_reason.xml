@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">414 290</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">709 127</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string LINE = $line;
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="list_reason" shapeType="SELECTION_LIST" layerId="0">
+   <properties>
+    <prop name="serialId">514</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">0 -1</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">97</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">0 -1</prop>
+    <prop name="Size">417 237</prop>
+    <prop name="Listitems">
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Вторичное прикладывание карты, сброс задания</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Засорение фильтра на линии ТЗК</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Задание по альтерн. схеме (хранение)</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Коррекция продукта для АЗС</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Задание на налив равно нулю</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Нет связи с АСКУ РП</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Долив НП после ремонта ТЗК</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Неправильные действия водителя</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">Неисправность технолог. оборудования</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+    </prop>
+    <prop name="SelectionMode">SingleSelection</prop>
+    <prop name="alternatingRowColors">False</prop>
+   </properties>
+  </shape>
+  <shape Name="PUSH_BUTTON1" shapeType="PUSH_BUTTON" layerId="0">
+   <properties>
+    <prop name="serialId">515</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">118 251</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_ButtonText</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">98</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Location">118 243</prop>
+    <prop name="Size">181 38</prop>
+    <prop name="BorderStyle">Styled</prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Подтвердить</prop>
+    </prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  DebugN(list_reason.selectedText());
+  string reason = list_reason.selectedText();
+  int reason_num;
+  switch (reason){
+    case &quot;Вторичное прикладывание карты, сброс задания&quot;:
+      reason_num = 2;
+      break;
+    case &quot;Засорение фильтра на линии ТЗК&quot;:
+      reason_num = 10;
+      break;
+    case &quot;Задание по альтерн. схеме (хранение)&quot;:
+      reason_num = 11;
+      break;
+    case &quot;Коррекция продукта для АЗС&quot;:
+      reason_num = 100;
+      break;
+    case &quot;Задание на налив равно нулю&quot;:
+      reason_num = 110;
+      break;
+    case &quot;Нет связи с АСКУ РП&quot;:
+      reason_num = 87;
+      break;
+    case &quot;Долив НП после ремонта ТЗК&quot;:
+      reason_num = 77;
+      break;
+    case &quot;Неправильные действия водителя&quot;:
+      reason_num = 86;
+      break;
+    case &quot;Неисправность технолог. оборудования&quot;:
+      reason_num = 101;
+      break;
+  }
+  dpSet(&quot;ORDER_LINE&quot; + LINE + &quot;.ErrorCode&quot;, reason_num);
+  PanelOff();
+}
+]]></script>
+   </events>
+  </shape>
+ </shapes>
+</panel>

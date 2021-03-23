@@ -8,7 +8,7 @@
 
 //--------------------------------------------------------------------------------
 // used libraries (#uses)
-
+#uses "lib_asup"
 //--------------------------------------------------------------------------------
 // variables and constants
 // dyn_dyn_string dds_cur_post;
@@ -19,6 +19,12 @@ string dp_srv_act = "_ReduManager.EvStatus";      // Для основного �
 /**
 
 */
+void setBitDp(string dp, int num, bool sts){
+  bit32 tmp;
+  dpGet(dp, tmp);
+  setBit(tmp, num, sts);
+  dpSetWait(dp, tmp);
+}
 
 public void normalizeQueryData(dyn_dyn_anytype &data){
   data.removeAt(0);
@@ -190,10 +196,12 @@ void worker(int line, string dp, int card){
 
     dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
           "ORDER_LINE" + line + ".sIdCard", order_card);   // Номер карты водителя из задания
-    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard") //После интеграции МЕС (водители будут везде прикладывать карты) перенести условие из if в while 231 строки (цикл налива задания).
+    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard"){ //После интеграции МЕС (водители будут везде прикладывать карты) перенести условие из if в while 199 строки (цикл налива задания).
+      setBitDp("ORDER_LINE" + line + ".local.bitstatus", 9, true); //Налив разрешен (активирован) (приложили карту)
       DebugFTN("lg_info", "WC_ORDERS | Order and driver cards is equals");
-    else
+    }else{
       DebugTN("WC_ORDERS | Order and driver cards NOT equals", order_card, card);
+    }
 
   // Цикл налива задания
     while(order_sts < 2){ //& order_card == card)   // Пока налив задание не налито
@@ -239,10 +247,12 @@ void worker(int line, string dp, int card){
           DebugFTN("lg_info", "WC_ORDERS | Start section: ", items[i+2][1]);
           anytype post_dose, post_prisadka, post_percent, post_status;
           int count_while;
+          int RVSnum = getRvs_forPost(device);
           dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
                     "Post_" + device + ".сPrisadka"         , prisadka,
                     "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
                     "Post_" + device + ".cCommand"          , 0x10,
+                    "Post_" + device + ".MES.RVSnum"        , RVSnum,
                     items[i+2][1], 1);
 
           delay(70); // Для опроса АСН по modbus
@@ -284,6 +294,10 @@ void worker(int line, string dp, int card){
           sts_itm6 > 1 & sts_itm7 > 1 & sts_itm8 > 1 & sts_itm9 > 1 & sts_itm0 > 1){
         dpSetWait("ORDER_LINE" + line + ".iProcessed", 2,
                   "ORDER_LINE"+line+".TimeEnd", getCurrentTime());
+        setBitDp("ORDER_LINE" + line + ".local.bitstatus", 10, true);  // Налив завершен
+        setBitDp("ORDER_LINE" + line + ".local.bitstatus", 12, true);  // Все секции заполнены
+        setBitDp("ORDER_LINE" + line + ".local.bitstatus", 8, false);  // Задание установлено (нет)
+        //Можно чистить задание здесь
       }
       DebugFTN("lg_info", "WC_ORDERS | ========================END WHILE======================");
       delay(2);

@@ -366,10 +366,10 @@ string errToText(int sts){
   return res;
 }
 ]]></script>
-  <script name="Initialize" isEscaped="1"><![CDATA[void cb_sts_stop_err_reason(dyn_string dpe, dyn_anytype val){
+  <script name="Initialize" isEscaped="1"><![CDATA[/**void cb_sts_stop_err_reason(dyn_string dpe, dyn_anytype val){
   txt_stop_reason.text(stpToText(val[1]));
   txt_alarm.text(errToText(val[2]));
-}
+}*/
 
 void cb_post_params(dyn_string dpe, dyn_anytype val){
   txt_sts_post.text(stsToText(val[1]));
@@ -441,10 +441,10 @@ main(){
     default:
       type = &quot;---&quot;;
   }
-  txt_type_np.text(type);
+//   txt_type_np.text(type);
 
-  dpConnect(&quot;cb_sts_stop_err_reason&quot;, DP + &quot;.sStatusStop&quot;,
-                                      DP + &quot;.sErrorNaliv&quot;);
+  /**dpConnect(&quot;cb_sts_stop_err_reason&quot;, DP + &quot;.sStatusStop&quot;,
+                                      DP + &quot;.sErrorNaliv&quot;);*/
 
 
   dpConnect(&quot;cb_post_params&quot;, DP + &quot;.sStatusPosta&quot;,                        //1

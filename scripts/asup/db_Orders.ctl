@@ -20,7 +20,12 @@ string dp_srv_act = "_ReduManager.EvStatus";      // Для основного �
 //--------------------------------------------------------------------------------
 /**
 */
-
+void setBitDp(string dp, int num, bool sts){
+  bit32 tmp;
+  dpGet(dp, tmp);
+  setBit(tmp, num, sts);
+  dpSetWait(dp, tmp);
+}
 void cbDatabase(string dp, int db){
   iConnection = db;
 }
@@ -83,6 +88,13 @@ void getOrders(int line){
     changeActiveConnection(iConnection, mConfig);
     DebugFTN("db_error", "ORDERS | Error connection database");
     traceErrors();
+  }
+  if(!all_order.isEmpty()){
+    setBitDp("ORDER_LINE" + line + ".local.bitstatus", 8, true); //Задание установлено
+    setBitDp("ORDER_LINE" + line + ".local.bitstatus", 9, false); //Налив разрешен (активирован) (сброс)
+    setBitDp("ORDER_LINE" + line + ".local.bitstatus", 10, false); //Налив завершен (сброс)
+    setBitDp("ORDER_LINE" + line + ".local.bitstatus", 11, false); //Налив отменен (сброс)
+    setBitDp("ORDER_LINE" + line + ".local.bitstatus", 12, false); //Все секции заполнены (сброс)
   }
 }
 

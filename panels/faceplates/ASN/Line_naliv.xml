@@ -364,7 +364,8 @@ void clrOrderDp(){
             &quot;ORDER_LINE&quot; + LINE + &quot;.iOrderPriority&quot;,   0,
             &quot;ORDER_LINE&quot; + LINE + &quot;.iLine&quot;,            0,
             &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;,       99,
-            &quot;ORDER_LINE&quot; + LINE + &quot;ErrorCode&quot;,         0);
+            &quot;ORDER_LINE&quot; + LINE + &quot;ErrorCode&quot;,         0,
+            &quot;ORDER_LINE&quot; + LINE + &quot;reset&quot;,             1);
 
   for(int j=1; j&lt;=10; j++){
       dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sOrderNr&quot;,     &quot;&quot;,
@@ -399,8 +400,8 @@ void worker(dyn_string dp, dyn_anytype val){
   sc8.setEnable(!val[1]);
   sc9.setEnable(!val[1]);
   sc10.setEnable(!val[1]);
-  btn_start.enabled(!val[1]);
-  btn_clr.enabled(!val[1]);
+//   start_btn.enabled(!val[1]);
+//   clear_btn.enabled(!val[1]);
 }
 
 void worker_post(dyn_string dp, dyn_anytype val){
@@ -411,7 +412,9 @@ void worker_post(dyn_string dp, dyn_anytype val){
   }
 }
 
-void start_btn(string dpe, int val){
+void start_btn_enabled(string dpe, int val){
+  int control;
+  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.control&quot;, control);
   start_btn.enabled((!val) | (val == 99));
   switch(val){
     case 0:
@@ -448,7 +451,7 @@ void start_btn(string dpe, int val){
   current_card.enabled = getUserPermission(17);
   radio_mode.enabled = getUserPermission(17);
 
-  dpConnect(&quot;start_btn&quot;, &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;);
+  dpConnect(&quot;start_btn_enabled&quot;, &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;);
 
 }
 ]]></script>
@@ -681,6 +684,24 @@ void start_btn(string dpe, int val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(int button){
   dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.control&quot;, button);
+  if(!button){
+
+    bit32 tmp;
+    dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, tmp);
+    setBit(tmp, 0, true);
+    dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, tmp);
+
+    ChildPanelOnCentral(&quot;faceplates\\ASN\\opmode_reason.xml&quot;, &quot;Причина ручного задания&quot; , makeDynString(&quot;$line:&quot; + LINE));
+  }
+  else{
+
+    bit32 tmp;
+    dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, tmp);
+    setBit(tmp, 0, false);
+    dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, tmp);
+
+    dpSet(&quot;ORDER_LINE&quot; + LINE + &quot;.ErrorCode&quot;, 0);
+  }
 }
 ]]></script>
    </events>
@@ -1697,7 +1718,8 @@ void start_btn(string dpe, int val){
   }
 // Запуск задания в ручном режиме
   dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;, card,
-            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;, 1);
+            &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;,   1,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.reset&quot;,        0);
 }
 ]]></script>
     </extended>

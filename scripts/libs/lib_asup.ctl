@@ -338,6 +338,22 @@ public void updateRVS(mapping unack, time timestamp){
 }
 
 public void updateOrders(mapping data, time timestamp){}
+
+/** Определение номера РВС на пост исходя из РВС, который в режиме "Отпуск"*/
+public int getRvs_forPost(int post){
+  int res = 0;
+  dyn_int di_postRvs;
+  dpGet("Post_" + post + ".local.HelperRvs", di_postRvs);
+  for(int i=1; i<=di_postRvs.count(); i++){
+    int tmp_sts;
+    dpGet("LogicRVS_" + di_postRvs[i] + ".STS.status_mes", tmp_sts);
+    if(tmp_sts == 3){
+      res = di_postRvs[i];
+      break;
+    }
+  }
+  return res;
+}
 //--------------------------------------------------------------------------------
 //@private members
 //--------------------------------------------------------------------------------

@@ -26,20 +26,29 @@ string fuelToColor(string fuel){
     case \"G-100\":
       return \"AI100\";
     case \"АИ-92\":
+      return \"AI92\";
     case \"АИ-92(G)\":
       return \"AI92\";
     case \"АИ-95\":
+      return \"AI95\";
     case \"АИ-95(G)\":
       return \"AI95\";
     case \"АИ-98\":
       return \"AI98\";
     case \"ДТ\":
+      return \"DT\";
     case \"ДТЛ\":
+      return \"DT\";
     case \"ДТЗ\":
+      return \"DT\";
     case \"ДТА\":
+      return \"DT\";
     case \"ДТМ\":
+      return \"DT\";
     case \"ДТ(O)\":
       return \"DT\";
+    default:
+      return \"_Window\";
   }
 }
 
