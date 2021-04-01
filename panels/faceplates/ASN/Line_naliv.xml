@@ -15,6 +15,14 @@
  </properties>
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[const string LINE = $line;
+
+void setBitDp(string dp, int num, bool sts){
+  bit32 tmp;
+  dpGet(dp, tmp);
+  setBit(tmp, num, sts);
+  dpSetWait(dp, tmp);
+}
+
 string stpToText(int stp){
   string res = &quot;UNKNOW&quot;;
   switch(stp){
@@ -364,8 +372,8 @@ void clrOrderDp(){
             &quot;ORDER_LINE&quot; + LINE + &quot;.iOrderPriority&quot;,   0,
             &quot;ORDER_LINE&quot; + LINE + &quot;.iLine&quot;,            0,
             &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;,       99,
-            &quot;ORDER_LINE&quot; + LINE + &quot;ErrorCode&quot;,         0,
-            &quot;ORDER_LINE&quot; + LINE + &quot;reset&quot;,             1);
+            &quot;ORDER_LINE&quot; + LINE + &quot;.ErrorCode&quot;,         0,
+            &quot;ORDER_LINE&quot; + LINE + &quot;.reset&quot;,             1);
 
   for(int j=1; j&lt;=10; j++){
       dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.sOrderNr&quot;,     &quot;&quot;,
@@ -382,6 +390,12 @@ void clrOrderDp(){
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.nMass&quot;,        0,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.Device&quot;,       0,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + j + &quot;.init.iPercent&quot;,     0);
+
+      dpSetWait(&quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.vol_base&quot;  , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.vol_doser&quot; , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.mas_base&quot;  , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.temp&quot;      , 0.0,
+                &quot;LINE&quot;+LINE+&quot;_PV.&quot; + j + &quot;.density&quot;   , 0.0);
   }
 }
 
@@ -685,21 +699,11 @@ void start_btn_enabled(string dpe, int val){
     <script name="Clicked" isEscaped="1"><![CDATA[main(int button){
   dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.control&quot;, button);
   if(!button){
-
-    bit32 tmp;
-    dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, tmp);
-    setBit(tmp, 0, true);
-    dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, tmp);
-
+    setBitDp(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, 0, true);
     ChildPanelOnCentral(&quot;faceplates\\ASN\\opmode_reason.xml&quot;, &quot;Причина ручного задания&quot; , makeDynString(&quot;$line:&quot; + LINE));
   }
   else{
-
-    bit32 tmp;
-    dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, tmp);
-    setBit(tmp, 0, false);
-    dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, tmp);
-
+    setBitDp(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, 0, false);
     dpSet(&quot;ORDER_LINE&quot; + LINE + &quot;.ErrorCode&quot;, 0);
   }
 }
@@ -1720,6 +1724,12 @@ void start_btn_enabled(string dpe, int val){
   dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.current_card&quot;, card,
             &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;,   1,
             &quot;ORDER_LINE&quot; + LINE + &quot;.reset&quot;,        0);
+
+  setBitDp(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, 8, true); //Задание установлено
+  setBitDp(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, 9, false); //Налив разрешен (активирован)
+  setBitDp(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, 10, false); //Налив завершен (сброс)
+  setBitDp(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, 11, false); //Налив отменен (сброс)
+  setBitDp(&quot;ORDER_LINE&quot; + LINE + &quot;.local.bitstatus&quot;, 12, false); //Все секции заполнены (сброс)
 }
 ]]></script>
     </extended>

@@ -182,7 +182,7 @@ void worker(int line, string dp, int card){
   bool temp_srv;
   dpGet(dp_srv_act, temp_srv);
   if(temp_srv){
-    int order_sts;
+    int order_sts, current_card;
     bool init;
     string order_card;
     dyn_dyn_anytype items;   // 0 - iCompNr | 1 - iQuantity | 2 - iProcessed | 3 - Device | 4 - iPercent
@@ -195,15 +195,12 @@ void worker(int line, string dp, int card){
                           "ORDER_LINE"+line+".items.?.init.iPercent}'";     // 4 - Процент присадки (если используется)
 
     dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
-          "ORDER_LINE" + line + ".sIdCard", order_card);   // Номер карты водителя из задания
-    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard"){ //После интеграции МЕС (водители будут везде прикладывать карты) перенести условие из if в while 199 строки (цикл налива задания).
+          "ORDER_LINE" + line + ".sIdCard", order_card,    // Номер карты водителя из задания
+          "ORDER_LINE" + line + ".current_card", current_card);
+    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard" | current_card == 0){ //После интеграции МЕС (водители будут везде прикладывать карты) перенести условие из if в while 199 строки (цикл налива задания).
       setBitDp("ORDER_LINE" + line + ".local.bitstatus", 9, true); //Налив разрешен (активирован) (приложили карту)
       DebugFTN("lg_info", "WC_ORDERS | Order and driver cards is equals");
-    }else{
-      DebugTN("WC_ORDERS | Order and driver cards NOT equals", order_card, card);
-    }
-
-  // Цикл налива задания
+     // Цикл налива задания
     while(order_sts < 2){ //& order_card == card)   // Пока налив задание не налито
       dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
             "ORDER_LINE" + line + ".sIdCard", order_card);   // Номер карты водителя из задания
@@ -302,6 +299,13 @@ void worker(int line, string dp, int card){
       DebugFTN("lg_info", "WC_ORDERS | ========================END WHILE======================");
       delay(2);
     }
+
+  }else{
+      DebugTN("WC_ORDERS | Order and driver cards NOT equals", order_card, card);
+    }
+/**while*/
+
+/**======*/
     DebugFTN("lg_info", "WC_ORDERS | =======================END СCONNECT====================");
   }
 }
@@ -324,6 +328,92 @@ private mapping getRvsData(int rvs_num){
   return res;
 }
 
+/**
+  Методы для передачи сосотояний ПОСТОВ в local.bitstatus
+  (дальше bitstatus перекладывается в OperativeData)
+*/
+void post_stop(anytype UserData, dyn_dyn_anytype val){
+  string dp_name = val[2][1];
+  int stop_reason = val[2][2];
+  string post;
+  dyn_string tmp_post = strsplit(val[2][1], ":");
+  tmp_post = strsplit(tmp_post[2], ".");
+  post = tmp_post[1];
+  //Запись в bitstatus для MES
+  switch (stop_reason){
+    case 0:
+      setBitDp(post + ".local.bitstatus", 25, false); //Доза налива завершена (переход в паузу по завершению дозы по объему)
+      setBitDp(post + ".local.bitstatus", 17, false); //Останов дозатором налива
+      break;
+    case 11:
+      setBitDp(post + ".local.bitstatus", 25, true);
+      setBitDp(post + ".local.bitstatus", 17, false);
+      break;
+    case 101:
+      setBitDp(post + ".local.bitstatus", 25, false);
+      setBitDp(post + ".local.bitstatus", 17, true);
+      break;
+  }
+}
+
+void post_status(anytype UserData, dyn_dyn_anytype val){
+  string dp_name = val[2][1];
+  int post_sts = val[2][2];
+  string post;
+  dyn_string tmp_post = strsplit(val[2][1], ":");
+  tmp_post = strsplit(tmp_post[2], ".");
+  post = tmp_post[1]; //Получили номер поста вида "Post_#", например, Post_1.
+  //Запись в bitstatus для MES
+  switch(post_sts){
+    case 0: //Ожидание
+      setBitDp(post + ".local.bitstatus", 29, true);
+      setBitDp(post + ".local.bitstatus", 26, false);
+      setBitDp(post + ".local.bitstatus", 24, false);
+      setBitDp(post + ".local.bitstatus", 23, false);
+      break;
+    case 16: //Разрешение налива
+      setBitDp(post + ".local.bitstatus", 29, false);
+      setBitDp(post + ".local.bitstatus", 26, true);
+      setBitDp(post + ".local.bitstatus", 24, false);
+      setBitDp(post + ".local.bitstatus", 23, false);
+      break;
+    case 32: //Налив
+      setBitDp(post + ".local.bitstatus", 29, false);
+      setBitDp(post + ".local.bitstatus", 26, false);
+      setBitDp(post + ".local.bitstatus", 24, true);
+      setBitDp(post + ".local.bitstatus", 23, false);
+      break;
+    case 96: //Ошибка
+      setBitDp(post + ".local.bitstatus", 29, false);
+      setBitDp(post + ".local.bitstatus", 26, false);
+      setBitDp(post + ".local.bitstatus", 24, false);
+      setBitDp(post + ".local.bitstatus", 23, true);
+      break;
+    default:
+      break;
+  }
+}
+
+void post_link(anytype UserData, dyn_dyn_anytype val){
+  string dp_name = val[2][1];
+  bool mb_link = val[2][2];
+  string post;
+  dyn_string tmp_post = strsplit(val[2][1], ":");
+  tmp_post = strsplit(tmp_post[2], ".");
+  post = tmp_post[1]; //Получили номер поста вида "Post_#", например, Post_1.
+  //Запись в bitstatus для MES
+  switch(mb_link){
+    case true:
+      setBitDp(post + ".local.bitstatus", 0, true);
+      setBitDp(post + ".local.bitstatus", 1, false);
+      break;
+    case false:
+      setBitDp(post + ".local.bitstatus", 0, false);
+      setBitDp(post + ".local.bitstatus", 1, true);
+      break;
+  }
+}
+//====================================
 main(string p1){
   if(p1 == "-RES"){ dp_srv_act = "_ReduManager_2.EvStatus"; }
 //   string query_order1 = "SELECT '_original.._value' FROM 'ORDER_LINE1.items.*.init.iProcessed'",
@@ -341,5 +431,8 @@ main(string p1){
   dpConnectUserData("worker", 5, false, "ORDER_LINE5.current_card");
   dpConnectUserData("worker", 6, false, "ORDER_LINE6.current_card");
 
+  dpQueryConnectSingle("post_stop", false, "", "SELECT '_original.._value' FROM 'Post_*.sStatusStop'");
+  dpQueryConnectSingle("post_status", false, "", "SELECT '_original.._value' FROM 'Post_*.sStatusPosta'");
+  dpQueryConnectSingle("post_link", false, "", "SELECT '_original.._value' FROM 'Post_*.MBNoLink'");
 //   dpQueryConnectSingle("worker_order", false, 1, query_order1);
 }

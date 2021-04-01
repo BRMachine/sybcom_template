@@ -29,6 +29,12 @@ const float DEFPR = 0.0;
 
 /*--dyn_dyn_anytype sortData(dyn_anytype vals){
 }*/
+void setBitDp(string dp, int num, bool sts){
+  bit32 tmp;
+  dpGet(dp, tmp);
+  setBit(tmp, num, sts);
+  dpSetWait(dp, tmp);
+}
 
 string stsToText(int sts){
   string res;
