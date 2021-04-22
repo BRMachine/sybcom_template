@@ -198,8 +198,7 @@ void worker(int line, string dp, int card){
     dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
           "ORDER_LINE" + line + ".sIdCard", order_card,    // Номер карты водителя из задания
           "ORDER_LINE" + line + ".current_card", current_card);
-    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard" | current_card == 0){ //После интеграции МЕС (водители будут везде прикладывать карты) перенести условие из if в while 199 строки (цикл налива задания).
->>>>>>> refs/remotes/origin/main
+    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard" | current_card == 0){ //После интеграции МЕС (водители будут везде прикладывать карты)
       setBitDp("ORDER_LINE" + line + ".local.bitstatus", 9, true); //Налив разрешен (активирован) (приложили карту)
       DebugFTN("lg_info", "WC_ORDERS | Order and driver cards is equals");
      // Цикл налива задания
