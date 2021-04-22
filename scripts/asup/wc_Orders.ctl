@@ -198,7 +198,8 @@ void worker(int line, string dp, int card){
     dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
           "ORDER_LINE" + line + ".sIdCard", order_card,    // Номер карты водителя из задания
           "ORDER_LINE" + line + ".current_card", current_card);
-    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard" | current_card == 0){ //После интеграции МЕС (водители будут везде прикладывать карты)
+    if(card == (int)order_card | (int)order_card == 0 | order_card == "getCard" | current_card == 0){ //После интеграции МЕС (водители будут везде прикладывать карты) перенести условие из if в while 199 строки (цикл налива задания).
+>>>>>>> refs/remotes/origin/main
       setBitDp("ORDER_LINE" + line + ".local.bitstatus", 9, true); //Налив разрешен (активирован) (приложили карту)
       DebugFTN("lg_info", "WC_ORDERS | Order and driver cards is equals");
      // Цикл налива задания
@@ -418,10 +419,6 @@ void post_link(anytype UserData, dyn_dyn_anytype val){
       break;
   }
 }
-
-// void bitsts_line1(string dpe, int val){
-//   DebugN("line1 bitstatus=", val);
-// }
 //====================================
 main(string p1){
   if(p1 == "-RES"){ dp_srv_act = "_ReduManager_2.EvStatus"; }
@@ -439,8 +436,6 @@ main(string p1){
   dpConnectUserData("worker", 4, false, "ORDER_LINE4.current_card");
   dpConnectUserData("worker", 5, false, "ORDER_LINE5.current_card");
   dpConnectUserData("worker", 6, false, "ORDER_LINE6.current_card");
-
-//   dpConnect("bitsts_line1", "System1:ORDER_LINE1.local.bitstatus");
 
   dpQueryConnectSingle("post_stop", false, "", "SELECT '_original.._value' FROM 'Post_*.sStatusStop'");
   dpQueryConnectSingle("post_status", false, "", "SELECT '_original.._value' FROM 'Post_*.sStatusPosta'");
