@@ -187,7 +187,7 @@ void setOrderDp(dyn_mapping orders, dbConnection con){
                 "ORDER_LINE" + line + ".items." + section + ".init.dtAdded",      items[j]["dtAdded"],
                 "ORDER_LINE" + line + ".items." + section + ".init.iProcessed",   items[j]["iProcessed"],
                 "ORDER_LINE" + line + ".items." + section + ".init.bTrailer",     items[j]["bTrailer"],
-                "ORDER_LINE" + line + ".items." + section + ".init.sRegNr",       items[j]["sRegNr"],
+                "ORDER_LINE" + line + ".items." + section + ".init.sRegNr",       items[j]["sRegNr"], //Записывался номер прицепа (sRegNr), а должен записываться номер машины (sRegANr)
                 "ORDER_LINE" + line + ".items." + section + ".init.sKompNr",      items[j]["sKompNr"],
                 "ORDER_LINE" + line + ".items." + section + ".init.sDoc",         items[j]["sDoc"],
                 "ORDER_LINE" + line + ".items." + section + ".init.sDelivery",    items[j]["sDelivery"],
@@ -211,7 +211,7 @@ void clrOrderDp(int line){
             "ORDER_LINE" + line + ".iOrderPriority",   0,
             "ORDER_LINE" + line + ".iLine",            0,
             "ORDER_LINE" + line + ".iProcessed",       99,
-            "ORDER_LINE" + line + "ErrorCode",         0);
+            "ORDER_LINE" + line + ".ErrorCode",         0);
 
   for(int j=1; j<=10; j++){
       dpSetWait("ORDER_LINE" + line + ".items." + j + ".init.sOrderNr",     "",
@@ -242,6 +242,7 @@ void worker(int line, string dp, bool val){
 }
 
 void workerEnd(anytype ud, dyn_dyn_anytype data){
+  DebugFTN("db_info", "db_Orders, workerEnd - START \n", data);
   bool temp_srv;
   dpGet(dp_srv_act, temp_srv);
   if(temp_srv){
@@ -332,7 +333,7 @@ void workerEnd(anytype ud, dyn_dyn_anytype data){
                                      formatTime("%Y-%m-%dT%H:%M:%S", rDtStart)  + "', '" + formatTime("%Y-%m-%dT%H:%M:%S", rDtEnd) + "', '" + rOrderedWeight + "', '" + rDispatchOrder + "', '" + rSHash + "', 0, " +
                                      SumVolumeStartpr + ", " + SumVolumeEndpr + ", " + qTankLevelStart + ", " + qVolumeTankStart + ", " + qWeightTankStart + ", " + qDensityTankStart + ", " + qTempTankStart + ", " +
                                      qPressureStart + ", " + qLevelWaterStart + ", " + qVolumeWaterStart + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " +
-                                     qTempTankEnd + ", " + qPressureEnd + ", " + qLevelWaterEnd + ", " + qCardID + ", " + qNbrLine +" )";
+                                     qTempTankEnd + ", " + qPressureEnd + ", " + qLevelWaterEnd + ", '" + qCardID + "', " + qNbrLine +" )"; // Добавил ковычки для cardID
 
         DebugFTN("db_info", "ORDERS | update vLoadingResult query \n", query);
         dbStartCommand(con, query, cmd);

@@ -260,16 +260,16 @@ void worker_val(dyn_string dp, dyn_anytype val){
 //   top_bar.backCol(fuelToColor(val));
 // }
 
-void cbAlarmLogic(string dp, string color){
-  if(color != &quot;&quot;){
-    top_bar.backCol(color);
-  }else{
-    string fuel;
-    dpGet(DP + &quot;.fuel_type&quot;, fuel);
-    top_bar.backCol(fuelToColor(fuel));
+// void cbAlarmLogic(string dp, string color){
+//   if(color != &quot;&quot;){
+//     top_bar.backCol(color);
+//   }else{
+//     string fuel;
+//     dpGet(DP + &quot;.fuel_type&quot;, fuel);
+//     top_bar.backCol(fuelToColor(fuel));
 //    initFuel(fuel);
-  }
-}
+//   }
+// }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
 //   dpConnect(&quot;cbLogicRVS&quot;, LogicRVS + &quot;.STS.status_rvs&quot;,

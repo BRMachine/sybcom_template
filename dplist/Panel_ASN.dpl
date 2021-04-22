@@ -1,0 +1,388 @@
+# ascii dump of database
+
+# DpType
+TypeName
+Panel_Section.Panel_Section	1#1
+	TypeOil	21#6
+	Zadano	20#7
+	Nalito	20#8
+	StateSection	21#9
+Panel_ASN.Panel_ASN	1#1
+	IDCardSwap	58#2
+	NumZadanyNaliv	21#3
+	StatusPosta	1#4
+		Post_1	21#5
+		Post_2	21#6
+		Post_3	21#7
+		Post_4	21#8
+		Post_5	21#9
+		Post_6	21#10
+		Post_7	21#11
+		Post_8	21#12
+		Post_9	21#13
+		Post_10	21#14
+	GosNumber	1#15
+		Symbol_1	21#16
+		Symbol_2	21#17
+		Symbol_3	21#18
+		Symbol_4	21#19
+		Symbol_5	21#20
+		Symbol_6	21#21
+		Symbol_7	21#22
+		Symbol_8	21#23
+		Symbol_9	21#24
+		Symbol_10	21#25
+		Symbol_11	21#26
+		Symbol_12	21#27
+	sections	1#33
+		1	41#34:Panel_Section
+		2	41#35:Panel_Section
+		3	41#44:Panel_Section
+		4	41#50:Panel_Section
+		5	41#51:Panel_Section
+		6	41#52:Panel_Section
+		7	41#53:Panel_Section
+		8	41#54:Panel_Section
+		9	41#55:Panel_Section
+		10	41#56:Panel_Section
+
+# Datapoint/DpId
+DpName	TypeName	ID
+Panel_1	Panel_ASN	5397
+Panel_2	Panel_ASN	5416
+Panel_3	Panel_ASN	5417
+
+# DistributionInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+UI (9)/0	1616731221	725	Panel_1.NumZadanyNaliv	Panel_ASN	56	\11
+UI (9)/0	1616731242	417	Panel_1.GosNumber.Symbol_1	Panel_ASN	56	\11
+UI (9)/0	1616731250	457	Panel_1.GosNumber.Symbol_2	Panel_ASN	56	\11
+UI (9)/0	1616731257	131	Panel_1.GosNumber.Symbol_3	Panel_ASN	56	\11
+UI (9)/0	1616731264	467	Panel_1.GosNumber.Symbol_4	Panel_ASN	56	\11
+UI (9)/0	1616731273	983	Panel_1.GosNumber.Symbol_5	Panel_ASN	56	\11
+UI (9)/0	1616759846	696	Panel_1.GosNumber.Symbol_6	Panel_ASN	56	\11
+UI (9)/0	1616759854	739	Panel_1.GosNumber.Symbol_7	Panel_ASN	56	\11
+UI (9)/0	1616759863	524	Panel_1.GosNumber.Symbol_8	Panel_ASN	56	\11
+UI (9)/0	1616759871	36	Panel_1.GosNumber.Symbol_9	Panel_ASN	56	\11
+UI (9)/0	1616759882	392	Panel_1.GosNumber.Symbol_10	Panel_ASN	56	\11
+UI (9)/0	1616759888	116	Panel_1.GosNumber.Symbol_11	Panel_ASN	56	\11
+UI (9)/0	1616759895	934	Panel_1.GosNumber.Symbol_12	Panel_ASN	56	\11
+UI (9)/0	1616759906	904	Panel_1.sections.1.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616759914	207	Panel_1.sections.1.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616759921	674	Panel_1.sections.1.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616759935	99	Panel_1.sections.2.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616759941	542	Panel_1.sections.2.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616759946	967	Panel_1.sections.2.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616759961	308	Panel_1.sections.3.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616759966	924	Panel_1.sections.3.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616759972	391	Panel_1.sections.3.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616759989	804	Panel_1.sections.4.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616759996	872	Panel_1.sections.4.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616760002	802	Panel_1.sections.4.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616760015	489	Panel_1.sections.5.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616760021	734	Panel_1.sections.5.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616760027	450	Panel_1.sections.5.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616760042	17	Panel_1.sections.6.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616760048	435	Panel_1.sections.6.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616760053	671	Panel_1.sections.6.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616760066	947	Panel_1.sections.7.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616760072	267	Panel_1.sections.7.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616760078	162	Panel_1.sections.7.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616760089	921	Panel_1.sections.8.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616760097	872	Panel_1.sections.8.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616760103	666	Panel_1.sections.8.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616760117	491	Panel_1.sections.9.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616760122	765	Panel_1.sections.9.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616760128	36	Panel_1.sections.9.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616760139	823	Panel_1.sections.10.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616760146	204	Panel_1.sections.10.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616760151	928	Panel_1.sections.10.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616759927	910	Panel_1.sections.1.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616759953	376	Panel_1.sections.2.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616759980	446	Panel_1.sections.3.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616760008	635	Panel_1.sections.4.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616760033	671	Panel_1.sections.5.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616760058	983	Panel_1.sections.6.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616760083	382	Panel_1.sections.7.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616760109	425	Panel_1.sections.8.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616760132	951	Panel_1.sections.9.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616760157	309	Panel_1.sections.10.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616760168	111	Panel_2.NumZadanyNaliv	Panel_ASN	56	\11
+UI (9)/0	1616760184	67	Panel_2.GosNumber.Symbol_1	Panel_ASN	56	\11
+UI (9)/0	1616760189	946	Panel_2.GosNumber.Symbol_2	Panel_ASN	56	\11
+UI (9)/0	1616760196	523	Panel_2.GosNumber.Symbol_3	Panel_ASN	56	\11
+UI (9)/0	1616760202	359	Panel_2.GosNumber.Symbol_4	Panel_ASN	56	\11
+UI (9)/0	1616760209	191	Panel_2.GosNumber.Symbol_5	Panel_ASN	56	\11
+UI (9)/0	1616760216	559	Panel_2.GosNumber.Symbol_6	Panel_ASN	56	\11
+UI (9)/0	1616760222	219	Panel_2.GosNumber.Symbol_7	Panel_ASN	56	\11
+UI (9)/0	1616760227	604	Panel_2.GosNumber.Symbol_8	Panel_ASN	56	\11
+UI (9)/0	1616760233	986	Panel_2.GosNumber.Symbol_9	Panel_ASN	56	\11
+UI (9)/0	1616760241	940	Panel_2.GosNumber.Symbol_10	Panel_ASN	56	\11
+UI (9)/0	1616760247	405	Panel_2.GosNumber.Symbol_11	Panel_ASN	56	\11
+UI (9)/0	1616760252	809	Panel_2.GosNumber.Symbol_12	Panel_ASN	56	\11
+UI (9)/0	1616760263	596	Panel_2.sections.1.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616760269	243	Panel_2.sections.1.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616760275	321	Panel_2.sections.1.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834306	683	Panel_2.sections.2.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834313	13	Panel_2.sections.2.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834321	979	Panel_2.sections.2.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834334	616	Panel_2.sections.3.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834341	335	Panel_2.sections.3.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834349	322	Panel_2.sections.3.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834363	608	Panel_2.sections.4.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834369	153	Panel_2.sections.4.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834374	558	Panel_2.sections.4.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834388	212	Panel_2.sections.5.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834393	713	Panel_2.sections.5.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834399	990	Panel_2.sections.5.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834416	213	Panel_2.sections.6.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834422	784	Panel_2.sections.6.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834429	512	Panel_2.sections.6.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834445	677	Panel_2.sections.7.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834450	932	Panel_2.sections.7.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834457	536	Panel_2.sections.7.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834471	452	Panel_2.sections.8.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834477	166	Panel_2.sections.8.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834483	94	Panel_2.sections.8.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834496	369	Panel_2.sections.9.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834501	904	Panel_2.sections.9.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834507	642	Panel_2.sections.9.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834521	546	Panel_2.sections.10.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834527	69	Panel_2.sections.10.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834532	777	Panel_2.sections.10.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834297	407	Panel_2.sections.1.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834327	180	Panel_2.sections.2.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834354	584	Panel_2.sections.3.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834380	482	Panel_2.sections.4.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834406	527	Panel_2.sections.5.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834436	92	Panel_2.sections.6.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834462	902	Panel_2.sections.7.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834488	429	Panel_2.sections.8.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834513	391	Panel_2.sections.9.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834537	872	Panel_2.sections.10.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834550	116	Panel_3.NumZadanyNaliv	Panel_ASN	56	\11
+UI (9)/0	1616834568	259	Panel_3.GosNumber.Symbol_1	Panel_ASN	56	\11
+UI (9)/0	1616834573	636	Panel_3.GosNumber.Symbol_2	Panel_ASN	56	\11
+UI (9)/0	1616834579	880	Panel_3.GosNumber.Symbol_3	Panel_ASN	56	\11
+UI (9)/0	1616834585	312	Panel_3.GosNumber.Symbol_4	Panel_ASN	56	\11
+UI (9)/0	1616834590	654	Panel_3.GosNumber.Symbol_5	Panel_ASN	56	\11
+UI (9)/0	1616834596	753	Panel_3.GosNumber.Symbol_6	Panel_ASN	56	\11
+UI (9)/0	1616834602	615	Panel_3.GosNumber.Symbol_7	Panel_ASN	56	\11
+UI (9)/0	1616834607	835	Panel_3.GosNumber.Symbol_8	Panel_ASN	56	\11
+UI (9)/0	1616834612	909	Panel_3.GosNumber.Symbol_9	Panel_ASN	56	\11
+UI (9)/0	1616834618	655	Panel_3.GosNumber.Symbol_10	Panel_ASN	56	\11
+UI (9)/0	1616834624	181	Panel_3.GosNumber.Symbol_11	Panel_ASN	56	\11
+UI (9)/0	1616834629	378	Panel_3.GosNumber.Symbol_12	Panel_ASN	56	\11
+UI (9)/0	1616834641	817	Panel_3.sections.1.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834647	738	Panel_3.sections.1.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834653	862	Panel_3.sections.1.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834672	17	Panel_3.sections.2.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834678	823	Panel_3.sections.2.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834685	912	Panel_3.sections.2.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834701	424	Panel_3.sections.3.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834706	880	Panel_3.sections.3.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834713	562	Panel_3.sections.3.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834727	352	Panel_3.sections.4.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834733	317	Panel_3.sections.4.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834741	151	Panel_3.sections.4.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834755	492	Panel_3.sections.5.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834761	382	Panel_3.sections.5.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834768	597	Panel_3.sections.5.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834784	91	Panel_3.sections.6.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834789	132	Panel_3.sections.6.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834794	701	Panel_3.sections.6.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834809	606	Panel_3.sections.7.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834815	779	Panel_3.sections.7.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834821	312	Panel_3.sections.7.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834835	807	Panel_3.sections.8.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834841	101	Panel_3.sections.8.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834850	229	Panel_3.sections.8.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834864	890	Panel_3.sections.9.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834872	127	Panel_3.sections.9.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834877	813	Panel_3.sections.9.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834891	672	Panel_3.sections.10.TypeOil	Panel_ASN	56	\11
+UI (9)/0	1616834897	489	Panel_3.sections.10.Zadano	Panel_ASN	56	\11
+UI (9)/0	1616834903	701	Panel_3.sections.10.Nalito	Panel_ASN	56	\11
+UI (9)/0	1616834659	192	Panel_3.sections.1.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834692	380	Panel_3.sections.2.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834719	763	Panel_3.sections.3.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834747	200	Panel_3.sections.4.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834774	379	Panel_3.sections.5.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834802	484	Panel_3.sections.6.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834826	628	Panel_3.sections.7.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834856	349	Panel_3.sections.8.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834883	708	Panel_3.sections.9.StateSection	Panel_ASN	56	\11
+UI (9)/0	1616834909	310	Panel_3.sections.10.StateSection	Panel_ASN	56	\11
+
+# PeriphAddrMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+UI (9)/0	1617344161	875	Panel_1.NumZadanyNaliv	Panel_ASN	16	"Panel_1.Data.NumZadanyNaliv"	_PollRSU	_RSU2	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992186	513	Panel_1.GosNumber.Symbol_1	Panel_ASN	16	"Panel_1.Data.NumSymbol_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992190	282	Panel_1.GosNumber.Symbol_2	Panel_ASN	16	"Panel_1.Data.NumSymbol_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992194	270	Panel_1.GosNumber.Symbol_3	Panel_ASN	16	"Panel_1.Data.NumSymbol_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992197	995	Panel_1.GosNumber.Symbol_4	Panel_ASN	16	"Panel_1.Data.NumSymbol_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992201	731	Panel_1.GosNumber.Symbol_5	Panel_ASN	16	"Panel_1.Data.NumSymbol_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992205	371	Panel_1.GosNumber.Symbol_6	Panel_ASN	16	"Panel_1.Data.NumSymbol_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992208	740	Panel_1.GosNumber.Symbol_7	Panel_ASN	16	"Panel_1.Data.NumSymbol_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992213	178	Panel_1.GosNumber.Symbol_8	Panel_ASN	16	"Panel_1.Data.NumSymbol_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992217	991	Panel_1.GosNumber.Symbol_9	Panel_ASN	16	"Panel_1.Data.NumSymbol_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992222	222	Panel_1.GosNumber.Symbol_10	Panel_ASN	16	"Panel_1.Data.NumSymbol_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992226	538	Panel_1.GosNumber.Symbol_11	Panel_ASN	16	"Panel_1.Data.NumSymbol_11"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616992230	827	Panel_1.GosNumber.Symbol_12	Panel_ASN	16	"Panel_1.Data.NumSymbol_12"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991974	883	Panel_1.sections.1.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991979	889	Panel_1.sections.1.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991983	989	Panel_1.sections.1.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991996	78	Panel_1.sections.2.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992000	161	Panel_1.sections.2.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992004	64	Panel_1.sections.2.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992015	630	Panel_1.sections.3.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992020	97	Panel_1.sections.3.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992024	269	Panel_1.sections.3.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992035	422	Panel_1.sections.4.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992040	7	Panel_1.sections.4.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992044	173	Panel_1.sections.4.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992056	922	Panel_1.sections.5.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992061	46	Panel_1.sections.5.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992065	59	Panel_1.sections.5.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992078	116	Panel_1.sections.6.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992081	895	Panel_1.sections.6.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992086	183	Panel_1.sections.6.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992099	296	Panel_1.sections.7.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992103	892	Panel_1.sections.7.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992107	993	Panel_1.sections.7.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992119	551	Panel_1.sections.8.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992123	454	Panel_1.sections.8.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992127	347	Panel_1.sections.8.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992140	58	Panel_1.sections.9.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992144	348	Panel_1.sections.9.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992148	1	Panel_1.sections.9.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992159	153	Panel_1.sections.10.TypeOil	Panel_ASN	16	"Panel_1.Data.TypeOil_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992162	986	Panel_1.sections.10.Zadano	Panel_ASN	16	"Panel_1.Data.Zadano_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616992166	897	Panel_1.sections.10.Nalito	Panel_ASN	16	"Panel_1.Data.Nalito_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991988	146	Panel_1.sections.1.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992007	967	Panel_1.sections.2.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992028	507	Panel_1.sections.3.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992048	594	Panel_1.sections.4.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992069	768	Panel_1.sections.5.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992090	724	Panel_1.sections.6.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992112	442	Panel_1.sections.7.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992131	140	Panel_1.sections.8.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992152	69	Panel_1.sections.9.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616992170	692	Panel_1.sections.10.StateSection	Panel_ASN	16	"Panel_1.Data.StateSection_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1617344171	205	Panel_2.NumZadanyNaliv	Panel_ASN	16	"Panel_2.Data.NumZadanyNaliv"	_PollRSU	_RSU2	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991758	123	Panel_2.GosNumber.Symbol_1	Panel_ASN	16	"Panel_2.Data.NumSymbol_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991762	720	Panel_2.GosNumber.Symbol_2	Panel_ASN	16	"Panel_2.Data.NumSymbol_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991767	670	Panel_2.GosNumber.Symbol_3	Panel_ASN	16	"Panel_2.Data.NumSymbol_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991772	432	Panel_2.GosNumber.Symbol_4	Panel_ASN	16	"Panel_2.Data.NumSymbol_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991777	33	Panel_2.GosNumber.Symbol_5	Panel_ASN	16	"Panel_2.Data.NumSymbol_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991781	465	Panel_2.GosNumber.Symbol_6	Panel_ASN	16	"Panel_2.Data.NumSymbol_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991785	715	Panel_2.GosNumber.Symbol_7	Panel_ASN	16	"Panel_2.Data.NumSymbol_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991789	654	Panel_2.GosNumber.Symbol_8	Panel_ASN	16	"Panel_2.Data.NumSymbol_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991794	999	Panel_2.GosNumber.Symbol_9	Panel_ASN	16	"Panel_2.Data.NumSymbol_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991800	489	Panel_2.GosNumber.Symbol_10	Panel_ASN	16	"Panel_2.Data.NumSymbol_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991805	58	Panel_2.GosNumber.Symbol_11	Panel_ASN	16	"Panel_2.Data.NumSymbol_11"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991809	862	Panel_2.GosNumber.Symbol_12	Panel_ASN	16	"Panel_2.Data.NumSymbol_12"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616991306	421	Panel_2.sections.1.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991101	976	Panel_2.sections.1.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991311	218	Panel_2.sections.1.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991337	472	Panel_2.sections.2.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991342	51	Panel_2.sections.2.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991345	999	Panel_2.sections.2.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991357	296	Panel_2.sections.3.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991361	34	Panel_2.sections.3.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991364	731	Panel_2.sections.3.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991389	321	Panel_2.sections.4.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991385	26	Panel_2.sections.4.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991380	938	Panel_2.sections.4.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991396	286	Panel_2.sections.5.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991399	899	Panel_2.sections.5.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991404	162	Panel_2.sections.5.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991416	460	Panel_2.sections.6.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991422	105	Panel_2.sections.6.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991426	281	Panel_2.sections.6.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991437	520	Panel_2.sections.7.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991441	299	Panel_2.sections.7.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991445	146	Panel_2.sections.7.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991457	285	Panel_2.sections.8.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991461	155	Panel_2.sections.8.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991465	295	Panel_2.sections.8.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991477	467	Panel_2.sections.9.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991481	315	Panel_2.sections.9.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991486	164	Panel_2.sections.9.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991496	637	Panel_2.sections.10.TypeOil	Panel_ASN	16	"Panel_2.Data.TypeOil_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991500	940	Panel_2.sections.10.Zadano	Panel_ASN	16	"Panel_2.Data.Zadano_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991504	862	Panel_2.sections.10.Nalito	Panel_ASN	16	"Panel_2.Data.Nalito_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616991316	930	Panel_2.sections.1.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991349	798	Panel_2.sections.2.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991368	534	Panel_2.sections.3.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991376	993	Panel_2.sections.4.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991408	33	Panel_2.sections.5.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991430	431	Panel_2.sections.6.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991449	118	Panel_2.sections.7.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991470	188	Panel_2.sections.8.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991490	284	Panel_2.sections.9.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616991508	626	Panel_2.sections.10.StateSection	Panel_ASN	16	"Panel_2.Data.StateSection_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1617344178	876	Panel_3.NumZadanyNaliv	Panel_ASN	16	"Panel_3.Data.NumZadanyNaliv"	_PollRSU	_RSU2	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993866	620	Panel_3.GosNumber.Symbol_1	Panel_ASN	16	"Panel_3.Data.NumSymbol_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993871	459	Panel_3.GosNumber.Symbol_2	Panel_ASN	16	"Panel_3.Data.NumSymbol_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993875	474	Panel_3.GosNumber.Symbol_3	Panel_ASN	16	"Panel_3.Data.NumSymbol_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993879	322	Panel_3.GosNumber.Symbol_4	Panel_ASN	16	"Panel_3.Data.NumSymbol_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993883	439	Panel_3.GosNumber.Symbol_5	Panel_ASN	16	"Panel_3.Data.NumSymbol_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993887	59	Panel_3.GosNumber.Symbol_6	Panel_ASN	16	"Panel_3.Data.NumSymbol_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993890	741	Panel_3.GosNumber.Symbol_7	Panel_ASN	16	"Panel_3.Data.NumSymbol_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993894	641	Panel_3.GosNumber.Symbol_8	Panel_ASN	16	"Panel_3.Data.NumSymbol_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993898	377	Panel_3.GosNumber.Symbol_9	Panel_ASN	16	"Panel_3.Data.NumSymbol_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993902	229	Panel_3.GosNumber.Symbol_10	Panel_ASN	16	"Panel_3.Data.NumSymbol_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993906	221	Panel_3.GosNumber.Symbol_11	Panel_ASN	16	"Panel_3.Data.NumSymbol_11"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993911	328	Panel_3.GosNumber.Symbol_12	Panel_ASN	16	"Panel_3.Data.NumSymbol_12"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1003	"S7PLUS"
+UI (9)/0	1616993543	204	Panel_3.sections.1.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993546	790	Panel_3.sections.1.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993551	383	Panel_3.sections.1.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993581	148	Panel_3.sections.2.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993585	200	Panel_3.sections.2.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993589	199	Panel_3.sections.2.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993671	222	Panel_3.sections.3.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993679	888	Panel_3.sections.3.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993684	752	Panel_3.sections.3.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993695	82	Panel_3.sections.4.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993698	725	Panel_3.sections.4.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993702	573	Panel_3.sections.4.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993712	529	Panel_3.sections.5.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993715	906	Panel_3.sections.5.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993719	291	Panel_3.sections.5.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993729	91	Panel_3.sections.6.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993732	811	Panel_3.sections.6.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993736	413	Panel_3.sections.6.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993747	111	Panel_3.sections.7.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993755	406	Panel_3.sections.7.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993759	608	Panel_3.sections.7.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993804	420	Panel_3.sections.8.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993808	30	Panel_3.sections.8.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993811	818	Panel_3.sections.8.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993823	299	Panel_3.sections.9.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993826	922	Panel_3.sections.9.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993830	363	Panel_3.sections.9.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993841	355	Panel_3.sections.10.TypeOil	Panel_ASN	16	"Panel_3.Data.TypeOil_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993844	953	Panel_3.sections.10.Zadano	Panel_ASN	16	"Panel_3.Data.Zadano_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993848	497	Panel_3.sections.10.Nalito	Panel_ASN	16	"Panel_3.Data.Nalito_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1008	"S7PLUS"
+UI (9)/0	1616993555	322	Panel_3.sections.1.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_1"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993594	697	Panel_3.sections.2.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_2"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993688	904	Panel_3.sections.3.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_3"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993706	354	Panel_3.sections.4.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_4"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993723	11	Panel_3.sections.5.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_5"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993740	72	Panel_3.sections.6.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_6"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993763	234	Panel_3.sections.7.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_7"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993815	276	Panel_3.sections.8.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_8"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993833	996	Panel_3.sections.9.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_9"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+UI (9)/0	1616993852	367	Panel_3.sections.10.StateSection	Panel_ASN	16	"Panel_3.Data.StateSection_10"	_PollRSU_PH	_RSU2	0	0	\1	0	0	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1012	"S7PLUS"
+# ascii dump of database
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_ds_Panel_ASN	_DynamicDptSettings	5393
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+UI (9)/0	_ds_Panel_ASN.symbols	_DynamicDptSettings		0x8300000000000101	12.02.2021 10:48:31.699
+UI (9)/0	_ds_Panel_ASN.symboldefault	_DynamicDptSettings	""	0x8300000000000101	12.02.2021 10:48:31.700
+UI (9)/0	_ds_Panel_ASN.trendElements	_DynamicDptSettings		0x8300000000000101	12.02.2021 10:48:31.701

@@ -29,7 +29,7 @@ CPU_PAZ2	DIAG_CPU_PAZ	4082
 
 # Aliases/Comments
 AliasId	AliasName	CommentName
-CPU_PAZ1.CPU.SF	""	lt:1 LANG:10027 "Общая ошибка ЦПУ 1 ПЛК ПАЗ@@"
+CPU_PAZ1.CPU.SF	"Общая ошибка ЦПУ 1 ПЛК ПАЗ"	lt:1 LANG:10027 "Общая ошибка ЦПУ 1 ПЛК ПАЗ@@"
 CPU_PAZ1.CPU.INTF	""	lt:1 LANG:10027 "Внутренняя ошибка ЦПУ 1 ПЛК ПАЗ@@"
 CPU_PAZ1.CPU.EXTF	""	lt:1 LANG:10027 "Внешняя ошибка ЦПУ 1 ПЛК ПАЗ@@"
 CPU_PAZ1.CPU.RUN	""	lt:1 LANG:10027 "В работе ЦПУ 1 ПЛК ПАЗ@@"
@@ -62,82 +62,147 @@ CPU_PAZ2.CPU.RACK1	""	lt:1 LANG:10027 "Шасси 1 ЦПУ 2 ПЛК ПАЗ@@"
 CPU_PAZ2.CPU.IFM1F	""	lt:1 LANG:10027 "Неисправность субмодуля 1 ЦПУ 2 ПЛК ПАЗ@@"
 CPU_PAZ2.CPU.IFM2F	""	lt:1 LANG:10027 "Неисправность субмодуля 2 ЦПУ 2 ПЛК ПАЗ@@"
 
+# AlertClass
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_alert_class.._type	_alert_class.._prior	_alert_class.._abbr	_alert_class.._archive	_alert_class.._ack_type	_alert_class.._single_ack	_alert_class.._inact_ack	_alert_class.._color_none	_alert_class.._fore_color_none	_alert_class.._font_style_none	_alert_class.._color_c_nack	_alert_class.._fore_color_c_nack	_alert_class.._font_style_c_nack	_alert_class.._color_c_ack	_alert_class.._fore_color_c_ack	_alert_class.._font_style_c_ack	_alert_class.._color_g_nack	_alert_class.._fore_color_g_nack	_alert_class.._font_style_g_nack	_alert_class.._color_c_g_nack	_alert_class.._fore_color_c_g_nack	_alert_class.._font_style_c_g_nack	_alert_class.._ctrl_none	_alert_class.._ctrl_c_nack	_alert_class.._ctrl_c_ack	_alert_class.._ctrl_g_nack	_alert_class.._ctrl_c_g_nack	_alert_class.._arg_list	_alert_class.._perm
+UI (8)/0	1608621502	872	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ	14	\1	lt:1 LANG:10027 ""	1	0	0	0	""	""	""	""	""	""	""	""	""	""	""	""	""	""	""	""	""	""	""	""		\0
+
 # AlertValue
-Manager/User	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
-UI (8)/0	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.INTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.EXTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.RUN	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.STOP	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.FRCE	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.CRST	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.BAF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.BUS1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.BUS2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.REDF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.MSTR	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.RACK0	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.RACK1	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.IFM1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-UI (8)/0	CPU_PAZ1.CPU.IFM2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.INTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.EXTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.RUN	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.STOP	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.FRCE	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.CRST	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.BAF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.BUS1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.BUS2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.REDF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.MSTR	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.RACK0	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.RACK1	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.IFM1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
-ASC (1)/0	CPU_PAZ2.CPU.IFM2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+UI (8)/0	1608621513	231	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608621566	247	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Включено"	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608621566	249	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Включено"	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608621981	876	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Включено"	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608621989	840	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608621989	841	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608621997	810	CPU_PAZ1.CPU.INTF	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622010	979	CPU_PAZ1.CPU.INTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622010	981	CPU_PAZ1.CPU.INTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622018	963	CPU_PAZ1.CPU.EXTF	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622032	437	CPU_PAZ1.CPU.EXTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622032	438	CPU_PAZ1.CPU.EXTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622038	934	CPU_PAZ1.CPU.RUN	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622051	140	CPU_PAZ1.CPU.RUN	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622051	142	CPU_PAZ1.CPU.RUN	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622073	76	CPU_PAZ1.CPU.STOP	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622094	397	CPU_PAZ1.CPU.STOP	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622094	399	CPU_PAZ1.CPU.STOP	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622100	573	CPU_PAZ1.CPU.FRCE	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622111	522	CPU_PAZ1.CPU.FRCE	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622111	524	CPU_PAZ1.CPU.FRCE	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622119	445	CPU_PAZ1.CPU.CRST	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622134	356	CPU_PAZ1.CPU.CRST	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622134	357	CPU_PAZ1.CPU.CRST	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622139	933	CPU_PAZ1.CPU.BAF	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622154	112	CPU_PAZ1.CPU.BAF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622154	113	CPU_PAZ1.CPU.BAF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622159	874	CPU_PAZ1.CPU.BUS1F	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622172	744	CPU_PAZ1.CPU.BUS1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622172	745	CPU_PAZ1.CPU.BUS1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622178	686	CPU_PAZ1.CPU.BUS2F	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622189	382	CPU_PAZ1.CPU.BUS2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622189	383	CPU_PAZ1.CPU.BUS2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622196	659	CPU_PAZ1.CPU.REDF	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622215	117	CPU_PAZ1.CPU.REDF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622215	118	CPU_PAZ1.CPU.REDF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622221	510	CPU_PAZ1.CPU.MSTR	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622231	979	CPU_PAZ1.CPU.MSTR	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622231	980	CPU_PAZ1.CPU.MSTR	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622240	865	CPU_PAZ1.CPU.RACK0	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622251	810	CPU_PAZ1.CPU.RACK0	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622251	812	CPU_PAZ1.CPU.RACK0	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622257	264	CPU_PAZ1.CPU.RACK1	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622267	475	CPU_PAZ1.CPU.RACK1	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622267	476	CPU_PAZ1.CPU.RACK1	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622277	912	CPU_PAZ1.CPU.IFM1F	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622289	9	CPU_PAZ1.CPU.IFM1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622289	11	CPU_PAZ1.CPU.IFM1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622294	211	CPU_PAZ1.CPU.IFM2F	DIAG_CPU_PAZ		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 ""	lt:1 LANG:10027 ""												0								
+UI (8)/0	1608622307	310	CPU_PAZ1.CPU.IFM2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+UI (8)/0	1608622307	311	CPU_PAZ1.CPU.IFM2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622438	260	CPU_PAZ2.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	613	CPU_PAZ2.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	614	CPU_PAZ2.CPU.SF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622438	261	CPU_PAZ2.CPU.INTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	615	CPU_PAZ2.CPU.INTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	616	CPU_PAZ2.CPU.INTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	617	CPU_PAZ2.CPU.EXTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	618	CPU_PAZ2.CPU.EXTF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	620	CPU_PAZ2.CPU.RUN	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	621	CPU_PAZ2.CPU.RUN	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622438	266	CPU_PAZ2.CPU.STOP	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	623	CPU_PAZ2.CPU.STOP	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	624	CPU_PAZ2.CPU.STOP	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622438	268	CPU_PAZ2.CPU.FRCE	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	625	CPU_PAZ2.CPU.FRCE	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	626	CPU_PAZ2.CPU.FRCE	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	628	CPU_PAZ2.CPU.CRST	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	629	CPU_PAZ2.CPU.CRST	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	630	CPU_PAZ2.CPU.BAF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	631	CPU_PAZ2.CPU.BAF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	warning.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622438	271	CPU_PAZ2.CPU.BUS1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	632	CPU_PAZ2.CPU.BUS1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	633	CPU_PAZ2.CPU.BUS1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	634	CPU_PAZ2.CPU.BUS2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	635	CPU_PAZ2.CPU.BUS2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	636	CPU_PAZ2.CPU.REDF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	637	CPU_PAZ2.CPU.REDF	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622438	275	CPU_PAZ2.CPU.MSTR	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	639	CPU_PAZ2.CPU.MSTR	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	640	CPU_PAZ2.CPU.MSTR	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	642	CPU_PAZ2.CPU.RACK0	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	643	CPU_PAZ2.CPU.RACK0	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622438	278	CPU_PAZ2.CPU.RACK1	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	644	CPU_PAZ2.CPU.RACK1	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	645	CPU_PAZ2.CPU.RACK1	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	646	CPU_PAZ2.CPU.RACK1	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622438	279	CPU_PAZ2.CPU.IFM1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	647	CPU_PAZ2.CPU.IFM1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	648	CPU_PAZ2.CPU.IFM1F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	649	CPU_PAZ2.CPU.IFM2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
+ASC (1)/0	1608622445	650	CPU_PAZ2.CPU.IFM2F	DIAG_CPU_PAZ		12					""	""	lt:1 LANG:10027 ""	\0	alert.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Сработка"	lt:1 LANG:10027 "Норма"												0								
 
 # DistributionInfo
-Manager/User	ElementName	TypeName	_distrib.._type	_distrib.._driver
-ASC (1)/0	CPU_PAZ1.CPU.SCPU	DIAG_CPU_PAZ	56	\1
-ASC (1)/0	CPU_PAZ2.CPU.SCPU	DIAG_CPU_PAZ	56	\1
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+ASC (1)/0	1608617868	839	CPU_PAZ1.CPU.SCPU	DIAG_CPU_PAZ	56	\1
+ASC (1)/0	1608617868	841	CPU_PAZ2.CPU.SCPU	DIAG_CPU_PAZ	56	\1
 
 # DpFunction
-Manager/User	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
-UI (8)/0	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<8)"		1
-UI (8)/0	CPU_PAZ1.CPU.INTF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<9)"		1
-UI (8)/0	CPU_PAZ1.CPU.EXTF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<10)"		1
-UI (8)/0	CPU_PAZ1.CPU.RUN	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<11)"		1
-UI (8)/0	CPU_PAZ1.CPU.STOP	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<12)"		1
-UI (8)/0	CPU_PAZ1.CPU.FRCE	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<13)"		1
-UI (8)/0	CPU_PAZ1.CPU.CRST	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<14)"		1
-UI (8)/0	CPU_PAZ1.CPU.BAF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<15)"		1
-UI (8)/0	CPU_PAZ1.CPU.BUS1F	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<0)"		1
-UI (8)/0	CPU_PAZ1.CPU.BUS2F	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<1)"		1
-UI (8)/0	CPU_PAZ1.CPU.REDF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<2)"		1
-UI (8)/0	CPU_PAZ1.CPU.MSTR	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<3)"		1
-UI (8)/0	CPU_PAZ1.CPU.RACK0	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<4)"		1
-UI (8)/0	CPU_PAZ1.CPU.RACK1	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<5)"		1
-UI (8)/0	CPU_PAZ1.CPU.IFM1F	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<6)"		1
-UI (8)/0	CPU_PAZ1.CPU.IFM2F	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<7)"		1
-UI (8)/0	CPU_PAZ2.CPU.SF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<8)"		1
-UI (8)/0	CPU_PAZ2.CPU.INTF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<9)"		1
-UI (8)/0	CPU_PAZ2.CPU.EXTF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<10)"		1
-UI (8)/0	CPU_PAZ2.CPU.RUN	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<11)"		1
-UI (8)/0	CPU_PAZ2.CPU.STOP	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<12)"		1
-UI (8)/0	CPU_PAZ2.CPU.FRCE	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<13)"		1
-UI (8)/0	CPU_PAZ2.CPU.CRST	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<14)"		1
-UI (8)/0	CPU_PAZ2.CPU.BAF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<15)"		1
-UI (8)/0	CPU_PAZ2.CPU.BUS1F	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<0)"		1
-UI (8)/0	CPU_PAZ2.CPU.BUS2F	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<1)"		1
-UI (8)/0	CPU_PAZ2.CPU.REDF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<2)"		1
-UI (8)/0	CPU_PAZ2.CPU.MSTR	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<3)"		1
-UI (8)/0	CPU_PAZ2.CPU.RACK0	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<4)"		1
-UI (8)/0	CPU_PAZ2.CPU.RACK1	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<5)"		1
-UI (8)/0	CPU_PAZ2.CPU.IFM1F	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<6)"		1
-UI (8)/0	CPU_PAZ2.CPU.IFM2F	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<7)"		1
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
+UI (8)/0	1608618401	349	CPU_PAZ1.CPU.SF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<8)"		1
+UI (8)/0	1608618394	732	CPU_PAZ1.CPU.INTF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<9)"		1
+UI (8)/0	1608618387	415	CPU_PAZ1.CPU.EXTF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<10)"		1
+UI (8)/0	1608618378	69	CPU_PAZ1.CPU.RUN	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<11)"		1
+UI (8)/0	1608618371	456	CPU_PAZ1.CPU.STOP	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<12)"		1
+UI (8)/0	1608618363	725	CPU_PAZ1.CPU.FRCE	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<13)"		1
+UI (8)/0	1608618356	865	CPU_PAZ1.CPU.CRST	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<14)"		1
+UI (8)/0	1608618350	392	CPU_PAZ1.CPU.BAF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<15)"		1
+UI (8)/0	1608618342	962	CPU_PAZ1.CPU.BUS1F	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<0)"		1
+UI (8)/0	1608618336	201	CPU_PAZ1.CPU.BUS2F	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<1)"		1
+UI (8)/0	1608618329	958	CPU_PAZ1.CPU.REDF	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<2)"		1
+UI (8)/0	1608618323	141	CPU_PAZ1.CPU.MSTR	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<3)"		1
+UI (8)/0	1608618314	878	CPU_PAZ1.CPU.RACK0	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<4)"		1
+UI (8)/0	1608618308	423	CPU_PAZ1.CPU.RACK1	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<5)"		1
+UI (8)/0	1608618300	133	CPU_PAZ1.CPU.IFM1F	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<6)"		1
+UI (8)/0	1608618293	626	CPU_PAZ1.CPU.IFM2F	DIAG_CPU_PAZ	60	CPU_PAZ1.CPU.SCPU:_original.._value	"p1&(1<<7)"		1
+UI (8)/0	1608618272	135	CPU_PAZ2.CPU.SF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<8)"		1
+UI (8)/0	1608618266	220	CPU_PAZ2.CPU.INTF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<9)"		1
+UI (8)/0	1608618257	512	CPU_PAZ2.CPU.EXTF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<10)"		1
+UI (8)/0	1608618251	102	CPU_PAZ2.CPU.RUN	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<11)"		1
+UI (8)/0	1608618244	271	CPU_PAZ2.CPU.STOP	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<12)"		1
+UI (8)/0	1608618237	269	CPU_PAZ2.CPU.FRCE	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<13)"		1
+UI (8)/0	1608618230	291	CPU_PAZ2.CPU.CRST	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<14)"		1
+UI (8)/0	1608618224	58	CPU_PAZ2.CPU.BAF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<15)"		1
+UI (8)/0	1608618215	423	CPU_PAZ2.CPU.BUS1F	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<0)"		1
+UI (8)/0	1608618208	441	CPU_PAZ2.CPU.BUS2F	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<1)"		1
+UI (8)/0	1608618200	288	CPU_PAZ2.CPU.REDF	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<2)"		1
+UI (8)/0	1608618190	401	CPU_PAZ2.CPU.MSTR	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<3)"		1
+UI (8)/0	1608618182	649	CPU_PAZ2.CPU.RACK0	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<4)"		1
+UI (8)/0	1608618173	323	CPU_PAZ2.CPU.RACK1	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<5)"		1
+UI (8)/0	1608618166	462	CPU_PAZ2.CPU.IFM1F	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<6)"		1
+UI (8)/0	1608618160	623	CPU_PAZ2.CPU.IFM2F	DIAG_CPU_PAZ	60	CPU_PAZ2.CPU.SCPU:_original.._value	"p1&(1<<7)"		1
 
 # PeriphAddrMain
-Manager/User	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
-ASC (1)/0	CPU_PAZ1.CPU.SCPU	DIAG_CPU_PAZ	16	"PAZ.DB190.DBW0"	_PollPaz	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	701	"S7"
-ASC (1)/0	CPU_PAZ2.CPU.SCPU	DIAG_CPU_PAZ	16	"PAZ.DB190.DBW4"	_PollPaz	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	701	"S7"
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+ASC (1)/0	1608617868	887	CPU_PAZ1.CPU.SCPU	DIAG_CPU_PAZ	16	"PAZ.DB190.DBW0"	_PollPaz	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	701	"S7"
+ASC (1)/0	1608617868	885	CPU_PAZ2.CPU.SCPU	DIAG_CPU_PAZ	16	"PAZ.DB190.DBW4"	_PollPaz	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	701	"S7"
+# ascii dump of database

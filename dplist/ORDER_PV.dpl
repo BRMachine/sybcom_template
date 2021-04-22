@@ -1,0 +1,28 @@
+# ascii dump of database
+
+# DpType
+TypeName
+SECTION_PV.SECTION_PV	1#1
+	vol_base	22#3
+	vol_doser	22#4
+	mas_base	22#5
+	temp	22#6
+	density	22#7
+ORDER_PV.ORDER_PV	1#1
+	1	41#2:SECTION_PV
+	2	41#3:SECTION_PV
+	3	41#4:SECTION_PV
+	4	41#5:SECTION_PV
+	5	41#6:SECTION_PV
+	6	41#7:SECTION_PV
+	7	41#8:SECTION_PV
+	8	41#9:SECTION_PV
+	9	41#10:SECTION_PV
+	10	41#11:SECTION_PV
+
+# Datapoint/DpId
+DpName	TypeName	ID
+LINE1_PV	ORDER_PV	5382
+LINE2_PV	ORDER_PV	5383
+LINE3_PV	ORDER_PV	5384
+# ascii dump of database

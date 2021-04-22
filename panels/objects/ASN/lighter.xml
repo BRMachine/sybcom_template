@@ -15,26 +15,34 @@
  </properties>
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[// const string ASN = $ASN;
-const string Post = $Post;
+const string line = $line;
+// const string Post = $Post;
 
-void worker(dyn_string dp, dyn_anytype color){
-  if(color[1]){
-     ELLIPSE51.backCol = &quot;Green&quot;;
+// void worker(dyn_string dp, dyn_anytype color){
+//   if(color[1]){
+//      ELLIPSE51.backCol = &quot;Green&quot;;
  //   then statement
-  }else if(color[2]){
-     ELLIPSE51.backCol = &quot;Red&quot;;
+//   }else if(color[2]){
+//      ELLIPSE51.backCol = &quot;Red&quot;;
  //   else statement
-   } else{
-      ELLIPSE51.backCol = &quot;&lt;Green,5,Red,5&gt;&quot;;
-    }
+//    } else{
+//       ELLIPSE51.backCol = &quot;&lt;Green,5,Red,5&gt;&quot;;
+//     }
+// }
+void worker(string dp, int val){
+  if(val == 1)
+    ELLIPSE51.backCol = &quot;Red&quot;;
+  else
+    ELLIPSE51.backCol = &quot;Green&quot;;
 }
-
 
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
-  dpConnect(&quot;worker&quot;, &quot;Post_&quot; + Post + &quot;.Out_Control.dsGreenSignal&quot;,
-                      &quot;Post_&quot; + Post + &quot;.Out_Control.dsRedSignal&quot;);
+//   dpQueryConnectSingle(&quot;worker&quot;, &quot;&quot;, &quot;SELECT '_original.._value' FROM 'Post_*.Out_Control.dsGreenSignal' WHERE _DP = 'Post_1' OR _DP = 'Post_2' OR _DP = 'Post_3' OR _DP = 'Post_4'&quot;);
+//   dpConnect(&quot;worker&quot;, &quot;Post_&quot; + Post + &quot;.Out_Control.dsGreenSignal&quot;,
+//                       &quot;Post_&quot; + Post + &quot;.Out_Control.dsRedSignal&quot;);
+  dpConnect(&quot;worker&quot;, &quot;ORDER_LINE&quot; + line +&quot;.iProcessed&quot;);
 }
 ]]></script>
  </events>

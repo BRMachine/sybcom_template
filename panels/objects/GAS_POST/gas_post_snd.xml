@@ -90,5 +90,39 @@ void cbStatus(string dpe, bit32 state){
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
+  <shape Name="fp" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">4</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">9 14</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Transparent</prop>
+    <prop name="BackColor">_Transparent</prop>
+    <prop name="TabOrder">2</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">2.5 0 0 0.4299999999999998 -3.499999999999901 2.980000000000016</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">9 14</prop>
+    <prop name="Size">51 51</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+   <events>
+    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
+{
+  ChildPanelOnCentral(&quot;faceplates/GAS_POST/GAS_POST.xml&quot;, &quot;Пост: &quot; + dpGetAlias(DP + &quot;.&quot;), makeDynString(&quot;$dp:&quot; + DP));
+}]]></script>
+   </events>
+  </shape>
  </shapes>
 </panel>

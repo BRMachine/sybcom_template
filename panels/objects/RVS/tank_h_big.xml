@@ -786,14 +786,14 @@ main(int iType)
   dyn_int      diType = makeDynInt();
   dyn_string   dsDps;
 
-  dsDps[1] = $dp+&quot;.LVL._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[2] = $dp+&quot;.LVL._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[3] = $dp+&quot;.LVL._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[4] = $dp+&quot;.LVL._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[5] = $dp+&quot;.WTR._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[6] = $dp+&quot;.WTR._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[7] = $dp+&quot;.WTR._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[8] = $dp+&quot;.WTR._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[1] = $dpLogicRVS+&quot;.LVL._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[2] = $dpLogicRVS+&quot;.LVL._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[3] = $dpLogicRVS+&quot;.LVL._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[4] = $dpLogicRVS+&quot;.LVL._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[5] = $dpLogicRVS+&quot;.WTR._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[6] = $dpLogicRVS+&quot;.WTR._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[7] = $dpLogicRVS+&quot;.WTR._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[8] = $dpLogicRVS+&quot;.WTR._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
   dsDps[9] = $dp+&quot;.UnsanctionedChangeLevel&quot; + &quot;:_alert_hdl.._ack&quot;;
   dsDps[10] = $ls1+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
   dsDps[11] = $ls2+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
@@ -816,14 +816,14 @@ main(int iType)
 }
 // SimpleCtrlScript {EP_confirm}
 // dpCount {12}
-// dp1 {$dp + &quot;.LVL._sAH_Level&quot;}
-// dp2 {$dp + &quot;.LVL._sWH_Level&quot;}
-// dp3 {$dp + &quot;.LVL._sWL_Level&quot;}
-// dp4 {$dp + &quot;.LVL._sAL_Level&quot;}
-// dp5 {$dp + &quot;.WTR._sAH_Level&quot;}
-// dp6 {$dp + &quot;.WTR._sWH_Level&quot;}
-// dp7 {$dp + &quot;.WTR._sWL_Level&quot;}
-// dp8 {$dp + &quot;.WTR._sAL_Level&quot;}
+// dp1 {$dpLogicRVS + &quot;.LVL._sAH_Level&quot;}
+// dp2 {$dpLogicRVS + &quot;.LVL._sWH_Level&quot;}
+// dp3 {$dpLogicRVS + &quot;.LVL._sWL_Level&quot;}
+// dp4 {$dpLogicRVS + &quot;.LVL._sAL_Level&quot;}
+// dp5 {$dpLogicRVS + &quot;.WTR._sAH_Level&quot;}
+// dp6 {$dpLogicRVS + &quot;.WTR._sWH_Level&quot;}
+// dp7 {$dpLogicRVS + &quot;.WTR._sWL_Level&quot;}
+// dp8 {$dpLogicRVS + &quot;.WTR._sAL_Level&quot;}
 // dp9 {$dp + &quot;.UnsanctionedChangeLevel&quot;}
 // dp10 {$ls1 + &quot;.status.bool.red&quot;}
 // dp11 {$ls2 + &quot;.status.bool.red&quot;}

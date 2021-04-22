@@ -63,9 +63,9 @@ void updateDB(int sts){
           "CURRENT_COMMAND.t_out", local_command["t_out"]);
 	// Сборка SQL запроса к базе данных
       string query = "UPDATE ["+loc_database+"].[dbo].[MesCommand] ";	 // БД
-      query += "SET State = " + sts + ", ";							                  // Статус выполнения
-      query += "Timestamp = SYSDATETIME() ";						                  // Текущее время
-      query += "WHERE ID = " + local_command["id"][1] + " ";		      // Фильтрация по ID команды в БД
+      query += "SET State = " + sts + ", ";							               // Статус выполнения
+      query += "Timestamp = SYSDATETIME() ";						               // Текущее время
+      query += "WHERE ID = " + local_command["id"][1] + " ";		       // Фильтрация по ID команды в БД
 	  // Выполнение SQL команды
       dbStartCommand(con, query, cmd);
       dbExecuteCommand(cmd);
@@ -142,6 +142,30 @@ void worker(string dp, bool trg){
     if(dynlen(c_command["tag"]) && g_iteration < c_command["t_out"][1]){
       // Если команда выполняется первый раз
       if(g_iteration == 0){
+        //Проверяем имя в TagName и переделываем на свое
+        switch(c_command["tag"][1]){
+          case "Line01/L01.cmdAcceprtOrder":
+            c_command["tag"][1] = "ORDER_LINE1.getOrder";
+            break;
+          case "Line02/L02.cmdAcceprtOrder":
+            c_command["tag"][1] = "ORDER_LINE2.getOrder";
+            break;
+          case "Line03/L03.cmdAcceprtOrder":
+            c_command["tag"][1] = "ORDER_LINE3.getOrder";
+            break;
+        }
+        //Проверяем имя в ControlTagName и переделываем на свое
+        switch(c_command["c_tag"][1]){
+          case "Line01/L01.AcceprtOrder":
+            c_command["c_tag"][1] = "ORDER_LINE1.getOrder";
+            break;
+          case "Line02/L02.AcceprtOrder":
+            c_command["c_tag"][1] = "ORDER_LINE2.getOrder";
+            break;
+          case "Line03/L03.AcceprtOrder":
+            c_command["c_tag"][1] = "ORDER_LINE3.getOrder";
+            break;
+        }
         // Запись команды в точку данных из столбца TagName
         // Если запись в точку данных завершилась с ошибкой
         if(dpSetWait(c_command["tag"][1], c_command["val"][1]) == -1){

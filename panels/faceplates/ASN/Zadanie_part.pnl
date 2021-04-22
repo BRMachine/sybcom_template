@@ -26,26 +26,24 @@ string fuelToColor(string fuel){
     case \"G-100\":
       return \"AI100\";
     case \"АИ-92\":
-      return \"AI92\";
     case \"АИ-92(G)\":
+    case \"АИ-92 Gdrive\":
       return \"AI92\";
     case \"АИ-95\":
-      return \"AI95\";
     case \"АИ-95(G)\":
+    case \"АИ-95 Gdrive\":
       return \"AI95\";
     case \"АИ-98\":
       return \"AI98\";
     case \"ДТ\":
-      return \"DT\";
     case \"ДТЛ\":
-      return \"DT\";
     case \"ДТЗ\":
-      return \"DT\";
     case \"ДТА\":
-      return \"DT\";
     case \"ДТМ\":
-      return \"DT\";
     case \"ДТ(O)\":
+    case \"ДТЛ OPTI\":
+    case \"ДТЗ OPTI\":
+    case \"ДТА OPTI\":
       return \"DT\";
     default:
       return \"_Window\";
@@ -60,7 +58,19 @@ void worker(dyn_string dpe, dyn_anytype val){
 
   shipping.backCol(fuelToColor(val[1]));
 
-  form_text.text(val[1]);
+//   form_text.text(val[1]);
+  string fuel;
+  switch(val[1]){
+   case \"АИ-92 Gdrive\" : fuel = \"АИ-92(G)\"; break;
+   case \"АИ-95 Gdrive\" : fuel = \"АИ-95(G)\"; break;
+   case \"ДТЛ OPTI\"   : fuel = \"ДТЛ(О)\"; break;
+   case \"ДТЗ OPTI\"   : fuel = \"ДТЗ(О)\"; break;
+   case \"ДТА OPTI\"   : fuel = \"ДТА(О)\"; break;
+  }
+  if(fuel != \"\")
+    form_text.text(fuel);
+  else
+    form_text.text(val[1]);
 }
 " 0
  3

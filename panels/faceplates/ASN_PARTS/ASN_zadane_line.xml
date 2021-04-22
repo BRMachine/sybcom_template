@@ -61,13 +61,19 @@ private int textToCbx(string fuel){
   int res = 1;
   switch(fuel){
    case &quot;АИ-92&quot;    : res = 2; break;
-   case &quot;АИ-92(G)&quot; : res = 3; break;
+   case &quot;АИ-92(G)&quot;: case &quot;АИ-92 Gdrive&quot;: res = 3; break;
    case &quot;АИ-95&quot;    : res = 4; break;
-   case &quot;АИ-95(G)&quot; : res = 5; break;
-   case &quot;G-100&quot;   : res = 6; break;
-   case &quot;ДТ&quot;    : res = 7; break;
-   case &quot;ДТ(O)&quot; : res = 8; break;
-   default      : res = 1;
+   case &quot;АИ-95(G)&quot;: case &quot;АИ-95 Gdrive&quot;: res = 5; break;
+   case &quot;G-100&quot;    : res = 6; break;
+//    case &quot;ДТ&quot;       : res = 7; break;
+   case &quot;ДТЛ&quot;      : res = 7; break;
+   case &quot;ДТЗ&quot;      : res = 8; break;
+   case &quot;ДТА&quot;      : res = 9; break;
+//    case &quot;ДТ(O)&quot;    : res = 11; break;
+   case &quot;ДТЛ(О)&quot;: case &quot;ДТЛ OPTI&quot;: res = 10; break;
+   case &quot;ДТЗ(О)&quot;: case &quot;ДТЗ OPTI&quot;: res = 11; break;
+   case &quot;ДТА(О)&quot;: case &quot;ДТА OPTI&quot;: res = 12; break;
+   default         : res = 1;
   }
   return res;
 }
@@ -213,7 +219,7 @@ void line_sts(string dpe, int val){
     <prop name="layoutAlignment">AlignNone</prop>
     <prop name="snapMode">Point</prop>
     <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,15,5,50,0,0,0,0,0,Обычный</prop>
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
     </prop>
     <prop name="Location">60.07692307692305 55.38461538461541</prop>
     <prop name="Size">86 23</prop>
@@ -256,13 +262,37 @@ void line_sts(string dpe, int val){
      </prop>
      <prop name="Item">
       <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ</prop>
+       <prop name="ru_RU.utf8">ДТЛ</prop>
       </prop>
       <prop name="Select">False</prop>
      </prop>
      <prop name="Item">
       <prop name="Text">
-       <prop name="ru_RU.utf8">ДТ(O)</prop>
+       <prop name="ru_RU.utf8">ДТЗ</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">ДТА</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">ДТЛ(О)</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">ДТЗ(О)</prop>
+      </prop>
+      <prop name="Select">False</prop>
+     </prop>
+     <prop name="Item">
+      <prop name="Text">
+       <prop name="ru_RU.utf8">ДТА(О)</prop>
       </prop>
       <prop name="Select">False</prop>
      </prop>
@@ -523,8 +553,19 @@ void line_sts(string dpe, int val){
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   int sts_order;
-  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;, sts_order);
+  string sRegNr, sIdCard;
+  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;, sts_order,
+        &quot;ORDER_LINE&quot; + LINE + &quot;.sRegNr&quot;, sRegNr,
+        &quot;ORDER_LINE&quot; + LINE + &quot;.sIdCard&quot;, sIdCard);
   string loc_fuel = cbx_fuel.selectedText;
+  string bd_fuel = loc_fuel;
+  switch(loc_fuel){
+   case &quot;АИ-92(G)&quot; : bd_fuel = &quot;АИ-92 Gdrive&quot;; break;
+   case &quot;АИ-95(G)&quot; : bd_fuel = &quot;АИ-95 Gdrive&quot;; break;
+   case &quot;ДТЛ(О)&quot;   : bd_fuel = &quot;ДТЛ OPTI&quot;; break;
+   case &quot;ДТЗ(О)&quot;   : bd_fuel = &quot;ДТЗ OPTI&quot;; break;
+   case &quot;ДТА(О)&quot;   : bd_fuel = &quot;ДТА OPTI&quot;; break;
+  }
   if(sts_order == 2){
     clrOrderDp();
   }
@@ -532,20 +573,25 @@ void line_sts(string dpe, int val){
     switch(loc_fuel){
       case &quot;АИ-92(G)&quot;:
       case &quot;АИ-95(G)&quot;:
+      case &quot;АИ-92 Gdrive&quot;:
+      case &quot;АИ-95 Gdrive&quot;:
         prisadka = 0.056;
         break;
       case &quot;ДТ(O)&quot;:
+      case &quot;ДТЛ OPTI&quot;:
+      case &quot;ДТЗ OPTI&quot;:
+      case &quot;ДТА OPTI&quot;:
         prisadka = 0.0405;
     }
     if(loc_fuel != &quot;НЕТ&quot;){
       dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sOrderNr&quot;,     &quot;ОПЕРАТОР&quot;,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iCompNr&quot;,      SECT,
-                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sProductCode&quot;, cbx_fuel.selectedText,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sProductCode&quot;, bd_fuel,//cbx_fuel.selectedText,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iQuantity&quot;,    txt_dose.text,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.dtAdded&quot;,      getCurrentTime(),
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iProcessed&quot;,   0,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.bTrailer&quot;,     false,
-                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sRegNr&quot;,       &quot;A777AA&quot;,
+                &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sRegNr&quot;,       sRegNr, // &quot;A777AA&quot;,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sKompNr&quot;,      &quot;Номер бочки&quot;,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDoc&quot;,         &quot;Номер накладной&quot;,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sDelivery&quot;,    &quot;Грузополучатель&quot;,
@@ -553,6 +599,7 @@ void line_sts(string dpe, int val){
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.Device&quot;,       txt_post.text,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iID&quot;,          0,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iPercent&quot;,     prisadka);
+//                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.result.qCardId&quot;,    sIdCard);
     }else{
       dpSetWait(&quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.sOrderNr&quot;,     &quot;&quot;,
                 &quot;ORDER_LINE&quot; + LINE + &quot;.items.&quot; + SECT + &quot;.init.iCompNr&quot;,      0,

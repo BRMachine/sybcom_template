@@ -1,0 +1,391 @@
+# ascii dump of database
+
+# DpType
+TypeName
+PAZ_AI.PAZ_AI	1#1
+	value	1#8
+		scaled	22#9
+		scaled_paz	22#10
+		physic	22#11
+		simulate	22#12
+	status	1#13
+		sts_bit	24#14
+		bool	1#15
+			HH_act	23#16
+			H_act	23#17
+			L_act	23#18
+			LL_act	23#19
+			KZ_act	23#20
+			OB_act	23#21
+			DE_act	23#22
+			HH_en	23#23
+			H_en	23#24
+			L_en	23#25
+			LL_en	23#26
+			MT_en	23#27
+			SIM_en	23#28
+			DR_en	23#29
+			DE_en	23#30
+			SIM_al	23#31
+			SIM_paz	23#32
+			FLT_act	23#33
+	cmd	1#34
+		cmd_bit	24#35
+	config	1#36
+		lim	1#37
+			hh	22#38
+			h	22#39
+			l	22#40
+			ll	22#41
+		calc	1#42
+			i_max	22#43
+			i_min	22#44
+			c_max	22#45
+			c_min	22#46
+	koef	1#47
+		demp	22#48
+		spd	22#49
+		hist	22#50
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_PAZ_AI	PAZ_AI	566
+
+# Aliases/Comments
+AliasId	AliasName	CommentName
+_mp_PAZ_AI.value.scaled	""	lt:1 LANG:10027 "@%15.3f@"
+_mp_PAZ_AI.value.scaled_paz	""	lt:1 LANG:10027 "@%15.2f@"
+_mp_PAZ_AI.value.physic	""	lt:1 LANG:10027 "@%15.2f@мА"
+_mp_PAZ_AI.value.simulate	""	lt:1 LANG:10027 "@%15.1f@"
+_mp_PAZ_AI.status.bool.HH_act	""	lt:1 LANG:10027 "ВАУ@@"
+_mp_PAZ_AI.status.bool.H_act	""	lt:1 LANG:10027 "ВПУ@@"
+_mp_PAZ_AI.status.bool.L_act	""	lt:1 LANG:10027 "НПУ@@"
+_mp_PAZ_AI.status.bool.LL_act	""	lt:1 LANG:10027 "НАУ@@"
+_mp_PAZ_AI.status.bool.KZ_act	""	lt:1 LANG:10027 "КЗ@@"
+_mp_PAZ_AI.status.bool.OB_act	""	lt:1 LANG:10027 "Обрыв@@"
+_mp_PAZ_AI.status.bool.DE_act	""	lt:1 LANG:10027 "Демпфирование@@"
+_mp_PAZ_AI.status.bool.HH_en	""	lt:1 LANG:10027 "Обработка ВАУ@@"
+_mp_PAZ_AI.status.bool.H_en	""	lt:1 LANG:10027 "Обработка ВПУ@@"
+_mp_PAZ_AI.status.bool.L_en	""	lt:1 LANG:10027 "Обработка НПУ@@"
+_mp_PAZ_AI.status.bool.LL_en	""	lt:1 LANG:10027 "Обработка НАУ@@"
+
+# AlertValue
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+ASC (1)/0	1598507730	284	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	284	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за предел"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	284	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Выход за предел"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	286	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	286	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за предел"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	286	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Выход за предел"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802061	962	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802061	962	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за предел"	 	0x0	0	""	"*"	
+UI (7)/0	1599802061	962	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Выход за предел"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802070	176	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802070	176	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802070	176	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "ВАУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599802072	63	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599802072	63	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802072	63	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "ВАУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803513	779	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803513	779	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803513	779	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "ВАУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803528	124	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803528	124	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803528	124	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803529	912	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599803529	912	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803529	912	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	286	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	286	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	286	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	288	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	288	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	288	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	289	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	289	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	289	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802077	353	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802077	353	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+UI (7)/0	1599802077	353	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802086	63	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802086	63	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802086	63	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "ВПУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599802087	941	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599802087	941	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802087	941	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "ВПУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803533	575	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803533	575	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803533	575	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "ВПУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803536	266	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803536	266	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803536	266	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803538	87	_mp_PAZ_AI.status.bool.H_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599803538	87	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803538	87	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	290	_mp_PAZ_AI.status.bool.L_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	290	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	290	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	292	_mp_PAZ_AI.status.bool.L_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	292	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	292	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802092	499	_mp_PAZ_AI.status.bool.L_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802092	499	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+UI (7)/0	1599802092	499	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802111	227	_mp_PAZ_AI.status.bool.L_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802111	227	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802111	227	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "НПУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599802113	107	_mp_PAZ_AI.status.bool.L_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599802113	107	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802113	107	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "НПУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803544	216	_mp_PAZ_AI.status.bool.L_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803544	216	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803544	216	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "НПУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803556	169	_mp_PAZ_AI.status.bool.L_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803556	169	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803556	169	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803557	865	_mp_PAZ_AI.status.bool.L_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599803557	865	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803557	865	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	2	5									warning.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	292	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	292	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	292	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	293	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	293	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	293	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	295	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	295	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	295	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802117	849	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802117	849	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Выход за пределы"	 	0x0	0	""	"*"	
+UI (7)/0	1599802117	849	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Выход за пределы"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802128	548	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802128	548	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802128	548	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "НАУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599802131	717	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599802131	717	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802131	717	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "НАУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803565	97	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803565	97	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803565	97	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "НАУ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803567	269	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803567	269	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803567	269	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803569	31	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599803569	31	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803569	31	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	296	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	296	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	296	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	298	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	298	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	298	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802138	401	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802138	401	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (7)/0	1599802138	401	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802146	985	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802146	985	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802146	985	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "КЗ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599802149	239	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599802149	239	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802149	239	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "КЗ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803719	19	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803719	19	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803719	19	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "КЗ"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803721	994	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803721	994	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803721	994	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803729	50	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599803729	50	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803729	50	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	298	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	298	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	298	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	300	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	300	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	300	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	301	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	301	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	301	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802263	365	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802263	365	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (7)/0	1599802263	365	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802274	318	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802274	318	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802274	318	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Обрыв"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599802276	230	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599802276	230	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599802276	230	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Обрыв"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803735	814	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803735	814	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803735	814	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Обрыв"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803738	203	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803738	203	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803738	203	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803740	6	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599803740	6	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803740	6	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	302	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	302	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	302	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	304	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	304	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	304	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599802290	924	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599802290	924	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (7)/0	1599802290	924	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (7)/0	1599803752	536	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803752	536	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803752	536	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599803754	424	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599803754	424	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	1	5									 	lt:1 LANG:10027 ""				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803754	424	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+ASC (1)/0	1598507730	304	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	304	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	304	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1598507730	306	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	306	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	306	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (7)/0	1599804721	493	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599804721	493	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599804721	493	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (7)/0	1599804726	799	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599804726	799	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599804726	799	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599804726	816	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599804726	816	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599804726	816	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599804758	93	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599804758	93	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599804758	93	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"1"	
+UI (7)/0	1599804761	725	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599804761	725	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599804761	725	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (7)/0	1599804761	742	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599804761	742	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599804761	742	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1598507730	307	_mp_PAZ_AI.status.bool.H_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+ASC (1)/0	1598507730	307	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	307	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1598507730	309	_mp_PAZ_AI.status.bool.H_en	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			1	1				0																0								
+ASC (1)/0	1598507730	309	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+ASC (1)/0	1598507730	309	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (7)/0	1599803823	417	_mp_PAZ_AI.status.bool.H_en	PAZ_AI		13					""		lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803823	417	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803823	417	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (7)/0	1599803825	917	_mp_PAZ_AI.status.bool.H_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (7)/0	1599803825	917	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803825	917	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+UI (7)/0	1599803825	932	_mp_PAZ_AI.status.bool.H_en	PAZ_AI		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (7)/0	1599803825	932	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	1	5									 	lt:1 LANG:10027 "Включена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"*"	
+UI (7)/0	1599803825	932	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	2	5									information.	lt:1 LANG:10027 "Отключена"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 ""	 	0x0	0	""	"0"	
+ASC (1)/0	1598507730	309	_mp_PAZ_AI.status.bool.L_en	PAZ_AI		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Состояние ВКЛ."	lt:1 LANG:10027 "Состояние ВЫКЛ."												0								
+ASC (1)/0	1598507730	310	_mp_PAZ_AI.status.bool.L_en	PAZ_AI		12					""		lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Состояние ВКЛ."	lt:1 LANG:10027 "Состояние ВЫКЛ."												0								
+ASC (1)/0	1598507730	311	_mp_PAZ_AI.status.bool.L_en	PAZ_AI		12					""		lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Состояние ВКЛ."	lt:1 LANG:10027 "Состояние ВЫКЛ."												0								
+UI (7)/0	1599803829	206	_mp_PAZ_AI.status.bool.L_en	PAZ_AI		12					""		lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Состояние ВКЛ."	lt:1 LANG:10027 "Состояние ВЫКЛ."												0								
+UI (7)/0	1599803836	87	_mp_PAZ_AI.status.bool.L_en	PAZ_AI		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Включена"	lt:1 LANG:10027 "Отключена"												0								
+UI (7)/0	1599803836	88	_mp_PAZ_AI.status.bool.L_en	PAZ_AI		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Включена"	lt:1 LANG:10027 "Отключена"												0								
+ASC (1)/0	1598507730	311	_mp_PAZ_AI.status.bool.LL_en	PAZ_AI		12					""		lt:1 LANG:10027 ""	\0	 		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Состояние ВКЛ."	lt:1 LANG:10027 "Состояние ВЫКЛ."												0								
+ASC (1)/0	1598507730	312	_mp_PAZ_AI.status.bool.LL_en	PAZ_AI		12					""		lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Состояние ВКЛ."	lt:1 LANG:10027 "Состояние ВЫКЛ."												0								
+UI (7)/0	1599803839	909	_mp_PAZ_AI.status.bool.LL_en	PAZ_AI		12					""		lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Состояние ВКЛ."	lt:1 LANG:10027 "Состояние ВЫКЛ."												0								
+UI (7)/0	1599803846	121	_mp_PAZ_AI.status.bool.LL_en	PAZ_AI		12					""	""	lt:1 LANG:10027 ""	\0	information.		0	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Включена"	lt:1 LANG:10027 "Отключена"												0								
+UI (7)/0	1599803846	138	_mp_PAZ_AI.status.bool.LL_en	PAZ_AI		12					""	""	lt:1 LANG:10027 ""	\0	information.		1	1	0	0	01.01.1970 00:00:00.000	0			lt:1 LANG:10027 "Включена"	lt:1 LANG:10027 "Отключена"												0								
+
+# DistributionInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_distrib.._type	_distrib.._driver
+ASC (1)/0	1598507759	240	_mp_PAZ_AI.value.scaled	PAZ_AI	56	\1
+ASC (1)/0	1598507759	240	_mp_PAZ_AI.value.scaled_paz	PAZ_AI	56	\1
+ASC (1)/0	1598507759	241	_mp_PAZ_AI.value.physic	PAZ_AI	56	\1
+ASC (1)/0	1598507759	241	_mp_PAZ_AI.value.simulate	PAZ_AI	56	\1
+ASC (1)/0	1598507759	242	_mp_PAZ_AI.status.sts_bit	PAZ_AI	56	\1
+ASC (1)/0	1598507759	242	_mp_PAZ_AI.cmd.cmd_bit	PAZ_AI	56	\1
+ASC (1)/0	1598507759	242	_mp_PAZ_AI.config.lim.hh	PAZ_AI	56	\1
+ASC (1)/0	1598507759	243	_mp_PAZ_AI.config.lim.h	PAZ_AI	56	\1
+ASC (1)/0	1598507759	243	_mp_PAZ_AI.config.lim.l	PAZ_AI	56	\1
+ASC (1)/0	1598507759	244	_mp_PAZ_AI.config.lim.ll	PAZ_AI	56	\1
+ASC (1)/0	1598507759	244	_mp_PAZ_AI.config.calc.i_max	PAZ_AI	56	\1
+ASC (1)/0	1598507759	244	_mp_PAZ_AI.config.calc.i_min	PAZ_AI	56	\1
+ASC (1)/0	1598507759	244	_mp_PAZ_AI.config.calc.c_max	PAZ_AI	56	\1
+ASC (1)/0	1598507759	245	_mp_PAZ_AI.config.calc.c_min	PAZ_AI	56	\1
+ASC (1)/0	1598507759	246	_mp_PAZ_AI.koef.demp	PAZ_AI	56	\1
+ASC (1)/0	1598507759	246	_mp_PAZ_AI.koef.spd	PAZ_AI	56	\1
+ASC (1)/0	1598507759	246	_mp_PAZ_AI.koef.hist	PAZ_AI	56	\1
+
+# DpFunction
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_dp_fct.._type	_dp_fct.._param	_dp_fct.._fct	_dp_fct.._global	_dp_fct.._old_new_compare	_dp_fct.._stat_type	_dp_fct.._interval	_dp_fct.._time	_dp_fct.._day_of_week	_dp_fct.._day	_dp_fct.._month	_dp_fct.._delay	_dp_fct.._read_archive	_dp_fct.._inv_func	_dp_fct.._inv_limit	_dp_fct.._def_func	_dp_fct.._def_limit	_dp_fct.._user1_func	_dp_fct.._user1_limit	_dp_fct.._user2_func	_dp_fct.._user2_limit	_dp_fct.._user3_func	_dp_fct.._user3_limit	_dp_fct.._user4_func	_dp_fct.._user4_limit	_dp_fct.._user5_func	_dp_fct.._user5_limit	_dp_fct.._user6_func	_dp_fct.._user6_limit	_dp_fct.._user7_func	_dp_fct.._user7_limit	_dp_fct.._user8_func	_dp_fct.._user8_limit	_dp_fct.._interm_res	_dp_fct.._interm_res_cyc
+ASC (1)/0	1598508094	920	_mp_PAZ_AI.status.bool.HH_act	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0002"		1
+ASC (1)/0	1598508094	920	_mp_PAZ_AI.status.bool.H_act	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0004"		1
+ASC (1)/0	1598508094	922	_mp_PAZ_AI.status.bool.L_act	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0008"		1
+ASC (1)/0	1598508094	922	_mp_PAZ_AI.status.bool.LL_act	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0010"		1
+ASC (1)/0	1598508094	923	_mp_PAZ_AI.status.bool.KZ_act	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0020"		1
+ASC (1)/0	1598508094	924	_mp_PAZ_AI.status.bool.OB_act	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0060"		1
+ASC (1)/0	1598508094	925	_mp_PAZ_AI.status.bool.DE_act	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0080"		1
+ASC (1)/0	1598508094	926	_mp_PAZ_AI.status.bool.HH_en	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0200"		1
+ASC (1)/0	1598508094	926	_mp_PAZ_AI.status.bool.H_en	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 &0x0400"		1
+ASC (1)/0	1598508094	927	_mp_PAZ_AI.status.bool.L_en	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x0800"		1
+ASC (1)/0	1598508094	928	_mp_PAZ_AI.status.bool.LL_en	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x1000"		1
+ASC (1)/0	1598508094	929	_mp_PAZ_AI.status.bool.MT_en	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x2000"		1
+ASC (1)/0	1598508094	930	_mp_PAZ_AI.status.bool.SIM_en	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x4000"		1
+ASC (1)/0	1598508094	930	_mp_PAZ_AI.status.bool.DR_en	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x8000"		1
+ASC (1)/0	1598508094	931	_mp_PAZ_AI.status.bool.DE_en	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x10000"		1
+ASC (1)/0	1598508094	932	_mp_PAZ_AI.status.bool.SIM_al	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x20000"		1
+ASC (1)/0	1598508094	933	_mp_PAZ_AI.status.bool.SIM_paz	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x40000"		1
+ASC (1)/0	1598508094	934	_mp_PAZ_AI.status.bool.FLT_act	PAZ_AI	60	_mp_PAZ_AI.status.sts_bit:_original.._value	"p1 & 0x1000000"		1
+
+# DpAuth
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_auth.._type	_auth.._write	_auth.._read	_auth.._owner_write	_auth.._owner_read	_auth.._owner
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI		62					0
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	1		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	2		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	6		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	14		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	16		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	18		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	20		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	21		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	23		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	24		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	26		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	31		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	32		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	33		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	34		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	36		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	37		\0	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	40		\255	\255	\255	\255
+ASC (1)/0	1598507764	755	_mp_PAZ_AI.value.simulate	PAZ_AI	41		\255	\255	\255	\255
+
+# DpSmoothMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_smooth.._type	_smooth.._std_type	_smooth.._std_tol	_smooth.._std_time	_smooth.._deriv_tol1	_smooth.._deriv_tol2	_smooth.._deriv_limit	_smooth.._deriv_time	_smooth.._flut_time	_smooth.._old_new
+ASC (1)/0	1598508097	723	_mp_PAZ_AI.value.scaled	PAZ_AI	48	4	0	01.01.1970 00:00:00.000						
+ASC (1)/0	1598508097	724	_mp_PAZ_AI.value.scaled_paz	PAZ_AI	48	4	0	01.01.1970 00:00:00.000						
+ASC (1)/0	1598508097	724	_mp_PAZ_AI.value.physic	PAZ_AI	48	4	0	01.01.1970 00:00:00.000						
+ASC (1)/0	1598508097	724	_mp_PAZ_AI.value.simulate	PAZ_AI	48	4	0	01.01.1970 00:00:00.000						
+
+# PeriphAddrMain
+Manager/User	StampSec	StampMSec	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+UI (7)/0	1598518508	40	_mp_PAZ_AI.value.scaled	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".PAR"	_PollPaz	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521037	582	_mp_PAZ_AI.value.scaled_paz	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".PAR_PAZ"	_PollPaz	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521222	480	_mp_PAZ_AI.value.physic	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".AI_MA_OUT"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521245	412	_mp_PAZ_AI.value.simulate	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".SIM_PAR"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521256	754	_mp_PAZ_AI.status.sts_bit	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".QdwState"	_PollPaz	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	708	"S7"
+UI (7)/0	1598521273	290	_mp_PAZ_AI.cmd.cmd_bit	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".OP_dwCmd"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	708	"S7"
+UI (7)/0	1598521281	322	_mp_PAZ_AI.config.lim.hh	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".LIM_HH"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521285	914	_mp_PAZ_AI.config.lim.h	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".LIM_H"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521290	313	_mp_PAZ_AI.config.lim.l	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".LIM_L"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521294	615	_mp_PAZ_AI.config.lim.ll	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".LIM_LL"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521301	184	_mp_PAZ_AI.config.calc.i_max	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".I_MAX"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521305	536	_mp_PAZ_AI.config.calc.i_min	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".I_MIN"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521310	134	_mp_PAZ_AI.config.calc.c_max	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".PAR_MAX"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521314	342	_mp_PAZ_AI.config.calc.c_min	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".PAR_MIN"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521321	220	_mp_PAZ_AI.koef.demp	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".TAU"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521325	629	_mp_PAZ_AI.koef.spd	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".SPID"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	705	"S7"
+UI (7)/0	1598521469	544	_mp_PAZ_AI.koef.hist	PAZ_AI	16	"PAZ.$\"_mp_PAZ_AI\".HIST"	_PollPaz	 	0	0	\7	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	703	"S7"
+
+# DbArchiveInfo
+Manager/User	StampSec	StampMSec	ElementName	TypeName	DetailNr	_archive.._type	_archive.._archive	_archive.._class	_archive.._interv	_archive.._interv_type	_archive.._std_type	_archive.._std_tol	_archive.._std_time	_archive.._round_val	_archive.._round_inv
+ASC (1)/0	1598508103	128	_mp_PAZ_AI.value.scaled	PAZ_AI		45	1
+ASC (1)/0	1598508103	128	_mp_PAZ_AI.value.scaled	PAZ_AI	1	3		_ValueArchive_0	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1598508103	130	_mp_PAZ_AI.value.scaled_paz	PAZ_AI		45	1
+ASC (1)/0	1598508103	130	_mp_PAZ_AI.value.scaled_paz	PAZ_AI	1	3		_ValueArchive_0	0	0	4	0	01.01.1970 00:00:00.000	0	0
+ASC (1)/0	1598508103	130	_mp_PAZ_AI.value.simulate	PAZ_AI		45	1
+ASC (1)/0	1598508103	130	_mp_PAZ_AI.value.simulate	PAZ_AI	1	3		_ValueArchive_6	0	0	4	0	01.01.1970 00:00:00.000	0	0

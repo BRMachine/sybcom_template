@@ -1,0 +1,87 @@
+# ascii dump of database
+
+# DpType
+TypeName
+SQL_ORDERITEMS.SQL_ORDERITEMS	1#1
+	init	1#16
+		iID	21#423
+		sOrderNr	25#17
+		iCompNr	21#18
+		sProductCode	25#19
+		iQuantity	22#20
+		dtAdded	26#21
+		iProcessed	21#22
+		bTrailer	23#23
+		sRegNr	25#24
+		sKompNr	25#25
+		sDoc	25#26
+		sDelivery	25#27
+		nMass	22#28
+		Device	21#29
+		iPercent	22#30
+	result	1#31
+		ReceipId	25#424
+		PostNumber	21#388
+		TankCode	21#389
+		RegistrationNumber	25#390
+		SectionNumber	21#391
+		OrderedVolume	22#392
+		OrderedWeight	22#393
+		LoadedVolume	22#394
+		LoadedWeight	22#395
+		LoadedTemperature	22#396
+		LoadedDensity	22#397
+		LoadedBaseVolume	22#398
+		LoadedBaseWeight	22#399
+		LoadedBaseTemperature	22#400
+		LoadedBaseDensity	22#401
+		LoadedMixed1Volume	22#402
+		LoadedMixed1Temperature	22#403
+		LoadedMixed1Density	22#404
+		LoadedMixed1Weight	22#405
+		LoadedMixed2Volume	22#406
+		LoadedMixed2Temperature	22#407
+		LoadedMixed2Density	22#408
+		LoadedMixed2Weight	22#409
+		ErrorCode	21#410
+		ResultCode	21#411
+		DtStart	26#412
+		DtEnd	26#413
+		SumVolumeStart	21#414
+		SumVolumeEnd	21#415
+		SumWeightStart	21#416
+		SumWeightEnd	21#417
+		ModeCtrl	21#418
+		sHash	25#419
+		DispatchOrder	25#420
+		iProcessed	21#421
+		Fingerprint	25#422
+		SumVolumeStartpr	21#430
+		SumVolumeEndpr	21#431
+		qTankLevelStart	22#432
+		qVolumeTankStart	22#433
+		qWeightTankStart	22#434
+		qDensityTankStart	22#435
+		qTempTankStart	22#436
+		qPressureStart	22#437
+		qLevelWaterStart	22#438
+		qVolumeWaterStart	22#439
+		qVolumeTankEnd	22#440
+		qWeightTankEnd	22#441
+		qDensityTankEnd	22#442
+		qTempTankEnd	22#443
+		qPressureEnd	22#444
+		qLevelWaterEnd	22#445
+		qCardID	25#446
+		qNbrLine	21#447
+# ascii dump of database
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_ds_SQL_ORDERITEMS	_DynamicDptSettings	5386
+
+# DpValue
+Manager/User	ElementName	TypeName	_original.._value	_original.._status64	_original.._stime
+UI (7)/0	_ds_SQL_ORDERITEMS.symbols	_DynamicDptSettings		0x8300000000000101	08.02.2021 10:03:56.625
+UI (7)/0	_ds_SQL_ORDERITEMS.symboldefault	_DynamicDptSettings	""	0x8300000000000101	08.02.2021 10:03:56.626
+UI (7)/0	_ds_SQL_ORDERITEMS.trendElements	_DynamicDptSettings		0x8300000000000101	08.02.2021 10:03:56.626
