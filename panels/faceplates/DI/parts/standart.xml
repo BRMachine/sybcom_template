@@ -14,10 +14,15 @@
   <prop name="layoutType">None</prop>
  </properties>
  <events>
-  <script name="ScopeLib" isEscaped="1"><![CDATA[const string dp = $dp;]]></script>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string dp = $dp;
+
+string normalColor;
+
+]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main()
 {
   dpConnect(&quot;cbValue&quot;, dp + &quot;.status.sts_bit&quot;);
+  normalColor = DI_Cir.backCol;
 }
 
 
@@ -42,7 +47,8 @@ void cbValue(dyn_string dp, dyn_anytype value){
   else{
     DI_Cir.backCol(normalColor);
     txt_center.text = &quot;НЕИЗВЕСТНО&quot;;}
-}]]></script>
+}
+]]></script>
  </events>
  <shapes>
   <shape Name="DI_Cir" shapeType="RECTANGLE" layerId="0">
@@ -560,7 +566,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">2.147790107071799 0 0 1.671445988745293 39.21408689491784 61.51372836015061</prop>
+    <prop name="Geometry">2.147790107071799 0 0 1.671445988745293 39.21408689491786 61.51372836015061</prop>
     <prop name="Location">29 32</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
