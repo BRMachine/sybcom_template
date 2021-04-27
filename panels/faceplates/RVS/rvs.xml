@@ -1118,7 +1118,7 @@ bool BtnVisible = 1;
     <extended>
      <prop type="BOOL" name="act">False</prop>
      <prop type="CHAR_STRING" name="text">Хранение</prop>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">18</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   // storage=1|taking=2|release=3|maint=6
@@ -1138,7 +1138,7 @@ bool BtnVisible = 1;
     <extended>
      <prop type="BOOL" name="act">False</prop>
      <prop type="CHAR_STRING" name="text">Прием</prop>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">17</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   // storage=1|taking=2|release=3|maint=6
@@ -1158,7 +1158,7 @@ bool BtnVisible = 1;
     <extended>
      <prop type="BOOL" name="act">False</prop>
      <prop type="CHAR_STRING" name="text">Отпуск</prop>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">17</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   // storage=1|taking=2|release=3|maint=6
