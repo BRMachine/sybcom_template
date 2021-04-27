@@ -607,10 +607,10 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   string desc = &quot;Задвижка: &quot; + dpGetAlias(DP + &quot;.&quot;);
   bool paz = self.getPaz();
-//   if(getUserPermission(5))
+//   if(getUserPermission(13))
     ChildPanelOnCentral(&quot;faceplates\\VALVE\\valve.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$paz:&quot;+paz));
 //   else
-//     ChildPanelOnCentralModal(&quot;mnemo/permission/AccessIsDenied.xml&quot;,
+//     ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
 //       &quot;Доступ запрещен!&quot;,
 //       makeDynString(&quot;&quot;));
 }

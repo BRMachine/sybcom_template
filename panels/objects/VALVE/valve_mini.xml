@@ -217,7 +217,12 @@ void cbValue(string dp, bit32 sts){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
   string desc = &quot;Задвижка: &quot; + dpGetAlias(DP + &quot;.&quot;);
   bool paz = self.getPaz();
-  ChildPanelOnCentral(&quot;faceplates\\VALVE\\valve.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$paz:&quot;+paz));
+//   if(getUserPermission(13))
+    ChildPanelOnCentral(&quot;faceplates\\VALVE\\valve.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$paz:&quot;+paz));
+//   else
+//     ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
+//       &quot;Доступ запрещен!&quot;,
+//       makeDynString(&quot;&quot;));
 }
 ]]></script>
    </events>
