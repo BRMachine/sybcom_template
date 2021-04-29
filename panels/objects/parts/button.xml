@@ -112,7 +112,7 @@ public void setAct(bool a){
   if(sec){
     triggerEvent(&quot;clickedBtn&quot;);
   }else{
-    ChildPanelOnCentralModal(&quot;vision/WarningSplash.xml&quot;,
+    ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
                              &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
   }
 }
