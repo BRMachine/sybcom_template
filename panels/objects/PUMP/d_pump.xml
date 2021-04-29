@@ -40,6 +40,7 @@ public bool getBut(){
 }
 
 const string DP = $dp;
+const string N_LOCK = $n_lock;
 
 void cbStatus(string dp, bit32 val){
   if(getBit(val, 28)){
@@ -58,6 +59,7 @@ void cbStatus(string dp, bit32 val){
   txt_maint.visible(getBit(val, 11));
   el_fault.visible = (getBit(val, 15) || getBit(val, 19));
   el_ready.visible(!getBit(val, 8));
+  shp_block.visible(getBit(val, 6));
 }
 
 void initArrow(){
@@ -229,7 +231,7 @@ void initArrow(){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string desc = &quot;Насос: &quot; + dpGetAlias(DP + &quot;.&quot;);
-  ChildPanelOnCentral(&quot;faceplates\\PUMP\\d_pump.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP));
+  ChildPanelOnCentral(&quot;faceplates\\PUMP\\d_pump.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$n_lock:&quot; + N_LOCK));
 }
 ]]></script>
     <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
@@ -511,6 +513,67 @@ main(int iType)
     <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
+  <shape Name="ELLIPSE2" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">16</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29.5 106.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Red</prop>
+    <prop name="TabOrder">12</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 0.3750879662209776 -25</prop>
+    <prop name="Center">29.5 106.5</prop>
+    <prop name="X-Radius">10.5</prop>
+    <prop name="Y-Radius">10.5</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">17</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29.75017593244195 80.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">13</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">29.75017593244195 80.5</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Б</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
  </shapes>
  <groups>
   <group parentSerial="-1" Name="SHAPE_GROUP1" serial="0">
@@ -519,6 +582,13 @@ main(int iType)
     <prop name="shapeSerial">5</prop>
     <prop name="shapeSerial">4</prop>
     <prop name="shapeSerial">2</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="shp_block" serial="1">
+   <properties>
+    <prop name="shapeSerial">16</prop>
+    <prop name="shapeSerial">17</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </group>

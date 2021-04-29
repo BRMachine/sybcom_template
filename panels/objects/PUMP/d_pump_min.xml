@@ -58,6 +58,7 @@ void cbStatus(string dp, bit32 val){
   txt_maint.visible(getBit(val, 11));
   el_fault.visible = (getBit(val, 15) || getBit(val, 19));
   el_ready.visible(!getBit(val, 8));
+  shp_block.visible(getBit(val, 6));
 }
 
 void initArrow(){
@@ -415,7 +416,7 @@ void initArrow(){
     <prop name="LineType">[solid,oneColor,JoinMiter,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.8687734962406017 0 0 0.8160107651087969 5.286654135338341 10.8652530692178</prop>
+    <prop name="Geometry">0.8687734962406017 0 0 0.8160107651087969 -13.59478044813059 -2.729523998694205</prop>
     <prop name="Location">36 58</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,9,5,50,0,0,0,0,0,Обычный</prop>
@@ -435,7 +436,7 @@ void initArrow(){
    <properties>
     <prop name="serialId">8</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">15.75604627275482 48.81030059531997</prop>
+    <prop name="RefPoint">16.28910821502145 50.0847055472591</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -449,8 +450,8 @@ void initArrow(){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">15.75604627275482 28.33450309049296</prop>
-    <prop name="Size">42 51</prop>
+    <prop name="Location">16.28910821502145 29.60890804243208</prop>
+    <prop name="Size">43 50</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8"></prop>
@@ -460,8 +461,9 @@ void initArrow(){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event)
 {
   string desc = &quot;Насос: &quot; + dpGetAlias(DP + &quot;.&quot;);
-  ChildPanelOnCentral(&quot;faceplates\\PUMP\\d_pump.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP));
-}]]></script>
+  ChildPanelOnCentral(&quot;faceplates\\PUMP\\d_pump.xml&quot;, desc, makeDynString(&quot;$dp:&quot; + DP, &quot;$n_lock:&quot; + N_LOCK));
+}
+]]></script>
     <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
 main(int iType)
 {
@@ -507,6 +509,67 @@ main(int iType)
 ]]></script>
    </events>
   </shape>
+  <shape Name="ELLIPSE2" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">16</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29.5 106.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Red</prop>
+    <prop name="TabOrder">12</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 -11.21391492135595 -35.17123107410551</prop>
+    <prop name="Center">29.5 106.5</prop>
+    <prop name="X-Radius">10.5</prop>
+    <prop name="Y-Radius">10.5</prop>
+   </properties>
+  </shape>
+  <shape Name="PRIMITIVE_TEXT1" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">17</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">18.16117304486502 70.32876892589449</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">13</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">18.16117304486502 70.32876892589449</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Б</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
  </shapes>
  <groups>
   <group parentSerial="-1" Name="SHAPE_GROUP1" serial="0">
@@ -515,6 +578,13 @@ main(int iType)
     <prop name="shapeSerial">6</prop>
     <prop name="shapeSerial">5</prop>
     <prop name="shapeSerial">4</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+   </properties>
+  </group>
+  <group parentSerial="-1" Name="shp_block" serial="1">
+   <properties>
+    <prop name="shapeSerial">16</prop>
+    <prop name="shapeSerial">17</prop>
     <prop name="layoutAlignment">AlignNone</prop>
    </properties>
   </group>

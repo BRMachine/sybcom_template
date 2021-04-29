@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">254 213</prop>
+  <prop name="Size">254 237</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">110 90</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -15,6 +15,7 @@
  </properties>
  <events>
   <script name="ScopeLib" isEscaped="1"><![CDATA[const string DP = $dp;
+const string N_LOCK = $n_lock;
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   Label8.text(dpGetDescription(DP + &quot;.&quot;));
@@ -32,6 +33,10 @@
      <prop name="dollarParameter">
       <prop name="Dollar">$dp</prop>
       <prop name="Value">$dp</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$n_lock</prop>
+      <prop name="Value">$n_lock</prop>
      </prop>
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
@@ -368,6 +373,24 @@
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   dpSetWait(DP + &quot;.cmd.reset&quot;, true);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="PANEL_REF18" referenceId="9">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">422.8333333333334 28.73030303030298</prop>
+    <prop name="Geometry">1.046659779614325 0 0 1 -351.5626434802576 177.269696969697</prop>
+    <prop name="TabOrder">18</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="CHAR_STRING" name="text">Блокировки</prop>
+     <prop type="INT" name="secureBit">16</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  ChildPanelOnCentral(&quot;objects/LOCK/LOCK16.xml&quot;, &quot;Блокировки НС-1-2&quot;, makeDynString(&quot;$dp:&quot; + N_LOCK));
 }
 ]]></script>
     </extended>
