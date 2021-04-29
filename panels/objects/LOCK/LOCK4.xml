@@ -294,7 +294,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
    <shape GroupPath="" RefShapeSerial="1" shapeType="RefShape" layerId="0">
@@ -522,7 +522,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -745,7 +745,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -968,7 +968,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1520,38 +1520,6 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
 }]]></script>
    </events>
   </shape>
-  <shape Name="btn_rst" shapeType="PUSH_BUTTON" layerId="0">
-   <properties>
-    <prop name="serialId">168</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">550 212</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">_ButtonText</prop>
-    <prop name="BackColor">_Button</prop>
-    <prop name="TabOrder">91</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="Font">
-     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
-    </prop>
-    <prop name="Location">550 207</prop>
-    <prop name="Size">121 23</prop>
-    <prop name="BorderStyle">Styled</prop>
-    <prop name="Text">
-     <prop name="ru_RU.utf8">Сбросить</prop>
-    </prop>
-   </properties>
-   <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-    dpSetWait(dp + &quot;.value.reset&quot;, 1);
-}
-]]></script>
-   </events>
-  </shape>
   <reference parentSerial="-1" Name="PANEL_REF2" referenceId="16">
    <properties>
     <prop name="FileName">objects/parts/checkBoxBool.xml</prop>
@@ -1566,7 +1534,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1584,7 +1552,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1602,7 +1570,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1620,7 +1588,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1638,7 +1606,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1656,7 +1624,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1674,7 +1642,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1692,7 +1660,7 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     </prop>
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
-     <prop type="INT" name="secureBit">8</prop>
+     <prop type="INT" name="secureBit">10</prop>
     </extended>
    </properties>
   </reference>
@@ -1904,5 +1872,23 @@ dyn_shape out_shape = makeDynShape(getShape(&quot;out1_di&quot;), getShape(&quot
     <prop name="Y-Radius">18.00000000000011</prop>
    </properties>
   </shape>
+  <reference parentSerial="-1" Name="PANEL_REF406" referenceId="24">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">1438.003466204507 535.0117647058822</prop>
+    <prop name="Geometry">1 0 0 1 -905.0034662045073 -333.0117647058823</prop>
+    <prop name="TabOrder">109</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="CHAR_STRING" name="text">Сбросить</prop>
+     <prop type="INT" name="secureBit">15</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  dpSetWait(dp + &quot;.value.reset&quot;, 1);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
  </shapes>
 </panel>
