@@ -119,6 +119,19 @@ void postAsnStop(int line, int section, int device){
         "Post_" + device + ".xTotalMass"                        , rSumWeightEnd,
         "ORDER_LINE"+line+".control"                            , rModeCtrl,
         "ORDER_LINE"+line+".sIdCard"                            , idCard);
+  switch(rReceipId){ //Узнать и написать коды НП
+    case "G-100":        rReceipId = 1; break;
+    case "АИ-92":        rReceipId = 1; break;
+    case "АИ-92 Gdrive": rReceipId = 1; break;
+    case "АИ-95":        rReceipId = 1; break;
+    case "АИ-95 Gdrive": rReceipId = 1; break;
+    case "ДТЛ":          rReceipId = 1; break;
+    case "ДТЛ OPTI":     rReceipId = 1; break;
+    case "ДТЗ":          rReceipId = 1; break;
+    case "ДТЗ OPTI":     rReceipId = 1; break;
+    case "ДТА":          rReceipId = 1; break;
+    case "ДТА OPTI":     rReceipId = 1; break;
+  }
 
   if(dozer > 0 & iPercent > 0){
      dpGet("Post_" + dozer + ".xVolumeFact"              , rLoadedMixed1Volume,

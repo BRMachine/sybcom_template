@@ -295,6 +295,9 @@ void updateReceive(int is, string dp, time val){
         //                qTankLevelEnd + ", " + qVolumeTankEnd + ", " + qWeightTankEnd + ", " + qDensityTankEnd + ", " + qTempTankEnd + ", " + qTankWaterLEnd + ", " + qPressureEnd + ", " +  // end RVS values
 
         //                ModeCtrl + ");";
+    // New query (NOYABRSK) 30.04.2021
+        string query = "INSERT INTO [" + loc_database + "].[dbo].[vReceptionResult] " +
+        "(DateRecording, PostName, TankCode, DtStart, DtEnd, RecWeight, RecVolume, RecDensity, " +
 
         DebugFTN("db_info", "RECEIVE | updateReceive query \n", query);
         dbStartCommand(con, query, cmd);
