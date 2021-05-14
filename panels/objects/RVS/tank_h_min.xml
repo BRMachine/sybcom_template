@@ -156,18 +156,23 @@ void cb_fuel(string dpe, string val){
   else{txt_fuel.text(val);}
 
   rec_fuel.backCol(fuelToColor(val));
-  top_bar.backCol(fuelToColor(val));
+  if(!alarm_top_bar){
+    top_bar.backCol(fuelToColor(val));
+  }
 }
+bool alarm_top_bar;
 
-  void cbAlarmLogic(string dp, string color){
-    if(color != &quot;&quot;){
-      top_bar.backCol(color);
-    }else{
-      string fuel;
-      dpGet(DP + &quot;.fuel_type&quot;, fuel);
-      top_bar.backCol(fuelToColor(fuel));
+void cbAlarmLogic(string dp, string color){
+  if(color != &quot;&quot;){
+    alarm_top_bar = true;
+    top_bar.backCol(color);
+  }else{
+    alarm_top_bar = false;
+    string fuel;
+    dpGet(DP + &quot;.fuel_type&quot;, fuel);
+    top_bar.backCol(fuelToColor(fuel));
 //       initFuel(fuel);
-    }
+  }
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){

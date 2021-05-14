@@ -101,8 +101,8 @@ void cbValue(dyn_string dp, dyn_anytype value){
     DI_Cir.backCol(&quot;{0,255,0}&quot;);
     txt_center.text = &quot;ОТКЛ&quot;;}
   else{
-    DI_Cir.backCol(normalColor);
-    txt_center.text = &quot;НЕИЗ&quot;;}
+    DI_Cir.backCol(&quot;{255,255,255}&quot;);
+    txt_center.text = &quot;&quot;;}
 
   bERR.visible(qerr);
   bERR_text.visible(qerr);

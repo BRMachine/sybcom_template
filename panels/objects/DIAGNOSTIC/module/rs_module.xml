@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">965 408</prop>
+  <prop name="Size">154 188</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">17.58488520408164 17.29950733948115</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -21,10 +21,26 @@ public string getModuleName()        { return txt_name.text; }
 public void   setModuleName(string n){ txt_name.text(n); }
 
 public string g_panel;
+
+
+const string dp = $dp;
+
+void worker(dyn_string dp, dyn_bool val){
+  if(val[1])
+    Fon.backCol = &quot;&lt;Red,4,WF_CardActive,4&gt;&quot;;
+  else
+    Fon.backCol = &quot;WF_CardActive&quot;;
+}
+
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  dpConnect(&quot;worker&quot;,   dp + &quot;.ModuleError&quot;);
+}
 ]]></script>
  </events>
  <shapes>
-  <shape Name="RECTANGLE5" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon1" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">35</prop>
     <prop name="Type"></prop>
@@ -44,13 +60,46 @@ public string g_panel;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.113395225464191 0 0 0.7090349904643329 46.4078249336871 -122.5632605630903</prop>
+    <prop name="Geometry">1.113395225464191 0 0 0.7090349904643329 -109.6074270557029 -131.8973479975099</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">120 210</prop>
     <prop name="Size">63 211</prop>
     <prop name="CornerRadius">0</prop>
     <prop name="Transformable">True</prop>
    </properties>
+   <events>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 1;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $dp+&quot;.ModuleError&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {$dp + &quot;.ModuleError&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
+]]></script>
+   </events>
   </shape>
   <shape Name="sts_4" shapeType="RECTANGLE" layerId="0">
    <properties>
@@ -72,7 +121,7 @@ public string g_panel;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.7294642857142855 0 0 0.7091707039169673 90.89910714285718 -214.943402684296</prop>
+    <prop name="Geometry">0.7294642857142855 0 0 0.7091707039169673 -65.11614484653283 -224.2774901187156</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -100,7 +149,7 @@ public string g_panel;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.7294642857142855 0 0 0.7091707039169673 90.89910714285718 -241.4176460587183</prop>
+    <prop name="Geometry">0.7294642857142855 0 0 0.7091707039169673 -65.11614484653283 -250.7517334931379</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -128,7 +177,7 @@ public string g_panel;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.7294642857142855 0 0 0.7091707039169673 90.89910714285718 -227.943402684296</prop>
+    <prop name="Geometry">0.7294642857142855 0 0 0.7091707039169673 -65.11614484653283 -237.2774901187156</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">129 430</prop>
     <prop name="Size">20 20</prop>
@@ -136,7 +185,7 @@ public string g_panel;
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape Name="RECTANGLE78" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">73</prop>
     <prop name="Type"></prop>
@@ -156,7 +205,7 @@ public string g_panel;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.239863142907719 0 0 0.6768040472592853 -30.74848453529036 -257.9236124144801</prop>
+    <prop name="Geometry">1.239863142907719 0 0 0.6768040472592853 -186.7637365246804 -267.2576998488997</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">170 419.9999999999999</prop>
     <prop name="Size">57 25.00000000000023</prop>
@@ -184,7 +233,7 @@ public string g_panel;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">0.9745222929936305 0 0 0.8504457509708419 77.85062837389673 5.826277087989535</prop>
+    <prop name="Geometry">0.9745222929936305 0 0 0.8504457509708419 -78.16462361549328 -3.50781034643008</prop>
     <prop name="Location">138.420424403183 33.6640624999997</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>

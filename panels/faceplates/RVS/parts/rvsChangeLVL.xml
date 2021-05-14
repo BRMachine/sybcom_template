@@ -4,22 +4,22 @@ LANG:10027 0
 PANEL,-1 -1 448 150 N "_3DFace" 1
 "$dp"
 "main(){
-
+  PANEL_REF1.visible(false);
   dpConnect(\"worker_val\", \"Logic\" + DP + \".PV_Hist\",         //1 - гистерезис
                           \"Logic\" + DP + \".Time_DelayHist\"   //2 - время наблюдения
                           );
-}" 0
+}
+" 0
  E E E E 1 -1 -1 0  9.000000000000002 11.74362498643612
 ""0  1
 E "const string DP = $dp;
-
 void worker_val(dyn_string dp, dyn_anytype val){
-
+//   setValue(\"timer\", \"text\", val[2]);
+//   setValue(\"hist\", \"text\", val[1]);
    timer.text=val[2];
    hist.text=val[1];
-
-
-}" 0
+}
+" 0
  3
 "CBRef" "1"
 "EClose" E
@@ -100,11 +100,11 @@ E E 0 1 3 2 1 E 1.318654550995555 0 0.7352941176470589 -228.1144013409243 78.647
 LANG:10027 38 Noto Sans,-1,16,5,50,0,0,0,0,0,Regular
 0 1
 LANG:10027 31 Время наблюдения
-1 7 0 "" 1
+1 6 0 "" 1
 0
-1 8 1 "" 1
+1 7 1 "" 1
 0
-1 9 2 "" 5
+1 8 2 "" 5
 0
 0
 LAYER, 1 
@@ -142,7 +142,7 @@ LANG:10027 0
 "objects/parts/analogInput.xml" 220 80 T 6 1.131147540983606 0 1.025855916752622 -239.8524590163934 -3.675425211867551
 2
 "$_el"""
-"$dp""\"Logic\" + DP + \".PV_Hist:_original.._value\""
+"$dp""\"Logic\" + $dp + \".PV_Hist\""
 3 1 "timer" -1
 "layoutAlignment" "AlignNone"
 "UDP secureBit" "int 10"
@@ -150,26 +150,21 @@ LANG:10027 0
 "objects/parts/analogInput.xml" 220 80 T 7 1.131147540983606 0 1.025855916752622 -239.8524590163934 28.32457478813245
 2
 "$_el"""
-"$dp""\"Logic\" + DP + \".Time_DelayHist:_original.._value\""
+"$dp""\"Logic\" + $dp + \".Time_DelayHist\""
 3 2 "PANEL_REF1" -1
 "layoutAlignment" "AlignNone"
 "UDS clickedBtn" "void clickedBtn()
 {
-const string DP = $dp;
-dyn_string Adr;
-dyn_int new_okr;
+float new_timer;
+int new_hist;
 
-  Adr[1] = \"Logic\" + DP + \".Time_DelayHist:_original.._value\";
-  Adr[2] = \"Logic\" + DP + \".PV_Hist:_original.._value\";
+getValue(\"timer\", \"text\", new_timer);
+getValue(\"hist\", \"text\", new_hist);
+DebugN(\"new_timer\", new_timer);
+DebugN(\"new_hist\", new_hist);
 
-getValue(\"timer\" , \"text\", new_okr[1]);
-getValue(\"hist\" , \"text\", new_okr[2]);
-
-// запись в пару
-  for(int i=1; i<=2; i++){
-    dpSetWait(Adr[i], new_okr[i]);
-
-  }
+dpSetWait(\"Logic\" + DP + \".Time_DelayHist\", new_timer);
+dpSetWait(\"Logic\" + DP + \".PV_Hist\", new_hist);
 }
 "
 "UDP secureBit" "int 10"

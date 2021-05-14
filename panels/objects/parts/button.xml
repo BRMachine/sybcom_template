@@ -113,7 +113,7 @@ public void setAct(bool a){
     triggerEvent(&quot;clickedBtn&quot;);
   }else{
     ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
-                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+                             &quot;Ошибка доступа&quot;, makeDynString());
   }
 }
 ]]></script>

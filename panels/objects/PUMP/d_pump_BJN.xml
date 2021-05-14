@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">400 398</prop>
+  <prop name="Size">116 110</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">58 42.95238095238094</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -20,7 +20,7 @@
   Down = 2,
   Left = 3
 };
-
+string name = &quot;Насос &quot; + dpGetDescription(dp_pump + &quot;.sts_bit&quot;);
 public Directions Direct = Directions::Right;
 
 #property Directions Direct
@@ -40,25 +40,24 @@ public bool getBut(){
   return btn_fp.visible;
 }
 
-const string DP = $dp;
 
-void cbStatus(string dp, bit32 val){
-  if(getBit(val, 28)){
-    el_sts.backCol(&quot;&lt;green,4,White,4&gt;&quot;);
-  }else if(getBit(val,29)){
-    el_sts.backCol(&quot;&lt;yellow,4,White,4&gt;&quot;);
-  }else if(getBit(val, 26)){
-    el_sts.backCol(&quot;green&quot;);
-  }else if(getBit(val, 27)){
-    el_sts.backCol(&quot;grey&quot;);
-  }else{
-    el_sts.backCol(&quot;WF_Border&quot;);
-  }
-
-  lbl_imit.visible(getBit(val, 16));
-  txt_maint.visible(getBit(val, 11));
-  el_fault.visible = (getBit(val, 17) || getBit(val, 20) || getBit(val, 21));
-}
+// void cbStatus(string dp_pump, bit32 val){
+//   if(getBit(val, 28)){
+//     el_sts.backCol(&quot;&lt;green,4,White,4&gt;&quot;);
+//   }else if(getBit(val,29)){
+//     el_sts.backCol(&quot;&lt;yellow,4,White,4&gt;&quot;);
+//   }else if(getBit(val, 26)){
+//     el_sts.backCol(&quot;green&quot;);
+//   }else if(getBit(val, 27)){
+//     el_sts.backCol(&quot;red&quot;);
+//   }else{
+//     el_sts.backCol(&quot;WF_Border&quot;);
+//   }
+//   shp_block.visible(getBit(val, 27));
+//   lbl_imit.visible(getBit(val, 16));
+//   txt_maint.visible(getBit(val, 11));
+//   el_fault.visible = (getBit(val, 17) || getBit(val, 20) || getBit(val, 21));
+// }
 
 public void initArrow(){
   switch((int)Direct){
@@ -95,64 +94,37 @@ public void initArrow(){
   }
 }
 
-const string dp = $dp;
-const string Lock_fp = $Lfp;
-const string Lock_dp = $Ldp;
+const string dp_pump = $dpPump;
+const string dp_lock = $dpLock;
 
 void cbStatus(string dpe, bit32 val){
-  if(getBit(val, 24)){
+  if(getBit(val, 26)){
     el_sts.backCol(&quot;green&quot;);
-  }else if(getBit(val, 25)){
+  }else if(getBit(val, 27)){
     el_sts.backCol(&quot;grey&quot;);
   }else if(getBit(val, 26)){
     el_sts.backCol(&quot;RanLock&quot;);
-  }else if(getBit(val, 27)){
-    el_sts.backCol(&quot;StopLock&quot;);
+  }else if(getBit(val, 15)){
+    el_sts.backCol(&quot;red&quot;);
   }else{
     el_sts.backCol(&quot;WF_Border&quot;);
   }
 
+  shp_block.visible(getBit(val, 15));
+  txt_block.visible(getBit(val, 15));
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   btn_fp.backCol(&quot;_Transparent&quot;);
-
-  txt_name.text(&quot;Насос &quot; + dpGetDescription(dp + &quot;.sts_bit&quot;));
-  dpConnect(&quot;cbStatus&quot;, dp + &quot;.sts_bit&quot;);
+  string name = &quot;Насос &quot; + dpGetDescription(dp_pump + &quot;.sts_bit&quot;);
+  txt_name.text(name);
+  dpConnect(&quot;cbStatus&quot;, dp_pump + &quot;.sts_bit&quot;);
 }
 
 
 ]]></script>
  </events>
  <shapes>
-  <shape Name="RECTANGLE1" shapeType="RECTANGLE" layerId="0">
-   <properties>
-    <prop name="serialId">18</prop>
-    <prop name="Type"></prop>
-    <prop name="RefPoint">116 32</prop>
-    <prop name="Enable">True</prop>
-    <prop name="Visible">True</prop>
-    <prop name="ForeColor">{0,0,0}</prop>
-    <prop name="BackColor">{255,255,255}</prop>
-    <prop name="TabOrder">17</prop>
-    <prop name="ToolTipText">
-     <prop name="ru_RU.utf8"></prop>
-    </prop>
-    <prop name="layoutAlignment">AlignNone</prop>
-    <prop name="snapMode">Point</prop>
-    <prop name="DashBackColor">_Transparent</prop>
-    <prop name="AntiAliased">False</prop>
-    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
-    <prop name="BorderZoomable">False</prop>
-    <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.9189189189189189 0 0 1 5.405405405405406 0</prop>
-    <prop name="BorderStyle">Normal</prop>
-    <prop name="Location">116 32</prop>
-    <prop name="Size">-75 17</prop>
-    <prop name="CornerRadius">0</prop>
-    <prop name="Transformable">True</prop>
-   </properties>
-  </shape>
   <shape Name="el_sts" shapeType="ELLIPSE" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
@@ -173,17 +145,69 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1 0 0 1 -38 -10</prop>
-    <prop name="Center">116 88</prop>
-    <prop name="X-Radius">29</prop>
-    <prop name="Y-Radius">29</prop>
+    <prop name="Center">66.00000000000001 64</prop>
+    <prop name="X-Radius">35.5</prop>
+    <prop name="Y-Radius">35.5</prop>
+   </properties>
+  </shape>
+  <shape Name="ELLIPSE1" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">20</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">116 88</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">WF_Selected</prop>
+    <prop name="TabOrder">18</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Center">65.99999999999999 63.99999999999996</prop>
+    <prop name="X-Radius">29.5</prop>
+    <prop name="Y-Radius">29.5</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE1" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">18</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">116 32</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">17</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.9189189189189189 0 0 0.8660714285714288 -6.594594594594579 -14.42857142857143</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">116 32</prop>
+    <prop name="Size">-75 17</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
    </properties>
   </shape>
   <shape Name="btn_fp" shapeType="PUSH_BUTTON" layerId="0">
    <properties>
     <prop name="serialId">10</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">44.5 66.73146239134684</prop>
+    <prop name="RefPoint">30.00000000000001 50.82345013477092</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_Transparent</prop>
@@ -197,8 +221,8 @@ void cbStatus(string dpe, bit32 val){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">44.49999999999999 35.85891689137939</prop>
-    <prop name="Size">69 72</prop>
+    <prop name="Location">30.00000000000001 13.28571428571429</prop>
+    <prop name="Size">73 88</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">PUSH_BUTTON1</prop>
@@ -208,20 +232,53 @@ void cbStatus(string dpe, bit32 val){
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
 
 //   if (getUserPermission(4)){
-     ChildPanelOnCentral(&quot;panels\\objects\\LOCK\\LOCK&quot; + Lock_fp + &quot;.xml&quot;, &quot;Блокировки &quot; + &quot;Npump&quot;, makeDynString(&quot;$dp:&quot; + Lock_dp, &quot;$dpNA:&quot; + dp));
+
+     ChildPanelOnCentral(&quot;faceplates\\PUMP\\pump_BJN.xml&quot;, name, makeDynString(&quot;$dpLock:&quot; + dp_lock, &quot;$dpPump:&quot; + dp_pump));
 //   }
 //   else {
 //     DebugN(&quot;Недостаточно прав у пользователя&quot;);
 //     ChildPanelOnCentral(&quot;faceplates/NoAccessRights.xml&quot;, &quot;&quot;, makeDynString(&quot;&quot;));
 //   }
-}]]></script>
+}
+]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 1;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $dpPump+&quot;.sts_StopPAZ&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {$dpPump + &quot;.sts_StopPAZ&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
+]]></script>
    </events>
   </shape>
   <shape Name="txt_name" shapeType="PRIMITIVE_TEXT" layerId="0">
    <properties>
     <prop name="serialId">13</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">78 38</prop>
+    <prop name="RefPoint">66.00000000000001 18.71428571428572</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_WindowText</prop>
@@ -237,7 +294,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Location">78 38</prop>
+    <prop name="Location">66.00000000000001 18.71428571428572</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
@@ -272,7 +329,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">4.151882264190041e-17 -0.1356107660455486 -0.1627329192546585 -4.982258717028055e-17 123.2732919254658 115.9710144927536</prop>
+    <prop name="Geometry">4.151882264190041e-17 -0.1356107660455486 -0.1627329192546585 -4.982258717028055e-17 111.2732919254658 101.9710144927536</prop>
     <prop name="Closed">True</prop>
     <prop name="Points">
      <prop name="Location">280 100</prop>
@@ -301,7 +358,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.1356107660455486 0 0 -0.1627329192546585 40.0289855072464 123.2732919254658</prop>
+    <prop name="Geometry">0.1356107660455486 0 0 -0.1627329192546585 28.02898550724641 109.2732919254658</prop>
     <prop name="Closed">True</prop>
     <prop name="Points">
      <prop name="Location">280 100</prop>
@@ -330,7 +387,7 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">-4.151882264190041e-17 0.1356107660455486 0.1627329192546585 4.982258717028055e-17 32.72670807453416 40.02898550724639</prop>
+    <prop name="Geometry">-4.151882264190041e-17 0.1356107660455486 0.1627329192546585 4.982258717028055e-17 20.72670807453417 26.02898550724639</prop>
     <prop name="Closed">True</prop>
     <prop name="Points">
      <prop name="Location">280 100</prop>
@@ -359,13 +416,74 @@ void cbStatus(string dpe, bit32 val){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">-0.1356107660455486 0 0 0.1627329192546585 115.9710144927536 32.72670807453415</prop>
+    <prop name="Geometry">-0.1356107660455486 0 0 0.1627329192546585 103.9710144927536 18.72670807453415</prop>
     <prop name="Closed">True</prop>
     <prop name="Points">
      <prop name="Location">280 100</prop>
      <prop name="Location">220 200</prop>
      <prop name="Location">340 200</prop>
     </prop>
+   </properties>
+  </shape>
+  <shape Name="shp_block" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">21</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">29.5 106.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">Red</prop>
+    <prop name="TabOrder">19</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 11.5 -21.5</prop>
+    <prop name="Center">29.5 106.5</prop>
+    <prop name="X-Radius">10.5</prop>
+    <prop name="Y-Radius">10.5</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_block" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">22</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">40.75017593244195 84</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">20</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">40.75017593244195 84</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Б</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
  </shapes>

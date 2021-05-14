@@ -254,13 +254,18 @@ void cb_fuel(string dpe, string val){
   else{txt_fuel.text(val);}
 
   rec_fuel.backCol(fuelToColor(val));
-  top_bar.backCol(fuelToColor(val));
+  if(!alarm_top_bar){
+    top_bar.backCol(fuelToColor(val));
+  }
 }
+bool alarm_top_bar;
 
 void cbAlarmLogic(string dp, string color){
   if(color != &quot;&quot;){
+    alarm_top_bar = true;
     top_bar.backCol(color);
   }else{
+    alarm_top_bar = false;
     string fuel;
     dpGet(DP + &quot;.fuel_type&quot;, fuel);
     top_bar.backCol(fuelToColor(fuel));
@@ -330,7 +335,7 @@ void cbAlarmLogic(string dp, string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[gradient,[linear,reflect,-0.325,0.482,0.398,0.482,0,{0,0,0},0.738,{255,255,255}]]</prop>
-    <prop name="Geometry">2.125 0 0 2.222222222222222 -23.75 -61.55555555555556</prop>
+    <prop name="Geometry">2.125 0 0 2.222222222222222 -23.75 -61.55555555555555</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">22 52</prop>
     <prop name="Size">65 55</prop>
@@ -575,7 +580,7 @@ void cbAlarmLogic(string dp, string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">1.294482207117153 0 0 -2.057060160754668 -33.50712423542524 434.2572708285367</prop>
+    <prop name="Geometry">1.294482207117153 0 0 -2.057060160754668 -33.50712423542524 434.2572708285368</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">48 128</prop>
     <prop name="Size">17 55</prop>
@@ -656,7 +661,7 @@ void cbAlarmLogic(string dp, string color){
    <properties>
     <prop name="serialId">45</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">22.96995505102643 97.95261965976464</prop>
+    <prop name="RefPoint">23.42198905475021 98.30471478767434</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_ButtonText</prop>
@@ -670,7 +675,7 @@ void cbAlarmLogic(string dp, string color){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">22.96995505102643 37.86078922434473</prop>
+    <prop name="Location">23.42198905475021 38.21288435225443</prop>
     <prop name="Size">137 137</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
@@ -694,22 +699,42 @@ main(int iType)
 {
   dyn_errClass err;
 
-  int          i, iReturnValue = 1, iDpCount = 12;
+  int          i, iReturnValue = 1, iDpCount = 32;
   dyn_int      diType = makeDynInt();
   dyn_string   dsDps;
 
-  dsDps[1] = $dp+&quot;.LVL._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[2] = $dp+&quot;.LVL._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[3] = $dp+&quot;.LVL._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[4] = $dp+&quot;.LVL._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[5] = $dp+&quot;.WTR._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[6] = $dp+&quot;.WTR._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[7] = $dp+&quot;.WTR._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[8] = $dp+&quot;.WTR._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[9] = $dp+&quot;.UnsanctionedChangeLevel&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[1] = $dpLogicRVS+&quot;.LVL._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[2] = $dpLogicRVS+&quot;.LVL._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[3] = $dpLogicRVS+&quot;.LVL._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[4] = $dpLogicRVS+&quot;.LVL._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[5] = $dpLogicRVS+&quot;.WTR._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[6] = $dpLogicRVS+&quot;.WTR._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[7] = $dpLogicRVS+&quot;.WTR._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[8] = $dpLogicRVS+&quot;.WTR._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[9] = $dpLogicRVS+&quot;.UnsanctionedChangeLevel&quot; + &quot;:_alert_hdl.._ack&quot;;
   dsDps[10] = $ls1+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
   dsDps[11] = $ls2+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
   dsDps[12] = $ls3+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[13] = $dp+&quot;.LVL.sts_bool.no_link&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[14] = $dp+&quot;.LVL.sts_bool.disabled&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[15] = $dp+&quot;.LVL.sts_bool.not_ready&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[16] = $dp+&quot;.LVL.sts_bool.overpass&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[17] = $dp+&quot;.MAS.sts_bool.no_link&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[18] = $dp+&quot;.MAS.sts_bool.disabled&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[19] = $dp+&quot;.MAS.sts_bool.not_ready&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[20] = $dp+&quot;.MAS.sts_bool.overpass&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[21] = $dp+&quot;.VOL.sts_bool.no_link&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[22] = $dp+&quot;.VOL.sts_bool.disabled&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[23] = $dp+&quot;.VOL.sts_bool.not_ready&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[24] = $dp+&quot;.VOL.sts_bool.overpass&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[25] = $dp+&quot;.DNS.sts_bool.no_link&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[26] = $dp+&quot;.DNS.sts_bool.disabled&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[27] = $dp+&quot;.DNS.sts_bool.not_ready&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[28] = $dp+&quot;.DNS.sts_bool.overpass&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[29] = $dp+&quot;.TMP.sts_bool.no_link&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[30] = $dp+&quot;.TMP.sts_bool.disabled&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[31] = $dp+&quot;.TMP.sts_bool.not_ready&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[32] = $dp+&quot;.TMP.sts_bool.overpass&quot; + &quot;:_alert_hdl.._ack&quot;;
 
   if ( isFunctionDefined(&quot;isAckable&quot;) )
   {
@@ -727,19 +752,39 @@ main(int iType)
     DebugN(err);
 }
 // SimpleCtrlScript {EP_confirm}
-// dpCount {12}
-// dp1 {$dp + &quot;.LVL._sAH_Level&quot;}
-// dp2 {$dp + &quot;.LVL._sWH_Level&quot;}
-// dp3 {$dp + &quot;.LVL._sWL_Level&quot;}
-// dp4 {$dp + &quot;.LVL._sAL_Level&quot;}
-// dp5 {$dp + &quot;.WTR._sAH_Level&quot;}
-// dp6 {$dp + &quot;.WTR._sWH_Level&quot;}
-// dp7 {$dp + &quot;.WTR._sWL_Level&quot;}
-// dp8 {$dp + &quot;.WTR._sAL_Level&quot;}
-// dp9 {$dp + &quot;.UnsanctionedChangeLevel&quot;}
+// dpCount {32}
+// dp1 {$dpLogicRVS + &quot;.LVL._sAH_Level&quot;}
+// dp2 {$dpLogicRVS + &quot;.LVL._sWH_Level&quot;}
+// dp3 {$dpLogicRVS + &quot;.LVL._sWL_Level&quot;}
+// dp4 {$dpLogicRVS + &quot;.LVL._sAL_Level&quot;}
+// dp5 {$dpLogicRVS + &quot;.WTR._sAH_Level&quot;}
+// dp6 {$dpLogicRVS + &quot;.WTR._sWH_Level&quot;}
+// dp7 {$dpLogicRVS + &quot;.WTR._sWL_Level&quot;}
+// dp8 {$dpLogicRVS + &quot;.WTR._sAL_Level&quot;}
+// dp9 {$dpLogicRVS + &quot;.UnsanctionedChangeLevel&quot;}
 // dp10 {$ls1 + &quot;.status.bool.red&quot;}
 // dp11 {$ls2 + &quot;.status.bool.red&quot;}
 // dp12 {$ls3 + &quot;.status.bool.red&quot;}
+// dp13 {$dp + &quot;.LVL.sts_bool.no_link&quot;}
+// dp14 {$dp + &quot;.LVL.sts_bool.disabled&quot;}
+// dp15 {$dp + &quot;.LVL.sts_bool.not_ready&quot;}
+// dp16 {$dp + &quot;.LVL.sts_bool.overpass&quot;}
+// dp17 {$dp + &quot;.MAS.sts_bool.no_link&quot;}
+// dp18 {$dp + &quot;.MAS.sts_bool.disabled&quot;}
+// dp19 {$dp + &quot;.MAS.sts_bool.not_ready&quot;}
+// dp20 {$dp + &quot;.MAS.sts_bool.overpass&quot;}
+// dp21 {$dp + &quot;.VOL.sts_bool.no_link&quot;}
+// dp22 {$dp + &quot;.VOL.sts_bool.disabled&quot;}
+// dp23 {$dp + &quot;.VOL.sts_bool.not_ready&quot;}
+// dp24 {$dp + &quot;.VOL.sts_bool.overpass&quot;}
+// dp25 {$dp + &quot;.DNS.sts_bool.no_link&quot;}
+// dp26 {$dp + &quot;.DNS.sts_bool.disabled&quot;}
+// dp27 {$dp + &quot;.DNS.sts_bool.not_ready&quot;}
+// dp28 {$dp + &quot;.DNS.sts_bool.overpass&quot;}
+// dp29 {$dp + &quot;.TMP.sts_bool.no_link&quot;}
+// dp30 {$dp + &quot;.TMP.sts_bool.disabled&quot;}
+// dp31 {$dp + &quot;.TMP.sts_bool.not_ready&quot;}
+// dp32 {$dp + &quot;.TMP.sts_bool.overpass&quot;}
 // SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>
@@ -1283,7 +1328,7 @@ main(int iType)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[hatch,[cross,10,left]]</prop>
-    <prop name="Geometry">0.5435452548423975 0 0 0.4533333333333334 17.56455993301714 33.37444917417557</prop>
+    <prop name="Geometry">0.5435452548423975 0 0 0.4533333333333334 18.05840212551334 33.74915640674872</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">10 10</prop>
     <prop name="Size">251 301</prop>
@@ -1311,7 +1356,7 @@ main(int iType)
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.5070990151231913 0 0 0.5388859487293071 18.91316293004093 -5.513482496262309</prop>
+    <prop name="Geometry">0.5070990151231913 0 0 0.5388859487293071 20.42286452270545 -13.3609188888455</prop>
     <prop name="Location">10 130</prop>
     <prop name="Size">261 61</prop>
     <prop name="Font">

@@ -43,6 +43,9 @@ void cbValue(string dp, bit32 sts){
        alcl     = getBit(sts, 20),
        alop     = getBit(sts, 21);
 
+  txt_block.visible(paz);
+  shp_block.visible(paz);
+
   setMultiValue(&quot;opening&quot;,   &quot;visible&quot;, opening,
                 &quot;closing&quot;,   &quot;visible&quot;, closing,
                 &quot;txt_maint&quot;, &quot;visible&quot;, maint,
@@ -504,7 +507,7 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">-3.061616997868383e-17 -0.5 -1 6.123233995736766e-17 61.62577882373441 106.625</prop>
+    <prop name="Geometry">-3.061616997868383e-17 -0.5 -1 6.123233995736766e-17 61.6257788237344 106.625</prop>
     <prop name="Closed">False</prop>
     <prop name="Points">
      <prop name="Location">140 20</prop>
@@ -659,6 +662,67 @@ main(int iType)
 // SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>
+  </shape>
+  <shape Name="shp_block" shapeType="ELLIPSE" layerId="1">
+   <properties>
+    <prop name="serialId">23</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">15.5 42.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">red</prop>
+    <prop name="TabOrder">20</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">1 0 0 1 3.5 -0.5</prop>
+    <prop name="Center">15.5 42.5</prop>
+    <prop name="X-Radius">8.5</prop>
+    <prop name="Y-Radius">8.5</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_block" shapeType="PRIMITIVE_TEXT" layerId="1">
+   <properties>
+    <prop name="serialId">24</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">19 41.5</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">21</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">19 41.5</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">Noto Sans,12,-1,5,50,0,0,0,0,0</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Б</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
   </shape>
  </shapes>
 </panel>

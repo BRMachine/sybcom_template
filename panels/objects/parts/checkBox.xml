@@ -48,7 +48,7 @@ void cbSts(string dpe, bit32 val){
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="rec_bg" shapeType="RECTANGLE">
+  <shape Name="rec_bg" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">3</prop>
     <prop name="Type"></prop>
@@ -76,7 +76,7 @@ void cbSts(string dpe, bit32 val){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape layerId="0" Name="rec_btn_on" shapeType="RECTANGLE">
+  <shape Name="rec_btn_on" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">2</prop>
     <prop name="Type"></prop>
@@ -95,7 +95,7 @@ void cbSts(string dpe, bit32 val){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop SharedPixmap="1" name="FillType">[pattern,[fit,any,pictures/apply_22.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/apply_22.png]]</prop>
     <prop name="Geometry">1 0 0 1 -60.87804878048786 -125.4711098398169</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60.8780487804878 125.4711098398169</prop>
@@ -111,14 +111,14 @@ void cbSts(string dpe, bit32 val){
     setBit(mBit, g_cmdBit, 1);
     dpSetWait(dp + &quot;.cmd.cmd_bit&quot;, mBit);
   }else{
-    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
-                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+    ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString());
   }
 }
 ]]></script>
    </events>
   </shape>
-  <shape layerId="0" Name="rec_btn_off" shapeType="RECTANGLE">
+  <shape Name="rec_btn_off" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">4</prop>
     <prop name="Type"></prop>
@@ -137,7 +137,7 @@ void cbSts(string dpe, bit32 val){
     <prop name="AntiAliased">False</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop SharedPixmap="1" name="FillType">[pattern,[fit,any,pictures/delete_24.png]]</prop>
+    <prop name="FillType" SharedPixmap="1">[pattern,[fit,any,pictures/delete_24.png]]</prop>
     <prop name="Geometry">1 0 0 1 -60.87804878048789 -125.4711098398168</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">60.8780487804878 125.4711098398169</prop>
@@ -153,8 +153,8 @@ void cbSts(string dpe, bit32 val){
     setBit(mBit, g_cmdBit, 1);
     dpSetWait(dp + &quot;.cmd.cmd_bit&quot;, mBit);
   }else{
-    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
-                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+    ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString());
   }
 }
 ]]></script>

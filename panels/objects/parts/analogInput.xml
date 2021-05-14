@@ -38,7 +38,7 @@ void cbValue(string dpe, anytype value){
 ]]></script>
  </events>
  <shapes>
-  <shape layerId="0" Name="TEXT_FIELD2" shapeType="TEXT_FIELD">
+  <shape Name="TEXT_FIELD2" shapeType="TEXT_FIELD" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
     <prop name="Type"></prop>
@@ -69,8 +69,8 @@ void cbValue(string dpe, anytype value){
     dpSetWait(dp + el, this.text);
     triggerEvent(&quot;userCommand&quot;, dp);
   }else{
-    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
-                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+    ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString());
   }
 }
 ]]></script>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel version="14">
+ <properties>
+  <prop name="Name">
+   <prop name="ru_RU.utf8"></prop>
+  </prop>
+  <prop name="Size">301 136</prop>
+  <prop name="BackColor">_3DFace</prop>
+  <prop name="RefPoint">60 20</prop>
+  <prop name="InitAndTermRef">True</prop>
+  <prop name="SendClick">False</prop>
+  <prop name="RefFileName"></prop>
+  <prop name="DPI">96</prop>
+  <prop name="layoutType">None</prop>
+ </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string dp_pump = $dpPump;
+const string dp_lock = $dpLock;
+
+string name = &quot;Насос &quot; + dpGetDescription(dp_pump + &quot;.sts_bit&quot;);
+]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  if(name == &quot;Насос Н-1&quot; | name == &quot;Насос Н-2&quot;){
+    PANEL_REF25.visible(false);
+  }
+txt_name.text(name);
+// dpConnect(&quot;cbStatus&quot;, dp + &quot;.sts_bit&quot;);
+}
+]]></script>
+ </events>
+ <shapes>
+  <shape Name="txt_name" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">306</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">157 16</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">162</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">157 16</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,16,5,75,0,0,0,0,0,Bold</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">Насос Н-№</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
+   </properties>
+  </shape>
+  <reference parentSerial="-1" Name="PANEL_REF25" referenceId="38">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">340 364</prop>
+    <prop name="Geometry">1 0 0 1 -219 -277</prop>
+    <prop name="TabOrder">167</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="CHAR_STRING" name="text">Блокировки</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  if(name == &quot;Насос Н-1&quot; | name == &quot;Насос Н-2&quot; | name == &quot;Насос Н-4&quot;){
+    ChildPanelOnCentral(&quot;objects\\LOCK\\LOCK16.xml&quot;, &quot;Блокировки насоса &quot; + dpGetDescription(dp_pump + &quot;.sts_bit&quot;), makeDynString(&quot;$dp:&quot; + dp_lock));
+  }else{
+    ChildPanelOnCentral(&quot;objects\\LOCK\\LOCK8.xml&quot;, &quot;Блокировки насоса &quot; + dpGetDescription(dp_pump + &quot;.sts_bit&quot;), makeDynString(&quot;$dp:&quot; + dp_lock));
+  }
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="PANEL_REF26" referenceId="39">
+   <properties>
+    <prop name="FileName">objects/parts/button.xml</prop>
+    <prop name="Location">340 364</prop>
+    <prop name="Geometry">1 0 0 1 -219 -314</prop>
+    <prop name="TabOrder">168</prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="CHAR_STRING" name="text">СТОП</prop>
+     <prop type="INT" name="secureBit">14</prop>
+     <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
+{
+  dpSetWait(dp_pump + &quot;.cmd_stop&quot;, 1);
+}
+]]></script>
+    </extended>
+   </properties>
+  </reference>
+  <reference parentSerial="-1" Name="PANEL_REF27" referenceId="40">
+   <properties>
+    <prop name="FileName">objects/PUMP/d_pump_BJN.xml</prop>
+    <prop name="Location">48 153</prop>
+    <prop name="Geometry">1 0 0 1 -2 -104</prop>
+    <prop name="TabOrder">169</prop>
+    <prop name="dollarParameters">
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dpLock</prop>
+      <prop name="Value">$dpLock</prop>
+     </prop>
+     <prop name="dollarParameter">
+      <prop name="Dollar">$dpPump</prop>
+      <prop name="Value">$dpPump</prop>
+     </prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <extended>
+     <prop type="BOOL" name="but">False</prop>
+     <prop type="ENUM" name="Direct">1</prop>
+    </extended>
+   </properties>
+  </reference>
+ </shapes>
+</panel>

@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">627 275</prop>
+  <prop name="Size">465 275</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">9.000000000000028 9.999999999999972</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -2546,7 +2546,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
    <properties>
     <prop name="serialId">130</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">40 120</prop>
+    <prop name="RefPoint">40 124</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_Transparent</prop>
@@ -2560,7 +2560,7 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">40 53</prop>
+    <prop name="Location">40 57</prop>
     <prop name="Size">161 150</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
@@ -2572,6 +2572,55 @@ void EP_setBackColorCB(string dpSource, int iNewValue)
   ChildPanelOnCentral(&quot;faceplates/DIAGNOSTIC/diag_cpu_PAZ.xml&quot;, dpGetDescription(DP + &quot;.&quot;), makeDynString(&quot;$dp:&quot; + DP));
 
 }
+]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 10;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $dp+&quot;.CPU.SF&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[2] = $dp+&quot;.CPU.INTF&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[3] = $dp+&quot;.CPU.EXTF&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[4] = $dp+&quot;.CPU.BUS1F&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[5] = $dp+&quot;.CPU.BUS2F&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[6] = $dp+&quot;.CPU.STOP&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[7] = $dp+&quot;.CPU.BAF&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[8] = $dp+&quot;.CPU.REDF&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[9] = $dp+&quot;.CPU.IFM1F&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[10] = $dp+&quot;.CPU.IFM2F&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {10}
+// dp1 {$dp + &quot;.CPU.SF&quot;}
+// dp2 {$dp + &quot;.CPU.INTF&quot;}
+// dp3 {$dp + &quot;.CPU.EXTF&quot;}
+// dp4 {$dp + &quot;.CPU.BUS1F&quot;}
+// dp5 {$dp + &quot;.CPU.BUS2F&quot;}
+// dp6 {$dp + &quot;.CPU.STOP&quot;}
+// dp7 {$dp + &quot;.CPU.BAF&quot;}
+// dp8 {$dp + &quot;.CPU.REDF&quot;}
+// dp9 {$dp + &quot;.CPU.IFM1F&quot;}
+// dp10 {$dp + &quot;.CPU.IFM2F&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>
   </shape>

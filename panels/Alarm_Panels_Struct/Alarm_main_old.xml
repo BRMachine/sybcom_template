@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">1895 931</prop>
+  <prop name="Size">1890 917</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">24.21027021863461 25</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -2541,8 +2541,6 @@ main()
 
     myTable=AES_TABLENAME_TOP;
   ep_acknowledgeTableFunction( myTable, 1, _DPID_, _TIME_, _COUNT_, _ACKABLE_ );// абздц как я ее долго искал!!!
-  delay(3);
-  dpSet(&quot;System1:AlertHorn.Reset:_original.._value&quot;,1);
 }
 ]]></script>
    </events>

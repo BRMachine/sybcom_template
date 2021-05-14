@@ -67,7 +67,7 @@ void cb_dt(dyn_string dp, dyn_anytype val){
   for(int i=1; i&lt;=dynlen(val); i++){
     table_data.cellValueRC(i-1, &quot;DT&quot;, dpValToString(dp[i], val[i]));
     if(val[i] == 0.0){
-      table_data.cellBackColRC(i-1, &quot;DT&quot;, &quot;red&quot;);
+      table_data.cellBackColRC(i-1, &quot;DT&quot;, &quot;grey&quot;);
     }
   }
 }
@@ -93,7 +93,7 @@ void cb_dp(dyn_string dp, dyn_anytype val){
   for(int i=1; i&lt;=dynlen(val); i++){
     table_data.cellValueRC(i-1, &quot;DP&quot;, dpValToString(dp[i], val[i]));
     if(val[i] == 0.0){
-      table_data.cellBackColRC(i-1, &quot;DP&quot;, &quot;red&quot;);
+      table_data.cellBackColRC(i-1, &quot;DP&quot;, &quot;grey&quot;);
     }
   }
 }
@@ -125,6 +125,7 @@ void worker_ls(dyn_string dp, dyn_bit32 sts){
   else if(dynlen(sts) == 3){
    int ls2 = (uint)sts[2];
    int ls3 = (uint)sts[3];
+   rec_ls2.backCol = (ls2 &amp; 0x01 | ls2 &amp; 0x02 | ls2 &amp; 0x04) ? &quot;Red&quot; : &quot;Grey&quot;;
    rec_ls3.backCol = (ls3 &amp; 0x01 | ls3 &amp; 0x02 | ls3 &amp; 0x04) ? &quot;Red&quot; : &quot;Grey&quot;;
  }
 }
@@ -184,6 +185,9 @@ bool BtnVisible = 1;
   dpConnect(&quot;cbLogicRVS&quot;, LogicRVS + &quot;.STS.status_rvs&quot;);
 
   if(LS3 != &quot;&quot; &amp; LS2 != &quot;&quot;){
+    text_rec_ls1.text = LS1;
+    text_rec_ls2.text = LS2;
+    text_rec_ls3.text = LS3;
     rec_ls2.visible(true);
     rec_ls3.visible(true);
     text_rec_ls2.visible(true);
@@ -192,6 +196,8 @@ bool BtnVisible = 1;
                            LS2 + &quot;.status.sts_bit&quot;,
                            LS3 + &quot;.status.sts_bit&quot;);
   }else if(LS2 != &quot;&quot;){
+    text_rec_ls1.text = LS1;
+    text_rec_ls2.text = LS2;
     rec_ls2.visible(true);
     rec_ls3.visible(false);
     text_rec_ls2.visible(true);
@@ -199,6 +205,7 @@ bool BtnVisible = 1;
     dpConnect(&quot;worker_ls&quot;, LS1 + &quot;.status.sts_bit&quot;,
                            LS2 + &quot;.status.sts_bit&quot;);
   }else{
+    text_rec_ls1.text = LS1;
     rec_ls2.visible(false);
     rec_ls3.visible(false);
     text_rec_ls2.visible(false);
@@ -920,7 +927,7 @@ bool BtnVisible = 1;
 
   ChildPanelOnCentralModal(&quot;faceplates\\RVS\\parts\\rvsChangeLVL.xml&quot;,
       &quot;Настройки Отстоя&quot;,
-      makeDynString(&quot;$dp:&quot; + $dp));
+      makeDynString(&quot;$dp:&quot; + DP));
 }
 
 
@@ -1100,7 +1107,7 @@ bool BtnVisible = 1;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.5607837528604117 0 0 0.8750000000000007 -115.6743421052631 -28.37500000000009</prop>
+    <prop name="Geometry">2.060783752860413 0 0 0.8750000000000007 -507.1743421052634 -28.37500000000009</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">261 96</prop>
     <prop name="Size">39 19</prop>
@@ -1163,6 +1170,7 @@ bool BtnVisible = 1;
 {
   // storage=1|taking=2|release=3|maint=6
   dpSetWait(LogicRVS + &quot;.CMD.command&quot;, 3);
+
 }
 ]]></script>
     </extended>
@@ -1208,7 +1216,7 @@ bool BtnVisible = 1;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.5607837528604113 0 0 0.8749999999999999 -87.62804226803794 -28.37500000000001</prop>
+    <prop name="Geometry">2.060783752860414 0 0 0.8749999999999999 -507.1743421052639 -9.624999999999996</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">261 96</prop>
     <prop name="Size">39 19</prop>
@@ -1251,7 +1259,7 @@ bool BtnVisible = 1;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.42848307180204 0 0 0.9862150096525101 -13.19785776199255 1.2295525156853</prop>
+    <prop name="Geometry">5.731815253740097 0 0 0.9862150096525101 -146.6118575362292 1.368454391891852</prop>
     <prop name="Location">38.19021739130443 63.12499999999997</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1287,7 +1295,7 @@ bool BtnVisible = 1;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[solid]</prop>
-    <prop name="Geometry">0.5607837528604113 0 0 0.8749999999999999 -58.62804226803794 -28.37500000000001</prop>
+    <prop name="Geometry">2.060783752860414 0 0 0.8749999999999999 -507.1743421052639 9.125000000000004</prop>
     <prop name="BorderStyle">Normal</prop>
     <prop name="Location">261 96</prop>
     <prop name="Size">39 19</prop>
@@ -1315,7 +1323,7 @@ bool BtnVisible = 1;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.415798797942849 0 0 0.9862150096525101 15.4131966125608 1.2451775156853</prop>
+    <prop name="Geometry">5.728108714043199 0 0 0.9862150096525101 -146.4575786842833 20.11845439189185</prop>
     <prop name="Location">38.19021739130443 63.12499999999997</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>
@@ -1351,7 +1359,7 @@ bool BtnVisible = 1;
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
     <prop name="FillType">[outline]</prop>
-    <prop name="Geometry">1.415798797942851 0 0 0.9862150096525101 44.41319661256075 1.2451775156853</prop>
+    <prop name="Geometry">5.734401617953387 0 0 0.9862150096525101 -146.7298078419046 38.86845439189186</prop>
     <prop name="Location">38.19021739130443 63.12499999999997</prop>
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,11,5,50,0,0,0,0,0</prop>

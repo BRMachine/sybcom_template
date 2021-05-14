@@ -184,16 +184,21 @@ void cb_fuel(string dpe, string val){
   else{txt_fuel.text(val);}
 
   rec_fuel.backCol(fuelToColor(val));
-  top_bar.backCol(fuelToColor(val));
+  if(!alarm_top_bar){
+    top_bar.backCol(fuelToColor(val));
+  }
 }
+bool alarm_top_bar;
 
 void cbAlarmLogic(string dp, string color){
   if(color != &quot;&quot;){
+    alarm_top_bar = true;
     top_bar.backCol(color);
   }else{
+    alarm_top_bar = false;
     string fuel;
-      dpGet(DP + &quot;.fuel_type&quot;, fuel);
-      top_bar.backCol(fuelToColor(fuel));
+    dpGet(DP + &quot;.fuel_type&quot;, fuel);
+    top_bar.backCol(fuelToColor(fuel));
 //       initFuel(fuel);
   }
 }
@@ -500,22 +505,14 @@ main(int iType)
 {
   dyn_errClass err;
 
-  int          i, iReturnValue = 1, iDpCount = 12;
+  int          i, iReturnValue = 1, iDpCount = 4;
   dyn_int      diType = makeDynInt();
   dyn_string   dsDps;
 
-  dsDps[1] = $dp+&quot;.LVL._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[2] = $dp+&quot;.LVL._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[3] = $dp+&quot;.LVL._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[4] = $dp+&quot;.LVL._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[5] = $dp+&quot;.WTR._sAH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[6] = $dp+&quot;.WTR._sWH_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[7] = $dp+&quot;.WTR._sWL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[8] = $dp+&quot;.WTR._sAL_Level&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[9] = $dp+&quot;.UnsanctionedChangeLevel&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[10] = $ls1+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[11] = $ls2+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
-  dsDps[12] = $ls3+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[1] = $dpLogicRVS+&quot;.UnsanctionedChangeLevel&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[2] = $ls1+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[3] = $ls2+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[4] = $ls3+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
 
   if ( isFunctionDefined(&quot;isAckable&quot;) )
   {
@@ -533,19 +530,11 @@ main(int iType)
     DebugN(err);
 }
 // SimpleCtrlScript {EP_confirm}
-// dpCount {12}
-// dp1 {$dp + &quot;.LVL._sAH_Level&quot;}
-// dp2 {$dp + &quot;.LVL._sWH_Level&quot;}
-// dp3 {$dp + &quot;.LVL._sWL_Level&quot;}
-// dp4 {$dp + &quot;.LVL._sAL_Level&quot;}
-// dp5 {$dp + &quot;.WTR._sAH_Level&quot;}
-// dp6 {$dp + &quot;.WTR._sWH_Level&quot;}
-// dp7 {$dp + &quot;.WTR._sWL_Level&quot;}
-// dp8 {$dp + &quot;.WTR._sAL_Level&quot;}
-// dp9 {$dp + &quot;.UnsanctionedChangeLevel&quot;}
-// dp10 {$ls1 + &quot;.status.bool.red&quot;}
-// dp11 {$ls2 + &quot;.status.bool.red&quot;}
-// dp12 {$ls3 + &quot;.status.bool.red&quot;}
+// dpCount {4}
+// dp1 {$dpLogicRVS + &quot;.UnsanctionedChangeLevel&quot;}
+// dp2 {$ls1 + &quot;.status.bool.red&quot;}
+// dp3 {$ls2 + &quot;.status.bool.red&quot;}
+// dp4 {$ls3 + &quot;.status.bool.red&quot;}
 // SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>

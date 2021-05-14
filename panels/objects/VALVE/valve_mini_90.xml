@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">229 220</prop>
+  <prop name="Size">111 72</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">82.65896491771795 101.2984022556392</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -55,6 +55,23 @@ void cbValue(string dp, bit32 sts){
     r_state.backCol(&quot;Yellow&quot;);
   }
 
+    if(local){
+    setMultiValue(&quot;circ_mode&quot;, &quot;backCol&quot;, &quot;blue&quot;,
+                  &quot;txt_mode&quot;,  &quot;color&quot;,   &quot;white&quot;,
+                  &quot;txt_mode&quot;,  &quot;text&quot;,    &quot;М&quot;);
+  }else if(automat){
+    setMultiValue(&quot;circ_mode&quot;, &quot;backCol&quot;, &quot;STDLIB_Green&quot;,
+                  &quot;txt_mode&quot;,  &quot;color&quot;,   &quot;black&quot;,
+                  &quot;txt_mode&quot;,  &quot;text&quot;,    &quot;А&quot;);
+  }else if(dist){
+    setMultiValue(&quot;circ_mode&quot;, &quot;backCol&quot;, &quot;yellow&quot;,
+                  &quot;txt_mode&quot;,  &quot;color&quot;,   &quot;black&quot;,
+                  &quot;txt_mode&quot;,  &quot;text&quot;,    &quot;Д&quot;);
+  }else{
+    setMultiValue(&quot;circ_mode&quot;, &quot;backCol&quot;, &quot;white&quot;,
+                  &quot;txt_mode&quot;,  &quot;color&quot;,   &quot;black&quot;,
+                  &quot;txt_mode&quot;,  &quot;text&quot;,    &quot;0&quot;);
+  }
 }
 
 void cbAlarm(dyn_string dp, dyn_string color){
@@ -69,7 +86,8 @@ void cbAlarm(dyn_string dp, dyn_string color){
   }
   rec_alarm1.visible(vis);
   rec_alarm2.visible(vis);
-}]]></script>
+}
+]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   dpConnect(&quot;cbValue&quot;, DP + &quot;.status.sts_bit&quot;);
   dpConnect(&quot;cbAlarm&quot;, DP + &quot;.status.alarms.position:_alert_hdl.._act_state_color&quot;,
@@ -121,6 +139,49 @@ void cbAlarm(dyn_string dp, dyn_string color){
 //       &quot;Доступ запрещен!&quot;,
 //       makeDynString(&quot;&quot;));
 }
+]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 7;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $dp+&quot;.status.alarms.position&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[2] = $dp+&quot;.status.alarms.extended&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[3] = $dp+&quot;.status.alarms.muff&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[4] = $dp+&quot;.status.alarms.paz&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[5] = $dp+&quot;.status.alarms.closing&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[6] = $dp+&quot;.status.alarms.opening&quot; + &quot;:_alert_hdl.._ack&quot;;
+  dsDps[7] = $dp+&quot;.status.link_err&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {7}
+// dp1 {$dp + &quot;.status.alarms.position&quot;}
+// dp2 {$dp + &quot;.status.alarms.extended&quot;}
+// dp3 {$dp + &quot;.status.alarms.muff&quot;}
+// dp4 {$dp + &quot;.status.alarms.paz&quot;}
+// dp5 {$dp + &quot;.status.alarms.closing&quot;}
+// dp6 {$dp + &quot;.status.alarms.opening&quot;}
+// dp7 {$dp + &quot;.status.link_err&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>
   </shape>
@@ -376,6 +437,95 @@ void cbAlarm(dyn_string dp, dyn_string color){
     <prop name="Size">6.000000000000007 6.000000000000007</prop>
     <prop name="CornerRadius">0</prop>
     <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="RECTANGLE4" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">28</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">46.99999999999999 42</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">STD_grey_light</prop>
+    <prop name="TabOrder">23</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">-1.410983144017615e-16 0.76810344827586 -0.5777777777777773 -1.061360559261039e-16 108.5947738112012 6.665953977604211</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">46.99999999999999 42</prop>
+    <prop name="Size">6.000000000000007 6.000000000000007</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
+   </properties>
+  </shape>
+  <shape Name="circ_mode" shapeType="ELLIPSE" layerId="0">
+   <properties>
+    <prop name="serialId">29</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">50 30</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">{0,0,0}</prop>
+    <prop name="BackColor">{255,255,255}</prop>
+    <prop name="TabOrder">24</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">True</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="Geometry">0.651425493076335 0 0 0.6051329696700333 58.57393830308402 28.96108823324174</prop>
+    <prop name="Center">48.49382716049382 25.98765432098765</prop>
+    <prop name="X-Radius">10.493827</prop>
+    <prop name="Y-Radius">11</prop>
+   </properties>
+  </shape>
+  <shape Name="txt_mode" shapeType="PRIMITIVE_TEXT" layerId="0">
+   <properties>
+    <prop name="serialId">30</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">90.16405357226728 43.68707466725927</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_WindowText</prop>
+    <prop name="BackColor">_Window</prop>
+    <prop name="TabOrder">25</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[outline]</prop>
+    <prop name="Location">90.16405357226728 43.68707466725927</prop>
+    <prop name="Font">
+     <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,9,5,50,0,0,0,0,0,Обычный</prop>
+    </prop>
+    <prop name="Text">
+     <prop name="ru_RU.utf8">0</prop>
+    </prop>
+    <prop name="Distance">2</prop>
+    <prop name="BorderOffset">2</prop>
+    <prop name="Bordered">False</prop>
+    <prop name="Fit">True</prop>
+    <prop name="Transformable">False</prop>
+    <prop name="TextFormat">[0s,,,AlignHCenter|AlignVCenter]</prop>
    </properties>
   </shape>
  </shapes>

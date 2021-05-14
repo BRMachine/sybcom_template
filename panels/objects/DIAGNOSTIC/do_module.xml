@@ -23,6 +23,7 @@ public void   setModuleName(string n){ txt_name.text(n); }
 public string getPanelName()        { return g_panel; }
 public void   setPanelName(string d){ g_panel = d; }
 
+const string Module  = $Module;
 const string DP_0  = $dp0;
 const string DP_1  = $dp1;
 const string DP_2  = $dp2;
@@ -57,7 +58,14 @@ const string DP_30 = $dp30;
 const string DP_31 = $dp31;
 
 public string g_panel;
-]]></script>
+
+
+void worker(dyn_string dp, dyn_bool val){
+  if(val[1])
+    Fon.backCol = &quot;&lt;Red,4,WF_CardActive,4&gt;&quot;;
+  else
+    Fon.backCol = &quot;WF_CardActive&quot;;
+}]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   dpConnect(&quot;cbState&quot;, DP_0 + &quot;.status.sts_bit&quot;,
                        DP_1 + &quot;.status.sts_bit&quot;,
@@ -91,6 +99,8 @@ public string g_panel;
                        DP_29 + &quot;.status.sts_bit&quot;,
                        DP_30 + &quot;.status.sts_bit&quot;,
                        DP_31 + &quot;.status.sts_bit&quot;);
+
+  dpConnect(&quot;worker&quot;,   Module + &quot;.ModuleError&quot;);
 }
 
 void cbState(dyn_string dp, dyn_anytype sts){
@@ -140,7 +150,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
 ]]></script>
    </events>
   </shape>
-  <shape Name="RECTANGLE121" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon1" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">121</prop>
     <prop name="Type"></prop>
@@ -672,7 +682,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape Name="RECTANGLE155" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">155</prop>
     <prop name="Type"></prop>
@@ -1970,7 +1980,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
    <properties>
     <prop name="serialId">193</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">6.924417980609952 71.21430477531095</prop>
+    <prop name="RefPoint">6.067275123467096 72.92859048959667</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_Transparent</prop>
@@ -1984,7 +1994,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">6.924417980609952 4.21430477531095</prop>
+    <prop name="Location">6.067275123467095 5.928590489596672</prop>
     <prop name="Size">70 150</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
@@ -2027,6 +2037,37 @@ void cbState(dyn_string dp, dyn_anytype sts){
                                                                            &quot;$do31:&quot; + DP_31
                                                                            ));
  }
+]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 1;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $Module+&quot;.ModuleError&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {$Module + &quot;.ModuleError&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>
   </shape>

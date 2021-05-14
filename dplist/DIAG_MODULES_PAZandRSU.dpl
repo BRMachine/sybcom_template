@@ -1,0 +1,321 @@
+# ascii dump of database
+
+# DpType
+TypeName
+DIAG_MODULE_PAZ.DIAG_MODULE_PAZ	1#1
+	ModuleError	23#2
+DIAG_MODULE_RSU.DIAG_MODULE_RSU	1#1
+	ModuleError	23#4
+
+# Datapoint/DpId
+DpName	TypeName	ID
+_mp_DIAG_MODULE_PAZ	DIAG_MODULE_PAZ	5608
+1A1	DIAG_MODULE_PAZ	5610
+1A2	DIAG_MODULE_PAZ	5611
+1A3	DIAG_MODULE_PAZ	5612
+1A4	DIAG_MODULE_PAZ	5613
+1A5	DIAG_MODULE_PAZ	5614
+1A6	DIAG_MODULE_PAZ	5615
+1A7	DIAG_MODULE_PAZ	5616
+1A8	DIAG_MODULE_PAZ	5617
+1A9	DIAG_MODULE_PAZ	5618
+1A10	DIAG_MODULE_PAZ	5619
+1A11	DIAG_MODULE_PAZ	5620
+1A12	DIAG_MODULE_PAZ	5621
+1A13	DIAG_MODULE_PAZ	5622
+IM1	DIAG_MODULE_PAZ	5623
+IM2	DIAG_MODULE_PAZ	5624
+_mp_DIAG_MODULE_RSU	DIAG_MODULE_RSU	5625
+1A1_1	DIAG_MODULE_RSU	5627
+1A1_2	DIAG_MODULE_RSU	5628
+1A1_3	DIAG_MODULE_RSU	5629
+1A1_4	DIAG_MODULE_RSU	5630
+1A1_5	DIAG_MODULE_RSU	5631
+1A1_6	DIAG_MODULE_RSU	5632
+1A1_7	DIAG_MODULE_RSU	5633
+1A1_8	DIAG_MODULE_RSU	5634
+1A1_9	DIAG_MODULE_RSU	5635
+1A1_10	DIAG_MODULE_RSU	5636
+1A1_11	DIAG_MODULE_RSU	5637
+1A2_2	DIAG_MODULE_RSU	5641
+1A2_3	DIAG_MODULE_RSU	5642
+1A2_4	DIAG_MODULE_RSU	5643
+1A2_5	DIAG_MODULE_RSU	5644
+1A2_6	DIAG_MODULE_RSU	5645
+1A2_7	DIAG_MODULE_RSU	5646
+1A2_8	DIAG_MODULE_RSU	5647
+1A2_9	DIAG_MODULE_RSU	5648
+1A2_10	DIAG_MODULE_RSU	5649
+1A3_2	DIAG_MODULE_RSU	5650
+1A3_3	DIAG_MODULE_RSU	5651
+1A3_4	DIAG_MODULE_RSU	5652
+1A3_5	DIAG_MODULE_RSU	5653
+1A3_6	DIAG_MODULE_RSU	5654
+1A3_7	DIAG_MODULE_RSU	5655
+1A3_8	DIAG_MODULE_RSU	5656
+1A3_9	DIAG_MODULE_RSU	5657
+1A2_11	DIAG_MODULE_RSU	5659
+1A2_12	DIAG_MODULE_RSU	5660
+1A2_13	DIAG_MODULE_RSU	5661
+IM_1A2_1	DIAG_MODULE_RSU	5663
+IM_1A3_1	DIAG_MODULE_RSU	5664
+
+# Aliases/Comments
+AliasId	AliasName	CommentName
+_mp_DIAG_MODULE_PAZ.	""	lt:1 LANG:10027 "1A@%s@"
+_mp_DIAG_MODULE_PAZ.ModuleError	""	lt:1 LANG:10027 ". Ошибка@@"
+1A1.	""	lt:1 LANG:10027 "Модуль 1А1@@"
+1A2.	""	lt:1 LANG:10027 "Модуль 1А2@@"
+1A3.	""	lt:1 LANG:10027 "Модуль 1А3@@"
+1A4.	""	lt:1 LANG:10027 "Модуль 1А4@@"
+1A5.	""	lt:1 LANG:10027 "Модуль 1А5@@"
+1A6.	""	lt:1 LANG:10027 "Модуль 1А6@@"
+1A7.	""	lt:1 LANG:10027 "Модуль 1А7@@"
+1A8.	""	lt:1 LANG:10027 "Модуль 1А8@@"
+1A9.	""	lt:1 LANG:10027 "Модуль 1А9@@"
+1A10.	""	lt:1 LANG:10027 "Модуль 1А10@@"
+1A11.	""	lt:1 LANG:10027 "Модуль 1А11@@"
+1A12.	""	lt:1 LANG:10027 "Модуль 1А12@@"
+1A13.	""	lt:1 LANG:10027 "Модуль 1А13@@"
+IM1.	""	lt:1 LANG:10027 "Интерфейсный модуль 1IM1/1IM2@@"
+IM2.	""	lt:1 LANG:10027 "Интерфейсный модуль 1IM3/1IM4@@"
+_mp_DIAG_MODULE_RSU.	""	lt:1 LANG:10027 "@%s@"
+_mp_DIAG_MODULE_RSU.ModuleError	""	lt:1 LANG:10027 ". Ошибка@@"
+1A1_1.	""	lt:1 LANG:10027 "Модуль 1A1_1@@"
+1A1_2.	""	lt:1 LANG:10027 "Модуль 1A1_2@@"
+1A1_3.	""	lt:1 LANG:10027 "Модуль 1A1_3@@"
+1A1_4.	""	lt:1 LANG:10027 "Модуль 1A1_4@@"
+1A1_5.	""	lt:1 LANG:10027 "Модуль 1A1_5@@"
+1A1_6.	""	lt:1 LANG:10027 "Модуль 1A1_6@@"
+1A1_7.	""	lt:1 LANG:10027 "Модуль 1A1_7@@"
+1A1_8.	""	lt:1 LANG:10027 "Модуль 1A1_8@@"
+1A1_9.	""	lt:1 LANG:10027 "Модуль 1A1_9@@"
+1A1_10.	""	lt:1 LANG:10027 "Модуль 1A1_10@@"
+1A1_11.	""	lt:1 LANG:10027 "Модуль 1A1_11@@"
+1A2_2.	""	lt:1 LANG:10027 "Модуль 1A2_2@@"
+1A2_3.	""	lt:1 LANG:10027 "Модуль 1A2_3@@"
+1A2_4.	""	lt:1 LANG:10027 "Модуль 1A2_4@@"
+1A2_5.	""	lt:1 LANG:10027 "Модуль 1A2_5@@"
+1A2_6.	""	lt:1 LANG:10027 "Модуль 1A2_6@@"
+1A2_7.	""	lt:1 LANG:10027 "Модуль 1A2_7@@"
+1A2_8.	""	lt:1 LANG:10027 "Модуль 1A2_8@@"
+1A2_9.	""	lt:1 LANG:10027 "Модуль 1A2_9@@"
+1A2_10.	""	lt:1 LANG:10027 "Модуль 1A2_10@@"
+1A3_2.	""	lt:1 LANG:10027 "Модуль 1A3_2@@"
+1A3_3.	""	lt:1 LANG:10027 "Модуль 1A3_3@@"
+1A3_4.	""	lt:1 LANG:10027 "Модуль 1A3_4@@"
+1A3_5.	""	lt:1 LANG:10027 "Модуль 1A3_5@@"
+1A3_6.	""	lt:1 LANG:10027 "Модуль 1A3_6@@"
+1A3_7.	""	lt:1 LANG:10027 "Модуль 1A3_7@@"
+1A3_8.	""	lt:1 LANG:10027 "Модуль 1A3_8@@"
+1A2_11.	""	lt:1 LANG:10027 "Модуль 1A2_11@@"
+1A2_12.	""	lt:1 LANG:10027 "Модуль 1A2_12@@"
+1A2_13.	""	lt:1 LANG:10027 "Модуль 1A2_13@@"
+IM_1A2_1.	""	lt:1 LANG:10027 "Интерфейсный модуль IM 1A2_1@@"
+IM_1A3_1.	""	lt:1 LANG:10027 "Интерфейсный модуль IM 1A3_1@@"
+
+# AlertValue
+Manager/User	ElementName	TypeName	DetailNr	_alert_hdl.._type	_alert_hdl.._l_limit	_alert_hdl.._u_limit	_alert_hdl.._l_incl	_alert_hdl.._u_incl	_alert_hdl.._panel	_alert_hdl.._panel_param	_alert_hdl.._help	_alert_hdl.._min_prio	_alert_hdl.._class	_alert_hdl.._text	_alert_hdl.._active	_alert_hdl.._orig_hdl	_alert_hdl.._ok_range	_alert_hdl.._hyst_type	_alert_hdl.._hyst_time	_alert_hdl.._multi_instance	_alert_hdl.._l_hyst_limit	_alert_hdl.._u_hyst_limit	_alert_hdl.._text1	_alert_hdl.._text0	_alert_hdl.._ack_has_prio	_alert_hdl.._order	_alert_hdl.._dp_pattern	_alert_hdl.._dp_list	_alert_hdl.._prio_pattern	_alert_hdl.._abbr_pattern	_alert_hdl.._ack_deletes	_alert_hdl.._non_ack	_alert_hdl.._came_ack	_alert_hdl.._pair_ack	_alert_hdl.._both_ack	_alert_hdl.._impulse	_alert_hdl.._filter_threshold	_alert_hdl.._went_text	_alert_hdl.._add_text	_alert_hdl.._status64_pattern	_alert_hdl.._neg	_alert_hdl.._status64_match	_alert_hdl.._match	_alert_hdl.._set
+UI (8)/0	_mp_DIAG_MODULE_PAZ.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	_mp_DIAG_MODULE_PAZ.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	_mp_DIAG_MODULE_PAZ.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A4.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A4.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A4.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A5.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A5.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A5.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A6.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A6.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A6.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A7.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A7.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A7.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A8.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A8.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A8.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A9.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A9.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A9.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A10.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A10.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A10.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A11.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A11.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A11.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A12.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A12.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A12.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A13.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A13.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A13.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	IM1.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	IM1.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	IM1.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	IM2.ModuleError	DIAG_MODULE_PAZ		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	IM2.ModuleError	DIAG_MODULE_PAZ	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	IM2.ModuleError	DIAG_MODULE_PAZ	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	_mp_DIAG_MODULE_RSU.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	_mp_DIAG_MODULE_RSU.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	_mp_DIAG_MODULE_RSU.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_1.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_1.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_1.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_2.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_2.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_2.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_3.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_3.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_3.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_4.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_4.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_4.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_5.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_5.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_5.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_6.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_6.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_6.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_7.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_7.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_7.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_8.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_8.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_8.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_9.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_9.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_9.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_10.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_10.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_10.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A1_11.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A1_11.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A1_11.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_2.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_2.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_2.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_3.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_3.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_3.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_4.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_4.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_4.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_5.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_5.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_5.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_6.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_6.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_6.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_7.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_7.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_7.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_8.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_8.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_8.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_9.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_9.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_9.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_10.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A2_10.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_10.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3_2.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3_2.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3_2.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3_3.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3_3.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3_3.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3_4.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3_4.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3_4.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3_5.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3_5.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3_5.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3_6.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3_6.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3_6.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3_7.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3_7.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3_7.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3_8.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3_8.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3_8.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A3_9.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			1	1				0																0								
+UI (8)/0	1A3_9.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A3_9.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_11.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	1A2_11.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_11.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_12.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	1A2_12.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_12.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	1A2_13.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	1A2_13.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	1A2_13.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	IM_1A2_1.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	IM_1A2_1.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	IM_1A2_1.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+UI (8)/0	IM_1A3_1.ModuleError	DIAG_MODULE_RSU		13					""	""	lt:1 LANG:10027 ""	\0			0	1				0																0								
+UI (8)/0	IM_1A3_1.ModuleError	DIAG_MODULE_RSU	1	5									 	lt:1 LANG:10027 "Норма"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Сработка"	 	0x0	0	""	"*"	
+UI (8)/0	IM_1A3_1.ModuleError	DIAG_MODULE_RSU	2	5									alert.	lt:1 LANG:10027 "Сработка"				0	01.01.1970 00:00:00.000																			lt:1 LANG:10027 "Норма"	 	0x0	0	""	"1"	
+
+# PeriphAddrMain
+Manager/User	ElementName	TypeName	_address.._type	_address.._reference	_address.._poll_group	_address.._connection	_address.._offset	_address.._subindex	_address.._direction	_address.._internal	_address.._lowlevel	_address.._active	_address.._start	_address.._interval	_address.._reply	_address.._datatype	_address.._drv_ident
+UI (8)/0	_mp_DIAG_MODULE_PAZ.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[0]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A1.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[1]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A2.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[2]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A3.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[3]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A4.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[4]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A5.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[5]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A6.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[6]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A7.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[7]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A8.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[8]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A9.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[9]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A10.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[10]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A11.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[1].ModuleError[1]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A12.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[1].ModuleError[2]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	1A13.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[1].ModuleError[3]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	IM1.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[0].ModuleError[0]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	IM2.ModuleError	DIAG_MODULE_PAZ	16	"Test400.$\"DIAG_DB\".Rack[1].ModuleError[0]"	_PollPaz2	 	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	706	"S7"
+UI (8)/0	_mp_DIAG_MODULE_RSU.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[0]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_1.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[2]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_2.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[3]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_3.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[4]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_4.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[5]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_5.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[6]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_6.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[7]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_7.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[8]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_8.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[9]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_9.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[10]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_10.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[11]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A1_11.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.PLC.SlotErrorState.SlotErrorState[12]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_2.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[1]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_3.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[2]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_4.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[3]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_5.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[4]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_6.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[5]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_7.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[6]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_8.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[7]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_9.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[8]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_10.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[9]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A3_2.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[1]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A3_3.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[2]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A3_4.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[3]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A3_5.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[4]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A3_6.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[5]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A3_7.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[6]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A3_8.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[7]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A3_9.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[8]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_11.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[10]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_12.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[11]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	1A2_13.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[12]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	IM_1A2_1.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[2].Modul.SlotErrorState.SlotErrorState[1]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"
+UI (8)/0	IM_1A3_1.ModuleError	DIAG_MODULE_RSU	16	"DiagDataDB.Devices.Device.Device[1].Modul.SlotErrorState.SlotErrorState[0]"	_SubRSU2	_RSU2	0	0	\4	0	1	1	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	01.01.1970 00:00:00.000	1002	"S7PLUS"

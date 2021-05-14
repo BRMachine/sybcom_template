@@ -119,8 +119,8 @@ void cbSts(string dpe, bool val){
   if(sec){
     dpSetWait(dp, 0);
   }else{
-    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
-                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+    ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString());
   }
 }
 ]]></script>
@@ -159,8 +159,8 @@ void cbSts(string dpe, bool val){
   if(sec){
     dpSetWait(dp, 1);
   }else{
-    ChildPanelOnCentralModal(&quot;vision/WarningSplash.pnl&quot;,
-                             &quot;Ошибка доступа&quot;, makeDynString(&quot;$1:Доступ запрещен&quot;));
+    ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
+                             &quot;Ошибка доступа&quot;, makeDynString());
   }
 }
 ]]></script>

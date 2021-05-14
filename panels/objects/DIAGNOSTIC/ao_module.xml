@@ -23,6 +23,7 @@ public void   setModuleName(string n){ txt_name.text(n); }
 public string getPanelName()        { return g_panel; }
 public void   setPanelName(string n){ g_panel = n; }
 
+const string Module = $Module;
 const string DP_0 = $dp0;
 const string DP_1 = $dp1;
 const string DP_2 = $dp2;
@@ -32,7 +33,14 @@ const string DP_5 = $dp5;
 const string DP_6 = $dp6;
 const string DP_7 = $dp7;
 
-public string g_panel;]]></script>
+public string g_panel;
+
+void worker(dyn_string dp, dyn_bool val){
+  if(val[1])
+    Fon.backCol = &quot;&lt;Red,4,WF_CardActive,4&gt;&quot;;
+  else
+    Fon.backCol = &quot;WF_CardActive&quot;;
+}]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   dpConnect(&quot;cbState&quot;, DP_0 + &quot;.status.sts_bit&quot;,
                        DP_1 + &quot;.status.sts_bit&quot;,
@@ -42,6 +50,8 @@ public string g_panel;]]></script>
                        DP_5 + &quot;.status.sts_bit&quot;,
                        DP_6 + &quot;.status.sts_bit&quot;,
                        DP_7 + &quot;.status.sts_bit&quot;);
+
+  dpConnect(&quot;worker&quot;,   Module + &quot;.ModuleError&quot;);
 }
 
 void cbState(dyn_string dp, dyn_anytype sts){
@@ -50,10 +60,11 @@ void cbState(dyn_string dp, dyn_anytype sts){
     setValue(&quot;sts_&quot;+i, &quot;backCol&quot;, color);
   }
 }
+
 ]]></script>
  </events>
  <shapes>
-  <shape Name="RECTANGLE5" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon1" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">106</prop>
     <prop name="Type"></prop>
@@ -81,7 +92,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Transformable">True</prop>
    </properties>
   </shape>
-  <shape Name="RECTANGLE78" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">107</prop>
     <prop name="Type"></prop>
@@ -439,7 +450,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 44.59172664535217</prop>
+    <prop name="Start">58.77468556452439 44.59172664535217</prop>
     <prop name="End">16.31245124240358 44.59172664535217</prop>
    </properties>
   </shape>
@@ -462,7 +473,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 59.61638077628564</prop>
+    <prop name="Start">58.77468556452439 59.61638077628564</prop>
     <prop name="End">16.31245124240358 59.61638077628564</prop>
    </properties>
   </shape>
@@ -485,8 +496,8 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 75.8329440578834</prop>
-    <prop name="End">16.31245124240358 75.8329440578834</prop>
+    <prop name="Start">58.77468556452439 75.83294405788341</prop>
+    <prop name="End">16.31245124240358 75.83294405788341</prop>
    </properties>
   </shape>
   <shape Name="LINE24" shapeType="LINE" layerId="0">
@@ -508,7 +519,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 91.79950733948112</prop>
+    <prop name="Start">58.77468556452439 91.79950733948112</prop>
     <prop name="End">16.31245124240358 91.79950733948112</prop>
    </properties>
   </shape>
@@ -531,7 +542,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 107.7660706210788</prop>
+    <prop name="Start">58.77468556452439 107.7660706210788</prop>
     <prop name="End">16.31245124240358 107.7660706210788</prop>
    </properties>
   </shape>
@@ -554,7 +565,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 123.7326339026766</prop>
+    <prop name="Start">58.77468556452439 123.7326339026766</prop>
     <prop name="End">16.31245124240358 123.7326339026766</prop>
    </properties>
   </shape>
@@ -577,7 +588,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 139.6991971842743</prop>
+    <prop name="Start">58.77468556452439 139.6991971842743</prop>
     <prop name="End">16.31245124240358 139.6991971842743</prop>
    </properties>
   </shape>
@@ -600,7 +611,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 155.665760465872</prop>
+    <prop name="Start">58.77468556452439 155.665760465872</prop>
     <prop name="End">16.31245124240358 155.665760465872</prop>
    </properties>
   </shape>
@@ -623,8 +634,8 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 46.8938383800407</prop>
-    <prop name="End">16.31245124240358 46.8938383800407</prop>
+    <prop name="Start">58.77468556452439 46.89383838004071</prop>
+    <prop name="End">16.31245124240358 46.89383838004071</prop>
    </properties>
   </shape>
   <shape Name="LINE30" shapeType="LINE" layerId="0">
@@ -646,7 +657,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 62.86040166163846</prop>
+    <prop name="Start">58.77468556452439 62.86040166163846</prop>
     <prop name="End">16.31245124240358 62.86040166163846</prop>
    </properties>
   </shape>
@@ -669,8 +680,8 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 78.82696494323622</prop>
-    <prop name="End">16.31245124240358 78.82696494323622</prop>
+    <prop name="Start">58.77468556452439 78.82696494323625</prop>
+    <prop name="End">16.31245124240358 78.82696494323625</prop>
    </properties>
   </shape>
   <shape Name="LINE32" shapeType="LINE" layerId="0">
@@ -692,8 +703,8 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 94.79352822483392</prop>
-    <prop name="End">16.31245124240358 94.79352822483392</prop>
+    <prop name="Start">58.77468556452439 94.79352822483395</prop>
+    <prop name="End">16.31245124240358 94.79352822483395</prop>
    </properties>
   </shape>
   <shape Name="LINE33" shapeType="LINE" layerId="0">
@@ -715,7 +726,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 110.7600915064316</prop>
+    <prop name="Start">58.77468556452439 110.7600915064316</prop>
     <prop name="End">16.31245124240358 110.7600915064316</prop>
    </properties>
   </shape>
@@ -738,7 +749,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 126.8217588742728</prop>
+    <prop name="Start">58.77468556452439 126.8217588742728</prop>
     <prop name="End">16.31245124240358 126.8217588742728</prop>
    </properties>
   </shape>
@@ -761,7 +772,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58.77468556452437 142.7883221558705</prop>
+    <prop name="Start">58.77468556452439 142.7883221558705</prop>
     <prop name="End">16.31245124240358 142.7883221558705</prop>
    </properties>
   </shape>
@@ -1065,7 +1076,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
    <properties>
     <prop name="serialId">142</prop>
     <prop name="Type"></prop>
-    <prop name="RefPoint">12.37185430220984 76.62985818959527</prop>
+    <prop name="RefPoint">12.8 77</prop>
     <prop name="Enable">True</prop>
     <prop name="Visible">True</prop>
     <prop name="ForeColor">_Transparent</prop>
@@ -1079,8 +1090,8 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">12.37185430220984 9.629858189595268</prop>
-    <prop name="Size">70 150</prop>
+    <prop name="Location">12.8 10</prop>
+    <prop name="Size">69 150</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
      <prop name="ru_RU.utf8">PUSH_BUTTON1</prop>
@@ -1097,6 +1108,37 @@ void cbState(dyn_string dp, dyn_anytype sts){
                                                                            &quot;$ao6:&quot;+DP_6,
                                                                            &quot;$ao7:&quot;+DP_7));
 }
+]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 1;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $Module+&quot;.ModuleError&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {$Module + &quot;.ModuleError&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>
   </shape>

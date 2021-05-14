@@ -23,6 +23,7 @@ public void   setModuleName(string n){ txt_name.text(n); }
 public string getPanelName()        { return g_panel; }
 public void   setPanelName(string n){ g_panel = n; }
 
+const string Module = $Module;
 const string DP_0 = $dp0;
 const string DP_1 = $dp1;
 const string DP_2 = $dp2;
@@ -33,7 +34,13 @@ const string DP_6 = $dp6;
 const string DP_7 = $dp7;
 
 public string g_panel;
-]]></script>
+
+void worker(dyn_string dp, dyn_bool val){
+  if(val[1])
+    Fon.backCol = &quot;&lt;Red,4,WF_CardActive,4&gt;&quot;;
+  else
+    Fon.backCol = &quot;WF_CardActive&quot;;
+}]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
   dpConnect(&quot;cbState&quot;, DP_0 + &quot;.status.sts_bit&quot;,
                        DP_1 + &quot;.status.sts_bit&quot;,
@@ -43,6 +50,9 @@ public string g_panel;
                        DP_5 + &quot;.status.sts_bit&quot;,
                        DP_6 + &quot;.status.sts_bit&quot;,
                        DP_7 + &quot;.status.sts_bit&quot;);
+
+  dpConnect(&quot;worker&quot;,   Module + &quot;.ModuleError&quot;);
+
 }
 void cbState(dyn_string dp, dyn_anytype sts){
   for(int i=1; i&lt;=dynlen(sts); i++){
@@ -53,7 +63,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
 ]]></script>
  </events>
  <shapes>
-  <shape Name="RECTANGLE5" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon1" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
     <prop name="Type"></prop>
@@ -86,7 +96,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
 }]]></script>
    </events>
   </shape>
-  <shape Name="RECTANGLE78" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">2</prop>
     <prop name="Type"></prop>
@@ -169,7 +179,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">58 5.999999999999772</prop>
+    <prop name="Start">58 5.999999999999773</prop>
     <prop name="End">58 155.6536157110756</prop>
    </properties>
   </shape>
@@ -444,7 +454,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">53.46223432212079 26.93454968933469</prop>
+    <prop name="Start">53.4622343221208 26.93454968933469</prop>
     <prop name="End">11 26.93454968933469</prop>
    </properties>
   </shape>
@@ -536,8 +546,8 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="AntiAliased">True</prop>
     <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
     <prop name="BorderZoomable">False</prop>
-    <prop name="Start">54.03482587064676 88.3084829085503</prop>
-    <prop name="End">11.57259154852597 88.3084829085503</prop>
+    <prop name="Start">54.03482587064676 88.30848290855032</prop>
+    <prop name="End">11.57259154852597 88.30848290855032</prop>
    </properties>
   </shape>
   <shape Name="LINE9" shapeType="LINE" layerId="0">
@@ -1107,7 +1117,7 @@ void cbState(dyn_string dp, dyn_anytype sts){
     <prop name="Font">
      <prop name="ru_RU.utf8">MS Shell Dlg 2,-1,13,5,50,0,0,0,0,0</prop>
     </prop>
-    <prop name="Location">7.611751519355153 5.829951932301113</prop>
+    <prop name="Location">7.611751519355153 5.829951932301114</prop>
     <prop name="Size">70 150</prop>
     <prop name="BorderStyle">None</prop>
     <prop name="Text">
@@ -1127,6 +1137,37 @@ void cbState(dyn_string dp, dyn_anytype sts){
                                                                              &quot;$ai7:&quot; + DP_7));
 }
 
+]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 1;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $Module+&quot;.ModuleError&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {$Module + &quot;.ModuleError&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>
   </shape>

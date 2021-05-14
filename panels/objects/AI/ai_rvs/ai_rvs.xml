@@ -237,10 +237,16 @@ void cbAlarmState(dyn_string dpe, dyn_bool val) {
    </properties>
    <events>
     <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-  string title = &quot;Интерфейсный сигнал: &quot;;
+  if(getUserPermission(10)){
+    string title = &quot;Интерфейсный сигнал: &quot;;
   ChildPanelOnCentral(&quot;faceplates\\AI\\rvs\\main.xml&quot;, title, makeDynString(&quot;$dp:&quot; + DP,
                                                                                &quot;$dpLogicRVS:&quot; + LogicRVS,
                                                                                &quot;$ANALOG:&quot; + ANALOG));
+  }else{
+    ChildPanelOnCentralModal(&quot;objects/MESSAGES/AccessIsDenied.xml&quot;,
+      &quot;Доступ запрещен!&quot;,
+      makeDynString(&quot;&quot;));
+  }
 }
 ]]></script>
    </events>

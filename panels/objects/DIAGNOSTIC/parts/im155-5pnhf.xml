@@ -4,7 +4,7 @@
   <prop name="Name">
    <prop name="ru_RU.utf8"></prop>
   </prop>
-  <prop name="Size">1020 221</prop>
+  <prop name="Size">193 221</prop>
   <prop name="BackColor">_3DFace</prop>
   <prop name="RefPoint">26 33.37743594947871</prop>
   <prop name="InitAndTermRef">True</prop>
@@ -13,8 +13,22 @@
   <prop name="DPI">96</prop>
   <prop name="layoutType">None</prop>
  </properties>
+ <events>
+  <script name="ScopeLib" isEscaped="1"><![CDATA[const string dp = $dp;
+
+void worker(dyn_string dp, dyn_bool val){
+  if(val[1])
+    Fon.backCol = &quot;&lt;Red,4,WF_CardActive,4&gt;&quot;;
+  else
+    Fon.backCol = &quot;WF_CardActive&quot;;
+}]]></script>
+  <script name="Initialize" isEscaped="1"><![CDATA[main()
+{
+  dpConnect(&quot;worker&quot;,   dp + &quot;.ModuleError&quot;);
+}]]></script>
+ </events>
  <shapes>
-  <shape Name="RECTANGLE5" shapeType="RECTANGLE" layerId="0">
+  <shape Name="Fon" shapeType="RECTANGLE" layerId="0">
    <properties>
     <prop name="serialId">1</prop>
     <prop name="Type"></prop>
@@ -124,9 +138,36 @@
     </prop>
    </properties>
    <events>
-    <script name="Clicked" isEscaped="1"><![CDATA[main(mapping event){
-  ChildPanelOnCentral(g_panel, &quot;Модуль AI &quot; + txt_name.text, makeDynString());
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 1;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $dp+&quot;.ModuleError&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
 }
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {$dp + &quot;.ModuleError&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
 ]]></script>
    </events>
   </shape>

@@ -288,6 +288,18 @@ public void updateRVS(mapping unack, time timestamp){
         dpGet(temp_dp + ".WTR.sts", tmp_sts);
         setBit(sts, 8, (bool)tmp_sts);
       }
+      //Обнуляем воду, если sts > 0. КОСТЫЛЬ!
+      if(unack["dp"][i] == "RVS_1.WTR.val" | unack["dp"][i] == "RVS_2.WTR.val" | unack["dp"][i] == "RVS_3.WTR.val" | unack["dp"][i] == "RVS_4.WTR.val" | unack["dp"][i] == "RVS_5.WTR.val" | unack["dp"][i] == "RVS_6.WTR.val" | unack["dp"][i] == "RVS_7.WTR.val" | unack["dp"][i] == "RVS_8.WTR.val" | unack["dp"][i] == "RVS_9.WTR.val" | unack["dp"][i] == "RVS_10.WTR.val" | unack["dp"][i] == "RVS_11.WTR.val"){
+        string dpe = unack["dp"][i];
+        dpe = strrtrim(dpe, "val"); //RVS_*.WTR.
+        dpe += "sts_bool.overpass"; //RVS_*.WTR.sts_bool.overpass
+        bool sts_wtr;
+        dpGet(dpe, sts_wtr); //Забрали дискрет (Вне диапазона)
+        if(sts_wtr){ //Если в сработке, то значение воды в ноль
+          unack["val"][i] = 0;
+        }
+      }
+      //==============================================
       // prepare update value command
       dbCommand cmd;
       string sCommand = "update ["+loc_database+"].[dbo].[OperativeData] ";

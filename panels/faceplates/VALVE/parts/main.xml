@@ -684,7 +684,7 @@ void cbModbus(string dpe, bool val) {
     <prop name="layoutAlignment">AlignNone</prop>
     <extended>
      <prop type="CHAR_STRING" name="text">Квитировать</prop>
-     <prop type="INT" name="secureBit">13</prop>
+     <prop type="INT" name="secureBit">5</prop>
      <script name="clickedBtn" isEscaped="1"><![CDATA[void clickedBtn()
 {
   dpSetWait(DP + &quot;.status.alarms.position:_alert_hdl.._ack&quot;,2,

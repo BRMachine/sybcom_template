@@ -59,7 +59,7 @@ void cbValue(dyn_string dp, dyn_anytype value){
   else if(green)
     DI_Cir.backCol(&quot;Grey&quot;);
   else
-    DI_Cir.backCol(normalColor);
+    DI_Cir.backCol(&quot;Grey&quot;);
 
   bERR.visible(qerr);
   bERR_text.visible(qerr);
@@ -262,6 +262,37 @@ void cbValue(dyn_string dp, dyn_anytype value){
 {
   this.backCol(&quot;_Transparent&quot;);
 }]]></script>
+    <script name="Acknowledge" isEscaped="1"><![CDATA[// SimpleCtrlScriptStart {valid}
+main(int iType)
+{
+  dyn_errClass err;
+
+  int          i, iReturnValue = 1, iDpCount = 1;
+  dyn_int      diType = makeDynInt();
+  dyn_string   dsDps;
+
+  dsDps[1] = $dp+&quot;.status.bool.red&quot; + &quot;:_alert_hdl.._ack&quot;;
+
+  if ( isFunctionDefined(&quot;isAckable&quot;) )
+  {
+    isAckable( iType, dsDps, iReturnValue );
+    if ( iReturnValue == 0 || dynlen (dsDps ) &lt; 1 ) return;
+  }
+
+  for ( i = 1; i &lt;= dynlen(dsDps); i++ )
+    diType[i] = iType;
+
+  dpSetWait( dsDps, diType );
+
+  err = getLastError();
+  if ( dynlen(err) &gt; 0 )
+    DebugN(err);
+}
+// SimpleCtrlScript {EP_confirm}
+// dpCount {1}
+// dp1 {$dp + &quot;.status.bool.red&quot;}
+// SimpleCtrlScriptEnd {EP_confirm}
+]]></script>
    </events>
   </shape>
   <shape Name="comt_txt" shapeType="PRIMITIVE_TEXT" layerId="0">
