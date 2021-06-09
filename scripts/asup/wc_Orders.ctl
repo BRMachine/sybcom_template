@@ -119,7 +119,7 @@ void postAsnStop(int line, int section, int device){
         "Post_" + device + ".xTotalMass"                        , rSumWeightEnd,
         "ORDER_LINE"+line+".control"                            , rModeCtrl,
         "ORDER_LINE"+line+".sIdCard"                            , idCard);
-  switch(rReceipId){ //Узнать и написать коды НП
+/*  switch(rReceipId){ //Узнать и написать коды НП
     case "G-100":        rReceipId = 1; break;
     case "АИ-92":        rReceipId = 1; break;
     case "АИ-92 Gdrive": rReceipId = 1; break;
@@ -132,7 +132,7 @@ void postAsnStop(int line, int section, int device){
     case "ДТА":          rReceipId = 1; break;
     case "ДТА OPTI":     rReceipId = 1; break;
   }
-
+*/
   if(dozer > 0 & iPercent > 0){
      dpGet("Post_" + dozer + ".xVolumeFact"              , rLoadedMixed1Volume,
            "Post_" + dozer + ".MES.DensityPr"            , rLoadedMixed1Density,
@@ -192,6 +192,28 @@ void postAsnStop(int line, int section, int device){
             "Post_"+device+".MES.TimeEnd"                                         , getCurrentTime());
 }
 
+// Перекладка данных в ORDERS_PV
+void loading_progress(int line, int device, int section, int post_state, float iPercent){
+  if(post_state == 1){
+    anytype vol_base, vol_doser, mas_base, temp, density;
+    dpGet("Post_" + device + ".xVolumeFact"          , vol_base,
+          //"Post_" + getDozer(device) + ".xVolumeFact", vol_doser,
+          "Post_" + device + ".xMassFact"            , mas_base,
+          "Post_" + device + ".xAverageTemperature"  , temp,
+          "Post_" + device + ".xAverageDensity"      , density);
+    if(getDozer(device) != 0){
+      dpGet("Post_" + getDozer(device) + ".xVolumeFact", vol_doser);
+    }
+    if(iPercent<=0) { vol_doser = 0; }
+  dpSetWait("LINE" + line + "_PV."+section+".vol_base", vol_base,
+            "LINE" + line + "_PV."+section+".vol_doser", vol_doser,
+            "LINE" + line + "_PV."+section+".mas_base", mas_base,
+            "LINE" + line + "_PV."+section+".temp", temp,
+            "LINE" + line + "_PV."+section+".density", density);
+  }
+}
+
+
 void worker(int line, string dp, int card){
   bool temp_srv;
   dpGet(dp_srv_act, temp_srv);
@@ -207,7 +229,6 @@ void worker(int line, string dp, int card){
                           "ORDER_LINE"+line+".items.?.init.iProcessed,"+    // 2 - Состояние (0 - новое, 1 - налив, 2 - завершено)
                           "ORDER_LINE"+line+".items.?.init.iQuantity,"+     // 1 - Объем (л) в задании
                           "ORDER_LINE"+line+".items.?.init.iPercent}'";     // 4 - Процент присадки (если используется)
-
     dpGet("ORDER_LINE" + line + ".iProcessed", order_sts,  // состояние задания (0 - новое, 1 - налив, 2 - завершено)
           "ORDER_LINE" + line + ".sIdCard", order_card,    // Номер карты водителя из задания
           "ORDER_LINE" + line + ".current_card", current_card);
@@ -226,69 +247,59 @@ void worker(int line, string dp, int card){
       normalizeQueryData(items);
   // Перебор секций в задании
       for(int i=1; i<=items.count(); i+=5){
-        DebugFTN("lg_info", "ITEM", items[i+0][2], items[i+1][2], items[i+2][2], items[i+3][2], items[i+4][2]);
-        int device = items[i+3][2];
-        int post_sts;
-        // Если секция была в задании и секция еще не налита
-        if(items[i+2][2] < 2){
-          dpGet("Post_" + device + ".sStatusPosta", post_sts);
-          // Налив по секции завершен
-          if((prev_post_sts[items[i+0][2]] == 0x20 | prev_post_sts[items[i+0][2]] == 0x10 | prev_post_sts[items[i+0][2]] == 0x30) &
-            post_sts == 0x00 & items[i+2][2] == 1 ){
-            delay(100);
-            DebugFTN("lg_info", "WC_ORDERS | End section: ", items[i+2][1]);
-            postAsnStop(line, items[i+0][2], device);
-            dpSetWait(items[i+2][1], 2);
-            if(post_sts == 0x60){
-              dpSetWait("ORDER_LINE"+line+".ErrorCode", 0-i);
+        int reset;
+        dpGet("ORDER_LINE" + line + ".reset", reset);
+        if(reset == 1){
+          DebugN("reset");
+          postAsnStop(line, items[i+0][2], device);
+          break;
+        }
+        else{
+          DebugFTN("lg_info", "ITEM", items[i+0][2], items[i+1][2], items[i+2][2], items[i+3][2], items[i+4][2]);
+          int device = items[i+3][2];
+          int post_sts;
+          // Если секция была в задании и секция еще не налита
+          if(items[i+2][2] < 2){
+            dpGet("Post_" + device + ".sStatusPosta", post_sts);
+            // Налив по секции завершен
+            if((prev_post_sts[items[i+0][2]] == 0x20 | prev_post_sts[items[i+0][2]] == 0x10 | prev_post_sts[items[i+0][2]] == 0x30) &
+              post_sts == 0x00 & items[i+2][2] == 1 ){
+              delay(100);
+              DebugFTN("lg_info", "WC_ORDERS | End section: ", items[i+2][1]);
+              postAsnStop(line, items[i+0][2], device);
+              dpSetWait(items[i+2][1], 2);
+              if(post_sts == 0x60){
+                dpSetWait("ORDER_LINE"+line+".ErrorCode", 0-i);
+              }
             }
+            // Запись предыдущего состояние поста
+            if(items[i+2][2] > 0){
+              prev_post_sts[items[i+0][2]] = post_sts;
+            }
+          }else{ // (items[i+2][2] != 99)
+            // Секции небыло в задании
+            continue;
           }
-          // Запись предыдущего состояние поста
-          if(items[i+2][2] > 0){
-            prev_post_sts[items[i+0][2]] = post_sts;
+          // Секция была в задании и пост свободен
+    //       if((items[i+2][2] == 0 & post_sts == 0x00) | (items[i+2][2] == 1 & post_sts == 0x00 & prev_post_sts[items[i+0][2]] == 0x00))
+          if(items[i+2][2] == 0 & post_sts == 0x00){
+            bool prisadka = (items[i+4][2] > 0);
+            DebugFTN("lg_info", "WC_ORDERS | Start section: ", items[i+2][1]);
+            anytype post_dose, post_prisadka, post_percent, post_status;
+            int count_while;
+            int RVSnum = getRvs_forPost(device);
+            dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
+                      "Post_" + device + ".сPrisadka"         , prisadka,
+                      "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
+                      "Post_" + device + ".cCommand"          , 0x10,
+                      "Post_" + device + ".MES.RVSnum"        , RVSnum,
+                      items[i+2][1], 1);
+            delay(70); // Для опроса АСН по modbus
+            postAsnStart(line, items[i+0][2], device);
           }
-        }else{ // (items[i+2][2] != 99)
-          // Секции небыло в задании
-          continue;
-        }
-        // Секция была в задании и пост свободен
-  //       if((items[i+2][2] == 0 & post_sts == 0x00) | (items[i+2][2] == 1 & post_sts == 0x00 & prev_post_sts[items[i+0][2]] == 0x00))
-        if(items[i+2][2] == 0 & post_sts == 0x00){
-          bool prisadka = (items[i+4][2] > 0);
-          DebugFTN("lg_info", "WC_ORDERS | Start section: ", items[i+2][1]);
-          anytype post_dose, post_prisadka, post_percent, post_status;
-          int count_while;
-          int RVSnum = getRvs_forPost(device);
-          dpSetWait("Post_" + device + ".cVolumeDose"       , items[i+1][2],
-                    "Post_" + device + ".сPrisadka"         , prisadka,
-                    "Post_" + device + ".cPercentPrisadki"  , items[i+4][2],
-                    "Post_" + device + ".cCommand"          , 0x10,
-                    "Post_" + device + ".MES.RVSnum"        , RVSnum,
-                    items[i+2][1], 1);
-
-          delay(70); // Для опроса АСН по modbus
-
-          postAsnStart(line, items[i+0][2], device);
-        }
-
-        // Перекладка данных в ORDERS_PV
-        if(items[i+2][2] == 1){
-          anytype vol_base, vol_doser, mas_base, temp, density;
-          dpGet("Post_" + device + ".xVolumeFact"          , vol_base,
-                "Post_" + getDozer(device) + ".xVolumeFact", vol_doser,
-                "Post_" + device + ".xMassFact"            , mas_base,
-                "Post_" + device + ".xAverageTemperature"  , temp,
-                "Post_" + device + ".xAverageDensity"      , density);
-          if(getDozer(device) != 0){
-            dpGet("Post_" + getDozer(device) + ".xVolumeFact", vol_doser);
+          if(items[i+2][2] == 1){
+            loading_progress(line, device, items[i+0][2], items[i+2][2], items[i+4][2]);
           }
-          if(items[i+4][2]<=0) { vol_doser = 0; }
-
-          dpSetWait("LINE" + line + "_PV."+items[i+0][2]+".vol_base", vol_base,
-                    "LINE" + line + "_PV."+items[i+0][2]+".vol_doser", vol_doser,
-                    "LINE" + line + "_PV."+items[i+0][2]+".mas_base", mas_base,
-                    "LINE" + line + "_PV."+items[i+0][2]+".temp", temp,
-                    "LINE" + line + "_PV."+items[i+0][2]+".density", density);
         }
       }
       // Проверка завершения налива задания
