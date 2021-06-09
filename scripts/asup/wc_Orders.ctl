@@ -250,8 +250,7 @@ void worker(int line, string dp, int card){
         int reset;
         dpGet("ORDER_LINE" + line + ".reset", reset);
         if(reset == 1){
-          DebugN("reset");
-          postAsnStop(line, items[i+0][2], device);
+          DebugN("reset line " + line);
           break;
         }
         else{
