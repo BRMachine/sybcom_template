@@ -427,8 +427,6 @@ void worker_post(dyn_string dp, dyn_anytype val){
 }
 
 void start_btn_enabled(string dpe, int val){
-  int control;
-  dpGet(&quot;ORDER_LINE&quot; + LINE + &quot;.control&quot;, control);
   start_btn.enabled((!val) | (val == 99));
   switch(val){
     case 0:
@@ -446,6 +444,10 @@ void start_btn_enabled(string dpe, int val){
     default:
       txt_line_sts.text(&quot;Состояние линии: Неизвестно&quot;);
   }
+}
+
+void hide_btn_enabled(string dpe, int val){
+  hide_btn_start.visible((val));
 }
 ]]></script>
   <script name="Initialize" isEscaped="1"><![CDATA[main(){
@@ -466,6 +468,7 @@ void start_btn_enabled(string dpe, int val){
   radio_mode.enabled = getUserPermission(17);
 
   dpConnect(&quot;start_btn_enabled&quot;, &quot;ORDER_LINE&quot; + LINE + &quot;.iProcessed&quot;);
+  dpConnect(&quot;hide_btn_enabled&quot;, &quot;ORDER_LINE&quot; + LINE + &quot;.control&quot;);
 
 }
 ]]></script>
@@ -1788,6 +1791,33 @@ void start_btn_enabled(string dpe, int val){
     <prop name="Fit">True</prop>
     <prop name="Transformable">False</prop>
     <prop name="TextFormat">[0s,,,AlignLeft]</prop>
+   </properties>
+  </shape>
+  <shape Name="hide_btn_start" shapeType="RECTANGLE" layerId="0">
+   <properties>
+    <prop name="serialId">514</prop>
+    <prop name="Type"></prop>
+    <prop name="RefPoint">450 380</prop>
+    <prop name="Enable">True</prop>
+    <prop name="Visible">True</prop>
+    <prop name="ForeColor">_Button</prop>
+    <prop name="BackColor">_Button</prop>
+    <prop name="TabOrder">97</prop>
+    <prop name="ToolTipText">
+     <prop name="ru_RU.utf8"></prop>
+    </prop>
+    <prop name="layoutAlignment">AlignNone</prop>
+    <prop name="snapMode">Point</prop>
+    <prop name="DashBackColor">_Transparent</prop>
+    <prop name="AntiAliased">False</prop>
+    <prop name="LineType">[solid,oneColor,JoinBevel,CapProjecting,1]</prop>
+    <prop name="BorderZoomable">False</prop>
+    <prop name="FillType">[solid]</prop>
+    <prop name="BorderStyle">Normal</prop>
+    <prop name="Location">450 380</prop>
+    <prop name="Size">114.9333333333334 26.5</prop>
+    <prop name="CornerRadius">0</prop>
+    <prop name="Transformable">True</prop>
    </properties>
   </shape>
  </shapes>
